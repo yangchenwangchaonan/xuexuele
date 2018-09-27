@@ -1,106 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <title>个人中心</title>
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" href="../../css/common.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>个人中心</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/footer.js"></script>
 	<script src="../../js/common/goBack.js"></script>
-	<script src="../../js/personalCenter.js"></script>
+	<script src="../../js/personal/personalCenter.js"></script>
 </head>
+
 <body class="index-body">
-<section class="index-container">
-	<i class="personal-back"></i>
-	<i class="personal-leave"></i>
-	<span id="personal-title">个人中心</span>
-	<div class="personal-center">
-		<div class="game-ranger">
-	    		<table cellspacing="10px">
-	    			<tr> 
-	    				<td>
-	    					<!--头像背景-->
-	    					<div class="head-bg">
-	    						<!--头像-->
-	    						<img src="../../images/others.jpg"/>
-		    					<div class="tutor-title ranger-title">游侠</div>
-		    				</div>
-	    				</td>
-	    				<td>蔺源源</td>
-	    				<td><div class="no-certified certified">已认证</div></td>
-	    			</tr>
-	    		</table>
-	    	</div>	
-	    <div class="setting"></div>
-	    <div class="personal-wealth">
-    		<table cellspacing="10px">
-    			<tr>
-    				<td>
-    					<img src="../../images/203.png"/>
-    					<div class="wealth-value">200</div>
-    				</td>
-    				<td>
-    					<img src="../../images/204.png"/>
-    					<div class="wealth-value">200</div>
-    				</td>
-    				<td>
-    					<img src="../../images/205.png"/>
-    					<div class="wealth-value">200</div>
-    				</td>
-    			</tr>
-    		</table>
-	    </div>
-	    <div class="my-tabs">
-	    	<table cellspacing="5px">
-	    		<tr>
-	    			<td><label><img src="../../images/207.png"/ id="myTreasurebox"></label><p>我的百宝箱</p></td>
-	    			<td><label><img src="../../images/208.png" id="myAttention"/><p>我的关注</p></label></td>
-	    		</tr>
-	    		<tr>
-	    			<td><label><img src="../../images/209.png" id="myLesson"/><p>我的课程</p></label></td>
-	    			<td><label></label><img src="../../images/210.png" id="lessonManage"/><p>课程管理</p></label></td>
-	    		</tr>
-	    	</table>
-	    </div>
-	    <button class="login-out">退出登录</button>
-	</div>
-	<div class="lesson-menu">
-		<table>
-			<tr>
-				<td class="menu"><img src="../../images/89.png"/></td>
-				<td class="menu"><img src="../../images/90.png"/></td>
-				<td class="menu"><img src="../../images/91.png"/></td>
-				<td class="menu menu1"><img src="../../images/92.png"/></td>
-			</tr>
-		</table>	
-	</div>
-	<div class="personal-shade" id="personalShade">
-		<div class="personal-setting">
-			<div class="personal-close"></div>
-			<h1>-设置-</h1>
-			<div class="personal-setting-detail">
-				<ul class="personal-setting-list">
-					<li class="role">
-						<h1>身份设置</h1>
-						<div id="roleSetting">
-							<p class="p2"><i></i></p>
-							<p class="p1"><i class="checked"></i></p>
-						</div>
+	<section class="index-container">
+		<i class="personal-back"></i>
+		<i class="personal-leave"></i>
+		<span id="personal-title">个人中心</span>
+		<div class="personal-center">
+			<div class="game-ranger">
+				<ul>
+					<li><img src="../../images/137.png" />
+						<div class="tutor-title ranger-title">游侠</div>
 					</li>
-					<li id="languageSetting">
-						<h1>切换语言：</h1>
-						<p>简体中文</a></p>
+					<li><span class="useName">蔺源源</span></li>
+					<li>
+						<div class="no-certified certified">未认证</div>
 					</li>
-				</ul
+				</ul>
 			</div>
+			<div class="setting"></div>
+			<div class="personal-wealth">
+				<ul>
+					<li>
+						<label>
+							<img src="../../images/203.png" />
+							<div class="wealth-value">200</div>
+						</label>
+					</li>
+					<li>
+						<label>
+							<img src="../../images/204.png" />
+							<div class="wealth-value">200</div>
+						</label>
+					</li>
+					<li>
+						<label>
+							<img src="../../images/205.png" />
+							<div class="wealth-value">200</div>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<div class="my-tabs">
+				<ul>
+					<li>
+						<label>
+							<img src="../../images/207.png"/ id="myTreasurebox">
+							<p>我的百宝箱</p>
+						</label>
+					</li>
+					<li>
+						<label>
+							<img src="../../images/208.png" id="myAttention" />
+							<p>我的关注</p>
+						</label>
+					</li>
+					<li>
+						<label>
+							<img src="../../images/209.png" id="myLesson" />
+							<p>我的课程</p>
+						</label>
+					</li>
+					<li>
+						<label>
+							<img src="../../images/210.png" id="lessonManage" />
+							<p>课程管理</p>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<button class="login-out">退出登录</button>
 		</div>
-	</div>
-	<div class="language-tips">多版本语言正在开发中~</div>
-</section>
+		<div class="lesson-menu">
+			<table>
+				<tr>
+					<td class="menu"><img src="../../images/89.png" /></td>
+					<td class="menu"><img src="../../images/90.png" /></td>
+					<td class="menu"><img src="../../images/91.png" /></td>
+					<td class="menu menu1"><img src="../../images/92.png" /></td>
+				</tr>
+			</table>
+		</div>
+		<div class="personal-shade" id="personalShade">
+			<div class="personal-setting">
+				<div class="personal-close"></div>
+				<h1>-设置-</h1>
+				<div class="personal-setting-detail">
+					<ul class="personal-setting-list">
+						<li class="role">
+							<h1>身份设置</h1>
+							<div id="roleSetting">
+								<p class="p2"><i></i></p>
+								<p class="p1"><i class="checked"></i></p>
+							</div>
+						</li>
+						<li id="languageSetting">
+							<h1>切换语言：</h1>
+							<p>简体中文</a></p>
+						</li>
+					</ul </div> </div> </div> <div class="language-tips">多版本语言正在开发中~
+				</div>
+	</section>
 </body>
+
 </html>
-
-

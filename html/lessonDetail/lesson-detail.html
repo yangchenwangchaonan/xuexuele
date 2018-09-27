@@ -16,28 +16,31 @@
 
 <body class="lesson-detail-body">
 	<section class="lesson-audio">
+		<img src="../../images/others.jpg" class="background">
 		<i class="page-back"></i>
 		<div class="audio" id="audio">
 			<h1>课程名称</h1>
 			<div class="lesson-tutor">
 				<ul>
-					<li><img src="../../images/137.png" />
+					<li>
+						<img id="headImg" src="../../images/137.png"/>
 						<div class="tutor-title">导师</div>
 					</li>
-					<li class="useName">夏琳琳</li>
+					<li class="useName"></li>
 					<li>
-						<div class="attention">关注</div>
+						<div class="attention"></div>
 					</li>
 				</ul>
 			</div>
 			<div class="action-bar">
-				<ul id="lessonAppraise"><img src="../../images/138.png" /><span>10</span><p>可评分</p>
+				<ul id="lessonAppraise"><img src="../../images/138.png" /><span></span>
+					<p>可评分</p>
 				</ul>
 				<ul id="lessonShare"><img src="../../images/139.png" />
 					<p>23.5w</p>
 				</ul>
 				<ul id="lessonMessage"><img src="../../images/140.png" />
-					<p>200</p>
+					<p></p>
 				</ul>
 				<ul id="albumName"><img src="../../images/141.png" />
 					<p>所属专辑</p>
@@ -51,7 +54,7 @@
 				<ul id="lessonReport"><img src="../../images/144.png" />
 					<p>举报</p>
 				</ul>
-				<!-- <div class="locked-shade"></div>解锁页面中增加-->
+				<!-- <div class="locked-shade"></div>解锁图标-->
 			</div>
 			<div class="audio-content">
 				<div class="progressBar"></div>
@@ -60,7 +63,7 @@
 				<span class="successed">02:32</span>
 				<span class="unsuccessed">90:00</span>
 				<div class="progress-start progress-stop" id="progressBar"></div>
-				<!--解锁页面中按钮变为progress-locked类-->
+				<!--解锁页面中增加class="progress-locked"-->
 			</div>
 		</div>
 
@@ -103,19 +106,21 @@
 		<div class="lesson-shade" id="messageShade">
 			<div class="leave-message-bg">
 				<div class="leave-message-close"><img src="../../images/39.png" width="40px" /></div>
-				<div class="leave-message-title">-课程留言(200)-</div>
-				<div class="leave-message-content">
-					<div id="avatar"></div>
-					<div id="tourist-name">蔺有钱</div>
-					<div class="leave-message-time">2017-01-01 12:00</div>
-					<p class="leave-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容。</p>
-					<div class="reply-message-content">
-						<div id="avatar"></div>
-						<div id="tourist-name">蔺有钱</div>
-						<p class="reply-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容。</p>
-					</div>
-				</div>
-				<hr class="score-line-leave" />
+				<div class="leave-message-title">-课程留言(<span>200</span>)-</div>
+				<ul class="message-content">
+					<!-- <li class="leave-message-content">
+						<div class="avatar-message"></div>
+						<div class="tourist-name">蔺有钱</div>
+						<div class="leave-message-time">2017-01-01 12:00</div>
+						<p class="leave-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容。</p>
+						<div class="reply-message-content">
+							<div class="avatar-message"></div>
+							<div class="tourist-name">蔺有钱</div>
+							<p class="reply-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容。</p>
+						</div>
+					</li> -->
+				</ul>
+				<div class="message-btn">发表留言</div>
 			</div>
 		</div>
 		<!--导师详情-->

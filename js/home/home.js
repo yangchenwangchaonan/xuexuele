@@ -33,7 +33,6 @@ $(function () {
         $(window).attr("location", "./treasureBox.html");
     });
 
-
     //闯关
     var $levelSuccessed = $(".level span");
     $levelSuccessed.click(function () {

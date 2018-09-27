@@ -54,9 +54,9 @@ $(function () {
         var againPassword = $("#rewpdPassword2").val();
         if (newPassword == "" || newPassword == null) {
             alert("请设置新密码~");
-        } else if(!/((?=.*\d)(?=.*\D)|(?=.*[a-zA-Z])(?=.*[^a-zA-Z]))(?!^.*[\u4E00-\u9FA5].*$)^\S{8,20}$/.test(newPassword)){
+        } else if (!/((?=.*\d)(?=.*\D)|(?=.*[a-zA-Z])(?=.*[^a-zA-Z]))(?!^.*[\u4E00-\u9FA5].*$)^\S{8,20}$/.test(newPassword)) {
             alert("密码格式不正确~");
-        }else {
+        } else {
             if (againPassword == "" || againPassword == null) {
                 alert("请再次输入新密码~");
             } else {
@@ -71,4 +71,3 @@ $(function () {
     });
 
 });
-

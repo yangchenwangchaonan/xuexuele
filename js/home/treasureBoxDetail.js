@@ -1,0 +1,32 @@
+$(function () {
+    // 获取百宝箱列表id
+    var url = window.location.href;
+    var arr = url.split("=");
+    var listId = arr[1];
+    // 获取百宝箱详情
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/User/UserBaoboxDetail",
+        data: {
+            id:listId
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            var data = res.data;
+            var str = "";
+            $.each(data, function (index, val) { 
+                str += `
+                    <h1>${val.heading}</h1>
+                    <h1>${val.create_time}</h1>
+                    <img src="../../images/others.jpg">
+                    <p class="treasureBox-inner">${val.article}</p>
+                `;
+            });
+            $(".treasureBox-detail").append(str);
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+});
