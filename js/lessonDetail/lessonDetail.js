@@ -16,12 +16,10 @@ $(function () {
             var data = res.data;
             var lock = data.lock;
             var identity = data.list.identity;
-            if (lock == 2) {
-                var str1 = `
-                    <div class="locked-shade"></div>
-                `;
-                $(".action-bar").append(str1);
-                $("#progressBar").addClass("progress-locked");
+            if (lock == 1) {
+                $(".lock-shade").css("display","none");
+            }else if(lock == 2){
+                $(".lock-shade").css("display","block");
             }
             if (identity == 2) {
                 $(".tutor-title").addClass("visitor-title");
@@ -33,7 +31,7 @@ $(function () {
             $("#lessonShare>p").text("23.5w");
             $("#lessonMessage>p").text(data.list.commentsum);
             $(".unsuccessed").text(data.list.coursetime);
-
+            $(".lesson-audio").css("background","url("+data.list.courseimg+")no-repeat");
             // 判断是否关注
             var followid = data.list.id;
             isAttention(followid);
@@ -134,7 +132,6 @@ function changeAppraise(e, appraise) {
 
 // 是否被关注
 function isAttention(followid) {
-    alert(followid)
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/Follow",
@@ -145,11 +142,11 @@ function isAttention(followid) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var code = res.data.code;
+            var code = res.code;
             if (code == 1) {
-                $(".attention").html("已关注");
+                $(".attention").text("已关注");
             } else if (code == 2) {
-                $(".attention").html("未关注");
+                $(".attention").text("关注");
             }
         },
         error: function (err) {

@@ -38,7 +38,7 @@ function getSort(id) {
 			$(".lesson-list>ul").html(str);
 			$(".table-lesson").click(function () {
 				var lessonId = $(this).attr("data-id");
-				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId);
+				$(window).attr("location", "./lesson-detail.html?lessonId="+lessonId);
 			});
 		},
 		error: function (err) {

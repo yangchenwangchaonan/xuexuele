@@ -16,14 +16,15 @@
 
 <body class="lesson-detail-body">
 	<section class="lesson-audio">
-		<img src="../../images/others.jpg" id="lesson-background">
 		<i class="page-back"></i>
 		<div class="audio" id="audio">
 			<h1>课程名称</h1>
 			<div class="lesson-tutor">
 				<ul>
 					<li>
-						<img id="headImg" src="../../images/137.png"/>
+						<div class="head-imgBg">
+							<img id="headImg" />
+						</div>
 						<div class="tutor-title">导师</div>
 					</li>
 					<li class="useName"></li>
@@ -37,7 +38,6 @@
 					<p>可评分</p>
 				</ul>
 				<ul id="lessonShare"><img src="../../images/139.png" />
-					<p>23.5w</p>
 				</ul>
 				<ul id="lessonMessage"><img src="../../images/140.png" />
 					<p></p>
@@ -54,7 +54,6 @@
 				<ul id="lessonReport"><img src="../../images/144.png" />
 					<p>举报</p>
 				</ul>
-				<!-- <div class="locked-shade"></div>解锁图标-->
 			</div>
 			<div class="audio-content">
 				<div class="progressBar"></div>
@@ -63,8 +62,13 @@
 				<span class="successed">02:32</span>
 				<span class="unsuccessed">90:00</span>
 				<div class="progress-start progress-stop" id="progressBar"></div>
-				<!--解锁页面中增加class="progress-locked"-->
 			</div>
+		</div>
+
+		<!-- 课程锁 -->
+		<div class="lock-shade">
+			<div class="locked-shade"></div>
+			<div class="progress-locked" id="progressBar"></div>
 		</div>
 
 		<!--点击可评分-->
@@ -129,8 +133,8 @@
 				<div class="tutor-close"><img src="../../images/39.png" width="40px" /></div>
 				<div class="tutor-head">-导师介绍-</div>
 				<div class="tutor-avatar">
-					<div class="head-bg head-bg1">
-						<img src="../../images/others.jpg" />
+					<div class="head-bg">
+						<img id="headBg" src="../../images/others.jpg"/>
 					</div>
 					<div class="tutor-attention">关注</div>
 					<p>蔺有钱</p>
