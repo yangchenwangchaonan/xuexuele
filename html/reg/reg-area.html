@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>地区选择</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../../css/citysel.css">
+	<script src="../../js/common/jquery-1.11.3.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/goBack.js"></script>
+	<script src="../../js/city/LAreaData1.js"></script>
+	<script src="../../js/city/citypickerhc.js"></script>
+	<script src="../../js/reg/regArea.js"></script>
+</head>
+
+<body class="area-body">
+	<section class="area-container">
+		<i class="area-back"></i>
+		<span id="area-title">-地区选择-</span>
+		<div class="area-box">
+			<div class="city-box city-in city-on" id="cityIn">国内城市</div>
+			<div class="city-box city-out" id="cityOut">国际/港澳台</div>
+			<div class="city-line"></div>
+			<div class="city-search1">
+				<div id="search-picture1"></div>
+				<input type="button" id="search-text1" value="城市搜索" />
+			</div>
+			<div class="touchcity city-text" id="cityText">
+				<div class="schbox">
+					<span>搜索城市:</span><input id="cityipt" type="text" />
+				</div>
+				<div class="citybox"></div>
+				<div class="indexBar"></div>
+				<a class="locate"></a>
+			</div>
+			<div id="citypick" style="display:none">
+				<span id="cityname"></span>
+			</div>
+			<!-- <div class="city-initials">
+				<ul>
+					<li class="city-checked">A</li>
+					<li>B</li>
+					<li>C</li>
+					<li>D</li>
+					<li>E</li>
+					<li>F</li>
+					<li>G</li>
+					<li>H</li>
+					<li>I</li>
+					<li>J</li>
+					<li>K</li>
+					<li>L</li>
+					<li>M</li>
+					<li>N</li>
+					<li>O</li>
+					<li>P</li>
+					<li>Q</li>
+					<li>R</li>
+					<li>S</li>
+					<li>T</li>
+					<li>U</li>
+					<li>V</li>
+					<li>W</li>
+					<li>X</li>
+					<li>Y</li>
+					<li>Z</li>
+				</ul>
+			</div>
+			<div class="city-text">
+				<ul>
+					<p>A</p>
+					<li>A城市名称</li>
+					<hr />
+					<li>A城市名称</li>
+					<hr />
+					<li>A城市名称</li>
+					<hr />
+					<li>A城市名称</li>
+					<hr />
+				</ul>
+				<ul>
+					<p>B</p>
+					<li>B城市名称</li>
+					<hr />
+					<li>B城市名称</li>
+					<hr />
+					<li>B城市名称</li>
+					<hr />
+					<li>B城市名称</li>
+					<hr />
+				</ul>
+				<ul>
+					<p>C</p>
+					<li>C城市名称</li>
+				</ul>
+			</div> -->
+
+			<div class="city-international" id="city-boxInter">
+				<div id="inter-picture"></div>
+				<div id="inter-text">
+					<p>暂时不能选择国际城市哦~</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
+		citypicker();
+	</script>
+</body>
+
+</html>

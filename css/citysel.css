@@ -1,0 +1,167 @@
+/*basicset*/
+html,body,div,span,p,a,img,textarea,ul,li,h1,h2,h3,h4,h5,h6,input{
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: "微软雅黑";
+    font-size: 0.16rem;
+}
+ul,li{list-style: none;}
+a{text-decoration: none;}
+html{font-size: 100px;}
+.clear{
+    clear: both;
+}
+.clearfix:after{ content:""; display:block; height:0px; clear:both; visibility:hidden;}
+/*Iphone5*/
+@media only screen and (min-width: 320px){
+    html{font-size: 85px;}
+}
+@media only screen and (min-width: 320px)and (max-height:480px){
+    html{font-size: 85px;}
+}
+/*Iphone7 能用但不严谨的*/
+@media only screen and (min-width: 375px)and (max-height: 660px){
+    html{font-size: 92px!important;}
+}
+/*Iphone6*/
+@media only screen and (min-width: 375px){
+    html{font-size: 100px;}
+
+}
+/*索尼某款*/
+@media only screen and (min-width: 360px) and (max-height:600px){
+    html{font-size: 100px;}
+}
+/*Iphone6Plus*/
+@media only screen and (min-width: 414px){
+    html{font-size: 110px;}
+}
+/*placeholder颜色设置*/
+::-moz-placeholder {
+    color: #bebebe;
+}
+:-ms-input-placeholder {
+    color: #bebebe;
+}
+::-webkit-input-placeholder {
+    color: #bebebe;
+}
+/*去除iPhone按钮样式*/
+input[type="button"], input[type="submit"], input[type="reset"],textarea {
+    -webkit-appearance: none;
+}
+input,button{
+    outline: none;
+}
+/*basicsetEND*/
+.schbox{
+	overflow: hidden;
+	padding: 0.1rem;
+	line-height: 0.3rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #ffffff;
+	display: none;
+}
+.schbox span{
+	float: left;
+	font-size: 0.14rem;
+	color: #333333;
+	width: 0.8rem;
+	text-align: right;
+	margin-right: 0.05rem;
+	line-height: 0.3rem;
+}
+.schbox input{
+	float: left;
+	width: calc(100% - 1.05rem);
+	border: 1px solid #cccccc;
+	line-height: 0.3rem;
+	text-indent: 0.1rem;
+	font-size: 0.14rem;
+	color: #333333;
+}
+.touchcity{
+	/* display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	background: #ffffff;
+	min-height: 100%; */
+}
+.citybox{
+	padding-top: 0.2rem;
+}
+.cityindex{
+	background: #BEBEBE;
+	line-height: 0.26rem;
+	font-size: 0.15rem;
+	color: #ffffff;
+	font-weight: normal;
+	text-indent: 0.1rem;
+}
+.cityper{
+	font-size: 0.13rem;
+	color: #333333;
+	line-height: 0.36rem;
+	margin: 0 0.30rem 0 0.15rem;
+	/* text-indent: 0.1rem; */
+}
+.cityper+.cityper{
+	border-top: 1px solid #dadada;
+}
+.cityChecked {
+	color: #3FBF09;
+}
+.indexBar{
+	position: fixed;
+	right: 0.3rem;
+	top: 1.6rem;
+	bottom: 0;
+	width: 0.25rem;
+}
+.indexBar.active a{
+	background: rgba(0,0,0,0.3);
+	color: #ffffff;
+}
+.indexBar a{
+	display: flex;
+	font-size: 0.12rem;
+	color: #666666;
+	height: 4.15%;
+	justify-content:center;
+	align-items: center;
+}
+.indexBar a:hover{border: 1px solid #DBDBDB;cursor: pointer}
+.indexBar a:first-child{
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+}
+.indexBar a:last-child{
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+.locate{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 0.4rem;
+	height: 0.4rem;
+	background: rgba(0,0,0,0.3);
+	font-size: 0.16rem;
+	color: #FFFFFF;
+	border-radius: 50%;
+	z-index: 99;
+	text-align: center;
+	line-height: 0.4rem;
+	display: none;
+}
+#citypick{
+	margin: 0.3rem;
+	border: 1px solid #DBDBDB;padding: 10px
+}
+

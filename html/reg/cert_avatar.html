@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <title>账号注册-头像</title>
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link  href="../../css/cropper.css" rel="stylesheet">
+    <script src="../../js/common/jquery-1.11.3.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/cropper.js"></script>
+</head>
+<body>
+
+    <div ><img src="" id="img-path"/></div>
+	<div class="img-shade">
+		<div class="img-cut-btn img-cut-btn1">取消</div>
+		<div class="img-cut-btn img-cut-btn2 img-cut-btn3">确定</div>
+	</div>
+</body>
+<script>
+    $(function(){
+        var img_path = localStorage.getItem("img_path_base");
+        if(typeof(img_path) != 'undefined'){
+            $('#img-path').attr('src',img_path);
+            $('#img-path').cropper({
+                aspectRatio: 16 / 9,
+                viewMode:1,
+                crop: function (e) {
+                    //console.log(e);
+                }
+            });
+        }
+        //取消
+        $('div.img-cut-btn1').click(function(){
+            $('#img-path').cropper('reset');
+        });
+        //确定
+        $('div.img-cut-btn2').click(function(){
+            var cas = $('#img-path').cropper('getCroppedCanvas');
+            var base64url=cas.toDataURL('image/jpeg');
+            cas.toBlob(function (e) {
+                //console.log(e);  //生成Blob的图片格式
+            });
+            localStorage.setItem("img_path_base",'');
+            localStorage.setItem("header_path_base",base64url);
+            window.location.href = './reg_end.html';
+        });
+    });
+</script>
+</html>

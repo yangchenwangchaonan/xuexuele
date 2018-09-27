@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>首页</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<script src="../../js/common/jquery-1.11.3.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/goBack.js"></script>
+	<script src="../../js/common/footer.js"></script>
+	<script src="../../js/home/home.js"></script>
+</head>
+
+<body class="index-body">
+	<section class="index-container container-home">
+		<div class="home-cloud"><img src="../../images/80.png" /></div>
+		<!--left-->
+		<div class="left-tabs" id="stamina-tab">
+			<div class="stamina"><img src="../../images/81.png" /></div>
+			<div class="stamina-progress">
+				<div class="stamina-value"><span style="font-size: 13px;">30</span><span style="font-size: 11px;">/30</span></div>
+				<i class="icon_stamina">+</i>
+			</div>
+		</div>
+		<div class="left-tabs">
+			<div class="beans"><img src="../../images/83.png" /></div>
+			<div class="beans-progress">
+				<div class="beans-value"><span style="font-size: 13px;">200</div>
+			</div>
+		</div>
+		<div class="left-tabs">
+			<div class="pk"><img src="../../images/84.png" /></div>
+			<div class="pk-progress">
+				<div class="pk-value"><span style="font-size: 13px;">200</div>
+			</div>
+		</div>
+		<!--right-->
+		<div class="home-sign">
+			<img src="../../images/85.png" />
+			<!-- <img src="../../images/93.png" /> -->
+			<div class="people"><p>原住居民</p><p id="sum"></p></div>
+		</div>
+		<div class="inforBox">
+			<div class="right-tabs" id="maildrop-tab">
+				<div class="maildrop"><img src="../../images/86.png" /></div>
+				<div class="nomail">
+					<div class="maildrop-infor"><span>1</div>
+				</div>
+			</div>
+			<div class="right-tabs" id="signed-tab">
+				<div class="signed"><img src="../../images/87.png" /></div>
+				<div class="nosigned">
+					<div class="signed-recording"><span style="font-size: 12px;">已签到</div>
+				</div>
+			</div>
+			<div class="right-tabs" id="treasureBox-tab">
+				<div class="giftbox"><img src="../../images/88.png" /></div>
+				<div class="nogiftbox">
+					<div class="giftbox-infor"><span>21</div>
+				</div>
+			</div>
+		</div>
+		<!--center-->
+		<div class="level">
+			<div class="left-successed"><span>2</span></div>
+			<div class="level-infor left-successed-infor"><span>22分2秒<br /><img src="../../images/97.png" />+10</span></div>
+			<div class="right-successed"><span>1</span></div>
+			<div class="level-infor right-successed-infor"><span>22分2秒<br /><img src="../../images/97.png" />+10</span></div>
+		</div>
+		<div class="level level-next">
+			<div class="left-failed"><span>4</span></div>
+			<div class="level-infor left-failed-infor"><img src="../../images/101.png" /><span>其他奖励</span></div>
+			<div class="right-failed"><span>3</span></div>
+			<div class="level-infor right-others"><img src="../../images/101.png" /><span>其他奖励</span></div>
+		</div>
+		<!--bottom-->
+		<div class="bottom-table">
+			<table>
+				<tr>
+					<td class="menu menu1"><img src="../../images/89.png" /></td>
+					<td class="menu"><img src="../../images/90.png" /></td>
+					<td class="menu"><img src="../../images/91.png" /></td>
+					<td class="menu"><img src="../../images/92.png" /></td>
+				</tr>
+			</table>
+		</div>
+		<!--体力值-->
+		<div class="home-shade" id="stamina-shade">
+			<div class="stamina-tips">
+				<i>-体力值</i><br />
+				<img src="../../images/105.png" />
+				<h1>30/<span style="font-size: 16px;font-weight: bold;">30</span></h1>
+				<p>每5分钟恢复1体力值,</p>
+				<p>每次挑战使用3体力值</p>
+			</div>
+		</div>
+		<!-- 签到 -->
+		<div class="home-shade" id="recording-shade">
+			<div class="home-recording">
+				<img src="../../images/39.png" class="signed-close" />
+			</div>
+		</div>
+		<!--首次闯关-->
+		<div class="home-shade" id="levelShade">
+			<div class="first-pass">
+				<div class="level-num">
+					<div class="round left-round"></div>
+					<span>第1关</span>
+					<div class="round right-round"></div>
+				</div>
+				<div class="level_btn"></div>
+				<div class="pass-gift">
+					<div class="stamina-reward"><img src="../../images/108.png" /><span>x10</span></div>
+					<div class="pk-reward"><img src="../../images/107.png" /><span>x10</span></label>
+					</div>
+					<div class="other-gift">
+						<div class="other-giftbox">
+							<img src="../../images/109.png" />
+							<div>其他奖励</div>
+						</div>
+					</div>
+					<div class="start" id="levelFirst">马上闯关</div>
+				</div>
+				<!--排行榜-->
+				<div class="leaderboard">
+					<i class="icon-board">-全网排名-</i>
+					<div class="board-table">
+						<table>
+							<tr>
+								<td>1</td>
+								<td><img src="../../images/111.png" /></td>
+								<td>夏琳琳</td>
+								<td>01:00</td>
+								<td><img src="../../images/97.png" />x10</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+	</section>
+	<div class="internet-tips">网络不给力啊~</div>
+</body>
+
+</html>
