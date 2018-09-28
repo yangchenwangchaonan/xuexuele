@@ -22,8 +22,8 @@ function progressBar() {
             }
             if (parseInt($(".index-process-bar>h1").text()) == 100) {
                 console.log("加载完成");
-                $(window).attr("location", "./html/homePages/home.html");
-                // window.location.href = './html/reg/reg_end.html';
+                // $(window).attr("location", "./html/homePages/home.html");
+                window.location.href = './html/reg/reg_end.html';
             }
         } else {
             clearInterval(bar);
