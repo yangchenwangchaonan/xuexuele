@@ -1427,12 +1427,12 @@ body {
 	background-size: 100% 100%;
 }
 
-.lesson-audio {
+/* .lesson-audio {
 	width: 100%;
 	height: 100%;
-	/* background: url(../images/others.jpg) no-repeat; */
+	background: url(../images/others.jpg) no-repeat;
 	background-size: 100% 100%;
-}
+} */
 
 #lessonBackground {
 	width: 100.0vw;
@@ -2964,14 +2964,14 @@ body {
 
 .head-imgBg {
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	background: url(../images/111.png) no-repeat;
 	background-size: 100% 100%;
 }
 
 .head-imgBg>img {
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	border-radius: 5px;
 }
 
@@ -2998,6 +2998,7 @@ body {
 .attention {
 	position: absolute;
 	top: 4.3vh;
+	left: 39.5vw;
 	width: 11.73vw;
 	height: 2.55vh;
 	border: 1px solid rgba(255, 255, 255, 1);
@@ -3432,7 +3433,7 @@ body {
 .head-bg {
 	margin-left: 39.5vw;
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	background: url(../images/111.png) no-repeat;
 	background-size: 100% 100%;
 	border-radius: 5px;
@@ -3440,7 +3441,7 @@ body {
 
 .head-bg>img {
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	border-radius: 5px;
 }
 
