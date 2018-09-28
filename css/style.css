@@ -882,7 +882,11 @@ body {
 .gender_btn2,
 .constellation_btn2,
 .birthday_btn2,
-.report-btn {
+.report-btn,
+.appraise-close,
+.leave-message-close,
+.tutor-close,
+.lesson-close {
 	position: absolute;
 	z-index: 350;
 	top: 2.27vh;
@@ -1427,12 +1431,12 @@ body {
 	background-size: 100% 100%;
 }
 
-.lesson-audio {
+/* .lesson-audio {
 	width: 100%;
 	height: 100%;
-	/* background: url(../images/others.jpg) no-repeat; */
+	background: url(../images/others.jpg) no-repeat;
 	background-size: 100% 100%;
-}
+} */
 
 #lessonBackground {
 	width: 100.0vw;
@@ -2964,14 +2968,14 @@ body {
 
 .head-imgBg {
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	background: url(../images/111.png) no-repeat;
 	background-size: 100% 100%;
 }
 
 .head-imgBg>img {
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	border-radius: 5px;
 }
 
@@ -2998,6 +3002,7 @@ body {
 .attention {
 	position: absolute;
 	top: 4.3vh;
+	left: 39.5vw;
 	width: 11.73vw;
 	height: 2.55vh;
 	border: 1px solid rgba(255, 255, 255, 1);
@@ -3036,15 +3041,6 @@ body {
 	height: 46.93vh;
 	background: url(../images/145.png) no-repeat;
 	background-size: 100% 46.93vh;
-}
-
-.appraise-close,
-.leave-message-close,
-.tutor-close,
-.lesson-close {
-	position: absolute;
-	top: 3.05vh;
-	right: 1.03vw;
 }
 
 .level-appraise {
@@ -3297,7 +3293,6 @@ body {
 	background-size: 100% 67.7vh;
 }
 
-.leave-message-title,
 .tutor-head,
 .lesson-text-title {
 	position: absolute;
@@ -3312,13 +3307,32 @@ body {
 	text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
 }
 
+.leave-message-title {
+	position: relative;
+	top: 8.02vh;
+	width: 100%;
+	height: 2.62vh;
+	text-align: center;
+	font-size: 17px;
+	font-family: MicrosoftYaHei-Bold;
+	font-weight: bold;
+	color: rgba(255, 255, 255, 1);
+	text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+}
+
 .message-content {
-	position: absolute;
-	top: 13.17vh;
+	position: relative;
+	top: 11.17vh;
 	left: 6.47vw;
 	width: 87.53vw;
 	height: 44.67vh;
 	overflow: auto;
+}
+
+.message-content>li {
+	float: left;
+	border-bottom: 1px solid rgba(229, 194, 138, 0.3);
+	margin-bottom: 1.5vh;
 }
 
 .message-btn {
@@ -3335,36 +3349,28 @@ body {
 	font-weight: bold;
 	color: rgba(255, 255, 255, 1);
 	text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+	z-index: 500;
 }
 
-.message-content>li {
-	float: left;
-}
-
-.leave-message-content {
+.leave-content {
 	position: relative;
-	margin-top: 1.05vh;
-	margin-left: 0.0vw;
 	width: 87.53vw;
-	padding-bottom: 1.5vh;
-	border-bottom: 1px solid rgba(229, 194, 138, 0.3);
 }
 
 .avatar-message {
 	position: relative;
+	display: inline-block;
 	width: 12.8vw;
 	height: 7.2vh;
 	background: url(../images/111.png) no-repeat;
-	background-size: 12.8vw 7.2vh;
+	background-size: 100% 100%;
 }
 
 .tourist-name {
 	position: relative;
-	margin-top: -6.97vh;
-	margin-left: 13.07vw;
-	height: 7.2vh;
-	width: 18.93vw;
-	text-align: center;
+	display: inline-block;
+	top: -2.6vh;
+	left: 1.5vw;
 	line-height: 7.2vh;
 	font-size: 15px;
 	font-family: MicrosoftYaHei;
@@ -3373,10 +3379,8 @@ body {
 
 .leave-message-time {
 	position: relative;
-	top: -7.3vh;
-	left: 16.8vw;
-	width: 64.0vw;
-	height: 7.2vh;
+	float: right;
+	margin-right:3.5vw; 
 	text-align: right;
 	line-height: 7.2vh;
 	font-size: 12px;
@@ -3386,26 +3390,26 @@ body {
 
 .leave-message-detail {
 	position: relative;
-	top: -8.09vh;
-	left: 15.9vw;
-	width: 70.8vw;
 	font-size: 13px;
+	left: 14.3vw;
+	top: -2.6vh;
+	width: 72.73vw;
 	font-family: MicrosoftYaHei;
 	font-weight: 400;
 	color: rgba(85, 50, 8, 1);
 }
 
-.reply-message-content {
+.reply-content {
 	position: relative;
-	margin-top: -7.5vh;
-	margin-left: 13.47vw;
+	left: 14.3vw;
+	width: 72.73vw;
 }
 
 .reply-message-detail {
 	position: relative;
-	margin-top: -0.79vh;
-	margin-left: 15.9vw;
-	width: 56.8vw;
+	top: -2.6vh;
+	left: 14.3vw;
+	width: 55.8vw;
 	font-size: 13px;
 	font-family: MicrosoftYaHei;
 	font-weight: 400;
@@ -3432,7 +3436,7 @@ body {
 .head-bg {
 	margin-left: 39.5vw;
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	background: url(../images/111.png) no-repeat;
 	background-size: 100% 100%;
 	border-radius: 5px;
@@ -3440,7 +3444,7 @@ body {
 
 .head-bg>img {
 	width: 16.8vw;
-	height: 10.0vh;
+	height: 16.8vw;
 	border-radius: 5px;
 }
 
