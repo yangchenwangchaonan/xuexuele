@@ -74,28 +74,63 @@
 		<div class="lesson-shade" id="appraiseShade">
 			<div class="appraise">
 				<div class="appraise-close"></div>
-				<div class="level-num level-appraise">
-					<div class="round left-round"></div>
-					<span>课程评分</span>
-					<div class="round right-round appraise-right"></div>
-				</div>
-				<div class="appraise-score">
-					<ul>
-						<li class="score-key11" onclick="changeAppraise(this,'score-key1')"></li>
-						<li class="score-key22" onclick="changeAppraise(this,'score-key2')"></li>
-						<li class="score-key33" onclick="changeAppraise(this,'score-key3')"></li>
-						<li class="score-key44" onclick="changeAppraise(this,'score-key4')"></li>
-					</ul>
-				</div>
-				<div class="score-line"></div>
-				<div class="lesson-reward">
-					<div class="appraise-tips">
-						<p>养成评价完成</p>
-						<p>打赏的好习惯哟~</p>
+				<!-- 评分内容 -->
+				<div class="appraise-content" id="appraiseContent">
+					<div class="level-num level-appraise">
+						<div class="round left-round"></div>
+						<span>课程评分</span>
+						<div class="round right-round appraise-right"></div>
 					</div>
-					<div class="reward-beans"><input type="text" placeholder="请输入智慧豆数量" /></div>
+					<div class="appraise-score">
+						<ul>
+							<li class="score-key11" onclick="changeAppraise(this,'score-key1')"></li>
+							<li class="score-key22" onclick="changeAppraise(this,'score-key2')"></li>
+							<li class="score-key33" onclick="changeAppraise(this,'score-key3')"></li>
+							<li class="score-key44" onclick="changeAppraise(this,'score-key4')"></li>
+						</ul>
+					</div>
+					<div class="score-line"></div>
+					<div class="lesson-reward">
+						<div class="appraise-tips">
+							<p>养成评价完成</p>
+							<p>打赏的好习惯哟~</p>
+						</div>
+						<div class="reward-beans"><input type="number" placeholder="请输入智慧豆数量" class="beanInput" /></div>
+					</div>
+					<div class="appraise-confirm">确定评价</div>
 				</div>
-				<div class="appraise-confirm">确定评价</div>
+				<!-- 评分结果 -->
+				<div class="appraise-result" id="appraiseResult">
+					<div class="level-num level-appraise">
+						<div class="round left-round"></div>
+						<span>课程评分</span>
+						<div class="round right-round appraise-right"></div>
+					</div>
+					<div class="score-result"><span id="scoreRes"></span></div>
+					<div class="score-detail">
+						<ul>
+							<li><img src="../../images/152.png" /><span></span></li>
+							<li><img src="../../images/153.png" /><span></span></li>
+							<li><img src="../../images/154.png" /><span></span></li>
+							<li><img src="../../images/155.png" /><span></span></li>
+						</ul>
+					</div>
+					<div class="score-line score-line-reward"></div>
+					<div class="total-reward">
+						<ul>
+							<li><label>总打赏：</label></li>
+							<li><img src="../../images/108.png" /></li>
+							<li><span id="beanSum"></span></li>
+						</ul>
+						<!-- <table cellspacing="10px">
+							<tr>
+								<td>总打赏：</td>
+								<td><img src="../../images/108.png" /></td>
+								<td><span>x200</span></td>
+							</tr>
+						</table> -->
+					</div>
+				</div>
 			</div>
 		</div>
 		<!--点击可分享-->
