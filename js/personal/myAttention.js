@@ -23,7 +23,7 @@ function attentionList(uId) {
                         <div class="attention-img"><img src="../../images/others.jpg"/></div>
                         <p>${val.nickname}</p>
                     </div>
-                    <div class="attention-nosign"></div>
+                    <div class="attention-nosign attention-signed">已关注</div>
                 </li>
                  `;
                 $(".attention-list").append(str);
@@ -33,49 +33,32 @@ function attentionList(uId) {
                 });
                 //判断是否被关注
                 var followId = val.followid;
-                $.ajax({
-                    type: "GET",
-                    url: APP_URL + "/api/Wisdom/Follow",
-                    data: {
-                        uid: uId,
-                        followid: followId
-                    },
-                    dataType: "json",
-                    success: function (res) {
-                        console.log(res);
-                        var code = res.code;
-                        if (code == 1) {
-                            $(".attention-nosign").eq(index).addClass("attention-signed");
-                            $(".attention-nosign").eq(index).text("已关注");
-                            $(".attention-nosign").eq(index).click(function () {
-                                // 取消关注
-                                $.ajax({
-                                    type: "POST",
-                                    url: APP_URL + "/api/Wisdom/FollowNot",
-                                    data: {
-                                        uid: uId,
-                                        followid: followId
-                                    },
-                                    dataType: "json",
-                                    success: function (res) {
-                                        console.log(res);
-                                        $(this).html("关注");
-                                        window.location.reload();
-                                    },
-                                    error: function (err) {
-                                        console.log(err);
-                                    }
-                                });
-                            });
-                        }
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
+                var $followList = $(".attention-signed");
+                $followList.click(function(){
+                    followNot(uId,followId);
                 });
-
             });
+        }
+    });
+}
 
+
+// 取消关注
+function followNot(uId,followId) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/Wisdom/FollowNot",
+        data: {
+            uid: uId,
+            followid: followId
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            window.location.reload();
+        },
+        error: function (err) {
+            console.log(err);
         }
     });
 }

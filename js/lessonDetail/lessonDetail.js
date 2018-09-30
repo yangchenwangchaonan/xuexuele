@@ -19,7 +19,7 @@ $(function () {
     // 课程留言
     $("#lessonMessage").click(function () {
         $("#messageShade").css("display", "block");
-        messageList();
+        messageList(uId, lessonId);
 
         // 关闭窗口
         $(".leave-message-close").click(function () {
@@ -338,12 +338,12 @@ function noAttention(uId, followid) {
 }
 
 // 获取课程留言列表
-function messageList() {
+function messageList(uId, lessonId) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/CommentList",
         data: {
-            courseid: 1,
+            courseid: lessonId,
             page: 1
         },
         dataType: "json",
@@ -378,7 +378,74 @@ function messageList() {
                     `;
                 }
             });
-            $(".message-content").append($str);
+            $(".message-content").html($str);
+            var $messageBtn = $(".message-btn");
+            $("#messageText").click(function () {
+                $messageBtn.css("opacity", "0");
+                $("#messageText").addClass("message-text2");
+                $(".release-message").css("display", "block");
+                /*字数限制*/
+                $("#messageText").on("input propertychange", function () {
+                    var $this = $(this),
+                        _val = $this.val(),
+                        count = "";
+                    if (_val.length > 100) {
+                        $this.val(_val.substring(0, 100));
+                    }
+                });
+                $(".release-message").click(function () {
+                    var $text = $("#messageText").val();
+                    if ($text == "") {
+                        alert("请先输入留言内容~");
+                    } else {
+                        commentRelease(uId, lessonId, $text); //发表课程留言
+                    }
+                });
+            });
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+// 发布课程留言
+function commentRelease(uId, lessonId, $text) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/Wisdom/CommentRelease",
+        data: {
+            uid: uId,
+            courseid: lessonId,
+            content: $text
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            $(".message-btn").css("opacity", "1");
+            $("#messageText").removeClass("message-text2");
+            $(".release-message").css("display", "none");
+            messageList(uId, lessonId);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+// 回复留言
+function commentReply() {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/Wisdom/CommentReply",
+        data: {
+            commentid: 1,
+            uid: 1,
+            courseid: 1,
+            content: 1
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
         },
         error: function (err) {
             console.log(err);

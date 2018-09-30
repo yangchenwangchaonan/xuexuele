@@ -824,7 +824,7 @@ body {
 }
 
 /*生日选择背景*/
-.birthday {
+/* .birthday {
 	position: absolute;
 	z-index: 330;
 	top: 59.07vh;
@@ -833,7 +833,7 @@ body {
 	height: 40.8vh;
 	background: url(../images/60.png) no-repeat center;
 	background-size: 100% 100%;
-}
+} */
 
 /*图片选择*/
 .avatar_model {
@@ -1447,6 +1447,7 @@ body {
 	width: 100.0vw;
 	height: 100.0vh;
 }
+
 #lessonBackground {
 	width: 100.0vw;
 	height: 100.0vh;
@@ -3374,6 +3375,44 @@ body {
 	float: left;
 	border-bottom: 1px solid rgba(229, 194, 138, 0.3);
 	margin-bottom: 1.5vh;
+}
+
+.message-text1 {
+	position: absolute;
+	bottom: 2.0vh;
+	margin-left: 30.0vw;
+	text-align: center;
+	line-height: 7.27vh;
+	width: 41.06vw;
+	height: 9.27vh;
+	z-index: 510;
+	opacity: 0;
+}
+
+.message-text2 {
+	position: absolute;
+	line-height: 2.67vh;
+	width: 78.06vw;
+	margin-left: 4.0vw;
+	opacity: 1;
+	text-align: left;
+	padding: 0.9vh 3.0vw;
+	overflow: hidden;
+	border: 1px solid rgba(229, 194, 138, 0.3);
+}
+.release-message {
+	position: absolute;
+	bottom: 2.0vh;
+	line-height: 9.27vh;
+	width: 14.06vw;
+	height: 9.27vh;
+	right: 4.0vw;
+	text-align: center;
+	z-index: 510;
+	color: rgba(85, 50, 8, 1);
+	background: white;
+	border: 1px solid rgba(229, 194, 138, 0.3);
+	display: none;
 }
 
 .message-btn {
