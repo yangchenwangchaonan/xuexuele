@@ -4234,8 +4234,8 @@ body {
 .record-tab3 {
 	position: absolute;
 	top: 1.35vh;
-	left: 62.53vw;
-	width: 20.36vw;
+	right: 2.533333vw;
+	/*width: 20.36vw;*/
 	height: 3.75vh;
 }
 
