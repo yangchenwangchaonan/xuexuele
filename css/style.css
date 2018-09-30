@@ -583,8 +583,8 @@ body {
 .agreement-container,
 .letter-container,
 .album-introduction-container {
-	height: 100%;
 	position: relative;
+	height: 100%;
 	background: url("../images/34.png") no-repeat center 2.53333vw;
 	background-size: 95.6% 95.57721%;
 	padding: 2.53333vw 2.2vw;
@@ -1330,7 +1330,7 @@ body {
 	background-size: 18.27vw 9.97vh;
 }
 
-.letter-inner,
+
 .treasureBox-gift {
 	width: 80.67vw;
 	height: 10.11vh;
@@ -1338,6 +1338,24 @@ body {
 	border-radius: 10px;
 	color: #553208;
 	margin: 1.74vh 2.67vw;
+}
+
+.letter-detail {
+	position: relative;
+	width: 86.01vw;
+	height: 13.59vh;
+}
+
+.letter-inner {
+	position: relative;
+	float: left;
+	width: 81.37vw;
+	height: 10.11vh;
+	background: #F8E8B0;
+	border-radius: 10px;
+	color: #553208;
+	margin: 1.74vh 2.67vw;
+	z-index: 300;
 }
 
 .letter-inner>li {
@@ -1374,13 +1392,14 @@ body {
 }
 
 .letter-del {
-	position: relative;
+	position: absolute;
+	right: 0;
 	width: 17.47vw;
-	height: 100%;
+	height: 10.11vh;
 	background: linear-gradient(-48deg, rgba(237, 61, 26, 1) 0%, rgba(255, 134, 106, 1) 100%);
 	border-radius: 10px;
-	top: 0;
-	float: right;
+	margin: 1.74vh 2.67vw;
+	z-index: 200;
 }
 
 .del-key {
@@ -1424,20 +1443,10 @@ body {
 	background: linear-gradient(0deg, rgba(238, 197, 105, 1) 0%, rgba(203, 232, 229, 1) 100%);
 }
 
-.treasureBox-audio {
-	width: 100%;
-	height: 100%;
-	background: url(../images/others.jpg) no-repeat;
-	background-size: 100% 100%;
+#treasureBoxAudioBg {
+	width: 100.0vw;
+	height: 100.0vh;
 }
-
-/* .lesson-audio {
-	width: 100%;
-	height: 100%;
-	background: url(../images/others.jpg) no-repeat;
-	background-size: 100% 100%;
-} */
-
 #lessonBackground {
 	width: 100.0vw;
 	height: 100.0vh;
@@ -2105,7 +2114,7 @@ body {
 
 .pk-reward {
 	position: absolute;
-	top: 1.57vh;
+	top: 0.7vh;
 	left: 30.8vw;
 	width: 19.73vw;
 	height: 6.52vh;
@@ -3157,7 +3166,7 @@ body {
 .beanInput {
 	background: transparent;
 	width: 33.0vw;
-	margin-left: 14.5vw;
+	margin-left: 17.9vw;
 	font-size: 12px;
 	margin-top: 2.8vh;
 }
@@ -3181,9 +3190,9 @@ body {
 
 /*评分结果*/
 .score-result {
-	position: absolute;
-	left: 11.6vw;
-	top: 12.1vh;
+	position: relative;
+	left: 4.6vw;
+	top: 2.1vh;
 	width: 77.73vw;
 	height: 5.47vh;
 	background: url(../images/156.png) no-repeat;
@@ -3197,14 +3206,15 @@ body {
 }
 
 .score-detail {
-	position: absolute;
-	top: 15.8vh;
-	left: 13.47vw;
+	position: relative;
+	top: 0.8vh;
+	left: 10.47vw;
 }
-.score-detail>ul>li {
+
+.score-detail>li {
 	float: left;
 	width: 25.8vw;
-	margin: 3.0vh 4.33vw 0 5.33vw;
+	margin: 2.0vh 1.5vh 0 5.33vw;
 }
 
 .score-detail img {
@@ -3220,13 +3230,13 @@ body {
 	color: rgba(67, 144, 67, 1);
 	text-indent: 0.5rem;
 	vertical-align: middle;
-	line-height: 6.6vh;
+	line-height: 5.6vh;
 }
 
 .score-line {
-	position: absolute;
-	top: 22.93vh;
-	left: 11.33vw;
+	position: relative;
+	top: 11.93vh;
+	left: 4.83vw;
 	width: 77.33vw;
 	height: 1px;
 	opacity: 0.5;
@@ -3235,7 +3245,7 @@ body {
 }
 
 .score-line-reward {
-	top: 34.93vh;
+	top: 18.93vh;
 }
 
 .total-reward {
@@ -3250,12 +3260,14 @@ body {
 	color: rgba(85, 50, 8, 1);
 	padding-left: 1.5vw;
 }
-.total-reward>ul>li{
+
+.total-reward>ul>li {
 	float: left;
 	line-height: 7.12vh;
 	margin-top: 2.8vh;
 	margin-left: 3.5vw;
 }
+
 .total-reward>ul>li>label {
 	font-size: 12px;
 }
@@ -3810,12 +3822,12 @@ body {
 /*课程解锁*/
 .lock-shade {
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	z-index: 360;
 	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, .3);
+	height: 52.5%;
+	/* background-color: rgba(0, 0, 0, .3); */
 	display: none;
 }
 
@@ -3827,18 +3839,19 @@ body {
 	bottom: 4.24vh;
 	background: url(../images/170.png) no-repeat;
 	background-size: 16.8vw 9.6vh;
+	z-index: 9999;
 }
 
 .locked-shade {
 	position: absolute;
-	bottom: 43.67vh;
-	right: 6.4vw;
-	z-index: 360;
-	width: 14.67vw;
-	height: 8.25vh;
+	bottom: 42.2vh;
+	right: 5.4vw;
+	z-index: 9999;
+	width: 17.6vw;
+	height: 9.9vh;
 	border-radius: 25px;
 	background: url(../images/171.png) no-repeat;
-	background-size: 14.67vw 8.25vh;
+	background-size: 17.6vw 9.9vh;
 	background-color: rgba(0, 0, 0, .3);
 	display: block;
 }
@@ -4869,7 +4882,7 @@ body {
 .attention-list>li {
 	position: relative;
 	top: 1.0vh;
-	left: 2.5vw;
+	left: 4.5vw;
 	height: 10.6vh;
 	width: 83.53vw;
 	border-bottom: 1px solid #CFA972;
@@ -4885,7 +4898,7 @@ body {
 	background-size: 16.8vw 9.52vh;
 }
 
-.attention-list>li>p {
+.attention-list>li p {
 	position: relative;
 	left: 20.5vw;
 	top: -6.0vh;
@@ -4905,7 +4918,7 @@ body {
 
 .attention-nosign {
 	position: relative;
-	top: -8.0vh;
+	top: -9.2vh;
 	left: 68.0vw;
 	width: 14.67vw;
 	height: 3.3vh;
@@ -4913,7 +4926,7 @@ body {
 	color: rgba(219, 98, 49, 1);
 	border-radius: 11px;
 	text-align: center;
-	line-height: 3.3vh;
+	line-height: 3.0vh;
 }
 
 .attention-signed {

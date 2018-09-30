@@ -37,6 +37,7 @@ $(function () {
     var $levelSuccessed = $(".level span");
     $levelSuccessed.click(function () {
         $("#levelShade").css("display", "block");
+        userGate();
         $("#levelFirst").click(function () {
             $(window).attr("location", "./level_content_img.html");
         });
@@ -61,6 +62,21 @@ function people() {
         },
         error: function (err) {
             console.log(err)
+        }
+    });
+}
+
+// 闯关列表
+function userGate(){
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/User/UserGate",
+        data: {
+            uid:1
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
         }
     });
 }

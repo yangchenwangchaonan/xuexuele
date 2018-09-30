@@ -110,7 +110,7 @@ function lessonDetail(uId, lessonId) {
                 $(".lock-shade").css("display", "none");
             } else if (lock == 2) {
                 $(".lock-shade").css("display", "block");
-                $(".lock-shade").click(function () {
+                $("#progressBarLock").click(function () {
                     $(window).attr("location", "./unlock_series.html?uid=" + uId + "&lessonId=" + lessonId + "&wisdombean=" + wisdombean);
                 });
             }
@@ -132,7 +132,7 @@ function isAppraise(uId, lessonId, $score) {
         type: "GET",
         url: APP_URL + "/api/Wisdom/Score",
         data: {
-            uid: 3,
+            uid: uId,
             courseid: lessonId
         },
         dataType: "json",
@@ -157,9 +157,7 @@ function isAppraise(uId, lessonId, $score) {
                         $("#appraiseShade").css("display", "none");
                         $("#appraiseContent").css("display", "block");
                         $("#appraiseResult").css("display", "none");
-                        var aveScore = $("#lessonAppraise>span").attr("data-score");
-                        $("#lessonAppraise>span").text(aveScore);
-                        $("#lessonAppraise>p").text("已评分");
+                        window.location.reload();
                     });
                 });
             }
@@ -253,11 +251,11 @@ function scoreSum($uId, $lessonId) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var list = $(".score-detail>ul>li");
+            var list = $(".score-detail>li");
             $.each(res.data, function (index, val) {
                 $.each(list, function (i, v) {
-                    if (index == i) {
-                        $(this).children("span").text(val.total);
+                    if (i == index) {
+                        $(this).children("span").text(":" + val.total);
                     }
                 });
             });
@@ -310,7 +308,7 @@ function onAttention(uId, followid) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            $(".attention").html("关注");
+            $(".attention").html("已关注");
             window.location.reload();
         },
         error: function (err) {
@@ -318,7 +316,7 @@ function onAttention(uId, followid) {
         }
     });
 }
-//点击取消关注
+//取消关注
 function noAttention(uId, followid) {
     $.ajax({
         type: "POST",
@@ -330,7 +328,7 @@ function noAttention(uId, followid) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            $(".attention").html("已关注");
+            $(".attention").html("关注");
             window.location.reload();
         },
         error: function (err) {
@@ -338,8 +336,6 @@ function noAttention(uId, followid) {
         }
     });
 }
-
-
 
 // 获取课程留言列表
 function messageList() {
