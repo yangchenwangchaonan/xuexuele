@@ -19,7 +19,7 @@ $(function () {
                 str += `
                     <h1>${val.heading}</h1>
                     <h1>${val.create_time}</h1>
-                    <img src="../../images/others.jpg">
+                    <img src="${val.img}">
                     <p class="treasureBox-inner">${val.article}</p>
                 `;
             });

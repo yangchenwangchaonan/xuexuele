@@ -14,6 +14,7 @@ $(function(){
         success: function (res) {
             console.log(res);
             var data = res.data;
+            $("#treasureBoxAudioBg").attr("src",data[0].img);
             $("#lessonName").html(data[0].heading);
             $("#lessonHead").html(data[0].voice);
         },

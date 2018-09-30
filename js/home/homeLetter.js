@@ -1,6 +1,10 @@
 $(function () {
     var userId = 1;
-    /* 获取站内信 */
+    userLetter(userId);
+});
+
+/* 获取站内信 */
+function userLetter(userId) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserMessage",
@@ -17,18 +21,20 @@ $(function () {
                 var $str = "";
                 $.each(data, function (index, val) {
                     $str += `
-                    <div class="letter-inner" data-id="${val.id}"|>
+                    <div class="letter-detail">
+                        <div class="letter-inner" data-id="${val.id}">
+                            <li data-read="${val.is_read}"><span>${val.heading}</span></li>
+                            <span>${val.create_time}</span>
+                            <p>${val.content}</p>
+                        </div>
                         <div class="letter-del">
                             <img src="../../images/69.png" class="del-key" />
                         </div>
-                        <li data-read="${val.is_read}"><span>${val.heading}</span></li>
-                        <span>${val.create_time}</span>
-                        <p>${val.content}</p>
                     </div>
                     `;
                 });
                 $(".letter-wrapper").append($str);
-                var $isRead = $(".letter-wrapper li");
+                var $isRead = $(".letter-inner>li");
                 $.each($isRead, function (index, val) {
                     var $list = $(this).attr("data-read");
                     if ($list == 1) {
@@ -37,21 +43,18 @@ $(function () {
                 });
             }
             /* 查看站内信详情 */
-            $("div.letter-inner").click(function () {
-                var letterId = $(this).attr("data-id");
+            $("div.letter-detail").click(function () {
+                var letterId = $(this).children("div.letter-inner").attr("data-id");
                 $(window).attr("location", "./letter-infor.html?id=" + letterId + "&uid=" + userId);
             });
+
+            // 删除站内信
+           
+            
+
         },
         error: function (err) {
             console.log(err);
         }
     });
-
-
-
-
-
-
-
-
-});
+}
