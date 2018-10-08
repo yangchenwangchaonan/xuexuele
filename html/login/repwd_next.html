@@ -10,7 +10,7 @@
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
     <script src="../../js/common/common.js"></script>
     <script src="../../js/common/goBack.js"></script>
-    <script src="../../js/login.js"></script>
+    <script src="../../js/login/repwdNext.js"></script>
 </head>
 <body class="index-body">
 <section class="repwd-container">
@@ -37,13 +37,15 @@
     <div class="rewpd-wrapper" style="height: 424px">
         <div class="rewpd-content repwd-next">
             <h1 style="top: -25px"></h1>
-            <div class="login-input-wrapper input-2">
+            <div class="login-input-wrapper input-2" id="reInput1">
                 <i></i>
                 <input type="password" placeholder="请输入新密码" id="rewpdPassword1">
+                <div class="tel-close" id="delNew"></div>
             </div>
-            <div class="login-input-wrapper input-2">
+            <div class="login-input-wrapper input-2" id="reInput2">
                 <i></i>
                 <input type="password" placeholder="再次输入新密码" id="rewpdPassword2">
+                <div class="tel-close" id="delAgain"></div>
             </div>
             <h2>密码必须为8-20位英文字母、数字或符号（除空格），且字母、数字和表单符号至少包含两种。</h2>
             <div class="repwd-btn" id="repwdBtn2">

@@ -88,7 +88,6 @@ $(function () {
             localStorage.setItem("tel",tel);
             localStorage.setItem("code",realCode);
             $(window).attr("location", "./reg_next.html");
-            
         }
     });
 
