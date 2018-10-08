@@ -13,6 +13,7 @@
     <script src="../../js/common/common.js"></script>
     <script src="../../js/common/goBack.js"></script>
     <script src="../../js/reg/regInfor.js"></script>
+    <script src="../../js/reg/cropper.js"></script>
     <script src="../../js/birthday/lCalendar.min.js"></script>
 </head>
 
@@ -78,16 +79,29 @@
             <div class="avatar">
                 <div class="avatar_model">
                     <div class="avatar_btn"></div>
-                    <input type="file" name="imgPhoto" id="imgPhoto" accept="image/*" onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+                    <!-- <input type="file" name="imgPhoto" id="imgPhoto" accept="image/*" onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" /> -->
                     <label>
                         <div class="img1"></div>
+                        <input type="file" name="importPhoto" id="importPhoto" accept="image/*" capture="camera"
+                            onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
                     </label>
-                    <label style="float:right">
+                    <label>
                         <div class="img2"></div>
+                        <input type="file" name="importFile" id="importFile" accept="image/*" onchange="getPhoto(this);"
+                            style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
                     </label>
                 </div>
             </div>
         </div>
+        <!-- 头像裁剪 -->
+        <div class="cropper-shade">
+            <div><img src="" id="img-path" /></div>
+            <div>
+                <div class="img-cut-btn img-cut-btn1">取消</div>
+                <div class="img-cut-btn img-cut-btn2 img-cut-btn3">确定</div>
+            </div>
+        </div>
+
         <!-- 选择性别 -->
         <div class="reg-shade" id="regGender-shade">
             <div class="gender">
@@ -183,8 +197,8 @@
             </div>
         </div>
     </section>
-    <!-- 生日选择 -->
     <script>
+        // 生日选择
         var calendar = new lCalendar();
         calendar.init({
             'trigger': '#demo1',

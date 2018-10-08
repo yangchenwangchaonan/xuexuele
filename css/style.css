@@ -254,7 +254,7 @@ body {
 .page-back {
 	position: absolute;
 	width: 10.2vw;
-	height: 6.39vh;
+	height: 10.2vw;
 	background: url("../images/19.png") no-repeat center;
 	background-size: 100% 100%;
 	top: 3.46666vw;
@@ -661,28 +661,29 @@ body {
 	display: none;
 }
 
-.img-shade {
-	/* position: absolute;
+.cropper-shade {
+	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 360;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, .3);
-	display: block; */
+	display: none;
+}
+.cropper-img {
+	position: absolute;
+	width: 100%;
+	height: 41.02vh;
+    top: 24.24vh;
+    left: 0vw;
+	border: 1px red solid;
+}
+.cropper-img>img {
+	width: 100%;
+	height: 100%;
 }
 
-/* .reg-tips {
-	position: absolute;
-	width: 62.67vw;
-	height: 19.02vh;
-	background: url("../images/250.png")no-repeat center;
-	background-size: 100% 100%;
-	top: 33.24vh;
-	left: 23.67vw;
-	z-index: 300;
-	display: none;
-} */
 .identity-tip {
 	position: absolute;
 	width: 62.67vw;
@@ -844,37 +845,40 @@ body {
 	padding-left: 20.13vw;
 	padding-right: 20.13vw;
 }
+.avatar_model label {
+	display: inline;
+}
 
 .img1 {
 	margin-top: 12.06vh;
 	float: left;
 	width: 22.27vw;
-	height: 12.52vh;
+	height: 22.27vw;
 	background: url(../images/40-1.png) no-repeat;
-	background-size: 22.27vw 12.52vh;
+	background-size: 22.27vw 22.27vw;
 }
 
 .img1-photo {
 	width: 22.27vw;
-	height: 12.52vh;
+	height: 22.27vw;
 	background: url(../images/40-2.png) no-repeat;
-	background-size: 22.27vw 12.52vh;
+	background-size: 22.27vw 22.27vw;
 }
 
 .img2 {
 	margin-top: 12.06vh;
 	float: right;
 	width: 22.27vw;
-	height: 12.52vh;
+	height: 22.27vw;
 	background: url(../images/41-1.png) no-repeat;
-	background-size: 22.27vw 12.52vh;
+	background-size: 22.27vw 22.27vw;
 }
 
 .img2-picture {
 	width: 22.27vw;
-	height: 12.52vh;
+	height: 22.27vw;
 	background: url(../images/41-2.png) no-repeat;
-	background-size: 22.27vw 12.52vh;
+	background-size: 22.27vw 22.27vw;
 }
 
 /*关闭按钮*/
@@ -892,9 +896,9 @@ body {
 	top: 2.27vh;
 	right: 1.2vw;
 	width: 10.67vw;
-	height: 5.92vh;
+	height: 10.67vw;
 	background: url(../images/39.png) no-repeat;
-	background-size: 10.67vw 5.92vh;
+	background-size: 10.67vw 10.67vw;
 }
 
 /*星座,生日确认按钮*/
@@ -906,9 +910,9 @@ body {
 	top: 2.27vh;
 	right: 17.34vw;
 	width: 10.67vw;
-	height: 5.92vh;
+	height: 10.67vw;
 	background: url(../images/42.png) no-repeat;
-	background-size: 10.67vw 5.92vh;
+	background-size: 10.67vw 10.67vw;
 }
 
 /*性别选择*/
@@ -4676,6 +4680,7 @@ body {
 .my-tabs>ul>li {
 	float: left;
 	margin: 0.5vh 1.25vw;
+	padding: 3.5vw;
 	width: 33.8vw;
 	height: 17.07vh;
 	background: url(../images/211.png) no-repeat;

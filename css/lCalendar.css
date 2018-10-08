@@ -167,9 +167,9 @@
 	top: 2.25vh;
 	right: 17.34vw;
 	width: 10.67vw;
-	height: 5.92vh;
+	height: 10.67vw;
 	background: url(../images/42.png) no-repeat;
-	background-size: 10.67vw 5.92vh;
+	background-size: 10.67vw 10.67vw;
 }
 
 .lcalendar_cancel {
@@ -178,9 +178,9 @@
 	top: 2.25vh;
 	right: 1.2vw;
 	width: 10.67vw;
-	height: 5.92vh;
+	height: 10.67vw;
 	background: url(../images/39.png) no-repeat;
-	background-size: 10.67vw 5.92vh;
+	background-size: 10.67vw 10.67vw;
 }
 
 .date_btn_box {

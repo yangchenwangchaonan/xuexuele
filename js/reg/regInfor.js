@@ -27,7 +27,6 @@ $(function () {
         $('img#uploadImg').attr('src', header_path_base);
     }
 
-
     /* **************选择性别*************** */
     $("#reg-gender").click(function () {
         $("#regGender-shade").css("display", "block");
@@ -176,7 +175,6 @@ $(function () {
     });
 });
 
-
 /* 改变性别 */
 function changeGender(e, genderImag) {
     $.each($("#gender_list img"), function (index, val) {
@@ -201,9 +199,9 @@ function changeImage(e, imgName) {
     $(e).siblings().addClass("constellation_text");
 }
 
-
 //获取相册 或拍照
 function getPhoto(node) {
+    console.log(node);
     var imgURL = "";
     try {
         var file = null;
@@ -216,7 +214,7 @@ function getPhoto(node) {
         try {
             imgURL = file.getAsDataURL();
         } catch (e) {
-            imgRUL = window.URL.createObjectURL(file);
+            imgURL = window.URL.createObjectURL(file);
         }
     } catch (e) {
         if (node.files && node.files[0]) {
@@ -229,11 +227,13 @@ function getPhoto(node) {
     }
 
     var image = new Image();
-    image.src = imgRUL;
+    image.src = imgURL;
     image.onload = function () {
         var base64 = getBase64Image(image);
         localStorage.setItem("header_path_base", '');
         localStorage.setItem("img_path_base", base64);
+        // $(".cropper-shade").css("display", "block");
+        // cutImg();
         window.location.href = './cert_avatar.html';
     }
 }
@@ -247,4 +247,33 @@ function getBase64Image(img) {
     var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
     var dataURL = canvas.toDataURL("image/" + ext);
     return dataURL;
+}
+// 裁剪照片
+function cutImg() {
+    var img_path = localStorage.getItem("img_path_base");
+    if (typeof (img_path) !== 'undefined') {
+        $('#img-path').attr('src', img_path);
+        $('#img-path').cropper({
+            aspectRatio: 16 / 9,
+            viewMode: 1,
+            crop: function (e) {
+                //console.log(e);
+            }
+        });
+    }
+    //取消
+    $('div.img-cut-btn1').click(function () {
+        $('#img-path').cropper('reset');
+    });
+    //确定
+    $('div.img-cut-btn2').click(function () {
+        var cas = $('#img-path').cropper('getCroppedCanvas');
+        var base64url = cas.toDataURL('image/jpeg');
+        cas.toBlob(function (e) {
+            //console.log(e);  //生成Blob的图片格式
+        });
+        localStorage.setItem("img_path_base", '');
+        localStorage.setItem("header_path_base", base64url);
+        window.location.href = './reg_end.html';
+    });
 }
