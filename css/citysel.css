@@ -97,10 +97,9 @@ input,button{
 	padding-top: 0.2rem;
 }
 .cityindex{
-	background: #BEBEBE;
 	line-height: 0.26rem;
 	font-size: 0.15rem;
-	color: #ffffff;
+	color: #222222;
 	font-weight: normal;
 	text-indent: 0.1rem;
 }

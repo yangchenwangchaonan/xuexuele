@@ -37,7 +37,7 @@ $(function () {
             if ($text) {
                 $("#regGender-shade").css("display", "none");
                 $("#reg-gender").text($text);
-                localStorage.getItem("gender",$text);
+                localStorage.getItem("gender", $text);
             } else {
                 $(".gender_btn1").attr("disabled", true);
             }
@@ -55,19 +55,6 @@ $(function () {
     });
 
 
-    /* **************生日选择*********** */
-    // $("#reg-birthday").click(function () {
-    //     $("#regBirthday-shade").css("display", "block");
-
-
-
-
-    /* 关闭窗口 */
-    //      $(".birthday_btn2").click(function () {
-    //         $("#regBirthday-shade").css("display", "none");
-    //     });
-    // });
-
     /* **********星座选择*********** */
     $("#reg-constellation").click(function () {
         $("#regConstellation-shade").css("display", "block");
@@ -77,7 +64,7 @@ $(function () {
             if ($text) {
                 $("#regConstellation-shade").css("display", "none");
                 $("#reg-constellation").text($text);
-                localStorage.getItem("constellation",$text);
+                localStorage.getItem("constellation", $text);
             } else {
                 $(".constellation_btn1").attr("disabled", true);
             }
@@ -99,13 +86,17 @@ $(function () {
         $(window).attr("location", "./reg-area.html");
     });
     // 地区选中
-    // var $url = decodeURI(window.location.href);
-    // console.log($url);
-    // if ($url.indexOf("=") != -1) {
-    //     var $cityVal = $url.substr($url.indexOf("=") + 1);
-    //     console.log($cityVal);
-    //     $("#reg-area").html($cityVal);
-    // }
+    var $url = decodeURI(window.location.href);
+    console.log($url);
+    if ($url.indexOf("=") != -1) {
+        var $cityVal = $url.substr($url.indexOf("=") + 1);
+        console.log($cityVal);
+        if ($cityVal != "") {
+            $("#reg-area").html($cityVal);
+        } else {
+            $("#reg-area").html("点击选择");
+        }
+    }
 
     // 从地区跳转回来后
 
@@ -179,9 +170,9 @@ $(function () {
                             // });
                         }
                     }
-                } 
-            } 
-        } 
+                }
+            }
+        }
     });
 });
 
