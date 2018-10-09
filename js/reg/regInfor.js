@@ -1,7 +1,7 @@
 $(function () {
     // 返回上一页
-    $(".reg-back").click(function(){
-        $(window).attr("location","./reg_next.html");
+    $(".reg-back").click(function () {
+        $(window).attr("location", "./reg_next.html");
     })
     /* *********选择身份********** */
     $("#identity>p").click(function () {
@@ -106,20 +106,27 @@ $(function () {
     /*提交注册*/
     $("#reg-end").click(function () {
         var $Identity = $("#identity p>i.checked").length;
-        var $avartar = $("#uploadImg").length;
+        var $avartar = $("#uploadImg").attr("src");
         var $nickname = $("#nickName").val();
         var $regGender = $("#reg-gender>input").val();
         var $regBirthday = $("#reg-birthday").html();
         var $regConstellation = $("#reg-constellation>input").val();
         var $regArea = $("#reg-area").html();
-        console.log($avartar);
         if ($Identity == 0) {
             $(".identity-tip").css("display", "block");
             $(".identity-tip").click(function () {
                 $(".identity-tip").css("display", "none");
             });
         } else {
-            if ($avartar == 0) {
+            alert(1)
+            var $id = $("div#identity>p.p1>i").hasClass("checked");
+            if($id){
+                $id = 1;
+            }else {
+                $id = 2;
+            }
+            console.log($id)
+            if ($avartar == "") {
                 $(".avatar-tip").css("display", "block");
                 $(".avatar-tip").click(function () {
                     $(".avatar-tip").css("display", "none");
@@ -156,8 +163,8 @@ $(function () {
                             //         password:$password,
                             //         repassword:$repassword,
                             //         identity:
-                            //         headimg:
-                            //         nickname:
+                            //         headimg:$avartar,
+                            //         nickname:$nickname,
                             //         sex:
                             //         birthday:
                             //         constellation:
