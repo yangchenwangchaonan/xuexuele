@@ -1,28 +1,28 @@
-$(function () {
+$(function() {
     //身份设置
-    $(".setting").click(function () {
+    $(".setting").click(function() {
         $("#personalShade").css("display", "block");
-        $("#roleSetting>p").click(function () {
+        $("#roleSetting>p").click(function() {
             $(this).children().addClass("checked").parent().siblings().children().removeClass("checked");
         });
-        $("#languageSetting").click(function () {
+        $("#languageSetting").click(function() {
             $(".language-tips").css("display", "block");
-            $(".language-tips").click(function () {
+            $(".language-tips").click(function() {
                 $(".language-tips").css("display", "none");
             });
         });
         // 关闭窗口
-        $(".personal-close").click(function () {
-            if ($(".p1>i").attr("class")=="checked") {
+        $(".personal-close").click(function() {
+            if ($(".p1>i").attr("class") == "checked") {
                 Setup(2)
-            }else{
+            } else {
                 Setup(1)
             }
         });
     });
     // 退出登录
-    $(".login-out").click(function(){
-        $(window).attr("location","../../signOut.html");
+    $(".login-out").click(function() {
+        $(window).attr("location", "../../signOut.html");
     });
 
 });
@@ -35,15 +35,15 @@ function Setup(num) {
         type: "GET",
         url: APP_URL + "/api/My/Setup",
         data: {
-            uid:1,
-            identity:num,
+            uid: 1,
+            identity: num,
         },
         dataType: "json",
-        success: function (res) {
+        success: function(res) {
             console.log(res);
-            $("#personalShade").css("display", "none"); 
+            $("#personalShade").css("display", "none");
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });

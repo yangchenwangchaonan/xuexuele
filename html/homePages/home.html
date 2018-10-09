@@ -13,6 +13,13 @@
 	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/common/footer.js"></script>
 	<script src="../../js/home/home.js"></script>
+	<script type="text/javascript">
+	$(function(){
+	  //ajax获取日历json数据
+	  var signList=[{"signDay":"09"},{"signDay":"11"},{"signDay":"12"},{"signDay":"13"}];
+	   calUtil.init(signList);
+	});
+	</script>
 </head>
 
 <body class="index-body">
@@ -103,6 +110,8 @@
 		<div class="home-shade" id="recording-shade">
 			<div class="home-recording">
 				<img src="../../images/39.png" class="signed-close" />
+				<!-- 日历 -->
+				<div class="calendar" id="calendar"></div>
 			</div>
 		</div>
 		<!--首次闯关-->
