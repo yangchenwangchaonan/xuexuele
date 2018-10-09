@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
     <script src="../../js/common/common.js"></script>
-    <script src="../../js/login.js"></script>
+    <script src="../../js/login/login.js"></script>
 </head>
 <body class="index-body">
 <section class="login-container">
@@ -35,13 +35,15 @@
     <div class="login-wrapper">
         <div class="login-content">
             <h1></h1>
-            <div class="login-input-wrapper input-1">
+            <div class="login-input-wrapper input-1" id="loginTel">
                 <i></i>
-                <input class="input-1" type="text" placeholder="请输入电话号码" id="phone">
+                <input class="input-1" type="number" placeholder="请输入电话号码" id="phone">
+                <div class="tel-close" id="delPhoto"></div>
             </div>
-            <div class="login-input-wrapper input-2">
+            <div class="login-input-wrapper input-2" id="loginPword">
                 <i></i>
                 <input class="input-2" type="password" placeholder="请输入密码" id="password">
+                <div class="tel-close" id="delPassword"></div>
             </div>
             <div class="login-btn">
                 <i></i>

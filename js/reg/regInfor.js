@@ -1,4 +1,8 @@
 $(function () {
+    // 返回上一页
+    $(".reg-back").click(function(){
+        $(window).attr("location","./reg_next.html");
+    })
     /* *********选择身份********** */
     $("#identity>p").click(function () {
         $(this).children().addClass("checked").parent().siblings().children().removeClass("checked");
@@ -26,6 +30,7 @@ $(function () {
     if (typeof (header_path_base) != undefined) {
         $('img#uploadImg').attr('src', header_path_base);
     }
+
 
     /* **************选择性别*************** */
     $("#reg-gender").click(function () {
@@ -97,8 +102,6 @@ $(function () {
         }
     }
 
-    // 从地区跳转回来后
-
 
     /*提交注册*/
     $("#reg-end").click(function () {
@@ -148,10 +151,10 @@ $(function () {
                             //     type: "POST",
                             //     url: APP_URL + "/api/User/UserRegisterInfo",
                             //     data: {
-                            //         phone:
-                            //         SmsCode:
-                            //         password:
-                            //         repassword:
+                            //         phone:$tel,
+                            //         SmsCode:$code,
+                            //         password:$password,
+                            //         repassword:$repassword,
                             //         identity:
                             //         headimg:
                             //         nickname:
@@ -174,6 +177,7 @@ $(function () {
         }
     });
 });
+
 
 /* 改变性别 */
 function changeGender(e, genderImag) {
@@ -198,6 +202,7 @@ function changeImage(e, imgName) {
     $(e).attr('src', '../../images/' + imgName);
     $(e).siblings().addClass("constellation_text");
 }
+
 
 //获取相册 或拍照
 function getPhoto(node) {
@@ -230,10 +235,9 @@ function getPhoto(node) {
     image.src = imgURL;
     image.onload = function () {
         var base64 = getBase64Image(image);
+        // console.log(base64);
         localStorage.setItem("header_path_base", '');
         localStorage.setItem("img_path_base", base64);
-        // $(".cropper-shade").css("display", "block");
-        // cutImg();
         window.location.href = './cert_avatar.html';
     }
 }
@@ -247,33 +251,4 @@ function getBase64Image(img) {
     var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
     var dataURL = canvas.toDataURL("image/" + ext);
     return dataURL;
-}
-// 裁剪照片
-function cutImg() {
-    var img_path = localStorage.getItem("img_path_base");
-    if (typeof (img_path) !== 'undefined') {
-        $('#img-path').attr('src', img_path);
-        $('#img-path').cropper({
-            aspectRatio: 16 / 9,
-            viewMode: 1,
-            crop: function (e) {
-                //console.log(e);
-            }
-        });
-    }
-    //取消
-    $('div.img-cut-btn1').click(function () {
-        $('#img-path').cropper('reset');
-    });
-    //确定
-    $('div.img-cut-btn2').click(function () {
-        var cas = $('#img-path').cropper('getCroppedCanvas');
-        var base64url = cas.toDataURL('image/jpeg');
-        cas.toBlob(function (e) {
-            //console.log(e);  //生成Blob的图片格式
-        });
-        localStorage.setItem("img_path_base", '');
-        localStorage.setItem("header_path_base", base64url);
-        window.location.href = './reg_end.html';
-    });
 }

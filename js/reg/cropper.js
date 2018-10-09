@@ -1,3 +1,12 @@
+/*!
+ * Cropper v0.9.2
+ * https://github.com/fengyuanchen/cropper
+ *
+ * Copyright (c) 2014-2015 Fengyuan Chen and contributors
+ * Released under the MIT license
+ *
+ * Date: 2015-04-18T04:35:01.500Z
+ */
 
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
@@ -273,7 +282,7 @@
     $clone.removeClass(CLASS_HIDE);
 
     this.$container = $this.parent().append($cropper);
-    // this.$canvas = $cropper.find('.cropper-canvas').append($clone);
+    this.$canvas = $cropper.find('.cropper-canvas').append($clone);
     this.$dragBox = $cropper.find('.cropper-drag-box');
     this.$cropBox = $cropBox = $cropper.find('.cropper-crop-box');
     this.$viewBox = $cropper.find('.cropper-view-box');

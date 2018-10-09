@@ -161,7 +161,7 @@ body {
 }
 
 .login-input-wrapper {
-	height: 48px;
+	height: 50px;
 	background: url("../images/14.png") no-repeat center;
 	background-size: 100% 100%;
 	position: relative;
@@ -251,7 +251,7 @@ body {
 }
 
 /* 忘记密码 */
-.page-back {
+.page-back,.reg-back {
 	position: absolute;
 	width: 10.2vw;
 	height: 10.2vw;
@@ -661,6 +661,14 @@ body {
 	display: none;
 }
 
+.cropper-box {
+	position: absolute;
+	width: 100%;
+	height: 41.02vh;
+	top: 24.24vh;
+	left: 0vw;
+}
+
 .cropper-shade {
 	position: absolute;
 	top: 0;
@@ -669,19 +677,6 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, .3);
-	display: none;
-}
-.cropper-img {
-	position: absolute;
-	width: 100%;
-	height: 41.02vh;
-    top: 24.24vh;
-    left: 0vw;
-	border: 1px red solid;
-}
-.cropper-img>img {
-	width: 100%;
-	height: 100%;
 }
 
 .identity-tip {
@@ -845,6 +840,7 @@ body {
 	padding-left: 20.13vw;
 	padding-right: 20.13vw;
 }
+
 .avatar_model label {
 	display: inline;
 }
@@ -1145,16 +1141,17 @@ body {
 .search-list {
 	position: relative;
 	top: 7.5vh;
-    left: 4.5vw;
+	left: 4.5vw;
 	width: 64.0vw;
 }
+
 .search-list>ul>li {
 	position: relative;
 	background: #FFFFFF;
 	width: 64.0vw;
 	height: 4.49vh;
 	line-height: 4.49vh;
-	border-bottom: 1px solid rgba(149,104,38,0.5);
+	border-bottom: 1px solid rgba(149, 104, 38, 0.5);
 	padding: 0 1.5vw;
 }
 
