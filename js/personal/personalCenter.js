@@ -13,7 +13,11 @@ $(function () {
         });
         // 关闭窗口
         $(".personal-close").click(function () {
-            $("#personalShade").css("display", "none");
+            if ($(".p1>i").attr("class")=="checked") {
+                Setup(2)
+            }else{
+                Setup(1)
+            }
         });
     });
     // 退出登录
@@ -22,3 +26,25 @@ $(function () {
     });
 
 });
+
+
+// 选择身份
+function Setup(num) {
+    console.log(num)
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/My/Setup",
+        data: {
+            uid:1,
+            identity:num,
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            $("#personalShade").css("display", "none"); 
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
