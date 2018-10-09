@@ -9,7 +9,7 @@ $(function () {
     });
     /************上传头像*********/
     $("#reg-avatar").click(function () {
-        $("#regVavatar-shade").css("display", "block");
+        $("#regVavatar-shade").show();
         $(".img1").click(function () {
             $(this).addClass("img1-photo").parent().siblings().children(".img2").removeClass("img2-picture");
             $("#imgPhoto").trigger("click");
@@ -20,7 +20,7 @@ $(function () {
         });
         /* 关闭窗口 */
         $(".avatar_btn").click(function () {
-            $("#regVavatar-shade").css("display", "none");
+            $("#regVavatar-shade").hide();
             $(".img1").removeClass("img1-photo");
             $(".img2").removeClass("img2-picture");
         });
@@ -34,12 +34,12 @@ $(function () {
 
     /* **************选择性别*************** */
     $("#reg-gender").click(function () {
-        $("#regGender-shade").css("display", "block");
+        $("#regGender-shade").show();
         /* 确定 */
         $(".gender_btn1").click(function () {
             var $text = $("#gender_list").find("p.gender_text").text();
             if ($text) {
-                $("#regGender-shade").css("display", "none");
+                $("#regGender-shade").hide();
                 $("#reg-gender").text($text);
                 localStorage.getItem("gender", $text);
             } else {
@@ -54,19 +54,19 @@ $(function () {
                 $(this).attr("src", eachIMG);
                 $(this).siblings().removeClass("gender_text");
             });
-            $("#regGender-shade").css("display", "none");
+            $("#regGender-shade").hide();
         });
     });
 
 
     /* **********星座选择*********** */
     $("#reg-constellation").click(function () {
-        $("#regConstellation-shade").css("display", "block");
+        $("#regConstellation-shade").show();
         //确定
         $(".constellation_btn1").click(function () {
             var $text = $(".constellation_table").find("p.constellation_text").text();
             if ($text) {
-                $("#regConstellation-shade").css("display", "none");
+                $("#regConstellation-shade").hide();
                 $("#reg-constellation").text($text);
                 localStorage.getItem("constellation", $text);
             } else {
@@ -75,7 +75,7 @@ $(function () {
         });
         // 关闭
         $(".constellation_btn2").click(function () {
-            $("#regConstellation-shade").css("display", "none");
+            $("#regConstellation-shade").hide();
             $.each($(".constellation_table img"), function (index, val) {
                 var num = 48 + index;
                 var eachIMG = "../../images/" + num + "-1.png"
@@ -108,75 +108,97 @@ $(function () {
         var $Identity = $("#identity p>i.checked").length;
         var $avartar = $("#uploadImg").attr("src");
         var $nickname = $("#nickName").val();
-        var $regGender = $("#reg-gender>input").val();
-        var $regBirthday = $("#reg-birthday").html();
-        var $regConstellation = $("#reg-constellation>input").val();
+        var $regGender = $("#reg-gender").html();
+        console.log($regGender)
+        var $regBirthday = $("#reg-birthday>input").val();
+        console.log($regBirthday)
+        var $regConstellation = $("#reg-constellation").html();
         var $regArea = $("#reg-area").html();
         if ($Identity == 0) {
-            $(".identity-tip").css("display", "block");
+            $(".identity-tip").show();
             $(".identity-tip").click(function () {
-                $(".identity-tip").css("display", "none");
+                $(".identity-tip").hide();
             });
         } else {
-            alert(1)
             var $id = $("div#identity>p.p1>i").hasClass("checked");
-            if($id){
+            if ($id) {
                 $id = 1;
-            }else {
+            } else {
                 $id = 2;
             }
-            console.log($id)
             if ($avartar == "") {
-                $(".avatar-tip").css("display", "block");
+                $(".avatar-tip").show();
                 $(".avatar-tip").click(function () {
-                    $(".avatar-tip").css("display", "none");
+                    $(".avatar-tip").hide();
                 });
             } else {
                 if ($nickname == "") {
-                    $(".nickname-tip").css("display", "block");
+                    $(".nickname-tip").show();
                     $(".nickname-tip").click(function () {
-                        $(".nickname-tip").css("display", "none");
+                        $(".nickname-tip").hide();
                     });
                 } else {
                     if ($regGender == "点击选择") {
-                        $(".gender-tip").css("display", "block");
+                        $(".gender-tip").show();
                         $(".gender-tip").click(function () {
-                            $(".gender-tip").css("display", "none");
+                            $(".gender-tip").hide();
                         });
                     } else {
-                        if ($regBirthday == "点击选择" || $regConstellation == "点击选择" || $regArea == "点击选择") {
-                            $(".other-tip").css("display", "block");
+                        var $regId = 0;
+                        if ($regGender == "男") {
+                            $regId = 1;
+                        } else if ($regGender == "女") {
+                            $regId = 2;
+                        } else if ($regGender == "保密") {
+                            $regId = 3;
+                        } else if ($regGender == "双性") {
+                            $regId = 4;
+                        }
+                        console.log($regId)
+                        if ($regBirthday == "" || $regConstellation == "点击选择" || $regArea == "点击选择") {
+                            $(".other-tip").show();
                             $(".other-tip").click(function () {
-                                $(".other-tip").css("display", "none");
+                                $(".other-tip").hide();
                             });
                         } else {
-                            // var $tel = sessionStorage.getItem("tel");
-                            // var $code = sessionStorage.getItem("code");
-                            // var $password = sessionStorage.getItem("newPassword");
-                            // var $repassword = sessionStorage.getItem("againPassword");
-                            // $.ajax({
-                            //     type: "POST",
-                            //     url: APP_URL + "/api/User/UserRegisterInfo",
-                            //     data: {
-                            //         phone:$tel,
-                            //         SmsCode:$code,
-                            //         password:$password,
-                            //         repassword:$repassword,
-                            //         identity:
-                            //         headimg:$avartar,
-                            //         nickname:$nickname,
-                            //         sex:
-                            //         birthday:
-                            //         constellation:
-                            //         city:
-                            //     },
-                            //     dataType: "json",
-                            //     success: function (res) {
-                            //         console.log(res);
-                            //     },error: function (err) {
-                            //         console.log(err);
-                            //     }
-                            // });
+                            var $tel = localStorage.getItem("tel");
+                            console.log($tel)
+                            var $code = localStorage.getItem("code");
+                            console.log($code)
+                            var $password = localStorage.getItem("newPassword");
+                            console.log($password)
+                            var $repassword = localStorage.getItem("againPassword");
+                            console.log($repassword)
+                            $.ajax({
+                                type: "POST",
+                                url: APP_URL + "/api/User/UserRegisterInfo",
+                                data: {
+                                    phone: $tel,
+                                    SmsCode: $code,
+                                    password: $password,
+                                    repassword: $repassword,
+                                    identity: $id,
+                                    headimg: $avartar,
+                                    nickname: $nickname,
+                                    sex: $regId,
+                                    birthday: $regBirthday,
+                                    constellation: $regConstellation,
+                                    city: $regArea
+                                },
+                                dataType: "json",
+                                success: function (res) {
+                                    console.log(res);
+                                    var code = res.code;
+                                    if(code == 1){
+                                        alert("注册成功~");
+                                    }else {
+                                        alert("注册失败~");
+                                    }
+                                },
+                                error: function (err) {
+                                    console.log(err);
+                                }
+                            });
                         }
                     }
                 }

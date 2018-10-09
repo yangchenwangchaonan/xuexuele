@@ -107,11 +107,17 @@ $(function () {
                 if (newPassword != againPassword) {
                     alert("两次输入密码不正确~");
                 } else {
-                    alert("密码设置成功");
                     var $newPassword = $("#newPassword").val();
                     var $againPassword = $("#againPassword").val();
+                    console.log($newPassword)
+                    console.log($againPassword)
                     localStorage.getItem("newPassword",$newPassword);
                     localStorage.getItem("againPassword",$againPassword);
+                    var $p1 = localStorage.getItem("newPassword");
+                    var $p2 = localStorage.getItem("againPassword");
+                    console.log($p1);
+                    console.log($p2);
+                    alert("密码设置成功");
                     $(window).attr("location", "./reg_end.html");
                 }
             }
