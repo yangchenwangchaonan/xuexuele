@@ -35,16 +35,20 @@ $(function () {
                 type: "POST",
                 url: APP_URL + "/api/User/SendSmsInfo",
                 data: {
-                    type: "res",
+                    type: "login",
                     phoneNumbers: telNum
                 },
                 dataType: "json",
                 success: function (res) {
-                    alert("发送成功~");
                     console.log(res);
-                    var realCode = res.data.code;
-                    $("#returnCode").val(realCode);
-                    setTime(obj);
+                    if (res.code == 1) {
+                        alert("发送成功~");
+                        var realCode = res.data.code;
+                        $("#returnCode").val(realCode);
+                        setTime(obj);
+                    }else {
+                        alert("发送失败~");
+                    }
                 },
                 error: function (err) {
                     console.log(err)

@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/lCalendar.css">
+    <link rel="stylesheet" href="../../css/cropper.css">
+    <link rel="stylesheet" href="../../css/citysel.css">
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
     <script src="../../js/common/common.js"></script>
     <script src="../../js/common/goBack.js"></script>
     <script src="../../js/reg/regInfor.js"></script>
     <script src="../../js/reg/cropper.js"></script>
     <script src="../../js/birthday/lCalendar.min.js"></script>
+    <script src="../../js/city/LAreaData1.js"></script>
+    <script src="../../js/city/citypickerhc.js"></script>
+    <script src="../../js/reg/regArea.js"></script>
 </head>
 
 <body class="index-body">
@@ -93,14 +98,14 @@
                 </div>
             </div>
         </div>
-        <!-- 头像裁剪
+        <!-- 头像裁剪 -->
         <div class="cropper-shade">
-            <div><img src="" id="img-path" /></div>
+            <div class="cropper-box"><img src="" id="img-path" /></div>
             <div>
                 <div class="img-cut-btn img-cut-btn1">取消</div>
                 <div class="img-cut-btn img-cut-btn2 img-cut-btn3">确定</div>
             </div>
-        </div> -->
+        </div>
 
         <!-- 选择性别 -->
         <div class="reg-shade" id="regGender-shade">
@@ -197,14 +202,71 @@
             </div>
         </div>
     </section>
-    <script>
-        // 生日选择
-        var calendar = new lCalendar();
-        calendar.init({
-            'trigger': '#demo1',
-            'type': 'date'
-        });
-    </script>
+    <!-- 地区选择 -->
+    <div class="area-body">
+        <div class="area-container">
+            <i class="area-back" id="areaClose"></i>
+            <span id="area-title">-地区选择-</span>
+            <div class="area-box1">
+                <div class="city-box city-in city-on" id="cityIn">国内城市</div>
+                <div class="city-box city-out" id="cityOut">国际/港澳台</div>
+                <div class="city-line"></div>
+                <div class="city-search1">
+                    <div id="search-picture1"></div>
+                    <input type="button" id="search-text1" value="城市搜索" />
+                </div>
+                <div class="touchcity city-text" id="cityText">
+                    <div class="schbox">
+                        <span>搜索城市:</span><input id="cityipt" type="text" />
+                    </div>
+                    <div class="citybox"></div>
+                    <div class="indexBar"></div>
+                    <a class="locate"></a>
+                </div>
+                <div id="citypick" style="display:none">
+                    <span id="cityname"></span>
+                </div>
+                <div class="city-international" id="city-boxInter">
+                    <div id="inter-picture"></div>
+                    <div id="inter-text">
+                        <p>暂时不能选择国际城市哦~</p>
+                    </div>
+                </div>
+            </div>
+            <div class="area-box2">
+                <div class="city-search2">
+                    <div id="search-picture2"></div>
+                    <input type="text" id="search-text2" placeholder="请输入城市名称"></input>
+                    <div id="search-close"></div>
+                </div>
+                <div class="search-list">
+                    <ul>
+                        <li>包头</li>
+                        <li>包钢</li>
+                        <li>宝鸡</li>
+                    </ul>
+                </div>
+                <div class="city-search-btn">搜索</div>
+                <div class="city-international">
+                    <div id="inter-picture"></div>
+                    <div id="inter-text">
+                        <p>没有相关城市哦~</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+<script>
+    // 生日选择
+    var calendar = new lCalendar();
+    calendar.init({
+        'trigger': '#demo1',
+        'type': 'date'
+    });
+    // 城市选择
+    citypicker();
+</script>
 
 </html>

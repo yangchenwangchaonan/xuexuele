@@ -40,11 +40,16 @@ $(function () {
                 },
                 dataType: "json",
                 success: function (res) {
-                    alert("发送成功~");
                     console.log(res);
-                    var realCode = res.data.code;
-                    $("#realCode").val(realCode);
-                    setTime(obj);
+                    if (res.code == 1) {
+                        alert("发送成功~");
+                        var realCode = res.data.code;
+                        $("#realCode").val(realCode);
+                        setTime(obj);
+                    }else{
+                        alert("发送失败~");
+                    }
+
                 },
                 error: function (err) {
                     console.log(err)
@@ -54,6 +59,7 @@ $(function () {
         // 发送验证码倒计时
         var countdown = 60;
         var obj = $("#codeBtn");
+
         function setTime(obj) {
             if (countdown == 0) {
                 flag = true;
@@ -85,8 +91,8 @@ $(function () {
             alert("验证码输入错误!");
         } else {
             var tel = $("#reg-phone").val();
-            localStorage.setItem("tel",tel);
-            localStorage.setItem("code",realCode);
+            localStorage.setItem("tel", tel);
+            localStorage.setItem("code", realCode);
             $(window).attr("location", "./reg_next.html");
         }
     });
@@ -109,14 +115,8 @@ $(function () {
                 } else {
                     var $newPassword = $("#newPassword").val();
                     var $againPassword = $("#againPassword").val();
-                    console.log($newPassword)
-                    console.log($againPassword)
-                    localStorage.getItem("newPassword",$newPassword);
-                    localStorage.getItem("againPassword",$againPassword);
-                    var $p1 = localStorage.getItem("newPassword");
-                    var $p2 = localStorage.getItem("againPassword");
-                    console.log($p1);
-                    console.log($p2);
+                    localStorage.setItem("newPassword", $newPassword);
+                    localStorage.setItem("againPassword", $againPassword);
                     alert("密码设置成功");
                     $(window).attr("location", "./reg_end.html");
                 }

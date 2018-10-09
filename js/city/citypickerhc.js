@@ -1,5 +1,12 @@
 function citypicker() {
-
+	$.ajax({
+		type: "GET",
+		url: APP_URL + "/api/User/CityList",
+		dataType: "json",
+		success: function (res) {
+			console.log(res);
+		}
+	});
 	// console.log(JSON.stringify(LAreaData,null," "))
 	var cityindex = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 	//打印城市
@@ -19,16 +26,17 @@ function citypicker() {
 		}
 	}
 	$(".touchcity").show();
-	//	$(function(){
 	//选择城市
 	$(".cityper").click(function () {
 		// console.log($(this).attr("name"));
 		$(this).addClass("cityChecked").siblings().removeClass("cityChecked");
 		$("#cityname").text($(this).text());
 		var $num = $(this).parent("div").attr("num");
-		var $index = $(".indexBar>a:contains("+ $num+")");
-		$index.css("color","#3FBF09").siblings().css("color","#666666");
+		var $index = $(".indexBar>a:contains(" + $num + ")");
+		$index.css("color", "#3FBF09").siblings().css("color", "#666666");
 		// $(".touchcity").hide()
+		var $city = $("#cityname").text();
+		localStorage.setItem("city", $city);
 	})
 	//导航触摸滑动
 	$(".indexBar").on("touchmove", function (e) {
@@ -79,14 +87,5 @@ function citypicker() {
 			$(".cityper").show();
 		}
 	})
-
-	//返回上一页
-	$(".area-back").click(function () {
-		var $city = $("#cityname").text();
-		// history.back();
-		$(window).attr("location", encodeURI("./reg_end.html?city=" + $city));
-	});
-
-
 
 }

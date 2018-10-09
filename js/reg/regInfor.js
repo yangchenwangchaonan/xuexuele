@@ -26,7 +26,8 @@ $(function () {
         });
     });
     //选中头像
-    var header_path_base = localStorage.getItem("header_path_base");
+    var header_path_base = localStorage.getItem("imgUrl");
+    console.log(header_path_base);
     if (typeof (header_path_base) != undefined) {
         $('img#uploadImg').attr('src', header_path_base);
     }
@@ -87,20 +88,27 @@ $(function () {
 
     /* ******地区选择******** */
     $("#reg-area").click(function () {
-        $(window).attr("location", "./reg-area.html");
+        $(".area-body").show();
+        $(".index-container").hide();
+        //关闭
+        $("#areaClose").click(function () {
+            $(".area-body").hide();
+            $(".index-container").show();
+            // 模糊搜索
+
+
+            // 地区选中
+            var $cityVal = localStorage.getItem("city");
+            if ($cityVal == "" && $cityVal == null && $cityVal == undefined) {
+                $("#reg-area").html("点击选择");
+            } else {
+                $("#reg-area").html($cityVal);
+            }
+        });
+
     });
-    // 地区选中
-    var $url = decodeURI(window.location.href);
-    console.log($url);
-    if ($url.indexOf("=") != -1) {
-        var $cityVal = $url.substr($url.indexOf("=") + 1);
-        console.log($cityVal);
-        if ($cityVal != "") {
-            $("#reg-area").html($cityVal);
-        } else {
-            $("#reg-area").html("点击选择");
-        }
-    }
+
+
 
 
     /*提交注册*/
@@ -162,13 +170,9 @@ $(function () {
                             });
                         } else {
                             var $tel = localStorage.getItem("tel");
-                            console.log($tel)
                             var $code = localStorage.getItem("code");
-                            console.log($code)
                             var $password = localStorage.getItem("newPassword");
-                            console.log($password)
                             var $repassword = localStorage.getItem("againPassword");
-                            console.log($repassword)
                             $.ajax({
                                 type: "POST",
                                 url: APP_URL + "/api/User/UserRegisterInfo",
@@ -189,10 +193,12 @@ $(function () {
                                 success: function (res) {
                                     console.log(res);
                                     var code = res.code;
-                                    if(code == 1){
+                                    var msg = res.msg;
+                                    if (code == 1) {
                                         alert("注册成功~");
-                                    }else {
-                                        alert("注册失败~");
+                                        $(window).attr("location", "../homePages/home.html");
+                                    } else {
+                                        alert(msg);
                                     }
                                 },
                                 error: function (err) {
@@ -232,10 +238,9 @@ function changeImage(e, imgName) {
     $(e).siblings().addClass("constellation_text");
 }
 
-
 //获取相册 或拍照
 function getPhoto(node) {
-    console.log(node);
+    $(".cropper-shade").show();
     var imgURL = "";
     try {
         var file = null;
@@ -264,10 +269,42 @@ function getPhoto(node) {
     image.src = imgURL;
     image.onload = function () {
         var base64 = getBase64Image(image);
-        // console.log(base64);
-        localStorage.setItem("header_path_base", '');
-        localStorage.setItem("img_path_base", base64);
-        window.location.href = './cert_avatar.html';
+        if (typeof (base64) !== 'undefined') {
+            $('#img-path').attr('src', base64);
+            $('#img-path').cropper({
+                aspectRatio: 16 / 9,
+                viewMode: 1,
+                // crop: function (e) {
+                //     //console.log(e);
+                // }
+            });
+        }
+        //取消
+        $('div.img-cut-btn1').click(function () {
+            $('#img-path').cropper('reset');
+        });
+        //确定
+        $('div.img-cut-btn2').click(function () {
+            var cas = $('#img-path').cropper('getCroppedCanvas');
+            var base64url = cas.toDataURL('image/jpeg');
+            $.ajax({
+                type: "POST",
+                url: APP_URL + "/api/My/HeadPortrait",
+                data: {
+                    fileUpload: base64url
+                },
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    var url = res.data.url;
+                    $(".cropper-shade").hide();
+                    $(".reg-shade").hide();
+                    if (typeof (url) != undefined) {
+                        $('img#uploadImg').attr('src', url);
+                    }
+                }
+            });
+        });
     }
 }
 //获取图片base64位

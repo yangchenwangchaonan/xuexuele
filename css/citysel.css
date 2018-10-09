@@ -4,7 +4,7 @@ html,body,div,span,p,a,img,textarea,ul,li,h1,h2,h3,h4,h5,h6,input{
     padding: 0;
     border: none;
     font-family: "微软雅黑";
-    font-size: 0.16rem;
+    /* font-size: 1.0em; */
 }
 ul,li{list-style: none;}
 a{text-decoration: none;}

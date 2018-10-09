@@ -41,7 +41,7 @@ $(function () {
                     console.log(res);
                     if (res.code == 1) {
                         alert("登录成功");
-                        $(window).attr("location", "../personalCenter/personal-center.html");
+                        $(window).attr("location", "../homePages/home.html");
                         localStorage.setItem('token', res.Token);
                     } else {
                         alert("未注册，请先注册~");
