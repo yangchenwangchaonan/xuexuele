@@ -170,7 +170,7 @@ $(function () {
                                     var code = res.code;
                                     var msg = res.msg;
                                     if (code == 1) {
-                                        login($tel,$password);
+                                        login($tel, $password);
                                         alert("注册成功~");
                                     } else {
                                         alert(msg);
@@ -274,6 +274,10 @@ function getPhoto(node) {
                     var url = res.data.url;
                     $(".cropper-shade").hide();
                     $(".reg-shade").hide();
+                    $('#img-path').attr('src', "");
+                    $(".img1").removeClass("img1-photo");
+                    $(".img2").removeClass("img2-picture");
+                    // base64url = "";
                     if (typeof (url) != undefined) {
                         $('img#uploadImg').attr('src', url);
                     }
@@ -295,7 +299,7 @@ function getBase64Image(img) {
 }
 
 // 登录
-function login(tel,password) {
+function login(tel, password) {
     $.ajax({
         type: 'POST',
         url: APP_URL + "/api/User/Login",
@@ -308,19 +312,19 @@ function login(tel,password) {
             console.log(res);
             var data = res.data;
             if (res.code == 1) {
-                sessionStorage.setItem("uid",data.UserId);  //用户id
-                sessionStorage.setItem("birthday",data.birthday);  //生日
-                sessionStorage.setItem("verified",data.certificationstate);  //实名
-                sessionStorage.setItem("city",data.city);  //所在城市
-                sessionStorage.setItem("constellation",data.constellation); //星座
-                sessionStorage.setItem("creditscore",data.creditscore);  //信用值
-                sessionStorage.setItem("headImg",data.headimg);  //头像
-                sessionStorage.setItem("identity",data.identity);   //身份
-                sessionStorage.setItem("moneybag",data.moneybag);   //用户钱包余额
-                sessionStorage.setItem("nickname",data.nickname);   //昵称
-                sessionStorage.setItem("pk",data.pk); //pk值
-                sessionStorage.setItem("sex",data.sex);  //性别
-                sessionStorage.setItem("wisdombean",data.wisdombean) //智慧豆
+                sessionStorage.setItem("uid", data.UserId); //用户id
+                sessionStorage.setItem("birthday", data.birthday); //生日
+                sessionStorage.setItem("verified", data.certificationstate); //实名
+                sessionStorage.setItem("city", data.city); //所在城市
+                sessionStorage.setItem("constellation", data.constellation); //星座
+                sessionStorage.setItem("creditscore", data.creditscore); //信用值
+                sessionStorage.setItem("headImg", data.headimg); //头像
+                sessionStorage.setItem("identity", data.identity); //身份
+                sessionStorage.setItem("moneybag", data.moneybag); //用户钱包余额
+                sessionStorage.setItem("nickname", data.nickname); //昵称
+                sessionStorage.setItem("pk", data.pk); //pk值
+                sessionStorage.setItem("sex", data.sex); //性别
+                sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
                 $(window).attr("location", "../homePages/home.html");
             } else {
                 $(window).attr("location", "../homePages/home.html");
