@@ -1,7 +1,7 @@
 function citypicker() {
 	$.ajax({
 		type: "GET",
-		url: APP_URL + "/api/User/CityList",
+		url: APP_URL + "/api/User/CityListAll",
 		dataType: "json",
 		success: function (res) {
 			console.log(res);
