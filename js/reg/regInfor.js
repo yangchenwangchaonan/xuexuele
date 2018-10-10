@@ -25,12 +25,6 @@ $(function () {
             $(".img2").removeClass("img2-picture");
         });
     });
-    //选中头像
-    var header_path_base = localStorage.getItem("imgUrl");
-    console.log(header_path_base);
-    if (typeof (header_path_base) != undefined) {
-        $('img#uploadImg').attr('src', header_path_base);
-    }
 
 
     /* **************选择性别*************** */
@@ -89,26 +83,10 @@ $(function () {
     /* ******地区选择******** */
     $("#reg-area").click(function () {
         $(".area-body").show();
+        $(".area-box1").show();
+        $(".area-box2").hide();
         $(".index-container").hide();
-        //关闭
-        $("#areaClose").click(function () {
-            $(".area-body").hide();
-            $(".index-container").show();
-            // 模糊搜索
-
-
-            // 地区选中
-            var $cityVal = localStorage.getItem("city");
-            if ($cityVal == "" && $cityVal == null && $cityVal == undefined) {
-                $("#reg-area").html("点击选择");
-            } else {
-                $("#reg-area").html($cityVal);
-            }
-        });
-
     });
-
-
 
 
     /*提交注册*/
@@ -117,9 +95,7 @@ $(function () {
         var $avartar = $("#uploadImg").attr("src");
         var $nickname = $("#nickName").val();
         var $regGender = $("#reg-gender").html();
-        console.log($regGender)
         var $regBirthday = $("#reg-birthday>input").val();
-        console.log($regBirthday)
         var $regConstellation = $("#reg-constellation").html();
         var $regArea = $("#reg-area").html();
         if ($Identity == 0) {
@@ -162,7 +138,6 @@ $(function () {
                         } else if ($regGender == "双性") {
                             $regId = 4;
                         }
-                        console.log($regId)
                         if ($regBirthday == "" || $regConstellation == "点击选择" || $regArea == "点击选择") {
                             $(".other-tip").show();
                             $(".other-tip").click(function () {
@@ -195,8 +170,8 @@ $(function () {
                                     var code = res.code;
                                     var msg = res.msg;
                                     if (code == 1) {
+                                        login($tel,$password);
                                         alert("注册成功~");
-                                        $(window).attr("location", "../homePages/home.html");
                                     } else {
                                         alert(msg);
                                     }
@@ -317,4 +292,42 @@ function getBase64Image(img) {
     var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
     var dataURL = canvas.toDataURL("image/" + ext);
     return dataURL;
+}
+
+// 登录
+function login(tel,password) {
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/api/User/Login",
+        data: {
+            phone: tel,
+            password: password
+        },
+        dataType: 'json',
+        success: function (res) {
+            console.log(res);
+            var data = res.data;
+            if (res.code == 1) {
+                sessionStorage.setItem("uid",data.UserId);  //用户id
+                sessionStorage.setItem("birthday",data.birthday);  //生日
+                sessionStorage.setItem("verified",data.certificationstate);  //实名
+                sessionStorage.setItem("city",data.city);  //所在城市
+                sessionStorage.setItem("constellation",data.constellation); //星座
+                sessionStorage.setItem("creditscore",data.creditscore);  //信用值
+                sessionStorage.setItem("headImg",data.headimg);  //头像
+                sessionStorage.setItem("identity",data.identity);   //身份
+                sessionStorage.setItem("moneybag",data.moneybag);   //用户钱包余额
+                sessionStorage.setItem("nickname",data.nickname);   //昵称
+                sessionStorage.setItem("pk",data.pk); //pk值
+                sessionStorage.setItem("sex",data.sex);  //性别
+                sessionStorage.setItem("wisdombean",data.wisdombean) //智慧豆
+                $(window).attr("location", "../homePages/home.html");
+            } else {
+                $(window).attr("location", "../homePages/home.html");
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
 }

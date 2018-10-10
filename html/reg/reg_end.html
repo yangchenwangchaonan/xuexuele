@@ -43,7 +43,7 @@
                         </div>
                     </li>
                     <li class="head-pic">
-                        <div id="reg-avatar">点击上传 <img id="uploadImg" /></div>
+                        <div id="reg-avatar">点击上传 <img id="uploadImg" src=""/></div>
                         <h1>头像：</h1>
                     </li>
                     <li>
@@ -211,21 +211,24 @@
                 <div class="city-box city-in city-on" id="cityIn">国内城市</div>
                 <div class="city-box city-out" id="cityOut">国际/港澳台</div>
                 <div class="city-line"></div>
-                <div class="city-search1">
-                    <div id="search-picture1"></div>
-                    <input type="button" id="search-text1" value="城市搜索" />
-                </div>
-                <div class="touchcity city-text" id="cityText">
-                    <div class="schbox">
-                        <span>搜索城市:</span><input id="cityipt" type="text" />
+                <div id="cityText">
+                    <div class="city-search1">
+                        <div id="search-picture1"></div>
+                        <input type="button" id="search-text1" value="城市搜索" />
                     </div>
-                    <div class="citybox"></div>
-                    <div class="indexBar"></div>
-                    <a class="locate"></a>
+                    <div class="touchcity city-text" >
+                        <div class="schbox">
+                            <span>搜索城市:</span><input id="cityipt" type="text" />
+                        </div>
+                        <div class="citybox"></div>
+                        <div class="indexBar"></div>
+                        <a class="locate"></a>
+                    </div>
+                    <div id="citypick" style="display:none">
+                        <span id="cityname"></span>
+                    </div>
                 </div>
-                <div id="citypick" style="display:none">
-                    <span id="cityname"></span>
-                </div>
+                <!-- 国际城市 -->
                 <div class="city-international" id="city-boxInter">
                     <div id="inter-picture"></div>
                     <div id="inter-text">
