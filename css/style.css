@@ -5974,7 +5974,7 @@ body {
     display: table-cell;
     width: 14.3%;
     /*border-top: 1px solid #e3e3e3;*/
-    /*border-bottom: 1px solid #e3e3e3;*/
+    border-bottom: 1px solid #e3e3e3;
     /*border-left: 1px solid #e3e3e3;*/
     height: 40px;
     text-align: center;
@@ -5994,11 +5994,12 @@ body {
 }
 
 .sign_equal .sign_row:last-child div {
-    /*border-bottom: 1px solid #e3e3e3;*/
+     border-bottom: 0;
 }
 
+/*签到点击选择日期样式*/
 .sign_equal .on {
-    background: #4CB215;
+    /*background: #4CB215;*/
 }
 
 .sign_contener,
