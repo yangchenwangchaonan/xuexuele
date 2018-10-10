@@ -27,6 +27,7 @@ $(function () {
         $(".signed-close").click(function () {
             $("#recording-shade").css("display", "none");
         });
+        actioveDate()
     });
     //百宝箱
     $("#treasureBox-tab").click(function () {
@@ -80,7 +81,10 @@ function userGate(){
         }
     });
 }
+
+//日历
 var calUtil = {
+
   //当前日历显示的年份
   showYear:2015,
   //当前日历显示的月份
@@ -101,7 +105,7 @@ var calUtil = {
   draw:function(signList){
     //绑定日历
     //alert(signList.length);
-    console.log(signList);
+    //console.log(signList);
     // if(signList.length > 21){
     //   //alert(21);
     //   $("#sign_note").empty();
@@ -224,12 +228,15 @@ var calUtil = {
     htmls.push("<div class='sign_row'>");
     for (d = 0; d < 7; d++) {
      var ifHasSigned = calUtil.ifHasSigned(signList,myMonth[w][d]);
-     console.log("001:"+ifHasSigned);
-     if(ifHasSigned && typeof(myMonth[w][d]) != 'undefined'){
-      htmls.push("<div class='td_"+d+" on'>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</div>");
-     } else {
-      htmls.push("<div class='td_"+d+" calendar_record'>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</div>");
-     }
+     // console.log("001:"+ifHasSigned);
+     // if(ifHasSigned && typeof(myMonth[w][d]) != 'undefined'){
+     //  htmls.push("<div class='td_"+d+" on'>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</div>");
+     // } else {
+     //  htmls.push("<div class='td_"+d+" calendar_record'>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</div>");
+     // }
+
+     htmls.push("<div class='td_"+d+" calendar_record'>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</div>");
+
     }
     htmls.push("</div>");
    }
@@ -239,3 +246,15 @@ var calUtil = {
    return htmls.join('');
   }
 };
+
+//日历选中渲染
+function actioveDate() {
+    var date = moment(new Date).format('MM')
+    var li = $('#sign_cal').children().children()
+    $(li).each(function(index, val) {
+        var count = $(this).html()
+        if(count == date) {
+            $(this).css({"background": "#5ABE1B"})
+        }
+    })
+}
