@@ -5979,6 +5979,7 @@ body {
     height: 40px;
     text-align: center;
     line-height: 40px;
+    border-radius: 3px;
 }
 
 .sign_row .bold {
