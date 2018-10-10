@@ -36,8 +36,21 @@ function citypicker() {
 		$index.css("color", "#3FBF09").siblings().css("color", "#666666");
 		// $(".touchcity").hide()
 		var $city = $("#cityname").text();
-		localStorage.setItem("city", $city);
-	})
+		$(".area-body").hide();
+		$(".index-container").show();
+		$("#reg-area").html($city);
+	});
+	//关闭
+	$("#areaClose").click(function () {
+		$(".area-body").hide();
+		$(".index-container").show();
+		$("#reg-area").html("点击选择");
+		// 模糊搜索
+
+
+	});
+
+
 	//导航触摸滑动
 	$(".indexBar").on("touchmove", function (e) {
 		e.preventDefault();
