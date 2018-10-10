@@ -25,12 +25,6 @@ $(function () {
             $(".img2").removeClass("img2-picture");
         });
     });
-    //选中头像
-    var header_path_base = localStorage.getItem("imgUrl");
-    console.log(header_path_base);
-    if (typeof (header_path_base) != undefined) {
-        $('img#uploadImg').attr('src', header_path_base);
-    }
 
 
     /* **************选择性别*************** */
