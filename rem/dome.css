@@ -1,0 +1,48 @@
+body {
+	background: url(../images/03.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+header {
+	text-align: center;
+	margin-top: .2rem;
+}
+
+section {
+	width: 100%;
+	overflow: hidden;
+}
+section .box {
+	margin: .1rem auto;
+	width: 2.73rem;
+	height: 1.77rem;
+	background: url(../images/04.png) center center no-repeat;
+	background-size: 100% 100%;
+}
+section .box2 {
+	margin: 0 auto;
+	width: 3.75rem;
+	height: 4.055rem;
+	background: url(../images/10.png) center center no-repeat;
+	background-size: 100% 100%;
+}
+section .box2 ul {
+	padding-top: 1.7rem;
+	text-align: center;
+	overflow: hidden;
+}
+section .box2 ul li{
+	width: 100%;
+	height: .48rem;
+}
+section .box2 ul li span {
+	font-size: .13rem;
+	color: #956826;
+}
+section .box2 ul li input {
+	width: 2rem;
+	height: .3rem;
+	border: 1px solid gray;
+	background: #956826;
+}
+
