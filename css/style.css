@@ -1173,6 +1173,8 @@ body {
     top: 7.5vh;
     left: 4.5vw;
     width: 64.0vw;
+    max-height: 80.0vh;
+    overflow: hidden;
 }
 
 .search-list>ul>li {
@@ -1310,6 +1312,20 @@ body {
     font-size: 12px;
 }
 
+.search-text {
+    position: absolute;
+    width: 83.2vw;
+    height: 73.46vh;
+    top: 10.09vh;
+    left: 4.5vw;
+    overflow: auto;
+}
+.search-res {
+    height: 4.5vh;
+    border-bottom: 1px rgba(149,104,38,.2) solid;
+    margin: 1.5vw;
+    font-size: 15px;
+}
 /*站内信*/
 .letter-infor-wrapper {
     top: 3.3vh;
