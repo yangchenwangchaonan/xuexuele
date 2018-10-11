@@ -27,7 +27,8 @@ $(function () {
         $(".signed-close").click(function () {
             $("#recording-shade").css("display", "none");
         });
-        actioveDate()
+        actioveDate()   //日历当前日期渲染
+        signinDate()    //当月签到日期渲染
     });
     //百宝箱
     $("#treasureBox-tab").click(function () {
@@ -247,7 +248,7 @@ var calUtil = {
   }
 };
 
-//日历选中渲染
+//日历当前日期渲染
 function actioveDate() {
     var date = moment(new Date).format('MM')
     var li = $('#sign_cal').children().children()
@@ -255,6 +256,22 @@ function actioveDate() {
         var count = $(this).html()
         if(count == date) {
             $(this).css({"background": "#5ABE1B"})
+        }
+    })
+}
+//当月签到日期渲染
+function signinDate() {
+    var uid = sessionStorage.getItem("uid"); //用户id
+    alert(uid)
+    $.ajax({
+        type: "get",
+        url: APP_URL + "/api/User/UserSigninTotal",
+        dataType: "json",
+        data: {
+            uid: uid 
+        },
+        success: function(res) {
+            console.log(res)
         }
     })
 }
