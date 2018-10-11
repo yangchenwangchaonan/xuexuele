@@ -17,7 +17,6 @@
     <script src="../../js/reg/regInfor.js"></script>
     <script src="../../js/reg/cropper.js"></script>
     <script src="../../js/birthday/lCalendar.min.js"></script>
-    <script src="../../js/city/LAreaData1.js"></script>
     <script src="../../js/city/citypickerhc.js"></script>
     <script src="../../js/reg/regArea.js"></script>
 </head>
@@ -43,7 +42,7 @@
                         </div>
                     </li>
                     <li class="head-pic">
-                        <div id="reg-avatar">点击上传 <img id="uploadImg" src=""/></div>
+                        <div id="reg-avatar">点击上传 <img id="uploadImg" src="" /></div>
                         <h1>头像：</h1>
                     </li>
                     <li>
@@ -205,9 +204,9 @@
     <!-- 地区选择 -->
     <div class="area-body">
         <div class="area-container">
-            <i class="area-back" id="areaClose"></i>
             <span id="area-title">-地区选择-</span>
             <div class="area-box1">
+                <i class="area-back" id="areaClose"></i>
                 <div class="city-box city-in city-on" id="cityIn">国内城市</div>
                 <div class="city-box city-out" id="cityOut">国际/港澳台</div>
                 <div class="city-line"></div>
@@ -216,7 +215,7 @@
                         <div id="search-picture1"></div>
                         <input type="button" id="search-text1" value="城市搜索" />
                     </div>
-                    <div class="touchcity city-text" >
+                    <div class="touchcity city-text">
                         <div class="schbox">
                             <span>搜索城市:</span><input id="cityipt" type="text" />
                         </div>
@@ -237,6 +236,7 @@
                 </div>
             </div>
             <div class="area-box2">
+                <i class="area-back" id="searchClose"></i>
                 <div class="city-search2">
                     <div id="search-picture2"></div>
                     <input type="text" id="search-text2" placeholder="请输入城市名称"></input>
@@ -244,11 +244,17 @@
                 </div>
                 <div class="search-list">
                     <ul>
-                        <li>包头</li>
+                        <!-- <li>包头</li>
                         <li>包钢</li>
-                        <li>宝鸡</li>
+                        <li>宝鸡</li> -->
                     </ul>
                 </div>
+                <!-- <div class="search-text">
+                    <ul>
+                        <li class="search-res">包头</li>
+                        <li class="search-res">包头</li>
+                    </ul>
+                </div> -->
                 <div class="city-search-btn">搜索</div>
                 <div class="city-international">
                     <div id="inter-picture"></div>

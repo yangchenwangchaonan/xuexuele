@@ -16,6 +16,56 @@ $(function () {
         $(".area-box1").hide();
         $(".area-box2").show();
         $("#search-text2").focus();
+        $(".city-search-btn").click(function () {
+            var city = $("#search-text2").val();
+            if (city != "") {
+                citySearch(city);
+            }
+        });
+    });
+
+    // 返回
+    $("#searchClose").click(function(){
+        $(".index-container").hide();
+        $(".area-box1").show();
+        $(".area-box2").hide();
     });
 
 });
+
+
+//搜索结果
+function citySearch(city) {
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/User/CityList",
+        data: {
+            city: city
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.data.length != 0) {
+                var str = "";
+                $.each(res.data, function (index, val) {
+                    str += `
+                     <li data-name="${val.name}">${val.name}</li>
+                     `;
+                });
+                $(".search-list>ul").html(str);
+                $(".city-international").hide();
+                $(".search-list>ul>li").click(function () {
+                    var val = $(this).attr("data-name");
+                    $(".area-body").hide();
+                    $(".index-container").show();
+                    $("#reg-area").html(val);
+                });
+            } else {
+                $(".city-international").show();
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}
