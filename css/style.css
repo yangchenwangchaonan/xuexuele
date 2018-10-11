@@ -51,7 +51,7 @@ body {
 
 .wrapper-03 {
     width: 72.99465vw;
-    top: 8.55%;
+    top: 57px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -59,19 +59,19 @@ body {
 
 .wrapper-04 {
     width: 92.24598vw;
-    top: 14.4%;
+    top: 87px;
     left: 4.81283vw;
 }
 
 .wrapper-05 {
     width: 94.51871vw;
-    top: 14.4%;
+    top: 96px;
     left: 3.74331vw;
 }
 
 .wrapper-06 {
     width: 97.45989vw;
-    top: 8.55%;
+    top: 87px;
     right: 1px;
 }
 
@@ -133,14 +133,13 @@ body {
 .login-wrapper,
 .rewpd-wrapper {
     width: 100%;
+    height: 405px;
     position: absolute;
+    top: 195px;
     left: 0;
-    height: 60.72%;
-    position: absolute;
-    top: 29.24%;
     background: url("../images/10.png") repeat-x center;
     background-size: 100% 100%;
-    padding: 33.22% 12vw;
+    padding: 125px 12vw 41px;
 }
 
 .login-content,
@@ -148,7 +147,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 5.42% 2.8vw 0;
+    padding: 19px 2.8vw 0;
 }
 
 .reg-second {
@@ -159,15 +158,15 @@ body {
 .rewpd-content>h1 {
     position: absolute;
     left: 0;
-    top: -19.4%;
+    top: -32px;
     width: 100%;
-    height: 14.5%;
+    height: 20px;
     background: url("../images/15.jpg") no-repeat center;
-    background-size: 16.27vw 100%;
+    background-size: 61px 20px;
 }
 
 .login-input-wrapper {
-    height: 35.5%;
+    height: 50px;
     background: url("../images/14.png") no-repeat center;
     background-size: 100% 100%;
     position: relative;
@@ -180,10 +179,9 @@ body {
 
 .login-input-wrapper>input {
     width: 100%;
-    height: 35%;
-    padding-left: 15.73vw;
-    padding-right: 5.33vw;
-    margin-top: 6%;
+    height: 48px;
+    padding-left: 59px;
+    padding-right: 20px;
 }
 
 .login-input-wrapper>input::placeholder {
@@ -192,22 +190,22 @@ body {
 
 .login-input-wrapper.input-1>input {
     background: transparent url("../images/12.png") no-repeat 17px center;
-    background-size: 7% 100%;
+    background-size: 20px 20px;
 }
 
 .login-input-wrapper.input-2>input {
     background: transparent url("../images/13.png") no-repeat 17px center;
-    background-size: 7% 100%;
+    background-size: 20px 20px;
 }
 
 .login-input-wrapper>i {
     position: absolute;
-    width: 0.27vw;
-    height: 35.55%;
+    width: 1px;
+    height: 15px;
     background: #956826;
-    left: 12.0vw;
+    left: 45px;
     top: 50%;
-    margin-top: -3.0%;
+    margin-top: -7px;
 }
 
 .login-input-wrapper.input-2 {
@@ -217,15 +215,15 @@ body {
 .login-btn {
     background: url("../images/11.png") no-repeat center;
     background-size: 100% 100%;
-    height: 37%;
-    margin-top: 7%;
-    padding-top: 5.5%;
+    height: 50px;
+    margin-top: 15px;
+    padding-top: 15px;
 }
 
 .login-btn>i {
     display: block;
-    width: 10.4vw;
-    height: 58%;
+    width: 39px;
+    height: 20px;
     margin: 0 auto;
     background: url("../images/16.jpg") no-repeat center;
     background-size: 100% 100%;
@@ -241,8 +239,8 @@ body {
 .login-link {
     font-size: 12px;
     color: #CA9A53;
-    padding: 7%;
-    margin-top: -5%;
+    padding: 0 20px;
+    margin-top: 11px;
 }
 
 .login-link>a {
@@ -1204,11 +1202,11 @@ body {
 .code-close {
     position: absolute;
     width: 4.0vw;
-    height: 31.24%;
-    top: 31.67%;
+    height: 2.24vh;
+    top: 2.67vh;
     right: 3.8vw;
     background: url(../images/66.png) no-repeat center;
-    background-size: 100% 100%;
+    background-size: 4.0vw 2.24vh;
     display: none;
 }
 
@@ -3680,7 +3678,7 @@ body {
     width: 100%;
     height: 50vh;
     top: 14.5vh;
-    overflow-x: hidden;
+    overflow-x:hidden; 
     overflow-y: auto;
 }
 
