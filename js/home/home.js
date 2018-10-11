@@ -262,7 +262,6 @@ function actioveDate() {
 //当月签到日期渲染
 function signinDate() {
     var uid = sessionStorage.getItem("uid"); //用户id
-    alert(uid)
     $.ajax({
         type: "get",
         url: APP_URL + "/api/User/UserSigninTotal",
