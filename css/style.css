@@ -4,7 +4,7 @@ body {
     height: 100%;
     width: 100%;
     font-size: 13px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .index-body {
@@ -16,7 +16,7 @@ body {
 .index-container {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     z-index: 1;
 }
@@ -1041,7 +1041,7 @@ body {
     display: none;
 }
 
-.area-back,
+
 .album-back,
 .series-back,
 .purse-back,
@@ -1057,6 +1057,17 @@ body {
     background-size: 100% 100%;
     top: 1.42vh;
     left: 2.17vw;
+    z-index: 9999;
+}
+
+.area-back {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background: url("../images/19.png") no-repeat center;
+    background-size: 100% 100%;
+    top: -6.58vh;
+    left: -0.83vw;
     z-index: 9999;
 }
 
@@ -1320,12 +1331,14 @@ body {
     left: 4.5vw;
     overflow: auto;
 }
+
 .search-res {
     height: 4.5vh;
-    border-bottom: 1px rgba(149,104,38,.2) solid;
+    border-bottom: 1px rgba(149, 104, 38, .2) solid;
     margin: 1.5vw;
     font-size: 15px;
 }
+
 /*站内信*/
 .letter-infor-wrapper {
     top: 3.3vh;
