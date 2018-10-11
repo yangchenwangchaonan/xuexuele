@@ -55,7 +55,7 @@ $(function () {
                         sessionStorage.setItem("sex", data.sex); //性别
                         sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
                         alert("登录成功");
-                        // $(window).attr("location", "../homePages/home.html");
+                        $(window).attr("location", "../homePages/home.html");
                         localStorage.setItem('token', res.Token);
                     } else {
                         alert("未注册，请先注册~");

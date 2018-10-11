@@ -51,7 +51,7 @@ body {
 
 .wrapper-03 {
     width: 72.99465vw;
-    top: 57px;
+    top: 8.55%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -59,19 +59,19 @@ body {
 
 .wrapper-04 {
     width: 92.24598vw;
-    top: 87px;
+    top: 14.4%;
     left: 4.81283vw;
 }
 
 .wrapper-05 {
     width: 94.51871vw;
-    top: 96px;
+    top: 14.4%;
     left: 3.74331vw;
 }
 
 .wrapper-06 {
     width: 97.45989vw;
-    top: 87px;
+    top: 8.55%;
     right: 1px;
 }
 
@@ -133,13 +133,14 @@ body {
 .login-wrapper,
 .rewpd-wrapper {
     width: 100%;
-    height: 405px;
     position: absolute;
-    top: 195px;
     left: 0;
+    height: 60.72%;
+    position: absolute;
+    top: 29.24%;
     background: url("../images/10.png") repeat-x center;
     background-size: 100% 100%;
-    padding: 125px 12vw 41px;
+    padding: 33.22% 12vw;
 }
 
 .login-content,
@@ -147,7 +148,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 19px 2.8vw 0;
+    padding: 5.42% 2.8vw 0;
 }
 
 .reg-second {
@@ -158,15 +159,15 @@ body {
 .rewpd-content>h1 {
     position: absolute;
     left: 0;
-    top: -32px;
+    top: -19.4%;
     width: 100%;
-    height: 20px;
+    height: 14.5%;
     background: url("../images/15.jpg") no-repeat center;
-    background-size: 61px 20px;
+    background-size: 16.27vw 100%;
 }
 
 .login-input-wrapper {
-    height: 50px;
+    height: 35.5%;
     background: url("../images/14.png") no-repeat center;
     background-size: 100% 100%;
     position: relative;
@@ -179,9 +180,10 @@ body {
 
 .login-input-wrapper>input {
     width: 100%;
-    height: 48px;
-    padding-left: 59px;
-    padding-right: 20px;
+    height: 35%;
+    padding-left: 15.73vw;
+    padding-right: 5.33vw;
+    margin-top: 6%;
 }
 
 .login-input-wrapper>input::placeholder {
@@ -190,22 +192,22 @@ body {
 
 .login-input-wrapper.input-1>input {
     background: transparent url("../images/12.png") no-repeat 17px center;
-    background-size: 20px 20px;
+    background-size: 7% 100%;
 }
 
 .login-input-wrapper.input-2>input {
     background: transparent url("../images/13.png") no-repeat 17px center;
-    background-size: 20px 20px;
+    background-size: 7% 100%;
 }
 
 .login-input-wrapper>i {
     position: absolute;
-    width: 1px;
-    height: 15px;
+    width: 0.27vw;
+    height: 35.55%;
     background: #956826;
-    left: 45px;
+    left: 12.0vw;
     top: 50%;
-    margin-top: -7px;
+    margin-top: -3.0%;
 }
 
 .login-input-wrapper.input-2 {
@@ -215,15 +217,15 @@ body {
 .login-btn {
     background: url("../images/11.png") no-repeat center;
     background-size: 100% 100%;
-    height: 50px;
-    margin-top: 15px;
-    padding-top: 15px;
+    height: 37%;
+    margin-top: 7%;
+    padding-top: 5.5%;
 }
 
 .login-btn>i {
     display: block;
-    width: 39px;
-    height: 20px;
+    width: 10.4vw;
+    height: 58%;
     margin: 0 auto;
     background: url("../images/16.jpg") no-repeat center;
     background-size: 100% 100%;
@@ -239,8 +241,8 @@ body {
 .login-link {
     font-size: 12px;
     color: #CA9A53;
-    padding: 0 20px;
-    margin-top: 11px;
+    padding: 7%;
+    margin-top: -5%;
 }
 
 .login-link>a {
@@ -1202,11 +1204,11 @@ body {
 .code-close {
     position: absolute;
     width: 4.0vw;
-    height: 2.24vh;
-    top: 2.67vh;
+    height: 31.24%;
+    top: 31.67%;
     right: 3.8vw;
     background: url(../images/66.png) no-repeat center;
-    background-size: 4.0vw 2.24vh;
+    background-size: 100% 100%;
     display: none;
 }
 
@@ -3595,8 +3597,8 @@ body {
 
 /*导师详情*/
 .tutor-avatar {
-    position: absolute;
-    top: 14.62vh;
+    position: relative;
+    /* top: 1.62vh; */
     width: 100%;
     height: 9.07vh;
     text-align: center;
@@ -3644,7 +3646,7 @@ body {
 .tutor-infor {
     position: absolute;
     width: 86.67vw;
-    top: 28.63vh;
+    top: 12.93vh;
     left: 6.67vw;
     font-size: 13px;
     font-family: MicrosoftYaHei;
@@ -3673,19 +3675,33 @@ body {
     float: right;
 }
 
-.tutor-bg>hr {
+.tutor-detail {
     position: relative;
-    top: 38.11vh;
+    width: 100%;
+    height: 50vh;
+    top: 14.5vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.tutor-bg hr {
+    position: relative;
+    top: 12.81vh;
     left: 6.8vw;
     border: 1px solid #E5C28A;
     width: 86.53vw;
 }
 
-.tutor-bg table {
+.tutor-bg ul {
     position: relative;
     left: 5.6vw;
-    top: 39.8vh;
+    top: 13.8vh;
     text-align: center;
+}
+
+.tutor-bg ul>li {
+    float: left;
+    margin: 0.5vh 1.0vw;
 }
 
 .album-name {
@@ -3746,7 +3762,8 @@ body {
     width: 85.33vw;
     height: 54.5vh;
     margin: 3.33vw 1.87vh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .lesson-title {
