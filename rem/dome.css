@@ -1,6 +1,7 @@
 body {
 	background: url(../images/03.png) no-repeat;
 	background-size: 100% 100%;
+	height:100rem;
 }
 
 header {
@@ -11,6 +12,7 @@ header {
 section {
 	width: 100%;
 	overflow: hidden;
+	overflow-y: auto;
 }
 section .box {
 	margin: .1rem auto;
@@ -29,7 +31,6 @@ section .box2 {
 section .box2 ul {
 	padding-top: 1.7rem;
 	text-align: center;
-	overflow: hidden;
 }
 section .box2 ul li{
 	width: 100%;
