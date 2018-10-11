@@ -18,13 +18,19 @@ $(function () {
         $("#search-text2").focus();
         $("#search-text2").bind("input", function () {
             var val = $("#search-text2").val();
-            if (val != "") {
-                city(val);
-                $("#search-close").show();
-                $(".city-international").hide();
-            } else {
-                $("#search-close").hide();
-            }
+            $(".city-search-btn").click(function () {
+                var city = $("#search-text2").val();
+                if (val != "") {
+                    citySearch(city);
+                }
+            });
+            // if (val != "") {
+            //     city(val);
+            //     $("#search-close").show();
+            //     $(".city-international").hide();
+            // } else {
+            //     $("#search-close").hide();
+            // }
         });
     });
 });
