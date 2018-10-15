@@ -311,6 +311,7 @@ function login(tel, password) {
         success: function (res) {
             console.log(res);
             var data = res.data;
+            var msg = res.msg;
             if (res.code == 1) {
                 sessionStorage.setItem("uid", data.UserId); //用户id
                 sessionStorage.setItem("birthday", data.birthday); //生日
@@ -327,7 +328,8 @@ function login(tel, password) {
                 sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
                 $(window).attr("location", "../homePages/home.html");
             } else {
-                $(window).attr("location", "../homePages/home.html");
+                alert(msg);
+                $(window).attr("location", "../reg/reg.html");
             }
         },
         error: function (err) {

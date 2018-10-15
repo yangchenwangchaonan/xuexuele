@@ -40,6 +40,7 @@ $(function () {
                 success: function (res) {
                     console.log(res);
                     var data = res.data;
+                    var msg = res.msg;
                     if (res.code == 1) {
                         sessionStorage.setItem("uid", data.UserId); //用户id
                         sessionStorage.setItem("birthday", data.birthday); //生日
@@ -54,11 +55,11 @@ $(function () {
                         sessionStorage.setItem("pk", data.pk); //pk值
                         sessionStorage.setItem("sex", data.sex); //性别
                         sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
-                        alert("登录成功");
+                        // alert("登录成功");
                         $(window).attr("location", "../homePages/home.html");
                         localStorage.setItem('token', res.Token);
                     } else {
-                        alert("未注册，请先注册~");
+                        alert(msg);
                     }
                 },
                 error: function (err) {
