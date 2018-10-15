@@ -2045,6 +2045,7 @@ body {
     width: 16.67vw;
     margin: 0 3.2vw;
 }
+
 .menu1 {
     transform: scale(1.2, 1.2);
 }
@@ -3668,7 +3669,7 @@ body {
     width: 100%;
     height: 50vh;
     top: 14.5vh;
-    overflow-x:hidden; 
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
@@ -3706,8 +3707,11 @@ body {
     top: 1.5vh;
     width: 29.33vw;
     height: 12.0vh;
-    background: url(../images/others.jpg) no-repeat;
-    background-size: 29.33vw 12.0vh;
+}
+
+.album-top>img {
+    width: 29.33vw;
+    height: 12.0vh;
 }
 
 .album-text {
