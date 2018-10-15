@@ -1,3 +1,4 @@
+$(function () {
     var preload;
     var mainfest;
 
@@ -24,7 +25,7 @@
 
     // 当整个队列变化时展示的进度事件的处理函数
     function handleFileProgress(event) {
-        if (event.loaded > 0.2) {
+        if (event.loaded > 0.4) {
             $(".index-process-wrapper>.loading>h1").text("加载中..." + Math.ceil(event.loaded * 100) + "%");
         }
         var num = Math.ceil(event.loaded * 100);
@@ -47,3 +48,4 @@
     }
     setupManifest();
     startPreload();
+});
