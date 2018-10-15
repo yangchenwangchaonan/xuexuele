@@ -7,7 +7,6 @@ $(function () {
     var lessonId = arr3[1].substr(arr3[1].indexOf("=") + 1);
     var wisdombean = arr3[2].substr(arr3[2].indexOf("=") + 1);
     WisdomDetailList(uId, lessonId, wisdombean)
-    // WisdomUnlock(uId, lessonId, wisdombean);
 });
 
 //解锁专辑课程列表详情
@@ -25,6 +24,9 @@ function WisdomDetailList(uId, lessonId, wisdombean) {
         dataType: "json",
         success: function (res) {
             console.log(res);
+        },
+        error: function (err) {
+            console.log(err);
         }
     });
 }

@@ -2045,19 +2045,8 @@ body {
     width: 16.67vw;
     margin: 0 3.2vw;
 }
-
-/*点击菜单项时变大*/
-/* .menu1 img {
-    width: 19.89vw;
-    height: 16.5vh;
-    margin: 0 2.3vw;
-} */
 .menu1 {
     transform: scale(1.2, 1.2);
-    /* -ms-transform: scale(1, 1); */
-    /* IE 9 */
-    /* -webkit-transform: scale(0.8, 0.8); */
-    /* Safari and Chrome */
 }
 
 /*新关卡*/
@@ -3322,7 +3311,7 @@ body {
     color: rgba(67, 144, 67, 1);
     text-indent: 0.5rem;
     vertical-align: middle;
-    line-height: 5.6vh;
+    line-height: 6.6vh;
 }
 
 .score-line {
@@ -3490,6 +3479,7 @@ body {
     padding: 0.9vh 3.0vw;
     overflow: hidden;
     border: 1px solid rgba(229, 194, 138, 0.3);
+    display: block;
 }
 
 .release-message {
