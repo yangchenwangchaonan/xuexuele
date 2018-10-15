@@ -1,10 +1,12 @@
 $(function () {
-	getSort(1);
+	var uId = sessionStorage.getItem("uid");
+	console.log(uId);
+	getSort(uId);
 	var $sort = $(".lesson-sort>.sort");
 	$sort.click(function () {
-		var id = $(this).attr("id");
+		var $id = $(this).attr("data-id");
 		// alert(id)
-		getSort(id);
+		getSort($id);
 	});
 });
 

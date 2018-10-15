@@ -2,7 +2,7 @@ $(function () {
     var url = window.location.href;
     var arr = url.split("=");
     var lessonId = arr[1];
-    var uId = 1; //用户id
+    var uId = sessionStorage.getItem("uid"); //用户id
     $("#audio").attr("data-ud", uId);
     $("#audio").attr("data-lsId", lessonId);
     //智慧社详情
@@ -10,31 +10,29 @@ $(function () {
 
     //分享好友
     $("#lessonShare").click(function () {
-        $("#shareShade").css("display", "block");
+        $("#shareShade").show();
         $("#shareShade").click(function () {
-            $("#shareShade").css("display", "none");
+            $("#shareShade").hide();
         });
     });
 
     // 课程留言
     $("#lessonMessage").click(function () {
-        $("#messageShade").css("display", "block");
+        $("#messageShade").show();
         messageList(uId, lessonId);
 
         // 关闭窗口
         $(".leave-message-close").click(function () {
-            $("#messageShade").css("display", "none");
+            $("#messageShade").hide();
         });
     });
 
     // 导师详情
     $(".lesson-tutor>ul").click(function () {
-        $("#tutorShade").css("display", "block");
-
-
+        $("#tutorShade").show();
         // 关闭窗口
         $(".tutor-close").click(function () {
-            $("#tutorShade").css("display", "none");
+            $("#tutorShade").hide();
         });
     });
 
@@ -45,34 +43,37 @@ $(function () {
 
     // 看文字
     $("#lessonText").click(function () {
-        $("#textShade").css("display", "block");
+        $("#textShade").show();
 
         // 关闭窗口
         $(".lesson-close").click(function () {
-            $("#textShade").css("display", "none");
+            $("#textShade").hide();
         });
     });
 
     // 课程介绍
     $("#lessonIntrouduct").click(function () {
-        $("#introductShade").css("display", "block");
+        $("#introductShade").show();
         // 关闭窗口
         $(".lesson-close").click(function () {
-            $("#introductShade").css("display", "none");
+            $("#introductShade").hide();
         });
     });
 
     // 课程举报
     $("#lessonReport").click(function () {
-        $("#reportShade").css("display", "block");
+        $("#reportShade").show();
         // 关闭窗口
         $(".report-btn").click(function () {
-            $("#reportShade").css("display", "none");
+            $("#reportShade").hide();
         });
     });
 
 
+
 });
+
+
 
 
 
@@ -102,6 +103,9 @@ function lessonDetail(uId, lessonId) {
                 $(".tutor-title").addClass("visitor-title");
                 $(".tutor-title").html("侠客");
             }
+            //导师id
+            localStorage.setItem("commentid", data.list.id);
+
             // 判断是否关注
             var followid = data.list.id;
             isAttention(uId, followid);
@@ -255,7 +259,7 @@ function scoreSum($uId, $lessonId) {
             $.each(res.data, function (index, val) {
                 $.each(list, function (i, v) {
                     if (i == index) {
-                        $(this).children("span").text(":" + val.total);
+                        $(this).children("span").text(":" + val.sum);
                     }
                 });
             });
@@ -309,7 +313,7 @@ function onAttention(uId, followid) {
         success: function (res) {
             console.log(res);
             $(".attention").html("已关注");
-            window.location.reload();
+            // window.location.reload();
         },
         error: function (err) {
             console.log(err);
@@ -329,7 +333,7 @@ function noAttention(uId, followid) {
         success: function (res) {
             console.log(res);
             $(".attention").html("关注");
-            window.location.reload();
+            // window.location.reload();
         },
         error: function (err) {
             console.log(err);
@@ -356,7 +360,7 @@ function messageList(uId, lessonId) {
                 var replay = val.reply;
                 $str += `
                 <li>
-                    <div class="leave-content">
+                    <div class="leave-content" data-id="${val.id}">
                         <div class="avatar-message"></div>
                         <span class="tourist-name">${val.uid}</span>
                         <span class="leave-message-time">${val.create_time}</span>
@@ -380,12 +384,12 @@ function messageList(uId, lessonId) {
             });
             $(".message-content").html($str);
             var $messageBtn = $(".message-btn");
-            $("#messageText").click(function () {
+            $("#messageText1").click(function () {
                 $messageBtn.css("opacity", "0");
-                $("#messageText").addClass("message-text2");
-                $(".release-message").css("display", "block");
+                $("#messageText1").addClass("message-text2");
+                $(".release-message").show();
                 /*字数限制*/
-                $("#messageText").on("input propertychange", function () {
+                $("#messageText1").on("input propertychange", function () {
                     var $this = $(this),
                         _val = $this.val(),
                         count = "";
@@ -394,11 +398,36 @@ function messageList(uId, lessonId) {
                     }
                 });
                 $(".release-message").click(function () {
-                    var $text = $("#messageText").val();
-                    if ($text == "") {
+                    $text1 = $("#messageText1").val();
+                    if ($text1 == "") {
+                        alert("请先输入内容~");
+                    } else {
+                        commentRelease(uId, lessonId, $text1); //发表课程留言
+                    }
+                });
+            });
+            $(".leave-content").click(function () {
+                $messageBtn.css("opacity", "0");
+                $("#messageText2").show();
+                $(".release-message").show();
+                /*字数限制*/
+                $("#messageText2").on("input propertychange", function () {
+                    var $this = $(this),
+                        _val = $this.val(),
+                        count = "";
+                    if (_val.length > 100) {
+                        $this.val(_val.substring(0, 100));
+                    }
+                });
+                var pId = $(this).attr("data-id"); //评论列表的id(父id)
+                var tId = localStorage.getItem("commentid"); //导师id
+                $(".release-message").click(function () {
+                    var $text2 = $("#messageText2").val();
+                    if ($text2 == "") {
                         alert("请先输入留言内容~");
                     } else {
-                        commentRelease(uId, lessonId, $text); //发表课程留言
+                        console.log(pId);
+                        commentReply(pId, tId, lessonId, $text2, uId); //回复留言
                     }
                 });
             });
@@ -408,6 +437,8 @@ function messageList(uId, lessonId) {
         }
     });
 }
+
+
 // 发布课程留言
 function commentRelease(uId, lessonId, $text) {
     $.ajax({
@@ -422,8 +453,8 @@ function commentRelease(uId, lessonId, $text) {
         success: function (res) {
             console.log(res);
             $(".message-btn").css("opacity", "1");
-            $("#messageText").removeClass("message-text2");
-            $(".release-message").css("display", "none");
+            $("#messageText1").removeClass("message-text2");
+            $(".release-message").hide();
             messageList(uId, lessonId);
         },
         error: function (err) {
@@ -433,19 +464,24 @@ function commentRelease(uId, lessonId, $text) {
 }
 
 // 回复留言
-function commentReply() {
+function commentReply(pId, tId, lessonId, $text, uId) {
+    console.log(pId);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/CommentReply",
         data: {
-            commentid: 1,
-            uid: 1,
-            courseid: 1,
-            content: 1
+            commentid: pId,
+            uid: tId,
+            courseid: lessonId,
+            content: $text
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
+            $(".message-btn").css("opacity", "1");
+            $("#messageText2").hide();
+            $(".release-message").hide();
+            messageList(uId, lessonId);
         },
         error: function (err) {
             console.log(err);
