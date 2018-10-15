@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条demo</title>
+	<script src="https://cdn.bootcss.com/PreloadJS/1.0.1/preloadjs.min.js"></script>
+</head>
+<body>
+	<script>	
+		// var queue = new createjs.LoadQueue(false);//本地开发使用false即可
+		//  queue.installPlugin(createjs.Sound);//如果载入声音，必须先注册createjs.Sound
+		//  queue.on("complete", handleComplete, this);//载入完成后调用
+		//  // queue.loadFile({id:"sound", src:"sound.mp3"});//载入单个文件
+		//  //载入一个文件列表
+		//  queue.loadManifest([
+		//  {id: "myImage1", src:"1.jpg"},
+		//  {id: "myImage2", src:"1.jpg"},
+		//  {id: "myImage3", src:"1.jpg"},
+		//  {id: "myImage4", src:"1.jpg"},
+		//  ]);
+		//  function handleComplete() {
+		//  	alert()
+
+		//      // createjs.Sound.play("sound");
+		//      // var image = queue.getResult("myImage1");
+		//      // var bitmap = new createjs.Bitmap(image);	     
+		//  }
+		//
+		var loader=new createjs.LoadQueue(false);
+loader.on("complete",onComplete);
+loader.on("error",onError);
+loader.on("progress",onProgress);
+loader.on("fileload",onFileLoad);
+loader.on("fileprogress",onFileProgress);
+
+loader.loadFile("1.jpg");
+
+function onComplete(e)
+{
+    console.log("complete");
+}
+function onError(e)
+{
+    console.log("error");
+}
+function onProgress(e)
+{
+    console.log("progress");
+}
+function onFileLoad(e)
+{
+    console.log("fileload");
+}
+function onFileProgress(e)
+{
+    console.log("fileprogress");
+}
+	</script>
+
+</body>
+</html>
