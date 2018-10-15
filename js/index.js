@@ -1,7 +1,6 @@
 $(function () {
     var preload;
     var mainfest;
-
     // 初始化预加载manifest清单
     function setupManifest() {
         mainfest = [{
