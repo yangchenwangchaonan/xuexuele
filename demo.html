@@ -24,11 +24,26 @@
             vertical-align: middle;
             text-align: center;
         }
+        progress::-webkit-progress-bar{     
+           background: black
+        }
+        .deal progress { -webkit-appearance: none; background: black;}
+        .deal ::-webkit-progress-inner-element { }
+        .deal ::-webkit-progress-bar { border: 1px solid red; }
+        .deal ::-webkit-progress-value { background: #FFF; }
+
+        .deal ::-moz-progress-bar { background: #FFF;  border: 1px solid red; }
+
+        .deal ::-ms-fill { background: #FFF; }
 </style>
 </head>
 <body>
 	<body>
+   
     <div class="loading">
+        <p class="deal">
+         <progress max="100" value="0" id="pg"></progress>
+        <p>
         <div class="progress"></div>
     </div>
     <img src="http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" />
@@ -151,7 +166,9 @@
     // 当整个队列变化时展示的进度事件的处理函数
     function handleFileProgress(event) {
         $(".progress").text("loading..."+Math.ceil(event.loaded * 100)+ "%");
-        console.log(event.loaded);
+        var num=Math.ceil(event.loaded * 100)
+        console.log(num)
+        console.log($("#pg").val(num))
     }
 
     // 处理preload添加当队列完成全部加载后触发事件
