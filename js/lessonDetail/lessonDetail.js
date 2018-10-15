@@ -123,6 +123,11 @@ function lessonDetail(uId, lessonId) {
             isAppraise(uId, lessonId, $score)
             $("#lessonMessage>p").text(data.list.commentsum); //留言
             $(".unsuccessed").text(data.list.coursetime); //音频时长
+
+            // 所属专辑
+            $("#albumName").click(function () {
+                $(window).attr("location", "./album-name.html");
+            });
         },
         error: function (err) {
             console.log(err);
@@ -143,6 +148,7 @@ function isAppraise(uId, lessonId, $score) {
         success: function (res) {
             console.log(res);
             var code = res.code;
+            localStorage.setItem("albumid",res.albumid);
             if (code == 1) {
                 $("#lessonAppraise>span").text($score);
                 $("#lessonAppraise>p").text("已评分");
