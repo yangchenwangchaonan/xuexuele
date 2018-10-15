@@ -3,10 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>进度条demo</title>
+	 <script src="./js/common/jquery-1.11.3.min.js"></script>
 	<script src="https://cdn.bootcss.com/PreloadJS/1.0.1/preloadjs.min.js"></script>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .loading {
+            display: table;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00ffb1;
+        }
+        .loading > .progress {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+</style>
 </head>
 <body>
-	<script>	
+	<body>
+    <div class="loading">
+        <div class="progress"></div>
+    </div>
+    <img src="images/01.png" style="display: none"/>
+    <img src="images/01.png" style="display: none"/>
+    <img src="images/01.png" style="display: none"/>
+    <img src="images/01.png" style="display: none"/>
+    <img src="images/01.png" style="display: none"/>
+    <img src="images/01.png" style="display: none"/>
+    <img src="images/01.png" style="display: none"/>
+</body>
+
+	<!-- <script>	
 		// var queue = new createjs.LoadQueue(false);//本地开发使用false即可
 		//  queue.installPlugin(createjs.Sound);//如果载入声音，必须先注册createjs.Sound
 		//  queue.on("complete", handleComplete, this);//载入完成后调用
@@ -55,7 +89,57 @@ function onFileProgress(e)
 {
     console.log("fileprogress");
 }
-	</script>
+	</script> -->
+
+
+
+	<script>
+
+    var preload;
+    var mainfest;
+
+    // 初始化预加载manifest清单
+    function setupManifest(){
+        mainfest = [
+            { src:"images/01.png"} , { src:"images/01.png"},
+            { src:"images/01.png"} , { src:"images/01.png"},
+            { src:"images/01.png"} , { src:"images/01.png"},
+            { src:"images/01.png"} , { src:"images/01.png"},
+            { src:"images/01.png"} , { src:"images/01.png"},
+            { src:"images/01.png"} , { src:"images/01.png"},
+            { src:"images/01.png"} , { src:"images/01.png"}
+        ];
+    }
+    // 预加载函数
+    function startPreload() {
+        preload = new createjs.LoadQueue(false);
+        //注意加载音频文件需要调用如下代码行
+        preload.installPlugin(createjs.SOUND);
+        //为preloaded添加整个队列变化时展示的进度事件
+        preload.addEventListener("progress",handleFileProgress);
+        //为preloaded添加当队列完成全部加载后触发事件
+        preload.addEventListener("complete",loadComplete);
+        //设置最大并发连接数  最大值为10
+        preload.setMaxConnections(1);
+        preload.loadManifest(mainfest);
+    }
+
+    // 当整个队列变化时展示的进度事件的处理函数
+    function handleFileProgress(event) {
+        $(".progress").text("loading..."+Math.ceil(event.loaded * 100)+ "%");
+        console.log(event.loaded);
+    }
+
+    // 处理preload添加当队列完成全部加载后触发事件
+    function loadComplete() {
+        // 设置定时器，当全部加载完毕后让100%停留0.4秒，提高用户体验，不至于让用户感觉不到
+        window.setTimeout(()=>{
+            $(".loading").remove();
+        },400);
+    }
+    setupManifest();
+    startPreload();
+</script>
 
 </body>
 </html>
