@@ -61,7 +61,7 @@ function albumCourseList(albumId, uId) {
 
             // 点击解锁
             $("#lockBtn").click(function(){
-                $(window).attr("location","./unlock_frame.html");
+                $(window).attr("location","./unlock_series.html");
             });
         },
         error: function (err) {

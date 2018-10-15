@@ -5,6 +5,7 @@ $(function () {
     var uId = sessionStorage.getItem("uid"); //用户id
     $("#audio").attr("data-ud", uId);
     $("#audio").attr("data-lsId", lessonId);
+    
     //智慧社详情
     lessonDetail(uId, lessonId);
 
@@ -26,20 +27,6 @@ $(function () {
             $("#messageShade").hide();
         });
     });
-
-    // 导师详情
-    $(".lesson-tutor>ul").click(function () {
-        $("#tutorShade").show();
-        // 关闭窗口
-        $(".tutor-close").click(function () {
-            $("#tutorShade").hide();
-        });
-    });
-
-    // 所属专辑
-    // $("#albumName").click(function () {
-    //     $(window).attr("location", "./album-name.html");
-    // });
 
     // 看文字
     $("#lessonText").click(function () {
@@ -72,9 +59,6 @@ $(function () {
 
 
 });
-
-
-
 
 
 
@@ -125,10 +109,20 @@ function lessonDetail(uId, lessonId) {
             $("#lessonMessage>p").text(data.list.commentsum); //留言
             $(".unsuccessed").text(data.list.coursetime); //音频时长
 
+            // 导师详情
+            $(".lesson-tutor>ul").click(function () {
+                $("#tutorShade").show();
+                tutorDetail(followid);
+                // 关闭窗口
+                $(".tutor-close").click(function () {
+                    $("#tutorShade").hide();
+                });
+            });
             // 所属专辑
             $("#albumName").click(function () {
-                $(window).attr("location", "./album-name.html?albumId="+albumId);
+                $(window).attr("location", "./album-name.html?albumId=" + albumId);
             });
+
         },
         error: function (err) {
             console.log(err);
@@ -149,7 +143,7 @@ function isAppraise(uId, lessonId, $score) {
         success: function (res) {
             console.log(res);
             var code = res.code;
-            localStorage.setItem("albumid",res.albumid);
+            localStorage.setItem("albumid", res.albumid);
             if (code == 1) {
                 $("#lessonAppraise>span").text($score);
                 $("#lessonAppraise>p").text("已评分");
@@ -489,6 +483,36 @@ function commentReply(pId, tId, lessonId, $text, uId) {
             $("#messageText2").hide();
             $(".release-message").hide();
             messageList(uId, lessonId);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+// 导师详情
+function tutorDetail(followid) {
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/My/FollowDetail",
+        data: {
+            followid: followid
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            var data=res.data;
+            $("#headBg").attr("src",data.headimg);
+            $(".tutor-avatar>p").html(data.nickname);
+            $("p.lesson-tutorInfor").html(data.introduction);
+            var textLen = data.introduction.length;
+            if(textLen >68){
+                var num = data.introduction.substring(0,68);
+                $("p.lesson-tutorInfor").html(num+"...");
+            }else{
+                $("p.lesson-tutorInfor").html(data.introduction);
+            }
+            
         },
         error: function (err) {
             console.log(err);
