@@ -76,51 +76,62 @@ body {
 }
 
 .index-process-wrapper {
+    position: absolute;
     width: 66.8vw;
     margin: 0 auto;
     background: url("../images/08.png") no-repeat center;
     background-size: 100% 100%;
-    position: absolute;
     left: 0;
     right: 0;
     top: 265px;
     height: 23px;
     z-index: 10000;
     box-sizing: border-box;
-    padding: 5px 5px 4px;
+    padding: 1.5px 5px 4px;
 }
 
-.index-process-bar {
-    position: relative;
-    background: url("../images/09.jpg") no-repeat center;
-    background-size: 100% 100%;
+.index-process-wrapper>.index-process-bar {
+    -webkit-appearance: none;
+    background: none;
+    width: 64vw;
+    height: 86%;
     border-radius: 10px;
+    display: inline-block;
 }
 
-.index-process-bar>i {
+.index-process-wrapper ::-webkit-progress-inner-element {}
+
+.index-process-wrapper ::-webkit-progress-bar {
+    background: transparent;
+    width: 100%;
+    border-radius: 10px
+}
+
+.index-process-wrapper ::-webkit-progress-value {
+    background: url("../images/09.jpg") repeat-x center;
+    background-size: auto 100%;
+    border-radius: 10px
+}
+
+.index-process-wrapper>.loading {
     position: absolute;
-    width: 40px;
-    height: 43px;
-    right: -50px;
     top: 50%;
     margin-top: -23px;
+}
+
+.index-process-wrapper>.loading>i {
+    display: inline-block;
+    width: 40px;
+    height: 43px;
     background: url("../images/loading_end.png") no-repeat center;
     background-size: 100% 100%;
 }
 
-.index-process-bar>h1 {
-    margin: 0;
-    height: 100%;
-    background: url("../images/09.jpg") repeat-x center;
-    background-size: auto 100%;
-    border-radius: 8px;
-    font-size: 10px;
+.index-process-wrapper>.loading>h1 {
+    margin-top: -33px;
+    margin-left: -24vw;
     color: #fff;
-    text-align: right;
-    text-shadow: 0 0 1px #22712A;
-    line-height: 14px;
-    overflow: hidden;
-    padding-right: 15px;
+    font-size: 12px;
 }
 
 /* 登录 */
@@ -2045,6 +2056,7 @@ body {
     width: 16.67vw;
     margin: 0 3.2vw;
 }
+
 .menu1 {
     transform: scale(1.2, 1.2);
 }
@@ -3668,7 +3680,7 @@ body {
     width: 100%;
     height: 50vh;
     top: 14.5vh;
-    overflow-x:hidden; 
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
@@ -3706,8 +3718,11 @@ body {
     top: 1.5vh;
     width: 29.33vw;
     height: 12.0vh;
-    background: url(../images/others.jpg) no-repeat;
-    background-size: 29.33vw 12.0vh;
+}
+
+.album-top>img {
+    width: 29.33vw;
+    height: 12.0vh;
 }
 
 .album-text {

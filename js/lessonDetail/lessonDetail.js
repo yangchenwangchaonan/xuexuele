@@ -37,9 +37,9 @@ $(function () {
     });
 
     // 所属专辑
-    $("#albumName").click(function () {
-        $(window).attr("location", "./album-name.html");
-    });
+    // $("#albumName").click(function () {
+    //     $(window).attr("location", "./album-name.html");
+    // });
 
     // 看文字
     $("#lessonText").click(function () {
@@ -92,6 +92,7 @@ function lessonDetail(uId, lessonId) {
             console.log(res);
             var data = res.data;
             var lock = data.lock;
+            var albumId = data.list.albumid;
             var identity = data.list.identity;
             var wisdombean = data.list.wisdombean;
             $("#lessonBackground").attr("src", data.list.courseimg); //课程背景
@@ -123,6 +124,11 @@ function lessonDetail(uId, lessonId) {
             isAppraise(uId, lessonId, $score)
             $("#lessonMessage>p").text(data.list.commentsum); //留言
             $(".unsuccessed").text(data.list.coursetime); //音频时长
+
+            // 所属专辑
+            $("#albumName").click(function () {
+                $(window).attr("location", "./album-name.html?albumId="+albumId);
+            });
         },
         error: function (err) {
             console.log(err);
@@ -143,6 +149,7 @@ function isAppraise(uId, lessonId, $score) {
         success: function (res) {
             console.log(res);
             var code = res.code;
+            localStorage.setItem("albumid",res.albumid);
             if (code == 1) {
                 $("#lessonAppraise>span").text($score);
                 $("#lessonAppraise>p").text("已评分");
