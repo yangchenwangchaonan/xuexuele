@@ -4,98 +4,8 @@ $(function () {
     // 初始化预加载manifest清单
     function setupManifest() {
         mainfest = [{
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
+                src: "http://www.taobao.com"
             },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/01f09e577b85450000012e7e182cf0.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/0125fd5770dfa50000018c1b486f15.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://img3.imgtn.bdimg.com/it/u=2200166214,500725521&fm=26&gp=0.jpg"
-            },
-            {
-                src: "http://img.zcool.cn/community/01f76f5a4b4aa2a801219741c7bde1.jpg@1280w_1l_2o_100sh.jpg"
-            },
-            {
-                src: "http://pic29.nipic.com/20130511/9252150_174018365301_2.jpg"
-            },
-            {
-                src: "http://pic.58pic.com/58pic/13/74/51/99d58PIC6vm_1024.jpg"
-            },
-            {
-                src: "http://img12.3lian.com/gaoqing02/01/58/85.jpg"
-            },
-            {
-                src: "http://pic63.nipic.com/file/20150330/8993928_082652755616_2.jpg"
-            },
-            {
-                src: "http://pic19.nipic.com/20120308/4970979_102637717125_2.jpg"
-            }
         ];
     }
     // 预加载函数
@@ -131,7 +41,7 @@ $(function () {
     function loadComplete() {
         // 设置定时器，当全部加载完毕后让100%停留0.4秒，提高用户体验，不至于让用户感觉不到
         window.setTimeout(() => {
-            $(window).attr("location", "./html/login/login.html");
+            $(window).attr("location", "http://www.taobao.com");
         }, 400);
 
     }
