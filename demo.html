@@ -31,64 +31,64 @@
     <div class="loading">
         <div class="progress"></div>
     </div>
-    <img src="images/01.png" style="display: none"/>
-    <img src="images/01.png" style="display: none"/>
-    <img src="images/01.png" style="display: none"/>
-    <img src="images/01.png" style="display: none"/>
-    <img src="images/01.png" style="display: none"/>
-    <img src="images/01.png" style="display: none"/>
-    <img src="images/01.png" style="display: none"/>
+    <img src="http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" />
+    <img src="http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" />
+    <img src="images/01.png" />
+    <img src="images/01.png" />
+    <img src="images/01.png" />
+    <img src="images/01.png" />
+    <img src="images/01.png" />
 </body>
 
 	<!-- <script>	
-		// var queue = new createjs.LoadQueue(false);//本地开发使用false即可
-		//  queue.installPlugin(createjs.Sound);//如果载入声音，必须先注册createjs.Sound
-		//  queue.on("complete", handleComplete, this);//载入完成后调用
-		//  // queue.loadFile({id:"sound", src:"sound.mp3"});//载入单个文件
-		//  //载入一个文件列表
-		//  queue.loadManifest([
-		//  {id: "myImage1", src:"1.jpg"},
-		//  {id: "myImage2", src:"1.jpg"},
-		//  {id: "myImage3", src:"1.jpg"},
-		//  {id: "myImage4", src:"1.jpg"},
-		//  ]);
-		//  function handleComplete() {
-		//  	alert()
+		var queue = new createjs.LoadQueue(false);//本地开发使用false即可
+		 queue.installPlugin(createjs.Sound);//如果载入声音，必须先注册createjs.Sound
+		 queue.on("complete", handleComplete, this);//载入完成后调用
+		 // queue.loadFile({id:"sound", src:"sound.mp3"});//载入单个文件
+		 //载入一个文件列表
+		 queue.loadManifest([
+		 {id: "myImage1", src:"1.jpg"},
+		 {id: "myImage2", src:"1.jpg"},
+		 {id: "myImage3", src:"1.jpg"},
+		 {id: "myImage4", src:"1.jpg"},
+		 ]);
+		 function handleComplete() {
+		 	alert()
 
-		//      // createjs.Sound.play("sound");
-		//      // var image = queue.getResult("myImage1");
-		//      // var bitmap = new createjs.Bitmap(image);	     
-		//  }
-		//
-		var loader=new createjs.LoadQueue(false);
-loader.on("complete",onComplete);
-loader.on("error",onError);
-loader.on("progress",onProgress);
-loader.on("fileload",onFileLoad);
-loader.on("fileprogress",onFileProgress);
+		     // createjs.Sound.play("sound");
+		     // var image = queue.getResult("myImage1");
+		     // var bitmap = new createjs.Bitmap(image);	     
+		 }
+		
+// var loader=new createjs.LoadQueue(false);
+// loader.on("complete",onComplete);
+// loader.on("error",onError);
+// loader.on("progress",onProgress);
+// loader.on("fileload",onFileLoad);
+// loader.on("fileprogress",onFileProgress);
 
-loader.loadFile("1.jpg");
+// loader.loadFile("1.jpg");
 
-function onComplete(e)
-{
-    console.log("complete");
-}
-function onError(e)
-{
-    console.log("error");
-}
-function onProgress(e)
-{
-    console.log("progress");
-}
-function onFileLoad(e)
-{
-    console.log("fileload");
-}
-function onFileProgress(e)
-{
-    console.log("fileprogress");
-}
+// function onComplete(e)
+// {
+//     console.log("complete");
+// }
+// function onError(e)
+// {
+//     console.log("error");
+// }
+// function onProgress(e)
+// {
+//     console.log("progress");
+// }
+// function onFileLoad(e)
+// {
+//     console.log("fileload");
+// }
+// function onFileProgress(e)
+// {
+//     console.log("fileprogress");
+// }
 	</script> -->
 
 
@@ -101,13 +101,37 @@ function onFileProgress(e)
     // 初始化预加载manifest清单
     function setupManifest(){
         mainfest = [
-            { src:"images/01.png"} , { src:"images/01.png"},
-            { src:"images/01.png"} , { src:"images/01.png"},
-            { src:"images/01.png"} , { src:"images/01.png"},
-            { src:"images/01.png"} , { src:"images/01.png"},
-            { src:"images/01.png"} , { src:"images/01.png"},
-            { src:"images/01.png"} , { src:"images/01.png"},
-            { src:"images/01.png"} , { src:"images/01.png"}
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"},
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"},
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"},
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img.zcool.cn/community/01f09e577b85450000012e7e182cf0.jpg@1280w_1l_2o_100sh.jpg"},
+            { src:"http://img.zcool.cn/community/0125fd5770dfa50000018c1b486f15.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://img3.imgtn.bdimg.com/it/u=2200166214,500725521&fm=26&gp=0.jpg"},
+            { src:"http://img.zcool.cn/community/01f76f5a4b4aa2a801219741c7bde1.jpg@1280w_1l_2o_100sh.jpg"}, 
+            { src:"http://pic29.nipic.com/20130511/9252150_174018365301_2.jpg"},
+            { src:"http://pic.58pic.com/58pic/13/74/51/99d58PIC6vm_1024.jpg"}, 
+            { src:"http://img12.3lian.com/gaoqing02/01/58/85.jpg"},
+            { src:"http://pic63.nipic.com/file/20150330/8993928_082652755616_2.jpg"}, 
+            { src:"http://pic19.nipic.com/20120308/4970979_102637717125_2.jpg"}
         ];
     }
     // 预加载函数
