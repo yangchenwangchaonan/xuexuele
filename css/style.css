@@ -4,6 +4,7 @@ body {
     height: 100%;
     width: 100%;
     font-size: 13px;
+    overflow-x: hidden;
     /* overflow: hidden; */
 }
 
@@ -670,7 +671,6 @@ body {
 .home-shade,
 .level-shade,
 .lesson-shade,
-.unlock-shade,
 .realname-shade,
 .personal-shade,
 .operate-shade,
@@ -684,6 +684,18 @@ body {
     background-color: rgba(0, 0, 0, .3);
     display: none;
 }
+
+.unlock-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+    display: none;
+}
+
 
 .cropper-box {
     position: absolute;
@@ -3647,10 +3659,30 @@ body {
 }
 
 .tutor-infor {
-    position: absolute;
+    position: relative;
     width: 86.67vw;
-    top: 12.93vh;
+    top: 4.53vh;
     left: 6.67vw;
+    font-size: 13px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(85, 50, 8, 1);
+    line-height: 18px;
+    padding-bottom:0.5vh; 
+    border-bottom: 2px solid #E5C28A;
+}
+.lesson-tutorInfor {
+    position: relative;
+    top: 0.2vh;
+    line-height: 18px;
+}
+
+/* 我的关注 */
+.follow-infor {
+    position: relative;
+    width: 86.67vw;
+    top: 8.93vh;
+    left: 2.67vw;
     font-size: 13px;
     font-family: MicrosoftYaHei;
     font-weight: 400;
@@ -3658,10 +3690,11 @@ body {
     line-height: 18px;
 }
 
-.lesson-tutorInfor {
+.follow-tutorInfor {
     position: relative;
     top: 0.2vh;
     line-height: 18px;
+    min-height: 1.5vh;
     max-height: 19.89vh;
 }
 
@@ -3672,39 +3705,24 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
-
-.follow-tutorInfor {
-    position: relative;
-    top: 14.2vh;
-    line-height: 18px;
-}
-
 .infor-read,.infor-close {
+    position: absolute;
+    bottom: 0.5vw;
+    right: 0.5vh;
+    color: rgba(48, 160, 7, 1);
+    display: none;
+}
+.follow-read,.follow-close {
     position: absolute;
     bottom: -0.5vw;
     right: 0.5vh;
     color: rgba(48, 160, 7, 1);
+    display: none;
 }
 
-.infor-read>img,.infor-close>img {
+.infor-read>img,.follow-read>img,.infor-close>img,.follow-close>img {
     width: 3.2vw;
 }
-
-/* .tutor-infor a {
-    float: right;
-    cursor: pointer;
-    font-size: 12px;
-    font-family: MicrosoftYaHei;
-    font-weight: 400;
-    color: rgba(48, 160, 7, 1);
-}
-
-.tutor-infor img {
-    position: relative;
-    top: 0.6vh;
-    width: 3.2vw;
-    float: right;
-} */
 
 .tutor-detail {
     position: relative;
@@ -3715,18 +3733,10 @@ body {
     overflow-y: auto;
 }
 
-.tutor-bg hr {
-    position: relative;
-    top: 12.81vh;
-    left: 6.8vw;
-    border: 1px solid #E5C28A;
-    width: 86.53vw;
-}
-
 .tutor-bg ul {
     position: relative;
     left: 5.6vw;
-    top: 13.8vh;
+    top: 5.8vh;
     text-align: center;
 }
 
@@ -3738,8 +3748,12 @@ body {
 .album-name {
     width: 27.33vw;
     height: 20.76vh;
-    background: url(../images/others.jpg) no-repeat;
-    background-size: 27.33vw 20.76vh;
+    /* background: url(../images/others.jpg) no-repeat;
+    background-size: 27.33vw 20.76vh; */
+}
+.album-name>img{
+    width: 100%;
+    height: 100%;
 }
 
 /*专辑名称*/
@@ -4132,7 +4146,7 @@ body {
 
 .serise-title {
     position: absolute;
-    width: 16.0vw;
+    width: 50.0vw;
     left: 4.0vw;
     top: 11.12vh;
     font-size: 15px;
@@ -4161,7 +4175,7 @@ body {
 .series-hasbeans {
     position: relative;
     top: 1.09vh;
-    left: 15.47vw;
+    left: 12.47vw;
     width: 61.07vw;
     height: 10.05vh;
     text-align: center;
@@ -5171,17 +5185,22 @@ body {
 
 /*关注详情*/
 .attention-content {
+    position: relative;
+    top: 10.67vw;
+    left: 0;
     width: 100%;
-    height: 86.56vh;
+    height: 80.56vh;
     border-radius: 15px;
+    overflow: hidden;
 }
 
 .attention-list-content {
-    position: absolute;
-    bottom: 5.5vh;
+    position: relative;
+    top: 9.5vh;
     width: 91vw;
-    height: 57.56vh;
-    overflow: auto;
+    max-height: 53.56vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .attention-album-list {
@@ -5200,9 +5219,9 @@ body {
 }
 
 .attention-tutor-avatar {
-    position: absolute;
+    position: relative;
     width: 90.67vw;
-    top: 12.62vh;
+    top: 3.62vh;
     height: 9.07vh;
 }
 
@@ -5222,8 +5241,12 @@ body {
 .attention-album-name {
     width: 26.4vw;
     height: 10.8vh;
-    background: url(../images/others.jpg) no-repeat;
-    background-size: 26.4vw 10.8vh;
+    /* background: url(../images/others.jpg) no-repeat;
+    background-size: 26.4vw 10.8vh; */
+}
+.attention-album-name>img{
+    width: 100%;
+    height: 100%;
 }
 
 /*我的课程*/

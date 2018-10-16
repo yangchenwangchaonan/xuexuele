@@ -5,10 +5,10 @@ $(function () {
     var uId = sessionStorage.getItem("uid"); //用户id
     $("#audio").attr("data-ud", uId);
     $("#audio").attr("data-lsId", lessonId);
-    
+
     //智慧社详情
     lessonDetail(uId, lessonId);
-
+    // a()
     //分享好友
     $("#lessonShare").click(function () {
         $("#shareShade").show();
@@ -57,9 +57,19 @@ $(function () {
     });
 
 
-
 });
 
+function a() {
+    var url = window.location.href;
+    var arr = url.split("=");
+    var lessonId = arr[1];
+    var uId = sessionStorage.getItem("uid"); //用户id
+    $("#audio").attr("data-ud", uId);
+    $("#audio").attr("data-lsId", lessonId);
+
+    //智慧社详情
+    lessonDetail(uId, lessonId);
+}
 
 
 // 智慧社详情
@@ -99,6 +109,7 @@ function lessonDetail(uId, lessonId) {
                 $(".lock-shade").css("display", "none");
             } else if (lock == 2) {
                 $(".lock-shade").css("display", "block");
+                $("#progressBarLock>span").html("x" + wisdombean);
                 $("#progressBarLock").click(function () {
                     $(window).attr("location", "./unlock_series.html?uid=" + uId + "&lessonId=" + lessonId + "&wisdombean=" + wisdombean);
                 });
@@ -116,6 +127,7 @@ function lessonDetail(uId, lessonId) {
                 // 关闭窗口
                 $(".tutor-close").click(function () {
                     $("#tutorShade").hide();
+                    // window.location.reload();
                 });
             });
             // 所属专辑
@@ -129,6 +141,7 @@ function lessonDetail(uId, lessonId) {
         }
     });
 }
+
 
 // 判断是否可评分
 function isAppraise(uId, lessonId, $score) {
@@ -271,6 +284,71 @@ function scoreSum($uId, $lessonId) {
     });
 }
 
+// 导师详情
+function tutorDetail(followid) {
+    var toturId = localStorage.getItem("commentid");
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/Wisdom/TutorDetail",
+        data: {
+            id: toturId
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            var data = res.data;
+            var userId = data.uid;
+            var introduction = data.introduction
+            $("#headBg").attr("src", data.headimg);
+            $(".tutor-avatar>p").html(data.nickname);
+            // 导师简介
+            if (introduction == "" || introduction == null || introduction == undefined) {
+                $("p.lesson-tutorInfor").html("暂无简介");
+            } else {
+                $(".infor-read").show();
+                $(".infor-close").hide();
+                var textLen = introduction.length;
+                if (textLen > 43) {
+                    var num = introduction.substring(0, 43);
+                    $("p.lesson-tutorInfor").html(num + "...");
+                } else {
+                    $("p.lesson-tutorInfor").html(introduction);
+                }
+            }
+            $(".infor-read").click(function () {
+                $("p.lesson-tutorInfor").html(introduction);
+                $(".infor-read").hide();
+                $(".infor-close").show();
+            });
+            $(".infor-close").click(function () {
+                $("p.lesson-tutorInfor").html(num + "...");
+                $(".infor-read").show();
+                $(".infor-close").hide();
+            });
+            //专辑列表
+            var str = "";
+            var albumlist = data.albumlist;
+            $.each(albumlist, function (index, val) {
+                str += `
+                    <li>
+                        <div class="album-name"><img src="${val.albumimg}"/></div>
+                        <p>${val.albumname}</p>
+                    </li>
+                `;
+            });
+            $("#albumList").html(str);
+            //判断是否关注
+            isAttention(userId, followid);
+
+
+
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
 // 是否被关注
 function isAttention(uId, followid) {
     $.ajax({
@@ -286,13 +364,25 @@ function isAttention(uId, followid) {
             var code = res.code;
             if (code == 1) {
                 $(".attention").text("已关注");
+                $("#followShow").text("已关注");
                 $(".attention").click(function () {
-                    noAttention(uId, followid)
+                    $(".attention").text("关注");
+                    noAttention(uId, followid);
+                });
+                $("#followShow").click(function () {
+                    $("#followShow").text("关注");
+                    noAttention(uId, followid);
                 });
             } else {
                 $(".attention").text("关注");
+                $("#followShow").text("关注");
                 $(".attention").click(function () {
+                    $(".attention").text("已关注");
                     onAttention(uId, followid)
+                });
+                $("#followShow").click(function () {
+                    $("#followShow").text("已关注");
+                    onAttention(uId, followid);
                 });
             }
         },
@@ -301,6 +391,9 @@ function isAttention(uId, followid) {
         }
     });
 }
+
+
+
 //点击关注
 function onAttention(uId, followid) {
     $.ajax({
@@ -483,36 +576,6 @@ function commentReply(pId, tId, lessonId, $text, uId) {
             $("#messageText2").hide();
             $(".release-message").hide();
             messageList(uId, lessonId);
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}
-
-// 导师详情
-function tutorDetail(followid) {
-    $.ajax({
-        type: "GET",
-        url: APP_URL + "/api/My/FollowDetail",
-        data: {
-            followid: followid
-        },
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            var data=res.data;
-            $("#headBg").attr("src",data.headimg);
-            $(".tutor-avatar>p").html(data.nickname);
-            $("p.lesson-tutorInfor").html(data.introduction);
-            var textLen = data.introduction.length;
-            if(textLen >68){
-                var num = data.introduction.substring(0,68);
-                $("p.lesson-tutorInfor").html(num+"...");
-            }else{
-                $("p.lesson-tutorInfor").html(data.introduction);
-            }
-            
         },
         error: function (err) {
             console.log(err);

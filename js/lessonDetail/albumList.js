@@ -30,7 +30,7 @@ function albumCourseList(albumId, uId) {
                 var lock = val.islock;
                 str += `
                     <div class="lesson-title">
-                        <div class="list-num">${index}</div>
+                        <div class="list-num">${index+1}</div>
                         <div class="lesson-list-detail">
                             <div class="lesson-list-title">
                                 <div class="lesson-list-name">${val.coursename}</div>

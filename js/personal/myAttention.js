@@ -1,5 +1,5 @@
 $(function () {
-    var uId = 1;
+    var uId = sessionStorage.getItem("uid");
     attentionList(uId);
 });
 
@@ -31,7 +31,7 @@ function attentionList(uId) {
                 $(".followig").click(function () {
                     $(window).attr("location", "attention-detail.html");
                 });
-                //判断是否被关注
+                //关注
                 var followId = val.followid;
                 var $followList = $(".attention-signed");
                 $followList.click(function(){

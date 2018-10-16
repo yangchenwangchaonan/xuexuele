@@ -1,11 +1,8 @@
 $(function () {
-	var uId = sessionStorage.getItem("uid");
-	console.log(uId);
-	getSort(uId);
+	getSort(1);
 	var $sort = $(".lesson-sort>.sort");
 	$sort.click(function () {
-		var $id = $(this).attr("data-id");
-		// alert(id)
+		var $id = $(this).attr("data-sId");
 		getSort($id);
 	});
 });
@@ -28,7 +25,7 @@ function getSort(id) {
 			$.each(data, function (index, val) {
 				str += `
 				<li>
-					<div class="table-lesson" data-id = "${val.id}">
+					<div class="table-lesson" data-lId = "${val.id}">
 						<img src="${val.courseimg}">
 						<div class="lesson-name">${val.coursename}</div>
 						<div class="table-smile"><img src="../../images/125.png" />x${val.coursescore}</div>
@@ -39,7 +36,7 @@ function getSort(id) {
 			});
 			$(".lesson-list>ul").html(str);
 			$(".table-lesson").click(function () {
-				var lessonId = $(this).attr("data-id");
+				var lessonId = $(this).attr("data-lId");
 				$(window).attr("location", "./lesson-detail.html?lessonId="+lessonId);
 			});
 		},
