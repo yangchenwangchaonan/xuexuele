@@ -1,6 +1,6 @@
 $(function(){
 	recharge();
-    $(".no-recharge").css("display","none");
+    $(".no-recharge").hide()
 });
 // 获取列表内容
 function recharge() {
@@ -15,6 +15,9 @@ function recharge() {
 			console.log(res);
 			var data = res.data;
 			var str = "";
+			if (res.data=='') {
+				$(".no-recharge").show()
+			}
 			$.each(data, function (index, val) {
 				str += `
 				<div class="recharge-record">

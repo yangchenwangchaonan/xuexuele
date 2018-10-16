@@ -18,14 +18,8 @@
 		$(function () {
 			//ajax获取日历json数据
 			var signList = [{
-				"signDay": "09"
-			}, {
-				"signDay": "11"
-			}, {
-				"signDay": "12"
-			}, {
-				"signDay": "13"
-			}];
+				"signDay":''
+			},];
 			calUtil.init(signList);
 		});
 	</script>
@@ -143,10 +137,11 @@
 				<img src="../../images/39.png" class="signed-close" />
 				<!-- 日历 -->
 				<div class="calendar" id="calendar"></div>
-				<div id="calendar-count">
-					<span>本月共签到：<span class="calendar-day">1</span>天</span>
-					<span>获得智慧豆：<span class="calendar-beans">20</span></span>
+				<div class="calendar-count" id="calendar-count">
+					<span>本月共签到：<span class="calendar-day"></span>天</span>
+					<span class="calendar-num">获得智慧豆：<span class="calendar-beans"></span></span>
 				</div>
+				<p class="on">点击签到</p>
 			</div>
 		</div>
 		<!--首次闯关-->
