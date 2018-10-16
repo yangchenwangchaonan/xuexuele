@@ -130,7 +130,8 @@ body {
 }
 
 .index-process-wrapper>.loading>h1 {
-    margin-top: -76%;;
+    margin-top: -76%;
+    ;
     margin-left: -24vw;
     color: #fff;
     font-size: 12px;
@@ -3615,7 +3616,7 @@ body {
 }
 
 .head-bg {
-    margin-left: 39.5vw;
+    margin-left: 42.0vw;
     width: 16.8vw;
     height: 16.8vw;
     background: url(../images/111.png) no-repeat;
@@ -3657,11 +3658,39 @@ body {
     line-height: 18px;
 }
 
-.tutor-infor>p {
+.lesson-tutorInfor {
+    position: relative;
+    top: 0.2vh;
+    line-height: 18px;
+    max-height: 19.89vh;
+}
+
+.lesson-maxNum {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.follow-tutorInfor {
+    position: relative;
+    top: 14.2vh;
     line-height: 18px;
 }
 
-.tutor-infor a {
+.infor-read,.infor-close {
+    position: absolute;
+    bottom: -0.5vw;
+    right: 0.5vh;
+    color: rgba(48, 160, 7, 1);
+}
+
+.infor-read>img,.infor-close>img {
+    width: 3.2vw;
+}
+
+/* .tutor-infor a {
     float: right;
     cursor: pointer;
     font-size: 12px;
@@ -3675,7 +3704,7 @@ body {
     top: 0.6vh;
     width: 3.2vw;
     float: right;
-}
+} */
 
 .tutor-detail {
     position: relative;
@@ -3874,7 +3903,9 @@ body {
 .lesson-locked {
     color: rgba(149, 104, 38, 1);
 }
-.lesson-playing>img,.lesson-locked>img {
+
+.lesson-playing>img,
+.lesson-locked>img {
     width: 2.67vw;
 }
 
@@ -4010,6 +4041,14 @@ body {
     background: url(../images/170.png) no-repeat;
     background-size: 16.8vw 9.6vh;
     z-index: 9999;
+}
+
+.progress-locked>span {
+    display: inline-block;
+    color: #956826;
+    font-weight: 600;
+    font-size: 10px;
+    margin: 5.65vh 7.0vw;
 }
 
 .locked-shade {

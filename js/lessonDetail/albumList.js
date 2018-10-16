@@ -4,7 +4,7 @@ $(function () {
     var arr = url.split("=");
     var albumId = arr[1];
     albumCourseList(albumId, uId)
-    
+
 });
 
 
@@ -58,6 +58,11 @@ function albumCourseList(albumId, uId) {
                 `;
             });
             $(".lesson-title-list").html(str);
+
+            // 点击解锁
+            $("#lockBtn").click(function(){
+                $(window).attr("location","./unlock_series.html");
+            });
         },
         error: function (err) {
             console.log(err);
