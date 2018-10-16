@@ -27,8 +27,10 @@ $(function () {
         $(".signed-close").click(function () {
             $("#recording-shade").css("display", "none");
         });
-        actioveDate()   //日历当前日期渲染
+        // actioveDate()   //日历当前日期渲染
         signinDate()    //当月签到日期渲染
+        handleClick()   //点击签到
+
     });
     //百宝箱
     $("#treasureBox-tab").click(function () {
@@ -83,6 +85,9 @@ function userGate(){
     });
 }
 
+
+
+
 //日历
 var calUtil = {
 
@@ -121,10 +126,10 @@ var calUtil = {
   //绑定事件
 
   bindEnvent:function(signList){
-    $(".calendar_record").click(function(){
-    var tmp = {"signDay":$(this).html()};
-    calUtil.init(signList,tmp);
-    });
+    // $(".calendar_record").click(function(){
+    // var tmp = {"signDay":$(this).html()};
+    // calUtil.init(signList,tmp);
+    // });
   },
 
   //获取当前选择的年月
@@ -249,16 +254,20 @@ var calUtil = {
 };
 
 //日历当前日期渲染
-function actioveDate() {
-    var date = moment(new Date).format('MM')
+function actioveDate(datelist) {
+    console.log(datelist)
     var li = $('#sign_cal').children().children()
     $(li).each(function(index, val) {
         var count = $(this).html()
-        if(count == date) {
-            $(this).css({"background": "#5ABE1B"})
-        }
-    })
+        for (var i=0; i<datelist.length; i++) {
+            var date=(moment(datelist[i].signdate).format("DD"));
+           if(count == date) {
+                $(this).css({"background": "#5ABE1B"})
+           }
+        }  
+    });
 }
+
 //当月签到日期渲染
 function signinDate() {
     var uid = sessionStorage.getItem("uid"); //用户id
@@ -267,10 +276,44 @@ function signinDate() {
         url: APP_URL + "/api/User/UserSigninTotal",
         dataType: "json",
         data: {
-            uid: uid 
+            uid: uid
         },
         success: function(res) {
+            var data=res.data
+            $('.calendar-day').text(data.days)
+            $('.calendar-beans').text(data.beans)
+            actioveDate(data.datelist)
             console.log(res)
+        },
+        error: function(err) {
+          console.log(err)
         }
     })
+}
+
+//点击签到
+function handleClick(){
+  $(".on").click(function () {
+      var uid = sessionStorage.getItem("uid"); //用户id
+      $.ajax({
+          type: "post",
+          url: APP_URL + "/api/User/UserSignin",
+          dataType: "json",
+          data: {
+              uid: uid
+          },
+          success: function(res) {
+            console.log(res)
+            signinDate()
+            if(res.code==1){
+              alert("签到成功")
+            }else{
+              alert(res.msg)
+            }
+          },
+          error: function(err) {
+            console.log(err)
+          }
+      })
+  })
 }

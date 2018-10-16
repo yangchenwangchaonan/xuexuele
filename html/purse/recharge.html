@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="../../images/favicon.ico">
     <link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
+	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/purse/recharge.js"></script>
@@ -16,27 +17,34 @@
 		<i class="purse-back"></i>
 		<span id="purse-title">-充值-</span>
 		<div class="recharge-box">
-			<span id="recharge-reminbi">人民币</span>
-	    	<span id="recharge-dollar">美元</span>
-	    	<div id="recharge-line"></div>
-	    	<div id="recharge-line-in"></div>
-	    	<div id="recharge-line-out"></div>
-	    	<div class="recharge-value">
-				<ul>
-					<li class="initial"><h1>6元</h1><p>6智慧豆</p></li>
-					<li class="initial selected"><h1>10元</h1><p>10智慧豆</p></li>
-					<li class="initial"><h1>50元</h1><p>50智慧豆</p></li>
-					<li class="initial"><h1>118元</h1><p>118智慧豆</p></li>
-					<li class="initial"><h1>218元</h1><p>218智慧豆</p></li>
-					<li class="initial"><h1>448元</h1><p>488智慧豆</p></li>
-				</ul>
-	    	</div>
-	    	<div class="recharge-want">
-		    	<input type="text" placeholder="自定义充值金额" id="recharge-input"/>
-		    	<img src="../../images/191.png"/>
-	    	</div>
-	    	<div class="recharge-confirm">￥10  立即充值</div>
+			<div class="regcharge-content">
+				<div id="recharge-reminbi" class="recharge-money recharge-checked">人民币</div>
+			    <div id="recharge-dollar" class="recharge-money">美元</div>
+		     </div>
+		    <div id="recharge-line"></div>
+		    <div class="recharge-rmb">
+		    	<div class="recharge-value">
+					<ul>
+						<!-- <li class="initial selected"><h1>10元</h1><p>10智慧豆</p></li>
+						<li class="initial"><h1>50元</h1><p>50智慧豆</p></li>
+						<li class="initial"><h1>118元</h1><p>118智慧豆</p></li>
+						<li class="initial"><h1>218元</h1><p>218智慧豆</p></li>
+						<li class="initial"><h1>448元</h1><p>488智慧豆</p></li> -->
+					</ul>
+		    	</div>
+		    	<div class="recharge-want">
+			    	<input type="text" placeholder="自定义充值金额" id="recharge-input"/>
+			    	<img src="../../images/191.png"/>
+		    	</div>
+		    	<div class="recharge-confirm">￥<span class="num"></span>  立即充值</div>
+			</div>
+
+	    	<div class="dollar-selected">
+				<img src="../../images/193.png"/>
+				<p>正在开发中…</p>
+			</div>
 		</div>
+		
 	</section>
 </body>
 </html>

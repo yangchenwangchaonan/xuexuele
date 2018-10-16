@@ -43,8 +43,6 @@ $(function () {
             {src: path+"236.png"},
             {src: path+"others.jpg"},
 
-
-
             // {src: path+"01.png"},
             // {src: path+"01.png"},
             // {src: path+"01.png"},

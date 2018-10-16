@@ -4233,8 +4233,8 @@ body {
 /*解锁成功*/
 .unlock-frame {
     position: absolute;
-    top: 50.88vw;
-    left: 14.1vw;
+    top: 36.88vw;
+    left: 12.1vw;
     width: 73.2vw;
     height: 29.84vh;
     background: url(../images/120.png) no-repeat;
@@ -4436,6 +4436,7 @@ body {
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
+    display: none;
 }
 
 .no-recharge img,
@@ -4444,15 +4445,21 @@ body {
 }
 
 /*充值方式*/
-#recharge-reminbi,
-#recharge-dollar {
+
+.recharge-money {
     position: absolute;
-    display: inline-block;
     height: 2.25vh;
     top: 3.07vh;
     font-size: 15px;
     font-family: MicrosoftYaHei;
+    color: rgba(58, 141, 18, 0.6);
+    padding: 0 1.5vw 3.5vh 1.5vw ;
+}
+
+.recharge-checked {
     color: rgba(58, 141, 18, 1);
+    border-bottom: 4px #3A8D12 solid;
+    opacity: 1;
 }
 
 #recharge-reminbi {
@@ -4461,7 +4468,6 @@ body {
 
 #recharge-dollar {
     right: 14.8vw;
-    opacity: 0.6;
 }
 
 #recharge-line {
@@ -4474,7 +4480,7 @@ body {
     left: 2.667vw;
 }
 
-#recharge-line-in {
+/*#recharge-line-in {
     position: absolute;
     width: 57.5px;
     height: 4px;
@@ -4482,9 +4488,9 @@ body {
     top: 6.6vh;
     left: 15.067vw;
     display: block;
-}
+}*/
 
-#recharge-line-out {
+/*#recharge-line-out {
     position: absolute;
     width: 79px;
     height: 4px;
@@ -4492,9 +4498,9 @@ body {
     top: 6.6vh;
     left: 56vw;
     display: none;
-}
+}*/
 
-/*选择美元时,display为none*/
+
 .recharge-value {
     position: absolute;
     top: 8.5vh;
@@ -6005,9 +6011,29 @@ body {
 .calendar {
     margin-top: 41px;
     width: 85vw;
-    margin-left: 25px;
+    margin-left: 6.66666vw;
 }
-
+.calendar-count{
+    display: inline-block;
+    margin-left: 10.6vw;
+    margin-top: 15%;
+    color:#fff;
+}
+.calendar-count>.calendar-num{
+    margin-left: 23vw;
+}
+.home-recording>p{
+    width: 66.66vw;
+    height: 11%;
+    text-align: center;
+    background: url('../images/11.png') no-repeat;
+    background-size:100% 100%;
+    line-height: 265%;
+    margin: 0 auto;
+    margin-top: 3%;
+    font-size:18px;
+    color: #fff;
+}
 .singer_r_img {
     display: block;
     line-height: 45px;
