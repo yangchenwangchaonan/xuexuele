@@ -456,6 +456,7 @@ body {
     float: left;
 }
 
+
 .reg-end-list>li>p,
 .realname-list>li>p,
 .personal-list>li>p,
@@ -467,6 +468,25 @@ body {
     padding-right: 11px;
 }
 
+.realname-list>li>p>input {
+    background-color: rgba(255, 247, 223, 0.2);
+    text-align: right;
+    color: #956826;
+}
+.realname-list>li>p>input::-webkit-input-placeholder {
+    color: #956826;
+}
+
+.card-upload {
+    position:relative;
+}
+.cardFile {
+    position:relative;
+    top:0;
+    left:0;
+    width: 4.5vw;
+    opacity: 0;
+}
 .realname-list>li>p,
 .personal-list>li>p,
 .personal-setting-list>li>p,

@@ -4,11 +4,12 @@ $(function(){
 });
 // 获取列表内容
 function recharge() {
+	var uid = sessionStorage.getItem("uid")
 	$.ajax({
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/WalletRecord",
 		data: {
-			uid:1
+			uid:uid
 		},
 		dataType: "json",
 		success: function (res) {
