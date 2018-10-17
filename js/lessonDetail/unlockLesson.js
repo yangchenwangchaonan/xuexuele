@@ -5,7 +5,6 @@ $(function () {
     var arr3 = arr1[1].split("&");
     var uId = arr3[0].substr(arr3[0].indexOf("=") + 1);
     var lessonId = arr3[1].substr(arr3[1].indexOf("=") + 1);
-    // var wisdombean = arr3[2].substr(arr3[2].indexOf("=") + 1);
     WisdomDetailList(uId, lessonId);
 });
 

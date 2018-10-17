@@ -1,13 +1,4 @@
 $(function () {
-    // var url = window.location.href;
-    // var arr = url.split("=");
-    // var lessonId = arr[1];
-    // var uId = sessionStorage.getItem("uid"); //用户id
-    // $("#audio").attr("data-ud", uId);
-    // $("#audio").attr("data-lsId", lessonId);
-
-    // //智慧社详情
-    // lessonDetail(uId, lessonId);
     start();
     //分享好友
     $("#lessonShare").click(function () {
@@ -16,46 +7,6 @@ $(function () {
             $("#shareShade").hide();
         });
     });
-
-    // 课程留言
-    $("#lessonMessage").click(function () {
-        $("#messageShade").show();
-        messageList(uId, lessonId);
-
-        // 关闭窗口
-        $(".leave-message-close").click(function () {
-            $("#messageShade").hide();
-        });
-    });
-
-    // 看文字
-    $("#lessonText").click(function () {
-        $("#textShade").show();
-
-        // 关闭窗口
-        $(".lesson-close").click(function () {
-            $("#textShade").hide();
-        });
-    });
-
-    // 课程介绍
-    $("#lessonIntrouduct").click(function () {
-        $("#introductShade").show();
-        // 关闭窗口
-        $(".lesson-close").click(function () {
-            $("#introductShade").hide();
-        });
-    });
-
-    // 课程举报
-    $("#lessonReport").click(function () {
-        $("#reportShade").show();
-        // 关闭窗口
-        $(".report-btn").click(function () {
-            $("#reportShade").hide();
-        });
-    });
-
 
 });
 
@@ -69,7 +20,6 @@ function start() {
     //智慧社详情
     lessonDetail(uId, lessonId);
 }
-
 
 // 智慧社详情
 function lessonDetail(uId, lessonId) {
@@ -164,10 +114,60 @@ function lessonDetail(uId, lessonId) {
                     // start();
                 });
             });
+            // 课程留言
+            $("#lessonMessage").click(function () {
+                $("#messageShade").show();
+                messageList(uId, lessonId);
+
+                // 关闭窗口
+                $(".leave-message-close").click(function () {
+                    $("#messageShade").hide();
+                });
+            });
             // 所属专辑
             $("#albumName").click(function () {
                 $(window).attr("location", "./album-name.html?albumId=" + albumId);
             });
+            // 看文字
+            var coursecontent = data.list.coursecontent;
+            $("#lessonText").click(function () {
+                $("#textShade").show();
+                $(".lesson-text-inner>span").html(coursecontent);
+                // 关闭窗口
+                $(".lesson-close").click(function () {
+                    $("#textShade").hide();
+                });
+            });
+
+            // 课程介绍
+            var coursetxt = data.list.coursetxt;
+            var coursename = data.list.coursename;
+            $("#lessonIntrouduct").click(function () {
+                $("#introductShade").show();
+                $(".lesson-introduction-inner>h1").html(coursename);
+                $(".lesson-introduction-inner>span").html(coursetxt);
+                // 关闭窗口
+                $(".lesson-close").click(function () {
+                    $("#introductShade").hide();
+                });
+            });
+
+            // 课程举报
+            $("#lessonReport").click(function () {
+                $(".report-tab>ul>li>.report-option").removeClass("report-option1");
+                $("#reportShade").show();
+                $(".report-tab>ul>li").click(function () {
+                    $(this).children().addClass("report-option1");
+                    $(this).siblings().children().removeClass("report-option1");
+                    var num = $(this).children().attr("data-num");
+                    regular(uId, lessonId, num);
+                });
+                // 关闭窗口
+                $(".report-btn").click(function () {
+                    $("#reportShade").hide();
+                });
+            });
+
         },
         error: function (err) {
             console.log(err);
@@ -330,13 +330,17 @@ function tutorDetail(isfollow, followid) {
             var albumlist = data.albumlist;
             $.each(albumlist, function (index, val) {
                 str += `
-                    <li>
+                    <li data-id="${val.id}">
                         <div class="album-name"><img src="${val.albumimg}"/></div>
                         <p>${val.albumname}</p>
                     </li>
                 `;
             });
             $("#albumList").html(str);
+            $("#albumList>li").click(function(){
+                var albumId = $(this).attr("data-id");
+                $(window).attr("location", "./album-name.html?albumId=" + albumId);
+            });
         },
         error: function (err) {
             console.log(err);
@@ -527,6 +531,29 @@ function commentReply(pId, tId, lessonId, $text, uId) {
             $("#messageText2").hide();
             $(".release-message").hide();
             messageList(uId, lessonId);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+// 举报
+function regular(uId, lessonId, num) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/Wisdom/Regular",
+        data: {
+            uid: uId,
+            courseid: lessonId,
+            classify: num
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                alert("已举报~");
+            }
         },
         error: function (err) {
             console.log(err);
