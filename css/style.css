@@ -4184,8 +4184,7 @@ body {
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
 }
 
-.series-hasbeans>span,
-.series-nobeans>span {
+.series-hasbeans>span {
     font-size: 13px;
     font-family: MicrosoftYaHei;
     font-weight: 400;
@@ -4194,7 +4193,7 @@ body {
 }
 
 /*智慧豆不足*/
-.series-nobeans {
+/* .series-nobeans {
     position: absolute;
     top: 1.09vh;
     left: 15.47vw;
@@ -4202,7 +4201,7 @@ body {
     height: 10.05vh;
     text-align: center;
     display: none;
-}
+} */
 
 .nobeans-btn {
     margin: 0 auto;
