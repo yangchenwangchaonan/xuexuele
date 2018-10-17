@@ -7,14 +7,6 @@ $(function () {
     var lessonId = arr3[1].substr(arr3[1].indexOf("=") + 1);
     // var wisdombean = arr3[2].substr(arr3[2].indexOf("=") + 1);
     WisdomDetailList(uId, lessonId);
-
-    // 立即解锁
-    $("#lockNow").click(function () {
-        $(".unlock-shade").show();
-        $(".unlock-shade").click(function () {
-            $(".unlock-shade").hide();
-        });
-    });
 });
 
 //解锁专辑课程列表详情
@@ -47,6 +39,14 @@ function WisdomDetailList(uId, lessonId) {
                 `;
             });
             $(".series-title-list").prepend(str);
+
+            // 立即解锁
+            $("#lockNow").click(function () {
+                $(".unlock-shade").show();
+                $(".unlock-btn").click(function () {
+                    $(window).attr("location","./lesson-detail.html");
+                });
+            });
         },
         error: function (err) {
             console.log(err);

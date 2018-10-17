@@ -705,18 +705,6 @@ body {
     display: none;
 }
 
-.unlock-shade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .3);
-    display: none;
-}
-
-
 .cropper-box {
     position: absolute;
     width: 100%;
@@ -4251,10 +4239,20 @@ body {
 }
 
 /*解锁成功*/
-.unlock-frame {
+.unlock-shade {
     position: absolute;
-    top: 36.88vw;
-    left: 12.1vw;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+    display: none;
+    padding-top: 27.88vh;
+    padding-left: 12.1vw;
+}
+
+.unlock-frame {
     width: 73.2vw;
     height: 29.84vh;
     background: url(../images/120.png) no-repeat;
