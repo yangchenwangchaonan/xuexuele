@@ -14,7 +14,7 @@ $(function(){
 });
 
 function aliPay(a) {
-	var uid = localStorage.getItem("uid")
+	var uid = sessionStorage.getItem("uid")
 	$.ajax({
 		type: "POST",
 		url: APP_URL + "/api/Wisdom/AliPay",
@@ -31,7 +31,7 @@ function aliPay(a) {
 	});
 }
 function walletOrderWxPay(a) {
-	var uid = localStorage.getItem("uid")
+	var uid = sessionStorage.getItem("uid")
 	$.ajax({
 		type: "POST",
 		url: APP_URL + "/api/Wisdom/WalletOrderWxPay",

@@ -16,7 +16,7 @@ $(function(){
 });
 // 获取列表内容
 function moneyRuleList() {
-	var uid = localStorage.getItem("uid")
+	var uid = sessionStorage.getItem("uid")
 	$.ajax({
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/MoneyRuleList",
