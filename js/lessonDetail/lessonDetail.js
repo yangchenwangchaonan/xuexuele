@@ -1,14 +1,5 @@
 $(function () {
-    var url = window.location.href;
-    var arr = url.split("=");
-    var lessonId = arr[1];
-    var uId = sessionStorage.getItem("uid"); //用户id
-    $("#audio").attr("data-ud", uId);
-    $("#audio").attr("data-lsId", lessonId);
-
-    //智慧社详情
-    lessonDetail(uId, lessonId);
-    // a()
+    start();
     //分享好友
     $("#lessonShare").click(function () {
         $("#shareShade").show();
@@ -17,60 +8,18 @@ $(function () {
         });
     });
 
-    // 课程留言
-    $("#lessonMessage").click(function () {
-        $("#messageShade").show();
-        messageList(uId, lessonId);
-
-        // 关闭窗口
-        $(".leave-message-close").click(function () {
-            $("#messageShade").hide();
-        });
-    });
-
-    // 看文字
-    $("#lessonText").click(function () {
-        $("#textShade").show();
-
-        // 关闭窗口
-        $(".lesson-close").click(function () {
-            $("#textShade").hide();
-        });
-    });
-
-    // 课程介绍
-    $("#lessonIntrouduct").click(function () {
-        $("#introductShade").show();
-        // 关闭窗口
-        $(".lesson-close").click(function () {
-            $("#introductShade").hide();
-        });
-    });
-
-    // 课程举报
-    $("#lessonReport").click(function () {
-        $("#reportShade").show();
-        // 关闭窗口
-        $(".report-btn").click(function () {
-            $("#reportShade").hide();
-        });
-    });
-
-
 });
 
-function a() {
+function start() {
     var url = window.location.href;
     var arr = url.split("=");
     var lessonId = arr[1];
     var uId = sessionStorage.getItem("uid"); //用户id
     $("#audio").attr("data-ud", uId);
     $("#audio").attr("data-lsId", lessonId);
-
     //智慧社详情
     lessonDetail(uId, lessonId);
 }
-
 
 // 智慧社详情
 function lessonDetail(uId, lessonId) {
@@ -102,8 +51,19 @@ function lessonDetail(uId, lessonId) {
             localStorage.setItem("commentid", data.list.id);
 
             // 判断是否关注
+            var isfollow = data.isfollow;
             var followid = data.list.id;
-            isAttention(uId, followid);
+            if (isfollow == 1) {
+                $(".attention").html("已关注");
+                $(".attention").click(function () {
+                    noAttention(uId, followid, isfollow);
+                });
+            } else if (isfollow == 0) {
+                $(".attention").html("关注");
+                $(".attention").click(function () {
+                    onAttention(uId, followid, isfollow);
+                });
+            }
             // 判断课程是否解锁
             if (lock == 1) {
                 $(".lock-shade").css("display", "none");
@@ -115,52 +75,12 @@ function lessonDetail(uId, lessonId) {
                 });
             }
             // 判断是否可评分
-            var $score = data.list.coursescore;
-            isAppraise(uId, lessonId, $score)
-            $("#lessonMessage>p").text(data.list.commentsum); //留言
-            $(".unsuccessed").text(data.list.coursetime); //音频时长
-
-            // 导师详情
-            $(".lesson-tutor>ul").click(function () {
-                $("#tutorShade").show();
-                tutorDetail(followid);
-                // 关闭窗口
-                $(".tutor-close").click(function () {
-                    $("#tutorShade").hide();
-                    // window.location.reload();
-                });
-            });
-            // 所属专辑
-            $("#albumName").click(function () {
-                $(window).attr("location", "./album-name.html?albumId=" + albumId);
-            });
-
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}
-
-
-// 判断是否可评分
-function isAppraise(uId, lessonId, $score) {
-    $.ajax({
-        type: "GET",
-        url: APP_URL + "/api/Wisdom/Score",
-        data: {
-            uid: uId,
-            courseid: lessonId
-        },
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            var code = res.code;
-            localStorage.setItem("albumid", res.albumid);
-            if (code == 1) {
-                $("#lessonAppraise>span").text($score);
+            var $score = data.isscore;
+            if ($score == 1) {
+                var scoreNum = data.list.coursescore;
+                $("#lessonAppraise>span").text(scoreNum);
                 $("#lessonAppraise>p").text("已评分");
-            } else {
+            } else if ($score == 0) {
                 $("#lessonAppraise>p").text("可评分");
                 $("#lessonAppraise").click(function () {
                     $("#appraiseShade").css("display", "block");
@@ -175,17 +95,85 @@ function isAppraise(uId, lessonId, $score) {
                         $("#appraiseShade").css("display", "none");
                         $("#appraiseContent").css("display", "block");
                         $("#appraiseResult").css("display", "none");
-                        window.location.reload();
+                        // 渲染页面
+                        start();
                     });
                 });
             }
+
+            $("#lessonMessage>p").text(data.list.commentsum); //留言
+            $(".unsuccessed").text(data.list.coursetime); //音频时长
+
+            // 导师详情
+            tutorDetail(isfollow, followid);
+            $(".lesson-tutor>ul").click(function () {
+                $("#tutorShade").show();
+                // 关闭窗口
+                $(".tutor-close").click(function () {
+                    $("#tutorShade").hide();
+                    // start();
+                });
+            });
+            // 课程留言
+            $("#lessonMessage").click(function () {
+                $("#messageShade").show();
+                messageList(uId, lessonId);
+
+                // 关闭窗口
+                $(".leave-message-close").click(function () {
+                    $("#messageShade").hide();
+                });
+            });
+            // 所属专辑
+            $("#albumName").click(function () {
+                $(window).attr("location", "./album-name.html?albumId=" + albumId);
+            });
+            // 看文字
+            var coursecontent = data.list.coursecontent;
+            $("#lessonText").click(function () {
+                $("#textShade").show();
+                $(".lesson-text-inner>span").html(coursecontent);
+                // 关闭窗口
+                $(".lesson-close").click(function () {
+                    $("#textShade").hide();
+                });
+            });
+
+            // 课程介绍
+            var coursetxt = data.list.coursetxt;
+            var coursename = data.list.coursename;
+            $("#lessonIntrouduct").click(function () {
+                $("#introductShade").show();
+                $(".lesson-introduction-inner>h1").html(coursename);
+                $(".lesson-introduction-inner>span").html(coursetxt);
+                // 关闭窗口
+                $(".lesson-close").click(function () {
+                    $("#introductShade").hide();
+                });
+            });
+
+            // 课程举报
+            $("#lessonReport").click(function () {
+                $(".report-tab>ul>li>.report-option").removeClass("report-option1");
+                $("#reportShade").show();
+                $(".report-tab>ul>li").click(function () {
+                    $(this).children().addClass("report-option1");
+                    $(this).siblings().children().removeClass("report-option1");
+                    var num = $(this).children().attr("data-num");
+                    regular(uId, lessonId, num);
+                });
+                // 关闭窗口
+                $(".report-btn").click(function () {
+                    $("#reportShade").hide();
+                });
+            });
+
         },
         error: function (err) {
             console.log(err);
         }
     });
 }
-
 
 // 评分
 function changeAppraise(e, appraise) {
@@ -285,7 +273,7 @@ function scoreSum($uId, $lessonId) {
 }
 
 // 导师详情
-function tutorDetail(followid) {
+function tutorDetail(isfollow, followid) {
     var toturId = localStorage.getItem("commentid");
     $.ajax({
         type: "GET",
@@ -297,10 +285,22 @@ function tutorDetail(followid) {
         success: function (res) {
             console.log(res);
             var data = res.data;
-            var userId = data.uid;
+            var userId = sessionStorage.getItem("uid");
             var introduction = data.introduction
             $("#headBg").attr("src", data.headimg);
             $(".tutor-avatar>p").html(data.nickname);
+            //判断是否关注
+            if (isfollow == 1) {
+                $("#followShow").html("已关注");
+                $("#followShow").click(function () {
+                    noAttention(userId, followid, isfollow);
+                });
+            } else if (isfollow == 0) {
+                $("#followShow").html("关注");
+                $("#followShow").click(function () {
+                    onAttention(userId, followid, isfollow);
+                });
+            }
             // 导师简介
             if (introduction == "" || introduction == null || introduction == undefined) {
                 $("p.lesson-tutorInfor").html("暂无简介");
@@ -330,70 +330,23 @@ function tutorDetail(followid) {
             var albumlist = data.albumlist;
             $.each(albumlist, function (index, val) {
                 str += `
-                    <li>
+                    <li data-id="${val.id}">
                         <div class="album-name"><img src="${val.albumimg}"/></div>
                         <p>${val.albumname}</p>
                     </li>
                 `;
             });
             $("#albumList").html(str);
-            //判断是否关注
-            isAttention(userId, followid);
-
-
-
+            $("#albumList>li").click(function(){
+                var albumId = $(this).attr("data-id");
+                $(window).attr("location", "./album-name.html?albumId=" + albumId);
+            });
         },
         error: function (err) {
             console.log(err);
         }
     });
 }
-
-// 是否被关注
-function isAttention(uId, followid) {
-    $.ajax({
-        type: "GET",
-        url: APP_URL + "/api/Wisdom/Follow",
-        data: {
-            uid: uId,
-            followid: followid
-        },
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            var code = res.code;
-            if (code == 1) {
-                $(".attention").text("已关注");
-                $("#followShow").text("已关注");
-                $(".attention").click(function () {
-                    $(".attention").text("关注");
-                    noAttention(uId, followid);
-                });
-                $("#followShow").click(function () {
-                    $("#followShow").text("关注");
-                    noAttention(uId, followid);
-                });
-            } else {
-                $(".attention").text("关注");
-                $("#followShow").text("关注");
-                $(".attention").click(function () {
-                    $(".attention").text("已关注");
-                    onAttention(uId, followid)
-                });
-                $("#followShow").click(function () {
-                    $("#followShow").text("已关注");
-                    onAttention(uId, followid);
-                });
-            }
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}
-
-
-
 //点击关注
 function onAttention(uId, followid) {
     $.ajax({
@@ -406,8 +359,9 @@ function onAttention(uId, followid) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            $(".attention").html("已关注");
-            // window.location.reload();
+            if (res.code == 1) {
+                start();
+            }
         },
         error: function (err) {
             console.log(err);
@@ -426,8 +380,9 @@ function noAttention(uId, followid) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            $(".attention").html("关注");
-            // window.location.reload();
+            if (res.code == 1) {
+                start();
+            }
         },
         error: function (err) {
             console.log(err);
@@ -520,7 +475,7 @@ function messageList(uId, lessonId) {
                     if ($text2 == "") {
                         alert("请先输入留言内容~");
                     } else {
-                        console.log(pId);
+                        // console.log(pId);
                         commentReply(pId, tId, lessonId, $text2, uId); //回复留言
                     }
                 });
@@ -576,6 +531,29 @@ function commentReply(pId, tId, lessonId, $text, uId) {
             $("#messageText2").hide();
             $(".release-message").hide();
             messageList(uId, lessonId);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+// 举报
+function regular(uId, lessonId, num) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/Wisdom/Regular",
+        data: {
+            uid: uId,
+            courseid: lessonId,
+            classify: num
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                alert("已举报~");
+            }
         },
         error: function (err) {
             console.log(err);
