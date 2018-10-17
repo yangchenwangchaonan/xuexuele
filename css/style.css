@@ -477,16 +477,7 @@ body {
     color: #956826;
 }
 
-.card-upload {
-    position:relative;
-}
-.cardFile {
-    position:relative;
-    top:0;
-    left:0;
-    width: 4.5vw;
-    opacity: 0;
-}
+
 .realname-list>li>p,
 .personal-list>li>p,
 .personal-setting-list>li>p,
@@ -1093,6 +1084,31 @@ body {
     left: 2.17vw;
     z-index: 9999;
 }
+/*自定义back*/
+.realname-back1{
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background: url("../images/19.png") no-repeat center;
+    background-size: 100% 100%;
+    top: 1.42vh;
+    left: 2.17vw;
+    z-index: 9999;
+}
+
+
+/*自定义back*/
+.realname-back2{
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background: url("../images/19.png") no-repeat center;
+    background-size: 100% 100%;
+    top: 1.42vh;
+    left: 2.17vw;
+    z-index: 9999;
+}
+
 
 .area-back {
     position: absolute;
@@ -6162,4 +6178,15 @@ body {
 
 .sign_contener:hover {
     background-color: red;
+}
+
+/*实名认证学历选择颜色*/
+.verified-foot-modal-color{
+    color:#30A007;
+}
+/*选择照片*/
+.realname-file{
+    position: absolute;
+    left:1vw;top:10px;
+    opacity:0;
 }
