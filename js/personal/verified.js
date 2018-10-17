@@ -42,9 +42,18 @@ function getPush(){
 		$(".con1").hide();
 		$(".con3").show();
 	})
-
-	$(".realname-submit").click(function(){
+	//选择图片
+	console.log($(".btn").text())
+	if($(".btn").text()=="选择照片"){
+		 $(".realname-file").change(function(e){
+			var file=e.target.files[0];
+			getPushImg(file)
+		})
+	}
 		
+	$(".btn").click(function(){
+		if($(".btn").text()=="确认上传"){
+			$(".realname-file").hide()
 			//id
 		    var uid=sessionStorage.getItem("uid")
 		    //名字
@@ -52,7 +61,7 @@ function getPush(){
 		    //身份证号码
 		    var identitycard=$(".identitycard").val();
 		    //照片图像
-		    
+		    var identityimg=$('.card-photo').css('backgroundImage').split("\"")[1];
 		    //学校名称
 		    var schoolname=$(".schoolname").val();
 		    //学历
@@ -80,6 +89,31 @@ function getPush(){
 		    //         console.log(err);
 		    //     }
 		    // });
-		
-	})
+			}
+		})
+	
+}
+
+//上传图片
+function getPushImg(file){
+	var formdata=new FormData();
+	formdata.append("picture",file)
+	$.ajax({
+		processData: false, 
+  		contentType: false,
+        type: "POST",
+        url: APP_URL + "/api/My/ImgUpload",
+        data: formdata,
+        dataType: "json",
+        success: function(res) {
+           console.log(res)
+           $(".card-photo").css("background-image","url("+res.data+")")
+           if (res.data!='') {
+           	$(".btn").text("确认上传")
+           }
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
 }
