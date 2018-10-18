@@ -88,3 +88,5 @@ function albumDel(e, aId) {
         }
     });
 }
+
+// 专辑详情

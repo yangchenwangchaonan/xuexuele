@@ -5,13 +5,17 @@ $(function () {
     if (num == 0) {
         // 确认新增
         $("#addAlbumBtn").click(function () {
+            $("#addAlbumBtn").html("确认新增");
             newAlbum();
         });
-    } else if(num == 1) {
+    } else if (num == 1) {
         var aid = url.split("=")[1];
-        //专辑详情
-        albunmDetail(aid);
-        // 修改专辑
+        $("#addAlbumBtn").html("确认编辑");
+        albunmDetail(aid); //专辑详情
+        // 编辑专辑
+        $("#addAlbumBtn").click(function () {
+            changeAlbum(aid); //编辑专辑
+        });
     }
 
 
@@ -27,6 +31,7 @@ function start() {
     $(".inputEnd").hide();
     // 上传封面
     $("#upLoad").click(function () {
+        // $(".lesson-cover-content>img").attr("src", "");
         $("#albumAdd").hide();
         $("#albumCover").show();
         upLoad();
@@ -85,15 +90,21 @@ function albunmDetail(id) {
         type: "GET",
         url: APP_URL + "/api/My/AlbumDetail",
         data: {
-            albumid:id
+            albumid: id
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
-            if(res.code==1){
-                $(".lesson-cover-content>img").attr("src",res.data.albumimg);
+            if (res.code == 1) {
+                $("#upLoad").html("已上传");
+                $("#enterName").html(res.data.albumname);
+                $("#enterPresent").html("已编辑");
+                $(".lesson-cover-content>img").attr("src", res.data.albumimg);
                 $("#nameContent").val(res.data.albumname);
                 $("#introductContent").val(res.data.albumcontent);
+                $(".submit-cancel").show();
+                $(".upCover").hide();
+                $(".lesson-cover-btn").html("确认上传");
             }
         },
         error: function (err) {
@@ -152,7 +163,7 @@ function upClover(files) {
         }
     });
 }
-// 判断新增专辑内容
+// 新增专辑
 function newAlbum() {
     var coverUrl = $(".lesson-cover-content>img").attr("src");
     var albumName = $("#nameContent").val();
@@ -174,6 +185,39 @@ function newAlbum() {
             var code = res.code;
             if (code == 1) {
                 alert("新增成功");
+                $(window).attr("location", "./album-manage.html");
+            } else if (code == 0) {
+                alert(msg);
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}
+
+// 编辑专辑
+function changeAlbum(id) {
+    var coverUrl = $(".lesson-cover-content>img").attr("src");
+    var albumName = $("#nameContent").val();
+    var albumPresent = $("#introductContent").val();
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/My/AlbumEdit",
+        data: {
+            _method: 'PUT',
+            id: id,
+            albumimg: coverUrl,
+            albumname: albumName,
+            albumcontent: albumPresent
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            var msg = res.msg;
+            var code = res.code;
+            if (code == 1) {
+                alert("编辑成功");
                 $(window).attr("location", "./album-manage.html");
             } else if (code == 0) {
                 alert(msg);
