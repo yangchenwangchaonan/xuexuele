@@ -11,7 +11,7 @@
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/goBack.js"></script>
-	<script src="../../js/personal/lessonManage.js"></script>
+	<script src="../../js/personal/albumManage.js"></script>
 </head>
 
 <body class="manage-body">
@@ -30,36 +30,53 @@
 					<img src="../../images/others.jpg" />
 					<h1>专辑名称</h1>
 					<p>课程数量：10</p>
-					<i id="manage-btn">操作</i>
+					<i class="manage-btn">操作</i>
+					<div class="album-operate">
+						<div class="operate-del"><img src="../../images/227.png"/>删除</div>
+						<div class="operate-edit"><img src="../../images/228.png"/>编辑</div>
+					</div>
 				</div>
 				<div class="album-manage">
 					<img src="../../images/others.jpg" />
 					<h1>专辑名称</h1>
 					<p>课程数量：10</p>
-					<i id="manage-btn">操作</i>
+					<i class="manage-btn">操作</i>
+					<div class="album-operate">
+						<div class="operate-del"><img src="../../images/227.png"/>删除</div>
+						<div class="operate-edit"><img src="../../images/228.png"/>编辑</div>
+					</div>
 				</div>
 				<div class="album-manage">
 					<img src="../../images/others.jpg" />
 					<h1>专辑名称</h1>
 					<p>课程数量：10</p>
-					<i id="manage-btn">操作</i>
-				</div>
-				<div class="album-manage">
-					<img src="../../images/others.jpg" />
-					<h1>专辑名称</h1>
-					<p>课程数量：10</p>
-					<i id="manage-btn">操作</i>
-				</div>
-				<div class="album-manage">
-					<img src="../../images/others.jpg" />
-					<h1>专辑名称</h1>
-					<p>课程数量：10</p>
-					<i id="manage-btn">操作</i>
+					<i class="manage-btn">操作</i>
+					<div class="album-operate">
+						<div class="operate-del"><img src="../../images/227.png"/>删除</div>
+						<div class="operate-edit"><img src="../../images/228.png"/>编辑</div>
+					</div>
 				</div> -->
+			</div>
+			<div class="noAlbum-content">
+				<div id="no-album-img"><img src="../../images/225.png" /></div>
+				<p id="no-album-text">还没有专辑哦~</p>
 			</div>
 			<div class="album-add">新增专辑</div>
 		</div>
 	</section>
+	<div class="operate-shade">
+		<!--删除提示框1-->
+		<div class="operate-del-tips1">
+			<img src="../../images/39.png" />
+			<div class="tip-img"></div>
+			<div class="tip-text">请将专题下课程删除，然后删除专题。</div>
+		</div>
+		<!--删除提示框2-->
+		<div class="operate-del-tips2">
+			<div class="tip-img"></div>
+			<div class="tip-text">删除成功！</div>
+		</div>
+	</div>
 </body>
 
 </html>

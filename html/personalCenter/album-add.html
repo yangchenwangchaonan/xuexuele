@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -12,27 +13,64 @@
     <script src="../../js/common/goBack.js"></script>
     <script src="../../js/personal/addAlbum.js"></script>
 </head>
+
 <body class="album-add-body">
-	<section class="album-add-container">
-		<i class="album-add-back"></i>
-		<span id="album-add-title">-新增专辑-</span>
-		<div class="album-add-box">
-			<ul class="album-add-list">
+    <!-- 新增专辑 -->
+    <div class="album-add-container" id="albumAdd">
+        <i class="album-add-back"></i>
+        <span id="album-add-title">-新增专辑-</span>
+        <div class="album-add-box">
+            <ul class="album-add-list">
                 <li>
                     <h1>专辑封面</h1>
-                    <p><a href="./lesson-cover.html">请上传</a></p>
+                    <p id="upLoad">请上传</p>
                 </li>
                 <li>
                     <h1>专辑名称</h1>
-                    <p><a href="#">请输入专辑名称</a></p>
+                    <p id="enterName">请输入专辑名称</p>
                 </li>
                 <li>
                     <h1>专辑简介</h1>
-                    <p><a href="#">请输入专辑简介</a></p>
+                    <p id="enterPresent">请输入专辑简介</p>
                 </li>
             </ul>
-			<div class="album-add album-add-confirm">确认新增</div>
-		</div>
-	</section>
+            <div class="album-add album-add-confirm" id="addAlbumBtn">确认新增</div>
+        </div>
+    </div>
+    <!-- 上传封面 -->
+    <div class="album-container" id="albumCover">
+        <i class="albumCover-back"></i>
+        <span id="album-title">-专辑封面-</span>
+        <div class="album-box">
+            <div class="lesson-cover-content">
+                <div class="submit-cancel"></div>
+                <img src="" />
+            </div>
+            <input type="file" class="upCover"/>
+            <div class="lesson-cover-btn">选择封面</div>
+            <!-- <div class="lesson-cover-btn">确认上传</div> -->
+        </div>
+    </div>
+    <!-- 专辑名称 -->
+    <div class="albumName-container" id="albumName">
+        <i class="albumName-back"></i>
+        <span id="album-add-title">-专辑名称-</span>
+        <div class="album-add-box">
+            <div class="album-input">
+                <input type="text" placeholder="请输入专辑名称" maxlength="20" id="nameContent">
+            </div>
+        </div>
+    </div>
+    <!-- 专辑简介 -->
+    <div class="album-introduction-body" id="albumIntroduct">
+        <div class="green-top">-专辑简介-</div>
+        <i class="albumIntroduct-back"></i>
+        <div class="album-introduction-box">
+            <div class="album-input album-introduction">
+                <input type="text" placeholder="请输入专辑简介" maxlength="100" id="introductContent">
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -5,12 +5,13 @@ body {
     width: 100%;
     font-size: 13px;
     overflow-x: hidden;
+    overflow-y: hidden;
     /* overflow: hidden; */
 }
 
 .index-body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(to top, rgba(207, 228, 255, 1), rgba(237, 254, 255, 1), rgba(48, 116, 255, 1));
 }
 
@@ -274,12 +275,12 @@ body {
 .page-back,
 .reg-back {
     position: absolute;
-    width: 10.2vw;
-    height: 10.2vw;
+    width: 42px;
+    height: 42px;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 3.46666vw;
-    left: 3.46666vw;
+    top: 13px;
+    left: 13px;
     z-index: 9999;
 }
 
@@ -298,9 +299,9 @@ body {
 .repwd-btn {
     background: url("../images/11.png") no-repeat center;
     background-size: 100% 100%;
-    height: 7.5vh;
-    margin-top: 1.4vh;
-    padding-top: 2.25vh;
+    height: 50.5px;
+    margin-top: 9px;
+    padding-top: 15.5px;
 }
 
 .reg-secBtn {
@@ -328,11 +329,11 @@ body {
 #codeBtn,
 #recodeBtn {
     float: right;
-    margin-top: 0.6vh;
+    margin-top: 5px;
     margin-right: 0.5vw;
     width: 21.33vw;
-    height: 6.0vh;
-    line-height: 6.0vh;
+    height: 42px;
+    line-height: 42px;
     text-align: center;
     background: #53AA19;
     border-radius: 10px;
@@ -342,7 +343,7 @@ body {
 
 .repwd-code>.input-3>input {
     background: transparent url("../images/24.png") no-repeat 17px center;
-    background-size: 5.33vw 3.0vh;
+    background-size: 20px 20px;
 }
 
 /*  忘记密码-第二步 */
@@ -614,7 +615,16 @@ body {
 /* 用户协议 */
 .agreement-body,
 .letter-body,
-.letter-infor .album-introduction-body {
+.letter-infor {
+    background: linear-gradient(to top, rgba(148, 193, 70, 1), rgba(203, 232, 229, 1));
+}
+
+.album-introduction-body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(to top, rgba(148, 193, 70, 1), rgba(203, 232, 229, 1));
 }
 
@@ -1013,6 +1023,8 @@ body {
 .purse-body,
 .manage-body,
 .album-add-body {
+    width: 100%;
+    height: 100%;
     background: #30A007;
 }
 
@@ -1029,12 +1041,13 @@ body {
 .series-container,
 .purse-container,
 .manage-container,
-.album-add-container {
+.album-add-container,
+.albumName-container {
     position: relative;
-    top: 0.75vh;
+    top: 5px;
     left: 1.33vw;
     width: 97.33vw;
-    height: 98.5vh;
+    height: 98.5%;
     background: #A8D535;
     border-radius: 3%;
 }
@@ -1044,14 +1057,23 @@ body {
 .series-box,
 .recharge-box,
 .realname-box,
-.personal-box,
 .attention-list,
 .manage-box,
 .album-add-box {
     position: relative;
     width: 92.0vw;
-    height: 89.655vh;
-    top: 7.35vh;
+    height: 89.66%;
+    top: 49px;
+    left: 2.667vw;
+    background-color: #FFF7DF;
+    border-radius: 10px;
+}
+
+.personal-box {
+    position: relative;
+    width: 92.0vw;
+    height: 89.66%;
+    top: 49px;
     left: 2.667vw;
     background-color: #FFF7DF;
     border-radius: 10px;
@@ -1068,45 +1090,57 @@ body {
     display: none;
 }
 
-
-.album-back,
+.album-add-back,
+.albumName-back,
+.albumCover-back,
 .series-back,
 .purse-back,
 .personal-back,
 .realname-back,
 .personal-goback,
-.manage-back,
-.album-add-back {
+.manage-back {
     position: absolute;
     width: 42px;
     height: 42px;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 1.42vh;
+    top: 9px;
     left: 2.17vw;
     z-index: 9999;
 }
-/*自定义back*/
-.realname-back1{
+
+.albumIntroduct-back {
     position: absolute;
     width: 42px;
     height: 42px;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 1.42vh;
+    top: 13px;
+    left: 13px;
+    z-index: 9999;
+}
+
+/*自定义back*/
+.realname-back1 {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background: url("../images/19.png") no-repeat center;
+    background-size: 100% 100%;
+    top: 9px;
     left: 2.17vw;
     z-index: 9999;
 }
 
 
 /*自定义back*/
-.realname-back2{
+.realname-back2 {
     position: absolute;
     width: 42px;
     height: 42px;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 1.42vh;
+    top: 9px;
     left: 2.17vw;
     z-index: 9999;
 }
@@ -1118,7 +1152,7 @@ body {
     height: 42px;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: -6.58vh;
+    top: -44px;
     left: -0.83vw;
     z-index: 9999;
 }
@@ -1135,8 +1169,8 @@ body {
     position: absolute;
     display: inline-block;
     width: 100%;
-    height: 2.624vh;
-    top: 2.32vh;
+    height: 17.5px;
+    top: 15.5px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: #FFFFFF;
@@ -1253,12 +1287,12 @@ body {
 .tel-close,
 .code-close {
     position: absolute;
-    width: 4.0vw;
-    height: 2.24vh;
-    top: 2.67vh;
+    width: 15px;
+    height: 15px;
+    top: 17.5px;
     right: 3.8vw;
     background: url(../images/66.png) no-repeat center;
-    background-size: 4.0vw 2.24vh;
+    background-size: 100% 100%;
     display: none;
 }
 
@@ -5086,7 +5120,7 @@ body {
 .infor-waitting,
 .no-attention,
 .no-lessons {
-    display: block;
+    display: none;
     font-size: 14px;
 }
 
@@ -5414,6 +5448,13 @@ body {
     height: 60.81vh;
     overflow: auto;
 }
+.noAlbum-content {
+    position: relative;
+    width: 92.53vw;
+    height: 60.81vh;
+    overflow: auto;
+    display: none;
+}
 
 .album-manage {
     position: relative;
@@ -5449,7 +5490,7 @@ body {
     color: rgba(149, 104, 38, 1);
 }
 
-#manage-btn {
+.manage-btn {
     position: absolute;
     top: 2.25vh;
     right: 3.47vw;
@@ -5504,6 +5545,7 @@ body {
     left: 5.4vw;
     font-size: 15px;
     font-family: MicrosoftYaHei;
+    display: none;
 }
 
 .operate-del {
@@ -5615,37 +5657,53 @@ body {
     position: absolute;
     left: 2.8vw;
     width: 86.53vw;
-    height: 6.6vh;
-    line-height: 6.6vh;
+    height: 44px;
+    line-height: 44px;
     border-bottom: 1px solid rgba(229, 194, 138, 0.5);
     font-size: 15px;
     font-family: MicrosoftYaHei;
     color: rgba(105, 56, 12, 1);
 }
 
+.album-input>input {
+    width: 86.53vw;
+    background: transparent;
+    color: #956826;
+}
+
+.album-input>input::-webkit-input-placeholder {
+    color: #956826;
+}
+
+
 /*专辑简介*/
 .album-introduction {
-    top: 2.82vh;
+    top: 18.5px;
     left: 2.8vw;
 }
 
 .album-introduction-box {
-    position: relative;
+    position: absolute;
+    width: 92.0vw;
+    height: 89.66%;
+    top: 40px;
     left: 4.07vw;
+    background-color: #FFF7DF;
+    border-radius: 10px;
 }
 
 .green-top {
     position: absolute;
     left: 2.67vw;
-    top: 1.5vh;
+    top: 10px;
     width: 94.67vw;
-    height: 7.05vh;
+    height: 47px;
     background: #95DA42;
     border-radius: 23.5px 23.5px 10px 10px;
     box-shadow: 0px 1px 2px 0px rgba(193, 172, 114, 0.5);
     z-index: 350;
     text-align: center;
-    line-height: 7.05vh;
+    line-height: 47px;
     font-size: 18px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -5711,6 +5769,7 @@ body {
     width: 85.33vw;
     height: 64.77vh;
 }
+
 .upCover {
     position: absolute;
     bottom: 9.52vh;
@@ -5718,7 +5777,7 @@ body {
     width: 70.4vw;
     height: 7.25vh;
     z-index: 9999;
-    opacity: 0; 
+    opacity: 0;
 }
 
 /*输入智慧豆数量*/
@@ -6248,12 +6307,14 @@ body {
 }
 
 /*实名认证学历选择颜色*/
-.verified-foot-modal-color{
-    color:#30A007;
+.verified-foot-modal-color {
+    color: #30A007;
 }
+
 /*选择照片*/
-.realname-file{
+.realname-file {
     position: absolute;
-    left:1vw;top:10px;
-    opacity:0;
+    left: 1vw;
+    top: 10px;
+    opacity: 0;
 }
