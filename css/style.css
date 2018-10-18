@@ -614,7 +614,7 @@ body {
 /* 用户协议 */
 .agreement-body,
 .letter-body,
-.letter-infor .album-introduction-body {
+.letter-infor,.album-introduction-body {
     background: linear-gradient(to top, rgba(148, 193, 70, 1), rgba(203, 232, 229, 1));
 }
 
@@ -1086,8 +1086,9 @@ body {
     left: 2.17vw;
     z-index: 9999;
 }
+
 /*自定义back*/
-.realname-back1{
+.realname-back1 {
     position: absolute;
     width: 42px;
     height: 42px;
@@ -1100,7 +1101,7 @@ body {
 
 
 /*自定义back*/
-.realname-back2{
+.realname-back2 {
     position: absolute;
     width: 42px;
     height: 42px;
@@ -5711,6 +5712,7 @@ body {
     width: 85.33vw;
     height: 64.77vh;
 }
+
 .upCover {
     position: absolute;
     bottom: 9.52vh;
@@ -5718,7 +5720,7 @@ body {
     width: 70.4vw;
     height: 7.25vh;
     z-index: 9999;
-    opacity: 0; 
+    opacity: 0;
 }
 
 /*输入智慧豆数量*/
@@ -6248,12 +6250,14 @@ body {
 }
 
 /*实名认证学历选择颜色*/
-.verified-foot-modal-color{
-    color:#30A007;
+.verified-foot-modal-color {
+    color: #30A007;
 }
+
 /*选择照片*/
-.realname-file{
+.realname-file {
     position: absolute;
-    left:1vw;top:10px;
-    opacity:0;
+    left: 1vw;
+    top: 10px;
+    opacity: 0;
 }
