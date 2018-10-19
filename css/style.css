@@ -693,7 +693,6 @@ body {
 .reg-shade,
 .home-shade,
 .level-shade,
-.lesson-shade,
 .realname-shade,
 .personal-shade,
 .operate-shade,
@@ -702,6 +701,17 @@ body {
     top: 0;
     left: 0;
     z-index: 360;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    display: none;
+}
+
+.lesson-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .3);
@@ -1089,6 +1099,7 @@ body {
     border-radius: 10px;
     display: none;
 }
+
 .album-back,
 .album-add-back,
 .albumName-back,
@@ -1125,7 +1136,7 @@ body {
     position: absolute;
     width: 42px;
     height: 42px;
-    background: url("../images/19.png") no-repeat center;
+    background: url("../images/213.png") no-repeat center;
     background-size: 100% 100%;
     top: 9px;
     left: 2.17vw;
@@ -3841,36 +3852,32 @@ body {
 
 .album-text {
     position: relative;
-    text-align: center;
+    text-align: left;
     left: 33.0vw;
     top: -5.5vh;
-    width: 18.27vw;
-    height: 2.1vh;
+    width: 56.27vw;
+    line-height: 2.1vh;
     font-size: 15px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(149, 104, 38, 1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .album-detail {
     position: relative;
     left: 2.67vw;
-    top: 1.2vh;
+    top: 2.5vh;
     width: 86.67vw;
-    height: 7.35vh;
     font-size: 13px;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
-    line-height: 18px;
-}
-
-.album-box>hr {
-    position: relative;
-    top: 2.51vh;
-    left: 2.67vw;
-    border: 1px solid #E5C28A;
-    width: 86.53vw;
+    line-height: 2.5vh;
+    padding-bottom: 1.0vh;
+    border-bottom: 2px solid #E5C28A;
 }
 
 .lesson-title-list {
@@ -4550,6 +4557,7 @@ body {
     color: rgba(51, 51, 51, 1);
     display: none;
 }
+
 .withdraw-selected {
     position: absolute;
     top: 26.41vh;
@@ -5461,6 +5469,7 @@ body {
     height: 60.81vh;
     overflow: auto;
 }
+
 .noAlbum-content {
     position: relative;
     width: 92.53vw;
@@ -5477,14 +5486,14 @@ body {
     border-bottom: 1px solid rgba(229, 194, 138, 0.5);
 }
 
-.album-manage>img {
+.album-href>img {
     position: absolute;
     margin: 10px;
     width: 16.4vw;
     height: 6.75vh;
 }
 
-.album-manage>h1 {
+.album-href>h1 {
     position: absolute;
     left: 23.07vw;
     top: 1.8vh;
@@ -5494,7 +5503,7 @@ body {
     color: rgba(149, 104, 38, 1);
 }
 
-.album-manage>p {
+.album-href>p {
     position: absolute;
     left: 23.07vw;
     top: 5.72vh;
@@ -5737,7 +5746,20 @@ body {
 
 .lesson-add {
     position: relative;
-    top: 8.77vh;
+    left: 10.75vw;
+    width: 68.4vw;
+    top: 40.77vh;
+    position: absolute;
+    height: 7.25vh;
+    background: url(../images/166.png) no-repeat;
+    background-size: 68.4vw 7.25vh;
+    text-align: center;
+    line-height: 7.25vh;
+    font-size: 17px;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
 }
 
 /*课程修改*/

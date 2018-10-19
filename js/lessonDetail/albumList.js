@@ -6,9 +6,6 @@ $(function () {
     albumCourseList(albumId, uId)
 
 });
-
-
-
 // 专辑列表
 function albumCourseList(albumId, uId) {
     $.ajax({
@@ -26,27 +23,26 @@ function albumCourseList(albumId, uId) {
             $(".album-text").html(data.albumname);
             $(".album-detail").html(data.albumcontent);
             var str = "";
-            if (data.courselist.length != 0) {
-                $(".noLesson-content").hide();
-                $.each(data.courselist, function (index, val) {
-                    var lock = val.islock;
-                    str += `
+            $(".noLesson-content").hide();
+            $.each(data.courselist, function (index, val) {
+                var lock = val.islock;
+                str += `
                         <div class="lesson-title">
                             <div class="list-num">${index+1}</div>
                             <div class="lesson-list-detail">
                                 <div class="lesson-list-title">
                                     <div class="lesson-list-name">${val.coursename}</div>
                         `;
-                    if (lock == 1) {
-                        str += `
+                if (lock == 1) {
+                    str += `
                             <div class="lesson-play"><img src="" />播放</div>
                         `;
-                    } else if (lock == 0) {
-                        str += `
+                } else if (lock == 0) {
+                    str += `
                             <div class="lesson-locked"><img src="../../images/165.png" />锁定</div>
                         `;
-                    }
-                    str += `
+                }
+                str += `
                                 </div>
                                 <div class="lesson-list-tab">
                                     <ul>
@@ -58,28 +54,12 @@ function albumCourseList(albumId, uId) {
                             </div>
                         </div>
                     `;
-                });
-                $(".lesson-title-list").html(str);
-                var $str = "";
-                $str += `
-                    <div class="alllock-btn" id="lockBtn">解锁全部未解锁课程</div>
-                `;
-                $(".album-box").append($str);
-                // 点击解锁
-                $("#lockBtn").click(function () {
-                    // $(window).attr("location", "./unlock_series.html");
-                });
-            } else {
-                $(".noLesson-content").show();
-                $("#addLesson").click(function(){
-                    $(".lesson-shade").show();
-                    //关闭
-                    $(".lesson-add-close").click(function(){
-                        $(".lesson-shade").hide();
-                    });
-                });
-            }
-
+            });
+            $(".lesson-title-list").html(str);
+            // 点击解锁
+            $("#lockBtn").click(function () {
+                // $(window).attr("location", "./unlock_series.html");
+            });
         },
         error: function (err) {
             console.log(err);

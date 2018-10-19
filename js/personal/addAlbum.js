@@ -19,7 +19,6 @@ $(function () {
     }
 
 
-
 });
 
 // 进入页面
@@ -219,7 +218,7 @@ function changeAlbum(id) {
             if (code == 1) {
                 alert("编辑成功");
                 $(window).attr("location", "./album-manage.html");
-            } else if (code == 0) {
+            } else {
                 alert(msg);
             }
         },
