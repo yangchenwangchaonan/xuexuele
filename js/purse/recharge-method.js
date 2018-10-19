@@ -16,20 +16,28 @@ $(function(){
 function aliPay(a) {
 	var uid = sessionStorage.getItem("uid")
 	$.ajax({
-		type: "POST",
-		url: APP_URL + "/api/Wisdom/AliPay",
+		type: "GET",
+		url: APP_URL + "/api/Pay/AliPayWeb",
 		data: {
 			uid:uid,
 			order_money:a,
 		},
 		dataType: "json",
 		success: function (res) {
+			console.log(res)
+			console.log(res.data)
+			$(".apay").html(res.data)
 		},
 		error: function (err) {
 			console.log(err);
 		}
 	});
 }
+
+
+
+
+
 function walletOrderWxPay(a) {
 	var uid = sessionStorage.getItem("uid")
 	$.ajax({

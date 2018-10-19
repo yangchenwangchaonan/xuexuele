@@ -28,7 +28,9 @@ $(function () {
             console.log(err);
         }
     });
-
+    $('.page-back1').click(function(){
+         $(window).attr("location","../homePages/letter.html");
+    })
     /* 站内信更新为已读 */
     $.ajax({
         type: "GET",
@@ -44,19 +46,4 @@ $(function () {
             console.log(err);
         }
     });
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

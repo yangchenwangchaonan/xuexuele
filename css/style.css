@@ -22,7 +22,6 @@ body {
     position: relative;
     z-index: 1;
 }
-
 /* 首页 */
 .container-1 {
     background: url("../images/01.png") no-repeat center;
@@ -273,6 +272,16 @@ body {
 /* 忘记密码 */
 .page-back,
 .reg-back {
+    position: absolute;
+    width: 10.2vw;
+    height: 10.2vw;
+    background: url("../images/19.png") no-repeat center;
+    background-size: 100% 100%;
+    top: 3.46666vw;
+    left: 3.46666vw;
+    z-index: 9999;
+}
+.page-back1{
     position: absolute;
     width: 10.2vw;
     height: 10.2vw;
@@ -1466,74 +1475,6 @@ body {
     border-radius: 10px;
     color: #553208;
     margin: 1.74vh 2.67vw;
-}
-
-.letter-detail {
-    position: relative;
-    width: 86.01vw;
-    height: 13.59vh;
-}
-
-.letter-inner {
-    position: relative;
-    float: left;
-    width: 81.37vw;
-    height: 10.11vh;
-    background: #F8E8B0;
-    border-radius: 10px;
-    color: #553208;
-    margin: 1.74vh 2.67vw;
-    z-index: 300;
-}
-
-.letter-inner>li {
-    line-height: 5.92vh;
-    font-size: 15px;
-    list-style-type: none;
-    display: inline-block;
-}
-
-.readList {
-    background: url(../images/68.png) no-repeat 0rem 0.6rem;
-    background-size: 1.4rem 1.4rem;
-}
-
-
-.letter-inner>li>span {
-    text-indent: 1.4em;
-}
-
-.letter-inner>p {
-    text-indent: 2em;
-    font-size: 13px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.letter-inner>span {
-    display: block;
-    position: relative;
-    float: right;
-    margin: 1.5vh 0;
-    right: 2.13vw;
-}
-
-.letter-del {
-    position: absolute;
-    right: 0;
-    width: 17.47vw;
-    height: 10.11vh;
-    background: linear-gradient(-48deg, rgba(237, 61, 26, 1) 0%, rgba(255, 134, 106, 1) 100%);
-    border-radius: 10px;
-    margin: 1.74vh 2.67vw;
-    z-index: 200;
-}
-
-.del-key {
-    width: 5.6vw;
-    height: 3.3vh;
-    margin: 3.37vh 6.0vw;
 }
 
 .noletter,
@@ -5009,7 +4950,14 @@ body {
     background: url(../images/216.png) no-repeat;
     background-size: 84.0vw 31.03vh;
 }
-
+/*身份证照片样式重定义*/
+.card-photo1{
+    position: absolute;
+    left: 4.0vw;
+    top: 2.25vh;
+    width: 84.0vw;
+    height: 31.03vh;
+}
 .card-submit {
     position: relative;
     top: 41.03vh;
@@ -5017,6 +4965,10 @@ body {
 
 /*提交照片*/
 .card-photo>img {
+    width: 84.0vw;
+    height: 31.03vh;
+}
+.card-photo1>img {
     width: 84.0vw;
     height: 31.03vh;
 }
