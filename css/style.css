@@ -3084,7 +3084,7 @@ body {
 
 .game-ranger img {
     width: 16.8vw;
-    height: 10.0vh;
+    /*height: 10.0vh;*/
     border-radius: 5px;
 }
 
@@ -5090,13 +5090,15 @@ body {
     background-size: 10.67vw 6.0vh;
 }
 
-.infor-waitting,
+
 .no-attention,
 .no-lessons {
     display: none;
     font-size: 14px;
 }
-
+.infor-waitting{
+ font-size: 14px;
+}
 #waitting-img {
     position: absolute;
     top: 22.49vh;

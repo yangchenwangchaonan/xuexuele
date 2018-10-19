@@ -41,7 +41,7 @@ $(function() {
   var $levelSuccessed = $(".level span");
   $levelSuccessed.click(function() {
     $("#levelShade").css("display", "block");
-    userGate();
+      ranking()
     $("#levelFirst").click(function() {
       $(window).attr("location", "./level_content_img.html");
     });
@@ -86,7 +86,6 @@ function userGate() {
 }
 
 
-
 //日历
 var calUtil = {
 
@@ -97,6 +96,7 @@ var calUtil = {
   //当前日历显示的天数
   showDays: 1,
   eventName: "load",
+
   //初始化日历
   init: function(signList, s = '') {
     calUtil.setMonthAndDay();
@@ -313,4 +313,40 @@ function handleClick() {
       }
     })
   })
+}
+
+
+
+
+// 全网排名 
+function ranking(){
+     $.ajax({
+      type: "GET",
+      url: APP_URL + "/api/User/UserGateSort",
+      data:{
+        gateid:1,
+      },
+      dataType: "json",
+      success: function(res) {
+        console.log(res);
+        var data = res.data;
+        var $str=""
+       $.each(data,function(index,val){
+          $str+=
+          `
+            <ul class="board-list">
+                <li class="border-num"><span>${index+1}</span></li>
+                <li><img src=${val.headimg} /></li>
+                <li><span>${val.nickname}</span></li>
+                <li><span>${val.time}</span></li>
+                <li><img src="../../images/97.png" /><span>x${val.rewordbeans}</span></li>
+            </ul>
+          `
+       })
+       $(".board-table").html($str)
+      },
+      error: function(err) {
+        console.log(err)
+      }
+    });
 }
