@@ -1,56 +1,128 @@
-html,body,header,section,footer,div,ul,li,img,span,i,em,
-label,input,textarea,button,a,form,select,
-h1,h2,h3,h4,h5,h6,p,
-del,legend,center,strong,var,fieldset,ol,dl,dt,dd,cite,hr,time,mark,code,figcaption,figure{
-    margin:0;
-    border:0;
-    padding:0;
+html,
+body,
+header,
+section,
+footer,
+div,
+ul,
+li,
+img,
+span,
+i,
+em,
+label,
+input,
+textarea,
+button,
+a,
+form,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+del,
+legend,
+center,
+strong,
+var,
+fieldset,
+ol,
+dl,
+dt,
+dd,
+cite,
+hr,
+time,
+mark,
+code,
+figcaption,
+figure {
+    margin: 0;
+    border: 0;
+    padding: 0;
     outline: none;
-    font-style:normal;
+    font-style: normal;
     line-height: normal;
     font-weight: normal;
     font-size: inherit;
     color: inherit;
     box-sizing: border-box;
-    font-family: Microsoft YaHei,sans-serif;
+    font-family: Microsoft YaHei, sans-serif;
 }
-html{
+
+html {
     background: #fff;
     width: 100vw;
     height: 100vh;
     font-size: 13px;
     color: #333;
 }
-body{
+
+body {
     min-height: 100%;
 }
-html,body {
-    -webkit-touch-callout:none;
+
+html,
+body {
+    -webkit-touch-callout: none;
     -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-    -webkit-user-select:none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
 }
-img,a,em,label,span{
-    display:inline-block;
+
+img,
+a,
+em,
+label,
+span {
+    display: inline-block;
 }
-ol,ul{
-    list-style:none;
+
+ol,
+ul {
+    list-style: none;
 }
-input,button,textarea,select {
-    -webkit-appearance:none;
-    resize:none;
+
+input,
+button,
+textarea,
+select {
+    -webkit-appearance: none;
+    resize: none;
 }
-textarea{
-    overflow:auto;
-    resize:none;
+
+textarea {
+    overflow: auto;
+    resize: none;
 }
-a,a:active,a:focus,a:hover,a:visited {
+
+a,
+a:active,
+a:focus,
+a:hover,
+a:visited {
     text-decoration: none;
 }
-img,object,input,textarea,button,select{
-    vertical-align:middle;
+
+img,
+object,
+input,
+textarea,
+button,
+select {
+    vertical-align: middle;
 }
-button::-moz-focus-inner,input::-moz-focus-inner{
-    padding:0;
-    border:0;
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+img {
+    border: transparent;
 }

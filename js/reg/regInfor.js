@@ -98,96 +98,85 @@ $(function () {
         var $regBirthday = $("#reg-birthday>input").val();
         var $regConstellation = $("#reg-constellation").html();
         var $regArea = $("#reg-area").html();
+        // 身份
         if ($Identity == 0) {
-            $(".identity-tip").show();
-            $(".identity-tip").click(function () {
-                $(".identity-tip").hide();
-            });
-        } else {
-            var $id = $("div#identity>p.p1>i").hasClass("checked");
-            if ($id) {
-                $id = 1;
-            } else {
-                $id = 2;
-            }
-            if ($avartar == "") {
-                $(".avatar-tip").show();
-                $(".avatar-tip").click(function () {
-                    $(".avatar-tip").hide();
-                });
-            } else {
-                if ($nickname == "") {
-                    $(".nickname-tip").show();
-                    $(".nickname-tip").click(function () {
-                        $(".nickname-tip").hide();
-                    });
-                } else {
-                    if ($regGender == "点击选择") {
-                        $(".gender-tip").show();
-                        $(".gender-tip").click(function () {
-                            $(".gender-tip").hide();
-                        });
-                    } else {
-                        var $regId = 0;
-                        if ($regGender == "男") {
-                            $regId = 1;
-                        } else if ($regGender == "女") {
-                            $regId = 2;
-                        } else if ($regGender == "保密") {
-                            $regId = 3;
-                        } else if ($regGender == "双性") {
-                            $regId = 4;
-                        }
-                        if ($regBirthday == "" || $regConstellation == "点击选择" || $regArea == "点击选择") {
-                            $(".other-tip").show();
-                            $(".other-tip").click(function () {
-                                $(".other-tip").hide();
-                            });
-                        } else {
-                            var $tel = localStorage.getItem("tel");
-                            var $code = localStorage.getItem("code");
-                            var $password = localStorage.getItem("newPassword");
-                            var $repassword = localStorage.getItem("againPassword");
-                            $.ajax({
-                                type: "POST",
-                                url: APP_URL + "/api/User/UserRegisterInfo",
-                                data: {
-                                    phone: $tel,
-                                    SmsCode: $code,
-                                    password: $password,
-                                    repassword: $repassword,
-                                    identity: $id,
-                                    headimg: $avartar,
-                                    nickname: $nickname,
-                                    sex: $regId,
-                                    birthday: $regBirthday,
-                                    constellation: $regConstellation,
-                                    city: $regArea
-                                },
-                                dataType: "json",
-                                success: function (res) {
-                                    console.log(res);
-                                    var code = res.code;
-                                    var msg = res.msg;
-                                    if (code == 1) {
-                                        login($tel, $password);
-                                        alert("注册成功~");
-                                    } else {
-                                        alert(msg);
-                                    }
-                                },
-                                error: function (err) {
-                                    console.log(err);
-                                }
-                            });
-                        }
-                    }
-                }
-            }
+            info("请选择身份~", 1);
+            return;
         }
+        var $id = $("div#identity>p.p1>i").hasClass("checked");
+        if ($id) {
+            $id = 1;
+        } else {
+            $id = 2;
+        }
+        // 头像
+        if ($avartar == "") {
+            info("请选择一个霸气的头像~", 1);
+            return;
+        }
+        // 昵称
+        if ($nickname == "") {
+            info("给自己起一个响亮的名字吧~", 1);
+            return;
+        }
+        // 性别
+        if ($regGender == "点击选择") {
+            info("请选择性别~", 1);
+            return;
+        }
+        var $regId = 0;
+        if ($regGender == "男") {
+            $regId = 1;
+        } else if ($regGender == "女") {
+            $regId = 2;
+        } else if ($regGender == "保密") {
+            $regId = 3;
+        } else if ($regGender == "双性") {
+            $regId = 4;
+        }
+        // 生日、星座、地区
+        if ($regBirthday == "" || $regConstellation == "点击选择" || $regArea == "点击选择") {
+            info("请完善个人信息~", 1);
+            return;
+        }
+        var $tel = localStorage.getItem("tel");
+        var $code = localStorage.getItem("code");
+        var $password = localStorage.getItem("newPassword");
+        var $repassword = localStorage.getItem("againPassword");
+        $.ajax({
+            type: "POST",
+            url: APP_URL + "/api/User/UserRegisterInfo",
+            data: {
+                phone: $tel,
+                SmsCode: $code,
+                password: $password,
+                repassword: $repassword,
+                identity: $id,
+                headimg: $avartar,
+                nickname: $nickname,
+                sex: $regId,
+                birthday: $regBirthday,
+                constellation: $regConstellation,
+                city: $regArea
+            },
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                var code = res.code;
+                var msg = res.msg;
+                if (code == 1) {
+                    login($tel, $password);
+                    alert("注册成功~");
+                } else {
+                    alert(msg);
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
     });
 });
-
 
 /* 改变性别 */
 function changeGender(e, genderImag) {
@@ -247,11 +236,12 @@ function getPhoto(node) {
         if (typeof (base64) !== 'undefined') {
             $('#img-path').attr('src', base64);
             $('#img-path').cropper({
-                aspectRatio: 16 / 9,
+                aspectRatio: 1 / 1,
+                autoCropArea: .9,
                 viewMode: 1,
-                // crop: function (e) {
-                //     //console.log(e);
-                // }
+                crop: function (e) {
+                    console.log(e);
+                }
             });
         }
         //取消
@@ -277,7 +267,6 @@ function getPhoto(node) {
                     $('#img-path').attr('src', "");
                     $(".img1").removeClass("img1-photo");
                     $(".img2").removeClass("img2-picture");
-                    // base64url = "";
                     if (typeof (url) != undefined) {
                         $('img#uploadImg').attr('src', url);
                     }
@@ -336,4 +325,15 @@ function login(tel, password) {
             console.log(err)
         }
     });
+}
+
+
+// 注册弹框
+function info(a, b) {
+    $(".reg-tips").show()
+    $(".reg-tips").text(a)
+    var date = b * 1000;
+    window.setTimeout(() => {
+        $(".reg-tips").hide();
+    }, date);
 }
