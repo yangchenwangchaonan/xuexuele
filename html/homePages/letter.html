@@ -12,25 +12,61 @@
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/home/homeLetter.js"></script>
 	<script src="../../js/common/goBack.js"></script>
-	<script src="../../js/home/swiper-3.3.1.min.js"></script>
+	<style>
+		.box-box{width: 83.6666vw;height:67.5px;background:rgba(248,232,176,1);border-radius:10px; margin-bottom: 11px;overflow: hidden;}
+		.list{overflow:hidden;margin-top:.2rem;padding-left:.3rem;}
+		.list li{overflow:hidden;width:120%;}
+		.list li a{display:block;height:.88rem;-webkit-transition:all 0.3s linear;transition:all 0.3s linear;}
+		.list li i{float:right;width:16.4666vw;text-align:center;background:#F65F40;color:#fff;height: 67.5px;border-radius: 10px}
+		.swipeleft{transform:translateX(-17.1%);-webkit-transform:translateX(-17.1%);}
+		.list .box-text{width: 78.66vw;float:left;overflow: hidden;}
+		.list .readList{float:left; margin-left: 2.133vw;}
+		.list .readList span{margin-top: 10px;font-size:15px;font-family:MicrosoftYaHei;font-weight:400;color:rgba(85,50,8,1);}
+		.list .span{float: right; margin-top: 10px; }
+		.list .box-text .ov-text{width: 78.66vw;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-top: 10px;padding-left: 5.533vw;font-size:13px;font-family:MicrosoftYaHei;font-weight:400;color:rgba(85,50,8,1);}
+		.list .readList img{width: 2.93333vw;}
+		.del-key{width: 5vw;height:20px;margin-top:20.75px}
+	</style>
+	<!-- <script>
+		// //计算根节点HTML的字体大小
+		// function resizeRoot(){
+		//     var deviceWidth = document.documentElement.clientWidth,
+		//         num = 750,
+		//         num1 = num / 100;
+		//     if(deviceWidth > num){
+		//         deviceWidth = num;  
+		//     }
+		//     document.documentElement.style.fontSize = deviceWidth / num1 + "px";
+		// }
+		// //根节点HTML的字体大小初始化
+		// resizeRoot();
+		// window.onresize = function(){
+		//     resizeRoot();
+		// };
+	</script> -->
 </head>
-
 <body class="letter-body">
 	<section class="letter-container">
-		<i class="page-back"></i>
+		<i class="page-back1"></i>
 		<div class="letter-content">
 			<h1>-站内信-</h1>
 			<div class="letter-wrapper" id="letter-Wrapper">
-				<!-- <div class="letter-detail">
-					<div class="letter-inner">
-						<li class="readList"><span>站内信标题</span></li>
-						<span>2017-01-01</span>
-						<p>站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容</p>
-					</div>
-					<div class="letter-del">
-						<img src="../../images/69.png" class="del-key" />
-					</div>
-				</div> -->
+				<div class="list">
+					
+						<!-- <li>
+							<a href="#">
+								<p class="readList"><span>站内信标题</span></p>
+								<span>2017-01-01</span>
+								<p>站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容</p>
+								<i>
+									<img src="../../images/69.png" class="del-key" />
+								</i>
+							</a>
+						</li> -->
+						<!-- <li><a href="#">侧滑显示删除按钮2<i><img src="../../images/69.png" class="del-key" /></i></a></li>
+						<li><a href="#">侧滑显示删除按钮3<i><img src="../../images/69.png" class="del-key" /></i></a></li> -->
+					
+				</div>
 				<div class="noletter">
 					<div class="noletter-result"></div>
 					<div class="noletter-text">

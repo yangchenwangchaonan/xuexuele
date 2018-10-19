@@ -27,7 +27,6 @@ $(function() {
         $(window).attr("location", "../../signOut.html");
         sessionStorage.clear()
     });
-
 });
 
 
@@ -67,7 +66,7 @@ function UserInfo() {
             $(".img").attr("src",data.headimg);
             $(".tutor-title").html(data.identity==1?"导师":"侠客");
             $(".useName").html(data.nickname);
-            $(".no-certified").html(data.certificationstate==1?"未认证":"已认证");
+            $(".no-certified").html(data.certificationstate==1?"未认证":data.certificationstate==2?"已认证":data.certificationstate==3?"审核中":data.certificationstate==4?"驳回":'');
             $("#wealth-value1").html(data.wisdombean);
             $("#wealth-value2").html(data.pk);
             $("#wealth-value3").html(data.creditscore);
@@ -76,6 +75,14 @@ function UserInfo() {
             }else{
                 $(".p2>i").addClass('checked')
             }
+            var url=$(".certified").text()
+            $(".personal-infor-history").click(function(){
+               if(url=="未认证" || url=="驳回"){
+                $(window).attr("location", "../personalCenter/verified.html");
+               }else if(url=="审核中"){
+                $(window).attr("location", "../personalCenter/4.1-infor-submitting.html");
+               }
+            })
         },
         error: function(err) {
             console.log(err);

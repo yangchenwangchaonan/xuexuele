@@ -1,60 +1,126 @@
 $(function () {
-    var userId = 1;
-    userLetter(userId);
+    userLetter();
+    $(".page-back1").click(function(){
+        $(window).attr("location","../homePages/home.html");
+    })
 });
 
 /* 获取站内信 */
-function userLetter(userId) {
+function userLetter() {
+    var uid=sessionStorage.getItem("uid")
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserMessage",
         data: {
-            uid: userId
+            uid: uid
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data;
-            if (data.length == 0) {
-                $(".noletter").css("display", "block");
-            } else {
+                var data = res.data;
                 var $str = "";
+                 if (res.data == "") {
+                    $(".noletter").css("display", "block");
+                    $(".list").html("");
+                }else{
                 $.each(data, function (index, val) {
                     $str += `
-                    <div class="letter-detail">
-                        <div class="letter-inner" data-id="${val.id}">
-                            <li data-read="${val.is_read}"><span>${val.heading}</span></li>
-                            <span>${val.create_time}</span>
-                            <p>${val.content}</p>
-                        </div>
-                        <div class="letter-del">
-                            <img src="../../images/69.png" class="del-key" />
-                        </div>
-                    </div>
+                    <ul class="box-box">
+                        <li>
+                            <a href="#">
+                                <div class="box-text" onclick="detail(${val.id})">
+                                    <p class="readList">${val.is_read==1?`<img src="../../images/68.png"/>`:`<img />`}<span>${val.heading}</span></p>
+                                    <span class="span">${val.create_time}</span>
+                                    <p class="ov-text">${val.content}</p>
+                                </div>
+                                <i onclick="deleteInfo(${val.id})">
+                                    <img src="../../images/69.png" class="del-key" />
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
                     `;
                 });
-                $(".letter-wrapper").append($str);
-                var $isRead = $(".letter-inner>li");
-                $.each($isRead, function (index, val) {
-                    var $list = $(this).attr("data-read");
-                    if ($list == 1) {
-                        $(this).addClass("readList");
-                    }
-                });
+
+                $(".list").html($str);
+                    scorll ()  
             }
-            /* 查看站内信详情 */
-            $("div.letter-detail").click(function () {
-                var letterId = $(this).children("div.letter-inner").attr("data-id");
-                $(window).attr("location", "./letter-infor.html?id=" + letterId + "&uid=" + userId);
-            });
-
-            // 删除站内信
-           
-            
-
         },
         error: function (err) {
             console.log(err);
         }
     });
 }
+
+
+
+function deleteInfo (id) {
+      $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/User/UserMessageDelete",
+        data: {
+            id: id,
+            _method:"DELETE",
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            userLetter() 
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+
+
+/* 查看站内信详情 */
+function detail (id) {
+    var uid=sessionStorage.getItem("uid")
+    $(window).attr("location","./letter-infor.html?id=" + id + "&uid="+uid );
+}
+
+
+
+function scorll () {
+     //侧滑显示删除按钮
+        var expansion = null; //是否存在展开的list
+        var container = document.querySelectorAll('.list li a');
+        for(var i = 0; i < container.length; i++){    
+            var x, y, X, Y, swipeX, swipeY;
+            container[i].addEventListener('touchstart', function(event) {
+                x = event.changedTouches[0].pageX;
+                y = event.changedTouches[0].pageY;
+                swipeX = true;
+                swipeY = true ;
+                if(expansion){   //判断是否展开，如果展开则收起
+                    expansion.className = "";
+                }        
+            });
+            container[i].addEventListener('touchmove', function(event){
+                
+                X = event.changedTouches[0].pageX;
+                Y = event.changedTouches[0].pageY;        
+                // 左右滑动
+                if(swipeX && Math.abs(X - x) - Math.abs(Y - y) > 0){
+                    // 阻止事件冒泡
+                    event.stopPropagation();
+                    if(X - x > 10){   //右滑
+                        event.preventDefault();
+                        this.className = "";    //右滑收起
+                    }
+                    if(x - X > 10){   //左滑
+                        event.preventDefault();
+                        this.className = "swipeleft";   //左滑展开
+                        expansion = this;
+                    }
+                    swipeY = false;
+                }
+                // 上下滑动
+                if(swipeY && Math.abs(X - x) - Math.abs(Y - y) < 0) {
+                    swipeX = false;
+                }        
+            });
+        }
+    }
