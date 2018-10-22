@@ -184,7 +184,7 @@ function getPush(){
 			         if(res.code==1){
 			           info("提交审核成功",1)
 			           window.setTimeout(() => {
-			           $(window).attr("location", "../personalCenter/4.1-infor-submitting.html");
+			           $(window).attr("location", "../personalCenter/infor-submitting.html");
 			            }, 1000);
 			       }
 		        },

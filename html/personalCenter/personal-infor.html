@@ -8,9 +8,16 @@
     <link rel="shortcut icon" href="../../images/favicon.ico">
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lCalendar.css">
+    <link rel="stylesheet" href="../../css/cropper.css">
+    <link rel="stylesheet" href="../../css/citysel.css">
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
-    <script src="../../js/common/goBack.js"></script>
+    <script src="../../js/common/common.js"></script>
     <script src="../../js/personal/personalInfor.js"></script>
+    <script src="../../js/reg/cropper.js"></script>
+    <script src="../../js/birthday/lCalendar.min.js"></script>
+    <script src="../../js/city/citypickerhc.js"></script>
+    <script src="../../js/personal/personalArea.js"></script>
 </head>
 
 <body class="realname-body">
@@ -21,166 +28,168 @@
             <ul class="personal-list">
                 <li class="head-pic">
                     <h1>
-                        <div><img src="" /></div>
+                        <div id="perImg"><img/></div>
                     </h1>
-                    <p><input type="text" placeholder="请上传头像" readonly /></p>
+                    <p><input type="text" value="请上传头像" readonly id="perImgText"/></p>
                 </li>
                 <li>
                     <h1>昵称:</h1>
-                    <p><input type="text" placeholder="蔺有钱" /></p>
+                    <p id="perNickname"><input type="text" value="请输入" /></p>
                 </li>
                 <li>
                     <h1>性别:</h1>
-                    <p><input type="text" placeholder="男" readonly /></p>
+                    <p id="perGender"><input type="text" value="点击选择" readonly /></p>
                 </li>
                 <li>
-                    <h1>生日:</h1>
-                    <p><a href="#">2000-01-01</a></p>
+                    <h1>生日：</h1>
+                    <p id="reg-birthday"><input id="demo1" type="text" readonly="" name="input_date" value="点击选择"
+                            data-lcalendar="1900-01-1,2100-12-31" /></p>
                 </li>
                 <li>
                     <h1>星座:</h1>
-                    <p><input type="text" placeholder="天蝎座" readonly /></p>
+                    <p id="perConstellation"><input type="text" value="点击选择" readonly /></p>
                 </li>
                 <li>
                     <h1>地区:</h1>
-                    <p><input type="text" placeholder="海淀区" readonly /></p>
+                    <p id="perArea"><input type="text" value="点击选择" readonly /></p>
                 </li>
                 <li>
                     <h1>个人简介:</h1>
-                    <p><input type="text" placeholder="已填写" readonly /></p>
+                    <p id="personal-introduct"><input type="text" value="请填写" readonly /></p>
                 </li>
             </ul>
-            <div class="personal-submit">确认修改</div>
-        </div>
-        <!-- 头像选择 -->
-        <div class="reg-shade" id="regVavatar-shade">
-            <div class="avatar">
-                <div class="avatar_model">
-                    <div class="avatar_btn"></div>
-                    <!-- <input type="file" name="imgPhoto" id="imgPhoto" accept="image/*" onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" /> -->
-                    <label>
-                        <div class="img1"></div>
-                        <input type="file" name="importPhoto" id="importPhoto" accept="image/*" capture="camera"
-                            onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
-                    </label>
-                    <label>
-                        <div class="img2"></div>
-                        <input type="file" name="importFile" id="importFile" accept="image/*" onchange="getPhoto(this);"
-                            style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
-                    </label>
-                </div>
-            </div>
-        </div>
-        <!-- 头像裁剪 -->
-        <div class="cropper-shade">
-            <div class="cropper-box"><img src="" id="img-path" /></div>
-            <div>
-                <div class="img-cut-btn img-cut-btn1">取消</div>
-                <div class="img-cut-btn img-cut-btn2 img-cut-btn3">确定</div>
-            </div>
-        </div>
-
-        <!-- 选择性别 -->
-        <div class="reg-shade" id="regGender-shade">
-            <div class="gender">
-                <div class="gender_model">
-                    <div class="gender_btn1"></div>
-                    <div class="gender_btn2"></div>
-                    <div class="gender_table">
-                        <table>
-                            <tr id="gender_list">
-                                <td><img src="../../images/43-1.png" onclick="changeGender(this,'43-2.png')" />
-                                    <p>男</p>
-                                </td>
-                                <td><img src="../../images/44-1.png" onclick="changeGender(this,'44-2.png')" />
-                                    <p>女</p>
-                                </td>
-                                <td><img src="../../images/45-1.png" onclick="changeGender(this,'45-2.png')" />
-                                    <p>保密</p>
-                                </td>
-                                <td><img src="../../images/46-1.png" onclick="changeGender(this,'46-2.png')" />
-                                    <p>双性</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 星座选择 -->
-        <div class="reg-shade" id="regConstellation-shade">
-            <div class="constellation">
-                <div class="constellation_model">
-                    <div class="constellation_btn2"></div>
-                    <div class="constellation_btn1"></div>
-                    <div class="constellation_table">
-                        <table>
-                            <tr class="constellation_tr">
-                                <td>
-                                    <img src="../../images/48-1.png" onclick="changeImage(this,'48-2.png')" />
-                                    <p>白羊座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/49-1.png" onclick="changeImage(this,'49-2.png')" />
-                                    <p>金牛座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/50-1.png" onclick="changeImage(this,'50-2.png')" />
-                                    <p>双子座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/51-1.png" onclick="changeImage(this,'51-2.png')" />
-                                    <p>巨蟹座</p>
-                                </td>
-                            </tr>
-                            <tr class="constellation_tr">
-                                <td>
-                                    <img src="../../images/52-1.png" onclick="changeImage(this,'52-2.png')" />
-                                    <p>狮子座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/53-1.png" onclick="changeImage(this,'53-2.png')" />
-                                    <p>处女座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/54-1.png" onclick="changeImage(this,'54-2.png')" />
-                                    <p>天秤座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/55-1.png" onclick="changeImage(this,'55-2.png')" />
-                                    <p>天蝎座</p>
-                                </td>
-                            </tr>
-                            <tr class="constellation_tr">
-                                <td>
-                                    <img src="../../images/56-1.png" onclick="changeImage(this,'56-2.png')" />
-                                    <p>射手座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/57-1.png" onclick="changeImage(this,'57-2.png')" />
-                                    <p>摩羯座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/58-1.png" onclick="changeImage(this,'58-2.png')" />
-                                    <p>水瓶座</p>
-                                </td>
-                                <td>
-                                    <img src="../../images/59-1.png" onclick="changeImage(this,'59-2.png')" />
-                                    <p>双鱼座</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <div class="personal-submit" id="perSubmit">确认修改</div>
+            <div class="submit-tips"></div>      <!-- tips --> 
         </div>
     </section>
+    <!-- 头像选择 -->
+    <div class="reg-shade" id="regVavatar-shade">
+        <div class="avatar">
+            <div class="avatar_model">
+                <div class="avatar_btn"></div>
+                <!-- <input type="file" name="imgPhoto" id="imgPhoto" accept="image/*" onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" /> -->
+                <label>
+                    <div class="img1"></div>
+                    <input type="file" name="importPhoto" id="importPhoto" accept="image/*" capture="camera" onchange="getPhoto(this);"
+                        style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+                </label>
+                <label>
+                    <div class="img2"></div>
+                    <input type="file" name="importFile" id="importFile" accept="image/*" onchange="getPhoto(this);"
+                        style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- 头像裁剪 -->
+    <div class="cropper-shade">
+        <div class="cropper-box"><img src="" id="img-path" /></div>
+        <div>
+            <div class="img-cut-btn img-cut-btn1">取消</div>
+            <div class="img-cut-btn img-cut-btn2 img-cut-btn3">确定</div>
+        </div>
+    </div>
+
+    <!-- 选择性别 -->
+    <div class="reg-shade" id="regGender-shade">
+        <div class="gender">
+            <div class="gender_model">
+                <div class="gender_btn1"></div>
+                <div class="gender_btn2"></div>
+                <div class="gender_table">
+                    <table>
+                        <tr id="gender_list">
+                            <td><img src="../../images/43-1.png" onclick="changeGender(this,'43-2.png')" />
+                                <p>男</p>
+                            </td>
+                            <td><img src="../../images/44-1.png" onclick="changeGender(this,'44-2.png')" />
+                                <p>女</p>
+                            </td>
+                            <td><img src="../../images/45-1.png" onclick="changeGender(this,'45-2.png')" />
+                                <p>保密</p>
+                            </td>
+                            <td><img src="../../images/46-1.png" onclick="changeGender(this,'46-2.png')" />
+                                <p>双性</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 星座选择 -->
+    <div class="reg-shade" id="regConstellation-shade">
+        <div class="constellation">
+            <div class="constellation_model">
+                <div class="constellation_btn2"></div>
+                <div class="constellation_btn1"></div>
+                <div class="constellation_table">
+                    <table>
+                        <tr class="constellation_tr">
+                            <td>
+                                <img src="../../images/48-1.png" onclick="changeImage(this,'48-2.png')" />
+                                <p>白羊座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/49-1.png" onclick="changeImage(this,'49-2.png')" />
+                                <p>金牛座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/50-1.png" onclick="changeImage(this,'50-2.png')" />
+                                <p>双子座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/51-1.png" onclick="changeImage(this,'51-2.png')" />
+                                <p>巨蟹座</p>
+                            </td>
+                        </tr>
+                        <tr class="constellation_tr">
+                            <td>
+                                <img src="../../images/52-1.png" onclick="changeImage(this,'52-2.png')" />
+                                <p>狮子座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/53-1.png" onclick="changeImage(this,'53-2.png')" />
+                                <p>处女座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/54-1.png" onclick="changeImage(this,'54-2.png')" />
+                                <p>天秤座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/55-1.png" onclick="changeImage(this,'55-2.png')" />
+                                <p>天蝎座</p>
+                            </td>
+                        </tr>
+                        <tr class="constellation_tr">
+                            <td>
+                                <img src="../../images/56-1.png" onclick="changeImage(this,'56-2.png')" />
+                                <p>射手座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/57-1.png" onclick="changeImage(this,'57-2.png')" />
+                                <p>摩羯座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/58-1.png" onclick="changeImage(this,'58-2.png')" />
+                                <p>水瓶座</p>
+                            </td>
+                            <td>
+                                <img src="../../images/59-1.png" onclick="changeImage(this,'59-2.png')" />
+                                <p>双鱼座</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 地区选择 -->
-    <div class="area-body">
-        <div class="area-container">
+    <div class="personal-area">
+        <div class="personal-area-container">
             <span id="area-title">-地区选择-</span>
             <div class="area-box1">
-                <i class="area-back" id="areaClose"></i>
+                <i class="personal-area-back" id="areaClose"></i>
                 <div class="city-box city-in city-on" id="cityIn">国内城市</div>
                 <div class="city-box city-out" id="cityOut">国际/港澳台</div>
                 <div class="city-line"></div>
@@ -210,7 +219,7 @@
                 </div>
             </div>
             <div class="area-box2">
-                <i class="area-back" id="searchClose"></i>
+                <i class="personal-area-back" id="searchClose"></i>
                 <div class="city-search2">
                     <div id="search-picture2"></div>
                     <input type="text" id="search-text2" placeholder="请输入城市名称"></input>
@@ -239,6 +248,25 @@
             </div>
         </div>
     </div>
+    <!-- 个人简介 -->
+    <div class="personal-introduct">
+        <i class="personal-changeback"></i>
+        <span class="present-top">-个人简介-</span>
+        <div class="personal-content">
+            <textarea type="text" class="present-detail" placeholder="请输入简介"></textarea>
+        </div>
+    </div>
 </body>
+<script>
+    // 生日选择
+    var calendar = new lCalendar();
+    calendar.init({
+        'trigger': '#demo1',
+        'type': 'date'
+    });
+    // 城市选择
+    citypicker();
+</script>
+
 
 </html>

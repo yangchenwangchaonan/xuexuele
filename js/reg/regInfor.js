@@ -63,7 +63,7 @@ $(function () {
             if ($text) {
                 $("#regConstellation-shade").hide();
                 $("#reg-constellation").text($text);
-                localStorage.getItem("constellation", $text);
+                // localStorage.getItem("constellation", $text);
             } else {
                 $(".constellation_btn1").attr("disabled", true);
             }
@@ -86,6 +86,28 @@ $(function () {
         $(".area-box1").show();
         $(".area-box2").hide();
         $(".index-container").hide();
+        $(".cityper").removeClass("cityChecked");
+
+        //选择城市
+        $(".cityper").click(function () {
+            // console.log($(this).attr("name"));
+            $(this).addClass("cityChecked").siblings().removeClass("cityChecked");
+            $("#cityname").text($(this).text());
+            var $num = $(this).parent("div").attr("num");
+            var $index = $(".indexBar>a:contains(" + $num + ")");
+            $index.css("color", "#3FBF09").siblings().css("color", "#666666");
+            // $(".touchcity").hide()
+            var $city = $("#cityname").text();
+            $(".area-body").hide();
+            $(".index-container").show();
+            $("#reg-area").html($city);
+        });
+        //关闭
+        $("#areaClose").click(function () {
+            $(".area-body").hide();
+            $(".index-container").show();
+            $("#reg-area").html("点击选择");
+        });
     });
 
 
@@ -110,7 +132,7 @@ $(function () {
             $id = 2;
         }
         // 头像
-        if ($avartar == "") {
+        if ($avartar == undefined || $avartar == "") {
             info("请选择一个霸气的头像~", 1);
             return;
         }
@@ -269,6 +291,7 @@ function getPhoto(node) {
                     $(".img2").removeClass("img2-picture");
                     if (typeof (url) != undefined) {
                         $('img#uploadImg').attr('src', url);
+                        $("#reg-avatar>span").html("已上传");
                     }
                 }
             });
@@ -303,18 +326,18 @@ function login(tel, password) {
             var msg = res.msg;
             if (res.code == 1) {
                 sessionStorage.setItem("uid", data.UserId); //用户id
-                sessionStorage.setItem("birthday", data.birthday); //生日
-                sessionStorage.setItem("verified", data.certificationstate); //实名
-                sessionStorage.setItem("city", data.city); //所在城市
-                sessionStorage.setItem("constellation", data.constellation); //星座
-                sessionStorage.setItem("creditscore", data.creditscore); //信用值
-                sessionStorage.setItem("headImg", data.headimg); //头像
-                sessionStorage.setItem("identity", data.identity); //身份
-                sessionStorage.setItem("moneybag", data.moneybag); //用户钱包余额
-                sessionStorage.setItem("nickname", data.nickname); //昵称
-                sessionStorage.setItem("pk", data.pk); //pk值
-                sessionStorage.setItem("sex", data.sex); //性别
-                sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
+                // sessionStorage.setItem("birthday", data.birthday); //生日
+                // sessionStorage.setItem("verified", data.certificationstate); //实名
+                // sessionStorage.setItem("city", data.city); //所在城市
+                // sessionStorage.setItem("constellation", data.constellation); //星座
+                // sessionStorage.setItem("creditscore", data.creditscore); //信用值
+                // sessionStorage.setItem("headImg", data.headimg); //头像
+                // sessionStorage.setItem("identity", data.identity); //身份
+                // sessionStorage.setItem("moneybag", data.moneybag); //用户钱包余额
+                // sessionStorage.setItem("nickname", data.nickname); //昵称
+                // sessionStorage.setItem("pk", data.pk); //pk值
+                // sessionStorage.setItem("sex", data.sex); //性别
+                // sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
                 $(window).attr("location", "../homePages/home.html");
             } else {
                 alert(msg);

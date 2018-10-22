@@ -24,26 +24,26 @@ function citypicker() {
 				}
 			}
 			$(".touchcity").show();
-			//选择城市
-			$(".cityper").click(function () {
-				// console.log($(this).attr("name"));
-				$(this).addClass("cityChecked").siblings().removeClass("cityChecked");
-				$("#cityname").text($(this).text());
-				var $num = $(this).parent("div").attr("num");
-				var $index = $(".indexBar>a:contains(" + $num + ")");
-				$index.css("color", "#3FBF09").siblings().css("color", "#666666");
-				// $(".touchcity").hide()
-				var $city = $("#cityname").text();
-				$(".area-body").hide();
-				$(".index-container").show();
-				$("#reg-area").html($city);
-			});
-			//关闭
-			$("#areaClose").click(function () {
-				$(".area-body").hide();
-				$(".index-container").show();
-				$("#reg-area").html("点击选择");
-			});
+			// //选择城市
+			// $(".cityper").click(function () {
+			// 	// console.log($(this).attr("name"));
+			// 	$(this).addClass("cityChecked").siblings().removeClass("cityChecked");
+			// 	$("#cityname").text($(this).text());
+			// 	var $num = $(this).parent("div").attr("num");
+			// 	var $index = $(".indexBar>a:contains(" + $num + ")");
+			// 	$index.css("color", "#3FBF09").siblings().css("color", "#666666");
+			// 	// $(".touchcity").hide()
+			// 	var $city = $("#cityname").text();
+			// 	$(".area-body").hide();
+			// 	$(".index-container").show();
+			// 	$("#reg-area").html($city);
+			// });
+			// //关闭
+			// $("#areaClose").click(function () {
+			// 	$(".area-body").hide();
+			// 	$(".index-container").show();
+			// 	$("#reg-area").html("点击选择");
+			// });
 
 			//导航触摸滑动
 			$(".indexBar").on("touchmove", function (e) {

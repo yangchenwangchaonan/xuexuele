@@ -1,6 +1,7 @@
 $(function() {
     //个人中心信息
     UserInfo()
+    Close ()
     //身份设置
     $(".setting").click(function() {
         $("#personalShade").css("display", "block");
@@ -12,15 +13,7 @@ $(function() {
             $(".language-tips").click(function() {
                 $(".language-tips").css("display", "none");
             });
-        });
-        // 关闭窗口
-        $(".personal-close").click(function() {
-            if ($(".p1>i").attr("class") == "checked") {
-                Setup(2)
-            } else {
-                Setup(1)
-            }
-        });
+        }); 
     });
     // 退出登录
     $(".login-out").click(function() {
@@ -28,7 +21,16 @@ $(function() {
         sessionStorage.clear()
     });
 });
-
+// 关闭窗口
+function Close () {
+    $(".personal-close").click(function() {
+        if ($(".p1>i").attr("class") == "checked") {
+            Setup(2)
+        } else {
+            Setup(1)
+        }
+    });
+}
 
 // 选择身份
 function Setup(num) {
@@ -65,6 +67,8 @@ function UserInfo() {
             var data = res.data[0]
             $(".img").attr("src",data.headimg);
             $(".tutor-title").html(data.identity==1?"导师":"侠客");
+            $(".tutor-title").addClass(data.identity==1?"":"ranger-title");
+            $(".tutor-title").removeClass(data.identity==1?"ranger-title":"");
             $(".useName").html(data.nickname);
             $(".no-certified").html(data.certificationstate==1?"未认证":data.certificationstate==2?"已认证":data.certificationstate==3?"审核中":data.certificationstate==4?"驳回":'');
             $("#wealth-value1").html(data.wisdombean);
@@ -80,7 +84,7 @@ function UserInfo() {
                if(url=="未认证" || url=="驳回"){
                 $(window).attr("location", "../personalCenter/verified.html");
                }else if(url=="审核中"){
-                $(window).attr("location", "../personalCenter/4.1-infor-submitting.html");
+                $(window).attr("location", "../personalCenter/infor-submitting.html");
                }
             })
         },
