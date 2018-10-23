@@ -14,38 +14,32 @@
 	<script src="../../js/common/footer.js"></script>
 	<script src="../../js/home/home.js"></script>
 	<script src="http://momentjs.cn/downloads/moment.min.js"></script>
-	<script type="text/javascript">
-		$(function () {
-			//ajax获取日历json数据
-			var signList = [{
-				"signDay":''
-			},];
-			calUtil.init(signList);
-		});
-	</script>
 </head>
 
-<body class="index-body">
-	<section class="index-container container-home">
+<body class="home-body">
+	<section class="container-home">
+		<!-- <img src="../../images/37.png" /> -->
 		<div class="home-cloud"><img src="../../images/80.png" /></div>
 		<!--left-->
-		<div class="left-tabs" id="stamina-tab">
-			<div class="stamina"><img src="../../images/81.png" /></div>
-			<div class="stamina-progress">
-				<div class="stamina-value"><span style="font-size: 13px;">30</span><span style="font-size: 11px;">/30</span></div>
-				<i class="icon_stamina">+</i>
+		<div class="leftOptions">
+			<div class="left-tabs" id="stamina-tab">
+				<div class="stamina"><img src="../../images/81.png" /></div>
+				<div class="stamina-progress">
+					<div class="stamina-value"><span>30</span><span style="font-size: 11px;">/30</span></div>
+					<i class="icon_stamina">+</i>
+				</div>
 			</div>
-		</div>
-		<div class="left-tabs">
-			<div class="beans"><img src="../../images/83.png" /></div>
-			<div class="beans-progress">
-				<div class="beans-value"><span style="font-size: 13px;">200</div>
+			<div class="left-tabs">
+				<div class="beans"><img src="../../images/83.png" /></div>
+				<div class="beans-progress">
+					<div class="beans-value"><span>200</span></div>
+				</div>
 			</div>
-		</div>
-		<div class="left-tabs">
-			<div class="pk"><img src="../../images/84.png" /></div>
-			<div class="pk-progress">
-				<div class="pk-value"><span style="font-size: 13px;">200</div>
+			<div class="left-tabs">
+				<div class="pk"><img src="../../images/84.png" /></div>
+				<div class="pk-progress">
+					<div class="pk-value"><span>200</div>
+				</div>
 			</div>
 		</div>
 		<!--right-->
@@ -76,17 +70,38 @@
 			</div>
 		</div>
 		<!--center-->
-		<div class="level">
-			<div class="left-successed"><span>2</span></div>
-			<div class="level-infor left-successed-infor"><span>22分2秒<br /><img src="../../images/97.png" />+10</span></div>
-			<div class="right-successed"><span>1</span></div>
-			<div class="level-infor right-successed-infor"><span>22分2秒<br /><img src="../../images/97.png" />+10</span></div>
-		</div>
-		<div class="level level-next">
-			<div class="left-failed"><span>4</span></div>
-			<div class="level-infor left-failed-infor"><img src="../../images/101.png" /><span>其他奖励</span></div>
-			<div class="right-failed"><span>3</span></div>
-			<div class="level-infor right-others"><img src="../../images/101.png" /><span>其他奖励</span></div>
+		<div class="homePageBg">
+			<div class="homeLoop">
+				<div class="homeContentLoop">
+
+				</div>
+				<div class="homeContentLoop"></div>
+				<div class="homeContentLoop"></div>
+				<div class="homeContentLoop"></div>
+				<div class="homeContentLoop"></div>
+			</div>
+			<div class="homeFixed">
+				<div class="homeContent">
+					<div class="level">
+						<div class="left-successed"><span>2</span></div>
+						<div class="level-infor left-successed-infor"><p>22分2秒</p><p><img src="../../images/97.png" />+10</p></div>
+						<div class="right-successed"><span>1</span></div>
+						<div class="level-infor right-successed-infor"><span>22分2秒<br /><img src="../../images/97.png" />+10</span></div>
+					</div>
+					<div class="level level-next">
+						<div class="left-failed"><span>4</span></div>
+						<div class="level-infor left-failed-infor"><img src="../../images/101.png" /><span>其他奖励</span></div>
+						<div class="right-failed"><span>3</span></div>
+						<div class="level-infor right-others"><img src="../../images/101.png" /><span>其他奖励</span></div>
+					</div>
+					<div class="level level-next-again">
+						<div class="left-failed"><span>6</span></div>
+						<div class="level-infor left-failed-infor"><img src="../../images/101.png" /><span>其他奖励</span></div>
+						<div class="right-failed"><span>5</span></div>
+						<div class="level-infor right-others"><img src="../../images/101.png" /><span>其他奖励</span></div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!--bottom-->
 		<div class="bottom-table">
@@ -179,8 +194,23 @@
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 	<div class="internet-tips">网络不给力啊~</div>
 </body>
+<script type="text/javascript">
+	$(function () {
+		//ajax获取日历json数据
+		var signList = [{
+			"signDay": ''
+		}, ];
+		calUtil.init(signList);
+	});
+
+	// 禁止滑动屏幕
+	document.body.addEventListener('touchmove', function (event) {
+		event.preventDefault();
+	}, false);
+</script>
 
 </html>

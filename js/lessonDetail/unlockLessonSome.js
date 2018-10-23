@@ -1,44 +1,41 @@
 $(function () {
-    // 获取uId，lessonId，wisdombean
+    // 获取uId，lessonId
+    var uId = sessionStorage.getItem("uid");
     var url = window.location.href;
-    var arr1 = url.split("?");
-    var arr3 = arr1[1].split("&");
-    var uId = arr3[0].substr(arr3[0].indexOf("=") + 1);
-    var lessonId = arr3[1].substr(arr3[1].indexOf("=") + 1);
-    WisdomDetailList(uId, lessonId);
+    var arr1 = url.split("=");
+    var lessonId = arr1[1];
+    UnlockCourseDetail(uId, lessonId);
 });
 
-//解锁专辑课程列表详情
-function WisdomDetailList(uId, lessonId) {
+//单一解锁专辑课程列表详情
+function UnlockCourseDetail(uId, lessonId) {
     $.ajax({
         type: "GET",
-        url: APP_URL + "/api/Wisdom/WisdomDetailList",
+        url: APP_URL + "/api/Wisdom/UnlockCourseDetail",
         data: {
-            uid: uId,
-            courseid: lessonId
+            courseid: lessonId,
+            uid: uId
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
             var data = res.data;
-            var needBeans = data.sum;
+            var needBeans = data.totalwisdombean;
             $(".series-top>span").html("x" + needBeans);
-            $(".series-name").html(data.albumname.albumname);
+            $(".series-name").html(data.albumname);
             var str = "";
-            $.each(data.list, function (index, val) {
-                str += `
+            str += `
                     <div class="lesson-title series-inner">
-                        <div class="list-num series-num">${index+1}</div>
+                        <div class="list-num series-num">1</div>
                         <div class="lesson-list-detail serise-list">
                             <div class="serise-list">
-                                <div class="serise-title">${val.coursename}</div>
-                                <div class="serise-beans"><img src="../../images/172.png" /><span>x${val.wisdombean}</span></div>
+                                <div class="serise-title">${data.courselist.coursename}</div>
+                                <div class="serise-beans"><img src="../../images/172.png" /><span>x${data.courselist.wisdombean}</span></div>
                             </div>
                         </div>
                     </div>
                 `;
-            });
-            $(".series-title-list").prepend(str);
+            $(".series-title-list").html(str);
             var hasBeans = data.userwisdombean;
             $(".series-hasbeans>span").html("剩余智慧豆数:" + hasBeans);
             //解锁
@@ -53,7 +50,7 @@ function WisdomDetailList(uId, lessonId) {
                 //立即加入
                 $("#lockNow").click(function () {
                     $(".unlock-shade").show();
-                    WisdomUnlock(uId, lessonId, needBeans);
+                    WisdomUnlock(uId, lessonId);
                 });
             }
         },
@@ -63,15 +60,14 @@ function WisdomDetailList(uId, lessonId) {
     });
 }
 
-// 课程解锁 
-function WisdomUnlock(uId, lessonId, needBeans) {
+// 课程解锁 (单个解锁)
+function WisdomUnlock(uId, lessonId) {
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/WisdomUnlock",
         data: {
             uid: uId,
             courseid: lessonId,
-            wisdombean: needBeans
         },
         dataType: "json",
         success: function (res) {

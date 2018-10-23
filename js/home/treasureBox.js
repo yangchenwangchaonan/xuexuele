@@ -1,10 +1,11 @@
 $(function () {
+    var uId = sessionStorage.getItem("uid");
     /* 百宝箱列表*/
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserBaobox",
         data: {
-            uid: 1,
+            uid: uId,
             page: 1
         },
         dataType: "json",
@@ -13,6 +14,12 @@ $(function () {
             var data = res.data;
             var str1 = "";
             var str2 = "";
+            // 无礼物
+            if (data.length == 0) {
+                $(".nogift").show();
+                $("#endding").hide();
+            }
+            // 有礼物
             $.each(data, function (index, val) {
                 var type = val.type;
                 if (type == 1) {
@@ -35,16 +42,17 @@ $(function () {
                     $(".treasureBox-wrapper").append(str2);
                 }
             });
+
             // 点击跳转
             var $treasureboxGift1 = $(".treasureBox-gift1");
             var $treasureboxGift2 = $(".treasureBox-gift2");
             $treasureboxGift1.click(function () {
                 var $id = $(this).attr("data-id");
-                $(window).attr("location", "./treasureBox_detail.html?id="+$id);
+                $(window).attr("location", "./treasureBox_detail.html?id=" + $id);
             });
             $treasureboxGift2.click(function () {
                 var $id = $(this).attr("data-id");
-                $(window).attr("location", "./treasureBox_audio.html?id="+$id);
+                $(window).attr("location", "./treasureBox_audio.html?id=" + $id);
             });
         },
         error: function (err) {

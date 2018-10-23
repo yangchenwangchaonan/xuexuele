@@ -1,7 +1,17 @@
 $(function () {
     var url = window.location.href;
     var aId = url.split("=")[1];
-    albumDetail(aId)
+    albumDetail(aId);  //专辑详情
+    //录音
+    $(".lesson-recording1").click(function(){
+        $(this).addClass("lesson-recording2").siblings().removeClass("lesson-upload2");
+        $(window).attr("location","./lesson-recording.html");
+    });
+    // 上传
+    $(".lesson-upload1").click(function(){
+        $(this).addClass("lesson-upload2").siblings().removeClass("lesson-recording2");
+    });
+
 });
 
 // 专辑详情
@@ -54,6 +64,8 @@ function albumDetail(id) {
                 //关闭
                 $(".lesson-add-close").click(function () {
                     $(".lesson-shade").hide();
+                    $(".lesson-recording1").removeClass("lesson-recording2");
+                    $(".lesson-upload1").removeClass("lesson-upload2");
                 });
             });
         },

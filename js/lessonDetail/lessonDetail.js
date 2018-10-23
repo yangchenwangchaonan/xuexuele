@@ -71,7 +71,7 @@ function lessonDetail(uId, lessonId) {
                 $(".lock-shade").css("display", "block");
                 $("#progressBarLock>span").html("x" + wisdombean);
                 $("#progressBarLock").click(function () {
-                    $(window).attr("location", "./unlock_series.html?uid=" + uId + "&lessonId=" + lessonId + "&wisdombean=" + wisdombean);
+                    $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId);
                 });
             }
             // 判断是否可评分
@@ -337,7 +337,7 @@ function tutorDetail(isfollow, followid) {
                 `;
             });
             $("#albumList").html(str);
-            $("#albumList>li").click(function(){
+            $("#albumList>li").click(function () {
                 var albumId = $(this).attr("data-id");
                 $(window).attr("location", "./album-name.html?albumId=" + albumId);
             });
