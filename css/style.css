@@ -20,8 +20,9 @@ body {
 
 .home-body {
     width: 100%;
+    height: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: over;
 }
 
 .index-container {
@@ -142,7 +143,6 @@ body {
 
 .index-process-wrapper>.loading>h1 {
     margin-top: -76%;
-    ;
     margin-left: -24vw;
     color: #fff;
     font-size: 12px;
@@ -717,13 +717,14 @@ body {
 }
 
 .homePageBg {
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
+    overflow: auto;
 }
 
 /* 循环部分 */
 .homeLoop {
-    background:  #3074FF;
+    background: #3074FF;
 }
 
 .homeContentLoop {
@@ -736,10 +737,12 @@ body {
     background: url(../images/251.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 固定部分 */
 .homeFixed {
     background: linear-gradient(to top, rgba(207, 228, 255, 1), rgba(237, 254, 255, 1), rgba(48, 116, 255, 1));
 }
+
 .homeContent {
     position: relative;
     top: 0;
@@ -1603,6 +1606,9 @@ body {
 /*课程详情*/
 .treasureBox-body,
 .lesson-detail-body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     background: linear-gradient(0deg, rgba(238, 197, 105, 1) 0%, rgba(203, 232, 229, 1) 100%);
 }
 
@@ -1738,35 +1744,45 @@ body {
     left: 4.03vw;
 }
 
+.lesson-audio {
+    width: 74.0vw;
+    left: 0;
+}
+
 .progressBar {
+    position: absolute;
+    left: 0;
     width: 74.0vw;
     height: 0.75vh;
-    background: rgba(0, 0, 0, 1);
-    opacity: 0.5;
-    margin: 0 auto;
+    background: rgba(0, 0, 0, .5);
+    background-size: 74.0vw 0.75vh;
+    border-radius: 5px;
 }
 
 .progressReal {
-    position: absolute;
-    top: 0;
-    width: 26.67vw;
+    display: inline-block;
+    float: left;
+    width: 0vw;
     height: 0.75vh;
-    background: #93D124;
+    background: rgba(147, 209, 36, 1);
+    opacity: 1;
+    border-radius: 5px;
 }
 
 .progressKey {
-    position: absolute;
+    display: inline-block;
+    margin-left: -0.3vw;
     width: 2.06vw;
     height: 2.17vh;
-    top: -0.8vh;
-    left: 24.87vw;
+    margin-top: -0.55vh;
+    float: left;
     background: url(../images/76.png) no-repeat;
     background-size: 2.06vw 2.17vh;
 }
 
 .successed {
     float: left;
-    line-height: 3.7vh;
+    line-height: 5.7vh;
     font-size: 12px;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
@@ -1775,7 +1791,7 @@ body {
 
 .unsuccessed {
     float: right;
-    line-height: 3.7vh;
+    line-height: 5.7vh;
     font-size: 12px;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
@@ -1785,21 +1801,31 @@ body {
 .progress-start {
     position: absolute;
     width: 16.8vw;
-    height: 9.6vh;
+    height: 16.8vw;
     left: 30.27vw;
-    top: 2.64vh;
+    top: 3.64vh;
     background: url(../images/78.png) no-repeat;
-    background-size: 16.8vw 9.6vh;
+    background-size: 16.8vw 16.8vw;
 }
 
 .progress-stop {
+    position: absolute;
+    width: 16.8vw;
+    height: 16.8vw;
+    left: 30.27vw;
+    top: 3.64vh;
     background: url(../images/136.png) no-repeat;
-    background-size: 16.8vw 9.6vh;
+    background-size: 16.8vw 16.8vw;
 }
 
 .progress-download {
+    position: absolute;
+    width: 16.8vw;
+    height: 16.8vw;
+    left: 30.27vw;
+    top: 3.64vh;
     background: url(../images/135.png) no-repeat;
-    background-size: 16.8vw 9.6vh;
+    background-size: 16.8vw 16.8vw;
 }
 
 /*智慧塔首页*/
@@ -3070,8 +3096,7 @@ body {
 .table-lesson {
     width: 40.53vw;
     height: 30.73vh;
-    /* background: url(../images/others.jpg) no-repeat;
-	background-size: 40.53vw 30.73vh; */
+    overflow: hidden;
     font-size: 11px;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
@@ -3087,7 +3112,7 @@ body {
     position: relative;
     left: 3.57vw;
     width: 36.53vw;
-    top: -8.56vh;
+    top: -6.56vh;
     font-size: 13px;
 }
 
@@ -5444,6 +5469,9 @@ body {
 
 /*我的课程*/
 .mylessons-body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     background: linear-gradient(0deg, rgba(191, 218, 143, 1) 0%, rgba(254, 228, 113, 1) 100%);
 }
 
@@ -5452,7 +5480,7 @@ body {
     top: 8.65vh;
     left: 6.25vw;
     width: 90.67vw;
-    height: 86.56vh;
+    height: 85.56vh;
     border-radius: 15px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -5466,13 +5494,13 @@ body {
 
 .mylesson-list>li {
     float: left;
-    margin-left: 1.55vw;
+    margin: 0 0 1.5vh 1.55vw;
 }
 
 .lesson-lock {
     position: relative;
-    top: -8.5vh;
-    left: 26.93vw;
+    top: -6.5vh;
+    left: 30.93vw;
 }
 
 .lesson-lock img {

@@ -102,7 +102,8 @@ function lessonDetail(uId, lessonId) {
             }
 
             $("#lessonMessage>p").text(data.list.commentsum); //留言
-            $(".unsuccessed").text(data.list.coursetime); //音频时长
+            $("#lessonAudio").attr("src",data.list.coursevoice);  //获取音频
+            // $(".unsuccessed").text(data.list.coursetime); //音频时长
 
             // 导师详情
             tutorDetail(isfollow, followid);

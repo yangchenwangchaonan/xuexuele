@@ -1,30 +1,48 @@
-$(function() {
+$(function () {
+  // 滚动条在底部
+
+  // window.onscroll = function () {
+  //     var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+  //     var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
+  //     var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+  //   //  scrollT = scrollH - clientH
+  //     var ml = $(".homePageBg").height();
+  //     scrollT==2840
+  //    console.log(scrollT,scrollH,clientH,ml)
+  // }
+  // var pageHeught = $(window).height();
+  // var scrollHeight = $(document).scrollTop();
+  // console.log(scrollHeight);
+  // console.log(pageHeught);
+  // $(document).scrollTop(pageHeught);
+  $(".homeFixed").offset().top = 0;
+  console.log($(".homeFixed").offset().top);
+
   //原住人数
   people();
-
 
   // 网络不给力
   $(".internet-tips").css("display", "none");
   //体力值
-  $("#stamina-tab").click(function() {
+  $("#stamina-tab").click(function () {
     $("#stamina-shade").css("display", "block");
-    $("#stamina-shade").click(function() {
+    $("#stamina-shade").click(function () {
       $("#stamina-shade").css("display", "none");
     });
   });
   //站内信
-  $("#maildrop-tab").click(function() {
+  $("#maildrop-tab").click(function () {
     $(window).attr("location", "./letter.html");
     /* 关闭窗口 */
-    $(".signed-close").click(function() {
+    $(".signed-close").click(function () {
       $("#maildrop-tab").css("display", "none");
     });
   });
 
   //签到
-  $("#signed-tab").click(function() {
+  $("#signed-tab").click(function () {
     $("#recording-shade").css("display", "block");
-    $(".signed-close").click(function() {
+    $(".signed-close").click(function () {
       $("#recording-shade").css("display", "none");
     });
     // actioveDate()   //日历当前日期渲染
@@ -33,23 +51,25 @@ $(function() {
 
   });
   //百宝箱
-  $("#treasureBox-tab").click(function() {
+  $("#treasureBox-tab").click(function () {
     $(window).attr("location", "./treasureBox.html");
   });
 
   //闯关
   var $levelSuccessed = $(".level span");
-  $levelSuccessed.click(function() {
+  $levelSuccessed.click(function () {
     $("#levelShade").css("display", "block");
-      ranking()
-    $("#levelFirst").click(function() {
+    ranking()
+    $("#levelFirst").click(function () {
       $(window).attr("location", "./level_content_img.html");
     });
     // 退出关卡
-    $(".level_btn").click(function() {
+    $(".level_btn").click(function () {
       $("#levelShade").css("display", "none");
     });
   });
+
+
 });
 
 
@@ -59,12 +79,12 @@ function people() {
     type: "GET",
     url: APP_URL + "/api/User/UserResident",
     dataType: "json",
-    success: function(res) {
+    success: function (res) {
       console.log(res);
       var num = res.data;
       $("#sum").html(num);
     },
-    error: function(err) {
+    error: function (err) {
       console.log(err)
     }
   });
@@ -79,7 +99,7 @@ function userGate() {
       uid: 1
     },
     dataType: "json",
-    success: function(res) {
+    success: function (res) {
       console.log(res);
     }
   });
@@ -98,15 +118,15 @@ var calUtil = {
   eventName: "load",
 
   //初始化日历
-  init: function(signList, s = '') {
+  init: function (signList, s = '') {
     calUtil.setMonthAndDay();
-    if (typeof(s) == 'undefined') {} else {
+    if (typeof (s) == 'undefined') {} else {
       signList.splice('', '', s);
     }
     calUtil.draw(signList);
     calUtil.bindEnvent(signList);
   },
-  draw: function(signList) {
+  draw: function (signList) {
     //绑定日历
     //alert(signList.length);
     //console.log(signList);
@@ -123,7 +143,7 @@ var calUtil = {
   },
   //绑定事件
 
-  bindEnvent: function(signList) {
+  bindEnvent: function (signList) {
     // $(".calendar_record").click(function(){
     // var tmp = {"signDay":$(this).html()};
     // calUtil.init(signList,tmp);
@@ -131,7 +151,7 @@ var calUtil = {
   },
 
   //获取当前选择的年月
-  setMonthAndDay: function() {
+  setMonthAndDay: function () {
     switch (calUtil.eventName) {
       case "load":
         var current = new Date();
@@ -156,11 +176,11 @@ var calUtil = {
         break;
     }
   },
-  getDaysInmonth: function(iMonth, iYear) {
+  getDaysInmonth: function (iMonth, iYear) {
     var dPrevDate = new Date(iYear, iMonth, 0);
     return dPrevDate.getDate();
   },
-  bulidCal: function(iYear, iMonth) {
+  bulidCal: function (iYear, iMonth) {
     var aMonth = new Array();
     aMonth[0] = new Array(7);
     aMonth[1] = new Array(7);
@@ -195,9 +215,9 @@ var calUtil = {
     }
     return aMonth;
   },
-  ifHasSigned: function(signList, day) {
+  ifHasSigned: function (signList, day) {
     var signed = false;
-    $.each(signList, function(index, item) {
+    $.each(signList, function (index, item) {
       if (item.signDay == day) {
         signed = true;
         return false;
@@ -205,7 +225,7 @@ var calUtil = {
     });
     return signed;
   },
-  drawCal: function(iYear, iMonth, signList) {
+  drawCal: function (iYear, iMonth, signList) {
     var myMonth = calUtil.bulidCal(iYear, iMonth);
     var htmls = new Array();
     // htmls.push("<div class='sign_main' id='sign_layer'>");
@@ -252,7 +272,7 @@ var calUtil = {
 function actioveDate(datelist) {
   console.log(datelist)
   var li = $('#sign_cal').children().children()
-  $(li).each(function(index, val) {
+  $(li).each(function (index, val) {
     var count = $(this).html()
     for (var i = 0; i < datelist.length; i++) {
       var date = (moment(datelist[i].signdate).format("DD"));
@@ -275,14 +295,14 @@ function signinDate() {
     data: {
       uid: uid
     },
-    success: function(res) {
+    success: function (res) {
       var data = res.data
       $('.calendar-day').text(data.days)
       $('.calendar-beans').text(data.beans)
       actioveDate(data.datelist)
       console.log(res)
     },
-    error: function(err) {
+    error: function (err) {
       console.log(err)
     }
   })
@@ -290,7 +310,7 @@ function signinDate() {
 
 //点击签到
 function handleClick() {
-  $(".on").click(function() {
+  $(".on").click(function () {
     var uid = sessionStorage.getItem("uid"); //用户id
     $.ajax({
       type: "post",
@@ -299,7 +319,7 @@ function handleClick() {
       data: {
         uid: uid
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res)
         signinDate()
         if (res.code == 1) {
@@ -308,7 +328,7 @@ function handleClick() {
           alert(res.msg)
         }
       },
-      error: function(err) {
+      error: function (err) {
         console.log(err)
       }
     })
@@ -319,20 +339,20 @@ function handleClick() {
 
 
 // 全网排名 
-function ranking(){
-     $.ajax({
-      type: "GET",
-      url: APP_URL + "/api/User/UserGateSort",
-      data:{
-        gateid:1,
-      },
-      dataType: "json",
-      success: function(res) {
-        console.log(res);
-        var data = res.data;
-        var $str=""
-       $.each(data,function(index,val){
-          $str+=
+function ranking() {
+  $.ajax({
+    type: "GET",
+    url: APP_URL + "/api/User/UserGateSort",
+    data: {
+      gateid: 1,
+    },
+    dataType: "json",
+    success: function (res) {
+      console.log(res);
+      var data = res.data;
+      var $str = ""
+      $.each(data, function (index, val) {
+        $str +=
           `
             <ul class="board-list">
                 <li class="border-num"><span>${index+1}</span></li>
@@ -342,11 +362,11 @@ function ranking(){
                 <li><img src="../../images/97.png" /><span>x${val.rewordbeans}</span></li>
             </ul>
           `
-       })
-       $(".board-table").html($str)
-      },
-      error: function(err) {
-        console.log(err)
-      }
-    });
+      })
+      $(".board-table").html($str)
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  });
 }

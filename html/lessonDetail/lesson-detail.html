@@ -12,6 +12,7 @@
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/lessonDetail/lessonDetail.js"></script>
+	<script src="../../js/common/audio.js"></script>
 </head>
 
 <body class="lesson-detail-body">
@@ -55,12 +56,19 @@
 				</ul>
 			</div>
 			<div class="audio-content">
-				<div class="progressBar"></div>
-				<div class="progressReal"></div>
-				<div class="progressKey"></div>
-				<span class="successed">02:32</span>
-				<span class="unsuccessed">90:00</span>
-				<div class="progress-start progress-stop" id="progressBar"></div>
+				<audio id="lessonAudio"></audio>
+				<div class="progressBar">
+					<div class="progressReal"></div>
+					<i class="progressKey"></i>
+				</div>
+				<span class="successed">00:00</span>
+				<span class="unsuccessed" id="audioTime"></span>
+				<!-- 暂停 -->
+				<div class="progress-stop" id="progressBar"></div>
+				<!-- 播放 -->
+				<!-- <div class="progress-start" id="progressBar"></div> -->
+				<!-- 下载 -->
+				<!-- <div class="progress-download" id="progressBar"></div> -->
 			</div>
 		</div>
 

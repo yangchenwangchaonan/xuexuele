@@ -3,4 +3,5 @@ $(function(){
     $(".lesson-record-back").click(function(){
         history.back(-1);
     });
+    
 });
