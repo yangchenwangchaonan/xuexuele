@@ -24,7 +24,7 @@ function lessonList() {
                      <li data-cId="${val.id}">
                         <div class="table-lesson">
                             <img src="${val.albumimg}" />
-                            <div class="lesson-name">${val.albumname}</div>
+                            <div class="lesson-name2">${val.albumname}</div>
                             <div class="lesson-lock"><img src="../../images/222.png" />${val.unlocknum}</div>
                         </div>
                      </li>

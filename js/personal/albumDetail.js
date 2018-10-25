@@ -1,17 +1,22 @@
 $(function () {
     var url = window.location.href;
     var aId = url.split("=")[1];
-    albumDetail(aId);  //专辑详情
+    albumDetail(aId); //专辑详情
     //录音
-    $(".lesson-recording1").click(function(){
+    $(".lesson-recording1").click(function () {
         $(this).addClass("lesson-recording2").siblings().removeClass("lesson-upload2");
-        $(window).attr("location","./lesson-recording.html");
+        $(window).attr("location", "./lesson-recording.html");
     });
     // 上传
-    $(".lesson-upload1").click(function(){
+    $(".lesson-upload1").click(function () {
         $(this).addClass("lesson-upload2").siblings().removeClass("lesson-recording2");
     });
-
+    // 上传音频
+    $(".lesson-record").change(function () {
+        var files = $(".lesson-record")[0].files[0];
+        // console.log(files);
+        uploadAudio(files);
+    });
 });
 
 // 专辑详情
@@ -61,6 +66,7 @@ function albumDetail(id) {
             }
             $("#addLesson1,#noLesson,#addLesson2").click(function () {
                 $(".lesson-shade").show();
+
                 //关闭
                 $(".lesson-add-close").click(function () {
                     $(".lesson-shade").hide();
@@ -68,6 +74,31 @@ function albumDetail(id) {
                     $(".lesson-upload1").removeClass("lesson-upload2");
                 });
             });
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}
+
+// 上传音频
+function uploadAudio(files) {
+    var formdata = new FormData()
+    formdata.append("voicefile", files)
+    $.ajax({
+        processData: false, //告诉jquery不要去处理发送的数据
+        contentType: false, //告诉jquery不要去设置Content-Type请求头
+        type: "POST",
+        url: APP_URL + "/api/My/VoiceUpload",
+        data: formdata,
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                var voiceUrl = res.data;
+                // console.log(voiceUrl);
+                $(window).attr("location", "./lesson-detail.html?voiceUrl=" + voiceUrl);
+            }
         },
         error: function (err) {
             console.log(err)

@@ -27,7 +27,7 @@ function getSort(id) {
 				<li>
 					<div class="table-lesson" data-lId = "${val.id}">
 						<img src="${val.courseimg}">
-						<div class="lesson-name">${val.coursename}</div>
+						<div class="lesson-name1">${val.coursename}</div>
 						<div class="table-smile"><img src="../../images/125.png" />x${val.coursescore}</div>
 						<div class="table-star"><img src="../../images/124.png" />${val.wisdombean}</div>
 					</div>

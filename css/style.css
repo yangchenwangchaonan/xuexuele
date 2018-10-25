@@ -662,7 +662,8 @@ body {
 .letter-container,
 .album-introduction-container {
     position: relative;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: url("../images/34.png") no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
     padding: 2.53333vw 2.2vw;
@@ -672,6 +673,7 @@ body {
 .letter-content,
 .treasureBox-content,
 .personal-content {
+    position: relative;
     width: 100%;
     height: 100%;
     padding: 4.1vh 2.2vw 0;
@@ -758,13 +760,23 @@ body {
 
 /*遮罩层*/
 .reg-shade,
-.home-shade,
 .level-shade,
 .realname-shade,
 .personal-shade,
 .operate-shade,
 .beans-shade {
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    display: none;
+}
+
+.home-shade {
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 10000;
@@ -1457,12 +1469,21 @@ body {
 }
 
 #inter-text,
-#infor-text,
-#attention-text {
+#infor-text {
     position: absolute;
     text-align: center;
     top: 43.78vh;
     left: 24.13vw;
+    width: 43.47vw;
+    font-size: 14px;
+    color: #333333;
+}
+
+#attentionText {
+    position: absolute;
+    text-align: center;
+    top: 48.78vh;
+    left: 26.13vw;
     width: 43.47vw;
     font-size: 14px;
     color: #333333;
@@ -1521,10 +1542,21 @@ body {
     font-size: 14px;
 }
 
-.treasureBox-audio>h1,
-.treasureBox-content>h1 {
+.treasureBox-audio>h1 {
     position: absolute;
     top: 3.8vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+    z-index: 350;
+}
+
+.treasureBox-content>h1 {
+    position: absolute;
+    top: 1.8vh;
     left: 0;
     width: 100%;
     text-align: center;
@@ -1595,8 +1627,8 @@ body {
 .nogift-text {
     position: absolute;
     text-align: center;
-    top: 47.97vh;
-    left: 28.13vw;
+    top: 51.97vh;
+    left: 27.13vw;
     width: 43.47vw;
     font-size: 13px;
     color: #333333;
@@ -1660,8 +1692,8 @@ body {
     position: absolute;
     width: 34.0vw;
     height: 19.04vh;
-    top: 26.54vh;
-    left: 33.67vw;
+    top: 30.54vh;
+    left: 31.67vw;
     background: url(../images/75.png) no-repeat center;
     background-size: 34.0vw 19.04vh;
 }
@@ -1681,7 +1713,7 @@ body {
 }
 
 .treasureBox-wrapper {
-    height: 85%;
+    height: 89%;
 }
 
 /*百宝箱内容详情*/
@@ -1846,6 +1878,7 @@ body {
 .leftOptions {
     position: fixed;
     top: 2.5vh;
+    z-index: 9999;
 }
 
 .left-tabs {
@@ -1970,6 +2003,7 @@ body {
     top: 13.42vh;
     right: 3.07vw;
     width: 12.53vw;
+    z-index: 9999;
 }
 
 .right-tabs {
@@ -2041,6 +2075,7 @@ body {
     font-size: 9px;
     text-align: center;
     font-weight: bold;
+    z-index: 9999;
     font-family: MicrosoftYaHei-Bold;
 }
 
@@ -2415,9 +2450,9 @@ body {
 
 .board-table {
     position: absolute;
-    left: 18.33vw;
+    left: 20.83vw;
     top: 51.8vh;
-    width: 64.0vw;
+    width: 61.0vw;
     height: 41.23vh;
     overflow: auto;
 }
@@ -2431,9 +2466,9 @@ body {
     padding: 0.75vh 0.93vw;
 }
 
-.board-list img {
+/* .board-list img {
     width: 11.47vw;
-}
+} */
 
 .board-list span {
     margin: 2.0vh 0.5vw;
@@ -2451,6 +2486,19 @@ body {
     height: 52.32vh;
     background: url(../images/112.png) no-repeat;
     background-size: 100% 52.32vh;
+}
+
+
+.border-head>img {
+    width: 43px;
+    height: 43px;
+    border-radius: 5px;
+}
+
+
+.border-phiz>img {
+    width: 26.5px;
+    height: 26.5px;
 }
 
 /*闯关内容*/
@@ -3072,16 +3120,16 @@ body {
     display: table;
     top: 2.02vh;
     width: 100%;
-    height: 82.41vh;
+    height: 84.41vh;
     background: url(../images/128.png) no-repeat;
-    background-size: 100% 82.41vh;
+    background-size: 100% 84.41vh;
     z-index: 350;
 }
 
 .lesson-list {
     position: absolute;
     width: 87.2vw;
-    height: 70.47vh;
+    height: 71.47vh;
     margin: 8.7vh 0 0 6.4vw;
     overflow-x: hidden;
     overflow-y: auto;
@@ -3108,7 +3156,15 @@ body {
     width: 40.53vw;
 }
 
-.lesson-name {
+.lesson-name1 {
+    position: relative;
+    left: 3.57vw;
+    width: 36.53vw;
+    top: -9.56vh;
+    font-size: 13px;
+}
+
+.lesson-name2 {
     position: relative;
     left: 3.57vw;
     width: 36.53vw;
@@ -4460,7 +4516,7 @@ body {
 
 .pod-bottom {
     position: relative;
-    top: -20.1vh;
+    top: -19.1vh;
     width: 100%;
     height: 15.74vh;
     z-index: 350;
@@ -4892,10 +4948,10 @@ body {
 
 .personal-center {
     position: absolute;
-    height: 84.61vh;
+    height: 86.61vh;
     width: 100%;
     background: url(../images/200.png) no-repeat;
-    background-size: 100% 84.61vh;
+    background-size: 100% 86.61vh;
     z-index: 350;
 }
 
@@ -4997,7 +5053,7 @@ body {
 
 .my-tabs>ul>li {
     float: left;
-    margin: 0.5vh 1.25vw;
+    margin: 1.0vh 1.75vw;
     padding: 3.5vw;
     width: 33.8vw;
     height: 17.07vh;
@@ -5016,7 +5072,7 @@ body {
 
 .login-out {
     position: absolute;
-    top: 76.36vh;
+    top: 78.36vh;
     left: 33.47vw;
     width: 33.07vw;
     height: 6.67vh;
@@ -5390,10 +5446,10 @@ body {
     background: #DB6231;
 }
 
-#attention-img {
+#attentionImg {
     position: absolute;
-    top: 22.49vh;
-    left: 29.07vw;
+    top: 27.49vh;
+    left: 32.07vw;
     width: 33.87vw;
     height: 19.04vh;
     background: url(../images/221.png) no-repeat;
@@ -5878,6 +5934,7 @@ body {
     margin: 3.33vw;
     width: 85.33vw;
     height: 64.77vh;
+    overflow: hidden;
 }
 
 .lesson-cover-content>img {
@@ -6132,6 +6189,13 @@ body {
     height: 12.52vh;
     background: url(../images/239.png) no-repeat;
     background-size: 22.27vw 12.52vh;
+}
+.lesson-record {
+    position: absolute;
+    right: 22.93vw;
+    top: 14.02vh;
+    width: 22.27vw;
+    height: 12.52vh;
 }
 
 /*点击后*/

@@ -22,12 +22,12 @@ $(function () {
   people();
 
   // 网络不给力
-  $(".internet-tips").css("display", "none");
+  $(".internet-tips").hide();
   //体力值
   $("#stamina-tab").click(function () {
-    $("#stamina-shade").css("display", "block");
+    $("#stamina-shade").show();
     $("#stamina-shade").click(function () {
-      $("#stamina-shade").css("display", "none");
+      $("#stamina-shade").hide();
     });
   });
   //站内信
@@ -35,15 +35,15 @@ $(function () {
     $(window).attr("location", "./letter.html");
     /* 关闭窗口 */
     $(".signed-close").click(function () {
-      $("#maildrop-tab").css("display", "none");
+      $("#maildrop-tab").hide();
     });
   });
 
   //签到
   $("#signed-tab").click(function () {
-    $("#recording-shade").css("display", "block");
+    $("#recording-shade").show();
     $(".signed-close").click(function () {
-      $("#recording-shade").css("display", "none");
+      $("#recording-shade").hide();
     });
     // actioveDate()   //日历当前日期渲染
     signinDate() //当月签到日期渲染
@@ -58,14 +58,14 @@ $(function () {
   //闯关
   var $levelSuccessed = $(".level span");
   $levelSuccessed.click(function () {
-    $("#levelShade").css("display", "block");
+    $("#levelShade").show();
     ranking()
     $("#levelFirst").click(function () {
       $(window).attr("location", "./level_content_img.html");
     });
     // 退出关卡
     $(".level_btn").click(function () {
-      $("#levelShade").css("display", "none");
+      $("#levelShade").hide();
     });
   });
 
@@ -356,10 +356,10 @@ function ranking() {
           `
             <ul class="board-list">
                 <li class="border-num"><span>${index+1}</span></li>
-                <li><img src=${val.headimg} /></li>
+                <li class="border-head"><img src=${val.headimg} /></li>
                 <li><span>${val.nickname}</span></li>
                 <li><span>${val.time}</span></li>
-                <li><img src="../../images/97.png" /><span>x${val.rewordbeans}</span></li>
+                <li class="border-phiz"><img src="../../images/97.png" /><span>x${val.rewordbeans}</span></li>
             </ul>
           `
       })
