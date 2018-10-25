@@ -1,60 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <title>闯关内容-图片</title>
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" href="../../css/common.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>闯关内容-图片</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/home/level_content_img.js"></script>
 	<script src="../../js/common/common.js"></script>
 </head>
+
 <body class="index-body">
-<section class="index-container">
-	<div class="page-back"></div>
-	<div class="level-timing"><span>00:00</span></div>
-	<div class="level-content">
-		<div class="level-num level-inner-num">
-			<div class="round left-round"></div>
-			<span class="level-name"></span>
-			<div class="round right-round"></div>
+	<section class="index-container">
+		<div class="page-back"></div>
+		<div class="level-timing"><span>00:00</span></div>
+		<div class="level-content">
+			<div class="level-num level-inner-num">
+				<div class="round left-round"></div>
+				<span class="level-name"></span>
+				<div class="round right-round"></div>
+			</div>
+			<div class="level-topic"><img class="level-img" src="" /></div>
+			<div class="kit">
+				<div class="kit-content"></div>
+				<div class="kit-image"></div>
+			</div>
+			<div class="respond-blank">
+				<ul>
+					<li>浇</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="respond-key">
+				<ul>
+					<li>火</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
 		</div>
-		<div class="level-topic"><img class="level-img" src=""/></div>
-		<div class="kit">
-			<div class="kit-content"></div>
-			<div class="kit-image"></div>
-		</div>
-		<div class="respond-blank">
-			<table cellspacing="11px">
-				<tr>
-					<td>火</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-		</div>
-		<div class="respond-key">
-			<table cellspacing="6.5px">
-				<tr class="level-options">
-					
-				</tr>
-			</table>
+	</section>
+	<!--闯关演示-->
+	<div class="level-shade">
+		<!--1.修改level-topic的z-index值,使其显示,添加新类名level-topic-show-->
+		<!--2.修改锦囊文字kit-content的z-index,添加新类名kit-content-show-->
+	</div>
+	<!--退出关卡-->
+	<div class="home-shade" id="closeLevel">
+		<div class="close-level">
+			<p>确认退出挑战?</p>
+			<div class="close-confirm">确定</div>
+			<div class="close-cancel">取消</div>
 		</div>
 	</div>
-</section>
+
+	<!--点击锦囊-->
+	<div class="home-shade" id="kitShade">
+		<!--智慧豆充足-->
+		<div class="kit-havebeans">
+			<img src="../../images/39.png" class="kit-close" />
+			<h1>-正确答案-</h1>
+			<img src="../../images/108.png" class="kit-cost" />
+			<span>x20</span>
+			<div class="kit-view">立即查看</div>
+			<p>剩余智慧豆:200</p>
+		</div>
+		<!--智慧豆不足-->
+		<div class="kit-nobeans">
+			<img src="../../images/39.png" class="kit-close" />
+			<h1>-正确答案-</h1>
+			<img src="../../images/108.png" class="kit-cost" />
+			<span>x20</span>
+			<div class="kit-view kit-echarge">智慧豆不足,立即充值</div>
+		</div>
+	</div>
+	<!--打开锦囊-->
+	<!--3遍答案-->
+	<div class="home-shade" id="kitAnswerShade3">
+		<div class="kit-enter3">
+			<img src="../../images/39.png" class="kit-close" />
+			<h1>-正确答案-</h1>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="kit-lesson3">
+				<p>-推荐课程-</p>
+				<div class="lessonbackground3">
+					<h1>课程名称课程名称课程名称课程名称课程名称</h1>
+					<div class="lesson-gifts">
+						<div class="lesson-smile"><img src="../../images/125.png" />x20</div>
+						<div class="lesson-star"><img src="../../images/124.png" />10</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--2遍答案-->
+	<div class="home-shade" id="kitAnswerShade2">
+		<div class="kit-enter2">
+			<img src="../../images/39.png" class="kit-close" />
+			<h1>-正确答案-</h1>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="kit-lesson2">
+				<p>-推荐课程-</p>
+				<div class="lessonbackground2">
+					<h1>课程名称课程名称课程名称课程名称课程名称</h1>
+					<div class="lesson-gifts">
+						<div class="lesson-smile"><img src="../../images/125.png" />x20</div>
+						<div class="lesson-star"><img src="../../images/124.png" />10</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--1遍答案-->
+	<div class="home-shade" id="id=" kitAnswerShade2"">
+		<div class="kit-enter1">
+			<img src="../../images/39.png" class="kit-close" />
+			<h1>-正确答案-</h1>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="kit-lesson1">
+				<p>-推荐课程-</p>
+				<div class="lessonbackground1">
+					<h1>课程名称课程名称课程名称课程名称课程名称</h1>
+					<div class="lesson-gifts">
+						<div class="lesson-smile"><img src="../../images/125.png" />x20</div>
+						<div class="lesson-star"><img src="../../images/124.png" />10</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>

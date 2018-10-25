@@ -20,7 +20,7 @@ body {
 
 .home-body {
     width: 100%;
-    height:100vh;
+    height: 100vh;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -2585,23 +2585,26 @@ body {
 
 .respond-blank {
     position: absolute;
-    width: 100%;
+    width: 86.8%;
     top: 50.38vh;
     left: 6.0vw;
-    height: 13.6vh;
+    height: 17.6vh;
 }
 
-.respond-blank td,
-.kit-enter3 td,
-.kit-enter2 td,
-.kit-enter1 td {
-    position: relative;
+.respond-blank>ul {
+    margin: 0.5vh 1.5vw;
+}
+
+.respond-blank>ul>li {
+    float: left;
+    margin: 1.0vh 1.5vw;
     width: 10.67vw;
     height: 6.0vh;
     background: #F5F5F5;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
+    line-height: 6.0vh;
     font-size: 24px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -2617,22 +2620,25 @@ body {
     background-size: 100% 33.81vh;
 }
 
-.respond-key>table {
+.respond-key>ul {
     position: absolute;
-    left: 3.6vw;
+    left: 2.6vw;
     top: 8.55vh;
-    width: 92.8vw;
-    height: 25.27vw;
+    width: 94.8vw;
+    height: 43.47vw;
+    overflow: auto;
 }
 
-.respond-key td {
-    position: relative;
+.respond-key>ul>li {
+    float: left;
+    margin: 1.0vh 1.0vw;
     width: 11.47vw;
     height: 6.45vh;
     background: #A2C012;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
+    line-height: 6.0vh;
     font-size: 24px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -2888,7 +2894,7 @@ body {
     height: 83.5vh;
     background: url(../images/123.png) no-repeat;
     background-size: 74.8vw 83.5vh;
-    /*display: none;*/
+    /* display: none; */
 }
 
 .kit-enter2 {
@@ -2899,7 +2905,7 @@ body {
     height: 73.59vh;
     background: url(../images/126.png) no-repeat;
     background-size: 74.8vw 73.59vh;
-    display: none;
+    /* display: none; */
 }
 
 .kit-enter1 {
@@ -2910,15 +2916,34 @@ body {
     height: 65.42vh;
     background: url(../images/127.png) no-repeat;
     background-size: 74.8vw 65.42vh;
-    display: none;
+    /* display: none; */
 }
 
-.kit-enter3>table,
-.kit-enter2>table,
-.kit-enter1>table {
+.kit-enter3>ul,
+.kit-enter2>ul,
+.kit-enter1>ul {
     position: absolute;
-    left: 7.8vw;
+    width: 55.0vw;
+    left: 9.8vw;
     top: 11.82vh;
+}
+
+
+.kit-enter3>ul>li,
+.kit-enter2>ul>li,
+.kit-enter1>ul>li {
+    float: left;
+    margin: 1.0vh 1.5vw;
+    width: 10.67vw;
+    height: 6.0vh;
+    background: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 0px #348541;
+    text-align: center;
+    font-size: 24px;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(52, 133, 65, 1);
 }
 
 .kit-lesson3 {
