@@ -95,6 +95,7 @@ $(function () {
                 $("#freeChecked").removeClass("free-select-checked");
             } else {
                 $("#freeChecked").addClass("free-select-checked");
+                $("#beans-input").val("0");
             }
         });
         $("#beans-input").on("input", function () {
@@ -102,9 +103,22 @@ $(function () {
         });
         // 确定
         $("#beansBtn").click(function () {
-            var beans = $("#beans-input").val();
+            // 弹出框
+            $(".beans-shade").show();
+            window.setTimeout(() => {
+                $(".beans-shade").hide();
+                $("#addCourseContent").show();
+                $("#adLessonBeans").hide();
+                var beans = $("#beans-input").val();
+                console.log(beans);
+                $("#addCourseBeans").html(beans + "智慧豆");
+            }, 2000); //延迟2s隐藏
         });
-
+        // 返回
+        $("#beanBack").click(function () {
+            $("#addCourseContent").show();
+            $("#adLessonBeans").hide();
+        });
     });
 
     // 新增课程
@@ -169,28 +183,43 @@ function upClover(files) {
 
 // 新增课程
 function addCourse(albumId, voiceUrl) {
-
     // 获取音频时长
-    $("#lessonAudio").on("loadedmetadata", function () {
-        // console.log(audio.duration);  //音频时长
-        var lessonTime = transTime(this.duration);
+    var lessonTime = $("#audioTime").html();
+    var lessonName = $("#addNameContent").val(); // 课程名称
+    var lessonIntroduct = $("#addLessonItrContent").val(); //课程简介
+    var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
+    var lessonText = $("#addLessonTextContent").val(); //课程文字
+    var lessonBeans = $("#beans-input").val(); //课程智慧豆数
+    var IsFree; //课程是否免费
+    if ($("#freeChecked").hasClass("free-select-checked")) {
+        IsFree = 1;
+    } else if (!$("#freeChecked").hasClass("free-select-checked")) {
+        IsFree = 2;
+    }
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/My/CourseAdd",
+        data: {
+            albumid: albumId,
+            coursevoice: voiceUrl,
+            coursetime: lessonTime,
+            coursename: lessonName,
+            coursetxt: lessonIntroduct,
+            courseimg: lessonCover,
+            coursecontent: lessonText,
+            free: IsFree,
+            wisdombean: lessonBeans
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if(res.code ==1){
+                $(window).attr("location","./album-detail.html");
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
     });
-}
 
-
-// 转换音频时长显示
-function transTime(time) {
-    var duration = parseInt(time);
-    var minute = parseInt(duration / 60);
-    var sec = duration % 60 + '';
-    var isM0 = ':';
-    if (minute == 0) {
-        minute = '00';
-    } else if (minute < 10) {
-        minute = '0' + minute;
-    }
-    if (sec.length == 1) {
-        sec = '0' + sec;
-    }
-    return minute + isM0 + sec
 }

@@ -38,8 +38,8 @@ function albumDetail(id) {
                 $(".noLesson-content").show();
                 $("#addLesson2").hide();
             } else {
-                $(".noLesson-content").hide();
-                $("#addLesson2").show();
+                // $(".noLesson-content").hide();
+                // $("#addLesson2").show();
                 var str = "";
                 $.each(data.courselist, function (index, val) {
                     str += `
@@ -49,7 +49,11 @@ function albumDetail(id) {
                             <div class="lesson-list-title">
                                 <div class="lesson-list-name">${val.coursename}</div>
                             </div>
-                            <div class="lesson-operate">操作</div>
+                            <div class="lesson-operate" onclick="operate(this)">操作</div>
+                            <div class="lessonOperate-option">
+                                <div class="operate-del"><img src="../../images/227.png" />删除</div>
+                                <div class="operate-edit"><img src="../../images/228.png" />编辑</div>
+                            </div>
                             <div class="lesson-list-tab">
                                 <ul>
                                     <li><img src="../../images/161.png" /><span>${val.coursescore}</span></li>
@@ -58,15 +62,14 @@ function albumDetail(id) {
                                 </ul>
                             </div>
                         </div>
-                        </div>
-                    </div>
+                     </div>
                      `;
                 });
                 $(".lesson-title-list").html(str);
             }
+            // 新增课程
             $("#addLesson1,#noLesson,#addLesson2").click(function () {
                 $(".lesson-shade").show();
-
                 //关闭
                 $(".lesson-add-close").click(function () {
                     $(".lesson-shade").hide();
@@ -104,4 +107,10 @@ function uploadAudio(files,aId) {
             console.log(err)
         }
     });
+}
+
+// 操作
+function operate(e){
+    $(e).parent(".lesson-list-detail").find(".lessonOperate-option").show();
+    $(e).parents(".lesson-title").siblings().find(".lessonOperate-option").hide();
 }
