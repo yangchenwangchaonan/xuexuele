@@ -97,7 +97,7 @@ function uploadAudio(files) {
             if (res.code == 1) {
                 var voiceUrl = res.data;
                 // console.log(voiceUrl);
-                $(window).attr("location", "./lesson-detail.html?voiceUrl=" + voiceUrl);
+                $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl);
             }
         },
         error: function (err) {

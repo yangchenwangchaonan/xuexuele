@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <title>课程修改</title>
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/common/jquery-1.11.3.min.js"></script>
+    <script src="../../js/common/goBack.js"></script>
+    <script src="../../js/personal/lessonUpload.js"></script>
+    <script src="../../js/common/audio.js"></script>
+</head>
+
+<body class="album-add-body">
+    <section class="album-add-container" id="addCourseContent">
+        <i class="album-add-back"></i>
+        <span id="album-add-title">-课程信息-</span>
+        <div class="album-add-box">
+            <div class="lesson-container">
+                <div class="level-audio-content">
+                    <audio id="lessonAudio"></audio>
+                    <div class="progressBar">
+                        <div class="progressReal"></div>
+                        <i class="progressKey"></i>
+                    </div>
+                    <span class="successed">00:00</span>
+                    <span class="unsuccessed" id="audioTime"></span>
+                    <!-- 暂停 -->
+                    <div class="progress-stop" id="progressBar"></div>
+                    <!-- 播放 -->
+                    <!-- <div class="progress-start" id="progressBar"></div> -->
+                    <!-- 下载 -->
+                    <!-- <div class="progress-download" id="progressBar"></div> -->
+
+                </div>
+            </div>
+            <ul class="album-add-list">
+                <li>
+                    <h1>课程名称</h1>
+                    <p id="addCourseName">请输入课程名称</p>
+                </li>
+                <li>
+                    <h1>课程简介</h1>
+                    <p id="addCourseIntroduct">请输入课程简介</p>
+                </li>
+                <li>
+                    <h1>课程封面</h1>
+                    <p id="addCourseCover">请上传课程封面</p>
+                </li>
+                <li>
+                    <h1>课程文字</h1>
+                    <p id="addCourseText">请输入课程文字</p>
+                </li>
+                <li>
+                    <h1>智慧豆</h1>
+                    <p id="addCourseBeans">请输入课程价格</p>
+                </li>
+            </ul>
+            <div class="album-add modify-confirm">上传课程</div>
+        </div>
+    </section>
+    <!--课程名称 -->
+    <div class="addLesson-container" id="addLessonName">
+        <i class="addLesson-back" id="courseNameBack"></i>
+        <span id="addLesson-title">-课程名称-</span>
+        <div class="addLesson-box">
+            <div class="addLesson-input">
+                <input type="text" placeholder="请输入课程名称" maxlength="20" id="addNameContent">
+            </div>
+        </div>
+    </div>
+    <!-- 课程封面 -->
+    <div class="addLesson-container" id="addLessonCover">
+        <i class="addLessonCover-back" id="courseCoverBack"></i>
+        <span id="addLessonCover-title">-课程封面-</span>
+        <div class="addLessonCover-box">
+            <div class="submit-cancel"></div>
+            <div class="lesson-cover-content">
+                <img src="" />
+            </div>
+            <input type="file" class="upCover" />
+            <div class="lesson-cover-btn" id="addLessonBtn">选择封面</div>
+            <!-- <div class="lesson-cover-btn">确认上传</div> -->
+        </div>
+    </div>
+    <!-- 课程简介 -->
+    <div class="addLesson-introduction" id="addLessonIntroduct">
+        <div class="addLesson-top">-课程简介-</div>
+        <i class="addLessonIntroduct-back" id="courseItrBack"></i>
+        <div class="addLesson-introduction-box">
+            <div class="album-input addLesson-introduct">
+                <input type="text" placeholder="请输入课程简介" maxlength="100" id="addLessonItrContent">
+            </div>
+        </div>
+    </div>
+    <!-- 课程文字 -->
+    <div class="addLesson-text" id="addLessonText">
+        <div class="addLesson-top">-课程文字-</div>
+        <i class="addLessonText-back" id="courseTextBack"></i>
+        <div class="addLesson-text-box">
+            <div class="album-input addLesson-textContent">
+                <input type="text" placeholder="请输入课程文字" maxlength="100" id="addLessonTextContent">
+            </div>
+        </div>
+    </div>
+
+    <div class="addLesson-container" id="adLessonBeans">
+        <i class="addLesson-back"></i>
+        <span id="addLesson-title">-课程名称-</span>
+        <div class="addLesson-box">
+            <div class="beans-num">
+                <div class="beans-img">
+                    <img src="../../images/172.png" />
+                </div>
+                <input type="number" placeholder="请输入智慧豆数量,只能输入整数" id="beans-input" />
+            </div>
+            <div class="free-container">
+                <div class="free-select" id="freeChecked"></div>
+                <span>勾选免费</span>
+            </div>
+            <div class="album-add beans-confirm" id="beansBtn">确认</div>
+        </div>
+    </div>
+    <div class="beans-shade">
+        <div class="beans-tips">
+            <div class="tip-img"></div>
+            <div class="tip-text">课程收入的智慧豆会有X%打赏给小编哦~</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -480,8 +480,7 @@ body {
 .reg-end-list>li>p,
 .realname-list>li>p,
 .personal-list>li>p,
-.personal-setting-list>li>p,
-.album-add-list>li>p {
+.personal-setting-list>li>p {
     font-size: 14px;
     color: #956826;
     float: right;
@@ -501,8 +500,7 @@ body {
 
 .realname-list>li>p,
 .personal-list>li>p,
-.personal-setting-list>li>p,
-.album-add-list>li>p {
+.personal-setting-list>li>p {
     color: #956826;
 }
 
@@ -649,7 +647,9 @@ body {
     background: linear-gradient(to top, rgba(148, 193, 70, 1), rgba(203, 232, 229, 1));
 }
 
-.album-introduction-body {
+.album-introduction-body,
+.addLesson-introduction,
+.addLesson-text {
     position: absolute;
     left: 0;
     top: 0;
@@ -1137,7 +1137,8 @@ body {
 .purse-container,
 .manage-container,
 .album-add-container,
-.albumName-container {
+.albumName-container,
+.addLesson-container {
     position: relative;
     top: 5px;
     left: 1.33vw;
@@ -1145,6 +1146,7 @@ body {
     height: 98.5%;
     background: #A8D535;
     border-radius: 3%;
+    z-index: 10000;
 }
 
 .area-box1,
@@ -1154,7 +1156,9 @@ body {
 .realname-box,
 .attention-list,
 .manage-box,
-.album-add-box {
+.album-add-box,
+.addLesson-box,
+.addLessonCover-box {
     position: relative;
     width: 92.0vw;
     height: 89.66%;
@@ -1196,7 +1200,11 @@ body {
 .personal-goback,
 .manage-back,
 .albumIntroduct-back,
-.lesson-record-back {
+.lesson-record-back,
+.addLesson-back,
+.addLessonIntroduct-back,
+.addLessonCover-back,
+.addLessonText-back {
     position: absolute;
     width: 42px;
     height: 42px;
@@ -1240,7 +1248,9 @@ body {
 #personal-top,
 .present-top,
 #manage-title,
-#album-add-title {
+#album-add-title,
+#addLesson-title,
+#addLessonCover-title {
     position: absolute;
     display: inline-block;
     width: 100%;
@@ -2456,9 +2466,11 @@ body {
     height: 41.23vh;
     overflow: auto;
 }
+
 .board-list {
     margin-bottom: 53px;
 }
+
 .board-list>li {
     font-size: 12px;
     font-family: MicrosoftYaHei;
@@ -2467,10 +2479,6 @@ body {
     float: left;
     padding: 0.75vh 0.93vw;
 }
-
-/* .board-list img {
-    width: 11.47vw;
-} */
 
 .board-list span {
     margin: 2.0vh 0.5vw;
@@ -5203,13 +5211,14 @@ body {
 
 .submit-cancel {
     position: absolute;
-    top: -1.95vh;
-    right: -2.97vw;
+    top: 0.05vh;
+    right: 1.03vw;
     width: 7.73vw;
     height: 4.42vh;
     background: url(../images/217.png) no-repeat;
     background-size: 7.73vw 4.42vh;
     display: none;
+    z-index: 9999;
 }
 
 .education-container {
@@ -5807,13 +5816,21 @@ body {
     color: rgba(105, 56, 12, 1);
 }
 
+.album-add-list>li>p {
+    font-size: 14px;
+    color: #956826;
+    float: right;
+    padding-right: 11px;
+}
+
 /*新增专辑*/
 .album-add-confirm {
     top: 55.02vh;
 }
 
 /*专辑名称*/
-.album-input {
+.album-input,
+.addLesson-input {
     position: absolute;
     left: 2.8vw;
     width: 86.53vw;
@@ -5825,7 +5842,8 @@ body {
     color: rgba(105, 56, 12, 1);
 }
 
-.album-input>input {
+.album-input>input,
+.addLesson-input>input {
     width: 86.53vw;
     background: transparent;
     color: #956826;
@@ -5835,14 +5853,21 @@ body {
     color: #956826;
 }
 
+.addLesson-input>input::-webkit-input-placeholder {
+    color: #956826;
+}
 
 /*专辑简介*/
-.album-introduction {
+.album-introduction,
+.addLesson-introduct,
+.addLesson-textContent {
     top: 18.5px;
     left: 2.8vw;
 }
 
-.album-introduction-box {
+.album-introduction-box,
+.addLesson-introduction-box,
+.addLesson-text-box {
     position: absolute;
     width: 92.0vw;
     height: 89.66%;
@@ -5852,7 +5877,8 @@ body {
     border-radius: 10px;
 }
 
-.green-top {
+.green-top,
+.addLesson-top {
     position: absolute;
     left: 2.67vw;
     top: 10px;
@@ -5986,6 +6012,10 @@ body {
     line-height: 7.5vh;
     font-size: 13px;
     color: rgba(85, 50, 8, 0.6);
+}
+
+#beans-input::placeholder {
+    color: #956826;
 }
 
 .free-container {
@@ -6176,44 +6206,44 @@ body {
 .lesson-recording1 {
     position: absolute;
     left: 22.93vw;
-    top: 14.02vh;
+    top: 13.02vh;
     width: 22.27vw;
-    height: 12.52vh;
+    height: 22.27vw;
     background: url(../images/237.png) no-repeat;
-    background-size: 22.27vw 12.52vh;
+    background-size: 22.27vw 22.27vw;
 }
 
 .lesson-upload1 {
     position: absolute;
     right: 22.93vw;
-    top: 14.02vh;
+    top: 13.02vh;
     width: 22.27vw;
-    height: 12.52vh;
+    height: 22.27vw;
     background: url(../images/239.png) no-repeat;
-    background-size: 22.27vw 12.52vh;
+    background-size: 22.27vw 22.27vw;
 }
 
 .lesson-record {
     position: absolute;
     right: 22.93vw;
-    top: 14.02vh;
+    top: 13.02vh;
     width: 22.27vw;
-    height: 12.52vh;
+    height: 22.27vwvh;
 }
 
 /*点击后*/
 .lesson-recording2 {
     width: 22.27vw;
-    height: 12.52vh;
+    height: 22.27vw;
     background: url(../images/238.png) no-repeat;
-    background-size: 22.27vw 12.52vh;
+    background-size: 22.27vw 22.27vw;
 }
 
 .lesson-upload2 {
     width: 22.27vw;
-    height: 12.52vh;
+    height: 22.27vw;
     background: url(../images/240.png) no-repeat;
-    background-size: 22.27vw 12.52vh;
+    background-size: 22.27vw 22.27vw;
 }
 
 /*课程录音*/

@@ -49,10 +49,12 @@ function start() {
         $("#nameContent").keyup(function (e) {
             var code = e.charCode || e.keyCode;
             if (code == 13) {
-                var albumName = $("#nameContent").val();
+                var albumName = $.trim($("#nameContent").val());
                 $("#albumAdd").show();
                 $("#albumName").hide();
-                $("#enterName").html(albumName);
+                if (albumName != "") {
+                    $("#enterName").html(albumName);
+                }
             }
         });
         // 返回
@@ -69,9 +71,12 @@ function start() {
         $("#introductContent").keyup(function (e) {
             var code = e.charCode || e.keyCode;
             if (code == 13) {
+                var albumIntroduct = $.trim($("#introductContent").val());
                 $("#albumAdd").show();
                 $("#albumIntroduct").hide();
-                $("#enterPresent").html("已编辑");
+                if (albumIntroduct != "") {
+                    $("#enterPresent").html("已编辑");
+                }
             }
         });
         //返回
