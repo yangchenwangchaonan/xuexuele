@@ -1,6 +1,8 @@
 $(function () {
     var url = window.location.href;
-    var voiceUrl = url.split("=")[1];
+    var arr = url.split("&");
+    var voiceUrl = arr[0].split("=")[1];
+    var albumId = arr[1].split("=")[1]
     // console.log(voiceUrl);
     $("#lessonAudio").attr("src", voiceUrl);
     $("#addLessonName").hide(); //课程名称
@@ -95,10 +97,19 @@ $(function () {
                 $("#freeChecked").addClass("free-select-checked");
             }
         });
+        $("#beans-input").on("input", function () {
+            $("#freeChecked").removeClass("free-select-checked");
+        });
         // 确定
-        $("#beansBtn").click(function(){
+        $("#beansBtn").click(function () {
             var beans = $("#beans-input").val();
         });
+
+    });
+
+    // 新增课程
+    $("#addCouse").click(function () {
+        addCourse(albumId, voiceUrl);
     });
 
 });
@@ -154,4 +165,32 @@ function upClover(files) {
             console.log(err)
         }
     });
+}
+
+// 新增课程
+function addCourse(albumId, voiceUrl) {
+
+    // 获取音频时长
+    $("#lessonAudio").on("loadedmetadata", function () {
+        // console.log(audio.duration);  //音频时长
+        var lessonTime = transTime(this.duration);
+    });
+}
+
+
+// 转换音频时长显示
+function transTime(time) {
+    var duration = parseInt(time);
+    var minute = parseInt(duration / 60);
+    var sec = duration % 60 + '';
+    var isM0 = ':';
+    if (minute == 0) {
+        minute = '00';
+    } else if (minute < 10) {
+        minute = '0' + minute;
+    }
+    if (sec.length == 1) {
+        sec = '0' + sec;
+    }
+    return minute + isM0 + sec
 }

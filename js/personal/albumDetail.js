@@ -15,7 +15,7 @@ $(function () {
     $(".lesson-record").change(function () {
         var files = $(".lesson-record")[0].files[0];
         // console.log(files);
-        uploadAudio(files);
+        uploadAudio(files,aId);
     });
 });
 
@@ -82,7 +82,7 @@ function albumDetail(id) {
 }
 
 // 上传音频
-function uploadAudio(files) {
+function uploadAudio(files,aId) {
     var formdata = new FormData()
     formdata.append("voicefile", files)
     $.ajax({
@@ -97,7 +97,7 @@ function uploadAudio(files) {
             if (res.code == 1) {
                 var voiceUrl = res.data;
                 // console.log(voiceUrl);
-                $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl);
+                $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl+"&aid="+aId);
             }
         },
         error: function (err) {
