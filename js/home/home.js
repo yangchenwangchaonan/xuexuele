@@ -1,23 +1,11 @@
 $(function () {
-  // 滚动条在底部
-
-  // window.onscroll = function () {
-  //     var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-  //     var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
-  //     var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
-  //   //  scrollT = scrollH - clientH
-  //     var ml = $(".homePageBg").height();
-  //     scrollT==2840
-  //    console.log(scrollT,scrollH,clientH,ml)
-  // }
-  // var pageHeught = $(window).height();
-  // var scrollHeight = $(document).scrollTop();
-  // console.log(scrollHeight);
-  // console.log(pageHeught);
-  // $(document).scrollTop(pageHeught);
-  $(".homeFixed").offset().top = 0;
-  console.log($(".homeFixed").offset().top);
-
+  //滚动条在底部
+      var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+      var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
+      var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+      document.documentElement.scrollTop = scrollH - clientH
+      window.pageYOffset = scrollH - clientH
+      document.body.scrollTop = scrollH - clientH
   //原住人数
   people();
 
@@ -68,10 +56,7 @@ $(function () {
       $("#levelShade").hide();
     });
   });
-
-
 });
-
 
 //原住人数
 function people() {
