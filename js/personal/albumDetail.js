@@ -15,7 +15,7 @@ $(function () {
     $(".lesson-record").change(function () {
         var files = $(".lesson-record")[0].files[0];
         // console.log(files);
-        uploadAudio(files);
+        uploadAudio(files, aId);
     });
 });
 
@@ -37,19 +37,22 @@ function albumDetail(id) {
             if (data.courselist.length == 0) {
                 $(".noLesson-content").show();
                 $("#addLesson2").hide();
+                $(".lesson-title-list").html("");
             } else {
-                $(".noLesson-content").hide();
-                $("#addLesson2").show();
                 var str = "";
                 $.each(data.courselist, function (index, val) {
                     str += `
-                     <div class="lesson-title">
+                     <div class="lesson-title" data-cId="${val.id}" data-aid="${val.albumid}">
                         <div class="list-num">${index+1}</div>
                         <div class="lesson-list-detail">
                             <div class="lesson-list-title">
                                 <div class="lesson-list-name">${val.coursename}</div>
                             </div>
                             <div class="lesson-operate">操作</div>
+                            <div class="lessonOperate-option">
+                                <div class="operate-del"><img src="../../images/227.png" />删除</div>
+                                <div class="operate-edit"><img src="../../images/228.png" />编辑</div>
+                            </div>
                             <div class="lesson-list-tab">
                                 <ul>
                                     <li><img src="../../images/161.png" /><span>${val.coursescore}</span></li>
@@ -58,15 +61,14 @@ function albumDetail(id) {
                                 </ul>
                             </div>
                         </div>
-                        </div>
-                    </div>
+                     </div>
                      `;
                 });
                 $(".lesson-title-list").html(str);
             }
+            // 新增课程
             $("#addLesson1,#noLesson,#addLesson2").click(function () {
                 $(".lesson-shade").show();
-
                 //关闭
                 $(".lesson-add-close").click(function () {
                     $(".lesson-shade").hide();
@@ -74,6 +76,33 @@ function albumDetail(id) {
                     $(".lesson-upload1").removeClass("lesson-upload2");
                 });
             });
+            // 操作
+            var flag = true;
+            $(".lesson-operate").click(function () {
+                var cId = $(this).parents(".lesson-title").attr("data-cId");
+                var aId = $(this).parents(".lesson-title").attr("data-aId");
+                $(this).parent(".lesson-list-detail").find(".lessonOperate-option").show();
+                $(this).parents(".lesson-title").siblings().find(".lessonOperate-option").hide();
+                if (flag) {
+                    $(this).parent(".lesson-list-detail").find(".lessonOperate-option").show();
+                    $(this).parents(".lesson-title").siblings().find(".lessonOperate-option").hide();
+                    flag = false;
+                    // 课程删除
+                    $(".operate-del").click(function () {
+                        $(this).parents(".lessonOperate-option").hide();
+                        courseDel(cId, aId);
+                    });
+                    // 课程编辑
+                    $(".operate-edit").click(function () {
+                        $(window).attr("location", "./addLesson-detail.html?cId=" + cId);
+                    });
+                } else {
+                    $(this).parent(".lesson-list-detail").find(".lessonOperate-option").hide();
+                    flag = true;
+                }
+            });
+
+
         },
         error: function (err) {
             console.log(err)
@@ -82,7 +111,7 @@ function albumDetail(id) {
 }
 
 // 上传音频
-function uploadAudio(files) {
+function uploadAudio(files, aId) {
     var formdata = new FormData()
     formdata.append("voicefile", files)
     $.ajax({
@@ -97,11 +126,40 @@ function uploadAudio(files) {
             if (res.code == 1) {
                 var voiceUrl = res.data;
                 // console.log(voiceUrl);
-                $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl);
+                $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl + "&aid=" + aId);
             }
         },
         error: function (err) {
             console.log(err)
+        }
+    });
+}
+
+// 删除课程
+function courseDel(cId, aId) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/My/CourseDelete",
+        data: {
+            _method: "DELETE",
+            courseid: cId
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                $("#delTips").show();
+                window.setTimeout(() => {
+                    $("#delTips").hide();
+                    albumDetail(aId)
+                    // window.location.reload();
+                }, 2000); //延迟2s隐藏
+            } else {
+                alert("未删除成功~");
+            }
+        },
+        error: function (err) {
+            console.log(err);
         }
     });
 }

@@ -4163,7 +4163,8 @@ body {
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
 }
 
-.album-add {
+.album-add,
+.course-add {
     position: absolute;
     bottom: 1.72vh;
     left: 2.75vw;
@@ -4290,7 +4291,7 @@ body {
     width: 16.8vw;
     height: 9.6vh;
     left: 43.57vw;
-    bottom: 4.24vh;
+    bottom: 3.24vh;
     background: url(../images/170.png) no-repeat;
     background-size: 16.8vw 9.6vh;
     z-index: 9999;
@@ -5739,6 +5740,21 @@ body {
     left: 5.4vw;
     font-size: 15px;
     font-family: MicrosoftYaHei;
+    /* z-index: 9999; */
+    display: none;
+}
+
+.lessonOperate-option {
+    position: absolute;
+    width: 57.53vw;
+    height: 11.62vh;
+    background: url(../images/226.png) no-repeat;
+    background-size: 57.53vw 11.62vh;
+    top: -0.65vh;
+    left: 5.4vw;
+    font-size: 15px;
+    font-family: MicrosoftYaHei;
+    z-index: 9999;
     display: none;
 }
 
@@ -5794,14 +5810,13 @@ body {
 .operate-del-tips1>div.tip-text,
 .beans-tips>div.tip-text {
     position: absolute;
-    left: 21.27vw;
+    left: 22.27vw;
     top: 18.91vh;
     width: 32.53vw;
     font-size: 13px;
     font-family: MicrosoftYaHei;
     color: rgba(149, 104, 38, 1);
     line-height: 22px;
-    text-align: center;
 }
 
 /*删除提示框2*/
@@ -5813,7 +5828,6 @@ body {
     height: 29.8vh;
     background: url(../images/231.png) no-repeat;
     background-size: 73.2vw 29.8vh;
-    display: none;
 }
 
 .operate-del-tips2>div.tip-img {

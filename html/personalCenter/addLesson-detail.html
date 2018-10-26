@@ -60,7 +60,7 @@
                     <p id="addCourseBeans">请输入课程价格</p>
                 </li>
             </ul>
-            <div class="album-add modify-confirm">上传课程</div>
+            <div class="album-add modify-confirm" id="addCouse">上传课程</div>
         </div>
     </section>
     <!--课程名称 -->
@@ -109,14 +109,14 @@
     </div>
 
     <div class="addLesson-container" id="adLessonBeans">
-        <i class="addLesson-back"></i>
+        <i class="addLesson-back" id="beanBack"></i>
         <span id="addLesson-title">-课程名称-</span>
         <div class="addLesson-box">
             <div class="beans-num">
                 <div class="beans-img">
                     <img src="../../images/172.png" />
                 </div>
-                <input type="number" placeholder="请输入智慧豆数量,只能输入整数" id="beans-input" />
+                <input type="number" placeholder="请输入智慧豆数量,只能输入整数" id="beans-input" onkeyup="this.value=this.value.replace(/\D|^0/g,'1')"/>
             </div>
             <div class="free-container">
                 <div class="free-select" id="freeChecked"></div>
