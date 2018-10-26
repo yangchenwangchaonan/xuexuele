@@ -1665,7 +1665,14 @@ body {
 }
 
 .treasureBox-container,
-.attention-container,
+.attention-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: url(../images/71.png) no-repeat center 2.53333vw;
+    background-size: 95.6% 95.57721%;
+    padding: 2.53333vw 2.2vw;
+}
 .personal-introduct {
     height: 100%;
     width: 100%;
@@ -1673,6 +1680,7 @@ body {
     background: url(../images/71.png) no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
     padding: 2.53333vw 2.2vw;
+    display: none;
 }
 
 .articleGift {
