@@ -1,12 +1,12 @@
-$(function(){
+$(function () {
 	// rmb
-	$("#recharge-reminbi").click(function(){
+	$("#recharge-reminbi").click(function () {
 		$(this).addClass("recharge-checked").siblings().removeClass("recharge-checked");
 		$(".recharge-rmb").show();
 		$(".dollar-selected").hide();
 	});
 	// 美元
-	$("#recharge-dollar").click(function(){
+	$("#recharge-dollar").click(function () {
 		$(this).addClass("recharge-checked").siblings().removeClass("recharge-checked");
 		$(".recharge-rmb").hide();
 		$(".dollar-selected").show();
@@ -21,7 +21,7 @@ function moneyRuleList() {
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/MoneyRuleList",
 		data: {
-			uid:uid
+			uid: uid
 		},
 		dataType: "json",
 		success: function (res) {
@@ -34,11 +34,11 @@ function moneyRuleList() {
 				 `;
 			});
 			$(".recharge-value>ul").html(str);
-			$(".initial").click(function(){
-				var initial=$(this).attr("data-index")
-				 console.log(initial)
-				for (var i=0; i<data.length; i++) {
-					if (data[i]==initial) {
+			$(".initial").click(function () {
+				var initial = $(this).attr("data-index")
+				console.log(initial)
+				for (var i = 0; i < data.length; i++) {
+					if (data[i] == initial) {
 						$(this).addClass("selected")
 						$(this).siblings().removeClass("selected")
 						$("#recharge-input").val(initial)
@@ -46,27 +46,27 @@ function moneyRuleList() {
 					}
 				}
 			})
-				$("#recharge-input").bind("input",function(){
-						$(".num").text($("#recharge-input").val())
-					for (var i=0; i<data.length; i++) {
-						if ($("#recharge-input").val()!=data[i]) {
-							 $(".initial").removeClass("selected")
-						}
+			$("#recharge-input").bind("input", function () {
+				$(".num").text($("#recharge-input").val())
+				for (var i = 0; i < data.length; i++) {
+					if ($("#recharge-input").val() != data[i]) {
+						$(".initial").removeClass("selected")
 					}
-				})
-			$(".recharge-confirm").click(function(){
-				if ($("#recharge-input").val()=='' ) {
-						alert("请输入金额")
-						return;
-					}
-					if ($("#recharge-input").val()<1 ) {
-						alert("金额必须大于1")
-						return;
-					}
-				var selected=$(".selected").attr("data-index")
-			    $(window).attr("location", "./recharge-method.html?num="+$("#recharge-input").val());
-				    
-			 });
+				}
+			})
+			$(".recharge-confirm").click(function () {
+				if ($("#recharge-input").val() == '') {
+					alert("请输入金额")
+					return;
+				}
+				if ($("#recharge-input").val() < 1) {
+					alert("金额必须大于1")
+					return;
+				}
+				var selected = $(".selected").attr("data-index")
+				$(window).attr("location", "./recharge-method.html?num=" + $("#recharge-input").val());
+
+			});
 		},
 		error: function (err) {
 			console.log(err);
