@@ -1,10 +1,83 @@
 $(function () {
     var url = window.location.href;
-    var arr = url.split("&");
-    var voiceUrl = arr[0].split("=")[1];
-    var albumId = arr[1].split("=")[1]
-    // console.log(voiceUrl);
-    $("#lessonAudio").attr("src", voiceUrl);
+    var num = url.split("=").length - 1;
+    if (num == 1) {
+        // 修改课程
+        var courseId = url.split("=")[1];
+        courseDetail(courseId);
+        $("#addCouse").html("确定修改");
+    } else if (num == 2) {
+        // 新增课程
+        var arr = url.split("&");
+        var voiceUrl = arr[0].split("=")[1];
+        var albumId = arr[1].split("=")[1];
+        Rendering(voiceUrl, albumId); //新增时渲染页面
+        $("#addCouse").html("上传课程");
+        $("#addCouse").click(function () {
+            addCourse(albumId);
+        });
+    }
+
+
+});
+
+// 课程详情
+function courseDetail(cId) {
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/My/CourseDetail",
+        data: {
+            courseid: cId
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            var data = res.data;
+            if (res.code == 1) {
+                $("#audioTime").html(data.coursetime); // 课程时长
+                // 课程名称
+                $("#addNameContent").val(data.coursename)
+                $("#addCourseName").html(data.coursename);
+                // 课程简介
+                $("#addLessonItrContent").val(data.coursetxt)
+                $("#addCourseIntroduct").html("已输入");
+                // 课程封面
+                $(".lesson-cover-content>img").attr("src", data.courseimg);
+                $("#addCourseCover").html("已上传");
+                // 课程文字
+                $("#addLessonTextContent").val(data.coursecontent);
+                $("#addCourseText").html("已输入");
+                // 智慧豆 
+                if (data.free == 1) {
+                    $("#beans-input").val("0");
+                    $("#addCourseBeans").html("免费");
+                } else if (data.free == 2) {
+                    $("#beans-input").val(data.wisdombean);
+                    $("#addCourseBeans").html(data.wisdombean + "智慧豆");
+                }
+                $(".submit-cancel").show();
+                $(".upCover").hide();
+                $(".lesson-cover-btn").html("确认上传");
+                //修改时渲染页面
+                var voiceUrl = data.coursevoice;
+                var albumId = data.albumid;
+                Rendering(voiceUrl, albumId);
+                $("#addCouse").click(function () {
+                    changeCourse(cId, albumId);
+                });
+            } else {
+                alert(res.msg);
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}
+
+// 开始
+function Rendering(voiceUrl) {
+    $("#lessonAudio").attr("src", voiceUrl); //音频地址
     $("#addLessonName").hide(); //课程名称
     $("#addLessonIntroduct").hide(); //课程介绍
     $("#addLessonCover").hide(); //课程封面
@@ -71,9 +144,9 @@ $(function () {
             var code = e.charCode || e.keyCode;
             if (code == 13) {
                 var courseContent = $.trim($("#addLessonTextContent").val());
+                // console.log(courseContent);
                 $("#addCourseContent").show();
                 $("#addLessonText").hide();
-                console.log(courseContent);
                 if (courseContent != "") {
                     $("#addCourseText").html("已输入");
                 }
@@ -110,8 +183,11 @@ $(function () {
                 $("#addCourseContent").show();
                 $("#adLessonBeans").hide();
                 var beans = $("#beans-input").val();
-                console.log(beans);
-                $("#addCourseBeans").html(beans + "智慧豆");
+                if ($("#freeChecked").hasClass("free-select-checked")) {
+                    $("#addCourseBeans").html("免费");
+                } else {
+                    $("#addCourseBeans").html(beans + "智慧豆");
+                }
             }, 2000); //延迟2s隐藏
         });
         // 返回
@@ -121,13 +197,7 @@ $(function () {
         });
     });
 
-    // 新增课程
-    $("#addCouse").click(function () {
-        addCourse(albumId, voiceUrl);
-    });
-
-});
-
+}
 
 
 // 上传封面
@@ -182,25 +252,25 @@ function upClover(files) {
 }
 
 // 新增课程
-function addCourse(albumId, voiceUrl) {
-    // 获取音频时长
-    var lessonTime = $("#audioTime").html();
+function addCourse(aId) {
+    var voiceUrl = $("#lessonAudio").attr("src"); //获取音频路径
+    var lessonTime = $("#audioTime").html(); // 获取音频时长
     var lessonName = $("#addNameContent").val(); // 课程名称
     var lessonIntroduct = $("#addLessonItrContent").val(); //课程简介
     var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
     var lessonText = $("#addLessonTextContent").val(); //课程文字
-    var lessonBeans = $("#beans-input").val(); //课程智慧豆数
     var IsFree; //课程是否免费
     if ($("#freeChecked").hasClass("free-select-checked")) {
         IsFree = 1;
     } else if (!$("#freeChecked").hasClass("free-select-checked")) {
         IsFree = 2;
     }
+    var lessonBeans = $("#beans-input").val(); //课程智慧豆数
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/CourseAdd",
         data: {
-            albumid: albumId,
+            albumid: aId,
             coursevoice: voiceUrl,
             coursetime: lessonTime,
             coursename: lessonName,
@@ -213,8 +283,10 @@ function addCourse(albumId, voiceUrl) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            if(res.code ==1){
-                $(window).attr("location","./album-detail.html");
+            if (res.code == 1) {
+                $(window).attr("location", "./album-detail.html?aid=" + aId);
+            } else {
+                alert(res.msg);
             }
         },
         error: function (err) {
@@ -222,4 +294,49 @@ function addCourse(albumId, voiceUrl) {
         }
     });
 
+}
+
+// 修改课程
+function changeCourse(cId, aId) {
+    console.log(aId);
+    var voiceUrl = $("#lessonAudio").attr("src"); //获取音频路径
+    var lessonTime = $("#audioTime").html(); // 获取音频时长
+    var lessonName = $("#addNameContent").val(); // 课程名称
+    var lessonIntroduct = $("#addLessonItrContent").val(); //课程简介
+    var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
+    var lessonText = $("#addLessonTextContent").val(); //课程文字
+    var IsFree; //课程是否免费
+    if ($("#freeChecked").hasClass("free-select-checked")) {
+        IsFree = 1;
+    } else if (!$("#freeChecked").hasClass("free-select-checked")) {
+        IsFree = 2;
+    }
+    var lessonBeans = $("#beans-input").val(); //课程智慧豆数
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/My/CourseEdit",
+        data: {
+            courseid: cId,
+            coursevoice: voiceUrl,
+            coursetime: lessonTime,
+            coursename: lessonName,
+            coursetxt: lessonIntroduct,
+            courseimg: lessonCover,
+            coursecontent: lessonText,
+            free: IsFree,
+            wisdombean: lessonBeans
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                $(window).attr("location", "./album-detail.html?aid=" + aId);
+            } else {
+                alert(res.msg);
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
 }

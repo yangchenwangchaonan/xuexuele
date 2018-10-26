@@ -22,9 +22,8 @@ function lessonManageList() {
             if (albumlist.length == 0) {
                 $(".noAlbum-content").show();
                 $(".album-list").hide();
+                $(".album-list").html("");
             } else {
-                $(".noAlbum-content").hide();
-                $(".album-list").show();
                 var str = "";
                 $.each(albumlist, function (index, val) {
                     str += `
@@ -55,7 +54,8 @@ function lessonManageList() {
                         flag = false;
                         // 专辑删除
                         $(".operate-del").click(function () {
-                            albumDel(this, aid);
+                            $(this).parent(".album-operate").hide();
+                            albumDel(aid);
                         });
                         // 专辑编辑
                         $(".operate-edit").click(function () {
@@ -67,9 +67,9 @@ function lessonManageList() {
                     }
                 });
                 // 专辑详情
-                $(".album-href").click(function(){
+                $(".album-href").click(function () {
                     var $aid = $(this).parent().attr("data-aid");
-                    $(window).attr("location","./album-detail.html?aid="+$aid);
+                    $(window).attr("location", "./album-detail.html?aid=" + $aid);
                 });
             }
         },
@@ -80,8 +80,8 @@ function lessonManageList() {
 }
 
 // 删除专辑
-function albumDel(e, aId) {
-    console.log(aId);
+function albumDel(aId) {
+    // console.log(aId);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/AlbumDelete",
@@ -92,10 +92,18 @@ function albumDel(e, aId) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var code = res.code;
-            if (code == 1) {
-                $(e).parent().find(".album-operate").hide();
-                lessonManageList();
+            if (res.code == 1) {
+                $("#delTips2").show();
+                window.setTimeout(() => {
+                    $("#delTips2").hide();
+                    lessonManageList();
+                }, 2000); //延迟2s隐藏
+            } else {
+                $("#delTips1>.tip-text").html(res.msg);
+                $("#delTips1").show();
+                $("#closeBn").click(function () {
+                    $("#delTips1").hide();
+                });
             }
         },
         error: function (err) {
