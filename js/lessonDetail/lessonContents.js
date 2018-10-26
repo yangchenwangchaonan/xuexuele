@@ -7,7 +7,6 @@ $(function () {
 	});
 });
 
-
 // 获取列表内容
 function getSort(id) {
 	$.ajax({

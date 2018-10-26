@@ -3762,6 +3762,7 @@ body {
 }
 
 .leave-content {
+    padding-top: 1.5vh; 
     position: relative;
     width: 87.53vw;
 }
@@ -4666,6 +4667,7 @@ body {
     height: 3.75vh;
     line-height: 5.75vh;
 }
+
 .record-tab1>img {
     width: 6.13vw;
     vertical-align: top;
@@ -6139,16 +6141,12 @@ body {
 .lesson-tabs-list>li {
     position: relative;
     width: 86.53vw;
-    /*height: 6.75vh;*/
-    line-height: 6.75vh;
+    line-height: 5.75vh;
     border-bottom: 1px solid rgba(229, 194, 138, 0.5);
 }
 
-.lesson-tabs-list>li>input {
-    position: relative;
-    background: none;
-    top: -0.2vh;
-    width: 58.67vw;
+.lesson-tabs-list>li>p {
+    display: inline;
 }
 
 #lesson-tabs-score {
@@ -6160,32 +6158,25 @@ body {
 
 .score-detail2 {
     position: relative;
-    top: -4.5vh;
-    left: -2.0vw;
+    top: -2.5vh;
+    left: -5.0vw;
 }
 
-.score-detail2>table {
-    width: 86.53vw;
-}
-
-.score-detail2>table td {
-    width: 25.7vw;
+.score-detail2>ul>li {
+    float: left;
+    margin: 0.5vh 5.5vw;
 }
 
 #lesson-summary {
+    padding: 1.0vh 0;
     position: relative;
     width: 86.53vw;
     height: 12.4vh;
     border-bottom: 1px solid rgba(229, 194, 138, 0.5);
+    line-height: 3.5vh;
+    overflow-y: auto;
 }
 
-#lesson-summary>textarea {
-    position: relative;
-    top: 2.8vh;
-    left: 1.2vw;
-    width: 60.67vw;
-    background: none;
-}
 
 .lesson-confirm {
     left: 10.93vw;
@@ -6201,6 +6192,7 @@ body {
     width: 92.53vw;
     height: 60.81vh;
     overflow: auto;
+    display: none;
 }
 
 .message-list {
@@ -6216,7 +6208,7 @@ body {
 .message-list>li {
     float: left;
     border-bottom: 1px solid rgba(229, 194, 138, 0.3);
-    margin-bottom: 1.5vh;
+    /* margin-bottom: 1.5vh; */
 }
 
 .message-reply {

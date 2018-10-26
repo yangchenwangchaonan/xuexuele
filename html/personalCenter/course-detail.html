@@ -1,67 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <title>课程修改</title>
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>课程修改</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/jquery-1.11.3.min.js"></script>
+	<script src="../../js/personal/courseDetail.js"></script>
+	<script src="../../js/common/audio.js"></script>
 </head>
+
 <body class="album-add-body">
 	<section class="album-add-container">
-		<i class="album-add-back"></i>
+		<i class="album-add-back" id="courseDetailBack"></i>
 		<span id="album-add-title">-课程详情-</span>
 		<div class="album-add-box">
 			<div class="lesson-container lesson-container1">
 				<div class="level-audio-content">
-		    		<div class="progressBar"></div>
-		    		<div class="progressReal"></div>
-		    		<div class="progressKey"></div>
-	    			<span class="successed level-successed">23:32</span>
-	    			<span class="unsuccessed level-unsuccessed">90:00</span>
-		    		<div class="progress-start"></div>
-		    	</div>
-	    		<div class="lesson-tabs lesson-left lesson-tabs-checked">课程信息</div>
-	    		<div class="lesson-tabs lesson-right">课程留言</div>
+					<audio id="lessonAudio"></audio>
+					<div class="progressBar">
+						<div class="progressReal"></div>
+						<i class="progressKey"></i>
+					</div>
+					<span class="successed">00:00</span>
+					<span class="unsuccessed" id="audioTime"></span>
+					<!-- 暂停 -->
+					<div class="progress-stop" id="progressBar"></div>
+					<!-- 播放 -->
+					<!-- <div class="progress-start" id="progressBar"></div> -->
+					<!-- 下载 -->
+					<!-- <div class="progress-download" id="progressBar"></div> -->
+				</div>
+				<div class="lesson-tabs lesson-left lesson-tabs-checked" id="lessonInfor">课程信息</div>
+				<div class="lesson-tabs lesson-right" id="lessonMessage">课程留言</div>
 			</div>
+			<!-- 课程信息 -->
 			<ul class="lesson-tabs-list">
 				<li>
 					<span>课程名称:</span>
-					<input type="text" placeholder="这是一个课程名称"/>
+					<p id="lessonName"></p>
 				</li>
 				<li>
 					<span>智慧豆:</span>
-					<input type="text" placeholder="智慧豆数量"/>
+					<p id="lessonPrice"></p>
 				</li>
 				<li id="lesson-tabs-score">
-					<span>课程评分</span>
+					<span>课程评分:</span>
+					<p id="lessonScore"></p>
 					<div class="score-detail score-detail2">
-						<table cellspacing="20px">
-							<tr>
-								<td><img src="../../images/152.png"/><span>x200</span></td>
-								<td><img src="../../images/153.png"/><span>x200</span></td>
-							</tr>
-							<tr>
-								<td><img src="../../images/152.png"/><span>x200</span></td>
-								<td><img src="../../images/153.png"/><span>x200</span></td>
-							</tr>
-						</table>
+						<ul>
+							<li><img src="../../images/152.png" /><span id="scoreDetail1">x200</span></li>
+							<li><img src="../../images/153.png" /><span id="scoreDetail2">x200</span></li>
+							<li><img src="../../images/154.png" /><span id="scoreDetail3">x200</span></li>
+							<li><img src="../../images/155.png" /><span id="scoreDetail4">x200</span></li>
+						</ul>
 					</div>
 				</li>
 				<li>
 					<span>获得智慧豆:</span>
-					<input type="text" placeholder="智慧豆数量"/>
+					<p id="getBeans"></p>
 				</li>
 				<li id="lesson-summary">
 					<span>课程简介:</span>
-					<textarea name="" rows="3">这是一段课程简介这这是一段课程简介段课程简介这是一段课程简介这这是一段课程简介段课程简介</textarea>
-					<!--<input type="text" placeholder="这是一段课程简介这这是一段课程简介段课"/>-->
+					<p id="lessonOutline"></p>
 				</li>
 			</ul>
-			<div class="album-add lesson-confirm">确定修改</div>
+			<!-- 留言详情 -->
+			<div class="message-list-content">
+				<ul class="message-list">
+					<!-- <li>
+						<div class="leave-content">
+							<div class="avatar-message"></div>
+							<span class="tourist-name">蔺有钱</span>
+							<span class="leave-message-time">2017-01-01 12:00</span>
+							<p class="leave-message-detail">评论内容评论内容评论内容评论内容评论内容评论内容。</p>
+							<div class="message-reply">回复</div>
+						</div>
+					</li> -->
+				</ul>
+				<div class="noMessage" style="display:none;">
+					<div id="no-message-img"><img src="../../images/235.png" /></div>
+					<p id="no-message-text">还没有留言信息哦~</p>
+				</div>
+			</div>
+			<!-- <div class="album-add lesson-confirm">确定修改</div> -->
 		</div>
 	</section>
 </body>
-</html>
 
+</html>
