@@ -6141,7 +6141,7 @@ body {
 .lesson-tabs-list>li {
     position: relative;
     width: 86.53vw;
-    line-height: 5.75vh;
+    line-height: 6.75vh;
     border-bottom: 1px solid rgba(229, 194, 138, 0.5);
 }
 
@@ -6171,7 +6171,7 @@ body {
     padding: 1.0vh 0;
     position: relative;
     width: 86.53vw;
-    height: 12.4vh;
+    height: 15.4vh;
     border-bottom: 1px solid rgba(229, 194, 138, 0.5);
     line-height: 3.5vh;
     overflow-y: auto;

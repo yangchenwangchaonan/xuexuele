@@ -87,6 +87,8 @@ function courseMessage(courseId) {
                 `;
             });
             $(".message-list").html(str);
+            // 回复留言
+            
         },
         error: function (err) {
             console.log(err)
