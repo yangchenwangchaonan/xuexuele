@@ -13,7 +13,7 @@ function getSort(id) {
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/WisdomList",
 		data: {
-			id: id,
+			sort: id,
 			page: 1
 		},
 		dataType: "json",

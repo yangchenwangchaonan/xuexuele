@@ -102,8 +102,8 @@ function lessonDetail(uId, lessonId) {
             }
 
             $("#lessonMessage>p").text(data.list.commentsum); //留言
-            $("#lessonAudio").attr("src",data.list.coursevoice);  //获取音频
-            // $(".unsuccessed").text(data.list.coursetime); //音频时长
+            $("#lessonAudio").attr("src", data.list.coursevoice); //获取音频
+            $(".unsuccessed").text(data.list.coursetime); //音频时长
 
             // 导师详情
             tutorDetail(isfollow, followid);
@@ -119,10 +119,12 @@ function lessonDetail(uId, lessonId) {
             $("#lessonMessage").click(function () {
                 $("#messageShade").show();
                 messageList(uId, lessonId);
-
                 // 关闭窗口
                 $(".leave-message-close").click(function () {
                     $("#messageShade").hide();
+                    $(".message-btn").show();
+                    $("#messageText1,#messageText2").hide();
+                    $(".release-message").hide();
                 });
             });
             // 所属专辑
@@ -197,6 +199,7 @@ function changeAppraise(e, appraise) {
         score = 10;
     }
     $(".appraise-confirm").click(function () {
+        alert(score);
         var beans = $(".beanInput").val();
         if (beans == "") {
             beans = 0;
@@ -214,13 +217,18 @@ function changeAppraise(e, appraise) {
             dataType: "json",
             success: function (res) {
                 console.log(res);
-                var $score = res.data.average;
-                $("#appraiseContent").css("display", "none");
-                $("#appraiseResult").css("display", "block");
-                $("#scoreRes").text(score + "分");
-                $("#lessonAppraise>span").attr("data-score", $score);
-                scoreSum($uId, $lessonId);
-                beanSum($lessonId);
+                if (res.code == 1) {
+                    var $score = res.data.average;
+                    $("#appraiseContent").css("display", "none");
+                    $("#appraiseResult").css("display", "block");
+                    $("#scoreRes").text(score + "分");
+                    $("#lessonAppraise>span").attr("data-score", $score);
+                    scoreSum($uId, $lessonId);
+                    beanSum($lessonId);
+                } else {
+                    alert(res.msg);
+                }
+
             },
             error: function (err) {
                 console.log(err);
@@ -406,13 +414,15 @@ function messageList(uId, lessonId) {
             var data = res.data;
             var $str = "";
             $(".leave-message-title>span").html(data.length);
+            var tImg = $("#headImg").attr("src");
+            var tnickName = $("#nickName").html();
             $.each(data, function (index, val) {
                 var replay = val.reply;
                 $str += `
                 <li>
                     <div class="leave-content" data-id="${val.id}">
-                        <div class="avatar-message"></div>
-                        <span class="tourist-name">${val.uid}</span>
+                        <div class="avatar-message"><img src="${val.userinfo.headimg}"/></div>
+                        <span class="tourist-name">${val.userinfo.nickname}</span>
                         <span class="leave-message-time">${val.create_time}</span>
                         <p class="leave-message-detail">${val.content}</p>
                     </div>
@@ -420,8 +430,8 @@ function messageList(uId, lessonId) {
                 if (replay != "") {
                     $str += `
                     <div class="reply-content">
-                        <div class="avatar-message"></div>
-                        <span class="tourist-name">${val.userinfo.nickname}</span>
+                        <div class="avatar-message"><img src="${tImg}"/></div>
+                        <span class="tourist-name">${tnickName}</span>
                         <p class="reply-message-detail">${val.reply}</p>
                     </div>
 				</li>
@@ -433,11 +443,16 @@ function messageList(uId, lessonId) {
                 }
             });
             $(".message-content").html($str);
-            var $messageBtn = $(".message-btn");
-            $("#messageText1").click(function () {
-                $messageBtn.css("opacity", "0");
-                $("#messageText1").addClass("message-text2");
+            $(".message-btn").click(function () {
+                var tId = localStorage.getItem("commentid"); //导师id
+                if (uId == tId) {
+                    flowerTips("导师不可以评论自己哦~", 1);
+                    return;
+                }
+                $(".message-btn").hide();
+                $("#messageText1").show();
                 $(".release-message").show();
+                $("#messageText1").focus();
                 /*字数限制*/
                 $("#messageText1").on("input propertychange", function () {
                     var $this = $(this),
@@ -450,16 +465,23 @@ function messageList(uId, lessonId) {
                 $(".release-message").click(function () {
                     $text1 = $("#messageText1").val();
                     if ($text1 == "") {
-                        alert("请先输入内容~");
+                        flowerTips("请先输入留言内容~", 1);
                     } else {
                         commentRelease(uId, lessonId, $text1); //发表课程留言
                     }
                 });
             });
             $(".leave-content").click(function () {
-                $messageBtn.css("opacity", "0");
+                var pId = $(this).attr("data-id"); //评论列表的id(父id)
+                var tId = localStorage.getItem("commentid"); //导师id
+                if (uId != tId) {
+                    flowerTips("只有导师可以回复哦~", 1);
+                    return;
+                }
+                $(".message-btn").hide();
                 $("#messageText2").show();
                 $(".release-message").show();
+                $("#messageText2").focus();
                 /*字数限制*/
                 $("#messageText2").on("input propertychange", function () {
                     var $this = $(this),
@@ -469,15 +491,12 @@ function messageList(uId, lessonId) {
                         $this.val(_val.substring(0, 100));
                     }
                 });
-                var pId = $(this).attr("data-id"); //评论列表的id(父id)
-                var tId = localStorage.getItem("commentid"); //导师id
                 $(".release-message").click(function () {
                     var $text2 = $("#messageText2").val();
                     if ($text2 == "") {
-                        alert("请先输入留言内容~");
+                        flowerTips("请先输入留言内容~", 1);
                     } else {
-                        // console.log(pId);
-                        commentReply(pId, tId, lessonId, $text2, uId); //回复留言
+                        commentReply(pId, lessonId, $text2, uId); //回复留言
                     }
                 });
             });
@@ -502,8 +521,8 @@ function commentRelease(uId, lessonId, $text) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            $(".message-btn").css("opacity", "1");
-            $("#messageText1").removeClass("message-text2");
+            $(".message-btn").show();
+            $("#messageText1").hide();
             $(".release-message").hide();
             messageList(uId, lessonId);
         },
@@ -514,21 +533,21 @@ function commentRelease(uId, lessonId, $text) {
 }
 
 // 回复留言
-function commentReply(pId, tId, lessonId, $text, uId) {
+function commentReply(pId, lessonId, $text, uId) {
     console.log(pId);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/CommentReply",
         data: {
             commentid: pId,
-            uid: tId,
+            uid: uId,
             courseid: lessonId,
             content: $text
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
-            $(".message-btn").css("opacity", "1");
+            $(".message-btn").show();
             $("#messageText2").hide();
             $(".release-message").hide();
             messageList(uId, lessonId);
@@ -553,7 +572,7 @@ function regular(uId, lessonId, num) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
-                alert("已举报~");
+                flowerTips("已举报~", 1);
             }
         },
         error: function (err) {

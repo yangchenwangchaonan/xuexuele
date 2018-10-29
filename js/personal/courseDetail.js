@@ -62,7 +62,7 @@ function courseMessage(courseId) {
         type: "GET",
         url: APP_URL + "/api/Wisdom/CommentList",
         data: {
-            courseid: 1,
+            courseid: courseId,
             page: 1
         },
         dataType: "json",
@@ -81,14 +81,70 @@ function courseMessage(courseId) {
                             <span class="tourist-name">${val.userinfo.nickname}</span>
                             <span class="leave-message-time">${val.create_time}</span>
                             <p class="leave-message-detail">${val.content}</p>
-                            <div class="message-reply">回复</div>
+                    `;
+                if (val.reply == "") {
+                    str += `
+                            <div class="message-reply" onClick="replyMessage(this,'${val.userinfo.nickname}','${val.id}','${val.courseid}')">回复</div>
                         </div>
                     </li>
                 `;
+                }else{
+                    str += `
+                        </div>
+                    </li>
+                    `;
+                }
             });
             $(".message-list").html(str);
-            // 回复留言
-            
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}
+
+// 回复留言
+function replyMessage(e, name, commentId, courseId) {
+    $(e).hide();
+    $(".replayInner").show();
+    $("#messageReply").attr("placeholder", "回复:" + name);
+    $("#messageReply").focus();
+    $("#replayBtn").click(function () {
+        var text = $("#messageReply").val();
+        $(".replayInner").hide();
+        if (text == "") {
+            flowerTips("回复内容不能为空~", 1);
+            $(e).show(); //回复按钮
+            return;
+        }
+        reply(commentId, courseId, text);
+    });
+    // 失去焦点隐藏文本框
+    $("#messageReply").blur(function(){
+        $(".replayInner").hide();    
+    });
+}
+
+// 回复
+function reply(commentId, courseId, text) {
+    var uId = sessionStorage.getItem("uid");
+    console.log(text);
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/Wisdom/CommentReply",
+        data: {
+            commentid: commentId,
+            uid: uId,
+            courseid: courseId,
+            content: text
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                flowerTips("回复成功~", 1);
+                courseMessage(courseId);
+            }
         },
         error: function (err) {
             console.log(err)

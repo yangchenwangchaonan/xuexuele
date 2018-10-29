@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
+	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/personal/courseDetail.js"></script>
 	<script src="../../js/common/audio.js"></script>
 </head>
@@ -82,11 +83,16 @@
 						</div>
 					</li> -->
 				</ul>
+				<div class="replayInner">
+					<textarea class="replay-content" type="text" id="messageReply"></textarea>
+					<div class="replay-btn" id="replayBtn">发布</div>
+				</div>
 				<div class="noMessage" style="display:none;">
 					<div id="no-message-img"><img src="../../images/235.png" /></div>
 					<p id="no-message-text">还没有留言信息哦~</p>
 				</div>
 			</div>
+			<div class="reg-tips"></div>
 			<!-- <div class="album-add lesson-confirm">确定修改</div> -->
 		</div>
 	</section>

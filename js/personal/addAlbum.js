@@ -46,21 +46,23 @@ function start() {
     $("#enterName").click(function () {
         $("#albumAdd").hide();
         $("#albumName").show();
-        $("#nameContent").keyup(function (e) {
-            var code = e.charCode || e.keyCode;
-            if (code == 13) {
+        $("#nameContent").focus(function () {
+            $(".editCompleted").show();
+            $(".editCompleted").click(function () {
                 var albumName = $.trim($("#nameContent").val());
+                $(".editCompleted").hide();
                 $("#albumAdd").show();
                 $("#albumName").hide();
                 if (albumName != "") {
                     $("#enterName").html(albumName);
                 }
-            }
+            });
         });
         // 返回
         $(".albumName-back").click(function () {
             $("#albumAdd").show();
             $("#albumName").hide();
+            $(".editCompleted").hide();
             // $("#enterName").html("请输入专辑名称");
         });
     });
@@ -68,21 +70,23 @@ function start() {
     $("#enterPresent").click(function () {
         $("#albumAdd").hide();
         $("#albumIntroduct").show();
-        $("#introductContent").keyup(function (e) {
-            var code = e.charCode || e.keyCode;
-            if (code == 13) {
+        $("#introductContent").focus(function () {
+            $(".editCompleted").show();
+            $(".editCompleted").click(function () {
                 var albumIntroduct = $.trim($("#introductContent").val());
+                $(".editCompleted").hide();
                 $("#albumAdd").show();
                 $("#albumIntroduct").hide();
                 if (albumIntroduct != "") {
                     $("#enterPresent").html("已编辑");
                 }
-            }
+            });
         });
         //返回
         $(".albumIntroduct-back").click(function () {
             $("#albumAdd").show();
             $("#albumIntroduct").hide();
+            $(".editCompleted").hide();
             // $("#enterPresent").html("请输入专辑简介");
         });
     });
@@ -126,7 +130,7 @@ function upLoad() {
     });
     // 确认上传
     $(".lesson-cover-btn").click(function () {
-        alert("上传成功~");
+        // flowerTips("上传成功~", 1);
         $("#albumAdd").show();
         $("#albumCover").hide();
         $("#upLoad").html("已上传");
@@ -160,6 +164,8 @@ function upClover(files) {
                 $(".submit-cancel").show();
                 $(".upCover").hide();
                 $(".lesson-cover-btn").html("确认上传");
+            } else {
+                alert(res.msg);
             }
         },
         error: function (err) {
@@ -188,10 +194,12 @@ function newAlbum() {
             var msg = res.msg;
             var code = res.code;
             if (code == 1) {
-                alert("新增成功");
-                $(window).attr("location", "./album-manage.html");
+                flowerTips("新增成功~", 1);
+                window.setTimeout(() => {
+                    $(window).attr("location", "./album-manage.html");
+                }, 1000);
             } else if (code == 0) {
-                alert(msg);
+                flowerTips(msg, 1);
             }
         },
         error: function (err) {
@@ -221,10 +229,12 @@ function changeAlbum(id) {
             var msg = res.msg;
             var code = res.code;
             if (code == 1) {
-                alert("编辑成功");
-                $(window).attr("location", "./album-manage.html");
+                flowerTips("编辑成功~", 1);
+                window.setTimeout(() => {
+                    $(window).attr("location", "./album-manage.html");
+                }, 1000);
             } else {
-                alert(msg);
+                flowerTips(msg, 1);
             }
         },
         error: function (err) {

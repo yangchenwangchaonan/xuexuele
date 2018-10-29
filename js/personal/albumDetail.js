@@ -17,6 +17,7 @@ $(function () {
         // console.log(files);
         uploadAudio(files, aId);
     });
+
 });
 
 // 专辑详情
@@ -105,9 +106,9 @@ function albumDetail(id) {
             });
 
             // 课程详情
-            $(".lessonDetail").click(function(){
+            $(".lessonDetail").click(function () {
                 var cId = $(this).parents(".lesson-title").attr("data-cId");
-                $(window).attr("location","./course-detail.html?cId="+cId);
+                $(window).attr("location", "./course-detail.html?cId=" + cId);
             });
 
 

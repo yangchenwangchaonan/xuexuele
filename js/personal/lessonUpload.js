@@ -66,7 +66,7 @@ function courseDetail(cId) {
                     changeCourse(cId, albumId);
                 });
             } else {
-                alert(res.msg);
+                flowerTips(res.msg, 1);
             }
         },
         error: function (err) {
@@ -87,19 +87,21 @@ function Rendering(voiceUrl) {
     $("#addCourseName").click(function () {
         $("#addCourseContent").hide();
         $("#addLessonName").show();
-        $("#addNameContent").keyup(function (e) {
-            var code = e.charCode || e.keyCode;
-            if (code == 13) {
+        $("#addNameContent").focus(function () {
+            $(".editCompleted").show();
+            $(".editCompleted").click(function () {
                 var courseName = $.trim($("#addNameContent").val());
+                $(".editCompleted").hide();
                 $("#addCourseContent").show();
                 $("#addLessonName").hide();
                 if (courseName != "") {
                     $("#addCourseName").html(courseName);
                 }
-            }
+            });
         });
         // 返回
         $("#courseNameBack").click(function () {
+            $(".editCompleted").hide();
             $("#addCourseContent").show();
             $("#addLessonName").hide();
         });
@@ -108,19 +110,21 @@ function Rendering(voiceUrl) {
     $("#addCourseIntroduct").click(function () {
         $("#addCourseContent").hide();
         $("#addLessonIntroduct").show();
-        $("#addLessonItrContent").keyup(function (e) {
-            var code = e.charCode || e.keyCode;
-            if (code == 13) {
+        $("#addLessonItrContent").focus(function () {
+            $(".editCompleted").show();
+            $(".editCompleted").click(function () {
                 var coursetext = $.trim($("#addLessonItrContent").val());
+                $(".editCompleted").hide();
                 $("#addCourseContent").show();
                 $("#addLessonIntroduct").hide();
                 if (coursetext != "") {
                     $("#addCourseIntroduct").html("已输入");
                 }
-            }
+            });
         });
         // 返回
         $("#courseItrBack").click(function () {
+            $(".editCompleted").hide();
             $("#addCourseContent").show();
             $("#addLessonIntroduct").hide();
         });
@@ -140,20 +144,21 @@ function Rendering(voiceUrl) {
     $("#addCourseText").click(function () {
         $("#addCourseContent").hide();
         $("#addLessonText").show();
-        $("#addLessonTextContent").keyup(function (e) {
-            var code = e.charCode || e.keyCode;
-            if (code == 13) {
+        $("#addLessonTextContent").focus(function () {
+            $(".editCompleted").show();
+            $(".editCompleted").click(function () {
                 var courseContent = $.trim($("#addLessonTextContent").val());
-                // console.log(courseContent);
+                $(".editCompleted").hide();
                 $("#addCourseContent").show();
                 $("#addLessonText").hide();
                 if (courseContent != "") {
                     $("#addCourseText").html("已输入");
                 }
-            }
+            });
         });
         // 返回
         $("#courseTextBack").click(function () {
+            $(".editCompleted").hide();
             $("#addCourseContent").show();
             $("#addLessonText").hide();
         });
@@ -209,7 +214,7 @@ function courseUpload() {
     });
     // 确认上传
     $("#addLessonBtn").click(function () {
-        alert("上传成功~");
+        // alert("上传成功~");
         $("#addCourseContent").show();
         $("#addLessonCover").hide();
         $("#addCourseCover").html("已上传");
@@ -284,9 +289,12 @@ function addCourse(aId) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
-                $(window).attr("location", "./album-detail.html?aid=" + aId);
+                flowerTips("新增成功~", 1);
+                window.setTimeout(() => {
+                    $(window).attr("location", "./album-detail.html?aid=" + aId);
+                }, 1000);
             } else {
-                alert(res.msg);
+                flowerTips(res.msg, 1);
             }
         },
         error: function (err) {
@@ -330,9 +338,12 @@ function changeCourse(cId, aId) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
-                $(window).attr("location", "./album-detail.html?aid=" + aId);
+                flowerTips("修改成功~", 1);
+                window.setTimeout(() => {
+                    $(window).attr("location", "./album-detail.html?aid=" + aId);
+                }, 1000);
             } else {
-                alert(res.msg);
+                flowerTips(res.msg, 1);
             }
         },
         error: function (err) {

@@ -20,7 +20,7 @@ body {
 
 .home-body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -831,69 +831,11 @@ body {
     background-size: 100% 100%;
     top: 33.24vh;
     left: 16.67vw;
-    z-index: 300;
+    z-index: 99999;
     display: none;
     text-align: center;
     line-height: 19.02vh;
 }
-
-/* .avatar-tip {
-    position: absolute;
-    width: 62.67vw;
-    height: 19.02vh;
-    background: url("../images/250.png")no-repeat center;
-    background-size: 100% 100%;
-    top: 33.24vh;
-    left: 23.67vw;
-    z-index: 300;
-    display: none;
-    text-align: center;
-    line-height: 19.02vh;
-}
-
-.nickname-tip {
-    position: absolute;
-    width: 62.67vw;
-    height: 19.02vh;
-    background: url("../images/250.png")no-repeat center;
-    background-size: 100% 100%;
-    top: 33.24vh;
-    left: 23.67vw;
-    z-index: 300;
-    display: none;
-    padding-left: 6.5vw;
-    line-height: 19.02vh;
-}
-
-.gender-tip {
-    position: absolute;
-    width: 62.67vw;
-    height: 19.02vh;
-    background: url("../images/250.png")no-repeat center;
-    background-size: 100% 100%;
-    top: 33.24vh;
-    left: 23.67vw;
-    z-index: 300;
-    display: none;
-    text-align: center;
-    line-height: 3.5vh;
-    padding-top: 5.47vh;
-}
-
-.other-tip {
-    position: absolute;
-    width: 62.67vw;
-    height: 19.02vh;
-    background: url("../images/250.png")no-repeat center;
-    background-size: 100% 100%;
-    top: 33.24vh;
-    left: 23.67vw;
-    z-index: 300;
-    display: none;
-    text-align: center;
-    line-height: 3.5vh;
-    padding-top: 5.47vh;
-} */
 
 /*头像,性别选择背景*/
 .avatar,
@@ -1033,10 +975,10 @@ body {
 .lesson-close {
     position: absolute;
     z-index: 350;
-    top: 2.27vh;
+    top: 15px;
     right: 1.2vw;
-    width: 10.67vw;
-    height: 10.67vw;
+    width: 42px;
+    height: 42px;
     background: url(../images/39.png) no-repeat;
     background-size: 10.67vw 10.67vw;
 }
@@ -1127,8 +1069,8 @@ body {
     position: absolute;
     background: #30A007;
     display: none;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 .area-container,
@@ -1815,9 +1757,9 @@ body {
     position: absolute;
     left: 0;
     width: 74.0vw;
-    height: 0.75vh;
+    height: 5px;
     background: rgba(0, 0, 0, .5);
-    background-size: 74.0vw 0.75vh;
+    /* background-size: 74.0vw 0.75vh; */
     border-radius: 5px;
 }
 
@@ -1825,7 +1767,7 @@ body {
     display: inline-block;
     float: left;
     width: 0vw;
-    height: 0.75vh;
+    height: 5px;
     background: rgba(147, 209, 36, 1);
     opacity: 1;
     border-radius: 5px;
@@ -1835,16 +1777,16 @@ body {
     display: inline-block;
     margin-left: -0.3vw;
     width: 2.06vw;
-    height: 2.17vh;
-    margin-top: -0.55vh;
+    height: 14px;
+    margin-top: -3.5px;
     float: left;
     background: url(../images/76.png) no-repeat;
-    background-size: 2.06vw 2.17vh;
+    background-size: 2.06vw 14px;
 }
 
 .successed {
     float: left;
-    line-height: 5.7vh;
+    line-height: 38px;
     font-size: 12px;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
@@ -1853,7 +1795,7 @@ body {
 
 .unsuccessed {
     float: right;
-    line-height: 5.7vh;
+    line-height: 38px;
     font-size: 12px;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
@@ -1862,32 +1804,32 @@ body {
 
 .progress-start {
     position: absolute;
-    width: 16.8vw;
-    height: 16.8vw;
+    width: 63px;
+    height: 63px;
     left: 30.27vw;
-    top: 3.64vh;
+    top: 24px;
     background: url(../images/78.png) no-repeat;
-    background-size: 16.8vw 16.8vw;
+    background-size: 63px 63px;
 }
 
 .progress-stop {
     position: absolute;
-    width: 16.8vw;
-    height: 16.8vw;
+    width: 63px;
+    height: 63px;
     left: 30.27vw;
-    top: 3.64vh;
+    top: 24px;
     background: url(../images/136.png) no-repeat;
-    background-size: 16.8vw 16.8vw;
+    background-size: 63px 63px;
 }
 
 .progress-download {
     position: absolute;
-    width: 16.8vw;
-    height: 16.8vw;
+    width: 63px;
+    height: 63px;
     left: 30.27vw;
-    top: 3.64vh;
+    top: 24px;
     background: url(../images/135.png) no-repeat;
-    background-size: 16.8vw 16.8vw;
+    background-size: 63px 63px;
 }
 
 /*智慧塔首页*/
@@ -3094,8 +3036,8 @@ body {
 .level-audio-content {
     position: absolute;
     width: 74.0vw;
-    height: 10.75vh;
-    top: 6.97vh;
+    /* height: 10.75vh; */
+    top: 46px;
     left: 5.03vw;
 }
 
@@ -3186,8 +3128,8 @@ body {
     width: 87.2vw;
     height: 71.47vh;
     margin: 8.7vh 0 0 6.4vw;
-    overflow-x: hidden;
-    overflow-y: auto;
+    /* overflow-x: hidden; */
+    overflow: scroll;
 }
 
 .lesson-list>ul li {
@@ -3199,7 +3141,7 @@ body {
 .table-lesson {
     width: 40.53vw;
     height: 30.73vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-size: 11px;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
@@ -3368,27 +3310,27 @@ body {
     z-index: 330;
     bottom: 0;
     width: 100%;
-    height: 46.93vh;
+    height: 313px;
     background: url(../images/145.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .appraise-content {
     width: 88.0vw;
-    height: 33.93vh;
-    margin: 10.5vh 5.6vw 3.2vh 6.0vw;
+    height: 226px;
+    margin: 70px 5.6vw 21px 6.0vw;
     display: block;
 }
 
 .appraise-result {
     width: 88.0vw;
-    height: 33.93vh;
-    margin: 10.5vh 5.6vw 3.2vh 6.0vw;
+    height: 226px;
+    margin: 70px 5.6vw 21px 6.0vw;
     display: none;
 }
 
 .level-appraise {
-    top: 3.8vh;
+    top: 25.34px;
     left: 35.2vw;
     width: 28.5vw;
 }
@@ -3399,10 +3341,10 @@ body {
 
 .appraise-score {
     position: absolute;
-    top: 13.07vh;
+    top: 87.2px;
     left: 8.93vw;
     width: 80.8vw;
-    height: 6.3vh;
+    height: 42px;
     text-align: center;
 }
 
@@ -3417,65 +3359,65 @@ body {
 /*未选择时*/
 .score-key11 {
     width: 19.07vw;
-    height: 5.55vh;
+    height: 37px;
     background: url(../images/146.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 .score-key22 {
     width: 19.07vw;
-    height: 5.55vh;
+    height: 37px;
     background: url(../images/147.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 .score-key33 {
     width: 19.07vw;
-    height: 5.55vh;
+    height: 37px;
     background: url(../images/148.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 .score-key44 {
     width: 19.07vw;
-    height: 5.55vh;
+    height: 37px;
     background: url(../images/149.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 /*选择后*/
 .score-key1 {
     background: url(../images/152.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 .score-key2 {
     background: url(../images/153.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 .score-key3 {
     background: url(../images/154.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 .score-key4 {
     background: url(../images/155.png) no-repeat;
-    background-size: 19.07vw 5.55vh;
+    background-size: 100% 100%;
 }
 
 .lesson-reward {
     position: absolute;
-    top: 25.11vh;
+    top: 167.5px;
     left: 8.93vw;
 }
 
 .appraise-tips {
     position: absolute;
     left: 6.53vw;
-    top: 2.33vh;
+    top: 15.54px;
     width: 25.33vw;
-    height: 3.3vh;
+    height: 22px;
     font-size: 10px;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
@@ -3486,9 +3428,9 @@ body {
     position: absolute;
     left: 28.93vw;
     width: 51.07vw;
-    height: 7.12vh;
+    height: 47.5px;
     background: transparent url("../images/151.png") no-repeat center;
-    background-size: 50.07vw 7.12vh;
+    background-size: 100% 100%;
 }
 
 .beanInput {
@@ -3496,18 +3438,18 @@ body {
     width: 33.0vw;
     margin-left: 17.9vw;
     font-size: 12px;
-    margin-top: 2.8vh;
+    margin-top: 18.7px;
 }
 
 .appraise-confirm {
     position: absolute;
     left: 30.0vw;
-    top: 36.43vh;
+    top: 245px;
     width: 41.07vw;
-    height: 7.27vh;
+    height: 48px;
     background: url(../images/150.png) no-repeat;
-    background-size: 41.07vw 7.27vh;
-    line-height: 6.87vh;
+    background-size: 100% 100%;
+    line-height: 45.8px;
     text-align: center;
     font-size: 18px;
     font-family: MicrosoftYaHei-Bold;
@@ -3563,7 +3505,7 @@ body {
 
 .score-line {
     position: relative;
-    top: 11.93vh;
+    top: 79.57px;
     left: 4.83vw;
     width: 77.33vw;
     height: 1px;
@@ -3650,7 +3592,7 @@ body {
 
 /*课程留言*/
 /*导师介绍*/
-.leave-message-bg,
+
 .tutor-bg,
 .lesson-text {
     position: absolute;
@@ -3660,6 +3602,16 @@ body {
     height: 67.7vh;
     background: url(../images/159.png) no-repeat;
     background-size: 100% 67.7vh;
+}
+
+.leave-message-bg {
+    position: absolute;
+    z-index: 330;
+    bottom: 0;
+    width: 100%;
+    height: 451px;
+    background: url(../images/159.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 .tutor-head,
@@ -3678,9 +3630,9 @@ body {
 
 .leave-message-title {
     position: relative;
-    top: 8.02vh;
+    top: 53px;
     width: 100%;
-    height: 2.62vh;
+    height: 17.5px;
     text-align: center;
     font-size: 17px;
     font-family: MicrosoftYaHei-Bold;
@@ -3691,50 +3643,41 @@ body {
 
 .message-content {
     position: relative;
-    top: 11.17vh;
+    top: 74.5px;
     left: 6.47vw;
     width: 87.53vw;
-    height: 44.67vh;
+    height: 298px;
     overflow: auto;
 }
 
 .message-content>li {
     float: left;
     border-bottom: 1px solid rgba(229, 194, 138, 0.3);
-    margin-bottom: 1.5vh;
+    margin-bottom: 10px;
 }
 
-.message-text1 {
-    position: absolute;
-    bottom: 2.0vh;
-    margin-left: 30.0vw;
-    text-align: center;
-    line-height: 7.27vh;
-    width: 41.06vw;
-    height: 9.27vh;
-    z-index: 510;
-    opacity: 0;
-}
-
+.message-text1,
 .message-text2 {
-    position: absolute;
-    line-height: 2.67vh;
+    position: fixed;
+    z-index: 510;
+    bottom: 13.34px;
+    line-height: 17.8px;
     width: 78.06vw;
+    height: 62px;
     margin-left: 4.0vw;
-    opacity: 1;
     text-align: left;
-    padding: 0.9vh 3.0vw;
+    padding: 6px 3.0vw;
     overflow: hidden;
     border: 1px solid rgba(229, 194, 138, 0.3);
-    display: block;
+    display: none;
 }
 
 .release-message {
-    position: absolute;
-    bottom: 2.0vh;
-    line-height: 9.27vh;
+    position: fixed;
+    bottom: 13.34px;
+    line-height: 62px;
     width: 14.06vw;
-    height: 9.27vh;
+    height: 62px;
     right: 4.0vw;
     text-align: center;
     z-index: 510;
@@ -3746,12 +3689,12 @@ body {
 
 .message-btn {
     position: absolute;
-    bottom: 2.0vh;
+    bottom: 13.34px;
     margin-left: 30.0vw;
     text-align: center;
-    line-height: 7.27vh;
+    line-height: 48px;
     width: 41.06vw;
-    height: 7.27vh;
+    height: 48px;
     background: url(../images/118.png) no-repeat;
     background-size: 100% 100%;
     font-size: 18px;
@@ -3762,7 +3705,7 @@ body {
 }
 
 .leave-content {
-    padding-top: 1.5vh; 
+    padding-top: 10px;
     position: relative;
     width: 87.53vw;
 }
@@ -3770,23 +3713,24 @@ body {
 .avatar-message {
     position: relative;
     display: inline-block;
-    width: 12.8vw;
-    height: 7.2vh;
+    width: 48px;
+    height: 48px;
     background: url(../images/111.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .avatar-message>img {
-    width: 12.8vw;
-    height: 7.2vh;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
 }
 
 .tourist-name {
     position: relative;
     display: inline-block;
-    top: -2.6vh;
+    top: -17.34px;
     left: 1.5vw;
-    line-height: 7.2vh;
+    line-height: 48px;
     font-size: 15px;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
@@ -3797,7 +3741,7 @@ body {
     float: right;
     margin-right: 3.5vw;
     text-align: right;
-    line-height: 7.2vh;
+    line-height: 48px;
     font-size: 12px;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
@@ -3807,7 +3751,7 @@ body {
     position: relative;
     font-size: 13px;
     left: 14.3vw;
-    top: -2.6vh;
+    top: -17.34px;
     width: 72.73vw;
     font-family: MicrosoftYaHei;
     font-weight: 400;
@@ -3822,7 +3766,7 @@ body {
 
 .reply-message-detail {
     position: relative;
-    top: -2.6vh;
+    top: -17.34px;
     left: 14.3vw;
     width: 55.8vw;
     font-size: 13px;
@@ -4354,7 +4298,7 @@ body {
 .recharge-top>img,
 .manage-top>img {
     width: 19.73vw;
-    height: 12.07vh;
+    height: 80.5px;
     margin-left: 26.13vw;
 }
 
@@ -5931,6 +5875,22 @@ body {
     text-shadow: 0px 1px 0px rgba(56, 141, 56, 1);
 }
 
+.editCompleted {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 49px;
+    z-index: 11000;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px 10px 0px 0px;
+    font-size: 15px;
+    color: rgba(48, 160, 7, 1);
+    text-align: right;
+    line-height: 49px;
+    padding: 0 22px;
+    display: none;
+}
+
 /*专辑还没有课程*/
 #no-lesson-link {
     position: relative;
@@ -5965,17 +5925,34 @@ body {
     position: relative;
     margin: 0 2.8vw;
     width: 86.53vw;
-    height: 26.09vh;
+    height: 201px;
     border-bottom: 1px solid rgba(229, 194, 138, 0.5);
 }
 
 /*确定修改课程*/
-.modify-confirm,
+
 .lesson-cover-btn,
 .beans-confirm,
 .lesson-recording-btn {
     position: absolute;
     bottom: 9.52vh;
+    left: 10.93vw;
+    width: 70.4vw;
+    height: 7.25vh;
+    background: url(../images/166.png) no-repeat;
+    background-size: 70.4vw 7.25vh;
+    text-align: center;
+    line-height: 7.25vh;
+    font-size: 17px;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+}
+
+.modify-confirm {
+    position: absolute;
+    bottom: 5.52vh;
     left: 10.93vw;
     width: 70.4vw;
     height: 7.25vh;
@@ -6099,15 +6076,15 @@ body {
 /*课程修改*/
 .lesson-container1 {
     border-bottom: 1px solid rgba(58, 141, 18, 0.5);
-    margin-bottom: 1.0vh;
+    margin-bottom: 6.67px;
 }
 
 .lesson-tabs {
     position: absolute;
     width: 16.0vw;
-    height: 5.25vh;
+    height: 35px;
     text-align: center;
-    line-height: 5.25vh;
+    /* line-height: 35px; */
     bottom: 0;
     font-size: 15px;
     color: rgba(58, 141, 18, 0.6);
@@ -6122,7 +6099,7 @@ body {
 }
 
 .lesson-tabs-checked {
-    bottom: -0.3vh;
+    bottom: 0;
     border-bottom: 3px solid rgba(58, 141, 18, 1);
     color: rgba(58, 141, 18, 1);
 }
@@ -6190,7 +6167,7 @@ body {
 .message-list-content {
     position: relative;
     width: 92.53vw;
-    height: 60.81vh;
+    height: 60.17%;
     overflow: auto;
     display: none;
 }
@@ -6224,6 +6201,36 @@ body {
     font-size: 14px;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 1);
+}
+
+/* 回复 */
+.replayInner {
+    display: none;
+}
+
+.replay-content {
+    position: fixed;
+    left: 3.7vw;
+    width: 79.0vw;
+    height: 62px;
+    bottom: 0px;
+    border-radius: 5px 0 0 5px;
+}
+
+.replay-btn {
+    position: fixed;
+    bottom: 0px;
+    line-height: 62px;
+    width: 14.06vw;
+    height: 62px;
+    right: 3.7vw;
+    text-align: center;
+    z-index: 510;
+    color: rgba(85, 50, 8, 1);
+    background: white;
+    border: 1px solid rgba(229, 194, 138, 0.3);
+    border-radius: 0 5px 5px 0;
+    /* display: none; */
 }
 
 /*新增课程*/
