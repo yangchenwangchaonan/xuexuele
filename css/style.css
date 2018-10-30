@@ -2156,6 +2156,40 @@ body {
     line-height: 3.22vh;
 }
 
+.level-list {
+    position: absolute;
+    display: inline-block;
+    /* width: 47.73vw; */
+    /* border: 1px solid red; */
+    z-index: 500;
+    bottom: -307px;
+    right: 33.5vw;
+    /* margin-right: 26.47vw; */
+}
+
+.level-list>li {
+    position: relative;
+    margin-bottom: 8.81vh;
+    text-align: center;
+    line-height: 26.5px;
+    font-size: 9px;
+    width: 23.5px;
+    height: 26.5px;
+}
+
+.oddList {
+    top: 34.81vh;
+    background: url(../images/96.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.evenList {
+    left: -26.03vw;
+    top: 18.0vh;
+    background: url(../images/95.png) no-repeat;
+    background-size: 100% 100%;
+}
+
 /*buttom*/
 .bottom-table {
     position: fixed;
@@ -3129,7 +3163,7 @@ body {
     top: 1.0vh;
     /* margin: 3.7vh 0 0 6.4vw; */
     overflow: hidden;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 .lesson-list>ul>li {
