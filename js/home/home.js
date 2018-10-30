@@ -8,7 +8,8 @@ $(function () {
       document.body.scrollTop = scrollH - clientH
   //原住人数
   people();
-
+  //闯关列表
+  userGate()
   // 网络不给力
   $(".internet-tips").hide();
   //体力值
@@ -79,13 +80,23 @@ function people() {
 function userGate() {
   $.ajax({
     type: "GET",
-    url: APP_URL + "/api/User/UserGate",
+    url: APP_URL + "/api/Wisdom/WisdomIndex",
     data: {
-      uid: 1
+      uid: 1,
+      pageindex:1,
+      iscurrent:1
     },
     dataType: "json",
     success: function (res) {
       console.log(res);
+      var data=res.data
+      var str = ""
+      $.each(data.gatelist,function(index, el) {
+        
+      });
+    },
+    error:function(err){
+      console.log(err)
     }
   });
 }
