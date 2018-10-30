@@ -13,8 +13,7 @@ body {
     width: 100%;
     height: 100%;
     font-size: 13px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow: hidden; */
     background: linear-gradient(to top, rgba(207, 228, 255, 1), rgba(237, 254, 255, 1), rgba(48, 116, 255, 1));
 }
 
@@ -29,8 +28,7 @@ body {
     /* position: relative; */
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
     z-index: 1;
 }
 
@@ -3124,19 +3122,14 @@ body {
 }
 
 .lesson-list {
-    /* position: relative; */
+    position: relative;
     width: 87.2vw;
     height: 71.47vh;
-    margin: 3.7vh 0 0 6.4vw;
-    /* overflow-x: hidden;
-    overflow-y: auto; */
-}
-
-.lesson-list>ul {
-    width: 87.2vw;
-    height: 71.47vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    left: 6.4vw;
+    top: 1.0vh;
+    /* margin: 3.7vh 0 0 6.4vw; */
+    overflow: hidden;
+    overflow-y: auto; 
 }
 
 .lesson-list>ul>li {
@@ -4574,7 +4567,7 @@ body {
     height: 47.73vh;
     background: rgba(255, 247, 223, 1);
     border-radius: 10px;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .recharge-detail {

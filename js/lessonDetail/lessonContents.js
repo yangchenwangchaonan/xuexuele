@@ -5,6 +5,14 @@ $(function () {
 		var $id = $(this).attr("data-sId");
 		getSort($id);
 	});
+
+	// 禁止屏幕滚动
+	var handle = function (event) {
+		event.preventDefault();
+	}
+	document.body.addEventListener('touchmove', handle, false);
+	document.body.removeEventListener('touchmove', handle, false);
+
 });
 
 // 获取列表内容
@@ -36,7 +44,7 @@ function getSort(id) {
 			$(".lesson-list>ul").html(str);
 			$(".table-lesson").click(function () {
 				var lessonId = $(this).attr("data-lId");
-				$(window).attr("location", "./lesson-detail.html?lessonId="+lessonId);
+				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId);
 			});
 		},
 		error: function (err) {
