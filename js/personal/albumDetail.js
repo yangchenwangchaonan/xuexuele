@@ -136,6 +136,8 @@ function uploadAudio(files, aId) {
                 var voiceUrl = res.data;
                 // console.log(voiceUrl);
                 $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl + "&aid=" + aId);
+            }else{
+                alert(res.msg);
             }
         },
         error: function (err) {
