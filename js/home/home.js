@@ -397,16 +397,16 @@ function ranking(levelId) {
       $.each(data, function (index, val) {
         $str +=
           `
-            <ul class="board-list">
-                <li class="border-num"><span>${index+1}</span></li>
-                <li class="border-head"><img src=${val.headimg} /></li>
-                <li><span class="border-name">${val.nickname}</span></li>
-                <li><span>${val.time}</span></li>
-                <li class="border-phiz"><img src="../../images/97.png" /><span>x${val.rewordbeans}</span></li>
-            </ul>
+          <li>
+            <p class="border-num">${index+1}</p>
+            <p class="border-head"><img src="${val.headimg}" /></p>
+            <p class="border-name">${val.nickname}</p>
+            <p class="border-time">${val.time}</p>
+            <p class="border-phiz"><img src="../../images/97.png" /><span>x${val.rewordbeans}</span></p>
+          </li>
           `
       })
-      $(".board-table").html($str)
+      $(".board-list").html($str)
     },
     error: function (err) {
       console.log(err)

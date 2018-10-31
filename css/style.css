@@ -2564,15 +2564,15 @@ body {
 
 .board-table {
     position: absolute;
-    left: 20.83vw;
+    left: 19.03vw;
     top: 51.8vh;
-    width: 61.0vw;
+    width: 63.0vw;
     height: 41.23vh;
     overflow: auto;
 }
 
 .board-list {
-    margin-bottom: 53px;
+    margin-bottom: 7.95vh;
 }
 
 .board-list>li {
@@ -2583,40 +2583,30 @@ body {
     float: left;
     padding: 0.75vh 0.93vw;
 }
-
-.board-list span {
-    margin: 2.0vh 0.5vw;
+.board-list>li>p {
+    display: inline-block;
+    margin: 0 0.53vw;
 }
-
 .border-num {
-    font-size: 13px;
-    font-family: MicrosoftYaHei-Bold;
-    font-weight: bold;
-    color: rgba(41, 151, 10, 1);
+    width: 4.8vw;
 }
-
-.level-content {
-    width: 100%;
-    height: 52.32vh;
-    background: url(../images/112.png) no-repeat;
-    background-size: 100% 52.32vh;
-}
-
-
 .border-head>img {
     width: 43px;
     height: 43px;
     border-radius: 5px;
 }
-
+.border-name,
+.border-time {
+    width: 10.67vw;
+    /* text-align: center; */
+}
+.border-phiz {
+    width: 14.4vw;
+}
 .border-phiz>img {
-    width: 26.5px;
-    height: 26.5px;
+    width: 7.067vw;
 }
-.border-name {
-    display: inline-block;
-    width: 36px;
-}
+
 
 /*闯关内容*/
 .level-timing {
