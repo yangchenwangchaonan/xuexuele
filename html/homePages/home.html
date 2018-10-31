@@ -16,7 +16,7 @@
 	<script src="http://momentjs.cn/downloads/moment.min.js"></script>
 </head>
 
-<body class="home-body" >
+<body class="home-body">
 	<section class="container-home">
 		<!-- <img src="../../images/37.png" /> -->
 		<div class="home-cloud"><img src="../../images/80.png" /></div>
@@ -70,62 +70,39 @@
 			</div>
 		</div>
 		<!--center-->
-		 <div class="homePageBg">
+		<div class="homePageBg">
+			<!-- 遍历背景 -->
 			<div class="homeLoop">
-				<div class="homeContentLoop"></div>
-				<div class="homeContentLoop"></div>
 				<!-- <div class="homeContentLoop"></div>
 				<div class="homeContentLoop"></div>
 				<div class="homeContentLoop"></div>
-				<div class="homeContentLoop"></div>
 				<div class="homeContentLoop"></div> -->
+				<!-- <div class="homeContentLoop"></div> -->
+				<!-- <div class="homeContentLoop"></div> -->
+				<!-- <div class="homeContentLoop"></div> -->
 			</div>
-			<div class="homeFixed" >
-				<div class="homeContent">
-					<!-- <div class="level">
-						<div class="right-successed"><span>1</span></div>
-						<div class="level-infor right-successed-infor"><span>22分2秒<br /><img src="../../images/97.png" />+10</span></div>
-						<div class="left-successed"><span>2</span></div>
-						<div class="level-infor left-successed-infor">
-							<p>22分2秒</p>
-							<p><img src="../../images/97.png" />+10</p>
-						</div>
-					</div>
-					<div class="level level-next">
-						<div class="right-failed"><span>3</span></div>
-						<div class="level-infor right-others"><img src="../../images/101.png" /><span>其他奖励</span></div>
-						<div class="left-failed"><span>4</span></div>
-						<div class="level-infor left-failed-infor"><img src="../../images/101.png" /><span>其他奖励</span></div>
-					</div>
-					<div class="level level-next-again">
-						<div class="right-failed"><span>5</span></div>
-						<div class="level-infor right-others"><img src="../../images/101.png" /><span>其他奖励</span></div>
-						<div class="left-failed"><span>6</span></div>
-						<div class="level-infor left-failed-infor"><img src="../../images/101.png" /><span>其他奖励</span></div>
-					</div> -->
+			<!-- 初始6关背景 -->
+			<div class="homeFixed">
+				<div class="homeContent"></div>
+			</div>
+		</div>
+		<ul class="level-list">
+			<!-- <li class="evenList evenFailLevel"><span>6</span><div class="evenWillLevel"></div>
+				<div class="noSpecialReward"><img src="../../images/101.png" /><span>其他奖励</span></div>
+			</li>
+			<li class="oddList oddFailLevel"><span>5</span><div class="oddWillLevel"></div>
+				<div class="specialReward"><img src="../../images/101.png" /><span>其他奖励</span></div>
+			</li>
+			<li class="evenList evenFailLevel"><span>4</span>
+				<div class="levelTime">
+					<p>22分2秒</p>
+					<p><img src="../../images/97.png" />+10</p>
 				</div>
-			</div>
-			<ul class="level-list">
-				<li class="oddList">1</li>
-				<li class="evenList">2</li>
-				<li class="oddList">3</li>
-				<li class="evenList">4</li>
-				<li class="oddList">5</li>
-				<li class="evenList">6</li>
-				<li class="oddList">7</li>
-				<li class="evenList">8</li>
-				<li class="oddList">9</li>
-				<li class="evenList">10</li>
-				<li class="oddList">11</li>
-				<li class="evenList">12</li>
-				<li class="oddList">13</li>
-				<li class="evenList">14</li>
-				<li class="oddList">15</li>
-				<li class="evenList">16</li>
-				<li class="oddList">17</li>
-				<li class="evenList">18</li>
-			</ul>
-		</div> 
+			</li>
+			<li class="oddList oddFailLevel"><span>3</span></li>
+			<li class="evenList evenFailLevel"><span>2</span></li>
+			<li class="oddList evenNowLevel"><span>1</span></li> -->
+		</ul>
 		<!--bottom-->
 		<div class="bottom-table">
 			<ul>
@@ -182,39 +159,46 @@
 				<p class="on">点击签到</p>
 			</div>
 		</div>
-		<!--首次闯关-->
+		<!--闯关-->
 		<div class="home-shade" id="levelShade">
-			<div class="first-pass">
+			<div class="passIng">
 				<div class="level-num">
 					<div class="round left-round"></div>
-					<span>第1关</span>
+					<span id="levelNum"></span>
 					<div class="round right-round"></div>
 				</div>
 				<div class="level_btn"></div>
-				<div class="pass-gift">
-					<div class="stamina-reward"><img src="../../images/108.png" /><span>x10</span></div>
-					<div class="pk-reward"><img src="../../images/107.png" /><span>x10</span></label>
-					</div>
+				<div class="start" id="levelFirst">马上闯关</div>
+				<div class="passLevel">
+					<!-- 初次闯关 -->
+					<!-- <div class="pass-gift">
+					<div class="stamina-reward"><img src="../../images/108.png" /><span id="rewardBeans"></span></div>
+					<div class="pk-reward"><img src="../../images/107.png" /><span id="pkValue"></span></div>
 					<div class="other-gift">
 						<div class="other-giftbox">
 							<img src="../../images/109.png" />
 							<div>其他奖励</div>
 						</div>
 					</div>
-					<div class="start" id="levelFirst">马上闯关</div>
+				</div> -->
+					<!-- 再次闯关 -->
+					<!-- <div class="pass-again">
+						<img src="../../images/117.png" />
+						<p id="gateTime"></p>
+					</div> -->
 				</div>
-				<!--排行榜-->
-				<div class="leaderboard">
-					<i class="icon-board">-全网排名-</i>
-					<div class="board-table">
-						<!-- <ul class="board-list">
+			</div>
+			<!--排行榜-->
+			<div class="leaderboard">
+				<i class="icon-board">-全网排名-</i>
+				<div class="board-table">
+					<!-- <ul class="board-list">
 							<li class="border-num"><span>1</span></li>
 							<li class="border-head"><img src="../../images/111.png" /></li>
 							<li><span>夏琳琳</span></li>
 							<li><span>01:00</span></li>
 							<li class="border-phiz"><img src="../../images/97.png" /><span>x10</span></li>
 						</ul> -->
-					</div>
 				</div>
 			</div>
 		</div>

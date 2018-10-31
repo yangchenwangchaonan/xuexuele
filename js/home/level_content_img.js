@@ -1,9 +1,18 @@
-$(function() {
-    sessionStorage.setItem("gateid", 1)
-    UserGateDetail()
+$(function () {
+    UserGateDetail();
+    // 退出关卡
+    $("#levelBack").click(function () {
+        $("#closeLevel").show();
+        // 确定
+        $("#exitLevel").click(function(){
+            $(window).attr("location","./home.html");
+        });
+        // 取消
+        $("#exitCancel").click(function(){
+            $("#closeLevel").hide();
+        });
+    });
 })
-
-
 //首次渲染
 function UserGateDetail(a) {
     var id = sessionStorage.getItem("gateid")
@@ -14,14 +23,14 @@ function UserGateDetail(a) {
             gateid: id
         },
         dataType: "json",
-        success: function(res) {
+        success: function (res) {
             console.log(res);
             var data = res.data[0]
             $(".level-name").html(data.gatename)
             $(".level-img").attr("src", data.hintcontent)
             $(".kit-content").html(data.hintcontent_txt)
             var str = ''
-            $.each(data.options, function(index, el) {
+            $.each(data.options, function (index, el) {
                 str += `
 						<li>${el}</li>
 				`
@@ -31,17 +40,17 @@ function UserGateDetail(a) {
             //定义答案数组
             var con = []
             //遍历答案
-            $(".respond-key>ul").on("click", "li", function() {
+            $(".respond-key>ul").on("click", "li", function () {
                 con.push($(this).html())
-                table(con, data.answer)
+                table(con, data.answer, data.nextgateid)
             })
             //首次遍历
-            if (a!= 0) {
+            if (a != 0) {
                 Timedate()
             }
             answerData(data.answer)
         },
-        error: function(err) {
+        error: function (err) {
             console.log(err);
         }
     });
@@ -85,34 +94,27 @@ function Timedate() {
             return "" + n;
         }
     }
-
     //开启定时器
     time = setInterval(timer, 50);
 }
 
 
-
-
 //答案比对
-function table(con, answer) {
+function table(con, answer, nextgateid) {
     if (con.length == answer.length) {
         if (JSON.stringify(con) == JSON.stringify(answer)) {
-            var id = $.parseJSON(sessionStorage.getItem("gateid"))
-            sessionStorage.setItem("gateid", id + 1) //重置关卡id
-            // clearInterval(time) //清除定时器
             Ok(con) //提交后台
-            UserGateDetail(1) //进入下一关卡
+            sessionStorage.setItem("gateid", nextgateid) //重置关卡id
+            // clearInterval(time) //清除定时器
             con = [] //清空答案
         } else {
             con = [] //清空错误答案
             UserGateDetail(0)
         }
     }
-
-
     //遍历答案
     var main = ''
-    $.each(con, function(index, val) {
+    $.each(con, function (index, val) {
         main += `
 				<li class="delete">${val}</li>
       		`
@@ -120,35 +122,34 @@ function table(con, answer) {
     $(".respond-blank>ul").html(main)
 
     //点击答案删除
-    $(".delete").click(function() {
+    $(".delete").click(function () {
         con.splice($.inArray(this, con), 1);
-        table(con, answer, time)
+        table(con, answer)
     })
 }
 
-
-
-
-
 //正确 提交
 function Ok(con) {
-    var id = sessionStorage.getItem("id")
+    var answer = con.join(",")
+    var id = sessionStorage.getItem("uid")
     var gid = sessionStorage.getItem("gateid")
     var time = $(".level-timing>span").html()
     $.ajax({
         type: "GET",
-        url: APP_URL + "/api/User/UserGateDetail",
+        url: APP_URL + "/api/User/UserGateChallenge",
         data: {
             uid: id,
             gateid: gid,
-            answer: con,
+            answer: answer,
             time: time,
         },
         dataType: "json",
-        success: function(res) {
-            console.log(res);
+        success: function (res) {
+            console.log(id, gid, answer, time)
+            console.log("shuju",res);
+            UserGateDetail(1) //进入下一关卡
         },
-        error: function(err) {
+        error: function (err) {
             console.log(err)
         }
     })
@@ -162,7 +163,7 @@ function Ok(con) {
 function answerData(answer) {
     console.log(answer)
     var x = ''
-    $.each(answer, function(index, el) {
+    $.each(answer, function (index, el) {
         x += `
 					<li></li>
 			`

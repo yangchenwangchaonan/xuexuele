@@ -280,7 +280,8 @@ body {
 
 /* 忘记密码 */
 .page-back,
-.reg-back {
+.reg-back,
+.level-back {
     position: absolute;
     width: 42px;
     height: 42px;
@@ -731,7 +732,7 @@ body {
     position: relative;
     left: 23.73vw;
     top: 0;
-    margin-bottom: -12.85vh;
+    margin-bottom: -13.85vh;
     width: 50%;
     height: 90.8vh;
     background: url(../images/251.png) no-repeat;
@@ -2035,7 +2036,7 @@ body {
 }
 
 /*center*/
-.level {
+/* .level {
     position: relative;
     top: 74.0vh;
     width: 50.4vw;
@@ -2118,7 +2119,7 @@ body {
     position: absolute;
     left: 28.05vw;
     top: 7.65vh;
-}
+} */
 
 .level-next {
     position: relative;
@@ -2130,12 +2131,12 @@ body {
     top: 0.48vh;
 }
 
-.left-failed-infor,
+/* .left-failed-infor,
 .right-failed-infor {
     visibility: hidden;
-}
+} */
 
-.left-others,
+/* .left-others,
 .right-others {
     width: 20.4vw;
 }
@@ -2154,17 +2155,14 @@ body {
     position: relative;
     left: 3.05vw;
     line-height: 3.22vh;
-}
+} */
 
 .level-list {
     position: absolute;
     display: inline-block;
-    /* width: 47.73vw; */
-    /* border: 1px solid red; */
     z-index: 500;
-    bottom: -307px;
+    top: -49px;
     right: 33.5vw;
-    /* margin-right: 26.47vw; */
 }
 
 .level-list>li {
@@ -2175,19 +2173,129 @@ body {
     font-size: 9px;
     width: 23.5px;
     height: 26.5px;
+    font-weight: bold;
+    color: rgba(254, 246, 223, 1);
 }
 
 .oddList {
-    top: 34.81vh;
+    top: 21.01vh;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .evenList {
     left: -26.03vw;
-    top: 18.0vh;
+    top: 29.5vh;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
+}
+
+.evenFailLevel {
+    background: url(../images/99.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.oddFailLevel {
+    background: url(../images/100.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+/* 呼吸灯 */
+.evenWillLevel {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 18px;
+    height: 20px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: #def324;
+    transform: rotate(-14deg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dce494), to(#d9e478));
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: breathe;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+.oddWillLevel {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 15px;
+    height: 20px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: #def324;
+    transform: rotate(14deg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dce494), to(#d9e478));
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: breathe;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+.noBreathe {
+    display: none;
+}
+
+@-webkit-keyframes breathe {
+    0% {
+
+        background: rgba(255, 246, 0, .5)
+    }
+
+    100% {
+        background: rgba(255, 246, 0, 0)
+    }
+
+
+}
+
+.specialReward {
+    position: absolute;
+    top: 23px;
+    width: 20.4vw;
+    height: 30px;
+    border: 2px #458630 solid;
+    background-color: #A2C012;
+    border-radius: 15px;
+}
+
+.noSpecialReward {
+    display: none;
+}
+
+.specialReward>img {
+    position: absolute;
+    top: -2.9px;
+    left: -1.2vw;
+    width: 9.33vw;
+    border-radius: 50%;
+}
+
+.specialReward>span {
+    position: absolute;
+    left: 7.23vw;
+    line-height: 27px;
+}
+
+.noLevelTime {
+    display: none;
+}
+
+.levelTime {
+    position: absolute;
+    top: 23px;
+    width: 14.13vw;
+    height: 31px;
+    border: 2px #458630 solid;
+    background-color: #A2C012;
+    border-radius: 15px;
+}
+
+.levelTime img {
+    width: 15px;
 }
 
 /*buttom*/
@@ -2333,7 +2441,7 @@ body {
 
 }
 
-.first-pass,
+.passIng,
 .next-pass {
     position: absolute;
     width: 100%;
@@ -2346,13 +2454,14 @@ body {
     position: absolute;
     left: 23.2vw;
     top: 12.04vh;
-    width: 53.33vw;
+    /* width: 53.33vw; */
+    width: 20.13vw;
     text-align: center;
 }
 
-.pass-gift {
+/* .pass-gift {
     width: 20.13vw;
-}
+} */
 
 .stamina-reward {
     float: left;
@@ -2428,8 +2537,9 @@ body {
     position: absolute;
     width: 41.1vw;
     height: 7.27vh;
-    top: 18.8vh;
-    left: 5.5vw;
+    top: 31.0vh;
+    left: 29.5vw;
+    text-align: center;
     background: url(../images/110.png) no-repeat;
     background-size: 41.1vw 7.27vh;
     line-height: 7.27vh;
@@ -2499,10 +2609,13 @@ body {
     border-radius: 5px;
 }
 
-
 .border-phiz>img {
     width: 26.5px;
     height: 26.5px;
+}
+.border-name {
+    display: inline-block;
+    width: 36px;
 }
 
 /*闯关内容*/
@@ -2724,7 +2837,6 @@ body {
     height: 29.84vh;
     background: url(../images/120.png) no-repeat;
     background-size: 73.2vw 29.84vh;
-    display: none;
 }
 
 .close-level>p {

@@ -1,15 +1,15 @@
 $(function () {
   //滚动条在底部
-      var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-      var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
-      var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
-      document.documentElement.scrollTop = scrollH - clientH
-      window.pageYOffset = scrollH - clientH
-      document.body.scrollTop = scrollH - clientH
+  var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+  var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
+  var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+  document.documentElement.scrollTop = scrollH - clientH
+  window.pageYOffset = scrollH - clientH
+  document.body.scrollTop = scrollH - clientH
   //原住人数
   people();
   //闯关列表
-  userGate()
+  userGate();
   // 网络不给力
   $(".internet-tips").hide();
   //体力值
@@ -44,19 +44,6 @@ $(function () {
     $(window).attr("location", "./treasureBox.html");
   });
 
-  //闯关
-  var $levelSuccessed = $(".level span");
-  $levelSuccessed.click(function () {
-    $("#levelShade").show();
-    ranking()
-    $("#levelFirst").click(function () {
-      $(window).attr("location", "./level_content_img.html");
-    });
-    // 退出关卡
-    $(".level_btn").click(function () {
-      $("#levelShade").hide();
-    });
-  });
 });
 
 //原住人数
@@ -78,29 +65,89 @@ function people() {
 
 // 闯关列表
 function userGate() {
+  var uid = sessionStorage.getItem("uid")
   $.ajax({
     type: "GET",
     url: APP_URL + "/api/Wisdom/WisdomIndex",
     data: {
-      uid: 1,
-      pageindex:1,
-      iscurrent:1
+      uid: uid,
+      iscurrent: 1
     },
     dataType: "json",
     success: function (res) {
       console.log(res);
-      var data=res.data
-      var str = ""
-      $.each(data.gatelist,function(index, el) {
-        
+      var data = res.data;
+      var pageIndex = res.data.pageindex;
+      var str1 = "";
+      for (var i = 1; i < pageIndex; i++) {
+        str1 = `
+          <div class="homeContentLoop"></div>
+        `;
+        $(".homeLoop").prepend(str1);
+      };
+      var levelList = data.gatelist.reverse();
+      var str2 = "";
+      $.each(levelList, function (index, val) {
+        var levelNum = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+        // console.log(levelNum);
+        str2 += `
+          <li class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+            <span>${levelNum}</span>
+            ${val.islock==1&&val.time==''?`
+            <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
+            `:''}
+            ${val.time!=''?'':`
+            <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
+            `}
+            <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
+          </li>
+        `;
       });
+      $(".level-list").html(str2);
     },
-    error:function(err){
+    error: function (err) {
       console.log(err)
     }
   });
 }
 
+// 闯关
+function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName) {
+  if (levelLock == 0) {
+    return;
+  }
+  $("#levelNum").html(levelName);
+  var str = "";
+  str +=
+    levelTime == '' ? `
+          <div class="pass-gift">
+            <div class="stamina-reward"><img src="../../images/108.png" /><span>x${rewardbeans}</span></div>
+            <div class="pk-reward"><img src="../../images/107.png" /><span>x${pkvalue}</span></div>
+            <div class="other-gift">
+              <div class="other-giftbox">
+                <img src="../../images/109.png" />
+                <div>其他奖励</div>
+              </div>
+            </div>
+          </div>
+          ` : `
+          <div class="pass-again">
+            <img src="../../images/117.png" />
+            <p>${levelTime}</p>
+          </div>
+          `;
+  $(".passLevel").html(str);
+  ranking(levelId); //全网排名
+  $("#levelShade").show();
+  $("#levelFirst").click(function () {
+    sessionStorage.setItem("gateid", levelId);
+    $(window).attr("location", "./level_content_img.html");
+  });
+  // 取消闯关
+  $(".level_btn").click(function () {
+    $("#levelShade").hide();
+  });
+}
 
 //日历
 var calUtil = {
@@ -335,12 +382,12 @@ function handleClick() {
 
 
 // 全网排名 
-function ranking() {
+function ranking(levelId) {
   $.ajax({
     type: "GET",
     url: APP_URL + "/api/User/UserGateSort",
     data: {
-      gateid: 1,
+      gateid: levelId,
     },
     dataType: "json",
     success: function (res) {
@@ -353,7 +400,7 @@ function ranking() {
             <ul class="board-list">
                 <li class="border-num"><span>${index+1}</span></li>
                 <li class="border-head"><img src=${val.headimg} /></li>
-                <li><span>${val.nickname}</span></li>
+                <li><span class="border-name">${val.nickname}</span></li>
                 <li><span>${val.time}</span></li>
                 <li class="border-phiz"><img src="../../images/97.png" /><span>x${val.rewordbeans}</span></li>
             </ul>
