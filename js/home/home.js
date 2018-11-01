@@ -83,7 +83,7 @@ function userGate() {
         str1 = `
           <div class="homeContentLoop"></div>
         `;
-        $(".homeLoop").prepend(str1);
+        // $(".homeLoop").prepend(str1);
       };
       var levelList = data.gatelist.reverse();
       var str2 = "";
@@ -318,7 +318,7 @@ function actioveDate(datelist) {
   $(li).each(function (index, val) {
     var count = $(this).html()
     for (var i = 0; i < datelist.length; i++) {
-      var date = (moment(datelist[i].signdate).format("DD"));
+      var date = (moment(datelist[i].signdate).format("D"));
       if (count == date) {
         $(this).css({
           "background": "#5ABE1B"
