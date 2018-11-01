@@ -1,6 +1,20 @@
 $(function () {
+    treasureBoxList(); //百宝箱列表
+    // 特殊奖励
+    $("#specialReward").click(function(){
+        $(this).addClass("treasureBoxSpecial2").siblings().removeClass("treasureBoxOrdinary2");
+        treasureBoxList(); //百宝箱列表
+    });
+    // 推荐奖励
+    $("#ordinaryReward").click(function(){
+        $(this).addClass("treasureBoxOrdinary2").siblings().removeClass("treasureBoxSpecial2");
+        treasureBoxList(); //百宝箱列表
+    });
+});
+
+// 百宝箱列表
+function treasureBoxList() {
     var uId = sessionStorage.getItem("uid");
-    /* 百宝箱列表*/
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserBaobox",
@@ -39,10 +53,9 @@ $(function () {
                         <p>${val.heading}</p>
                     </div>
                     `;
-                    $(".treasureBox-wrapper").append(str2);
+                    $(".treasureBox-wrapper").html(str2);
                 }
             });
-
             // 点击跳转
             var $treasureboxGift1 = $(".treasureBox-gift1");
             var $treasureboxGift2 = $(".treasureBox-gift2");
@@ -59,4 +72,4 @@ $(function () {
             console.log(err)
         }
     });
-});
+}

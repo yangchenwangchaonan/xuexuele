@@ -18,27 +18,25 @@
 
 <body class="home-body">
 	<section class="container-home">
-		<!-- <img src="../../images/37.png" /> -->
-		<div class="home-cloud"><img src="../../images/80.png" /></div>
 		<!--left-->
 		<div class="leftOptions">
 			<div class="left-tabs" id="stamina-tab">
 				<div class="stamina"><img src="../../images/81.png" /></div>
 				<div class="stamina-progress">
-					<div class="stamina-value"><span>30</span><span style="font-size: 11px;">/30</span></div>
+					<div class="stamina-value"><span id="nowStamina"></span><span style="font-size: 11px;">/30</span></div>
 					<i class="icon_stamina">+</i>
 				</div>
 			</div>
 			<div class="left-tabs">
 				<div class="beans"><img src="../../images/83.png" /></div>
 				<div class="beans-progress">
-					<div class="beans-value"><span>200</span></div>
+					<div class="beans-value"><span id="getBeans"></span></div>
 				</div>
 			</div>
 			<div class="left-tabs">
 				<div class="pk"><img src="../../images/84.png" /></div>
 				<div class="pk-progress">
-					<div class="pk-value"><span>200</div>
+					<div class="pk-value"><span id="pkValue"></div>
 				</div>
 			</div>
 		</div>
@@ -52,49 +50,68 @@
 		<div class="inforBox">
 			<div class="right-tabs" id="maildrop-tab">
 				<div class="maildrop"><img src="../../images/86.png" /></div>
-				<div class="nomail">
-					<div class="maildrop-infor"><span>1</div>
-				</div>
+				<div class="nomail" id="letterNum"><span>0</div>
 			</div>
 			<div class="right-tabs" id="signed-tab">
 				<div class="signed"><img src="../../images/87.png" /></div>
-				<div class="nosigned">
-					<div class="signed-recording"><span style="font-size: 12px;">已签到</div>
-				</div>
+				<div class="nosigned signed-recording" id="recordContent"><span>未签到</div>
 			</div>
 			<div class="right-tabs" id="treasureBox-tab">
 				<div class="giftbox"><img src="../../images/88.png" /></div>
-				<div class="nogiftbox">
-					<div class="giftbox-infor"><span>21</div>
-				</div>
+				<div class="nogiftbox" id="treasureBoxNum"><span>0</div>
 			</div>
 		</div>
 		<!--center-->
 		<div class="homePageBg">
+			<!-- 塔尖 -->
+			<!-- <div class="homeTopBg"><div class="homeTop"></div></div> -->
 			<!-- 遍历背景 -->
 			<div class="homeLoop">
-				<div class="homeContentLoop"></div>
+				<!-- <div class="homeContentLoop"></div> -->
+				<!-- <div class="cloudContent">
+					<div class="leftCloud"></div>
+					<div class="centerCloud"></div>
+					<div class="rightCloud"></div>
+				</div>
+				<div class="aroundCloudLoop">
+					<div class="bigCloud"><img src="../../images/80.png" /></div>
+					<div class="rightSmallCloud"><img src="../../images/253.png" /></div>
+					<div class="leftSmallCloud"><img src="../../images/254.png" /></div>
+				</div> -->
+				<!-- <div class="homeLoopBg">
+					<div class="homeContentLoop"></div>
+					<div class="cloudContent">
+						<div class="leftCloud"></div>
+						<div class="centerCloud"></div>
+						<div class="rightCloud"></div>
+					</div>
+				</div> -->
 				<!-- <div class="homeContentLoop"></div>
-				<div class="homeContentLoop"></div>
 				<div class="homeContentLoop"></div> -->
-				<!-- <div class="homeContentLoop"></div> -->
-				<!-- <div class="homeContentLoop"></div> -->
-				<!-- <div class="homeContentLoop"></div> -->
 			</div>
 			<!-- 初始6关背景 -->
 			<div class="homeFixed">
-				<div class="homeContent">
-					<div class="cloudShade">
-						<img src=""/>
-					</div>
+				<div class="homeContent"></div>
+				<div class="aroundCloud">
+					<div class="bigCloud"><img src="../../images/80.png" /></div>
+					<div class="rightSmallCloud"><img src="../../images/253.png" /></div>
+					<div class="leftSmallCloud"><img src="../../images/254.png" /></div>
 				</div>
 			</div>
 		</div>
+		<!-- 关卡列表 -->
 		<ul class="level-list">
-			<!-- <li class="evenList evenFailLevel"><span>6</span><div class="evenWillLevel"></div>
+			<!-- <li class="evenList evenFailLevel"><span>6</span>
+				<div class="evenWillLevel"></div>
 				<div class="noSpecialReward"><img src="../../images/101.png" /><span>其他奖励</span></div>
+				<div class="cloudContent">
+					<div class="leftCloud moveLeft"></div>
+					<div class="centerCloud"></div>
+					<div class="rightCloud moveRight"></div>
+				</div>
 			</li>
-			<li class="oddList oddFailLevel"><span>5</span><div class="oddWillLevel"></div>
+			<li class="oddList oddFailLevel"><span>5</span>
+				<div class="oddWillLevel"></div>
 				<div class="specialReward"><img src="../../images/101.png" /><span>其他奖励</span></div>
 			</li>
 			<li class="evenList evenFailLevel"><span>4</span>

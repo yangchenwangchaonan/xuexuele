@@ -78,12 +78,27 @@ function userGate() {
       console.log(res);
       var data = res.data;
       var pageIndex = res.data.pageindex;
+      $("#nowStamina").html(data.manvalue); //体力值
+      $("#getBeans").html(data.wisdombean); //智慧豆
+      $("#pkValue").html(data.pk);  //pk值
+      // 站内信
+      if(data.msgcount != 0){
+        $("#letterNum").addClass("maildrop-infor");
+        $("#letterNum>span").html(data.msgcount);
+      }
+      // 百宝箱
+      if(data.spgatecount != 0){
+        $("#treasureBoxNum").addClass("giftbox-infor");
+        $("#treasureBoxNum>span").html(data.spgatecount);
+      }
       var str1 = "";
       for (var i = 1; i < pageIndex; i++) {
         str1 = `
-          <div class="homeContentLoop"></div>
+          <div class="homeLoopBg">
+            <div class="homeContentLoop"></div>
+          </div>
         `;
-        // $(".homeLoop").prepend(str1);
+        $(".homeLoop").prepend(str1);
       };
       var levelList = data.gatelist.reverse();
       var str2 = "";
@@ -100,10 +115,25 @@ function userGate() {
             <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
             `}
             <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
+            ${levelNum%6==0&&levelNum!=0&&(val.time=="")?`
+              <div class="cloudContent">
+                <div class="leftCloud"></div>
+                <div class="centerCloud"></div>
+                <div class="rightCloud"></div>
+              </div>
+            `:''}
           </li>
         `;
       });
       $(".level-list").html(str2);
+      $(".cloudContent").click(function () {
+        $(this).children(".leftCloud").addClass("moveLeft");
+        $(this).children(".centerCloud").fadeOut();
+        $(this).children(".rightCloud").addClass("moveRight");
+        window.setTimeout(() => {
+          $(".cloudContent").hide();
+        }, 4000);
+      });
     },
     error: function (err) {
       console.log(err)
