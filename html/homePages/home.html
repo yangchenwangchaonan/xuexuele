@@ -12,6 +12,7 @@
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/common/footer.js"></script>
+	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/home/home.js"></script>
 	<script src="http://momentjs.cn/downloads/moment.min.js"></script>
 </head>
@@ -54,7 +55,7 @@
 			</div>
 			<div class="right-tabs" id="signed-tab">
 				<div class="signed"><img src="../../images/87.png" /></div>
-				<div class="nosigned signed-recording" id="recordContent"><span>未签到</div>
+				<div class="nosigned" id="recordContent"><span>未签到</div>
 			</div>
 			<div class="right-tabs" id="treasureBox-tab">
 				<div class="giftbox"><img src="../../images/88.png" /></div>
@@ -63,37 +64,36 @@
 		</div>
 		<!--center-->
 		<div class="homePageBg">
-			<!-- 塔尖 -->
-			<!-- <div class="homeTopBg"><div class="homeTop"></div></div> -->
+			<div class="homeCloudContent">
+				<div class="leftCloud homeLeftCloud"><img src="../../images/left.png" /></div>
+				<div class="centerCloud homeCenterCloud"><img src="../../images/center.png" /></div>
+				<div class="rightCloud homeRightCloud"><img src="../../images/right.png" /></div>
+			</div>
 			<!-- 遍历背景 -->
 			<div class="homeLoop">
-				<!-- <div class="homeContentLoop"></div> -->
-				<!-- <div class="cloudContent">
-					<div class="leftCloud"></div>
-					<div class="centerCloud"></div>
-					<div class="rightCloud"></div>
-				</div>
-				<div class="aroundCloudLoop">
-					<div class="bigCloud"><img src="../../images/80.png" /></div>
-					<div class="rightSmallCloud"><img src="../../images/253.png" /></div>
-					<div class="leftSmallCloud"><img src="../../images/254.png" /></div>
-				</div> -->
 				<!-- <div class="homeLoopBg">
 					<div class="homeContentLoop"></div>
-					<div class="cloudContent">
-						<div class="leftCloud"></div>
-						<div class="centerCloud"></div>
-						<div class="rightCloud"></div>
+					<div class="aroundCloudLoop">
+						<div class="oddBigCloudLoop"><img src="../../images/left.png"></div>
+						<div class="leftCloudLoop"><img src="../../images/254.png" /></div>
+						<div class="rightCloudLoop"><img src="../../images/254.png" /></div>
+					</div>
+				</div>
+				<div class="homeLoopBg">
+					<div class="homeContentLoop"></div>
+					<div class="aroundCloudLoop">
+						<div class="evenBigCloudLoop"><img src="../../images/right.png"></div>
+						<div class="leftCloudLoop"><img src="../../images/254.png" /></div>
+						<div class="rightCloudLoop"><img src="../../images/254.png" /></div>
 					</div>
 				</div> -->
-				<!-- <div class="homeContentLoop"></div>
-				<div class="homeContentLoop"></div> -->
 			</div>
 			<!-- 初始6关背景 -->
 			<div class="homeFixed">
 				<div class="homeContent"></div>
 				<div class="aroundCloud">
-					<div class="bigCloud"><img src="../../images/80.png" /></div>
+					<div class="bigCloud"><img src="../../images/right.png" /></div>
+					<div class="rightSmallCloudTop"><img src="../../images/254.png" /></div>
 					<div class="rightSmallCloud"><img src="../../images/253.png" /></div>
 					<div class="leftSmallCloud"><img src="../../images/254.png" /></div>
 				</div>
@@ -105,9 +105,9 @@
 				<div class="evenWillLevel"></div>
 				<div class="noSpecialReward"><img src="../../images/101.png" /><span>其他奖励</span></div>
 				<div class="cloudContent">
-					<div class="leftCloud moveLeft"></div>
-					<div class="centerCloud"></div>
-					<div class="rightCloud moveRight"></div>
+					<div class="leftCloud moveLeft"><img src="../../images/left.png" /></div>
+					<div class="centerCloud"><img src="../../images/center.png"/></div>
+					<div class="rightCloud moveRight"><img src="../../images/right.png"/></div>
 				</div>
 			</li>
 			<li class="oddList oddFailLevel"><span>5</span>
@@ -226,7 +226,7 @@
 			</div>
 		</div>
 	</section>
-	<div class="internet-tips">网络不给力啊~</div>
+	<div class="internet-tips"></div>
 </body>
 <script type="text/javascript">
 	$(function () {

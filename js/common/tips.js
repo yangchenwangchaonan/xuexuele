@@ -18,3 +18,13 @@ function flowerTips(a, b) {
         $(".reg-tips").hide();
     }, date);
 }
+
+// 通用弱提示
+function generalTips(a, b) {
+    $(".internet-tips").show();
+    $(".internet-tips").text(a)
+    var date = b * 1000;
+    window.setTimeout(() => {
+        $(".internet-tips").hide();
+    }, date);
+}

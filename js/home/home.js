@@ -9,9 +9,9 @@ $(function () {
   //原住人数
   people();
   //闯关列表
-  userGate();
+  userGate(1, 1);
   // 网络不给力
-  $(".internet-tips").hide();
+  // generalTips("网络不给力啊~", 1);
   //体力值
   $("#stamina-tab").click(function () {
     $("#stamina-shade").show();
@@ -64,14 +64,15 @@ function people() {
 }
 
 // 闯关列表
-function userGate() {
+function userGate(index, iscurrent) {
   var uid = sessionStorage.getItem("uid")
   $.ajax({
     type: "GET",
     url: APP_URL + "/api/Wisdom/WisdomIndex",
     data: {
       uid: uid,
-      iscurrent: 1
+      iscurrent: iscurrent,
+      pageindex: index
     },
     dataType: "json",
     success: function (res) {
@@ -80,26 +81,45 @@ function userGate() {
       var pageIndex = res.data.pageindex;
       $("#nowStamina").html(data.manvalue); //体力值
       $("#getBeans").html(data.wisdombean); //智慧豆
-      $("#pkValue").html(data.pk);  //pk值
+      $("#pkValue").html(data.pk); //pk值
       // 站内信
-      if(data.msgcount != 0){
+      if (data.msgcount != 0) {
         $("#letterNum").addClass("maildrop-infor");
         $("#letterNum>span").html(data.msgcount);
       }
       // 百宝箱
-      if(data.spgatecount != 0){
+      if (data.spgatecount != 0) {
         $("#treasureBoxNum").addClass("giftbox-infor");
         $("#treasureBoxNum>span").html(data.spgatecount);
+      }
+      // 是否签到
+      if (data.issign != 0) {
+        $("#recordContent").addClass("signed-recording");
+        $("#recordContent>span").html("已签到");
       }
       var str1 = "";
       for (var i = 1; i < pageIndex; i++) {
         str1 = `
-          <div class="homeLoopBg">
-            <div class="homeContentLoop"></div>
+        <div class="homeLoopBg">
+          <div class="homeContentLoop"></div>
+          <div class="aroundCloudLoop">
+          ${(pageIndex-1)%2==0?`
+            <div class="oddBigCloudLoop"><img src="../../images/right.png"></div>
+          `:`
+            <div class="evenBigCloudLoop"><img src="../../images/left.png"></div>
+          `
+          }
+            <div class="leftCloudLoop"><img src="../../images/254.png" /></div>
+            <div class="rightCloudLoop"><img src="../../images/254.png" /></div>
           </div>
+        </div>
         `;
-        $(".homeLoop").prepend(str1);
       };
+      if ((data.gatelist.length / 6) == data.pageindex) {
+        $(".homeLoop").prepend(str1);
+      } else {
+        generalTips("已经到滑到顶部啦~", 1);
+      }
       var levelList = data.gatelist.reverse();
       var str2 = "";
       $.each(levelList, function (index, val) {
@@ -117,9 +137,9 @@ function userGate() {
             <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
             ${levelNum%6==0&&levelNum!=0&&(val.time=="")?`
               <div class="cloudContent">
-                <div class="leftCloud"></div>
-                <div class="centerCloud"></div>
-                <div class="rightCloud"></div>
+                <div class="leftCloud"><img src="../../images/left.png" /></div>
+                <div class="centerCloud"><img src="../../images/center.png"/></div>
+                <div class="rightCloud"><img src="../../images/right.png"/></div>
               </div>
             `:''}
           </li>
@@ -134,6 +154,34 @@ function userGate() {
           $(".cloudContent").hide();
         }, 4000);
       });
+      // 触顶刷新
+      window.onscroll = function () {
+        var index = data.pageindex;
+        if ((data.gatelist.length / 6) != data.pageindex) {
+          generalTips("已经到滑到顶部啦~", 1);
+          return;
+        }
+        console.log(1);
+        var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+        if (scrollT == 0) {
+          index++;
+          userGate(index, 2);
+        }
+      }
+      // if ((data.gatelist.length / 6) == data.pageindex) {
+      //   window.onscroll = function () {
+      //     console.log(1);
+      //     var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+      //     if (scrollT == 0) {
+      //       var index = data.pageindex;
+      //       index++;
+      //       userGate(index, 2);
+      //     }
+      //   }
+      // } else {
+      //   generalTips("已经到滑到顶部啦~", 1);
+      // }
+
     },
     error: function (err) {
       console.log(err)

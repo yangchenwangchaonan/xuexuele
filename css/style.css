@@ -20,8 +20,8 @@ body {
 .home-body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    overflow-y: auto;
+    overflow-x: hidden;
+    /* overflow-y: auto; */
 }
 
 .index-container {
@@ -726,25 +726,24 @@ body {
 }
 
 .homePageBg {
-    /* height: 100%; */
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
-/* 塔尖 */
-.homeTopBg {
-    background: #3074FF;
+.homeCloudContent {
+    position: absolute;
+    width: 100%;
+    height: 88px;
+    z-index: 1000;
+    overflow: hidden;
 }
 
-.homeTop {
-    position: relative;
-    left: 23.73vw;
-    top: 0;
-    margin-bottom: -13.85vh;
-    width: 50%;
-    height: 77.14vh;
-    background: url(../images/255.png) no-repeat;
-    background-size: 100% 100%;
+.homeLeftCloud>img,
+.homeCenterCloud>img,
+.homeRightCloud>img {
+    position: absolute;
+    top: -3.5vh;
 }
 
 /* 循环部分 */
@@ -752,25 +751,92 @@ body {
     background: #3074FF;
 }
 
-/* 
+
 .homeLoopBg {
     position: relative;
+    left: 0;
     top: 0;
     margin-bottom: -13.85vh;
     width: 100%;
     height: 90.8vh;
-} */
+    z-index: 500;
+}
 
 .homeContentLoop {
-    position: relative;
-    left: 23.73vw;
+    position: absolute;
+    margin-left: 23.73vw;
     top: 0;
-    margin-bottom: -13.85vh;
     width: 50%;
-    height: 90.8vh;
+    height: 100%;
     z-index: 500;
     background: url(../images/251.png) no-repeat;
     background-size: 100% 100%;
+}
+
+/* 遍历部分的云朵 */
+
+.aroundCloudLoop {
+    width: 100%;
+    height: 90.8vh;
+    z-index: 500;
+}
+
+.leftCloudLoop {
+    position: absolute;
+    bottom: 18.6vh;
+    left: 0;
+    width: 132px;
+    height: 52.5px;
+    z-index: 300;
+    overflow: hidden;
+}
+
+.leftCloudLoop>img {
+    width: 132px;
+}
+
+.rightCloudLoop {
+    position: absolute;
+    bottom: 63.8vh;
+    right: 0;
+    width: 70.5px;
+    height: 52.5px;
+    z-index: 300;
+    overflow: hidden;
+}
+
+.rightCloudLoop>img {
+    width: 135px;
+}
+
+.oddBigCloudLoop {
+    position: absolute;
+    bottom: 40.33vh;
+    left: 0;
+    width: 145px;
+    height: 82.5px;
+    z-index: 500;
+    overflow: hidden;
+}
+
+.oddBigCloudLoop>img {
+    position: absolute;
+    right: 0;
+    width: 174px;
+}
+
+.evenBigCloudLoop {
+    position: absolute;
+    bottom: 37.33vh;
+    right: 0;
+    width: 145px;
+    height: 82.5px;
+    z-index: 500;
+    overflow: hidden;
+}
+
+.evenBigCloudLoop>img {
+    width: 174px;
 }
 
 /* 固定部分 */
@@ -794,8 +860,12 @@ body {
 
 .cloudContent {
     position: absolute;
-    bottom: 164px;
+    bottom: 11.59vh;
     left: -34.79vw;
+    width: 100vw;
+    height: 88px;
+    z-index: 1000;
+    overflow: hidden;
 }
 
 .leftCloud {
@@ -803,11 +873,15 @@ body {
     display: inline-block;
     z-index: 1000;
     top: 0;
-    left: -10px;
-    width: 48.67vw;
-    height: 13.19vh;
-    background: url(../images/252.png) no-repeat;
-    background-size: 100% 100%;
+    left: 0;
+    width: 197px;
+    height: 88px;
+}
+
+.leftCloud>img {
+    position: absolute;
+    left: -3.67vw;
+    width: 186px;
 }
 
 .centerCloud {
@@ -815,11 +889,13 @@ body {
     display: inline-block;
     z-index: 1000;
     top: 0;
-    left: 93.5px;
-    width: 48.67vw;
-    height: 13.19vh;
-    background: url(../images/252.png) no-repeat;
-    background-size: 100% 100%;
+    left: 24.93vw;
+    width: 197px;
+    height: 88px;
+}
+
+.centerCloud>img {
+    width: 197px;
 }
 
 .rightCloud {
@@ -827,11 +903,15 @@ body {
     display: inline-block;
     z-index: 1000;
     top: 0;
-    left: 205.5px;
-    width: 48.67vw;
-    height: 13.19vh;
-    background: url(../images/252.png) no-repeat;
-    background-size: 100% 100%;
+    left: 55.3vw;
+    width: 197px;
+    height: 88px;
+}
+
+.rightCloud>img {
+    position: absolute;
+    right: 0.33vw;
+    width: 197px;
 }
 
 .moveLeft {
@@ -878,68 +958,61 @@ body {
     }
 }
 
-/* .centerHide {
-
-} */
-
-/* 周围的云 */
-/* .aroundCloud {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 136vh;
-} */
-
-
-.aroundCloudLoop {
-    position: relative;
-    top: 0;
-    margin-bottom: -13.85vh;
-    width: 100%;
-    height: 90.8vh;
-    z-index: 500;
-}
+/* 固定部分周围的云 */
 
 .bigCloud {
     position: absolute;
-    top: 31.53vh;
+    bottom: 84.33vh;
     right: 0;
-    width: 39.67vw;
-    height: 12.37vh;
+    width: 145px;
+    height: 82.5px;
     z-index: 500;
     overflow: hidden;
 }
 
 .bigCloud>img {
-    width: 46.4vw;
+    width: 174px;
 }
 
 .rightSmallCloud {
     position: absolute;
     bottom: 43.03vh;
     right: 0;
-    width: 18.8vw;
-    height: 7.95vh;
+    width: 70.5px;
+    height: 52.5px;
     z-index: 300;
     overflow: hidden;
 }
 
-.rightSmallCloud>img {
-    width: 35.2vw;
+.rightSmallCloudTop {
+    position: absolute;
+    bottom: 108.4vh;
+    right: 0;
+    width: 70.5px;
+    height: 52.5px;
+    z-index: 300;
+    overflow: hidden;
 }
+
+.rightSmallCloud>img,
+.rightSmallCloudTop>img {
+    width: 132px;
+}
+
+
 
 .leftSmallCloud {
     position: absolute;
     bottom: 64.87vh;
     left: 0;
-    width: 35.2vw;
-    height: 7.95vh;
+    width: 132px;
+    height: 52.5px;
     z-index: 300;
     overflow: hidden;
 }
 
 .leftSmallCloud>img {
-    width: 35.2vw;
+    width: 132px;
 }
 
 /*遮罩层*/
@@ -2114,8 +2187,8 @@ body {
 .icon_stamina {
     position: absolute;
     display: inline-block;
-    top: 4.8px;
-    left: 12.2vw;
+    top: 6.0px;
+    left: 12.5vw;
     font-size: 11px;
 }
 
@@ -2125,9 +2198,9 @@ body {
     height: 16px;
     background: linear-gradient(0deg, rgba(33, 108, 221, 1) 0%, rgba(41, 117, 228, 1) 33%, rgba(104, 233, 255, 1) 100%);
     border-radius: 15px;
-    top: 4.8px;
+    top: 5.0px;
     font-size: 13px;
-    line-height: 16px;
+    line-height: 18px;
 }
 
 .beans-value {
@@ -2138,7 +2211,7 @@ body {
     border-radius: 15px;
     top: 5px;
     font-size: 13px;
-    line-height: 16px;
+    line-height: 18px;
 }
 
 .pk-value {
@@ -2149,7 +2222,7 @@ body {
     background: linear-gradient(0deg, rgba(101, 93, 255, 1) 0%, rgba(120, 94, 255, 1) 39%, rgba(181, 140, 255, 1) 100%);
     border-radius: 15px;
     font-size: 13px;
-    line-height: 16px;
+    line-height: 18px;
 }
 
 /*right*/
@@ -2456,8 +2529,8 @@ body {
 .oddWillLevel {
     position: absolute;
     top: 2px;
-    left: 5px;
-    width: 18px;
+    left: 3px;
+    width: 20px;
     height: 20px;
     border-radius: 10px 10px 0 0;
     box-shadow: #def324;
@@ -2536,7 +2609,6 @@ body {
 /*buttom*/
 .bottom-table {
     position: fixed;
-    /* text-align: center; */
     bottom: 0;
     width: 100%;
     height: 86px;
@@ -2799,9 +2871,9 @@ body {
 
 .board-table {
     position: absolute;
-    left: 19.03vw;
+    left: 17.83vw;
     top: 51.8vh;
-    width: 63.0vw;
+    width: 65.0vw;
     height: 41.23vh;
     overflow: auto;
 }
@@ -2822,6 +2894,9 @@ body {
 .board-list>li>p {
     display: inline-block;
     margin: 0 0.53vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .border-num {
@@ -2837,7 +2912,6 @@ body {
 .border-name,
 .border-time {
     width: 10.67vw;
-    /* text-align: center; */
 }
 
 .border-phiz {
