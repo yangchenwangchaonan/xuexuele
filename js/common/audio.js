@@ -15,23 +15,24 @@ $(function () {
     $("#lessonAudio").on("loadedmetadata", function () {
         // console.log(audio.duration);  //音频时长
         $("#audioTime").text(transTime(this.duration));
+         //点击进度
+            progressRealClick(this.duration)
     });
 
     // 监听音频播放时间
     audio.addEventListener('timeupdate', updateProgress, false);
 
-    // 指定进度条跳到该位置
-    var pgsWidth = $('.progressReal').css('width') * 0.975; //此0.907同上一个0.907
-    // console.log(pgsWidth);
-    $('.progressKey').click(function (e) {
-        var rate = (e.offsetX - ($(this).width() - pgsWidth) / 2) / pgsWidth;
-        audio.currentTime = audio.duration * rate;
-        updateProgress();
-    });
+    // // 指定进度条跳到该位置
+    // var pgsWidth = $('.progressReal').css('width') * 0.975; //此0.907同上一个0.907
+    // // console.log(pgsWidth);
+    // $('.progressKey').click(function (e) {
+    //     var rate = (e.offsetX - ($(this).width() - pgsWidth) / 2) / pgsWidth;
+    //     audio.currentTime = audio.duration * rate;
+    //     updateProgress();
+    // });
 
     // 播放完成
     audio.addEventListener('ended', audioEnded, false);
-
 });
 
 // 转换音频时长显示
@@ -68,4 +69,18 @@ function audioEnded() {
         audio.pause();
         $('#progressBar').removeClass('progress-start').addClass('progress-stop');
     }, 5000);
+}
+
+
+//点击加载进度
+function progressRealClick(time){
+    console.log(time)
+    $(".progressBar").click(function(e){
+        console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
+        var b =(time*(e.pageX - $(this).offset().left)/$(this).width())
+        console.log(b)
+        var a = (time*(e.pageX - $(this).offset().left)/$(this).width()/time*100)
+         $('.progressReal').css('width', a +'%');
+         $('#lessonAudio')[0].currentTime=b
+    })
 }
