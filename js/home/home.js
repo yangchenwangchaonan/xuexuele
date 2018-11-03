@@ -22,17 +22,14 @@ $(function () {
   //站内信
   $("#maildrop-tab").click(function () {
     $(window).attr("location", "./letter.html");
-    /* 关闭窗口 */
-    $(".signed-close").click(function () {
-      $("#maildrop-tab").hide();
-    });
   });
 
   //签到
   $("#signed-tab").click(function () {
     $("#recording-shade").show();
-    $(".signed-close").click(function () {
+    $("img.signed-close").click(function () {
       $("#recording-shade").hide();
+      userGate(1, 1);
     });
     // actioveDate()   //日历当前日期渲染
     signinDate() //当月签到日期渲染
@@ -219,7 +216,7 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
   $("#levelShade").show();
   $("#levelFirst").click(function () {
     sessionStorage.setItem("gateid", levelId);
-    $(window).attr("location", "./level_content_img.html");
+    $(window).attr("location", "./level_content.html");
   });
   // 取消闯关
   $(".level_btn").click(function () {
