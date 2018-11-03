@@ -76,7 +76,7 @@ function audioEnded() {
 function progressRealClick(time){
     console.log(time)
     $(".progressBar").click(function(e){
-        console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
+        // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
         var b =(time*(e.pageX - $(this).offset().left)/$(this).width())
         console.log(b)
         var a = (time*(e.pageX - $(this).offset().left)/$(this).width()/time*100)
