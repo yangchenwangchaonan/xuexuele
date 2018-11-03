@@ -34,7 +34,7 @@ function audio () {
         console.log(blob,(duration/1000));
             rec.close();//释放录音资源
         },function(msg){
-            console.log("录音失败:"+msg);
+            alert("录音失败:"+msg);
         });
     });
 }
