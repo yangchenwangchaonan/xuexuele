@@ -25,7 +25,7 @@ function audio () {
              $("#stopRecord").hide()
         })
     },function(msg){
-        console.log("无法录音:"+msg);
+       alert("无法录音:"+msg);
     });
 
 
