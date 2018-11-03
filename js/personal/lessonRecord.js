@@ -1,91 +1,99 @@
 $(function () {
-    // 当前页面的url
-    var NowUrl = window.location.href;
-    // 返回
-    $(".lesson-record-back").click(function () {
-        history.back(-1);
-    });
-    wxConfig(NowUrl);
-
+   audio ()
 });
 
-// 获取公众号基本信息
-function wxConfig(url) {
-    $.ajax({
+
+
+function audio (time) {
+    //获得实例
+    var rec=Recorder();
+    //打开麦克风授权获得相关资源
+    rec.open(function(){
+        $("#startRecord").click(function(){
+           rec.start();//开始录音
+           $("#startRecord").hide()
+           $("#recordIng").show()
+            x(0,0,0)
+        })
+
+    },function(msg){
+       alert("无法录音:"+msg);
+    }); 
+    //到达指定条件停止录音，拿到blob对象想干嘛就干嘛：立即播放、上传
+    $("#uploadAudio").click(function() {
+        rec.stop(function(blob,duration){
+            console.log(blob,(duration/1000));
+            rec.close();//释放录音资源
+            VoiceUpload(blob)
+            console.log(URL.createObjectURL(blob))
+        },function(msg){
+            alert("录音失败:"+msg);
+        });
+    });
+}
+
+
+//暂停录音
+function stop(time) {
+     var rec=Recorder();
+    $("#recordIng").click(function(){
+        rec.pause()
+         $("#recordIng").hide()
+         $("#stopRecord").show()
+        clearInterval(time)
+    })
+}
+//恢复暂停录音
+function loadingRecord(m,s){
+    var rec=Recorder();
+    $("#stopRecord").click(function(){
+        rec.resume()
+         $("#recordIng").show()
+         $("#stopRecord").hide()
+         x (2,m,s)
+    })
+}
+
+ //定时器
+function x (a,m,s) {
+     var time=setInterval(function() {
+            s++
+            if (s >= 60) {
+                s = 0;
+                m = m + 1; //分钟
+            }
+            str = toDub(m) + ":" + toDub(s);
+            $(".recordtime").html(str)
+            loadingRecord(m,s)
+        },1000)
+        stop(time)
+        //补0操作
+        function toDub(n) {
+            if (n < 10) {
+                return "0" + n;
+            } else {
+                return "" + n;
+            }
+        } 
+   }
+
+
+//上传
+function VoiceUpload(type) {
+    var formdata= new FormData();
+    formdata.append("voicefile",type)
+     $.ajax({
+        processData: false,
+        contentType: false,
         type: "POST",
-        url: APP_URL + "/api/My/WxConfig",
-        data: {
-            url: url
-        },
+        url: APP_URL + "/api/My/VoiceUpload",
+        data: formdata,
         dataType: "json",
         success: function (res) {
-            console.log(res);
-            var data = res.data;
-            if (res.code == 1) {
-                // 公众号
-                wx.config({
-                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                    appId: data.appId, // 必填，公众号的唯一标识
-                    timestamp: data.timestamp, // 必填，生成签名的时间戳
-                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                    signature: data.signature, // 必填，签名
-                    jsApiList: ["startRecord", "stopRecord", "onVoiceRecordEnd", "playVoice", "pauseVoice", "stopVoice", "onVoicePlayEnd", "uploadVoice"] // 必填，需要使用的JS接口列表
-                });
-
-                var localId; //返回音频的本地ID
-                var serverId; //返回音频的服务器端ID
-                var startTime, endTime, minTime = 2; //录音计时,小于指定秒数(minTime = 10)则设置用户未录音
-                //按下开始录音
-                $("#startRecord").on("touchstart", function () {
-                    $("#startRecord").hide();
-                    $("#recordIng").show();
-                    wx.startRecord(); //开始录音
-                })
-
-                // 停止录音
-                $("#recordIng").on("touchend", function () {
-                    $("#startRecord").show();
-                    $("#recordIng").hide();
-                    wx.stopRecord({
-                        success: function (res) {
-                            localId = res.localId;
-                            console.log(localId);
-                        }
-                    });
-                    endTime = new Date().getTime();
-                    console.log((endTime - startTime) / 1000);
-                    if ((endTime - startTime) / 1000 < minTime) {
-                        localId = '';
-                        alert('录音少于' + minTime + '秒，录音失败，请重新录音');
-                    }
-                });
-
-
-                //上传语音接口
-                $("#uploadAudio").on('click', function () {
-                    if (!localId) {
-                        alert('您还未录音，请录音后再保存');
-                        return;
-                    }
-                    // alert('上传语音,测试，并未提交保存');
-                    // return;
-
-                    //上传语音接口
-                    wx.uploadVoice({
-                        //需要上传的音频的本地ID，由 stopRecord 或 onVoiceRecordEnd 接口获得
-                        localId: localId,
-                        //默认为1，显示进度提示
-                        isShowProgressTips: 1,
-                        success: function (res) {
-                            //返回音频的服务器端ID
-                            serverId = res.serverId;
-                        }
-                    });
-                });
-            }
+            console.log(res)
         },
-        error: function (err) {
-            console.log(err);
+        error:function (err) {
+
         }
     });
 }

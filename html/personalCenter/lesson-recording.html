@@ -11,7 +11,7 @@
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/personal/lessonRecord.js"></script>
-	<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	<script src="../../js/personal/recorder.js"></script>
 </head>
 
 <body class="album-add-body">
@@ -36,8 +36,12 @@
 				<img src="../../images/241.png" />
 			</div>
 			<div class="lesson-recording-after" style="display: none;" id="recordIng">
-				<p>录音中<span>10:06</span></p>
+				<p>录音中<span class="recordtime"></span></p>
 				<img src="../../images/242.png" />
+			</div>
+			<div class="lesson-recording-bofore" style="display: none;" id="stopRecord">
+				<p>录音已暂停</p>
+				<img src="../../images/241.png" />
 			</div>
 			<div class="album-add lesson-recording-btn" id="uploadAudio">保存</div>
 		</div>
