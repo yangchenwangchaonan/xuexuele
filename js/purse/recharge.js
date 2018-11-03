@@ -56,11 +56,13 @@ function moneyRuleList() {
 			})
 			$(".recharge-confirm").click(function () {
 				if ($("#recharge-input").val() == '') {
-					alert("请输入金额")
+					// alert("请输入金额")
+					flowerTips("请输入金额~", 1);
 					return;
 				}
 				if ($("#recharge-input").val() < 1) {
-					alert("金额必须大于1")
+					flowerTips("金额必须大于1~", 1);
+					// alert("金额必须大于1")
 					return;
 				}
 				var selected = $(".selected").attr("data-index")

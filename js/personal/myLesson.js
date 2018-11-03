@@ -33,7 +33,7 @@ function lessonList() {
                 $(".mylesson-list").html(str);
                 $(".mylesson-list>li").click(function () {
                     var lessonId = $(this).attr("data-cId");
-                    alert(lessonId);
+                    // alert(lessonId);
                     $(window).attr("location", "../lessonDetail/lesson-detail.html?lessonId=" + lessonId);
                 });
             }

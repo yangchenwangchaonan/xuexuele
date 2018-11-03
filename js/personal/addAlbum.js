@@ -165,7 +165,8 @@ function upClover(files) {
                 $(".upCover").hide();
                 $(".lesson-cover-btn").html("确认上传");
             } else {
-                alert(res.msg);
+                flowerTips(res.msg, 1);
+                // alert(res.msg);
             }
         },
         error: function (err) {

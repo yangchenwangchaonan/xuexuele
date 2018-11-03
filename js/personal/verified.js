@@ -131,31 +131,31 @@ function getPush() {
 		//专业
 		var profession = $(".profession").val();
 		if (name == '') {
-			info("姓名不能为空", 1)
+			lemonTips("姓名不能为空", 1);
 			return;
 		}
 		if (identitycard == '') {
-			info("身份证号不能为空", 1)
+			lemonTips("身份证号不能为空", 1);
 			return;
 		}
 		if (identityimg == '') {
-			info("请上传身份证正面照", 1)
+			lemonTips("请上传身份证正面照", 1);
 			return;
 		}
 		if (schoolname == '') {
-			info("学校名称不能为空", 1)
+			lemonTips("学校名称不能为空", 1);
 			return;
 		}
 		if (education == '') {
-			info("学历名称不能为空", 1)
+			lemonTips("学历名称不能为空", 1);
 			return;
 		}
 		if (profession == '') {
-			info("专业名称不能为空", 1)
+			lemonTips("专业名称不能为空", 1);
 			return;
 		}
 		if (/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(identitycard) == false) {
-			info("身份证号码格式不正确", 1)
+			lemonTips("身份证号码格式不正确", 1);
 			return;
 		}
 		var educationNum = (education == "小学" ? "1" :
@@ -182,8 +182,8 @@ function getPush() {
 			success: function (res) {
 				console.log(res)
 				if (res.code == 1) {
-					info("提交审核成功", 1)
-					window.setTimeout(() => {
+					lemonTips("提交审核成功", 1);
+					window.setTimeout(function() {
 						$(window).attr("location", "../personalCenter/infor-submitting.html");
 					}, 1000);
 				}
@@ -196,14 +196,3 @@ function getPush() {
 }
 
 
-
-
-//弹窗
-function info(a, b) {
-	$(".submit-tips").html(a);
-	var y = b * 1000;
-	$(".submit-tips").show();
-	window.setTimeout(() => {
-		$(".submit-tips").hide();
-	}, y);
-}

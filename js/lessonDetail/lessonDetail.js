@@ -199,7 +199,7 @@ function changeAppraise(e, appraise) {
         score = 10;
     }
     $(".appraise-confirm").click(function () {
-        alert(score);
+        // alert(score);
         var beans = $(".beanInput").val();
         if (beans == "") {
             beans = 0;
@@ -227,6 +227,7 @@ function changeAppraise(e, appraise) {
                     beanSum($lessonId);
                 } else {
                     alert(res.msg);
+                    // flowerTips(res.msg, 1)
                 }
 
             },
