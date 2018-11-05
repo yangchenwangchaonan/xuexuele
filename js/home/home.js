@@ -12,13 +12,6 @@ $(function () {
   userGate(1, 1);
   // 网络不给力
   // generalTips("网络不给力啊~", 1);
-  //体力值
-  $("#stamina-tab").click(function () {
-    $("#stamina-shade").show();
-    $("#stamina-shade").click(function () {
-      $("#stamina-shade").hide();
-    });
-  });
   //站内信
   $("#maildrop-tab").click(function () {
     $(window).attr("location", "./letter.html");
@@ -76,9 +69,50 @@ function userGate(index, iscurrent) {
       console.log(res);
       var data = res.data;
       var pageIndex = res.data.pageindex;
-      $("#nowStamina").html(data.manvalue); //体力值
-      $("#getBeans").html(data.wisdombean); //智慧豆
-      $("#pkValue").html(data.pk); //pk值
+      //体力值
+      var sVal = data.manvalue;
+      if (sVal > 30) {
+        sVal = 30;
+      }
+      $("#nowStamina").html(sVal);
+      var sPercent = sVal / 30;
+      $(".stamina-value").css("width", sPercent * 48);
+      // 体力值tips
+      //体力值
+      $("#stamina-tab").click(function () {
+        if(sVal<4){
+          $("#realStamina,#maxStamina").css("color","red");
+          $("#stamina-shade").show();
+        }else {
+          $("#stamina-shade").show();
+        }
+        $(".staminaClose").click(function () {
+          $("#stamina-shade").hide();
+        });
+      });
+
+
+      //智慧豆
+      var bean = data.wisdombean;
+      $("#getBeans").html(bean);
+      var beanPercent = bean / 9999999;
+      $(".beans-value").css("width", beanPercent * 52);
+      if (bean > 9999999) {
+        $(".beans-value").css("width", 52);
+        $("#getBeans").html(9999999);
+        $(".beans-progress").append("<i class='icon_stamina'>+</i>");
+      }
+      //pk值
+      var pkVal = data.pk;
+      $("#pkValue").html(pkVal);
+      var pkPercent = pkVal / 9999999;
+      $(".pk-value").css("width", pkPercent * 52);
+      if (pkVal > 9999999) {
+        $(".beans-value").css("width", 52);
+        $("#pkValue").html(9999999);
+        $(".pk-progress").append("<i class='icon_stamina'>+</i>");
+      }
+
       // 站内信
       if (data.msgcount != 0) {
         $("#letterNum").addClass("maildrop-infor");
@@ -165,19 +199,6 @@ function userGate(index, iscurrent) {
           userGate(index, 2);
         }
       }
-      // if ((data.gatelist.length / 6) == data.pageindex) {
-      //   window.onscroll = function () {
-      //     console.log(1);
-      //     var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-      //     if (scrollT == 0) {
-      //       var index = data.pageindex;
-      //       index++;
-      //       userGate(index, 2);
-      //     }
-      //   }
-      // } else {
-      //   generalTips("已经到滑到顶部啦~", 1);
-      // }
 
     },
     error: function (err) {
@@ -439,12 +460,22 @@ function handleClick() {
       },
       success: function (res) {
         console.log(res)
-        signinDate()
+        signinDate();
         if (res.code == 1) {
-          alert("签到成功")
+          if (res.data == "") {
+            $("#recordTips").show();
+          } else {
+            $(".recordBeans>span").html("x" + res.data);
+            $("#recordHasbeanTips").show();
+          }
         } else {
-          alert(res.msg)
+          $(".recordMsg").html(res.msg);
+          $("#recordTips").show();
         }
+        $(".recordClose").click(function () {
+          $("#recordTips").hide();
+          $("#recordHasbeanTips").hide();
+        });
       },
       error: function (err) {
         console.log(err)
@@ -452,8 +483,6 @@ function handleClick() {
     })
   })
 }
-
-
 
 
 // 全网排名 

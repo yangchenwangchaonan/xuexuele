@@ -104,14 +104,10 @@ function UserGateDetail(a) {
                 }
             });
             //定义答案数组
-
             var con = []
             //遍历答案
             $(".respond-key>ul").on("click", "li", function () {
-                con.push($(this).html());
-                // $(".respond-blank>ul>li").html("").eq(0).replaceWith("<li>"+$(this).html()+"</li>");
-                // console.log("<li>"+$(this).html()+"</li>");
-                $(this).html("");
+                con.push($(this).html())
                 table(con, data.answer, data.nextgateid)
             })
             //首次遍历
@@ -183,7 +179,7 @@ function Timedate() {
         // }
 
         str = toDub(m) + ":" + toDub(s);
-        $(".level-timing>span").html(str)
+        $("#time1").html(str);
     }
 
     //补0操作
@@ -202,42 +198,34 @@ function Timedate() {
 //答案比对
 function table(con, answer, nextgateid) {
     console.log(con)
+
     //遍历答案
-    for (var i = 0; i < con.length; i++) {
-        $($(".respond-blank>ul>li")[i]).html(con[i]);
-    }
-    if (con.length == answer.length) {
+    var main = ''
+    $.each(con, function (index, val) {
+        main += `
+				<li class="delete">${val}</li>
+      		`
+    });
+    $(".respond-blank>ul").html(main)
+
+   if (con.length == answer.length) {
         if (JSON.stringify(con) == JSON.stringify(answer)) {
-            Ok(con); //提交后台
-            sessionStorage.setItem("gateid", nextgateid); //重置关卡id
+            Ok(con) //提交后台
+            sessionStorage.setItem("gateid", nextgateid) //重置关卡id
             // clearInterval(time) //清除定时器
-            // con = [] //清空答案
+            con = [] //清空答案
         } else {
-            $(".respond-blank>ul>li").addClass("errorTips");
-            $(".respond-blank>ul").empty();
-            // con = [] //清空错误答案
-            UserGateDetail(0);
-            // window.setTimeout(function() {
-            //     window.location.reload();
-            //     UserGateDetail(0);
-            // }, 1500);
+            con = [] //清空错误答案
+            UserGateDetail(0)
         }
     }
-
-    // var main = ''
-    // $.each(con, function (index, val) {
-    //     main += `
-    // 			<li class="delete">${val}</li>
-    //           `
-    // });
-    // $(".respond-blank>ul>li").replaceWith(main);
-    // $(".respond-blank>ul>li").html(main);
-
+    
     //点击答案删除
     $(".delete").click(function () {
         con.splice($.inArray(this, con), 1);
         table(con, answer)
     })
+
 }
 
 //正确 提交
@@ -245,7 +233,7 @@ function Ok(con) {
     var answer = con.join(",")
     var id = sessionStorage.getItem("uid")
     var gid = sessionStorage.getItem("gateid")
-    var time = $(".level-timing>span").html()
+    var time = $("#time1").html()
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserGateChallenge",
@@ -259,9 +247,19 @@ function Ok(con) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
+                $(".level-timing").html("<span>00:00</span>");
                 ranking(gid);
-                $("#levelPass").show(); //初次闯关成功
-                // $("#levelPassAgain").show();  //再次闯关成功
+                if (res.data.isfirst == 0) {
+                    //初次闯关成功
+                    $("#passFirstTime").html(res.data.time);
+                    $("#passStamina").html("x" + res.data.rewardbeans);
+                    $("#passPk").html("x" + res.data.pkvalue);
+                    $("#levelPass").show();
+                } else if (res.data.isfirst == 1) {
+                    //再次闯关成功
+                    $("#passAgainTime").html(res.data.time);
+                    $("#levelPassAgain").show();
+                }
 
                 // 下一关
                 $(".next-level").click(function () {
@@ -274,11 +272,8 @@ function Ok(con) {
                     $("#levelPassAgain").hide();
                 });
                 // 关闭
-                $("#passFirstClose").click(function () {
-                    $("#levelPass").hide();
-                });
-                $("#passAgainClose").click(function () {
-                    $("#levelPassAgain").hide();
+                $("#passFirstClose,#passAgainClose").click(function () {
+                    $(window).attr("location", "./home.html");
                 });
             }
         },

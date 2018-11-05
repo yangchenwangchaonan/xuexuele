@@ -24,20 +24,23 @@
 			<div class="left-tabs" id="stamina-tab">
 				<div class="stamina"><img src="../../images/81.png" /></div>
 				<div class="stamina-progress">
-					<div class="stamina-value"><span id="nowStamina"></span><span style="font-size: 11px;">/30</span></div>
+					<span id="nowStamina" class="realStamina"></span><span style="font-size: 11px;" class="regulation">/30</span>
 					<i class="icon_stamina">+</i>
+					<div class="stamina-value"></div>
 				</div>
 			</div>
 			<div class="left-tabs">
 				<div class="beans"><img src="../../images/83.png" /></div>
 				<div class="beans-progress">
-					<div class="beans-value"><span id="getBeans"></span></div>
+					<span id="getBeans" class="wisdombean"></span>
+					<div class="beans-value"></div>
 				</div>
 			</div>
 			<div class="left-tabs">
 				<div class="pk"><img src="../../images/84.png" /></div>
 				<div class="pk-progress">
-					<div class="pk-value"><span id="pkValue"></div>
+					<span id="pkValue" class="pkVal"></span>
+					<div class="pk-value"></div>
 				</div>
 			</div>
 		</div>
@@ -160,9 +163,10 @@
 		<!--体力值-->
 		<div class="home-shade" id="stamina-shade">
 			<div class="stamina-tips">
+				<div class="staminaClose"></div>
 				<i>-体力值</i><br />
 				<img src="../../images/105.png" />
-				<h1>30/<span style="font-size: 16px;font-weight: bold;">30</span></h1>
+				<h1 id="realStamina">30<span style="font-size: 16px;font-weight: bold;" id="maxStamina">/30</span></h1>
 				<p>每5分钟恢复1体力值,</p>
 				<p>每次挑战使用3体力值</p>
 			</div>
@@ -170,7 +174,7 @@
 		<!-- 签到 -->
 		<div class="home-shade" id="recording-shade">
 			<div class="home-recording">
-				<img src="../../images/39.png" class="signed-close"/>
+				<img src="../../images/39.png" class="signed-close" />
 				<!-- 日历 -->
 				<div class="calendar" id="calendar"></div>
 				<div class="calendar-count" id="calendar-count">
@@ -178,6 +182,26 @@
 					<span class="calendar-num">获得智慧豆：<span class="calendar-beans"></span></span>
 				</div>
 				<p class="on">点击签到</p>
+			</div>
+		</div>
+		<!-- 签到成功(未获得智慧豆数) -->
+		<div class="home-shade" id="recordTips">
+			<div class="recordOver">
+				<div class="recordClose"></div>
+				<div class="recordImg"></div>
+				<div class="recordMsg">签到成功喽!</div>
+			</div>
+		</div>
+		<!-- 签到成功(获得智慧豆数) -->
+		<div class="home-shade" id="recordHasbeanTips">
+			<div class="recordHasbeans">
+				<div class="recordClose"></div>
+				<div class="recordImg"></div>
+				<div class="recordMsg">签到成功喽!</div>
+				<div class="recordBeans">
+					<img src="../../images/83.png" />
+					<span></span>
+				</div>
 			</div>
 		</div>
 		<!--闯关-->
@@ -226,6 +250,7 @@
 			</div>
 		</div>
 	</section>
+	<!-- 滑到顶部 -->
 	<div class="internet-tips"></div>
 </body>
 <script type="text/javascript">
