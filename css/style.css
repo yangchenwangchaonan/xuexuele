@@ -845,7 +845,7 @@ body {
     top: 0;
     width: 100%;
     height: 136vh;
-    background: linear-gradient(0deg, rgba(207, 228, 255, 1) 0%, rgba(237, 254, 255, 1) 40%, rgba(48, 116, 255, 1) 60%);
+    background: linear-gradient(0deg, rgba(207, 228, 255, 1) 0%, rgba(237, 254, 255, 1) 40%, rgba(48, 116, 255, 1) 50%);
 }
 
 .homeContent {
@@ -2184,45 +2184,90 @@ body {
     text-align: center;
 }
 
+.stamina-progress>span {
+    position: absolute;
+    display: inline;
+    line-height: 25px;
+    z-index: 2100;
+}
+
+.realStamina {
+    position: absolute;
+    top: 0.0px;
+    left: 11.0px;
+    font-size: 13px;
+}
+
+.regulation {
+    position: absolute;
+    top: 0.0px;
+    left: 26.0px;
+    font-size: 12px;
+}
+
 .icon_stamina {
     position: absolute;
     display: inline-block;
-    top: 6.0px;
+    top: 5.0px;
     left: 12.5vw;
     font-size: 11px;
+    z-index: 2100;
 }
 
 .stamina-value {
     position: relative;
-    width: 12.33vw;
+    width: 48px;
     height: 16px;
     background: linear-gradient(0deg, rgba(33, 108, 221, 1) 0%, rgba(41, 117, 228, 1) 33%, rgba(104, 233, 255, 1) 100%);
     border-radius: 15px;
-    top: 5.0px;
-    font-size: 13px;
-    line-height: 18px;
+    top: 5px;
+    left: 3px;
+    z-index: 2000;
 }
 
 .beans-value {
     position: relative;
-    width: 10.67vw;
+    width: 52px;
     height: 16px;
     background: linear-gradient(0deg, rgba(84, 160, 55, 1) 0%, rgba(111, 185, 78, 1) 33%, rgba(137, 199, 95, 1) 100%);
     border-radius: 15px;
     top: 5px;
-    font-size: 13px;
+    z-index: 2000;
+}
+
+.wisdombean {
+    position: absolute;
+    display: inline-block;
+    width: 14.0vw;
+    top: 4.0px;
+    left: 3px;
+    text-align: center;
+    font-size: 11px;
     line-height: 18px;
+    z-index: 2100;
 }
 
 .pk-value {
     position: relative;
     top: 5px;
-    width: 15.47vw;
+    width: 52px;
     height: 16px;
     background: linear-gradient(0deg, rgba(101, 93, 255, 1) 0%, rgba(120, 94, 255, 1) 39%, rgba(181, 140, 255, 1) 100%);
     border-radius: 15px;
-    font-size: 13px;
+    font-size: 11px;
     line-height: 18px;
+}
+
+.pkVal {
+    position: absolute;
+    display: inline-block;
+    width: 14.0vw;
+    top: 4.0px;
+    left: 3px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 18px;
+    z-index: 2100;
 }
 
 /*right*/
@@ -2648,6 +2693,72 @@ body {
     z-index: 9999;
 }
 
+.recordOver {
+    position: absolute;
+    left: 13.47vw;
+    top: 35.0vh;
+    width: 73.2vw;
+    height: 29.84vh;
+    background: url(../images/120.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 9999;
+}
+
+.recordImg {
+    margin: 7.95vh auto;
+    width: 16.8vw;
+    height: 11.09vh;
+    background: url(../images/87.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 9999;
+}
+
+.recordMsg {
+    width: 73.2vw;
+    margin-top: -7.7vh;
+    text-align: center;
+    color: #956826;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.recordHasbeans {
+    position: absolute;
+    left: 13.47vw;
+    top: 29.83vh;
+    width: 73.2vw;
+    height: 40.55vh;
+    background: url(../images/120.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 9999;
+}
+
+.recordBeans {
+    width: 73.2vw;
+    text-align: center;
+}
+
+.recordBeans>img {
+    width: 52.5px;
+}
+
+.recordBeans>span {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(67, 144, 67, 1);
+}
+
+.recordClose {
+    position: absolute;
+    right: 1.3vw;
+    top: 1.0vh;
+    width: 10.66vw;
+    height: 10.66vw;
+    background: url(../images/39.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 9999;
+}
+
 /*体力值提示*/
 .stamina-tips {
     position: absolute;
@@ -2659,6 +2770,17 @@ body {
     background-size: 73.87vw 40.0vh;
     text-align: center;
     padding-top: 7.05vh;
+}
+
+.staminaClose {
+    position: absolute;
+    right: 1.3vw;
+    top: 1.0vh;
+    width: 10.66vw;
+    height: 10.66vw;
+    background: url(../images/39.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 9999;
 }
 
 .stamina-tips>i {
@@ -2736,12 +2858,14 @@ body {
     position: absolute;
     left: 4.8vw;
 }
+
 .level-passed>p {
     position: absolute;
     width: 92%;
     left: 9%;
     text-align: center;
 }
+
 .level_btn {
     position: absolute;
     top: 5.25vh;
@@ -2862,6 +2986,7 @@ body {
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
 }
+
 .next-level {
     position: absolute;
     width: 41.1vw;
@@ -3155,6 +3280,7 @@ body {
     font-weight: bold;
     color: rgba(52, 133, 65, 1);
 }
+
 .errorTips {
     border: 1px solid red;
 }
@@ -3599,7 +3725,7 @@ body {
 
 .pk-end {
     position: absolute;
-    top: 0.4vh;
+    top: 0.0vh;
     left: 46.1vw;
     line-height: 6.52vh;
 }
