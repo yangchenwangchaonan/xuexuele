@@ -64,7 +64,7 @@ $(function () {
         //为preloaded添加当队列完成全部加载后触发事件
         preload.addEventListener("complete", loadComplete);
         //设置最大并发连接数  最大值为10
-        preload.setMaxConnections(1);
+        preload.setMaxConnections(5);
         preload.loadManifest(mainfest);
     }
 
