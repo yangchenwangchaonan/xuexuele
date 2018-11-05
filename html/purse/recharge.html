@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <title>充值金额</title>
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" href="../../css/common.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>充值金额</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/purse/recharge.js"></script>
+	<script src="../../js/common/tips.js"></script>
 </head>
+
 <body class="purse-body">
 	<section class="purse-container">
 		<i class="purse-back"></i>
@@ -19,11 +22,11 @@
 		<div class="recharge-box">
 			<div class="regcharge-content">
 				<div id="recharge-reminbi" class="recharge-money recharge-checked">人民币</div>
-			    <div id="recharge-dollar" class="recharge-money">美元</div>
-		     </div>
-		    <div id="recharge-line"></div>
-		    <div class="recharge-rmb">
-		    	<div class="recharge-value">
+				<div id="recharge-dollar" class="recharge-money">美元</div>
+			</div>
+			<div id="recharge-line"></div>
+			<div class="recharge-rmb">
+				<div class="recharge-value">
 					<ul>
 						<!-- <li class="initial selected"><h1>10元</h1><p>10智慧豆</p></li>
 						<li class="initial"><h1>50元</h1><p>50智慧豆</p></li>
@@ -31,20 +34,22 @@
 						<li class="initial"><h1>218元</h1><p>218智慧豆</p></li>
 						<li class="initial"><h1>448元</h1><p>488智慧豆</p></li> -->
 					</ul>
-		    	</div>
-		    	<div class="recharge-want">
-			    	<input type="text" placeholder="自定义充值金额" id="recharge-input"/>
-			    	<img src="../../images/191.png"/>
-		    	</div>
-		    	<div class="recharge-confirm">￥<span class="num"></span>  立即充值</div>
+				</div>
+				<div class="recharge-want">
+					<input type="text" placeholder="自定义充值金额" id="recharge-input" />
+					<img src="../../images/191.png" />
+				</div>
+				<div class="recharge-confirm">￥<span class="num"></span> 立即充值</div>
 			</div>
 
-	    	<div class="dollar-selected">
-				<img src="../../images/193.png"/>
+			<div class="dollar-selected">
+				<img src="../../images/193.png" />
 				<p>正在开发中…</p>
 			</div>
 		</div>
-		
+		<!-- tips -->
+		<div class="reg-tips"></div>
 	</section>
 </body>
+
 </html>

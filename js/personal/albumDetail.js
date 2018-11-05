@@ -137,7 +137,8 @@ function uploadAudio(files, aId) {
                 // console.log(voiceUrl);
                 $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl + "&aid=" + aId);
             }else{
-                alert(res.msg);
+                flowerTips(res.msg, 1);
+                // alert(res.msg);
             }
         },
         error: function (err) {
@@ -165,7 +166,8 @@ function courseDel(cId, aId) {
                     albumDetail(aId)
                 }, 2000); //延迟2s隐藏
             } else {
-                alert("未删除成功~");
+                flowerTips("未删除成功~", 1);
+                // alert("未删除成功~");
             }
         },
         error: function (err) {

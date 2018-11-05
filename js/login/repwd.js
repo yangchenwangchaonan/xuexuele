@@ -24,10 +24,10 @@ $(function () {
             return false;
         }
         if ($("#repwdPhone").val() == "" || $("#repwdPhone").val() == null) {
-            alert("请输入手机号!");
+            flowerTips("请输入手机号~", 1);
             return false;
         } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#repwdPhone").val())) {
-            alert("手机号码格式错误!");
+            flowerTips("手机号码格式错误~", 1);
             return false;
         } else {
             var telNum = $("#repwdPhone").val();
@@ -42,12 +42,12 @@ $(function () {
                 success: function (res) {
                     console.log(res);
                     if (res.code == 1) {
-                        alert("发送成功~");
+                        flowerTips("发送成功~", 1);
                         var realCode = res.data.code;
                         $("#returnCode").val(realCode);
                         setTime(obj);
-                    }else {
-                        alert("发送失败~");
+                    } else {
+                        flowerTips("发送失败~", 1);
                     }
                 },
                 error: function (err) {
@@ -84,34 +84,41 @@ $(function () {
         var codeValue = $("#repwdCode").val();
         var realCode = $("#returnCode").val();
         if ($("#repwdPhone").val() == "" || $("#repwdPhone").val() == null) {
-            alert("请输入手机号!");
-        } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#repwdPhone").val())) {
-            alert("手机号码格式错误!");
-        } else if (codeValue != realCode) {
-            alert("验证码输入错误!");
-        } else {
-            var tel = $("#repwdPhone").val();
-            $.ajax({
-                type: "POST",
-                url: APP_URL + "/api/User/UserPhone",
-                data: {
-                    phone: tel
-                },
-                dataType: "json",
-                success: function (res) {
-                    console.log(res);
-                    var $code = res.code;
-                    if ($code == 0) {
-                        alert("账号未注册，请先注册");
-                        $(window).attr("location", "../reg/reg.html");
-                    } else {
-                        $(window).attr("location", "./repwd_next.html");
-                    }
-                },
-                error: function (err) {
-                    console.log(err)
-                }
-            });
+            flowerTips("请输入手机号~", 1);
+            return;
         }
+        if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#repwdPhone").val())) {
+            flowerTips("手机号码格式错误~", 1);
+            return;
+        }
+        if (codeValue == "" || codeValue != realCode) {
+            flowerTips("验证码输入错误~", 1);
+            return;
+        }
+        var tel = $("#repwdPhone").val();
+        $.ajax({
+            type: "POST",
+            url: APP_URL + "/api/User/UserPhone",
+            data: {
+                phone: tel
+            },
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                var $code = res.code;
+                if ($code == 0) {
+                    flowerTips("账号未注册，请先注册~", 1);
+                    window.setTimeout(function () {
+                        $(window).attr("location", "../reg/reg.html");
+                    }, 1500);
+                } else {
+                    $(window).attr("location", "./repwd_next.html");
+                }
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
+
     });
 });

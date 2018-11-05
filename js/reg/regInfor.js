@@ -122,7 +122,7 @@ $(function () {
         var $regArea = $("#reg-area").html();
         // 身份
         if ($Identity == 0) {
-            info("请选择身份~", 1);
+            flowerTips("请选择身份~", 1);
             return;
         }
         var $id = $("div#identity>p.p1>i").hasClass("checked");
@@ -133,17 +133,17 @@ $(function () {
         }
         // 头像
         if ($avartar == undefined || $avartar == "") {
-            info("请选择一个霸气的头像~", 1);
+            flowerTips("请选择一个霸气的头像~", 1);
             return;
         }
         // 昵称
         if ($nickname == "") {
-            info("给自己起一个响亮的名字吧~", 1);
+            flowerTips("给自己起一个响亮的名字吧~", 1);
             return;
         }
         // 性别
         if ($regGender == "点击选择") {
-            info("请选择性别~", 1);
+            flowerTips("请选择性别~", 1);
             return;
         }
         var $regId = 0;
@@ -158,7 +158,7 @@ $(function () {
         }
         // 生日、星座、地区
         if ($regBirthday == "" || $regConstellation == "点击选择" || $regArea == "点击选择") {
-            info("请完善个人信息~", 1);
+            flowerTips("请完善个人信息~", 1);
             return;
         }
         var $tel = localStorage.getItem("tel");
@@ -188,9 +188,11 @@ $(function () {
                 var msg = res.msg;
                 if (code == 1) {
                     login($tel, $password);
-                    alert("注册成功~");
+                    // alert("注册成功~");
+                    flowerTips("注册成功~", 1);
                 } else {
-                    alert(msg);
+                    flowerTips(msg, 1);
+                    // alert(msg);
                 }
             },
             error: function (err) {
@@ -340,23 +342,15 @@ function login(tel, password) {
                 // sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
                 $(window).attr("location", "../homePages/home.html");
             } else {
-                alert(msg);
-                $(window).attr("location", "../reg/reg.html");
+                // alert(msg);
+                flowerTips(msg, 1);
+                window.setTimeout(function() {
+                    $(window).attr("location", "../reg/reg.html");
+                }, 1500);
             }
         },
         error: function (err) {
             console.log(err)
         }
     });
-}
-
-
-// 注册弹框
-function info(a, b) {
-    $(".reg-tips").show()
-    $(".reg-tips").text(a)
-    var date = b * 1000;
-    window.setTimeout(() => {
-        $(".reg-tips").hide();
-    }, date);
 }

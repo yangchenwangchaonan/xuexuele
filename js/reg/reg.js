@@ -24,10 +24,12 @@ $(function () {
             return false;
         }
         if ($("#reg-phone").val() == "" || $("#reg-phone").val() == null) {
-            alert("请输入手机号!");
+            // alert("请输入手机号!");
+            flowerTips("请输入手机号~", 1);
             return false;
         } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#reg-phone").val())) {
-            alert("手机号码格式错误!");
+            flowerTips("手机号码格式错误~", 1);
+            // alert("手机号码格式错误!");
             return false;
         } else {
             var telNum = $("#reg-phone").val();
@@ -42,12 +44,14 @@ $(function () {
                 success: function (res) {
                     console.log(res);
                     if (res.code == 1) {
-                        alert("发送成功~");
+                        flowerTips("发送成功~", 1);
+                        // alert("发送成功~");
                         var realCode = res.data.code;
                         $("#realCode").val(realCode);
                         setTime(obj);
                     }else{
-                        alert("发送失败~");
+                        flowerTips("发送失败~", 1);
+                        // alert("发送失败~");
                     }
 
                 },
@@ -84,11 +88,11 @@ $(function () {
         var codeValue = $("#reg-code").val();
         var realCode = $("#realCode").val();
         if ($("#reg-phone").val() == "" || $("#reg-phone").val() == null) {
-            alert("请输入手机号!");
+            flowerTips("请输入手机号~", 1);
         } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#reg-phone").val())) {
-            alert("手机号码格式错误!");
-        } else if (codeValue != realCode) {
-            alert("验证码输入错误!");
+            flowerTips("手机号码格式错误~", 1);
+        } else if (codeValue==""||codeValue != realCode) {
+            flowerTips("验证码输入错误~", 1);
         } else {
             var tel = $("#reg-phone").val();
             localStorage.setItem("tel", tel);
@@ -103,22 +107,24 @@ $(function () {
         var newPassword = $("#newPassword").val();
         var againPassword = $("#againPassword").val();
         if (newPassword == "" || newPassword == null) {
-            alert("请设置新密码~");
+            flowerTips("请设置新密码~", 1);
         } else if (!/((?=.*\d)(?=.*\D)|(?=.*[a-zA-Z])(?=.*[^a-zA-Z]))(?!^.*[\u4E00-\u9FA5].*$)^\S{8,20}$/.test(newPassword)) {
-            alert("密码格式不正确~");
+            flowerTips("密码格式不正确~", 1);
         } else {
             if (againPassword == "" || againPassword == null) {
-                alert("请再次输入新密码~");
+                flowerTips("请再次输入新密码~", 1);
             } else {
                 if (newPassword != againPassword) {
-                    alert("两次输入密码不正确~");
+                    flowerTips("两次输入密码不一致~", 1);
                 } else {
                     var $newPassword = $("#newPassword").val();
                     var $againPassword = $("#againPassword").val();
                     localStorage.setItem("newPassword", $newPassword);
                     localStorage.setItem("againPassword", $againPassword);
-                    alert("密码设置成功");
-                    $(window).attr("location", "./reg_end.html");
+                    flowerTips("密码设置成功~", 1);
+                    window.setTimeout(function() {
+                        $(window).attr("location", "./reg_end.html");
+                    }, 1500);
                 }
             }
         }

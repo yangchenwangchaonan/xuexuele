@@ -23,11 +23,11 @@ $(function () {
     // 登录
     $(".login-btn").click(function () {
         if ($("#phone").val() == "" || $("#phone").val() == null) {
-            alert("请输入手机号!");
+            flowerTips("请输入手机号~", 1);
         } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#phone").val())) {
-            alert("手机号码格式错误!");
+            flowerTips("手机号码格式错误~", 1);
         } else if ($("#password").val() == "" || $("#password").val() == null) {
-            alert("请输入密码!");
+            flowerTips("请输入密码~", 1);
         } else {
             $.ajax({
                 type: 'POST',
@@ -59,7 +59,7 @@ $(function () {
                         $(window).attr("location", "../homePages/home.html");
                         localStorage.setItem('token', res.Token);
                     } else {
-                        alert(msg);
+                        flowerTips(msg, 1);
                     }
                 },
                 error: function (err) {
