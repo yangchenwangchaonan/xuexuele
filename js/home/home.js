@@ -80,10 +80,10 @@ function userGate(index, iscurrent) {
       // 体力值tips
       //体力值
       $("#stamina-tab").click(function () {
-        if(sVal<4){
-          $("#realStamina,#maxStamina").css("color","red");
+        if (sVal < 4) {
+          $("#realStamina,#maxStamina").css("color", "red");
           $("#stamina-shade").show();
-        }else {
+        } else {
           $("#stamina-shade").show();
         }
         $(".staminaClose").click(function () {
@@ -128,60 +128,97 @@ function userGate(index, iscurrent) {
         $("#recordContent").addClass("signed-recording");
         $("#recordContent>span").html("已签到");
       }
-      var str1 = "";
-      for (var i = 1; i < pageIndex; i++) {
-        str1 = `
-        <div class="homeLoopBg">
-          <div class="homeContentLoop"></div>
-          <div class="aroundCloudLoop">
-          ${(pageIndex-1)%2==0?`
-            <div class="oddBigCloudLoop"><img src="../../images/right.png"></div>
-          `:`
-            <div class="evenBigCloudLoop"><img src="../../images/left.png"></div>
-          `
-          }
-            <div class="leftCloudLoop"><img src="../../images/254.png" /></div>
-            <div class="rightCloudLoop"><img src="../../images/254.png" /></div>
-          </div>
-        </div>
-        `;
-      };
-      if ((data.gatelist.length / 6) == data.pageindex) {
-        $(".homeLoop").prepend(str1);
-      } else {
-        generalTips("已经到滑到顶部啦~", 1);
+      var levelSum = data.gatelist.length;
+      // console.log(levelSum);
+      //大数组分小数组
+      var array = data.gatelist;
+      var size = 6;
+
+      function sliceArr(array, size) {
+        var result = [];
+        for (var x = 0; x < Math.ceil(array.length / size); x++) {
+          var start = x * size;
+          var end = start + size;
+          result.push(array.slice(start, end));
+        }
+        return result;
       }
-      var levelList = data.gatelist.reverse();
-      var str2 = "";
-      $.each(levelList, function (index, val) {
-        var levelNum = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
-        // console.log(levelNum);
-        str2 += `
-          <li class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
-            <span>${levelNum}</span>
+      var $levelList = sliceArr(array, size);
+      var $str = "";
+      var $levelFixed = $levelList[0].reverse();
+      $.each($levelFixed, function (index, val) {
+        var levelSeq = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+        $str += `
+         <li class="${levelSeq%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+            <span>${levelSeq}</span>
             ${val.islock==1&&val.time==''?`
-            <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
+            <div class="${levelSeq%2==0?'evenWillLevel':'oddWillLevel'}"></div>
             `:''}
             ${val.time!=''?'':`
             <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
             `}
             <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
-            ${levelNum%6==0&&levelNum!=0&&(val.time=="")?`
-              <div class="cloudContent">
-                <div class="leftCloud"><img src="../../images/left.png" /></div>
-                <div class="centerCloud"><img src="../../images/center.png"/></div>
-                <div class="rightCloud"><img src="../../images/right.png"/></div>
-              </div>
-            `:''}
           </li>
-        `;
+         `;
       });
-      $(".level-list").html(str2);
+      $("#levelFixed").html($str);
+      if (data.gatelist[6].islock == 1 && data.gatelist[6].time != "") {
+        $(".homeFixed>.cloudContent").hide();
+      }
+      console.log($levelList);
+      console.log(data.gatelist.length);
+      var bgSum = Math.ceil(levelSum / 6); //背景图数量
+      console.log(bgSum);
+      var str1 = "";
+      for (var i = 1; i < bgSum; i++) {
+        str1 = `
+        <div class="homeLoopBg">
+          <div class="homeContentLoop"></div>
+          <div class="aroundCloudLoop">
+          ${bgSum%2==0?`
+            <div class="oddBigCloudLoop"><img src="../../images/left.png"></div>
+          `:`
+            <div class="evenBigCloudLoop"><img src="../../images/right.png"></div>
+          `
+          }
+            <div class="leftCloudLoop"><img src="../../images/254.png" /></div>
+            <div class="rightCloudLoop"><img src="../../images/254.png" /></div>
+          </div>
+          ${$levelList[i][5].islock == 1 && $levelList[i][5].time != ""?"":`
+          <div class="cloudContent">
+            <div class="leftCloud"><img src="../../images/left.png" /></div>
+            <div class="centerCloud"><img src="../../images/center.png"/></div>
+            <div class="rightCloud"><img src="../../images/right.png"/></div>
+          </div>`
+          }
+          <ul class="level-list2"> `;
+        var $level = $levelList[i].reverse();
+        $.each($level, function (index, val) {
+          var levelNum = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+          str1 += `
+              <li class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+                <span>${levelNum}</span>
+                ${val.islock==1&&val.time==''?`
+                <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
+                `:''}
+                ${val.time!=''?'':`
+                <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
+                `}
+                <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
+              </li>
+            `;
+        });
+        str1 += `
+          </ul>
+        </div>
+        `;
+      };
+      $(".homeLoop").prepend(str1);
       $(".cloudContent").click(function () {
         $(this).children(".leftCloud").addClass("moveLeft");
         $(this).children(".centerCloud").fadeOut();
         $(this).children(".rightCloud").addClass("moveRight");
-        window.setTimeout(() => {
+        window.setTimeout(function () {
           $(".cloudContent").hide();
         }, 4000);
       });
@@ -206,6 +243,7 @@ function userGate(index, iscurrent) {
     }
   });
 }
+
 
 // 闯关
 function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName) {

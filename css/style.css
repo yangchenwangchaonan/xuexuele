@@ -860,8 +860,8 @@ body {
 
 .cloudContent {
     position: absolute;
-    bottom: 11.59vh;
-    left: -34.79vw;
+    top: 3.59vh;
+    left: -0.11vw;
     width: 100vw;
     height: 88px;
     z-index: 1000;
@@ -2504,8 +2504,28 @@ body {
     position: absolute;
     display: inline-block;
     z-index: 500;
-    top: -49px;
+    top: -55px;
     right: 33.5vw;
+}
+
+.level-list2 {
+    position: absolute;
+    display: inline-block;
+    z-index: 500;
+    top: -45px;
+    right: 33.5vw;
+}
+
+.level-list2>li {
+    position: relative;
+    margin-bottom: 53.5px;
+    text-align: center;
+    line-height: 25.5px;
+    font-size: 9px;
+    width: 23.5px;
+    height: 26.5px;
+    font-weight: bold;
+    color: rgba(254, 246, 223, 1);
 }
 
 .level-list>li {
@@ -2533,7 +2553,7 @@ body {
 
 .evenList {
     left: -95px;
-    top: 203px;
+    top: 200px;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
