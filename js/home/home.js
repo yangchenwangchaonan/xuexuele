@@ -165,17 +165,16 @@ function userGate(index, iscurrent) {
       if (data.gatelist[6].islock == 1 && data.gatelist[6].time != "") {
         $(".homeFixed>.cloudContent").hide();
       }
-      console.log($levelList);
-      console.log(data.gatelist.length);
+      // console.log($levelList);
       var bgSum = Math.ceil(levelSum / 6); //背景图数量
-      console.log(bgSum);
       var str1 = "";
       for (var i = 1; i < bgSum; i++) {
-        str1 = `
+        console.log($levelList[i].length);
+        str1 += `
         <div class="homeLoopBg">
           <div class="homeContentLoop"></div>
           <div class="aroundCloudLoop">
-          ${bgSum%2==0?`
+          ${i%2==0?`
             <div class="oddBigCloudLoop"><img src="../../images/left.png"></div>
           `:`
             <div class="evenBigCloudLoop"><img src="../../images/right.png"></div>
@@ -184,36 +183,60 @@ function userGate(index, iscurrent) {
             <div class="leftCloudLoop"><img src="../../images/254.png" /></div>
             <div class="rightCloudLoop"><img src="../../images/254.png" /></div>
           </div>
-          ${$levelList[i][5].islock == 1 && $levelList[i][5].time != ""?"":`
+          ${$levelList[i].length>0&&$levelList[i].length<6?`
+            <div class="cloudContent">
+              <div class="leftCloud"><img src="../../images/left.png" /></div>
+              <div class="centerCloud"><img src="../../images/center.png"/></div>
+              <div class="rightCloud"><img src="../../images/right.png"/></div>
+            </div>
+          `:($levelList[i][5].islock == 1 && $levelList[i][5].time != ""?"":`
           <div class="cloudContent">
             <div class="leftCloud"><img src="../../images/left.png" /></div>
             <div class="centerCloud"><img src="../../images/center.png"/></div>
             <div class="rightCloud"><img src="../../images/right.png"/></div>
-          </div>`
+          </div>`)
           }
-          <ul class="level-list2"> `;
+          <ul class="level-list2">`
+        // 最后一组反转
         var $level = $levelList[i].reverse();
         $.each($level, function (index, val) {
-          var levelNum = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
-          str1 += `
-              <li class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
-                <span>${levelNum}</span>
-                ${val.islock==1&&val.time==''?`
-                <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
-                `:''}
-                ${val.time!=''?'':`
-                <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
-                `}
-                <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
-              </li>
-            `;
+          if (val != "") {
+            var levelNum = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+          }
+          if (val == "") {
+            str1 += `<li></li>`;
+          } else {
+            str1 += `
+                  <li class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+                    <span>${levelNum}</span>
+                    ${val.islock==1&&val.time==''?`
+                    <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
+                    `:''}
+                    ${val.time!=''?'':`
+                    <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
+                    `}
+                    <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
+                  </li>
+                `;
+          }
         });
         str1 += `
-          </ul>
-        </div>
-        `;
+            </ul>
+          </div>
+          `;
       };
-      $(".homeLoop").prepend(str1);
+      $(".homeLoop").html(str1);
+      // 反转
+      var homeLoop = $(".homeLoopBg");
+      var loopList = [];
+      for (var i = 0; i < homeLoop.length; i++) {
+        loopList[i] = homeLoop[i];
+      }
+      loopList.reverse();
+      for (var i = 0; i < loopList.length; i++) {
+        $(".homeLoop").append(loopList[i]);
+      }
+
       $(".cloudContent").click(function () {
         $(this).children(".leftCloud").addClass("moveLeft");
         $(this).children(".centerCloud").fadeOut();

@@ -3919,7 +3919,7 @@ body {
     bottom: 0;
     background: url(../images/134.png) no-repeat;
     background-size: 100% 100%;
-    z-index: 200;
+    z-index: 9999;
     padding-left: 2.0vw;
 }
 
@@ -4386,6 +4386,13 @@ body {
     margin-bottom: 10px;
 }
 
+.releaseContent {
+    display: none;
+}
+.replayContent {
+    display: none;
+}
+
 .message-text1,
 .message-text2 {
     position: fixed;
@@ -4399,7 +4406,7 @@ body {
     padding: 6px 3.0vw;
     overflow: hidden;
     border: 1px solid rgba(229, 194, 138, 0.3);
-    display: none;
+    /* display: none; */
 }
 
 .release-message {
@@ -4414,7 +4421,7 @@ body {
     color: rgba(85, 50, 8, 1);
     background: white;
     border: 1px solid rgba(229, 194, 138, 0.3);
-    display: none;
+    /* display: none; */
 }
 
 .message-btn {

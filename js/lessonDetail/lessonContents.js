@@ -3,7 +3,7 @@ $(function () {
 	var $sort = $(".lesson-sort>.sort");
 	$sort.click(function () {
 		var $id = $(this).attr("data-sId");
-		getSort($id);
+		getSort(1,$id);
 	});
 
 	// 禁止屏幕滚动
@@ -16,13 +16,13 @@ $(function () {
 });
 
 // 获取列表内容
-function getSort(id) {
+function getSort(page,id) {
 	$.ajax({
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/WisdomList",
 		data: {
 			sort: id,
-			page: 1
+			page: page
 		},
 		dataType: "json",
 		success: function (res) {
@@ -46,6 +46,19 @@ function getSort(id) {
 				var lessonId = $(this).attr("data-lId");
 				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId);
 			});
+			// 触底刷新
+			// var nDivHight = $(".lesson-list").height();
+			// $(".lesson-list").scroll(function () {
+			// 	var nScrollHight = $(this)[0].scrollHeight;
+			// 	var nScrollTop = $(this)[0].scrollTop;
+			// 	console.log(nDivHight, nScrollHight, nScrollTop);
+			// 	if (nScrollTop + nDivHight == nScrollHight) {
+			// 		var pageIndex = index;
+			// 		pageIndex++;
+			// 		getSort(pageIndex,id);
+			// 	}
+			// });
+
 		},
 		error: function (err) {
 			console.log(err);
