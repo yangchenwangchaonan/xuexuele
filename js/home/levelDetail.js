@@ -211,7 +211,7 @@ function table(con, answer, nextgateid) {
    if (con.length == answer.length) {
         if (JSON.stringify(con) == JSON.stringify(answer)) {
             Ok(con) //提交后台
-            sessionStorage.setItem("gateid", nextgateid) //重置关卡id
+            
             // clearInterval(time) //清除定时器
             con = [] //清空答案
         } else {
@@ -263,6 +263,7 @@ function Ok(con) {
 
                 // 下一关
                 $(".next-level").click(function () {
+                    sessionStorage.setItem("gateid", nextgateid) //重置关卡id
                     UserGateDetail(1);
                     window.location.reload();
                     $("#levelPass").hide();
