@@ -29,7 +29,7 @@ function audio(aId) {
             if (sec.length == 1) {
                 sec = '0' + sec;
             }
-            if ($(".recordtime").html() == "00:05") {
+            if ($(".recordtime").html() == "30:00") {
                      rec.pause()
                     flowerTips("录音不能超过30分钟哦~", 2);
                     $("#recordIng").hide();
@@ -68,7 +68,7 @@ function audio(aId) {
 
     //恢复暂停录音
     $("#stopRecord").click(function () {
-        if($(".recordtime").html() != "00:05"){
+        if($(".recordtime").html() != "30:00"){
             rec.resume();
             $("#recordIng").show()
             $("#stopRecord").hide()

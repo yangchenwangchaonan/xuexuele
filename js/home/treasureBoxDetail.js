@@ -23,7 +23,8 @@ $(function () {
                     <p class="treasureBox-inner">${val.article}</p>
                 `;
             });
-            $(".treasureBox-detail").append(str);
+            $(".treasureBox-detail").html(str);
+            $(".treasureBox-inner").append("<p class='endding'>-END-</p>");
         },
         error: function (err) {
             console.log(err)

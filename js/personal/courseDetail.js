@@ -2,7 +2,7 @@ $(function () {
     var url = window.location.href;
     var courseId = url.split("=")[1];
     courseDetail(courseId); //课程信息
-    courseMessage(courseId); //留言信息
+    courseMessage(1, courseId); //留言信息
     // 课程信息
     $("#lessonInfor").click(function () {
         $(this).addClass("lesson-tabs-checked");
@@ -57,45 +57,60 @@ function courseDetail(courseId) {
 }
 
 // 课程留言详情
-function courseMessage(courseId) {
+function courseMessage(pageIndex, courseId) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/CommentList",
         data: {
             courseid: courseId,
-            page: 1
+            page: pageIndex
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
             var data = res.data;
-            if (data.length == 0) {
+            if (pageIndex == 1 && data.list.length == 0) {
                 $(".noMessage").show();
             }
             var str = "";
-            $.each(data, function (index, val) {
+            $.each(data.list, function (index, val) {
                 str += `
                     <li>
-                        <div class="leave-content">
+                        <div class="leave-content" data-cmid="${val.id}" data-cid="${val.courseid}">
                             <div class="avatar-message"><img src="${val.userinfo.headimg}"/></div>
                             <span class="tourist-name">${val.userinfo.nickname}</span>
                             <span class="leave-message-time">${val.create_time}</span>
                             <p class="leave-message-detail">${val.content}</p>
-                    `;
-                if (val.reply == "") {
-                    str += `
-                            <div class="message-reply" onClick="replyMessage(this,'${val.userinfo.nickname}','${val.id}','${val.courseid}')">回复</div>
+                            ${val.reply == ""?`
+                            <div class="message-reply">回复</div>
+                            `:""}
                         </div>
                     </li>
-                `;
-                }else{
-                    str += `
-                        </div>
-                    </li>
-                    `;
+                  `;
+            });
+            $(".message-list").append(str);
+            $(".message-reply").unbind("click").bind("click", function () {
+                var $name = $(this).parent().find(".tourist-name").html();
+                var commentId = $(this).parent().attr("data-cmid");
+                var courseId = $(this).parent().attr("data-cid");
+                replyMessage(this, $name, commentId, courseId)
+            });
+            // 触底刷新
+            var nDivHight = $(".message-list-content").height();
+            $(".message-list-content").unbind('scroll').bind('scroll', function () {
+                // console.log(pageIndex);
+                var nScrollHight = $(this)[0].scrollHeight;
+                var nScrollTop = $(this)[0].scrollTop;
+                if (nScrollTop + nDivHight >= nScrollHight) {
+                    var mPage = pageIndex;
+                    mPage++;
+                    courseMessage(mPage, courseId);
                 }
             });
-            $(".message-list").html(str);
+            // 清除触底刷新
+            if (data.list.length != 10 || data.list.length == 0) {
+                $(".message-list-content").unbind('scroll');
+            }
         },
         error: function (err) {
             console.log(err)
@@ -120,13 +135,14 @@ function replyMessage(e, name, commentId, courseId) {
         reply(commentId, courseId, text);
     });
     // 失去焦点隐藏文本框
-    $("#messageReply").blur(function(){
-        $(".replayInner").hide();    
-    });
+    // $("#messageReply").blur(function () {
+    //     $(".replayInner").hide();
+    // });
 }
 
 // 回复
 function reply(commentId, courseId, text) {
+    console.log(courseId);
     var uId = sessionStorage.getItem("uid");
     console.log(text);
     $.ajax({
@@ -143,7 +159,7 @@ function reply(commentId, courseId, text) {
             console.log(res);
             if (res.code == 1) {
                 flowerTips("回复成功~", 1);
-                courseMessage(courseId);
+                courseMessage(1,courseId);
             }
         },
         error: function (err) {
