@@ -316,23 +316,37 @@ function tutorDetail(isfollow, followid) {
                 $(".infor-read").show();
                 $(".infor-close").hide();
                 var textLen = introduction.length;
-                if (textLen > 43) {
-                    var num = introduction.substring(0, 43);
+                if (textLen > 41) {
+                    var num = introduction.substring(0, 41);
                     $("p.lesson-tutorInfor").html(num + "...");
+                    //展开更多
+                    $(".infor-read").click(function () {
+                        $("p.lesson-tutorInfor").html(introduction);
+                        $(".infor-read").hide();
+                        $(".infor-close").show();
+                    });
+                    // 收起更多
+                    $(".infor-close").click(function () {
+                        $("p.lesson-tutorInfor").html(num + "...");
+                        $(".infor-read").show();
+                        $(".infor-close").hide();
+                    });
                 } else {
                     $("p.lesson-tutorInfor").html(introduction);
+                    //展开更多
+                    $(".infor-read").click(function () {
+                        $("p.lesson-tutorInfor").html(introduction);
+                        $(".infor-read").hide();
+                        $(".infor-close").show();
+                    });
+                    // 收起更多
+                    $(".infor-close").click(function () {
+                        $("p.lesson-tutorInfor").html(introduction);
+                        $(".infor-read").show();
+                        $(".infor-close").hide();
+                    });
                 }
             }
-            $(".infor-read").click(function () {
-                $("p.lesson-tutorInfor").html(introduction);
-                $(".infor-read").hide();
-                $(".infor-close").show();
-            });
-            $(".infor-close").click(function () {
-                $("p.lesson-tutorInfor").html(num + "...");
-                $(".infor-read").show();
-                $(".infor-close").hide();
-            });
             //专辑列表
             var str = "";
             var albumlist = data.albumlist;
@@ -399,13 +413,13 @@ function noAttention(uId, followid) {
 }
 
 // 获取课程留言列表
-function messageList(index, uId, lessonId) {
+function messageList(pageIndex, uId, lessonId) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/CommentList",
         data: {
             courseid: lessonId,
-            page: index
+            page: pageIndex
         },
         dataType: "json",
         success: function (res) {
@@ -438,16 +452,21 @@ function messageList(index, uId, lessonId) {
             $(".message-content").append($str);
             // 触底刷新
             var nDivHight = $("#msgContent").height();
-            $("#msgContent").scroll(function () {
+            $("#msgContent").unbind('scroll').bind('scroll', function () {
+                // console.log(pageIndex);
                 var nScrollHight = $(this)[0].scrollHeight;
                 var nScrollTop = $(this)[0].scrollTop;
-                console.log(nDivHight,nScrollHight,nScrollTop);
                 if (nScrollTop + nDivHight >= nScrollHight) {
-                    var pageIndex = index;
-                    pageIndex++;
-                    messageList(pageIndex, uId, lessonId);
+                    var mPage = pageIndex;
+                    mPage++;
+                    // console.log(mPage);
+                    messageList(mPage, uId, lessonId);
                 }
             });
+            // 清除触底刷新
+            if (data.length != 10 || data.length == 0) {
+                $("#msgContent").unbind('scroll');
+            }
             // 发表留言
             $(".message-btn").click(function () {
                 var tId = localStorage.getItem("commentid"); //导师id

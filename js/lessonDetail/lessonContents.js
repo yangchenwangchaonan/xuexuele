@@ -41,23 +41,27 @@ function getSort(page,id) {
 				</li>
 				 `;
 			});
-			$(".lesson-list>ul").html(str);
+			$(".lesson-list>ul").append(str);
 			$(".table-lesson").click(function () {
 				var lessonId = $(this).attr("data-lId");
 				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId);
 			});
 			// 触底刷新
-			// var nDivHight = $(".lesson-list").height();
-			// $(".lesson-list").scroll(function () {
-			// 	var nScrollHight = $(this)[0].scrollHeight;
-			// 	var nScrollTop = $(this)[0].scrollTop;
-			// 	console.log(nDivHight, nScrollHight, nScrollTop);
-			// 	if (nScrollTop + nDivHight == nScrollHight) {
-			// 		var pageIndex = index;
-			// 		pageIndex++;
-			// 		getSort(pageIndex,id);
-			// 	}
-			// });
+			var nDivHight = $(".lesson-list").height();
+			$(".lesson-list").unbind("scroll").bind("scroll",function () {
+				var nScrollHight = $(this)[0].scrollHeight;
+				var nScrollTop = $(this)[0].scrollTop;
+				// console.log(nDivHight, nScrollHight, nScrollTop);
+				if (nScrollTop + nDivHight == nScrollHight) {
+					var pageIndex = page;
+					pageIndex++;
+					getSort(pageIndex,id);
+				}
+			});
+			// 清除触底刷新
+			if (data.length != 10 || data.length == 0) {
+                $(".lesson-list").unbind('scroll');
+            }
 
 		},
 		error: function (err) {

@@ -1,81 +1,92 @@
 $(function () {
-   audio ()
+    audio();
+
 });
 
 
 
-function audio (time) {
+function audio() {
     //获得实例
-   var rec=Recorder({onProcess:function(a,level,time){
-        var duration = parseInt(time/1000);
-        var minute = parseInt(duration /60);
-        var sec = duration % 60 + '';
-        var isM0 = ':';
-        if (minute == 0) {
-        minute = '00';
-        } else if (minute < 10) {
-        minute = '0' + minute;
+    var rec = Recorder({
+        onProcess: function (time) {
+            var duration = parseInt(time / 1000);
+            var minute = parseInt(duration / 60);
+            var sec = duration % 60 + '';
+            var isM0 = ':';
+            if (minute == 0) {
+                minute = '00';
+            } else if (minute < 10) {
+                minute = '0' + minute;
+            }
+            if (sec.length == 1) {
+                sec = '0' + sec;
+            }
+            if ($(".recordtime").html() == "30:00") {
+                rec.stop(function (blob, duration) {
+                    console.log(blob, (duration / 1000), time);
+                    rec.close(); //释放录音资源
+                    VoiceUpload(blob)
+                    console.log(URL.createObjectURL(blob))
+                }, function (msg) {
+                    alert("录音失败:" + msg);
+                });
+            }
+            $(".recordtime").html(minute + isM0 + sec);
+            // 录音进度条
+            // var width = $(".progressBar").css("width");
+            // console.log(width);
+            // $(".progressReal").css("width",(time/(30*60*1000))*width);
+            return minute + isM0 + sec
         }
-        if (sec.length == 1) {
-        sec = '0' + sec;
-        }
-        if ($(".recordtime").html()=="00:04") {
-            rec.stop(function(blob,duration){
-            console.log(blob,(duration/1000),time);
-            rec.close();//释放录音资源
-            VoiceUpload(blob)
-            console.log(URL.createObjectURL(blob))
-            },function(msg){
-                alert("录音失败:"+msg);
-            });
-        }
-        $(".recordtime").html(minute + isM0 + sec)
-        return minute + isM0 + sec
-    }});
+    });
+
+
+
 
     //打开麦克风授权获得相关资源
-    rec.open(function(){
-        $("#startRecord").click(function(){
-           rec.start();//开始录音
-           $("#startRecord").hide()
-           $("#recordIng").show()
+    rec.open(function () {
+        $("#startRecord").click(function () {
+            rec.start(); //开始录音
+            $("#startRecord").hide()
+            $("#recordIng").show()
         })
 
-    },function(msg){
-       alert("无法录音:"+msg);
-    }); 
+    }, function (msg) {
+        alert("无法录音:" + msg);
+    });
 
     // 暂停录音
-    $("#recordIng").click(function(){
+    $("#recordIng").click(function () {
         rec.pause()
-         $("#recordIng").hide()
-         $("#stopRecord").show()
+        $("#recordIng").hide()
+        $("#stopRecord").show()
     })
 
     //恢复暂停录音
-     $("#stopRecord").click(function(){
+    $("#stopRecord").click(function () {
         rec.resume()
-         $("#recordIng").show()
-         $("#stopRecord").hide()
+        $("#recordIng").show()
+        $("#stopRecord").hide()
     })
     //到达指定条件停止录音，拿到blob对象想干嘛就干嘛：立即播放、上传
-    $("#uploadAudio").click(function() {
-        rec.stop(function(blob,duration){
-            console.log(blob,(duration/1000));
-            rec.close();//释放录音资源
+    $("#uploadAudio").click(function () {
+        rec.stop(function (blob, duration) {
+            console.log(blob, (duration / 1000));
+            rec.close(); //释放录音资源
             VoiceUpload(blob)
             console.log(URL.createObjectURL(blob))
-        },function(msg){
-            alert("录音失败:"+msg);
+        }, function (msg) {
+            alert("录音失败:" + msg);
         });
     });
 }
 
+
 //上传
 function VoiceUpload(type) {
-    var formdata= new FormData();
-    formdata.append("voicefile",type)
-     $.ajax({
+    var formdata = new FormData();
+    formdata.append("voicefile", type)
+    $.ajax({
         processData: false,
         contentType: false,
         type: "POST",
@@ -85,8 +96,8 @@ function VoiceUpload(type) {
         success: function (res) {
             console.log(res)
         },
-        error:function (err) {
-
+        error: function (err) {
+            console.log(err)
         }
     });
 }

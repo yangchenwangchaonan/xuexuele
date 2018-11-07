@@ -169,7 +169,7 @@ function userGate(index, iscurrent) {
       var bgSum = Math.ceil(levelSum / 6); //背景图数量
       var str1 = "";
       for (var i = 1; i < bgSum; i++) {
-        console.log($levelList[i].length);
+        // console.log($levelList[i].length);
         str1 += `
         <div class="homeLoopBg">
           <div class="homeContentLoop"></div>
@@ -252,7 +252,7 @@ function userGate(index, iscurrent) {
           generalTips("已经到滑到顶部啦~", 1);
           return;
         }
-        console.log(1);
+        // console.log(1);
         var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
         if (scrollT == 0) {
           index++;

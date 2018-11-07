@@ -11,6 +11,7 @@
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/home/treasureBoxAudio.js"></script>
+	<script src="../../js/common/audio.js"></script>
 </head>
 <body class="treasureBox-body">
 	<section class="treasureBox-audio">
@@ -20,12 +21,14 @@
 	    	<h1 id="lessonName"></h1>
 	    	<h2 id="lessonHead"></h2>
 	    	<div class="audio-content">
-	    		<div class="progressBar"></div>
-	    		<div class="progressReal"></div>
-	    		<div class="progressKey"></div>
-    			<span class="successed">23:32</span>
-    			<span class="unsuccessed">90:00</span>
-	    		<div class="progress-start"></div>
+	    		<audio id="lessonAudio"></audio>
+				<div class="progressBar">
+					<div class="progressReal"></div>
+					<i class="progressKey"></i>
+				</div>
+				<span class="successed">00:00</span>
+				<span class="unsuccessed" id="audioTime"></span>
+				<div class="progress-stop" id="progressBar"></div>
 	    	</div>
 	    </div>
 	</section>

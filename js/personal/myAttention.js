@@ -23,17 +23,18 @@ function attentionList(uId) {
                 $.each(data, function (index, val) {
                     str += `
                      <li>
-                        <div class="followig">
-                            <div class="attention-img"><img src="../../images/others.jpg"/></div>
+                        <div class="followig" data-fid="${val.followid}">
+                            <div class="attention-img"><img src="${val.headimg}"/></div>
                             <p>${val.nickname}</p>
                         </div>
                         <div class="attention-nosign attention-signed">已关注</div>
                     </li>
                      `;
-                    $(".attention-list").append(str);
+                    $(".attention-list").html(str);
                     // 查看导师详情
                     $(".followig").click(function () {
-                        $(window).attr("location", "attention-detail.html");
+                        var followid = $(this).attr("data-fid");
+                        $(window).attr("location", "attention-detail.html?fid="+followid);
                     });
                     //关注
                     var followId = val.followid;
