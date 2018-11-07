@@ -247,7 +247,7 @@ function Ok(con) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
-                $(".level-timing").html("<span>00:00</span>");
+                // $(".level-timing").html("<span>00:00</span>");
                 ranking(gid);
                 if (res.data.isfirst == 0) {
                     //初次闯关成功
@@ -263,7 +263,11 @@ function Ok(con) {
 
                 // 下一关
                 $(".next-level").click(function () {
+<<<<<<< HEAD
                     sessionStorage.setItem("gateid", nextgateid) //重置关卡id
+=======
+                    // $(".level-timing").html("<span id='time1'></span>");
+>>>>>>> 2f34e87cf1ef7f7b34baacaad2280f968bb351c5
                     UserGateDetail(1);
                     window.location.reload();
                     $("#levelPass").hide();

@@ -11,7 +11,6 @@
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/goBack.js"></script>
-	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/lessonDetail/lessonDetail.js"></script>
 	<script src="../../js/common/audio.js"></script>
 	<script src="../../js/common/tips.js"></script>
@@ -146,7 +145,7 @@
 			<div class="leave-message-bg">
 				<div class="leave-message-close"></div>
 				<div class="leave-message-title">-课程留言(<span>200</span>)-</div>
-				<ul class="message-content">
+				<ul class="message-content" id="msgContent">
 					<!-- <li>
 						<div class="leave-content">
 							<div class="avatar-message"></div>
@@ -163,9 +162,14 @@
 				</ul>
 				<div class="reg-tips"></div>
 			</div>
-			<textarea class="message-text1" type="text" placeholder="请输入留言" id="messageText1"></textarea>
-			<textarea class="message-text2" type="text" placeholder="请输入留言" id="messageText2" style="display:none"></textarea>
-			<div class="release-message">发布</div>
+			<div class="releaseContent">
+				<textarea class="message-text1" type="text" placeholder="请输入留言" id="messageText1"></textarea>
+				<div class="release-message" id="releaseBtn">发布</div>
+			</div>
+			<div class="replayContent">
+				<textarea class="message-text2" type="text" placeholder="请输入留言" id="messageText2"></textarea>
+				<div class="release-message" id="replayBtn">回复</div>
+			</div>
 			<div class="message-btn">发表留言</div>
 		</div>
 		</div>
@@ -256,8 +260,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- tips -->
-		<div class="reg-tips"></div>
 	</section>
 </body>
 

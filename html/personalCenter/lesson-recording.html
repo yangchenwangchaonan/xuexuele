@@ -13,11 +13,12 @@
 	<script src="../../js/personal/lessonRecord.js"></script>
 	<script src="../../js/personal/recorder.js"></script>
 	<script src="http://momentjs.cn/downloads/moment.min.js"></script>
+	<script src="../../js/common/tips.js"></script>
 </head>
 
 <body class="album-add-body">
 	<section class="album-add-container">
-		<i class="lesson-record-back"></i>
+		<i class="lesson-record-back" id="audioRecordBack"></i>
 		<span id="album-add-title">-录音-</span>
 		<div class="album-add-box">
 			<div class="lesson-recording-container">
@@ -27,7 +28,7 @@
 						<div class="progressReal"></div>
 						<i class="progressKey"></i>
 					</div>
-					<span class="successed level-successed">00:00</span>
+					<span class="successed level-successed" id="voiceOver">00:00</span>
 					<span class="unsuccessed level-unsuccessed">30:00</span>
 					<!-- <div class="progress-stop" id="progressBar"></div> -->
 				</div>
@@ -46,6 +47,8 @@
 			</div>
 			<div class="album-add lesson-recording-btn" id="uploadAudio">保存</div>
 		</div>
+		<!-- tips -->
+        <div class="reg-tips"></div>
 	</section>
 </body>
 

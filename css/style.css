@@ -689,11 +689,11 @@ body {
 }
 
 .treasureBox-wrapper {
-    top: 10.3vh;
+    top: 11.5vh;
     width: 100%;
-    height: 87%;
+    height: 83%;
     position: relative;
-    padding: 2.3vh 1.87vh;
+    /* padding: 2.3vh 1.87vh; */
     overflow: auto;
 }
 
@@ -860,8 +860,8 @@ body {
 
 .cloudContent {
     position: absolute;
-    bottom: 11.59vh;
-    left: -34.79vw;
+    top: 3.59vh;
+    left: -0.11vw;
     width: 100vw;
     height: 88px;
     z-index: 1000;
@@ -1788,7 +1788,7 @@ body {
 
 .letter-content>h1 {
     position: absolute;
-    top: 3.2vh;
+    top: 2.0vh;
     left: 0;
     width: 100%;
     text-align: center;
@@ -1814,7 +1814,7 @@ body {
     background: #F8E8B0;
     border-radius: 10px;
     color: #553208;
-    margin: 1.74vh 2.67vw;
+    margin: 1.74vh 5.17vw;
 }
 
 .noletter,
@@ -1928,7 +1928,9 @@ body {
 }
 
 .treasure {
-    float: right;
+    position: absolute;
+    bottom: 1.2vh;
+    right: 1.5vw;
     width: 18.27vw;
     height: 9.97vh;
     background: url(../images/74.png) no-repeat center;
@@ -1976,7 +1978,7 @@ body {
     border-bottom: 2px solid #F18600;
 }
 
-#endding {
+.endding {
     text-align: center;
     font-size: 13px;
     color: #DCD1B9;
@@ -2021,6 +2023,7 @@ body {
 }
 
 .audio>h1 {
+    margin-top: 2.5vh;
     font-family: PingFang-SC-Bold;
     font-size: 20px;
     font-weight: bold;
@@ -2060,7 +2063,7 @@ body {
 .progressReal {
     display: inline-block;
     float: left;
-    width: 0vw;
+    /* width: 200px; */
     height: 5px;
     background: rgba(147, 209, 36, 1);
     opacity: 1;
@@ -2503,9 +2506,29 @@ body {
 .level-list {
     position: absolute;
     display: inline-block;
-    z-index: 500;
-    top: -49px;
+    z-index: 1000 !important;
+    top: -55px;
     right: 33.5vw;
+}
+
+.level-list2 {
+    position: absolute;
+    display: inline-block;
+    z-index: 1000 !important;
+    top: -45px;
+    right: 33.5vw;
+}
+
+.level-list2>li {
+    position: relative;
+    margin-bottom: 53.5px;
+    text-align: center;
+    line-height: 25.5px;
+    font-size: 9px;
+    width: 23.5px;
+    height: 26.5px;
+    font-weight: bold;
+    color: rgba(254, 246, 223, 1);
 }
 
 .level-list>li {
@@ -2533,7 +2556,7 @@ body {
 
 .evenList {
     left: -95px;
-    top: 203px;
+    top: 200px;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -3899,7 +3922,7 @@ body {
     bottom: 0;
     background: url(../images/134.png) no-repeat;
     background-size: 100% 100%;
-    z-index: 200;
+    z-index: 9999;
     padding-left: 2.0vw;
 }
 
@@ -4366,6 +4389,13 @@ body {
     margin-bottom: 10px;
 }
 
+.releaseContent {
+    display: none;
+}
+.replayContent {
+    display: none;
+}
+
 .message-text1,
 .message-text2 {
     position: fixed;
@@ -4379,7 +4409,7 @@ body {
     padding: 6px 3.0vw;
     overflow: hidden;
     border: 1px solid rgba(229, 194, 138, 0.3);
-    display: none;
+    /* display: none; */
 }
 
 .release-message {
@@ -4394,7 +4424,7 @@ body {
     color: rgba(85, 50, 8, 1);
     background: white;
     border: 1px solid rgba(229, 194, 138, 0.3);
-    display: none;
+    /* display: none; */
 }
 
 .message-btn {
@@ -4543,7 +4573,7 @@ body {
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
     line-height: 18px;
-    padding-bottom: 0.5vh;
+    padding-bottom: 2.5vh;
     border-bottom: 2px solid #E5C28A;
 }
 
@@ -4564,6 +4594,7 @@ body {
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
     line-height: 18px;
+    margin-bottom: 1.5vh;
 }
 
 .follow-tutorInfor {
@@ -4582,19 +4613,31 @@ body {
     -webkit-box-orient: vertical;
 }
 
-.infor-read,
+.infor-read {
+    position: absolute;
+    bottom: 2.5vh;
+    right: 0.5vw;
+    color: rgba(48, 160, 7, 1);
+    display: none;
+}
 .infor-close {
     position: absolute;
-    bottom: 0.5vw;
-    right: 0.5vh;
+    bottom: 0.0vh;
+    right: 0.5vw;
     color: rgba(48, 160, 7, 1);
     display: none;
 }
 
-.follow-read,
-.follow-close {
+.follow-read {
     position: absolute;
     bottom: -0.5vw;
+    right: 0.5vh;
+    color: rgba(48, 160, 7, 1);
+    display: none;
+}
+.follow-close {
+    position: absolute;
+    bottom: -4.5vw;
     right: 0.5vh;
     color: rgba(48, 160, 7, 1);
     display: none;
@@ -6111,7 +6154,7 @@ body {
     top: 0.9vh;
     left: 1.5vw;
     width: 13.44vw;
-    height: 7.4vh;
+    /* height: 7.4vh; */
     border-radius: 5px;
 }
 
@@ -6149,7 +6192,7 @@ body {
     top: 10.67vw;
     left: 0;
     width: 100%;
-    height: 80.56vh;
+    height: 92.56vh;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -6220,8 +6263,8 @@ body {
 
 .mylessons-content {
     position: absolute;
-    top: 8.65vh;
-    left: 6.25vw;
+    top: 7.65vh;
+    left: 4.25vw;
     width: 90.67vw;
     height: 85.56vh;
     border-radius: 15px;

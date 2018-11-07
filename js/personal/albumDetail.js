@@ -5,7 +5,7 @@ $(function () {
     //录音
     $(".lesson-recording1").click(function () {
         $(this).addClass("lesson-recording2").siblings().removeClass("lesson-upload2");
-        $(window).attr("location", "./lesson-recording.html");
+        $(window).attr("location", "./lesson-recording.html?aid="+aId);
     });
     // 上传
     $(".lesson-upload1").click(function () {
