@@ -11,13 +11,6 @@
     <link rel="stylesheet" href="../../css/lCalendar.css">
     <link rel="stylesheet" href="../../css/cropper.css">
     <link rel="stylesheet" href="../../css/citysel.css">
-    <script src="../../js/common/jquery-1.11.3.min.js"></script>
-    <script src="../../js/common/common.js"></script>
-    <script src="../../js/personal/personalInfor.js"></script>
-    <script src="../../js/reg/cropper.js"></script>
-    <script src="../../js/birthday/lCalendar.min.js"></script>
-    <script src="../../js/city/citypickerhc.js"></script>
-    <script src="../../js/personal/personalArea.js"></script>
 </head>
 
 <body class="realname-body">
@@ -28,9 +21,9 @@
             <ul class="personal-list">
                 <li class="head-pic">
                     <h1>
-                        <div id="perImg"><img/></div>
+                        <div id="perImg"><img /></div>
                     </h1>
-                    <p><input type="text" value="请上传头像" readonly id="perImgText"/></p>
+                    <p><input type="text" value="请上传头像" readonly id="perImgText" /></p>
                 </li>
                 <li>
                     <h1>昵称:</h1>
@@ -59,7 +52,7 @@
                 </li>
             </ul>
             <div class="personal-submit" id="perSubmit">确认修改</div>
-            <div class="submit-tips"></div>      <!-- tips --> 
+            <div class="submit-tips"></div> <!-- tips -->
         </div>
     </section>
     <!-- 头像选择 -->
@@ -70,13 +63,11 @@
                 <!-- <input type="file" name="imgPhoto" id="imgPhoto" accept="image/*" onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" /> -->
                 <label>
                     <div class="img1"></div>
-                    <input type="file" name="importPhoto" id="importPhoto" accept="image/*" capture="camera" onchange="getPhoto(this);"
-                        style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+                    <input type="file" name="importPhoto" id="importPhoto" accept="image/*" capture="camera" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
                 </label>
                 <label>
                     <div class="img2"></div>
-                    <input type="file" name="importFile" id="importFile" accept="image/*" onchange="getPhoto(this);"
-                        style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+                    <input type="file" name="importFile" id="importFile" accept="image/*" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
                 </label>
             </div>
         </div>
@@ -257,6 +248,13 @@
         </div>
     </div>
 </body>
+<script src="../../js/common/jquery-1.11.3.min.js"></script>
+<script src="../../js/common/common.js"></script>
+<script src="../../js/personal/personalInfor.js"></script>
+<script src="../../js/reg/cropper.js"></script>
+<script src="../../js/birthday/lCalendar.min.js"></script>
+<script src="../../js/city/citypickerhc.js"></script>
+<script src="../../js/personal/personalArea.js"></script>
 <script>
     // 生日选择
     var calendar = new lCalendar();

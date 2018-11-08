@@ -1,4 +1,7 @@
 $(function () {
+    var url = window.location.href;
+    var isFirst = url.split("=")[1];
+    console.log(isFirst);
     UserGateDetail();   //首次渲染
     // 退出关卡
     $("#levelBack").click(function () {

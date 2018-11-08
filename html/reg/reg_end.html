@@ -10,16 +10,9 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/lCalendar.css">
     <link rel="stylesheet" href="../../css/cropper.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.3/cropper.min.css" /> -->
     <link rel="stylesheet" href="../../css/citysel.css">
-    <script src="../../js/common/jquery-1.11.3.min.js"></script>
-    <script src="../../js/common/common.js"></script>
-    <script src="../../js/common/goBack.js"></script>
-    <script src="../../js/reg/regInfor.js"></script>
-    <script src="../../js/reg/cropper.js"></script>
-    <script src="../../js/birthday/lCalendar.min.js"></script>
-    <script src="../../js/city/citypickerhc.js"></script>
-    <script src="../../js/reg/regArea.js"></script>
-    <script src="../../js/common/tips.js"></script>
+
 </head>
 
 <body class="index-body">
@@ -43,7 +36,7 @@
                         </div>
                     </li>
                     <li class="head-pic">
-                        <div id="reg-avatar"><span>点击上传</span><img id="uploadImg"/></div>
+                        <div id="reg-avatar"><span>点击上传</span><img id="uploadImg" /></div>
                         <h1>头像：</h1>
                     </li>
                     <li>
@@ -83,13 +76,11 @@
                     <!-- <input type="file" name="imgPhoto" id="imgPhoto" accept="image/*" onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" /> -->
                     <label>
                         <div class="img1"></div>
-                        <input type="file" name="importPhoto" id="importPhoto" accept="image/*" capture="camera"
-                            onchange="getPhoto(this);" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+                        <input type="file" name="importPhoto" id="importPhoto" accept="image/*" capture="camera" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
                     </label>
                     <label>
                         <div class="img2"></div>
-                        <input type="file" name="importFile" id="importFile" accept="image/*" onchange="getPhoto(this);"
-                            style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+                        <input type="file" name="importFile" id="importFile" accept="image/*" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
                     </label>
                 </div>
             </div>
@@ -264,6 +255,16 @@
     </div>
 
 </body>
+<script src="../../js/common/jquery-1.11.3.min.js"></script>
+<script src="../../js/common/common.js"></script>
+<script src="../../js/common/goBack.js"></script>
+<script src="../../js/reg/regInfor.js"></script>
+<script src="../../js/reg/cropper.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.3/cropper.min.js"></script> -->
+<script src="../../js/birthday/lCalendar.min.js"></script>
+<script src="../../js/city/citypickerhc.js"></script>
+<script src="../../js/reg/regArea.js"></script>
+<script src="../../js/common/tips.js"></script>
 <script>
     // 生日选择
     var calendar = new lCalendar();

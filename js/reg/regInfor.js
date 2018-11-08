@@ -10,6 +10,7 @@ $(function () {
     /************上传头像*********/
     $("#reg-avatar").click(function () {
         $("#regVavatar-shade").show();
+        getFiles();  //监听获取到的照片
         $(".img1").click(function () {
             $(this).addClass("img1-photo").parent().siblings().children(".img2").removeClass("img2-picture");
             $("#imgPhoto").trigger("click");
@@ -226,61 +227,65 @@ function changeImage(e, imgName) {
     $(e).siblings().addClass("constellation_text");
 }
 
-//获取相册 或拍照
-function getPhoto(node) {
-    $(".cropper-shade").show();
-    var imgURL = "";
-    try {
-        var file = null;
-        if (node.files && node.files[0]) {
-            file = node.files[0];
-        } else if (node.files && node.files.item(0)) {
-            file = node.files.item(0);
-        }
-        //Firefox 因安全性问题已无法直接通过input[file].value 获取完整的文件路径
-        try {
-            imgURL = file.getAsDataURL();
-        } catch (e) {
-            imgURL = window.URL.createObjectURL(file);
-        }
-    } catch (e) {
-        if (node.files && node.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                imgURL = e.target.result;
-            };
-            reader.readAsDataURL(node.files[0]);
-        }
+//监听拍照/上传图片操作
+function getFiles(){
+    var importFile = document.getElementById('importFile'); //获取选择图片的input元素
+    importFile.addEventListener('change', readFile, false); //监听input
+    
+    var importPhoto = document.getElementById('importPhoto'); //获取选择相机的input元素
+    importPhoto.addEventListener('change', readFile, false); //监听input
+}
+
+//获取上传的图片预览
+function readFile() {
+    var file = this.files[0]; //获取file对象
+    //判断file的类型是不是图片类型。
+    if (!/image\/\w+/.test(file.type)) {
+        alert("请上传一张图片~");
+        return false;
     }
 
-    var image = new Image();
-    image.src = imgURL;
-    image.onload = function () {
-        var base64 = getBase64Image(image);
-        if (typeof (base64) !== 'undefined') {
-            $('#img-path').attr('src', base64);
-            $('#img-path').cropper({
-                aspectRatio: 1 / 1,
-                autoCropArea: .9,
-                viewMode: 1,
-                crop: function (e) {
-                    console.log(e);
-                }
-            });
-        }
+    var reader = new FileReader(); //声明一个FileReader实例
+    reader.readAsDataURL(file); //调用readAsDataURL方法来读取选中的图像文件
+    //最后在onload事件中，获取到成功读取的文件内容，并以插入一个img节点的方式显示选中的图片
+    reader.onload = function (e) {
+        // console.log(this.result);
+        // $('#img-path').attr('src', this.result);
+        $('#img-path').cropper({
+            aspectRatio: 300 / 300,
+            viewMode: 1,
+            crop: function (e) {
+                // console.log(e);
+            }
+        });
+
+        $(".cropper-shade").show();
+        //重构
+        $('#img-path').cropper('replace', this.result, true);
         //取消
         $('div.img-cut-btn1').click(function () {
-            $('#img-path').cropper('reset');
+            $('#img-path').cropper('reset', {
+                width: 300,
+                height: 300
+            });
         });
         //确定
         $('div.img-cut-btn2').click(function () {
-            var cas = $('#img-path').cropper('getCroppedCanvas');
-            var base64url = cas.toDataURL('image/jpeg');
+            var val = $('#img-path').cropper('getCroppedCanvas', {
+                width: 600,
+                height: 600,
+                minWidth: 300,
+                minHeight: 300,
+                maxWidth: 800,
+                maxHeight: 800,
+                fillColor: '#ffffff',
+                imageSmoothingQuality: 'high'
+            });
             $.ajax({
                 type: "POST",
                 url: APP_URL + "/api/My/HeadPortrait",
                 data: {
-                    fileUpload: base64url
+                    fileUpload: val.toDataURL('image/jpeg')
                 },
                 dataType: "json",
                 success: function (res) {
@@ -288,29 +293,21 @@ function getPhoto(node) {
                     var url = res.data.url;
                     $(".cropper-shade").hide();
                     $(".reg-shade").hide();
-                    $('#img-path').attr('src', "");
                     $(".img1").removeClass("img1-photo");
                     $(".img2").removeClass("img2-picture");
                     if (typeof (url) != undefined) {
                         $('img#uploadImg').attr('src', url);
                         $("#reg-avatar>span").html("已上传");
                     }
+                },
+                error: function (err) {
+                    console.log(err);
                 }
             });
         });
     }
 }
-//获取图片base64位
-function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
-    var dataURL = canvas.toDataURL("image/" + ext);
-    return dataURL;
-}
+
 
 // 登录
 function login(tel, password) {
@@ -344,7 +341,7 @@ function login(tel, password) {
             } else {
                 // alert(msg);
                 flowerTips(msg, 1);
-                window.setTimeout(function() {
+                window.setTimeout(function () {
                     $(window).attr("location", "../reg/reg.html");
                 }, 1500);
             }
