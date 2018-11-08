@@ -3302,7 +3302,7 @@ body {
     border-radius: 10px;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
-    line-height: 6.0vh;
+    line-height: 5.0vh;
     font-size: 24px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -3360,6 +3360,62 @@ body {
 }
 
 /* 新用户演示 */
+.blank-show {
+    position: absolute;
+    top: 52.0vh;
+    left: 9.0vw;
+    width: 46px;
+    height: 46px;
+    border-radius: 5px;
+    background: #D7EEFF;
+    z-index: 99999;
+    display: none;
+}
+
+.respond-blank-show {
+    position: absolute;
+    margin-left: 3px;
+    margin-top: 3px;
+    width: 40px;
+    height: 40px;
+    background: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 0px #348541;
+    text-align: center;
+    line-height: 5.0vh;
+    font-size: 24px;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(52, 133, 65, 1);
+}
+.key-show {
+    position: absolute;
+    bottom: 17.2vh;
+    right: 29.97vw;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background: #FEF5D4;
+    z-index: 99999;
+    display: none;
+}
+.respond-key-show {
+    position: absolute;
+    margin-left: 3px;
+    margin-top: 3px;
+    width: 43px;
+    height: 43px;
+    background: #A2C012;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 0px #348541;
+    text-align: center;
+    line-height: 6.0vh;
+    font-size: 24px;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+}
+
 .level-show {
     width: 17.33vw;
     height: 14.01vh;
@@ -3367,6 +3423,7 @@ body {
     background-size: 17.33vw 14.01vh;
     border: 1px dashed gainsboro;
 }
+
 .level-tips {
     font-size: 18px;
     font-family: MicrosoftYaHei-Bold;
@@ -3381,23 +3438,46 @@ body {
     left: 42.8vw;
     top: 37.0vh;
 }
+
 .topic-tips {
     position: relative;
     left: 29.8vw;
     top: 37vh;
 }
+
 /* 提示文字演示 */
 .tipContent-show {
-    position: relative;
-    left: 42.8vw;
-    top: 50.0vh;
+    position: absolute;
+    left: 3.8vw;
+    top: 4.0vh;
+    width: 19.33vw;
+    height: 13.12vh;
+    background: url(../images/255.png) no-repeat;
+    background-size: 19.33vw 13.12vh;
+    border: 1px dashed gainsboro;
 }
+
 .tipContent-tips {
     position: relative;
-    left: 29.8vw;
-    top: 50.0vh;
+    left: 42.8vw;
+    top: 93vh;
 }
-/* 填写答案提示 */
+/* 删除演示 */
+.tipKey-show {
+    position: absolute;
+    left: 3.8vw;
+    top: 4.0vh;
+    width: 19.33vw;
+    height: 13.12vh;
+    background: url(../images/255.png) no-repeat;
+    background-size: 19.33vw 13.12vh;
+    border: 1px dashed gainsboro;
+}
+.tipKey-tips {
+    position: relative;
+    left: 2.8vw;
+    top: 69vh;
+}
 
 /*再次闯关*/
 .pass-again {

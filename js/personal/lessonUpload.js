@@ -271,6 +271,7 @@ function addCourse(aId) {
         IsFree = 2;
     }
     var lessonBeans = $("#beans-input").val(); //课程智慧豆数
+    // console.log(lessonBeans);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/CourseAdd",

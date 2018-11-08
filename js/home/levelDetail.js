@@ -288,10 +288,6 @@ function Ok(con) {
     })
 }
 
-
-
-
-
 //首次渲染四个答案框
 function answerData(answer) {
     console.log(answer)
@@ -341,12 +337,14 @@ function ranking(levelId) {
 // 新用户演示
 function levelShow(){
     // 第一步
-    // $("#contentShow").show();
-    // $(".level-topic").css("z-index","99999");
+    $("#contentShow").show();
+    $(".level-topic").css("z-index","99999");
     // 第二步
     $("#tipContentShow").show();
     $(".kit-content").css("z-index","99999");
+    $(".key-show").show();
     // 第三步
-
+    $("#tipKeyShow").show();
+    $(".blank-show").show();
 
 }
