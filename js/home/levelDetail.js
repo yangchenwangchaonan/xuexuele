@@ -1,5 +1,5 @@
 $(function () {
-    UserGateDetail();
+    UserGateDetail();   //首次渲染
     // 退出关卡
     $("#levelBack").click(function () {
         $("#closeLevel").show();
@@ -12,6 +12,7 @@ $(function () {
             $("#closeLevel").hide();
         });
     });
+
 })
 //首次渲染
 function UserGateDetail(a) {
@@ -44,7 +45,10 @@ function UserGateDetail(a) {
 						<li>${el}</li>
 				`
             });
-            $(".respond-key>ul").html(str)
+            $(".respond-key>ul").html(str);
+            // 新用户演示
+            levelShow();
+
             // 点击锦囊
             var userWisdombean = data.userwisdombean;
             var answerNeed = data.answerwisdombeanuse;
@@ -263,11 +267,7 @@ function Ok(con) {
 
                 // 下一关
                 $(".next-level").click(function () {
-<<<<<<< HEAD
                     sessionStorage.setItem("gateid", nextgateid) //重置关卡id
-=======
-                    // $(".level-timing").html("<span id='time1'></span>");
->>>>>>> 2f34e87cf1ef7f7b34baacaad2280f968bb351c5
                     UserGateDetail(1);
                     window.location.reload();
                     $("#levelPass").hide();
@@ -336,4 +336,17 @@ function ranking(levelId) {
             console.log(err)
         }
     });
+}
+
+// 新用户演示
+function levelShow(){
+    // 第一步
+    // $("#contentShow").show();
+    // $(".level-topic").css("z-index","99999");
+    // 第二步
+    $("#tipContentShow").show();
+    $(".kit-content").css("z-index","99999");
+    // 第三步
+
+
 }

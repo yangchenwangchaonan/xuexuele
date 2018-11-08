@@ -3155,9 +3155,13 @@ body {
 
 .kit-content {
     position: absolute;
-    width: 60.53vw;
-    left: 12.53vw;
-    top: 1.35vh;
+    width: 62.83vw;
+    height: 7.5vh;
+    left: 10.23vw;
+    top: 42.0vh;
+    padding: 2px;
+    border-radius: 5px;
+    background: #FFFCF3;
     font-size: 12px;
     font-family: MicrosoftYaHei;
     font-weight: 400;
@@ -3344,9 +3348,6 @@ body {
 }
 
 /*闯关演示*/
-.level-topic-show {
-    z-index: 350;
-}
 
 .topic-operate {
     position: absolute;
@@ -3358,23 +3359,45 @@ body {
     display: block;
 }
 
-.topic-show {
-    position: relative;
-    left: 16.4vw;
+/* 新用户演示 */
+.level-show {
     width: 17.33vw;
     height: 14.01vh;
     background: url(../images/115.png) no-repeat;
     background-size: 17.33vw 14.01vh;
     border: 1px dashed gainsboro;
 }
-
-.topic-tips {
+.level-tips {
     font-size: 18px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bolder;
     color: rgba(255, 255, 255, 1);
     text-shadow: 10px 12px 17px rgba(19, 37, 102, 0.5);
 }
+
+/* 内容演示 */
+.topic-show {
+    position: relative;
+    left: 42.8vw;
+    top: 37.0vh;
+}
+.topic-tips {
+    position: relative;
+    left: 29.8vw;
+    top: 37vh;
+}
+/* 提示文字演示 */
+.tipContent-show {
+    position: relative;
+    left: 42.8vw;
+    top: 50.0vh;
+}
+.tipContent-tips {
+    position: relative;
+    left: 29.8vw;
+    top: 50.0vh;
+}
+/* 填写答案提示 */
 
 /*再次闯关*/
 .pass-again {
@@ -4393,6 +4416,7 @@ body {
 .releaseContent {
     display: none;
 }
+
 .replayContent {
     display: none;
 }
@@ -4621,6 +4645,7 @@ body {
     color: rgba(48, 160, 7, 1);
     display: none;
 }
+
 .infor-close {
     position: absolute;
     bottom: 0.0vh;
@@ -4636,6 +4661,7 @@ body {
     color: rgba(48, 160, 7, 1);
     display: none;
 }
+
 .follow-close {
     position: absolute;
     bottom: -4.5vw;

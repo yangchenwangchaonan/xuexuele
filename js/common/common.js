@@ -1,1 +1,1 @@
-APP_URL = 'http://xuexuele.huimor.com';
+APP_URL = 'https://xuexuele.huimor.com';
