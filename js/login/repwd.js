@@ -1,4 +1,6 @@
 $(function () {
+    //清空value
+    deleteVal("#delTel","#repwdPhone")
     //输入手机号样式变化
     $("#repwdPhone").keyup(function () {
         if ($(this).val() != "") {

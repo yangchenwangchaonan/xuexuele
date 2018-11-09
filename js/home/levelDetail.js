@@ -3,6 +3,7 @@ $(function () {
     // var isFirst = url.split("=")[1];
     // console.log(isFirst);
     UserGateDetail(); //首次渲染
+    var time =0
     // 退出关卡
     $("#levelBack").click(function () {
         $("#closeLevel").show();
@@ -166,31 +167,20 @@ function kitView(gid, uid) {
 
 //定时器
 function Timedate() {
-    var h = m = s = ms = 0; //定义时，分，秒，毫秒并初始化为0；
-    var time = 0;
-
+    var m = s  = 0; //定义时，分，秒，毫秒并初始化为0；
     function timer() { //定义计时函数
-        ms = ms + 50; //毫秒
-        if (ms >= 1000) {
-            ms = 0;
-            s = s + 1; //秒
+        if ($("#time1").html()=="60:00") {
+            $(window).attr("location","../../html/homePages/home.html")
+            return;
         }
-
+         s++
         if (s >= 60) {
             s = 0;
             m = m + 1; //分钟
         }
-
-        // if(m>=60){
-        //   m=0;
-        //   h=h+1;
-        //   toDub(h)+":"+        //小时
-        // }
-
         str = toDub(m) + ":" + toDub(s);
         $("#time1").html(str);
     }
-
     //补0操作
     function toDub(n) {
         if (n < 10) {
@@ -200,14 +190,14 @@ function Timedate() {
         }
     }
     //开启定时器
-    time = setInterval(timer, 50);
+    time = setInterval(timer, 1000);
+
 }
 
 
 //答案比对
 function table(con, answer, nextgateid) {
     console.log(con)
-
     //遍历答案
     var main = ''
     $.each(con, function (index, val) {
@@ -216,12 +206,10 @@ function table(con, answer, nextgateid) {
       		`
     });
     $(".respond-blank>ul").html(main)
-
     if (con.length == answer.length) {
         if (JSON.stringify(con) == JSON.stringify(answer)) {
             Ok(con) //提交后台
-
-            // clearInterval(time) //清除定时器
+            clearInterval(time)//清除定时器
             con = [] //清空答案
         } else {
             con = [] //清空错误答案

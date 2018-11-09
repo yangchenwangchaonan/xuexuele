@@ -1,4 +1,5 @@
 $(function () {
+    deleteVal("#telClear","#reg-phone")
     //输入手机号样式变化
     $("#reg-phone").keyup(function () {
         if ($(this).val() != "") {
