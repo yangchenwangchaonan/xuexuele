@@ -162,7 +162,7 @@ function userGate(index, iscurrent) {
          `;
       });
       $("#levelFixed").html($str);
-      if (data.gatelist[6].islock == 1 && data.gatelist[6].time != "") {
+      if (data.gatelist[5].islock == 1 && data.gatelist[5].time != "") {
         $(".homeFixed>.cloudContent").hide();
       }
       // console.log($levelList);
