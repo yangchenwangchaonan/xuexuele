@@ -386,6 +386,7 @@ function onAttention(uId, followid) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
+                flowerTips("关注导师成功 ", 1)
                 start();
             }
         },
@@ -407,6 +408,7 @@ function noAttention(uId, followid) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
+                flowerTips("已取消关注", 1)
                 start();
             }
         },

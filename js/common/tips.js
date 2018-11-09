@@ -28,3 +28,11 @@ function generalTips(a, b) {
         $(".internet-tips").hide();
     }, date);
 }
+//清空value
+function  deleteVal(a,b) {
+    $(a).click(function() {
+       $(b).val("")
+    console.log(a,b)
+    });
+
+}

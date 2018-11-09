@@ -1,10 +1,10 @@
 $(function () {
-    var uId = sessionStorage.getItem("uid");
-    attentionList(uId);
+    attentionList();
 });
 
 // 关注列表
-function attentionList(uId) {
+function attentionList() {
+    var uId = sessionStorage.getItem("uid");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/My/FollowList",
@@ -16,6 +16,9 @@ function attentionList(uId) {
             console.log(res);
             var data = res.data;
             var str = "";
+            if (data=="") {
+                $(".attention-list").html("")
+            }
             if (data.length == 0) {
                 $(".no-attention").show();
             } else {
@@ -27,7 +30,7 @@ function attentionList(uId) {
                             <div class="attention-img"><img src="${val.headimg}"/></div>
                             <p>${val.nickname}</p>
                         </div>
-                        <div class="attention-nosign attention-signed">已关注</div>
+                        <div class="attention-nosign attention-signed" onclick="followNot(${val.followid})">已关注</div>
                     </li>
                      `;
                     $(".attention-list").html(str);
@@ -35,12 +38,6 @@ function attentionList(uId) {
                     $(".followig").click(function () {
                         var followid = $(this).attr("data-fid");
                         $(window).attr("location", "attention-detail.html?fid="+followid);
-                    });
-                    //关注
-                    var followId = val.followid;
-                    var $followList = $(".attention-signed");
-                    $followList.click(function () {
-                        followNot(uId, followId);
                     });
                 });
             }
@@ -53,7 +50,8 @@ function attentionList(uId) {
 
 
 // 取消关注
-function followNot(uId, followId) {
+function followNot(followId) {
+    var uId = sessionStorage.getItem("uid");
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/FollowNot",
@@ -64,7 +62,7 @@ function followNot(uId, followId) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            window.location.reload();
+            attentionList()
         },
         error: function (err) {
             console.log(err);

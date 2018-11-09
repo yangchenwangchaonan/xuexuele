@@ -1,4 +1,7 @@
 $(function () {
+    //清空value
+    deleteVal("#delPhoto","#phone")
+    deleteVal("#delPassword","#password")
     //输入手机号样式变化
     $("#phone").keyup(function () {
         if ($(this).val() != "") {
@@ -19,7 +22,6 @@ $(function () {
             $("#delPassword").css("display", "none");
         }
     });
-
     // 登录
     $(".login-btn").click(function () {
         if ($("#phone").val() == "" || $("#phone").val() == null) {

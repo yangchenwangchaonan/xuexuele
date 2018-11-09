@@ -53,7 +53,7 @@ function userLetter() {
 }
 
 
-
+//删除站内信
 function deleteInfo (id) {
       $.ajax({
         type: "POST",
@@ -65,7 +65,8 @@ function deleteInfo (id) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            userLetter() 
+            flowerTips("删除信息成功​",1)
+            userLetter()  
         },
         error: function (err) {
             console.log(err);
