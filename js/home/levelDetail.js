@@ -1,8 +1,8 @@
 $(function () {
-    var url = window.location.href;
-    var isFirst = url.split("=")[1];
-    console.log(isFirst);
-    UserGateDetail();   //首次渲染
+    // var url = window.location.href;
+    // var isFirst = url.split("=")[1];
+    // console.log(isFirst);
+    UserGateDetail(); //首次渲染
     // 退出关卡
     $("#levelBack").click(function () {
         $("#closeLevel").show();
@@ -50,8 +50,10 @@ function UserGateDetail(a) {
             });
             $(".respond-key>ul").html(str);
             // 新用户演示
-            levelShow();
-
+            var isfirst = sessionStorage.getItem("firstlogin");
+            if (id == 1 && isfirst == 1) {
+                levelShow();
+            }
             // 点击锦囊
             var userWisdombean = data.userwisdombean;
             var answerNeed = data.answerwisdombeanuse;
@@ -215,10 +217,10 @@ function table(con, answer, nextgateid) {
     });
     $(".respond-blank>ul").html(main)
 
-   if (con.length == answer.length) {
+    if (con.length == answer.length) {
         if (JSON.stringify(con) == JSON.stringify(answer)) {
             Ok(con) //提交后台
-            
+
             // clearInterval(time) //清除定时器
             con = [] //清空答案
         } else {
@@ -226,7 +228,7 @@ function table(con, answer, nextgateid) {
             UserGateDetail(0)
         }
     }
-    
+
     //点击答案删除
     $(".delete").click(function () {
         con.splice($.inArray(this, con), 1);
@@ -338,16 +340,29 @@ function ranking(levelId) {
 }
 
 // 新用户演示
-function levelShow(){
+function levelShow() {
     // 第一步
     $("#contentShow").show();
-    $(".level-topic").css("z-index","99999");
+    $(".level-topic").css("z-index", "99999");
     // 第二步
-    $("#tipContentShow").show();
-    $(".kit-content").css("z-index","99999");
-    $(".key-show").show();
+    $("#topicShow").click(function () {
+        $("#contentShow").hide();
+        $(".level-topic").css("z-index", "350");
+        $("#tipContentShow").show();
+        $(".kit-content").css("z-index", "99999");
+        $(".key-show").show();
+    });
     // 第三步
-    $("#tipKeyShow").show();
-    $(".blank-show").show();
+    $("#keyShow").click(function () {
+        $("#tipContentShow").hide();
+        $(".kit-content").css("z-index", "350");
+        $(".key-show").hide();
+        $("#tipKeyShow").show();
+        $(".blank-show").show();
+    });
+    $("#blankShow").click(function(){
+        $("#tipKeyShow").hide();
+        $(".blank-show").hide();
+    });
 
 }

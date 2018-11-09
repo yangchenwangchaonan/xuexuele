@@ -207,7 +207,7 @@ function userGate(index, iscurrent) {
             str1 += `<li></li>`;
           } else {
             str1 += `
-                  <li data-fl=${firstLogin} class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+                  <li class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
                     <span>${levelNum}</span>
                     ${val.islock==1&&val.time==''?`
                     <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
@@ -270,8 +270,6 @@ function userGate(index, iscurrent) {
 
 // 闯关
 function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName) {
-  var isFirst = sessionStorage.getItem("firstlogin"); 
-  console.log(isFirst);
   if (levelLock == 0) {
     return;
   }
@@ -300,7 +298,7 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
   $("#levelShade").show();
   $("#levelFirst").click(function () {
     sessionStorage.setItem("gateid", levelId);
-    $(window).attr("location", "./level_content.html?fid="+isFirst);
+    $(window).attr("location", "./level_content.html");
   });
   // 取消闯关
   $(".level_btn").click(function () {
