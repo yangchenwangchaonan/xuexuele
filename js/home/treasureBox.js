@@ -56,7 +56,12 @@ function treasureBoxList(page, uId) {
                 `}
                 `;
             });
-            $(".treasureBox-wrapper").append(str1);
+            if(page==1){
+                $(".treasureBox-wrapper").html(str1);
+            }else {
+                $(".treasureBox-wrapper").append(str1);
+            }
+            
             // 触底刷新
             var nDivHight = $(".treasureBox-wrapper").height();
             $(".treasureBox-wrapper").unbind('scroll').bind('scroll', function () {

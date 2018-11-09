@@ -1,27 +1,21 @@
 $(function () {
-	getSort(1);
+	getSort(1, 1);
 	var $sort = $(".lesson-sort>.sort");
 	$sort.click(function () {
 		var $id = $(this).attr("data-sId");
-		getSort(1,$id);
+		getSort(1, $id);
 	});
-
-	// 禁止屏幕滚动
-	var handle = function (event) {
-		event.preventDefault();
-	}
-	document.body.addEventListener('touchmove', handle, false);
-	document.body.removeEventListener('touchmove', handle, false);
 
 });
 
 // 获取列表内容
-function getSort(page,id) {
+function getSort(page, sortId) {
+	console.log(sortId);
 	$.ajax({
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/WisdomList",
 		data: {
-			sort: id,
+			sort: sortId,
 			page: page
 		},
 		dataType: "json",
@@ -41,27 +35,32 @@ function getSort(page,id) {
 				</li>
 				 `;
 			});
-			$(".lesson-list>ul").append(str);
+			if(page==1){
+				$(".lesson-list>ul").html(str);
+			}else{
+				$(".lesson-list>ul").append(str);
+			}
 			$(".table-lesson").click(function () {
 				var lessonId = $(this).attr("data-lId");
 				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId);
 			});
 			// 触底刷新
 			var nDivHight = $(".lesson-list").height();
-			$(".lesson-list").unbind("scroll").bind("scroll",function () {
+			$(".lesson-list").unbind("scroll").bind("scroll", function () {
+				// console.log(sortId);
 				var nScrollHight = $(this)[0].scrollHeight;
 				var nScrollTop = $(this)[0].scrollTop;
 				// console.log(nDivHight, nScrollHight, nScrollTop);
-				if (nScrollTop + nDivHight == nScrollHight) {
+				if (nScrollTop + nDivHight >= nScrollHight) {
 					var pageIndex = page;
 					pageIndex++;
-					getSort(pageIndex,id);
+					getSort(pageIndex, sortId);
 				}
 			});
 			// 清除触底刷新
 			if (data.length != 10 || data.length == 0) {
-                $(".lesson-list").unbind('scroll');
-            }
+				$(".lesson-list").unbind('scroll');
+			}
 
 		},
 		error: function (err) {

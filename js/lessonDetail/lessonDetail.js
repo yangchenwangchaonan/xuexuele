@@ -118,11 +118,13 @@ function lessonDetail(uId, lessonId) {
             // 课程留言
             $("#lessonMessage").unbind('click').bind('click', function () {
                 $("#messageShade").show();
-                messageList(1, uId, lessonId);
+                messageList(1, uId, lessonId, 1);
                 // 关闭窗口
                 $(".leave-message-close").click(function () {
                     $("#messageShade").hide();
                     $(".message-btn").show();
+                    $(".releaseContent").hide();
+                    $(".replayContent").hide();
                 });
             });
             // 所属专辑
@@ -419,7 +421,7 @@ function noAttention(uId, followid) {
 }
 
 // 获取课程留言列表
-function messageList(pageIndex, uId, lessonId) {
+function messageList(pageIndex, uId, lessonId, transferId) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/CommentList",
@@ -455,24 +457,31 @@ function messageList(pageIndex, uId, lessonId) {
                 </li>
                  `;
             });
-            $(".message-content").append($str);
+            if (transferId == 1) {
+                $("#msgContent").html($str);
+            } else if (transferId == 2) {
+                $("#msgContent").append($str);
+            }
+
             // 触底刷新
             var nDivHight = $("#msgContent").height();
-            $("#msgContent").unbind('scroll').bind('scroll', function () {
-                // console.log(pageIndex);
+            console.log(nDivHight);
+            $("#msgContent").bind("scroll", function () {
+                console.log(pageIndex);
                 var nScrollHight = $(this)[0].scrollHeight;
                 var nScrollTop = $(this)[0].scrollTop;
                 if (nScrollTop + nDivHight >= nScrollHight) {
                     var mPage = pageIndex;
                     mPage++;
                     // console.log(mPage);
-                    messageList(mPage, uId, lessonId);
+                    messageList(mPage, uId, lessonId, 2);
                 }
             });
             // 清除触底刷新
             if (data.length != 10 || data.length == 0) {
                 $("#msgContent").unbind('scroll');
             }
+
             // 发表留言
             $(".message-btn").click(function () {
                 var tId = localStorage.getItem("commentid"); //导师id
@@ -558,7 +567,7 @@ function commentRelease(uId, lessonId, $text) {
             if (res.code == 1) {
                 $(".message-btn").show();
                 $(".releaseContent").hide();
-                messageList(1, uId, lessonId);
+                messageList(1, uId, lessonId, 1);
             }
         },
         error: function (err) {
@@ -585,7 +594,7 @@ function commentReply(pId, lessonId, $text, uId) {
             if (res.code == 1) {
                 $(".message-btn").show();
                 $(".replayContent").hide();
-                messageList(1, uId, lessonId);
+                messageList(1, uId, lessonId, 1);
             }
         },
         error: function (err) {
@@ -618,38 +627,38 @@ function regular(uId, lessonId, num) {
 }
 
 // 左右滑动切换
-function slidingEvent() {
-    // 开始滑动
-    var startX, moveEndX, X;
-    $("body").on("touchstart", function (e) {
-        // 判断默认行为是否可以被禁用
-        if (e.cancelable) {
-            // 判断默认行为是否已经被禁用
-            if (!e.defaultPrevented) {
-                e.preventDefault();
-            }
-        }
-        startX = e.originalEvent.changedTouches[0].pageX;
-        console.log(startX);
-    });
-    $("body").on("touchend", function (e) {
-        // 判断默认行为是否可以被禁用
-        if (e.cancelable) {
-            // 判断默认行为是否已经被禁用
-            if (!e.defaultPrevented) {
-                e.preventDefault();
-            }
-        }
-        moveEndX = e.originalEvent.changedTouches[0].pageX;
-        X = moveEndX - startX;
-        console.log(X);
-        //左滑
-        if (X > 0) {
-            alert('左滑');
-        }
-        //右滑
-        else if (X < 0) {
-            alert('右滑');
-        }
-    });
-}
+// function slidingEvent() {
+//     // 开始滑动
+//     var startX, moveEndX, X;
+//     $("body").on("touchstart", function (e) {
+//         // 判断默认行为是否可以被禁用
+//         if (e.cancelable) {
+//             // 判断默认行为是否已经被禁用
+//             if (!e.defaultPrevented) {
+//                 e.preventDefault();
+//             }
+//         }
+//         startX = e.originalEvent.changedTouches[0].pageX;
+//         console.log(startX);
+//     });
+//     $("body").on("touchend", function (e) {
+//         // 判断默认行为是否可以被禁用
+//         if (e.cancelable) {
+//             // 判断默认行为是否已经被禁用
+//             if (!e.defaultPrevented) {
+//                 e.preventDefault();
+//             }
+//         }
+//         moveEndX = e.originalEvent.changedTouches[0].pageX;
+//         X = moveEndX - startX;
+//         console.log(X);
+//         //左滑
+//         if (X > 0) {
+//             alert('左滑');
+//         }
+//         //右滑
+//         else if (X < 0) {
+//             alert('右滑');
+//         }
+//     });
+// }
