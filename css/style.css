@@ -4139,7 +4139,7 @@ body {
 .action-bar {
     position: absolute;
     top: 7.5vh;
-    right: -5.5vw;
+    right: 0.5vw;
     width: 20.0vw;
     font-size: 13px;
     font-family: PingFang-SC-Bold;
@@ -4155,6 +4155,10 @@ body {
 .action-bar img {
     width: 7.73vw;
     height: 5.47vh;
+}
+
+.slideArea {
+    
 }
 
 /*课程评分*/

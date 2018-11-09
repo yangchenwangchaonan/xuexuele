@@ -169,6 +169,10 @@ function lessonDetail(uId, lessonId) {
                 });
             });
 
+            // 左右滑动切换课程
+            // var previous = data.
+            // slidingEvent();
+
         },
         error: function (err) {
             console.log(err);
@@ -607,6 +611,43 @@ function regular(uId, lessonId, num) {
         },
         error: function (err) {
             console.log(err);
+        }
+    });
+}
+
+// 左右滑动切换
+function slidingEvent() {
+    // 开始滑动
+    var startX, moveEndX, X;
+    $("body").on("touchstart", function (e) {
+        // 判断默认行为是否可以被禁用
+        if (e.cancelable) {
+            // 判断默认行为是否已经被禁用
+            if (!e.defaultPrevented) {
+                e.preventDefault();
+            }
+        }
+        startX = e.originalEvent.changedTouches[0].pageX;
+        console.log(startX);
+    });
+    $("body").on("touchend", function (e) {
+        // 判断默认行为是否可以被禁用
+        if (e.cancelable) {
+            // 判断默认行为是否已经被禁用
+            if (!e.defaultPrevented) {
+                e.preventDefault();
+            }
+        }
+        moveEndX = e.originalEvent.changedTouches[0].pageX;
+        X = moveEndX - startX;
+        console.log(X);
+        //左滑
+        if (X > 0) {
+            alert('左滑');
+        }
+        //右滑
+        else if (X < 0) {
+            alert('右滑');
         }
     });
 }
