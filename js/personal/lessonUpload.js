@@ -181,6 +181,7 @@ function Rendering(voiceUrl) {
         });
         // 确定
         $("#beansBtn").click(function () {
+            PlatreWardbeans();
             // 弹出框
             $(".beans-shade").show();
             window.setTimeout(() => {
@@ -345,6 +346,24 @@ function changeCourse(cId, aId) {
                 }, 1000);
             } else {
                 flowerTips(res.msg, 1);
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}
+
+// 打赏 
+function PlatreWardbeans(){
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/Wisdom/PlatreWardbeans",
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if(res.code==1){
+                $(".beans-tips>.tip-text>span").text(res.data.platrewardbeans+"%");
             }
         },
         error: function (err) {

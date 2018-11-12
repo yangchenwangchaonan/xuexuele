@@ -36,3 +36,13 @@ function  deleteVal(a,b) {
     });
 
 }
+
+//智慧塔提示框
+function homeLevel(a, b) {
+    $(".home-tips").show()
+    $(".home-tips").text(a)
+    var date = b * 1000;
+    window.setTimeout(() => {
+        $(".home-tips").hide();
+    }, date);
+}

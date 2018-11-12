@@ -873,7 +873,7 @@ body {
     left: -0.0vw;
     width: 100vw;
     height: 88px;
-    z-index: 1000;
+    z-index: 2000;
     overflow: hidden;
 }
 
@@ -1103,6 +1103,21 @@ body {
 
 .reg-tips {
     position: absolute;
+    width: 72.67vw;
+    height: 19.02vh;
+    background: url("../images/250.png")no-repeat center;
+    background-size: 100% 100%;
+    top: 33.24vh;
+    left: 16.67vw;
+    z-index: 99999;
+    display: none;
+    text-align: center;
+    line-height: 19.02vh;
+}
+
+/* 智慧塔提示框 */
+.home-tips {
+    position: fixed;
     width: 72.67vw;
     height: 19.02vh;
     background: url("../images/250.png")no-repeat center;
@@ -2819,7 +2834,7 @@ body {
 }
 
 .menu img {
-    width: 16.67vw;
+    width: 14.67vw;
     margin: 0 3.2vw;
 }
 

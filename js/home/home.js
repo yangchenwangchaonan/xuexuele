@@ -284,7 +284,7 @@ function userGate(index, iscurrent) {
 // 闯关
 function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName) {
   if (levelLock == 0) {
-    flowerTips("请先闯过当前关卡~", 1);
+    homeLevel("请先闯过当前关卡~", 1);
     return;
   }
   $("#levelNum").html(levelName);
