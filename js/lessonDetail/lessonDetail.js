@@ -462,34 +462,6 @@ function messageList(pageIndex, uId, lessonId, transferId) {
             } else if (transferId == 2) {
                 $("#msgContent>ul").append($str);
             }
-
-            $("#msgContent").scroll(function() {
-                console.log(1)
-            })
-
-            // 触底刷新
-            var nDivHight = $("#msgContent").height();
-            console.log(nDivHight);
-            $(document).ready(function () {
-                $("#msgContent").unbind().bind("scroll", function () {
-                    alert()
-                    console.log(nScrollTop, nDivHight, nScrollHight)
-                    console.log(pageIndex);
-                    var nScrollHight = $(this)[0].scrollHeight;
-                    var nScrollTop = $(this)[0].scrollTop;
-                    if (nScrollTop + nDivHight >= nScrollHight) {
-                        var mPage = pageIndex;
-                        mPage++;
-                        console.log(mPage);
-                        messageList(mPage, uId, lessonId, 2);
-                    }
-                });
-            })
-            // 清除触底刷新
-            if (data.length != 10 || data.length == 0) {
-                $("#msgContent").unbind('scroll');
-            }
-
             // 发表留言
             $(".message-btn").click(function () {
                 var tId = localStorage.getItem("commentid"); //导师id
@@ -551,13 +523,29 @@ function messageList(pageIndex, uId, lessonId, transferId) {
                     flowerTips("只有导师可以回复哦~", 1);
                 }
             });
+            // 触底刷新
+            var nDivHight = $("#msgContent").height();
+            // console.log(nDivHight);
+            $("#msgContent").unbind().bind("scroll",function () {
+                var nScrollHight = $(this)[0].scrollHeight;
+                var nScrollTop = $(this)[0].scrollTop;
+                if (nScrollTop + nDivHight >= nScrollHight) {
+                    var mPage = pageIndex;
+                    mPage++;
+                    // console.log(mPage);
+                    messageList(mPage, uId, lessonId, 2);
+                }
+            });
+            // 清除触底刷新
+            if (data.list.length != 10 || data.list.length == 0) {
+                $("#msgContent").unbind('scroll');
+            }
         },
         error: function (err) {
             console.log(err);
         }
     });
 }
-
 
 // 发布课程留言
 function commentRelease(uId, lessonId, $text) {
@@ -670,7 +658,3 @@ function regular(uId, lessonId, num) {
 //         }
 //     });
 // }
-
-
-
-

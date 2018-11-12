@@ -68,7 +68,7 @@ function userGate(index, iscurrent) {
     success: function (res) {
       console.log(res);
       var data = res.data;
-      sessionStorage.setItem("firstlogin",data.firstlogin);  //是否为第一次登录
+      sessionStorage.setItem("firstlogin", data.firstlogin); //是否为第一次登录
       //体力值
       var sVal = data.manvalue;
       if (sVal > 30) {
@@ -148,8 +148,15 @@ function userGate(index, iscurrent) {
       var $levelFixed = $levelList[0].reverse();
       $.each($levelFixed, function (index, val) {
         var levelSeq = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+        // console.log(levelSeq);
         $str += `
-         <li class="${levelSeq%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+        <li class='${levelSeq==1?"LevelPosition1"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
+                     levelSeq==2?"LevelPosition2"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
+                     levelSeq==3?"LevelPosition3"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
+                     levelSeq==4?"LevelPosition4"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
+                     levelSeq==5?"LevelPosition5"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
+                     levelSeq==6?"LevelPosition6"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):""
+                    }'  onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
             <span>${levelSeq}</span>
             ${val.islock==1&&val.time==''?`
             <div class="${levelSeq%2==0?'evenWillLevel':'oddWillLevel'}"></div>
@@ -175,9 +182,9 @@ function userGate(index, iscurrent) {
           <div class="homeContentLoop"></div>
           <div class="aroundCloudLoop">
           ${i%2==0?`
-            <div class="oddBigCloudLoop"><img src="../../images/left.png"></div>
+            <div class="evenBigCloudLoop"><img src="../../images/left.png"></div>
           `:`
-            <div class="evenBigCloudLoop"><img src="../../images/right.png"></div>
+            <div class="oddBigCloudLoop"><img src="../../images/right.png"></div>
           `
           }
             <div class="leftCloudLoop"><img src="../../images/254.png" /></div>
@@ -207,7 +214,13 @@ function userGate(index, iscurrent) {
             str1 += `<li></li>`;
           } else {
             str1 += `
-                  <li class="${levelNum%2==0?"evenList"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):"oddList "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':'')}" onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+            <li class='${levelNum%6==1?"LevelLoopPosition1"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
+                         levelNum%6==2?"LevelLoopPosition2"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
+                         levelNum%6==3?"LevelLoopPosition3"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
+                         levelNum%6==4?"LevelLoopPosition4"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
+                         levelNum%6==5?"LevelLoopPosition5"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
+                         levelNum%6==0?"LevelLoopPosition6"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):""
+                        }' onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
                     <span>${levelNum}</span>
                     ${val.islock==1&&val.time==''?`
                     <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
@@ -271,6 +284,7 @@ function userGate(index, iscurrent) {
 // 闯关
 function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName) {
   if (levelLock == 0) {
+    flowerTips("请先闯过当前关卡~", 1);
     return;
   }
   $("#levelNum").html(levelName);

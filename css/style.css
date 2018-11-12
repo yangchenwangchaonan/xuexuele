@@ -4,9 +4,8 @@ body {
     /* height: 100%;
     width: 100%;
     font-size: 13px;
-    overflow-x: hidden;
+    overflow: hidden;
     overflow-y: hidden; */
-    /* overflow: hidden; */
 }
 
 .index-body {
@@ -756,7 +755,7 @@ body {
     position: relative;
     left: 0;
     top: 0;
-    margin-bottom: -12.95vh;
+    margin-bottom: -24.8875vh;
     width: 100%;
     height: 90.8vh;
     z-index: 500;
@@ -858,10 +857,20 @@ body {
     z-index: 500;
 }
 
+.cloudContent1 {
+    position: absolute;
+    top: 3.59vh;
+    left: -33.81vw;
+    width: 100vw;
+    height: 88px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
 .cloudContent {
     position: absolute;
     top: 3.59vh;
-    left: -0.11vw;
+    left: -0.0vw;
     width: 100vw;
     height: 88px;
     z-index: 1000;
@@ -962,7 +971,7 @@ body {
 
 .bigCloud {
     position: absolute;
-    bottom: 84.33vh;
+    bottom: 88.33vh;
     right: 0;
     width: 145px;
     height: 82.5px;
@@ -2556,7 +2565,7 @@ body {
     color: rgba(254, 246, 223, 1);
 }
 
-.oddList {
+/* .oddList {
     top: 165.8px;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
@@ -2577,8 +2586,111 @@ body {
 .evenList>span {
     margin-right: 3px;
     transform: rotate(-16deg);
+} */
+
+/* 底座 */
+/* 第一关位置 */
+.LevelPosition1 {
+    top: 165.8px;
+    background: url(../images/96.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第二关位置 */
+.LevelPosition2 {
+    left: -99px;
+    top: 213px;
+    background: url(../images/95.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第三关位置 */
+.LevelPosition3 {
+    top: 130.8px;
+    background: url(../images/96.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第四关位置 */
+.LevelPosition4 {
+    left: -99px;
+    top: 178px;
+    background: url(../images/95.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第五关位置 */
+.LevelPosition5 {
+    top: 101.8px;
+    background: url(../images/96.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第六关位置 */
+.LevelPosition6 {
+    left: -99px;
+    top: 152px;
+    background: url(../images/95.png) no-repeat;
+    background-size: 100% 100%;
 }
 
+.LevelPosition1>span,.LevelPosition3>span,.LevelPosition5>span {
+    margin-left: 3px;
+    transform: rotate(16deg);
+}
+
+.LevelPosition2>span,.LevelPosition4>span,.LevelPosition6>span {
+    margin-right: 3px;
+    transform: rotate(-16deg);
+}
+
+/* 循环 */
+/* 第一关位置 */
+.LevelLoopPosition1 {
+    top: 38.8px;
+    background: url(../images/96.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第二关位置 */
+.LevelLoopPosition2 {
+    left: -99px;
+    top: 96px;
+    background: url(../images/95.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第三关位置 */
+.LevelLoopPosition3 {
+    top: 55.8px;
+    background: url(../images/96.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第四关位置 */
+.LevelLoopPosition4 {
+    left: -99px;
+    top: 112px;
+    background: url(../images/95.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第五关位置 */
+.LevelLoopPosition5 {
+    top: 62.8px;
+    background: url(../images/96.png) no-repeat;
+    background-size: 100% 100%;
+}
+/* 第六关位置 */
+.LevelLoopPosition6 {
+    left: -99px;
+    top: 120px;
+    background: url(../images/95.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.LevelLoopPosition1>span,.LevelLoopPosition3>span,.LevelLoopPosition5>span {
+    margin-left: 3px;
+    transform: rotate(16deg);
+}
+
+.LevelLoopPosition2>span,.LevelLoopPosition4>span,.LevelLoopPosition6>span {
+    margin-right: 3px;
+    transform: rotate(-16deg);
+}
+
+/* 闯关失败 */
 .evenFailLevel {
     background: url(../images/99.png) no-repeat;
     background-size: 100% 100%;
