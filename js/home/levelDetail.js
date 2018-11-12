@@ -117,10 +117,12 @@ function UserGateDetail(a) {
             var con = []
             //遍历答案
             $(".respond-key>ul").on("click", "li", function () {
-                if (con.length==data.answer.length) {
+                if (con.length==data.answer.length || $(this).html()=="") {
                     return;
                 }
                 con.push($(this).html())
+                var li=$(".respond-key>ul").children()
+                // $(this).replaceWith("<li></li>")
                 table(con, data.answer, data.nextgateid)
             })
             //首次遍历
@@ -225,7 +227,6 @@ function table(con, answer, nextgateid) {
         con.splice($.inArray(this, con), 1);
         table(con, answer)
     })
-
 }
 
 //正确 提交
