@@ -458,25 +458,33 @@ function messageList(pageIndex, uId, lessonId, transferId) {
                  `;
             });
             if (transferId == 1) {
-                $("#msgContent").html($str);
+                $("#msgContent>ul").html($str);
             } else if (transferId == 2) {
-                $("#msgContent").append($str);
+                $("#msgContent>ul").append($str);
             }
+
+            $("#msgContent").scroll(function() {
+                console.log(1)
+            })
 
             // 触底刷新
             var nDivHight = $("#msgContent").height();
             console.log(nDivHight);
-            $("#msgContent").bind("scroll", function () {
-                console.log(pageIndex);
-                var nScrollHight = $(this)[0].scrollHeight;
-                var nScrollTop = $(this)[0].scrollTop;
-                if (nScrollTop + nDivHight >= nScrollHight) {
-                    var mPage = pageIndex;
-                    mPage++;
-                    // console.log(mPage);
-                    messageList(mPage, uId, lessonId, 2);
-                }
-            });
+            $(document).ready(function () {
+                $("#msgContent").unbind().bind("scroll", function () {
+                    alert()
+                    console.log(nScrollTop, nDivHight, nScrollHight)
+                    console.log(pageIndex);
+                    var nScrollHight = $(this)[0].scrollHeight;
+                    var nScrollTop = $(this)[0].scrollTop;
+                    if (nScrollTop + nDivHight >= nScrollHight) {
+                        var mPage = pageIndex;
+                        mPage++;
+                        console.log(mPage);
+                        messageList(mPage, uId, lessonId, 2);
+                    }
+                });
+            })
             // 清除触底刷新
             if (data.length != 10 || data.length == 0) {
                 $("#msgContent").unbind('scroll');
@@ -662,3 +670,7 @@ function regular(uId, lessonId, num) {
 //         }
 //     });
 // }
+
+
+
+

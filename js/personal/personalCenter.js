@@ -20,6 +20,15 @@ $(function() {
         $(window).attr("location", "../../signOut.html");
         sessionStorage.clear()
     });
+    // 分享
+    $(".personal-leave").click(function(){
+        $("#shareTips").show();
+        $("#shareTips").click(function(){
+            $(this).hide();
+        });
+    });
+
+
 });
 // 关闭窗口
 function Close () {
