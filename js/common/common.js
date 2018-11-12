@@ -1,7 +1,7 @@
 APP_URL = 'https://xuexuele.huimor.com';
-$(function(){
-	$('body').on('touchmove', function (event) {
-	    event.preventDefault();
-	});
-	console.log(121212)
-})
+
+window.onload = function(){
+    document.body.addEventListener("touchmove",function(event){
+        event.preventDefault();
+        });
+};
