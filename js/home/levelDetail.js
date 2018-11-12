@@ -117,6 +117,9 @@ function UserGateDetail(a) {
             var con = []
             //遍历答案
             $(".respond-key>ul").on("click", "li", function () {
+                if (con.length==data.answer.length) {
+                    return;
+                }
                 con.push($(this).html())
                 table(con, data.answer, data.nextgateid)
             })
@@ -208,7 +211,7 @@ function table(con, answer, nextgateid) {
     $(".respond-blank>ul").html(main)
     if (con.length == answer.length) {
         if (JSON.stringify(con) == JSON.stringify(answer)) {
-            Ok(con) //提交后台
+            Ok(con,nextgateid) //提交后台
             clearInterval(time)//清除定时器
             con = [] //清空答案
         } else {
@@ -226,7 +229,7 @@ function table(con, answer, nextgateid) {
 }
 
 //正确 提交
-function Ok(con) {
+function Ok(con,nextgateid) {
     var answer = con.join(",")
     var id = sessionStorage.getItem("uid")
     var gid = sessionStorage.getItem("gateid")
@@ -266,7 +269,9 @@ function Ok(con) {
                     $("#levelPass").hide();
                 });
                 $(".next").click(function () {
+                    sessionStorage.setItem("gateid", nextgateid) //重置关卡id
                     UserGateDetail(1);
+                    window.location.reload();
                     $("#levelPassAgain").hide();
                 });
                 // 关闭
