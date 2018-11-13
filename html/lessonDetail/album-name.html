@@ -10,13 +10,12 @@
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
-	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/lessonDetail/albumList.js"></script>
 </head>
 
 <body class="album-body">
 	<section class="album-container">
-		<i class="album-back"></i>
+		<i class="album-back" id="albumListBack"></i>
 		<span id="album-title">-专辑名称-</span>
 		<div class="album-box">
 			<div class="album-top"><img src=""></div>
@@ -25,13 +24,14 @@
 				<!-- 是一段介绍信息是一段介绍信息是一段介绍信息是一段介绍信息是一段介绍信息是一段介绍信息是一段介绍信息是一段介绍信息是一段介绍信息。 -->
 			</div>
 			<div class="lesson-title-list">
+				
 				<!--课程名称[播放]-->
 				<!-- <div class="lesson-title">
 					<div class="list-num">5</div>
 					<div class="lesson-list-detail">
 						<div class="lesson-list-title">
 							<div class="lesson-list-name">课程名称</div>
-							<div class="lesson-play">播放</div>
+							<div class="lesson-play">播放<audio id="courseAudio"></audio></div>
 						</div>
 						<div class="lesson-list-tab">
 							<ul>

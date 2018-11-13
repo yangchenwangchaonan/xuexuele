@@ -21,7 +21,7 @@ function lessonList() {
                 var str = "";
                 $.each(data, function (index, val) {
                     str += `
-                     <li data-cId="${val.id}">
+                     <li data-aId="${val.id}">
                         <div class="table-lesson">
                             <img src="${val.albumimg}" />
                             <div class="lesson-name2">${val.albumname}</div>
@@ -32,12 +32,11 @@ function lessonList() {
                 });
                 $(".mylesson-list").html(str);
                 $(".mylesson-list>li").click(function () {
-                    var lessonId = $(this).attr("data-cId");
+                    var albumId = $(this).attr("data-aId");
                     // alert(lessonId);
-                    $(window).attr("location", "../lessonDetail/lesson-detail.html?lessonId=" + lessonId);
+                    $(window).attr("location", "../lessonDetail/album-name.html?albumId=" + albumId);
                 });
             }
-
         },
         error: function (err) {
             console.log(err);

@@ -88,18 +88,3 @@ function progressRealClick(time) {
         $('#lessonAudio')[0].currentTime = b
     })
 }
-
-// 广告
-function bannerList() {
-    $.ajax({
-        type: "GET",
-        url: APP_URL + "/api/Wisdom/BannerList",
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}

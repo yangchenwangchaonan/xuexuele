@@ -1388,7 +1388,6 @@ body {
 .album-box,
 .series-box,
 .realname-box,
-.attention-list,
 .manage-box,
 .album-add-box,
 .addLesson-box,
@@ -2087,6 +2086,35 @@ body {
     left: 0;
 }
 
+.lessonAd {
+    width: 100%;
+    height: 100%;
+}
+
+.lessonAd>img {
+    width: 100%;
+    height: 100%;
+}
+
+.lessonAd>h1 {
+    position: absolute;
+    top: 5.5vh;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.adAudio-content {
+    position: absolute;
+    width: 74.0vw;
+    height: 10.75vh;
+    top: 78.0vh;
+    left: 14.03vw;
+}
+
 .progressBar {
     position: absolute;
     left: 0;
@@ -2610,6 +2638,7 @@ body {
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第二关位置 */
 .LevelPosition2 {
     left: -99px;
@@ -2617,12 +2646,14 @@ body {
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第三关位置 */
 .LevelPosition3 {
     top: 130.8px;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第四关位置 */
 .LevelPosition4 {
     left: -99px;
@@ -2630,12 +2661,14 @@ body {
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第五关位置 */
 .LevelPosition5 {
     top: 101.8px;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第六关位置 */
 .LevelPosition6 {
     left: -99px;
@@ -2644,12 +2677,16 @@ body {
     background-size: 100% 100%;
 }
 
-.LevelPosition1>span,.LevelPosition3>span,.LevelPosition5>span {
+.LevelPosition1>span,
+.LevelPosition3>span,
+.LevelPosition5>span {
     margin-left: 3px;
     transform: rotate(16deg);
 }
 
-.LevelPosition2>span,.LevelPosition4>span,.LevelPosition6>span {
+.LevelPosition2>span,
+.LevelPosition4>span,
+.LevelPosition6>span {
     margin-right: 3px;
     transform: rotate(-16deg);
 }
@@ -2661,6 +2698,7 @@ body {
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第二关位置 */
 .LevelLoopPosition2 {
     left: -99px;
@@ -2668,12 +2706,14 @@ body {
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第三关位置 */
 .LevelLoopPosition3 {
     top: 55.8px;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第四关位置 */
 .LevelLoopPosition4 {
     left: -99px;
@@ -2681,12 +2721,14 @@ body {
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第五关位置 */
 .LevelLoopPosition5 {
     top: 62.8px;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
+
 /* 第六关位置 */
 .LevelLoopPosition6 {
     left: -99px;
@@ -2695,12 +2737,16 @@ body {
     background-size: 100% 100%;
 }
 
-.LevelLoopPosition1>span,.LevelLoopPosition3>span,.LevelLoopPosition5>span {
+.LevelLoopPosition1>span,
+.LevelLoopPosition3>span,
+.LevelLoopPosition5>span {
     margin-left: 3px;
     transform: rotate(16deg);
 }
 
-.LevelLoopPosition2>span,.LevelLoopPosition4>span,.LevelLoopPosition6>span {
+.LevelLoopPosition2>span,
+.LevelLoopPosition4>span,
+.LevelLoopPosition6>span {
     margin-right: 3px;
     transform: rotate(-16deg);
 }
@@ -4640,7 +4686,7 @@ body {
     float: left;
     border-bottom: 1px solid rgba(229, 194, 138, 0.3);
     margin-bottom: 10px;
-    
+
 }
 
 .releaseContent {
@@ -5075,6 +5121,7 @@ body {
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(214, 0, 14, 1);
+    z-index: 2000;
 }
 
 
@@ -5114,6 +5161,7 @@ body {
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(149, 104, 38, 1);
+    z-index: 2000;
 }
 
 .lesson-playing>img,
@@ -6376,6 +6424,18 @@ body {
 /*我的关注*/
 .attention-body {
     background: rgba(197, 128, 6, 1);
+    overflow: hidden;
+}
+
+.attention-list {
+    position: relative;
+    width: 92.0vw;
+    height: 89.66%;
+    top: 49px;
+    left: 2.667vw;
+    background-color: #FFF7DF;
+    border-radius: 10px;
+    overflow-y: auto;
 }
 
 .attention-list>li {

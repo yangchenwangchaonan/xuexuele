@@ -87,7 +87,8 @@ $(function () {
     function loadComplete() {
         // 设置定时器，当全部加载完毕后让100%停留0.4秒，提高用户体验，不至于让用户感觉不到
         window.setTimeout(() => {
-            $(window).attr("location", "./html/login/login.html");
+            // $(window).attr("location", "./html/login/login.html");
+             window.location.replace("./html/login/login.html");
         }, 400);
 
     }

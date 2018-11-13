@@ -120,7 +120,7 @@ function userBoxCourse(boxPage, uId) {
             var str2 = "";
             $.each(data, function (index, val) {
                 str2 += `
-                <div class="treasureBox-gift treasureBox-gift2" data-id=${val.courseid}>
+                <div class="treasureBox-gift treasureBox-gift2" data-id=${val.id}>
                     <div class="musicGift"></div>
                     <li><span>${val.gatename}</span></li>
                     <p>${val.coursename}</p>

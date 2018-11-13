@@ -12,25 +12,28 @@ $(function () {
 
 function start() {
     var url = window.location.href;
-    var arr = url.split("=");
-    var lessonId = arr[1];
+    var arr = url.split("&");
+    // console.log(arr);
+    var lessonId = arr[0].split("=")[1];
+    var sortId = arr[1].split("=")[1]
+    // console.log(sortId,lessonId);
     var uId = sessionStorage.getItem("uid"); //用户id
     $("#audio").attr("data-ud", uId);
     $("#audio").attr("data-lsId", lessonId);
     //智慧社详情
-    lessonDetail(uId, lessonId);
+    lessonDetail(uId, lessonId, sortId, 1);
 }
 
 // 智慧社详情
-function lessonDetail(uId, lessonId) {
+function lessonDetail(uId, lessonId, sortId, bannerSort) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomDetail",
         data: {
             uid: uId,
             courseid: lessonId,
-            sort:1,
-            bannersort:1
+            sort: sortId,
+            bannersort: bannerSort
         },
         dataType: "json",
         success: function (res) {
@@ -76,6 +79,11 @@ function lessonDetail(uId, lessonId) {
                     $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId);
                 });
             }
+            // 左右滑动切换课程
+            var lastLesson = data.lastid;
+            var nextLesson = data.nextid;
+            slidingEvent(uId, lastLesson, nextLesson, bannerSort, sortId); //用户id,上一节课程的id，下一节课程的id，查看课程次数，分类id
+
             // 判断是否可评分
             var $score = data.isscore;
             if ($score == 1) {
@@ -172,10 +180,6 @@ function lessonDetail(uId, lessonId) {
                     $("#reportShade").hide();
                 });
             });
-
-            // 左右滑动切换课程
-            // var previous = data.
-            // slidingEvent();
 
         },
         error: function (err) {
@@ -625,10 +629,10 @@ function regular(uId, lessonId, num) {
 }
 
 // 左右滑动切换
-function slidingEvent() {
+function slidingEvent(uId, lastLesson, nextLesson, bannerSort, sortId) {
     // 开始滑动
     var startX, moveEndX, X;
-    $("body").on("touchstart", function (e) {
+    $(".lesson-audio").on("touchstart", function (e) {
         // 判断默认行为是否可以被禁用
         if (e.cancelable) {
             // 判断默认行为是否已经被禁用
@@ -637,9 +641,9 @@ function slidingEvent() {
             }
         }
         startX = e.originalEvent.changedTouches[0].pageX;
-        console.log(startX);
+        // console.log(startX);
     });
-    $("body").on("touchend", function (e) {
+    $(".lesson-audio").on("touchend", function (e) {
         // 判断默认行为是否可以被禁用
         if (e.cancelable) {
             // 判断默认行为是否已经被禁用
@@ -650,19 +654,22 @@ function slidingEvent() {
         moveEndX = e.originalEvent.changedTouches[0].pageX;
         X = moveEndX - startX;
         var distanceX = Math.abs(X);
-        console.log(X);
-        // console.log(Math.abs(distanceY)) 
+        // console.log(X);
         //左滑
+        bannerSort++;
+        console.log(bannerSort);
         if (X > 0 && distanceX > 30) {
-            alert('左滑');
-
+            // alert('左滑');
+            bannerList();
+            lessonDetail(uId, lastLesson, sortId, bannerSort);
         }
         //右滑
         else if (X < 0 && distanceX > 30) {
-            alert('右滑');
-
-        }else {
-            event.preventDefault();
+            // alert('右滑');
+            lessonDetail(uId, nextLesson, sortId, bannerSort)
+        } else {
+            e.preventDefault();
         }
     });
+
 }
