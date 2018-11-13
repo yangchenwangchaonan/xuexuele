@@ -7,7 +7,10 @@ $(function () {
             $("#shareShade").hide();
         });
     });
-
+    // 返回
+    $("#lessonDetailBack").click(function(){
+        history.back(-1);
+    });
 });
 
 function start() {
@@ -76,7 +79,8 @@ function lessonDetail(uId, lessonId, sortId, bannerSort) {
                 $(".lock-shade").css("display", "block");
                 $("#progressBarLock>span").html("x" + wisdombean);
                 $("#progressBarLock").click(function () {
-                    $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId);
+                    // $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId);
+                    window.location.replace("./unlock_some.html?lessonId=" + lessonId);
                 });
             }
             // 左右滑动切换课程
@@ -139,7 +143,8 @@ function lessonDetail(uId, lessonId, sortId, bannerSort) {
             });
             // 所属专辑
             $("#albumName").click(function () {
-                $(window).attr("location", "./album-name.html?albumId=" + albumId);
+                // $(window).attr("location", "./album-name.html?albumId=" + albumId);
+                window.location.replace("./album-name.html?albumId=" + albumId);
             });
             // 看文字
             var coursecontent = data.list.coursecontent;
@@ -373,7 +378,8 @@ function tutorDetail(isfollow, followid) {
             $("#albumList").html(str);
             $("#albumList>li").click(function () {
                 var albumId = $(this).attr("data-id");
-                $(window).attr("location", "./album-name.html?albumId=" + albumId);
+                // $(window).attr("location", "./album-name.html?albumId=" + albumId);
+                window.location.replace("./album-name.html?albumId=" + albumId);
             });
         },
         error: function (err) {

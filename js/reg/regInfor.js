@@ -1,7 +1,7 @@
 $(function () {
-    // 返回上一页
-    $(".reg-back").click(function () {
-        $(window).attr("location", "./reg_next.html");
+    // 返回
+    $("#regEndBack").click(function () {
+        window.location.replace("./reg_next.html");
     })
     /* *********选择身份********** */
     $("#identity>p").click(function () {

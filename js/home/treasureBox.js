@@ -15,6 +15,12 @@ $(function () {
         $(this).addClass("treasureBoxOrdinary2").siblings().removeClass("treasureBoxSpecial2");
         userBoxCourse(1, uId);
     });
+
+    // 返回
+    $("#treasureBoxBack").click(function(){
+        window.location.replace("./home.html");
+    });
+    
 });
 
 // 特殊奖励

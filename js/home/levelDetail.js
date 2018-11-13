@@ -9,7 +9,7 @@ $(function () {
         $("#closeLevel").show();
         // 确定
         $("#exitLevel").click(function () {
-            $(window).attr("location", "./home.html");
+            window.location.replace("./home.html");
         });
         // 取消
         $("#exitCancel").click(function () {

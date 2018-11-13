@@ -134,12 +134,10 @@ $(function () {
     // 返回
     // 第一步
     $("#regBackFirst").click(function(){
-        // $(window).attr("location","../login/login.html");
         window. location.replace("../login/login.html");
     });
     // 第二步
     $("#regBackNext").click(function(){
-        // $(window).attr("location","./reg.html");
         window. location.replace("./reg.html");
     });
 

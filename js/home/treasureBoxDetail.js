@@ -30,4 +30,9 @@ $(function () {
             console.log(err)
         }
     });
+
+    // 返回
+    $("#treasureBoxDetailBack").click(function(){
+        window.location.replace("./treasureBox.html");
+    });
 });

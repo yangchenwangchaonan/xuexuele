@@ -123,4 +123,9 @@ $(function () {
         });
 
     });
+
+    // 返回
+    $("#repwdBack").click(function(){
+        window.location.replace("./login.html");
+    });
 });

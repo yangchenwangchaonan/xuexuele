@@ -17,7 +17,10 @@ $(function () {
             addCourse(albumId);
         });
     }
-
+    // 返回
+    // $("#albumAddBack").click(function(){
+    //     history.back(-2);
+    // });
 
 });
 

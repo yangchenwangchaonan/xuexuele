@@ -45,5 +45,9 @@ $(function () {
         }
     });
 
+    //返回
+    $("#repwdNextBack").click(function(){
+        window.location.replace("./repwd.html");
+    });
 
 });
