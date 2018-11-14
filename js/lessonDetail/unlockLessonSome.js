@@ -5,6 +5,10 @@ $(function () {
     var arr1 = url.split("=");
     var lessonId = arr1[1];
     UnlockCourseDetail(uId, lessonId);
+    // 返回
+    $("#unlockLessonSomeBack").click(function(){
+        history.back(-1);
+    });
 });
 
 //单一解锁专辑课程列表详情

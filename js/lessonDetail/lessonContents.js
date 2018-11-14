@@ -25,7 +25,7 @@ function getSort(page, sortId) {
 			var str = "";
 			$.each(data, function (index, val) {
 				str += `
-				<li>
+				<li data-sortId="${sortId}">
 					<div class="table-lesson" data-lId = "${val.id}">
 						<img src="${val.courseimg}">
 						<div class="lesson-name1">${val.coursename}</div>
@@ -42,8 +42,10 @@ function getSort(page, sortId) {
 			}
 			$(".table-lesson").click(function () {
 				var lessonId = $(this).attr("data-lId");
-				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId);
-			});
+				var sort = $(this).parent().attr("data-sortId");
+				// console.log(sort);
+				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId+"&sortId="+sort);
+			});	
 			// 触底刷新
 			var nDivHight = $(".lesson-list").height();
 			$(".lesson-list").unbind("scroll").bind("scroll", function () {

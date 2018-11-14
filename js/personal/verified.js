@@ -11,6 +11,11 @@ $(function () {
 	//照片预览
 	$(".card-photo1").hide()
 
+	// 返回
+	$("#verifiedBack").click(function(){
+		$(window).attr("location","./personal-center.html");
+	});
+
 })
 
 

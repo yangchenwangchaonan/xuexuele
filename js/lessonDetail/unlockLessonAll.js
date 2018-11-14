@@ -5,6 +5,10 @@ $(function () {
     var arr1 = url.split("=");
     var albumId = arr1[1];
     UnlockAllCourseDetail(albumId, uId);
+    // 返回
+    $("#unlockLessonAllBack").click(function(){
+        history.back(-1);
+    });
 });
 
 // 获取专辑未解锁课程列表

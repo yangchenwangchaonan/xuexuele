@@ -18,6 +18,10 @@ $(function () {
         });
     }
 
+    // 返回
+    $("#addAlbumBack").click(function(){
+        history.back(-1);
+    });
 
 });
 

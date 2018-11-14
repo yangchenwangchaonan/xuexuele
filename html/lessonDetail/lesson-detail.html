@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
-	<script src="../../js/common/goBack.js"></script>
 	<script src="../../js/lessonDetail/lessonDetail.js"></script>
 	<script src="../../js/lessonDetail/lessonAudio.js"></script>
 	<script src="../../js/common/tips.js"></script>
@@ -19,7 +18,7 @@
 <body class="lesson-detail-body">
 	<section class="lesson-audio">
 		<img id="lessonBackground" />
-		<i class="page-back"></i>
+		<i class="page-back" id="lessonDetailBack"></i>
 		<div class="audio" id="audio">
 			<h1></h1>
 			<div class="lesson-tutor">
@@ -263,6 +262,27 @@
 			</div>
 		</div>
 	</section>
+	<!-- 广告 -->
+	<div class="lessonAd" style="display:none;">
+		<img id="lessonAdBackground" src="../../images/others.jpg" />
+		<i class="page-back" id="lessonAdBack"></i>
+		<h1>广告</h1>
+		<div class="adAudio-content">
+			<audio id="lessonAdAudio"></audio>
+			<div class="progressBar">
+				<div class="progressReal"></div>
+				<i class="progressKey"></i>
+			</div>
+			<span class="successed">00:00</span>
+			<span class="unsuccessed" id="audioTime"></span>
+			<!-- 暂停 -->
+			<div class="progress-stop" id="progressBar"></div>
+			<!-- 播放 -->
+			<!-- <div class="progress-start" id="progressBar"></div> -->
+			<!-- 下载 -->
+			<!-- <div class="progress-download" id="progressBar"></div> -->
+		</div>
+	</div>
 	<div class="reg-tips"></div>
 </body>
 

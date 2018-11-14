@@ -29,6 +29,7 @@ $(function () {
     handleClick() //点击签到
 
   });
+
   //百宝箱
   $("#treasureBox-tab").click(function () {
     $(window).attr("location", "./treasureBox.html");

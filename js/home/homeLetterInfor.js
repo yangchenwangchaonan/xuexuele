@@ -29,7 +29,7 @@ $(function () {
         }
     });
     $('.page-back1').click(function(){
-         $(window).attr("location","../homePages/letter.html");
+        window.location.replace("../homePages/letter.html");
     })
     /* 站内信更新为已读 */
     $.ajax({

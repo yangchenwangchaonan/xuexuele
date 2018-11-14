@@ -9,7 +9,7 @@ $(function () {
         $("#closeLevel").show();
         // 确定
         $("#exitLevel").click(function () {
-            $(window).attr("location", "./home.html");
+            window.location.replace("./home.html");
         });
         // 取消
         $("#exitCancel").click(function () {
@@ -70,7 +70,7 @@ function UserGateDetail(a) {
                     $(".kit-havebeans>p").html("剩余智慧豆:" + userWisdombean);
                     $(".kit-havebeans").show();
                     // 立即查看
-                    $("#kitView").click(function () {
+                    $("#kitView").unbind().bind("click",function () {
                         $(".kit-havebeans").hide();
                         if (answerContent.length > 0 && answerContent.length <= 4) {
                             kitView(id, uId);
@@ -149,6 +149,7 @@ function kitView(gid, uid) {
         dataType: "json",
         success: function (res) {
             console.log(res);
+            UserGateDetail(0); //首次渲染
             var data = res.data;
             var $str = "";
             $.each(data.answer, function (index, val) {
@@ -165,7 +166,7 @@ function kitView(gid, uid) {
             }
         },
         error: function (err) {
-            console.log(err)
+            console.log(err);
         }
     });
 }

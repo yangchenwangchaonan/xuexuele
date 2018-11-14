@@ -1,7 +1,8 @@
 $(function () {
     userLetter();
+    // 返回
     $(".page-back1").click(function(){
-        $(window).attr("location","../homePages/home.html");
+        window.location.replace("../homePages/home.html");
     })
 });
 

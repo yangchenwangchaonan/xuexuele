@@ -14,6 +14,13 @@ $(function () {
         var specialId = arr3[1];
         specialAudio(specialId);
     }
+
+    // 返回
+    $("#treasureBoxAudioBack").click(function(){
+        // window.location.replace("./treasureBox.html");
+        // $(window).attr("location","./treasureBox.html");
+        history.back(-1);
+    });
 });
 
 // 特殊奖励的音频

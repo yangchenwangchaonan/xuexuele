@@ -3,6 +3,10 @@ $(function () {
     $(".album-add").click(function () {
         $(window).attr("location", "./album-add.html");
     });
+    // 返回
+    $("#albumManageBack").click(function(){
+        window.location.replace("./personal-center.html");
+    });
 });
 
 function lessonManageList() {

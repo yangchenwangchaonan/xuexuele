@@ -131,4 +131,14 @@ $(function () {
         }
     });
 
+    // 返回
+    // 第一步
+    $("#regBackFirst").click(function(){
+        window. location.replace("../login/login.html");
+    });
+    // 第二步
+    $("#regBackNext").click(function(){
+        window. location.replace("./reg.html");
+    });
+
 });

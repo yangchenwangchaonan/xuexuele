@@ -9,12 +9,11 @@
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
-    <script src="../../js/common/goBack.js"></script>
 </head>
 
 <body class="agreement-body">
     <section class="agreement-container">
-        <i class="page-back"></i>
+        <i class="page-back" id="agreementBack"></i>
         <h1><i></i></h1>
         <div class="agreement-content">
             <div class="agreement-wrapper">
@@ -26,5 +25,11 @@
         </div>
     </section>
 </body>
+<script>
+    // 返回
+    $("#agreementBack").click(function(){
+        history.back(-1);
+    });
+</script>
 
 </html>
