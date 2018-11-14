@@ -18,7 +18,7 @@ $(function () {
 
     // 返回
     $("#treasureBoxBack").click(function(){
-        window.location.replace("./home.html");
+        history.back(-1); //返回上一页
     });
     
 });

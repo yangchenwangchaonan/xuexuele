@@ -4,6 +4,11 @@ $(function () {
     var arr = url.split("=");
     var followId = arr[1];
     attentionDetail(followId);
+
+    //返回
+    $("#attentionDetailBack").click(function(){
+        $(window).attr("location","./my-attention.html");
+    });
 });
 
 // 关注详情

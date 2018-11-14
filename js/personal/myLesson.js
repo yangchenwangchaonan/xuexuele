@@ -1,5 +1,9 @@
 $(function () {
     lessonList();
+    // 返回
+    $("#myLessonBack").click(function(){
+        $(window).attr("location","./personal-center.html");
+    });
 });
 
 function lessonList() {

@@ -1,6 +1,12 @@
 $(function(){
 	recharge();
-    $(".no-recharge").hide()
+	$(".no-recharge").hide()
+	
+	// 返回
+	$("#rechargeRewordBack").click(function(){
+		window.location.replace("./purse.html");
+	});
+
 });
 // 获取列表内容
 function recharge() {

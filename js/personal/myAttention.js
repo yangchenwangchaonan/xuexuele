@@ -1,5 +1,10 @@
 $(function () {
     attentionList();
+
+    // 返回
+    $("#myAttentionBack").click(function(){
+        $(window).attr("location","./personal-center.html");
+    });
 });
 
 // 关注列表

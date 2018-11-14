@@ -13,6 +13,11 @@ $(function () {
 	});
 
 	moneyRuleList()
+
+	// 返回
+	$("#rechargeBack").click(function(){
+		window.location.replace("./purse.html");
+	});
 });
 // 获取列表内容
 function moneyRuleList() {

@@ -10,6 +10,11 @@ $(function(){
 	$(".wechat").click(function(){
 		walletOrderWxPay(a)
 	})
+
+	// 返回
+	$("#rechargeMethodBack").click(function(){
+		window.location.replace("./recharge.html");
+	});
 	
 });
 

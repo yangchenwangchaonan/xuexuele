@@ -17,7 +17,9 @@ $(function () {
 
     // 返回
     $("#treasureBoxAudioBack").click(function(){
-        window.location.replace("./treasureBox.html");
+        // window.location.replace("./treasureBox.html");
+        // $(window).attr("location","./treasureBox.html");
+        history.back(-1);
     });
 });
 

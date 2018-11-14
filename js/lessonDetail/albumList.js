@@ -109,7 +109,8 @@ function albumCourseList(albumId, uId) {
             // 课程详情
             $(".lesson-list-name,.lesson-list-tab").click(function(){
                 var lessonId = $(".lesson-list-name").attr("data-cid");
-                window.location.replace("./lesson-detail.html?cid="+lessonId+"&sid=5");
+                $(window).attr("location", "./lesson-detail.html?cid="+lessonId+"&sid=5");
+                // window.location.replace("./lesson-detail.html?cid="+lessonId+"&sid=5");
             });
         },
         error: function (err) {

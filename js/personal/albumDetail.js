@@ -18,6 +18,11 @@ $(function () {
         uploadAudio(files, aId);
     });
 
+    // 返回
+    $("#albumDetailBack").click(function(){
+        $(window).attr("location","./album-manage.html");
+    });
+
 });
 
 // 专辑详情

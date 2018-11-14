@@ -18,9 +18,9 @@ $(function () {
         });
     }
     // 返回
-    // $("#albumAddBack").click(function(){
-    //     history.back(-2);
-    // });
+    $("#albumAddBack").click(function(){
+        history.back(-1);
+    });
 
 });
 

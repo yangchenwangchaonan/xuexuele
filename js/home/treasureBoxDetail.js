@@ -33,6 +33,7 @@ $(function () {
 
     // 返回
     $("#treasureBoxDetailBack").click(function(){
-        window.location.replace("./treasureBox.html");
+        // window.location.replace("./treasureBox.html");
+        history.back(-1);
     });
 });
