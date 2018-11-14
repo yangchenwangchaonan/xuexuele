@@ -8,9 +8,15 @@ $(function () {
         });
     });
     // 返回
-    $("#lessonDetailBack").click(function(){
+    $("#lessonDetailBack").click(function () {
         history.back(-1);
     });
+    
+    // 左右滑动切换课程
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: false, //可选选项，自动滑动
+        spaceBetween: 0 //slide之间的距离（单位px）
+    })
 });
 
 function start() {
@@ -82,7 +88,6 @@ function lessonDetail(uId, lessonId, sortId, bannerSort) {
                     $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId);
                 });
             }
-            // 左右滑动切换课程
             var lastLesson = data.lastid;
             var nextLesson = data.nextid;
             // slidingEvent(uId, lastLesson, nextLesson, bannerSort, sortId); //用户id,上一节课程的id，下一节课程的id，查看课程次数，分类id
@@ -119,8 +124,8 @@ function lessonDetail(uId, lessonId, sortId, bannerSort) {
             $(".unsuccessed").text(data.list.coursetime); //音频时长
 
             // 导师详情
-            tutorDetail(isfollow, followid);
             $(".lesson-tutor>ul").click(function () {
+                tutorDetail(isfollow, followid);
                 $("#tutorShade").show();
                 // 关闭窗口
                 $(".tutor-close").click(function () {
@@ -190,6 +195,9 @@ function lessonDetail(uId, lessonId, sortId, bannerSort) {
         }
     });
 }
+
+
+
 
 // 评分
 function changeAppraise(e, appraise) {

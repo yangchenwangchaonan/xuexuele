@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
-	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/common.js?v=55889"></script>
 	<script src="../../js/common/footer.js"></script>
 	<script src="../../js/lessonDetail/lessonContents.js"></script>
 </head>
@@ -24,7 +24,7 @@
 				<li class="sort sort4" data-sId="4"><span>评分排序</span></li>
 			</ul>
 			<div class="lesson-list scroll">
-				<ul>
+				<ul style="height:auto;overflow:hidden;">
 					<!-- <li>
 						<div class="table-lesson">
 							<img src="../../images/others.jpg">
@@ -75,6 +75,11 @@
 	document.body.addEventListener('touchmove', function (event) {
 		event.preventDefault();
 	}, false);
+	$(function () { 
+		// alert($('div.lesson-list').height());
+		// alert($(window).width());
+		// alert($('div.lesson-list>ul').height());
+	 })
 </script>
 
 </html>

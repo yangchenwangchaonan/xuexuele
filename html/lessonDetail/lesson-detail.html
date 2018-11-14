@@ -8,260 +8,199 @@
 	<link rel="shortcut icon" href="../../images/favicon.ico">
 	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../../css/swiper.min.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
-	<script src="../../js/lessonDetail/lessonDetail.js"></script>
-	<script src="../../js/lessonDetail/lessonAudio.js"></script>
+	<script src="../../js/common/swiper.min.js"></script>
+	<!-- <script src="../../js/lessonDetail/lessonDetail.js"></script> -->
+	<!-- <script src="../../js/lessonDetail/lessonAudio.js"></script> -->
 	<script src="../../js/common/tips.js"></script>
+	<script src="../../js/lessonDetail/lessonDetail222.js"></script>
 </head>
 
 <body class="lesson-detail-body">
-	<section class="lesson-audio">
-		<img id="lessonBackground" />
-		<i class="page-back" id="lessonDetailBack"></i>
-		<div class="audio" id="audio">
-			<h1></h1>
-			<div class="lesson-tutor">
+	<i class="page-back" id="lessonDetailBack"></i>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<section class="swiper-slide lesson-audio"></section>
+			<section class="swiper-slide lesson-audio"></section>
+			<section class="swiper-slide lesson-audio"></section>
+		</div>
+	</div>
+	<!-- 课程锁 -->
+	<div class="lock-shade">
+		<div class="locked-shade"></div>
+		<div class="progress-locked" id="progressBarLock"><span></span></div>
+	</div>
+	<!--点击可评分-->
+	<div class="lesson-shade" id="appraiseShade">
+		<div class="appraise">
+			<div class="appraise-close"></div>
+			<!-- 评分内容 -->
+			<div class="appraise-content" id="appraiseContent">
+				<div class="level-num level-appraise">
+					<div class="round left-round"></div>
+					<span>课程评分</span>
+					<div class="round right-round appraise-right"></div>
+				</div>
+				<div class="appraise-score">
+					<ul>
+						<li class="score-key11" onclick="changeAppraise(this,'score-key1')"></li>
+						<li class="score-key22" onclick="changeAppraise(this,'score-key2')"></li>
+						<li class="score-key33" onclick="changeAppraise(this,'score-key3')"></li>
+						<li class="score-key44" onclick="changeAppraise(this,'score-key4')"></li>
+					</ul>
+				</div>
+				<div class="score-line"></div>
+				<div class="lesson-reward">
+					<div class="appraise-tips">
+						<p>养成评价完成</p>
+						<p>打赏的好习惯哟~</p>
+					</div>
+					<div class="reward-beans"><input type="number" placeholder="请输入智慧豆数量" class="beanInput" /></div>
+				</div>
+				<div class="appraise-confirm">确定评价</div>
+			</div>
+			<!-- 评分结果 -->
+			<div class="appraise-result" id="appraiseResult">
+				<div class="level-num level-appraise">
+					<div class="round left-round"></div>
+					<span>课程评分</span>
+					<div class="round right-round appraise-right"></div>
+				</div>
+				<div class="score-result"><span id="scoreRes"></span></div>
+				<ul class="score-detail">
+					<li><img src="../../images/152.png" /><span></span></li>
+					<li><img src="../../images/153.png" /><span></span></li>
+					<li><img src="../../images/154.png" /><span></span></li>
+					<li><img src="../../images/155.png" /><span></span></li>
+				</ul>
+				<div class="score-line score-line-reward"></div>
+				<div class="total-reward">
+					<ul>
+						<li><label>总打赏：</label></li>
+						<li><img src="../../images/108.png" /></li>
+						<li><span id="beanSum"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--点击可分享-->
+	<div class="lesson-shade lesson-noshade" id="shareShade">
+		<div class="share-point"></div>
+		<div class="share-tips"></div>
+	</div>
+	<!-- 分享结果 -->
+	<div class="share-result">一起加入学学乐，快乐学习吧！</div>
+	<!--课程留言-->
+	<div class="lesson-shade" id="messageShade">
+		<div class="leave-message-bg">
+			<div class="leave-message-close"></div>
+			<div class="leave-message-title">-课程留言(<span>200</span>)-</div>
+			<div class="message-content" id="msgContent">
+				<ul>
+					<!--<li>
+								<div class="leave-content">
+									<div class="avatar-message"></div>
+									<span class="tourist-name">蔺有钱</span>
+									<span class="leave-message-time">2017-01-01 12:00</span>
+									<p class="leave-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内。</p>
+								</div>
+								<div class="reply-content">
+									<div class="avatar-message"></div>
+									<span class="tourist-name">蔺有钱</span>
+									<p class="reply-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容。</p>
+								</div>
+							</li> -->
+				</ul>
+			</div>
+		</div>
+		<div class="releaseContent">
+			<textarea class="message-text1" type="text" placeholder="请输入留言" id="messageText1"></textarea>
+			<div class="release-message" id="releaseBtn">发布</div>
+		</div>
+		<div class="replayContent">
+			<textarea class="message-text2" type="text" placeholder="请输入留言" id="messageText2"></textarea>
+			<div class="release-message" id="replayBtn">回复</div>
+		</div>
+		<div class="message-btn">发表留言</div>
+	</div>
+	<!--导师详情-->
+	<div class="lesson-shade" id="tutorShade">
+		<div class="tutor-bg">
+			<div class="tutor-close"></div>
+			<div class="tutor-head">-导师介绍-</div>
+			<div class="tutor-detail">
+				<div class="tutor-avatar">
+					<div class="head-bg">
+						<img id="headBg" src="" />
+					</div>
+					<div class="tutor-attention" id="followShow"></div>
+					<p></p>
+				</div>
+				<div class="tutor-infor">
+					<p class="lesson-tutorInfor"></p>
+					<div class="infor-read"><span>展开更多</span><img src="../../images/160-1.png" /></div>
+					<div class="infor-close"><span>收起更多</span><img src="../../images/160-2.png" /></div>
+				</div>
+				<!-- <hr /> -->
+				<ul id="albumList">
+					<!-- <li>
+								<div class="album-name"><img src="../../images/others.jpg"/></div>
+								<p>专辑名称</p>
+							</li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--课程文字-->
+	<div class="lesson-shade" id="textShade">
+		<div class="lesson-text">
+			<div class="lesson-close"></div>
+			<div class="lesson-text-title">-课程文字-</div>
+			<div class="lesson-text-inner">
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<!--课程介绍-->
+	<div class="lesson-shade" id="introductShade">
+		<div class="lesson-introduction">
+			<div class="lesson-close"></div>
+			<div class="lesson-introduction-title">-课程介绍-</div>
+			<div class="lesson-introduction-inner">
+				<h1></h1>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<!--课程举报-->
+	<div class="lesson-shade" id="reportShade">
+		<div class="report">
+			<div class="report-btn"></div>
+			<div class="report-tab">
 				<ul>
 					<li>
-						<div class="head-imgBg">
-							<img id="headImg" />
-						</div>
-						<div class="tutor-title">导师</div>
+						<div class="report-option report-option1" data-num="1">违反规则</div>
 					</li>
-					<li class="useName" id="nickName"></li>
+					<li>
+						<div class="report-option" data-num="2">用户骚扰</div>
+					</li>
+					<li>
+						<div class="report-option" data-num="3">垃圾广告</div>
+					</li>
+					<li>
+						<div class="report-option" data-num="4">敏感信息</div>
+					</li>
 				</ul>
-				<div class="attention"></div>
-			</div>
-			<div class="action-bar">
-				<ul id="lessonAppraise"><img src="../../images/138.png" /><span></span>
-					<p></p>
-				</ul>
-				<ul id="lessonShare"><img src="../../images/139.png" />
-				</ul>
-				<ul id="lessonMessage"><img src="../../images/140.png" />
-					<p></p>
-				</ul>
-				<ul id="albumName"><img src="../../images/141.png" />
-					<p>所属专辑</p>
-				</ul>
-				<ul id="lessonText"><img src="../../images/142.png" />
-					<p>看文字</p>
-				</ul>
-				<ul id="lessonIntrouduct"><img src="../../images/143.png" />
-					<p>课程介绍</p>
-				</ul>
-				<ul id="lessonReport"><img src="../../images/144.png" />
-					<p>举报</p>
-				</ul>
-			</div>
-			<div class="audio-content">
-				<audio id="lessonAudio"></audio>
-				<div class="progressBar">
-					<div class="progressReal"></div>
-					<i class="progressKey"></i>
-				</div>
-				<span class="successed">00:00</span>
-				<span class="unsuccessed" id="audioTime"></span>
-				<!-- 暂停 -->
-				<div class="progress-stop" id="progressBar"></div>
-				<!-- 播放 -->
-				<!-- <div class="progress-start" id="progressBar"></div> -->
-				<!-- 下载 -->
-				<!-- <div class="progress-download" id="progressBar"></div> -->
 			</div>
 		</div>
-		<!-- 滑动区域 -->
-		<!-- <div class="slideArea"></div> -->
-		<!-- 课程锁 -->
-		<div class="lock-shade">
-			<div class="locked-shade"></div>
-			<div class="progress-locked" id="progressBarLock"><span></span></div>
-		</div>
+	</div>
+	<!-- tips -->
+	<div class="reg-tips"></div>
 
-		<!--点击可评分-->
-		<div class="lesson-shade" id="appraiseShade">
-			<div class="appraise">
-				<div class="appraise-close"></div>
-				<!-- 评分内容 -->
-				<div class="appraise-content" id="appraiseContent">
-					<div class="level-num level-appraise">
-						<div class="round left-round"></div>
-						<span>课程评分</span>
-						<div class="round right-round appraise-right"></div>
-					</div>
-					<div class="appraise-score">
-						<ul>
-							<li class="score-key11" onclick="changeAppraise(this,'score-key1')"></li>
-							<li class="score-key22" onclick="changeAppraise(this,'score-key2')"></li>
-							<li class="score-key33" onclick="changeAppraise(this,'score-key3')"></li>
-							<li class="score-key44" onclick="changeAppraise(this,'score-key4')"></li>
-						</ul>
-					</div>
-					<div class="score-line"></div>
-					<div class="lesson-reward">
-						<div class="appraise-tips">
-							<p>养成评价完成</p>
-							<p>打赏的好习惯哟~</p>
-						</div>
-						<div class="reward-beans"><input type="number" placeholder="请输入智慧豆数量" class="beanInput" /></div>
-					</div>
-					<div class="appraise-confirm">确定评价</div>
-				</div>
-				<!-- 评分结果 -->
-				<div class="appraise-result" id="appraiseResult">
-					<div class="level-num level-appraise">
-						<div class="round left-round"></div>
-						<span>课程评分</span>
-						<div class="round right-round appraise-right"></div>
-					</div>
-					<div class="score-result"><span id="scoreRes"></span></div>
-					<ul class="score-detail">
-						<li><img src="../../images/152.png" /><span></span></li>
-						<li><img src="../../images/153.png" /><span></span></li>
-						<li><img src="../../images/154.png" /><span></span></li>
-						<li><img src="../../images/155.png" /><span></span></li>
-					</ul>
-					<div class="score-line score-line-reward"></div>
-					<div class="total-reward">
-						<ul>
-							<li><label>总打赏：</label></li>
-							<li><img src="../../images/108.png" /></li>
-							<li><span id="beanSum"></span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--点击可分享-->
-		<div class="lesson-shade lesson-noshade" id="shareShade">
-			<div class="share-point"></div>
-			<div class="share-tips"></div>
-		</div>
-		<!-- 分享结果 -->
-		<div class="share-result">一起加入学学乐，快乐学习吧！</div>
-		<!--课程留言-->
-		<div class="lesson-shade" id="messageShade">
-			<div class="leave-message-bg">
-				<div class="leave-message-close"></div>
-				<div class="leave-message-title">-课程留言(<span>200</span>)-</div>
-				<div class="message-content" id="msgContent">
-					<ul>
-						<!-- <li>
-						<div class="leave-content">
-							<div class="avatar-message"></div>
-							<span class="tourist-name">蔺有钱</span>
-							<span class="leave-message-time">2017-01-01 12:00</span>
-							<p class="leave-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容站内信内。</p>
-						</div>
-						<div class="reply-content">
-							<div class="avatar-message"></div>
-							<span class="tourist-name">蔺有钱</span>
-							<p class="reply-message-detail">站内信内容站内信内容站内信内容站内信内容站内信内容站内信内容。</p>
-						</div>
-					</li> -->
-					</ul>
-				</div>
-			</div>
-			<div class="releaseContent">
-				<textarea class="message-text1" type="text" placeholder="请输入留言" id="messageText1"></textarea>
-				<div class="release-message" id="releaseBtn">发布</div>
-			</div>
-			<div class="replayContent">
-				<textarea class="message-text2" type="text" placeholder="请输入留言" id="messageText2"></textarea>
-				<div class="release-message" id="replayBtn">回复</div>
-			</div>
-			<div class="message-btn">发表留言</div>
-		</div>
-		</div>
-		<!--导师详情-->
-		<div class="lesson-shade" id="tutorShade">
-			<div class="tutor-bg">
-				<div class="tutor-close"></div>
-				<div class="tutor-head">-导师介绍-</div>
-				<div class="tutor-detail">
-					<div class="tutor-avatar">
-						<div class="head-bg">
-							<img id="headBg" src="" />
-						</div>
-						<div class="tutor-attention" id="followShow"></div>
-						<p></p>
-					</div>
-					<div class="tutor-infor">
-						<p class="lesson-tutorInfor"></p>
-						<div class="infor-read"><span>展开更多</span><img src="../../images/160-1.png" /></div>
-						<div class="infor-close"><span>收起更多</span><img src="../../images/160-2.png" /></div>
-					</div>
-					<!-- <hr /> -->
-					<ul id="albumList">
-						<!-- <li>
-							<div class="album-name"><img src="../../images/others.jpg"/></div>
-							<p>专辑名称</p>
-						</li>
-						<li>
-							<div class="album-name"><img src="../../images/others.jpg"/></div>
-							<p>专辑名称</p>
-						</li>
-						<li>
-							<div class="album-name"><img src="../../images/others.jpg"/></div>
-							<p>专辑名称</p>
-						</li>
-						<li>
-							<div class="album-name"><img src="../../images/others.jpg"/></div>
-							<p>专辑名称</p>
-						</li>
-						<li>
-							<div class="album-name"><img src="../../images/others.jpg"/></div>
-							<p>专辑名称</p>
-						</li> -->
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!--课程文字-->
-		<div class="lesson-shade" id="textShade">
-			<div class="lesson-text">
-				<div class="lesson-close"></div>
-				<div class="lesson-text-title">-课程文字-</div>
-				<div class="lesson-text-inner">
-					<span></span>
-				</div>
-			</div>
-		</div>
-		<!--课程介绍-->
-		<div class="lesson-shade" id="introductShade">
-			<div class="lesson-introduction">
-				<div class="lesson-close"></div>
-				<div class="lesson-introduction-title">-课程介绍-</div>
-				<div class="lesson-introduction-inner">
-					<h1></h1>
-					<span></span>
-				</div>
-			</div>
-		</div>
-		<!--课程举报-->
-		<div class="lesson-shade" id="reportShade">
-			<div class="report">
-				<div class="report-btn"></div>
-				<div class="report-tab">
-					<ul>
-						<li>
-							<div class="report-option report-option1" data-num="1">违反规则</div>
-						</li>
-						<li>
-							<div class="report-option" data-num="2">用户骚扰</div>
-						</li>
-						<li>
-							<div class="report-option" data-num="3">垃圾广告</div>
-						</li>
-						<li>
-							<div class="report-option" data-num="4">敏感信息</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
+
 	<!-- 广告 -->
 	<div class="lessonAd" style="display:none;">
 		<img id="lessonAdBackground" src="../../images/others.jpg" />
@@ -283,7 +222,7 @@
 			<!-- <div class="progress-download" id="progressBar"></div> -->
 		</div>
 	</div>
-	<div class="reg-tips"></div>
+	
 </body>
 
 </html>
