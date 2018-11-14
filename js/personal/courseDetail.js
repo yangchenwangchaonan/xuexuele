@@ -44,7 +44,7 @@ function courseDetail(courseId) {
             $("#lessonScore").html(data.coursescore + "分"); //课程评分
             $("#lessonPrice").html(data.wisdombean + "智慧豆"); //课程价格
             $("#lessonOutline").html(data.coursetxt); //课程简介
-            $("#getBeans").html(data.buysum * data.wisdombean + "智慧豆"); //获得智慧豆数
+            $("#getBeans").html(data.buysum + "智慧豆"); //获得智慧豆数
             $("#scoreDetail1").html("x" + data.scores[0].sum);
             $("#scoreDetail2").html("x" + data.scores[1].sum);
             $("#scoreDetail3").html("x" + data.scores[2].sum);
