@@ -33,6 +33,10 @@ function UserGateDetail(a) {
         success: function (res) {
             console.log(res);
             var data = res.data
+             //答案选项
+            option(data.options,data.answer,data.nextgateid)
+            
+            /*--------------垃圾代码分割线------------------*/
             $(".level-name").html(data.gatename)
             if (data.contenttype == 1) {
                 $(".level-img").attr("src", data.hintcontent);
@@ -41,15 +45,7 @@ function UserGateDetail(a) {
                 $("#lessonAudio").attr("src", data.hintcontent);
                 $("#levelAudio").show();
             }
-
             $(".kit-content").html(data.hintcontent_txt)
-            var str = ''
-            $.each(data.options, function (index, el) {
-                str += `
-						<li>${el}</li>
-				`
-            });
-            $(".respond-key>ul").html(str);
             // 新用户演示
             var isfirst = sessionStorage.getItem("firstlogin");
             if (id == 1 && isfirst == 1) {
@@ -113,64 +109,90 @@ function UserGateDetail(a) {
                     });
                 }
             });
-            //定义答案数组
-            var con = []
-            //遍历答案
-            $(".respond-key>ul").on("click", "li", function () {
-                if (con.length==data.answer.length || $(this).html()=="") {
-                    return;
+            //开启计时器
+            if (a != 0 ) {
+                if (isfirst==1) {
+                    $("#time1").html("00:00");
+                    return
                 }
-                con.push($(this).html())
-                var li=$(".respond-key>ul").children()
-                // $(this).replaceWith("<li></li>")
-                table(con, data.answer, data.nextgateid)
-            })
-            //首次遍历
-            if (a != 0) {
                 Timedate()
             }
-            answerData(data.answer)
         },
         error: function (err) {
             console.log(err);
         }
     });
 }
-
-// 立即查看
-function kitView(gid, uid) {
-    $.ajax({
-        type: "GET",
-        url: APP_URL + "/api/Wisdom/GateAnswer",
-        data: {
-            gateid: gid,
-            uid: uid
-        },
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            UserGateDetail(0); //首次渲染
-            var data = res.data;
-            var $str = "";
-            $.each(data.answer, function (index, val) {
-                $str += `
-                    <li>${val}</li>
-                 `;
-            });
-            if (data.answer.length > 0 && data.answer.length <= 4) {
-                $("#answerList1").html($str);
-            } else if (data.answer.length > 4 && data.answer.length <= 8) {
-                $("#answerList2").html($str);
-            } else if (data.answer.length > 8) {
-                $("#answerList3").html($str);
+function option(options,answer,nextgateid) {
+        //选项渲染
+        var str = ''
+        $.each(options, function (index, el) {
+            str += `
+                    <li data-index=${index}>${el}</li>
+            `
+        });
+        $(".respond-key>ul").html(str);
+        //答案渲染
+        var info = ''
+        $.each(answer,function (indexL,val) {
+            info+= `
+                    <li data-index=${indexL}></li>
+            `
+        });
+        $(".respond-blank>ul").html(info);
+        //选择选项
+        var UserAnswer=[]
+        $(".respond-key>ul").unbind().on("click","li",function(){
+            var dataIndex=$(this).attr("data-index")
+            var dataName=$(this).html()
+            if (dataName=="") {
+                return;
             }
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}
-
+            $(this).replaceWith("<li data-index="+dataIndex+"></li>")
+            var  answerName=$(".respond-blank>ul").children()
+            for (var i=0; i<answerName.length; i++) {
+                if (answerName[i].innerHTML=="") {
+                    answerName[i].innerHTML=dataName
+                    answerName[i].dataset.index=dataIndex
+                    UserAnswer.push(dataName)
+                    if (UserAnswer.length==answer.length) {
+                        if (JSON.stringify(UserAnswer)==JSON.stringify(answer)) {
+                            clearInterval(time)
+                            correctAnawer(UserAnswer,nextgateid)
+                        }else{
+                            $(".respond-blank>ul>li").css("border","1px solid red")
+                            setTimeout(function() {
+                             option(options,answer)
+                            }, 500);
+                            return;
+                        }
+                    }
+                    return;
+                }
+            }
+        })
+        //答案归位
+        $(".respond-blank>ul").unbind().bind().on("click","li",function(){
+            var dataIndex=$(this).attr("data-index")
+            var dataName=$(this).html()
+            if (dataName=='') {
+                return;
+            }
+            for (var j=0; j<UserAnswer.length; j++){
+                if (UserAnswer[j]==dataName) {
+                    UserAnswer.splice(j,1)
+                }
+            }
+            $(this).replaceWith("<li data-index="+dataIndex+"></li>")
+            var  optionName=$(".respond-key>ul").children()
+            for (var i=0; i<optionName.length; i++) {
+               if (optionName[i].dataset.index==dataIndex) {
+                    optionName[i].innerHTML=dataName;
+                    optionName[i].dataset.index=i
+               }
+            }
+        })
+    }
 //定时器
 function Timedate() {
     var m = s  = 0; //定义时，分，秒，毫秒并初始化为0；
@@ -199,40 +221,10 @@ function Timedate() {
     time = setInterval(timer, 1000);
 
 }
-
-
-//答案比对
-function table(con, answer, nextgateid) {
-    console.log(con)
-    //遍历答案
-    var main = ''
-    $.each(con, function (index, val) {
-        main += `
-				<li class="delete">${val}</li>
-      		`
-    });
-    $(".respond-blank>ul").html(main)
-    if (con.length == answer.length) {
-        if (JSON.stringify(con) == JSON.stringify(answer)) {
-            Ok(con,nextgateid) //提交后台
-            clearInterval(time)//清除定时器
-            con = [] //清空答案
-        } else {
-            con = [] //清空错误答案
-            UserGateDetail(0)
-        }
-    }
-
-    //点击答案删除
-    $(".delete").click(function () {
-        con.splice($.inArray(this, con), 1);
-        table(con, answer)
-    })
-}
-
 //正确 提交
-function Ok(con,nextgateid) {
-    var answer = con.join(",")
+function correctAnawer(UserAnswer,nextgateid) {
+    var answer = UserAnswer.join(",")
+    console.log(answer)
     var id = sessionStorage.getItem("uid")
     var gid = sessionStorage.getItem("gateid")
     var time = $("#time1").html()
@@ -288,17 +280,40 @@ function Ok(con,nextgateid) {
     })
 }
 
-//首次渲染四个答案框
-function answerData(answer) {
-    console.log(answer)
-    var x = ''
-    $.each(answer, function (index, el) {
-        x += `
-					<li></li>
-			`
-    });
 
-    $(".respond-blank>ul").html(x)
+
+// 立即查看
+function kitView(gid, uid) {
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/Wisdom/GateAnswer",
+        data: {
+            gateid: gid,
+            uid: uid
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            UserGateDetail(0); //首次渲染
+            var data = res.data;
+            var $str = "";
+            $.each(data.answer, function (index, val) {
+                $str += `
+                    <li>${val}</li>
+                 `;
+            });
+            if (data.answer.length > 0 && data.answer.length <= 4) {
+                $("#answerList1").html($str);
+            } else if (data.answer.length > 4 && data.answer.length <= 8) {
+                $("#answerList2").html($str);
+            } else if (data.answer.length > 8) {
+                $("#answerList3").html($str);
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
 }
 
 // 全网排名 
@@ -358,6 +373,12 @@ function levelShow() {
     $("#blankShow").click(function(){
         $("#tipKeyShow").hide();
         $(".blank-show").hide();
+         sessionStorage.setItem("firstlogin","9");
+        UserGateDetail("999")
     });
 
 }
+
+
+
+
