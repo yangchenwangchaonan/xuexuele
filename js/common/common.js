@@ -42,4 +42,4 @@ var overscroll = function (els) {
 
     //给class为.scroll的元素加上自定义的滚动事件
     overscroll(document.querySelectorAll('.scroll'));
-})
+});
