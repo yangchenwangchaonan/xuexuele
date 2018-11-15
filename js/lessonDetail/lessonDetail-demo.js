@@ -311,12 +311,11 @@ function allEvent() {
     });
     // 音频播放
     $(document).on('click', 'div.progress-bar', function () {
-        var progressBar = $(this);
         var audio = $(this).parent("div.audio-content").find(".lessonAudio")[0];
         var audioTime = $(this).siblings(".unsuccessed");
-        var progressReal = $(this).siblings(".progressBar>.progressReal");
+        var progressReal = $(this).siblings(".progressBar").find(".progressReal");
         //改变暂停/播放icon
-        console.log(audio.paused);
+        // console.log(audio.paused);
         if (audio.paused) {
             audio.play();
             $(this).removeClass('progress-stop').addClass('progress-start');
@@ -324,51 +323,30 @@ function allEvent() {
             audio.pause();
             $(this).removeClass('progress-start').addClass('progress-stop');
         }
-        // 获取音频时长
-        audio.addEventListener = timeq(this);
-       /*  audio.addEventListener("loadedmetadata",timeq function () {
-            console.log(audio.duration);  //音频时长
-            // alert()
-            audioTime.text(transTime(this.duration));
-            //点击进度
-            // progressRealClick(this.duration,audio);
-            progressBar.unbind().bind("click",function (e) {
-                // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
-                var b = (time * (e.pageX - $(this).offset().left) / $(this).width())
-                console.log(b)
-                var a = (time * (e.pageX - $(this).offset().left) / $(this).width() / time * 100)
-                progressReal.css('width', a + '%');
-                audio.currentTime = b;
-            })
-        }); */
-        // // 监听音频播放时间
-        // audio.addEventListener('timeupdate', updateProgress, false);
-        // // 播放完成
-        // audio.addEventListener('ended', audioEnded, false);
+        // // 获取音频时长
+        // console.log(audio.duration);
+        audioTime.text(transTime(audio.duration));
+        //点击进度
+        console.log(progressReal);
+        progressReal.on('click',function (e) {
+            var time = audio.duration;
+            console.log(e.pageX);
+            // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
+            var b = (time * (e.pageX - $(this).offset().left) / $(this).width())
+            console.log(b)
+            var a = (time * (e.pageX - $(this).offset().left) / $(this).width() / time * 100)
+            progressReal.css('width', a + '%');
+            audio.currentTime = b
+        })
+
+        // 监听音频播放时间
+        audio.addEventListener('timeupdate', updateProgress, false);
+        // 播放完成
+        audio.addEventListener('ended', audioEnded, false);
     });
 
 
 }
-
-// 获取音频时长
-function timeq(str){
-    alert(202020);
-    alert(str);
-    console.log(this.duration);  //音频时长
-    // alert()
-    audioTime.text(transTime(this.duration));
-    //点击进度
-    // progressRealClick(this.duration,audio);
-    progressBar.unbind().bind("click",function (e) {
-        // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
-        var b = (time * (e.pageX - $(this).offset().left) / $(this).width())
-        console.log(b)
-        var a = (time * (e.pageX - $(this).offset().left) / $(this).width() / time * 100)
-        progressReal.css('width', a + '%');
-        audio.currentTime = b;
-    });
-}
-
 
 // 转换音频时长显示
 function transTime(time) {
@@ -387,33 +365,40 @@ function transTime(time) {
     return minute + isM0 + sec
 }
 //更新进度条
-function updateProgress() {
-    var audio = $("#lessonAudio")[0]; //js获取的方式
+function updateProgress(event) {
+    // console.log(event.target);
+    var audio = event.target;
+    var progressReal = $(audio).siblings(".progressBar").find(".progressReal");
+    var successProgress = $(audio).siblings(".successed");
+    // console.log(progressReal);
     var value = Math.round((Math.floor(audio.currentTime) / Math.floor(audio.duration)) * 100, 0);
     // console.log(value);
-    $('.progressReal').css('width', value * 0.975 + '%');
-    $('.successed').html(transTime(audio.currentTime));
+    progressReal.css('width', value * 0.975 + '%');
+    successProgress.html(transTime(audio.currentTime));
 }
 //播放完成
-function audioEnded() {
+function audioEnded(event) {
+    console.log(event);
+    var audio = event.target;
+    var progressBar = $(audio).siblings(".progress-bar");
     window.setTimeout(() => {
-        var audio = $("#lessonAudio")[0];
+        // var audio = $("#lessonAudio")[0];
         audio.currentTime = 0;
         audio.pause();
-        $('#progressBar').removeClass('progress-start').addClass('progress-stop');
-        bannerList();
+        progressBar.removeClass('progress-start').addClass('progress-stop');
     }, 5000);
 }
 //点击加载进度
-function progressRealClick(time) {
+function progressRealClick(time, event) {
+    console.log(event);
     console.log(time)
-    $(".progressBar").click(function (e) {
+    progressBar.click(function (e) {
         // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
         var b = (time * (e.pageX - $(this).offset().left) / $(this).width())
         console.log(b)
         var a = (time * (e.pageX - $(this).offset().left) / $(this).width() / time * 100)
-        $('.progressReal').css('width', a + '%');
-        $('#lessonAudio')[0].currentTime = b
+        progressReal.css('width', a + '%');
+        audio.currentTime = b
     })
 }
 

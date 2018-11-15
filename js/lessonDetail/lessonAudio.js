@@ -20,7 +20,7 @@ $(function () {
         // console.log(audio.duration);  //音频时长
         $("#audioTime").text(transTime(this.duration));
         //点击进度
-        progressRealClick(this.duration)
+        progressRealClick(this.duration);
     });
 
     // 监听音频播放时间
