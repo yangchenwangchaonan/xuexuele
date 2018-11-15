@@ -5,7 +5,7 @@ $(function () {
     var sortId = arr[1].split("=")[1]
     var uId = sessionStorage.getItem("uid"); //用户id
     //智慧社详情
-    lessonDetail(uId, lessonId, sortId, 1, 0);
+    lessonDetail(uId, lessonId, sortId, 1, 1);
     // 返回
     $("#lessonDetailBack").click(function () {
         history.back(-1);
@@ -14,6 +14,7 @@ $(function () {
 
 // 智慧社详情
 function lessonDetail(uId, lessonId, sortId, bannerSort, pageIndex) {
+    console.log(uId, lessonId, sortId, bannerSort, pageIndex);
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomDetail",
@@ -614,27 +615,36 @@ function slidingEvent(uId, sortId, bannerSort, banner, lastId, nextId) {
     var mySwiper = new Swiper('.swiper-container', {
         autoplay: false, //可选选项，自动滑动
         slidesPerView: 1,
+        initialSlide: 1, //初始滑块的索引为第二个
         spaceBetween: 0, //slide之间的距离（单位px）
         observer: true,
         autoplayDisableOnInteraction: false,
         touchMoveStopPropagation: true,
         autoplay: 4000,
-        // on: {
-        //     touchEnd: function (e) {
-        //         if (mySwiper.touches.diff > 0) {
-        //             console.log("左滑");
-        //         } else if (mySwiper.touches.diff < 0) {
-        //             console.log("右滑");
-        //             bannerSort++;
-        //             lessonDetail(uId, nextId, sortId, bannerSort, 1);
-        //             // if (banner == "") {
-        //             //     mySwiper.addSlide(1, '<section class="swiper-slide lesson-audio"></section>'); //在index为1的位置插入一个slide
-        //             //     lessonDetail(uId, nextId, sortId, bannerSort, 1);
-        //             // } else {
-        //             //     console.log("广告");
-        //             // }
-        //         }
-        //     },
-        // }
+        on: {
+            touchEnd: function (e) {
+                if (mySwiper.touches.diff > 0) {
+                    console.log("左滑");
+                    bannerSort++;
+                    lessonDetail(uId, lastId, sortId, bannerSort, 1);
+                    $(".swiper-wrapper>section").eq(2).remove();
+                    $(".swiper-wrapper").prepend('<section class="swiper-slide lesson-audio"></section>'); //在index为1的位置插入一个slide
+                } else if (mySwiper.touches.diff < 0) {
+                    console.log("右滑");
+                    bannerSort++;
+                    lessonDetail(uId, nextId, sortId, bannerSort, 1);
+                    // mySwiper.removeSlide(0);
+                    $(".swiper-wrapper>section").eq(0).remove();
+                    $(".swiper-wrapper").append('<section class="swiper-slide lesson-audio"></section>'); //在index为1的位置插入一个slide
+                    // if (banner == "") {
+                    //     mySwiper.addSlide(1, '<section class="swiper-slide lesson-audio"></section>'); //在index为1的位置插入一个slide
+                    //     lessonDetail(uId, nextId, sortId, bannerSort,1);
+                    //     mySwiper.removeSlide(0);
+                    // } else {
+                    //     console.log("广告");
+                    // }
+                }
+            },
+        }
     });
 }
