@@ -5,7 +5,7 @@ $(function () {
     var sortId = arr[1].split("=")[1]
     var uId = sessionStorage.getItem("uid"); //用户id
     //智慧社详情
-    lessonDetail(uId, lessonId, sortId, 1, 1);
+    lessonDetail(uId, lessonId, sortId, 1);
     // 返回
     $("#lessonDetailBack").click(function () {
         history.back(-1);
@@ -13,8 +13,8 @@ $(function () {
 });
 
 // 智慧社详情
-function lessonDetail(uId, lessonId, sortId, bannerSort, pageIndex) {
-    console.log(uId, lessonId, sortId, bannerSort, pageIndex);
+function lessonDetail(uId, lessonId, sortId, bannerSort) {
+    console.log("用户id:" + uId, "课程id:" + lessonId, "分类id:" + sortId, "查看数量" + bannerSort);
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomDetail",
@@ -50,7 +50,7 @@ function lessonDetail(uId, lessonId, sortId, bannerSort, pageIndex) {
                     </div>
                     <div class="action-bar">
                         ${data.isscore == 1?`<ul><img src="../../images/138.png" /><span>${data.list.coursescore}</span><p>已评分</p></ul>`:
-                        `<ul onclick="lessonAppraise()"><img src="../../images/138.png" /><span></span><p>可评分</p></ul>`}
+                        `<ul onclick="lessonAppraise('${uId}','${lessonId}','${sortId}')"><img src="../../images/138.png" /><span></span><p>可评分</p></ul>`}
                         <ul onclick="lessonShare()"><img src="../../images/139.png" /></ul>
                         <ul onclick="lessonMessage('${uId}','${lessonId}','${data.list.headimg}','${data.list.nickname}')"><img src="../../images/140.png" /><p>${data.list.commentsum}</p></ul>
                         <ul onclick="albumName('${data.list.albumid}')"><img src="../../images/141.png" /><p>所属专辑</p></ul>
@@ -59,23 +59,24 @@ function lessonDetail(uId, lessonId, sortId, bannerSort, pageIndex) {
                         <ul onclick="lessonReport('${uId}', '${lessonId}')"><img src="../../images/144.png" /><p>举报</p></ul>
                     </div>
                     <div class="audio-content">
-                        <audio id="lessonAudio" src="${data.list.coursevoice}"></audio>
+                        <audio class="lessonAudio" src="${data.list.coursevoice}"></audio>
                         <div class="progressBar">
                             <div class="progressReal"></div>
                             <i class="progressKey"></i>
                         </div>
                         <span class="successed">00:00</span>
                         <span class="unsuccessed" id="audioTime">${data.list.coursetime}</span>
-                        <div class="progress-stop" id="progressBar"></div>
+                        <div class="progress-bar progress-stop" id="progressBar"></div>
                     </div>
                 </div>
                 `;
-            $("section").eq(pageIndex).html(str1);
-            var banner = data.banner;
-            var lastId = data.lastid;
-            var nextId = data.nextid;
+            $("section.lesson-audio").eq(1).html(str1);
+            // var banner = data.banner;
+            // var lastId = data.lastid;
+            // var nextId = data.nextid;
+            console.log("分类id:" + sortId, "查看数量:" + bannerSort, "广告:" + data.banner, "上一个id:" + data.lastid, "下一个id:" + data.nextid);
             // 滑动事件
-            slidingEvent(uId, sortId, bannerSort, banner, lastId, nextId);
+            slidingEvent(uId, sortId, bannerSort, data.banner, data.lastid, data.nextid);
         },
         error: function (err) {
             console.log(err);
@@ -130,7 +131,7 @@ function noAttention(uId, followid) {
 }
 
 // 评分
-function lessonAppraise() {
+function lessonAppraise(uId, lessonId, sortId) {
     $("#appraiseShade").css("display", "block");
     $.each($(".appraise-score>ul>li"), function (index, val) {
         var num = index + 1;
@@ -143,7 +144,7 @@ function lessonAppraise() {
         $("#appraiseShade").css("display", "none");
         $("#appraiseContent").css("display", "block");
         $("#appraiseResult").css("display", "none");
-        start(); // 渲染页面
+        lessonDetail(uId, lessonId, sortId, 1, 1); // 渲染页面
     });
 }
 
@@ -609,42 +610,54 @@ function tutorDetail(isfollow, followid) {
     });
 }
 
+
 // 监听滑动事件
 function slidingEvent(uId, sortId, bannerSort, banner, lastId, nextId) {
+    console.log("分类id:" + sortId, "滑动数量:" + bannerSort, "上一个id:" + lastId, "下一个id:" + nextId);
     // 左右滑动切换课程
     var mySwiper = new Swiper('.swiper-container', {
         autoplay: false, //可选选项，自动滑动
         slidesPerView: 1,
         initialSlide: 1, //初始滑块的索引为第二个
         spaceBetween: 0, //slide之间的距离（单位px）
-        observer: true,
-        autoplayDisableOnInteraction: false,
-        touchMoveStopPropagation: true,
-        autoplay: 4000,
+        watchSlidesProgress: true, //监听slide的progress(进度、进程)
+        observer: true,  //js删除第一个slide时分页器实时更新
+        disableOnInteraction: true,  //禁止自动切换
+        touchMoveStopPropagation: true,  //阻止事件冒泡
         on: {
-            touchEnd: function (e) {
+            touchEnd: function () {
+                bannerSort++; //滑动次数
+                console.log("滑动次数:" + bannerSort);
+                console.log("滑动距离:"+mySwiper.touches.diff);
                 if (mySwiper.touches.diff > 0) {
                     console.log("左滑");
-                    bannerSort++;
-                    lessonDetail(uId, lastId, sortId, bannerSort, 1);
-                    $(".swiper-wrapper>section").eq(2).remove();
-                    $(".swiper-wrapper").prepend('<section class="swiper-slide lesson-audio"></section>'); //在index为1的位置插入一个slide
+                    console.log(lastId);
+                    $(".swiper-wrapper>section.lesson-audio").eq(2).remove(); //删除第三个滑块
+                    mySwiper.prependSlide('<section class="swiper-slide lesson-audio"></section>'); //前面插入一个滑块
+                    lessonDetail(uId, lastId, sortId, bannerSort); //获取上一节课程
                 } else if (mySwiper.touches.diff < 0) {
                     console.log("右滑");
-                    bannerSort++;
-                    lessonDetail(uId, nextId, sortId, bannerSort, 1);
-                    // mySwiper.removeSlide(0);
-                    $(".swiper-wrapper>section").eq(0).remove();
-                    $(".swiper-wrapper").append('<section class="swiper-slide lesson-audio"></section>'); //在index为1的位置插入一个slide
+                    console.log(nextId);
+                    $(".swiper-wrapper>section.lesson-audio").eq(0).remove(); //删除第一个滑块
+                    mySwiper.appendSlide('<section class="swiper-slide lesson-audio"></section>'); //后面插入一个滑块
+                    lessonDetail(uId, nextId, sortId, bannerSort); //获取下一节课程
                     // if (banner == "") {
-                    //     mySwiper.addSlide(1, '<section class="swiper-slide lesson-audio"></section>'); //在index为1的位置插入一个slide
+                    //     mySwiper.addSlide(1, '<section class="swiper-slide lesson-audio"></section>'); 
                     //     lessonDetail(uId, nextId, sortId, bannerSort,1);
                     //     mySwiper.removeSlide(0);
                     // } else {
                     //     console.log("广告");
                     // }
+                }else {
+                    return false;
                 }
             },
         }
     });
+    // console.log(mySwiper.slides[0].progress);
+    // // mySwiper.slides[1].progress   //滑动进度
+    // if (mySwiper.slides[1].progress == 1) {
+    //     $(".swiper-wrapper>section").eq(0).remove();
+    //     $(".swiper-wrapper").append('<section class="swiper-slide lesson-audio"></section>'); 
+    // }
 }

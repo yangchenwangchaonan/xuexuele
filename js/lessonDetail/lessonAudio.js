@@ -1,5 +1,9 @@
 $(function () {
-    var audio = $('#lessonAudio').get(0);
+    var ThisSection = document.getElementsByTagName("section")[1];
+    console.log(ThisSection);
+    var audio = ThisSection.getElementsByTagName("audio");
+    console.log(audio);
+    // var audio = $('#lessonAudio').get(0);
     $('#progressBar').click(function () {
         //改变暂停/播放icon
         if (audio.paused) {

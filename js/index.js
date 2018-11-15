@@ -89,6 +89,7 @@ $(function () {
         window.setTimeout(() => {
             // $(window).attr("location", "./html/login/login.html");
              window.location.replace("./html/login/login.html");
+            // window.location.replace("./html/demo.html");
         }, 400);
 
     }

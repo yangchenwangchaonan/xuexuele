@@ -88,7 +88,11 @@ function courseMessage(pageIndex, courseId) {
                     </li>
                   `;
             });
-            $(".message-list").append(str);
+            if(pageIndex==1){
+                $(".message-list").html(str);
+            }else{
+                $(".message-list").append(str);
+            }
             $(".message-reply").unbind("click").bind("click", function () {
                 var $name = $(this).parent().find(".tourist-name").html();
                 var commentId = $(this).parent().attr("data-cmid");

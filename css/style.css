@@ -31,6 +31,19 @@ body {
     z-index: 1;
 }
 
+.lesson-index-body {
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    overflow: hidden;
+    background: linear-gradient(to top, rgba(207, 228, 255, 1), rgba(237, 254, 255, 1), rgba(48, 116, 255, 1));
+}
+.lesson-index-container {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
 /* 首页 */
 .container-1 {
     background: url("../images/01.png") no-repeat center;
@@ -2085,6 +2098,7 @@ body {
     width: 100% !important;
     height: 100% !important;
 }
+
 .lesson-audio>img {
     display: block;
     width: 100vw;
@@ -4142,8 +4156,8 @@ body {
 }
 
 .lesson-content {
-    /* position: absolute; */
-    display: table;
+    position: absolute;
+    /* display: table; */
     margin-top: 2.02vh;
     width: 100%;
     height: 84.41%;
@@ -4172,7 +4186,6 @@ body {
 .table-lesson {
     width: 40.53vw;
     height: 30.73vh;
-    /* overflow: hidden; */
     font-size: 11px;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
