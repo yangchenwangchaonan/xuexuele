@@ -1,11 +1,5 @@
 $(function () {
   //滚动条在底部
-  var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-  var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
-  var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
-  document.documentElement.scrollTop = scrollH - clientH
-  window.pageYOffset = scrollH - clientH
-  document.body.scrollTop = scrollH - clientH
   //原住人数
   people();
   //闯关列表
@@ -70,6 +64,14 @@ function userGate(index, iscurrent) {
       console.log(res);
       var data = res.data;
       sessionStorage.setItem("firstlogin", data.firstlogin); //是否为第一次登录
+      if (data.firstlogin==1) {
+          var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+          var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
+          var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+          document.documentElement.scrollTop = scrollH - clientH
+          window.pageYOffset = scrollH - clientH
+          document.body.scrollTop = scrollH - clientH
+      }
       //体力值
       var sVal = data.manvalue;
       if (sVal > 30) {

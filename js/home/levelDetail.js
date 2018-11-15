@@ -9,7 +9,7 @@ $(function () {
         $("#closeLevel").show();
         // 确定
         $("#exitLevel").click(function () {
-            window.location.replace("./home.html");
+            errorOut()
         });
         // 取消
         $("#exitCancel").click(function () {
@@ -123,6 +123,7 @@ function UserGateDetail(a) {
         }
     });
 }
+//游戏动作
 function option(options,answer,nextgateid) {
         //选项渲染
         var str = ''
@@ -162,7 +163,7 @@ function option(options,answer,nextgateid) {
                         }else{
                             $(".respond-blank>ul>li").css("border","1px solid red")
                             setTimeout(function() {
-                             option(options,answer)
+                             option(options,answer,nextgateid)
                             }, 500);
                             return;
                         }
@@ -221,6 +222,34 @@ function Timedate() {
     time = setInterval(timer, 1000);
 
 }
+//错误提交 减少体力值
+function errorOut() {
+    // var answer = UserAnswer.join(",")
+    // console.log(answer)
+    var id = sessionStorage.getItem("uid")
+    var gid = sessionStorage.getItem("gateid")
+    // var time = $("#time1").html()
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/User/UserGateChallenge",
+        data: {
+            uid: id,
+            gateid: gid,
+            answer: "",
+            time: "00:00",
+        },
+        dataType: "json",
+        success: function (res) {
+            window.location.replace("./home.html");
+            console.log(res);
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
+
+
 //正确 提交
 function correctAnawer(UserAnswer,nextgateid) {
     var answer = UserAnswer.join(",")
@@ -258,7 +287,7 @@ function correctAnawer(UserAnswer,nextgateid) {
                 // 下一关
                 $(".next-level").click(function () {
                     sessionStorage.setItem("gateid", nextgateid) //重置关卡id
-                    UserGateDetail(1);
+                     UserGateDetail(1);
                     window.location.reload();
                     $("#levelPass").hide();
                 });
