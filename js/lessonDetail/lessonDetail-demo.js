@@ -9,7 +9,7 @@ var mySwiper = new Swiper('.swiper-container', {
     threshold: 100,
     on: {
         slideChangeTransitionEnd: function (event) {
-            console.log(mySwiper.activeIndex);
+            console.log(mySwiper.activeIndex); //滑动时的索引
             countSum++;
             console.log(countSum);
             if (mySwiper.activeIndex == 2) {
@@ -68,7 +68,7 @@ function lessonDetail(lessonId, countSum, follow) {
                 <div class="audio">
                     <h1>${data.list.coursename}</h1>
                     <div class="lesson-tutor">
-                        <ul data-isf="${data.isfollow}" data-fid="${data.list.id}">
+                        <ul class="tutorDetail" data-isf="${data.isfollow}" data-fid="${data.list.id}">
                             <li>
                                 <div class="head-imgBg" data-tid="${data.list.id}">
                                     <img src="${data.list.headimg}"/>
@@ -83,7 +83,7 @@ function lessonDetail(lessonId, countSum, follow) {
                     </div>
                     <div class="action-bar">
                         ${data.isscore == 1?`<ul class="scoreList"  data-isscore="${data.isscore}"><img src="../../images/138.png" /><span>${data.list.coursescore}</span><p>已评分</p></ul>`:
-                        `<ul class="appraiseList" data-isscore="${data.isscore}" ><img src="../../images/138.png" /><span></span><p>可评分</p></ul>`}
+                        `<ul class="scoreList" data-isscore="${data.isscore}"><img src="../../images/138.png" /><span></span><p>可评分</p></ul>`}
                         <ul class="shareList"><img src="../../images/139.png" /></ul>
                         <ul class="msgList"><img src="../../images/140.png" /><p>${data.list.commentsum}</p></ul>
                         <ul class="amList" data-aid="${data.list.albumid}"><img src="../../images/141.png" /><p>所属专辑</p></ul>
@@ -107,6 +107,7 @@ function lessonDetail(lessonId, countSum, follow) {
             $('div.swiper-wrapper').html(str); //当前页
             getPrevNextData(data.lastid, countSum, "last"); //上一页
             getPrevNextData(data.nextid, countSum); //下一页
+            tutorDetailList(data.isfollow, data.list.id,lessonId,countSum);  //导师详情
             allEvent(); //所有事件
         },
         error: function (err) {
@@ -139,7 +140,7 @@ function getPrevNextData(id, countSum, type) {
                 <div class="audio">
                     <h1>${data.list.coursename}</h1>
                     <div class="lesson-tutor">
-                        <ul data-isf="${data.isfollow}" data-fid="${data.list.id}">
+                        <ul class="tutorDetail" data-isf="${data.isfollow}" data-fid="${data.list.id}">
                             <li>
                                 <div class="head-imgBg" data-tid="${data.list.id}">
                                     <img src="${data.list.headimg}"/>
@@ -188,8 +189,10 @@ function getPrevNextData(id, countSum, type) {
 }
 
 function allEvent() {
+    // console.log(1);
     // 关注
-    $(document).unbind().on('click', 'div.attention', function () {
+    $("body").unbind().on('click','div.attention',function () {
+        console.log(this);
         var isfollow = $(this).attr("data-isfollow"); //是否关注
         var followid = $(this).attr("data-followid");
         var courseId = $(this).parents("section").attr("data-courseid");
@@ -197,15 +200,15 @@ function allEvent() {
         // console.log(isfollow, followid,courseId,countSum,sortId);
         console.log(courseId);
         if (isfollow == 1) {
-            noAttention(followid, courseId, countSum); //取消关注
+            noAttention(followid, courseId, countSum,isfollow); //取消关注
         } else {
-            onAttention(followid, courseId, countSum); //点击关注
+            onAttention(followid, courseId, countSum,isfollow); //点击关注
         }
     });
 
     //评分
     $(document).unbind().on('click', 'ul.scoreList', function () {
-        // alert(1)
+        console.log(2);
         var isScore = $(this).attr("data-isscore");
         var countSum = $(this).parents("section").attr("data-count");
         var courseId = $(this).parents("section").attr("data-courseid");
@@ -299,10 +302,12 @@ function allEvent() {
         });
     });
     // 点击导师
-    $(document).on('click', 'div.lesson-tutor>ul', function () {
+    $(document).on('click', 'ul.tutorDetail', function () {
         var isfollow = $(this).attr("data-isf");
         var followid = $(this).attr("data-fid");
-        tutorDetail(isfollow, followid);
+        var courseId = $(this).parents("section").attr("data-courseid");
+        var countSum = $(this).parents("section").attr("data-count");
+        tutorDetailList(isfollow, followid,courseId,countSum);
         $("#tutorShade").show();
         // 关闭窗口
         $(".tutor-close").click(function () {
@@ -404,7 +409,7 @@ function progressRealClick(time, event) {
 
 
 // 导师详情
-function tutorDetail(isfollow, followid) {
+function tutorDetailList(isfollow, followid,courseId,countSum) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/TutorDetail",
@@ -422,12 +427,12 @@ function tutorDetail(isfollow, followid) {
             if (isfollow == 1) {
                 $("#followShow").html("已关注");
                 $("#followShow").unbind('click').bind('click', function () {
-                    noAttention(followid, isfollow);
+                    noAttention(followid,courseId,countSum);
                 });
-            } else if (isfollow == 0) {
+            } else {
                 $("#followShow").html("关注");
                 $("#followShow").unbind('click').bind('click', function () {
-                    onAttention(followid, isfollow);
+                    onAttention(followid,courseId,countSum);
                 });
             }
             // 导师简介
@@ -508,7 +513,8 @@ function onAttention(followid, courseId, countSum) {
             console.log(res);
             if (res.code == 1) {
                 flowerTips("关注导师成功 ", 1)
-                lessonDetail(courseId, countSum, "点击关注");
+                $("#followShow").html("已关注");
+                lessonDetail(courseId, countSum);  //更新智慧社详情
             }
         },
         error: function (err) {
@@ -523,7 +529,7 @@ function noAttention(followid, courseId, countSum) {
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/FollowNot",
-        data: {
+        data: { 
             uid: uId,
             followid: followid
         },
@@ -532,8 +538,9 @@ function noAttention(followid, courseId, countSum) {
             console.log(res);
             if (res.code == 1) {
                 flowerTips("已取消关注", 1);
-                lessonDetail(courseId, countSum, "点击关注");
-            }
+                $("#followShow").html("关注");
+                lessonDetail(courseId, countSum);  //更新智慧社详情
+            } 
         },
         error: function (err) {
             console.log(err);
