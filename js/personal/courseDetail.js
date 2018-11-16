@@ -2,7 +2,7 @@ $(function () {
     var url = window.location.href;
     var courseId = url.split("=")[1];
     courseDetail(courseId); //课程信息
-    courseMessage(1, courseId); //留言信息
+    courseMessage(1, courseId, 0); //留言信息
     // 课程信息
     $("#lessonInfor").click(function () {
         $(this).addClass("lesson-tabs-checked");
@@ -57,7 +57,7 @@ function courseDetail(courseId) {
 }
 
 // 课程留言详情
-function courseMessage(pageIndex, courseId) {
+function courseMessage(pageIndex, courseId, type) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/CommentList",
@@ -88,9 +88,9 @@ function courseMessage(pageIndex, courseId) {
                     </li>
                   `;
             });
-            if(pageIndex==1){
+            if (type == 0) {
                 $(".message-list").html(str);
-            }else{
+            } else {
                 $(".message-list").append(str);
             }
             $(".message-reply").unbind("click").bind("click", function () {
@@ -163,7 +163,7 @@ function reply(commentId, courseId, text) {
             console.log(res);
             if (res.code == 1) {
                 flowerTips("回复成功~", 1);
-                courseMessage(1,courseId);
+                courseMessage(1, courseId, 0);
             }
         },
         error: function (err) {

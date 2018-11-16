@@ -17,7 +17,7 @@
 	<i class="page-back" id="lessonDetailBack"></i>
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<!-- <section class="swiper-slide lesson-audio"></section> -->
+			<section class="lesson-audio" style="width:500ox;height:300px"></section>
 		</div>
 	</div>
 	<!-- 课程锁 -->
@@ -195,24 +195,19 @@
 
 
 	<!-- 广告 -->
-	<div class="lessonAd" style="display:none;">
-		<img id="lessonAdBackground" src="../../images/others.jpg" />
-		<i class="page-back" id="lessonAdBack"></i>
-		<h1>广告</h1>
+	<div class="lessonAd">
+		<img id="lessonAdBackground"/>
+		<h1 id="lessonAdHead">广告</h1>
 		<div class="adAudio-content">
 			<audio id="lessonAdAudio"></audio>
-			<div class="progressBar">
-				<div class="progressReal"></div>
+			<div class="progressBar" id="progressAdBar">
+				<div class="progressReal" id="progressAdReal"></div>
 				<i class="progressKey"></i>
 			</div>
-			<span class="successed">00:00</span>
-			<span class="unsuccessed" id="audioTime"></span>
+			<span class="successed" id="adOverTime">00:00</span>
+			<span class="unsuccessed" id="adAudioTime"></span>
 			<!-- 暂停 -->
 			<div class="progress-stop" id="progressBar"></div>
-			<!-- 播放 -->
-			<!-- <div class="progress-start" id="progressBar"></div> -->
-			<!-- 下载 -->
-			<!-- <div class="progress-download" id="progressBar"></div> -->
 		</div>
 	</div>
 	

@@ -225,7 +225,7 @@ function courseUpload() {
     });
     // 确认上传x
     $(".submit-cancel").click(function () {
-        $(".lesson-cover-content>img").attr("src", "");
+        $(".lesson-cover-content").html("<img/>");
         $(".upCover").val("");
         $(".submit-cancel").hide();
         $(".upCover").show();

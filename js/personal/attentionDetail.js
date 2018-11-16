@@ -51,18 +51,18 @@ function attentionDetail(fId) {
                     });
                 } else {
                     $("p.follow-tutorInfor").html(introduction);
-                    // 展开更多
-                    $(".follow-read").click(function () {
-                        $("p.follow-tutorInfor").html(introduction);
-                        $(".follow-read").hide();
-                        $(".follow-close").show();
-                    });
-                    // 收起更多
-                    $(".follow-close").click(function () {
-                        $("p.follow-tutorInfor").html(introduction);
-                        $(".follow-read").show();
-                        $(".follow-close").hide();
-                    });
+                    // // 展开更多
+                    // $(".follow-read").click(function () {
+                    //     $("p.follow-tutorInfor").html(introduction);
+                    //     $(".follow-read").hide();
+                    //     $(".follow-close").show();
+                    // });
+                    // // 收起更多
+                    // $(".follow-close").click(function () {
+                    //     $("p.follow-tutorInfor").html(introduction);
+                    //     $(".follow-read").show();
+                    //     $(".follow-close").hide();
+                    // });
                 }
             }
             // 专辑列表

@@ -16,8 +16,8 @@ $(function () {
     $("#lessonAudio").on("loadedmetadata", function () {
         // console.log(audio.duration);  //音频时长
         $("#audioTime").text(transTime(this.duration));
-         //点击进度
-            progressRealClick(this.duration)
+        //点击进度
+        progressRealClick(this.duration)
     });
 
     // 监听音频播放时间
@@ -74,14 +74,14 @@ function audioEnded() {
 
 
 //点击加载进度
-function progressRealClick(time){
+function progressRealClick(time) {
     console.log(time)
-    $(".progressBar").click(function(e){
+    $(".progressBar").click(function (e) {
         // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
-        var b =(time*(e.pageX - $(this).offset().left)/$(this).width())
+        var b = (time * (e.pageX - $(this).offset().left) / $(this).width())
         console.log(b)
-        var a = (time*(e.pageX - $(this).offset().left)/$(this).width()/time*100)
-         $('.progressReal').css('width', a +'%');
-         $('#lessonAudio')[0].currentTime=b
+        var a = (time * (e.pageX - $(this).offset().left) / $(this).width() / time * 100)
+        $('.progressReal').css('width', a + '%');
+        $('#lessonAudio')[0].currentTime = b
     })
 }

@@ -73,18 +73,20 @@ function userGate(index, iscurrent) {
           document.body.scrollTop = scrollH - clientH
       }
       //体力值
+      console.log(data.manvalue);
       var sVal = data.manvalue;
       if (sVal > 30) {
         sVal = 30;
       }
       $("#nowStamina").html(sVal);
+      $("#ownStamina").html(sVal);
       var sPercent = sVal / 30;
       $(".stamina-value").css("width", sPercent * 48);
       // 体力值tips
       //体力值
       $("#stamina-tab").click(function () {
         if (sVal < 4) {
-          $("#realStamina,#maxStamina").css("color", "red");
+          $("#realStamina").css("color", "red");
           $("#stamina-shade").show();
         } else {
           $("#stamina-shade").show();
