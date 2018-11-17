@@ -111,13 +111,19 @@ $(function () {
         $(".personal-container").hide();
         $(".personal-introduct").show();
         //内容监控
-        $(".present-detail").keyup(function (e) {
-            var code = e.charCode || e.keyCode;
-            if (code == 13) {
+        $(".present-detail").focus(function () {
+            $(".perEditCompleted").show();
+            $(".perEditCompleted").click(function () {
+                var coursetext = $.trim($(".present-detail").val());
+                $(".perEditCompleted").hide();
                 $(".personal-container").show();
                 $(".personal-introduct").hide();
-                $("#personal-introduct>input").val("已填写");
-            }
+                if(coursetext!=""){
+                    $("#personal-introduct>input").val("已填写");
+                }else{
+                    $("#personal-introduct>input").val("未填写");
+                }
+            });
         });
     });
 

@@ -13,86 +13,37 @@ var mySwiper = new Swiper('.swiper-container', {
             // console.log(mySwiper.slides.length); // 总滑块数
             var slideLength = mySwiper.slides.length - 1;
             countSum++;
-            // 广告
-            var bannerInner = $('section.swiper-slide').eq(mySwiper.activeIndex).attr("data-banner");
-            if (bannerInner != "") {
-                //广告显示
-                var bannerImg = $('section.swiper-slide').eq(mySwiper.activeIndex).attr("data-adImg");
-                var bannerAudio = $('section.swiper-slide').eq(mySwiper.activeIndex).attr("data-content");
-                var bannerName = $('section.swiper-slide').eq(mySwiper.activeIndex).attr("data-name");
-                console.log(bannerImg);
-                $(".lessonAd").show();
-                $("#lessonAdBackground").attr("src", bannerImg); //广告背景
-                $("#lessonAdAudio").attr("src", bannerAudio); //广告音频
-                $("#lessonAdHead").html(bannerName); //广告名称
-                // 广告播放
-                var audio = $('#lessonAdAudio').get(0);
-                // console.log(audio);
-                $('#progressBar').unbind().bind("click", function () {
-                    // console.log(audio.paused);
-                    //改变暂停/播放icon
-                    if (audio.paused) {
-                        audio.play();
-                        $('#progressBar').removeClass('progress-stop').addClass('progress-start');
-                    } else if (!audio.paused) {
-                        audio.pause();
-                        $('#progressBar').removeClass('progress-start').addClass('progress-stop');
-                    }
-                });
-                // 获取音频时长
-                $("#lessonAdAudio").on("loadedmetadata", function () {
-                    $("#adAudioTime").text(transTime(this.duration)); //音频时长
-                    // console.log(this.duration); //音频时长
-                });
-                // 监听音频播放时间
-                audio.addEventListener('timeupdate', updateAdProgress, false);
-                // 播放完成
-                audio.addEventListener('ended', audioAdEnded, false);
-                if (mySwiper.activeIndex == slideLength) {
-                    //插入下一节课程
-                    var nextId = $('section.swiper-slide').eq(mySwiper.activeIndex).attr('data-nextid');
-                    if (nextId != "") {
-                        getPrevNextData(nextId, countSum);
-                        if (mySwiper.activeIndex == 2) {
-                            mySwiper.removeSlide(0); //移除第一个
-                        }
-                    } else {
-                        alert("已经是课程的最后了~");
-                    }
-                } else if (mySwiper.activeIndex == 0) {
-                    //插入上一节课程
-                    var lastId = $('section.swiper-slide').eq(mySwiper.activeIndex).attr('data-lastid');
-                    if (lastId != "") {
-                        getPrevNextData(lastId, countSum, 'last');
-                        mySwiper.removeSlide(2); //移除最后一个
-                    } else {
-                        alert("已经是课程的最前了~");
-                    }
+            // console.log(mySwiper.activeIndex, slideLength);
+            var lessonLength = $(".swiper-wrapper>.lesson-audio").length;  //课程滑块总数
+            var adINdex = $(".swiper-wrapper>.lessonAd").length;  //广告滑块总数
+            var totalLength = (lessonLength + adINdex) - 1;  //滑块总数-1
+            var lessonFlag = $(".swiper-wrapper>.swiper-slide-active").hasClass("lesson-audio");  //当前滑块是否是课程页面
+            var nextFlag = $(".swiper-wrapper>.swiper-slide-active").nextAll().hasClass("lesson-audio"); //后面是否有课程滑动块
+            var prevFlag = $(".swiper-wrapper>.swiper-slide-active").prevAll().hasClass("lesson-audio"); //前面是否有课程滑动块
+            // console.log(lessonFlag);
+            // console.log(mySwiper.activeIndex, totalLength);
+            // console.log(nextFlag);
+            if (((mySwiper.activeIndex == totalLength) && lessonFlag) || ((mySwiper.activeIndex == (totalLength - 1)) && !nextFlag)) {
+                //插入下一节课程 
+                var nextId = $('.swiper-wrapper>.swiper-slide-active').attr('data-nextid');
+                if (nextId != "") {
+                    getPrevNextData(nextId, countSum);
+                    mySwiper.removeSlide(0); //移除第一个
                 }
-
-            } else {
-                if (mySwiper.activeIndex == slideLength) {
-                    //插入下一节课程
-                    var nextId = $('section.swiper-slide').eq(mySwiper.activeIndex).attr('data-nextid');
-                    if (nextId != "") {
-                        getPrevNextData(nextId, countSum);
-                        if (mySwiper.activeIndex == 2) {
-                            mySwiper.removeSlide(0); //移除第一个
-                        }
-                    } else {
-                        alert("已经是课程的最后了~");
-                    }
-                } else if (mySwiper.activeIndex == 0) {
-                    //插入上一节课程
-                    var lastId = $('section.swiper-slide').eq(mySwiper.activeIndex).attr('data-lastid');
-                    if (lastId != "") {
-                        getPrevNextData(lastId, countSum, 'last');
-                        mySwiper.removeSlide(2); //移除最后一个
-                    } else {
-                        alert("已经是课程的最前了~");
-                    }
+            } else if (((mySwiper.activeIndex == 0) && lessonFlag) || ((mySwiper.activeIndex == 1) && !prevFlag)) {
+                //插入上一节课程
+                var lastId = $('section.swiper-slide').eq(mySwiper.activeIndex).attr('data-lastid');
+                if (lastId != "") {
+                    getPrevNextData(lastId, countSum, 'last');
+                    // if($(".swiper-wrapper>.swiper-slide").eq(totalLength).attr("data-banner") != ""){
+                    //     mySwiper.removeSlide(totalLength); //移除最后一个
+                    // }
+                    mySwiper.removeSlide(totalLength); //移除最后一个
                 }
             }
+        },
+        touchEnd: function (event) {
+
         },
     },
 });
@@ -104,7 +55,7 @@ $(function () {
         history.back(-1);
     });
     //智慧社详情
-    lessonDetail(lessonId, 1)
+    lessonDetail(lessonId, 1);
 });
 
 // 智慧社详情
@@ -166,10 +117,32 @@ function lessonDetail(lessonId, countSum, diff) {
                         <div class="progress-bar progress-stop"></div>
                     </div>
                 </div>
+                ${data.lock==1?"":`
+                <div class="lock-shade">
+                    <div class="locked-shade"></div>
+                    <div class="progress-locked" data-cid="${data.list.courseid}"><span>${data.list.wisdombean}</span></div>
+                </div>
+                `}
             </section>
+            ${data.banner==""?'':`
+            <section class="swiper-slide lessonAd">
+                <img src="${data.banner.image}"/>
+                <h1>${data.banner.heading}</h1>
+                <div class="adAudio-content">
+                    <audio class="lessonAdAudio" src="${data.banner.content}"></audio>
+                    <div class="progressBar progressAdBar">
+                        <div class="progressReal progressAdReal"></div>
+                        <i class="progressKey"></i>
+                    </div>
+                    <span class="successed adOverTime">00:00</span>
+                    <span class="unsuccessed adAudioTime"></span>
+                    <div class="progress-stop adBar"></div>
+                </div>
+            </section>
+            `}
             `;
             if (diff == 0) {
-                $('div.swiper-wrapper>.lesson-audio').eq(1).html(str); //当前页
+                $('div.swiper-wrapper>.swiper-slide-active').html(str); //当前页
             } else {
                 $('div.swiper-wrapper').html(str); //当前页
                 if (data.lastid != "") {
@@ -183,7 +156,6 @@ function lessonDetail(lessonId, countSum, diff) {
                     mySwiper.appendSlide("<section><section/>"); //后面插入
                 }
             }
-
             tutorDetailList(data.isfollow, data.list.id, lessonId, countSum); //导师详情
             allEvent(); //所有事件
         },
@@ -252,13 +224,40 @@ function getPrevNextData(id, countSum, type) {
                                 <div class="progress-bar progress-stop"></div>
                             </div>
                         </div>
+                        ${data.lock==1?"":`
+                        <div class="lock-shade">
+                            <div class="locked-shade"></div>
+                            <div class="progress-locked" data-cid="${data.list.courseid}"><span>${data.list.wisdombean}</span></div>
+                        </div>
+                        `}
                     </section>
+                    ${data.banner==""?'':`
+                    <section class="swiper-slide lessonAd">
+                        <img  src="${data.banner.image}"/>
+                        <h1>${data.banner.heading}</h1>
+                        <div class="adAudio-content">
+                            <audio class="lessonAdAudio" src="${data.banner.content}"></audio>
+                            <div class="progressBar progressAdBar">
+                                <div class="progressReal progressAdReal"></div>
+                                <i class="progressKey"></i>
+                            </div>
+                            <span class="successed adOverTime">00:00</span>
+                            <span class="unsuccessed adAudioTime"></span>
+                            <div class="progress-stop adBar"></div>
+                        </div>
+                    </section>
+                    `}
                     `;
                 if (type == 'last') {
                     mySwiper.prependSlide(str1); //前面插入
                 } else {
                     mySwiper.appendSlide(str1); //后面插入
                 }
+                // 解锁
+                $(document).on("click", "div.progress-locked", function () {
+                    var lessonId = $(this).attr("data-cid");
+                    $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId);
+                });
             }
         },
         error: function (err) {
@@ -432,8 +431,27 @@ function allEvent() {
         // 播放完成
         audio.addEventListener('ended', audioEnded, false);
     });
-
-
+    // 广告播放
+    $("body").unbind().on("click", "div.adBar", function () {
+        var audio = $(this).parents(".lessonAd").find(".lessonAdAudio")[0];
+        var adAudioTime = $(this).parents(".lessonAd").find(".adAudioTime");
+        $(this).unbind().bind("click", function () {
+            // console.log(audio.paused);
+            //改变暂停/播放icon
+            if (audio.paused) {
+                audio.play();
+                $(this).removeClass('progress-stop').addClass('progress-start');
+            } else if (!audio.paused) {
+                audio.pause();
+                $(this).removeClass('progress-start').addClass('progress-stop');
+            }
+            adAudioTime.text(transTime(audio.duration)); //音频时长
+            // 监听音频播放时间
+            audio.addEventListener('timeupdate', updateProgress, false);
+            // 播放完成
+            audio.addEventListener('ended', audioEnded, false);
+        });
+    });
 }
 
 // 转换音频时长显示
@@ -478,8 +496,6 @@ function audioEnded(event) {
 }
 //点击加载进度
 function progressRealClick(time, event) {
-    // console.log(event);
-    // console.log(time)
     progressBar.click(function (e) {
         // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
         var b = (time * (e.pageX - $(this).offset().left) / $(this).width())
@@ -488,25 +504,6 @@ function progressRealClick(time, event) {
         progressReal.css('width', a + '%');
         audio.currentTime = b
     })
-}
-/* 广告 */
-//更新进度条
-function updateAdProgress() {
-    var audio = $("#lessonAdAudio")[0]; //js获取的方式
-    var value = Math.round((Math.floor(audio.currentTime) / Math.floor(audio.duration)) * 100, 0);
-    $('#progressAdReal').css('width', value * 0.975 + '%');
-    $('#adOverTime').html(transTime(audio.currentTime));
-}
-
-//播放完成
-function audioAdEnded() {
-    window.setTimeout(() => {
-        var audio = $("#lessonAdAudio")[0];
-        audio.currentTime = 0;
-        audio.pause();
-        $('#progressBar').removeClass('progress-start').addClass('progress-stop');
-        $(".lessonAd").hide(); //广告隐藏
-    }, 2000);
 }
 
 // 导师详情
@@ -961,7 +958,7 @@ function courseStudy(courseId) {
         url: APP_URL + "/api/Wisdom/CourseStudy",
         data: {
             uid: uId,
-            courseid:courseId
+            courseid: courseId
         },
         dataType: "json",
         success: function (res) {
