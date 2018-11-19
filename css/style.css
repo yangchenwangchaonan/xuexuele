@@ -4632,16 +4632,19 @@ body {
 }
 
 .share-result {
+    position: absolute;
+    top: 0;
     width: 100%;
-    height: 4.5vh;
-    background: rgba(48, 161, 7, 1);
+    height: 5.5vh;
     text-align: center;
-    line-height: 4.5vh;
+    line-height: 5.5vh;
+    background: rgba(48,161,7,1);
     font-size: 13px;
     font-family: PingFang-SC-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    display: none;
+    z-index: 10000;
+    /* display: none; */
 }
 
 .lesson-h1 {

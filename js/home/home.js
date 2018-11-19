@@ -150,9 +150,8 @@ function userGate(index, iscurrent) {
       }
       var $levelList = sliceArr(array, size);
       var $str = "";
-      console.log($levelList);
+      // console.log($levelList);
       var $levelFixed = $levelList[0].reverse();
-      console.log($levelFixed);
       $.each($levelFixed, function (index, val) {
         if (val != "") {
           var levelSeq = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字

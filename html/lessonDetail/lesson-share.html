@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <title>课程分享</title>
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/swiper.min.css">
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/common/jquery-1.11.3.min.js"></script>
+    <script src="../../js/lessonDetail/lesson-share.js"></script>
+    <script src="../../js/common/audio.js"></script>
+</head>
+
+<body>
+    <section class="lesson-audio">
+        <img id="imgBg"/>
+        <div class="audio">
+            <h1 id="courseName"></h1>
+            <div class="lesson-tutor">
+                <ul class="tutorDetail">
+                    <li>
+                        <div class="head-imgBg">
+                            <img/>
+                        </div>
+                        <div class="tutor-title" id="toturConfirm"></div>`
+                    </li>
+                    <li class="useName"></li>
+                </ul>
+                <div class="attention">关注</div>
+            </div>
+            <div class="audio-content">
+                <audio class="lessonAudio" id="lessonAudio" preload="preload"></audio>
+                <div class="progressBar">
+                    <div class="progressReal"></div>
+                    <i class="progressKey"></i>
+                </div>
+                <span class="successed">00:00</span>
+                <span class="unsuccessed" id="audioTime"></span>
+                <div class="progress-stop" id="progressBar"></div>
+            </div>
+        </div>
+    </section>
+    <div class="share-result">一起加入学学乐，快乐学习吧！</div>
+</body>
+
+</html>
