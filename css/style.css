@@ -2108,14 +2108,14 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     z-index: 9000;
 }
 
 .lessonAd>img {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .lessonAd>h1 {
@@ -4608,12 +4608,12 @@ body {
 /*课程分享*/
 .share-point {
     position: absolute;
-    top: 7.2vh;
-    right: 16.8vw;
+    top: 3.2vh;
+    right: 14.8vw;
     width: 27.13vw;
-    height: 12.37vh;
+    height: 15.37vh;
     background: url(../images/157.png) no-repeat;
-    background-size: 27.13vw 12.37vh;
+    background-size: 27.13vw 15.37vh;
 }
 
 .share-tips {
@@ -5338,12 +5338,12 @@ body {
 
 .progress-locked {
     position: absolute;
-    width: 16.8vw;
-    height: 9.6vh;
+    width: 63px;
+    height: 63px;
     left: 43.57vw;
-    bottom: 3.24vh;
+    bottom: 23px;
     background: url(../images/170.png) no-repeat;
-    background-size: 16.8vw 9.6vh;
+    background-size: 63px 63px;
     z-index: 9999;
 }
 
@@ -5357,14 +5357,14 @@ body {
 
 .locked-shade {
     position: absolute;
-    bottom: 42.2vh;
-    right: 5.4vw;
+    bottom: 46.82vh;
+    right: 7.4vw;
     z-index: 9999;
     width: 17.6vw;
-    height: 9.9vh;
+    height: 17.6vw;
     border-radius: 25px;
     background: url(../images/171.png) no-repeat;
-    background-size: 17.6vw 9.9vh;
+    background-size: 17.6vw 17.6vw;
     background-color: rgba(0, 0, 0, .3);
     display: block;
 }

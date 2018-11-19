@@ -64,13 +64,13 @@ function userGate(index, iscurrent) {
       console.log(res);
       var data = res.data;
       sessionStorage.setItem("firstlogin", data.firstlogin); //是否为第一次登录
-      if (data.firstlogin==1) {
-          var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-          var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
-          var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
-          document.documentElement.scrollTop = scrollH - clientH
-          window.pageYOffset = scrollH - clientH
-          document.body.scrollTop = scrollH - clientH
+      if (data.firstlogin == 1) {
+        var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+        var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
+        var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+        document.documentElement.scrollTop = scrollH - clientH
+        window.pageYOffset = scrollH - clientH
+        document.body.scrollTop = scrollH - clientH
       }
       //体力值
       console.log(data.manvalue);
@@ -150,12 +150,15 @@ function userGate(index, iscurrent) {
       }
       var $levelList = sliceArr(array, size);
       var $str = "";
+      console.log($levelList);
       var $levelFixed = $levelList[0].reverse();
+      console.log($levelFixed);
       $.each($levelFixed, function (index, val) {
-        var levelSeq = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
-        // console.log(levelSeq);
-        $str += `
-        <li class='${levelSeq==1?"LevelPosition1"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
+        if (val != "") {
+          var levelSeq = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+          // console.log(levelSeq);
+          $str += `
+          <li class='${levelSeq==1?"LevelPosition1"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
                      levelSeq==2?"LevelPosition2"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
                      levelSeq==3?"LevelPosition3"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
                      levelSeq==4?"LevelPosition4"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
@@ -172,6 +175,9 @@ function userGate(index, iscurrent) {
             <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
           </li>
          `;
+        } else {
+          $str += `<li></li>`;
+        }
       });
       $("#levelFixed").html($str);
       if (data.gatelist[5].islock == 1 && data.gatelist[5].time != "") {

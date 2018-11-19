@@ -14,15 +14,12 @@ var mySwiper = new Swiper('.swiper-container', {
             var slideLength = mySwiper.slides.length - 1;
             countSum++;
             // console.log(mySwiper.activeIndex, slideLength);
-            var lessonLength = $(".swiper-wrapper>.lesson-audio").length;  //课程滑块总数
-            var adINdex = $(".swiper-wrapper>.lessonAd").length;  //广告滑块总数
-            var totalLength = (lessonLength + adINdex) - 1;  //滑块总数-1
-            var lessonFlag = $(".swiper-wrapper>.swiper-slide-active").hasClass("lesson-audio");  //当前滑块是否是课程页面
+            var lessonLength = $(".swiper-wrapper>.lesson-audio").length; //课程滑块总数
+            var adINdex = $(".swiper-wrapper>.lessonAd").length; //广告滑块总数
+            var totalLength = (lessonLength + adINdex) - 1; //滑块总数-1
+            var lessonFlag = $(".swiper-wrapper>.swiper-slide-active").hasClass("lesson-audio"); //当前滑块是否是课程页面
             var nextFlag = $(".swiper-wrapper>.swiper-slide-active").nextAll().hasClass("lesson-audio"); //后面是否有课程滑动块
             var prevFlag = $(".swiper-wrapper>.swiper-slide-active").prevAll().hasClass("lesson-audio"); //前面是否有课程滑动块
-            // console.log(lessonFlag);
-            // console.log(mySwiper.activeIndex, totalLength);
-            // console.log(nextFlag);
             if (((mySwiper.activeIndex == totalLength) && lessonFlag) || ((mySwiper.activeIndex == (totalLength - 1)) && !nextFlag)) {
                 //插入下一节课程 
                 var nextId = $('.swiper-wrapper>.swiper-slide-active').attr('data-nextid');
@@ -107,7 +104,7 @@ function lessonDetail(lessonId, countSum, diff) {
                         <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
                     </div>
                     <div class="audio-content">
-                        <audio class="lessonAudio" src="${data.list.coursevoice}"></audio>
+                        <audio class="lessonAudio" preload="preload" src="${data.list.coursevoice}"></audio>
                         <div class="progressBar">
                             <div class="progressReal"></div>
                             <i class="progressKey"></i>
@@ -120,7 +117,7 @@ function lessonDetail(lessonId, countSum, diff) {
                 ${data.lock==1?"":`
                 <div class="lock-shade">
                     <div class="locked-shade"></div>
-                    <div class="progress-locked" data-cid="${data.list.courseid}"><span>${data.list.wisdombean}</span></div>
+                    <div class="progress-locked" data-cid="${data.list.courseid}"><span>X${data.list.wisdombean}</span></div>
                 </div>
                 `}
             </section>
@@ -129,7 +126,7 @@ function lessonDetail(lessonId, countSum, diff) {
                 <img src="${data.banner.image}"/>
                 <h1>${data.banner.heading}</h1>
                 <div class="adAudio-content">
-                    <audio class="lessonAdAudio" src="${data.banner.content}"></audio>
+                    <audio class="lessonAdAudio" preload="preload" src="${data.banner.content}"></audio>
                     <div class="progressBar progressAdBar">
                         <div class="progressReal progressAdReal"></div>
                         <i class="progressKey"></i>
@@ -214,7 +211,7 @@ function getPrevNextData(id, countSum, type) {
                                 <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
                             </div>
                             <div class="audio-content">
-                                <audio class="lessonAudio" src="${data.list.coursevoice}"></audio>
+                                <audio class="lessonAudio" 	preload="preload" src="${data.list.coursevoice}"></audio>
                                 <div class="progressBar">
                                     <div class="progressReal"></div>
                                     <i class="progressKey"></i>
@@ -227,7 +224,7 @@ function getPrevNextData(id, countSum, type) {
                         ${data.lock==1?"":`
                         <div class="lock-shade">
                             <div class="locked-shade"></div>
-                            <div class="progress-locked" data-cid="${data.list.courseid}"><span>${data.list.wisdombean}</span></div>
+                            <div class="progress-locked" data-cid="${data.list.courseid}"><span>X${data.list.wisdombean}</span></div>
                         </div>
                         `}
                     </section>
@@ -236,7 +233,7 @@ function getPrevNextData(id, countSum, type) {
                         <img  src="${data.banner.image}"/>
                         <h1>${data.banner.heading}</h1>
                         <div class="adAudio-content">
-                            <audio class="lessonAdAudio" src="${data.banner.content}"></audio>
+                            <audio class="lessonAdAudio" preload="preload" src="${data.banner.content}"></audio>
                             <div class="progressBar progressAdBar">
                                 <div class="progressReal progressAdReal"></div>
                                 <i class="progressKey"></i>
@@ -276,8 +273,6 @@ function allEvent() {
         var followid = $(this).attr("data-followid");
         var courseId = $(this).parents("section").attr("data-courseid");
         var countSum = $(this).parents("section").attr("data-count");
-        // console.log(isfollow, followid,courseId,countSum,sortId);
-        // console.log(courseId);
         if (isfollow == 1) {
             noAttention(followid, courseId, countSum, isfollow); //取消关注
         } else {
@@ -410,9 +405,7 @@ function allEvent() {
             audio.pause();
             $(this).removeClass('progress-start').addClass('progress-stop');
         }
-        // // 获取音频时长
-        // console.log(audio.duration);
-
+        // 获取音频时长
         audioTime.text(transTime(audio.duration));
         //点击进度
         $(progressBar).click(function (e) {
@@ -435,8 +428,9 @@ function allEvent() {
     $("body").unbind().on("click", "div.adBar", function () {
         var audio = $(this).parents(".lessonAd").find(".lessonAdAudio")[0];
         var adAudioTime = $(this).parents(".lessonAd").find(".adAudioTime");
+        var progressAdBar = $(this).parents('.lessonAd').find(".progressAdBar");
+        var progressAdReal = $(this).parents('.lessonAd').find(".progressAdBar>.progressAdReal");
         $(this).unbind().bind("click", function () {
-            // console.log(audio.paused);
             //改变暂停/播放icon
             if (audio.paused) {
                 audio.play();
@@ -446,6 +440,15 @@ function allEvent() {
                 $(this).removeClass('progress-start').addClass('progress-stop');
             }
             adAudioTime.text(transTime(audio.duration)); //音频时长
+            console.log(audio.duration);
+            //点击进度
+            $(progressAdBar).click(function (e) {
+                var time = audio.duration;
+                var b = (time * (e.pageX - $(this).offset().left) / $(this).width());
+                var a = (time * (e.pageX - $(this).offset().left) / $(this).width() / time * 100);
+                $(progressAdReal).css('width', a + '%');
+                audio.currentTime = b;
+            });
             // 监听音频播放时间
             audio.addEventListener('timeupdate', updateProgress, false);
             // 播放完成
@@ -472,13 +475,10 @@ function transTime(time) {
 }
 //更新进度条
 function updateProgress(event) {
-    // console.log(event.target);
     var audio = event.target;
     var progressReal = $(audio).siblings(".progressBar").find(".progressReal");
     var successProgress = $(audio).siblings(".successed");
-    // console.log(progressReal);
     var value = Math.round((Math.floor(audio.currentTime) / Math.floor(audio.duration)) * 100, 0);
-    // console.log(value)
     progressReal.css('width', (value * 0.975) + '%');
     successProgress.html(transTime(audio.currentTime));
 }
@@ -488,22 +488,10 @@ function audioEnded(event) {
     var audio = event.target;
     var progressBar = $(audio).siblings(".progress-bar");
     window.setTimeout(() => {
-        // var audio = $("#lessonAudio")[0];
         audio.currentTime = 0;
         audio.pause();
         progressBar.removeClass('progress-start').addClass('progress-stop');
     }, 5000);
-}
-//点击加载进度
-function progressRealClick(time, event) {
-    progressBar.click(function (e) {
-        // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
-        var b = (time * (e.pageX - $(this).offset().left) / $(this).width())
-        // console.log(b)
-        var a = (time * (e.pageX - $(this).offset().left) / $(this).width() / time * 100)
-        progressReal.css('width', a + '%');
-        audio.currentTime = b
-    })
 }
 
 // 导师详情
