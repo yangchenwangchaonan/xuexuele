@@ -12,10 +12,11 @@
 	<script src="../../js/common/common.js?v=55889"></script>
 	<script src="../../js/common/footer.js"></script>
 	<script src="../../js/lessonDetail/lessonContents.js"></script>
+	
 </head>
 
 <body class="lesson-index-body">
-	<section class="lesson-index-container">
+	<section class="lesson-index-container" style="overflow: hidden;">
 		<div class="lesson-content">
 			<ul class="lesson-sort">
 				<li class="sort sort1" data-sId="1"><span>综合排序</span></li>
@@ -71,15 +72,5 @@
 		</div>
 	</section>
 </body>
-<script>
-	document.body.addEventListener('touchmove', function (event) {
-		event.preventDefault();
-	}, false);
-	$(function () { 
-		// alert($('div.lesson-list').height());
-		// alert($(window).width());
-		// alert($('div.lesson-list>ul').height());
-	 })
-</script>
 
 </html>

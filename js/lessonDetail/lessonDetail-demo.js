@@ -6,7 +6,7 @@ var sortId = arr[1].split("=")[1]
 var countSum = 1;
 // swiper
 var mySwiper = new Swiper('.swiper-container', {
-    threshold: 100,
+    threshold: 6,  //拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。
     on: {
         slideChangeTransitionEnd: function (event) {
             // console.log(mySwiper.activeIndex); //滑动时的索引
@@ -26,21 +26,21 @@ var mySwiper = new Swiper('.swiper-container', {
                 if (nextId != "") {
                     getPrevNextData(nextId, countSum);
                     mySwiper.removeSlide(0); //移除第一个
+                    // if($(".swiper-wrapper>.swiper-slide").eq(0).attr("data-banner") != ""){
+                    //     mySwiper.removeSlide(0); //移除第一个
+                    // }
                 }
             } else if (((mySwiper.activeIndex == 0) && lessonFlag) || ((mySwiper.activeIndex == 1) && !prevFlag)) {
                 //插入上一节课程
                 var lastId = $('section.swiper-slide').eq(mySwiper.activeIndex).attr('data-lastid');
                 if (lastId != "") {
                     getPrevNextData(lastId, countSum, 'last');
-                    // if($(".swiper-wrapper>.swiper-slide").eq(totalLength).attr("data-banner") != ""){
-                    //     mySwiper.removeSlide(totalLength); //移除最后一个
+                    // if($(".swiper-wrapper>.swiper-slide").eq(lessonLength-1).attr("data-banner") != ""){
+                    //     mySwiper.removeSlide(totalLength); //移除广告
                     // }
                     mySwiper.removeSlide(totalLength); //移除最后一个
                 }
             }
-        },
-        touchEnd: function (event) {
-
         },
     },
 });
@@ -91,7 +91,9 @@ function lessonDetail(lessonId, countSum, diff) {
                             </li>
                             <li class="useName">${data.list.nickname}</li>
                         </ul>
-                        <div class="attention" data-isfollow="${data.isfollow}" data-followid="${data.list.id}">${data.isfollow == 1?'已关注':'关注'}</div>
+                        ${data.list.id==uId?'':
+                        `<div class="attention" data-isfollow="${data.isfollow}" data-followid="${data.list.id}">${data.isfollow == 1?'已关注':'关注'}</div>`
+                        }       
                     </div>
                     <div class="action-bar">
                         ${data.isscore == 1?`<ul class="scoreList"  data-isscore="${data.isscore}"><img src="../../images/138.png" /><span>${data.list.coursescore}</span><p>已评分</p></ul>`:
@@ -117,7 +119,7 @@ function lessonDetail(lessonId, countSum, diff) {
                 ${data.lock==1?"":`
                 <div class="lock-shade">
                     <div class="locked-shade"></div>
-                    <div class="progress-locked" data-cid="${data.list.courseid}"><span>X${data.list.wisdombean}</span></div>
+                    <div class="progress-locked" data-cid="${data.list.courseid}" data-sid="${sortId}"><span>X${data.list.wisdombean}</span></div>
                 </div>
                 `}
             </section>
@@ -198,7 +200,9 @@ function getPrevNextData(id, countSum, type) {
                                     </li>
                                     <li class="useName">${data.list.nickname}</li>
                                 </ul>
-                                <div class="attention" data-isfollow="${data.isfollow}" data-followid="${data.list.id}">${data.isfollow == 1?'已关注':'关注'}</div>
+                                ${data.list.id==uId?'':
+                                `<div class="attention" data-isfollow="${data.isfollow}" data-followid="${data.list.id}">${data.isfollow == 1?'已关注':'关注'}</div>`
+                                }
                             </div>
                             <div class="action-bar">
                                 ${data.isscore == 1?`<ul class="scoreList"  data-isscore="${data.isscore}"><img src="../../images/138.png" /><span>${data.list.coursescore}</span><p>已评分</p></ul>`:
@@ -224,7 +228,7 @@ function getPrevNextData(id, countSum, type) {
                         ${data.lock==1?"":`
                         <div class="lock-shade">
                             <div class="locked-shade"></div>
-                            <div class="progress-locked" data-cid="${data.list.courseid}"><span>X${data.list.wisdombean}</span></div>
+                            <div class="progress-locked" data-cid="${data.list.courseid}" data-sid="${sortId}"><span>X${data.list.wisdombean}</span></div>
                         </div>
                         `}
                     </section>
@@ -253,7 +257,8 @@ function getPrevNextData(id, countSum, type) {
                 // 解锁
                 $(document).on("click", "div.progress-locked", function () {
                     var lessonId = $(this).attr("data-cid");
-                    $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId);
+                    var sortId = $(this).attr("data-sid");
+                    $(window).attr("location", "./unlock_some.html?lessonId=" + lessonId + "&sortId=" + sortId);
                 });
             }
         },
@@ -265,10 +270,9 @@ function getPrevNextData(id, countSum, type) {
 
 //所有事件 
 function allEvent() {
-    // console.log(1);
     // 关注
     $("body").unbind().on('click', 'div.attention', function () {
-        // console.log(this);
+        console.log(this);
         var isfollow = $(this).attr("data-isfollow"); //是否关注
         var followid = $(this).attr("data-followid");
         var courseId = $(this).parents("section").attr("data-courseid");

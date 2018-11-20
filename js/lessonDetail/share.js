@@ -1,7 +1,7 @@
 $(function () {
     var url = window.location.href.split("#")[0];
     var courseId = url.split("&")[0].split("=")[1];
-    console.log(courseId);
+    // console.log(courseId);
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomDetailShare",

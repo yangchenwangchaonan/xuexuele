@@ -73,7 +73,7 @@ function userGate(index, iscurrent) {
         document.body.scrollTop = scrollH - clientH
       }
       //体力值
-      console.log(data.manvalue);
+      // console.log(data.manvalue);
       var sVal = data.manvalue;
       if (sVal > 30) {
         sVal = 30;
@@ -192,9 +192,9 @@ function userGate(index, iscurrent) {
           <div class="homeContentLoop"></div>
           <div class="aroundCloudLoop">
           ${i%2==0?`
-            <div class="evenBigCloudLoop"><img src="../../images/left.png"></div>
+            <div class="evenBigCloudLoop"><img src="../../images/right.png"></div>
           `:`
-            <div class="oddBigCloudLoop"><img src="../../images/right.png"></div>
+            <div class="oddBigCloudLoop"><img src="../../images/left.png"></div>
           `
           }
             <div class="leftCloudLoop"><img src="../../images/254.png" /></div>
