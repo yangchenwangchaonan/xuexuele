@@ -4608,12 +4608,12 @@ body {
 /*课程分享*/
 .share-point {
     position: absolute;
-    top: 3.2vh;
+    top: 1.2vh;
     right: 14.8vw;
     width: 27.13vw;
-    height: 15.37vh;
+    height: 18.37vh;
     background: url(../images/157.png) no-repeat;
-    background-size: 27.13vw 15.37vh;
+    background-size: 27.13vw 18.37vh;
 }
 
 .share-tips {

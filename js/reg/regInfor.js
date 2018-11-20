@@ -122,15 +122,16 @@ $(function () {
         var $regConstellation = $("#reg-constellation").html();
         var $regArea = $("#reg-area").html();
         // 身份
+        console.log($Identity);
         if ($Identity == 0) {
             flowerTips("请选择身份~", 1);
             return;
         }
         var $id = $("div#identity>p.p1>i").hasClass("checked");
         if ($id) {
-            $id = 1;
-        } else {
             $id = 2;
+        } else {
+            $id = 1;
         }
         // 头像
         if ($avartar == undefined || $avartar == "") {
