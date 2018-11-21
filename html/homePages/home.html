@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
+	<!-- <script src="../../js/common/fastclick.min.js"></script> -->
 	<script src="../../js/common/common.js"></script>
-	<script src="../../js/common/footer.js"></script>
 	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/home/home.js"></script>
 	<script src="../../js/common/moment.min.js"></script>
@@ -18,7 +18,12 @@
 
 <body class="home-body">
 	<section class="container-home">
-		<audio src="../../mp3/homeBackgroud.mp3" autoplay loop></audio>
+		<!-- 背景音效 -->
+		<audio src="../../mp3/homeBackgroud.mp3" autoplay loop></audio> 
+		<!-- 点击关卡音效 -->
+		<audio src="../../mp3/levelClick.mp3" preload="auto" id="clcikMp3"></audio>
+		<!-- 点击按钮音效 -->
+		<audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
 		<!--left-->
 		<div class="leftOptions">
 			<div class="left-tabs" id="stamina-tab">
@@ -201,8 +206,8 @@
 				<!-- 日历 -->
 				<div class="calendar" id="calendar"></div>
 				<div class="calendar-count" id="calendar-count">
-					<span>本月共签到：<span class="calendar-day"></span>天</span>
-					<span class="calendar-num">获得智慧豆：<span class="calendar-beans"></span></span>
+					<p>本月共签到：<span class="calendar-day"></>天</p>
+					<p class="calendar-num">获得智慧豆：<span class="calendar-beans"></span></p>
 				</div>
 				<p class="on">点击签到</p>
 			</div>

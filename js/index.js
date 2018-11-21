@@ -3,7 +3,8 @@ $(function () {
     var mainfest;
     // 初始化预加载manifest清单
     function setupManifest() {
-        var path = "./images/"
+        var path = "./images/";
+        var vosice = "./mp3/";
         console.log(path)
         mainfest = [
             {src: path+"01.png"},
@@ -42,16 +43,14 @@ $(function () {
             {src: path+"231.png"},
             {src: path+"236.png"},
             {src: path+"others.jpg"},
-
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
-            // {src: path+"01.png"},
+            {src:vosice+"answerError.mp3"},
+            {src:vosice+"button.mp3"},
+            {src:vosice+"homeBackgroud.mp3"},
+            {src:vosice+"levelBackground.mp3"},
+            {src:vosice+"levelClick.mp3"},
+            {src:vosice+"levelFail.mp3"},
+            {src:vosice+"otherPages.mp3"},
+            {src:vosice+"throughLevel.mp3"}
         ];
     }
     // 预加载函数
@@ -70,11 +69,12 @@ $(function () {
 
     // 当整个队列变化时展示的进度事件的处理函数
     function handleFileProgress(event) {
+        // console.log(event.loaded);
         if (event.loaded > 0.48) {
             $(".index-process-wrapper>.loading>h1").text("加载中..." + Math.ceil(event.loaded * 100) + "%");
         }
         var num = Math.ceil(event.loaded * 100);
-        // console.log(num)
+        console.log(num)
         var a = 56;
         var right = (num * 0.56);
         var index = a - right;
@@ -87,8 +87,7 @@ $(function () {
     function loadComplete() {
         // 设置定时器，当全部加载完毕后让100%停留0.4秒，提高用户体验，不至于让用户感觉不到
         window.setTimeout(() => {
-            // $(window).attr("location", "./html/login/login.html");
-             window.location.replace("./html/login/login.html");
+            $(window).attr("location", "./html/login/login.html");
         }, 400);
 
     }

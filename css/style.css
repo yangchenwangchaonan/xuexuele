@@ -11,8 +11,8 @@ body {
 .index-body {
     width: 100%;
     height: 100%;
-    font-size: .13rem;
-    /* overflow: hidden; */
+    font-size: 1.3rem;
+    overflow: hidden;
     background: linear-gradient(to top, rgba(207, 228, 255, 1), rgba(237, 254, 255, 1), rgba(48, 116, 255, 1));
 }
 
@@ -20,11 +20,9 @@ body {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    /* overflow-y: auto; */
 }
 
 .index-container {
-    /* position: relative; */
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -34,7 +32,7 @@ body {
 .lesson-index-body {
     width: 100%;
     height: 100%;
-    font-size: .13rem;
+    font-size: 1.3rem;
     overflow: hidden;
     background: linear-gradient(to top, rgba(207, 228, 255, 1), rgba(237, 254, 255, 1), rgba(48, 116, 255, 1));
 }
@@ -62,65 +60,65 @@ body {
 }
 
 .wrapper-01 {
-    width: 1.575rem;
+    width: 15.75rem;
     top: 0;
     right: 0;
 }
 
 .wrapper-02 {
-    width: 2.457rem;
+    width: 24.57rem;
     top: 0;
     left: 0;
 }
 
 .wrapper-03 {
-    width: 2.737rem;
-    top: .57rem;
+    width: 27.37rem;
+    top: 5.7rem;
     left: 0;
     right: 0;
     margin: 0 auto;
 }
 
 .wrapper-04 {
-    width: 3.459rem;
-    top: .87rem;
-    left: .18rem;
+    width: 34.59rem;
+    top: 8.7rem;
+    left: 1.8rem;
 }
 
 .wrapper-05 {
-    width: 3.544rem;
-    top: .96rem;
-    left: .14rem;
+    width: 35.44rem;
+    top: 9.6rem;
+    left: 1.4rem;
 }
 
 .wrapper-06 {
-    width: 3.655rem;
-    top: .87rem;
-    right: .01rem;
+    width: 36.55rem;
+    top: 8.7rem;
+    right: 0.1rem;
 }
 
 .index-process-wrapper {
     position: absolute;
-    width: 66.8vw;
+    width: 25.05rem;
     margin: 0 auto;
     background: url("../images/08.png") no-repeat center;
     background-size: 100% 100%;
     left: 0;
     right: 0;
-    top: 265px;
-    height: 23px;
+    top: 26.5rem;
+    height: 2.3rem;
     z-index: 10000;
     box-sizing: border-box;
-    padding: 1.5px 5px 4px;
+    padding: .15rem .5rem .4rem;
 }
 
 .index-process-wrapper>.index-process-bar {
     -webkit-appearance: none;
     background: none;
-    width: 64vw;
+    width: 24rem;
     height: 86%;
     margin-top: 1.3%;
-    border-radius: 10px;
+    border-radius: 1rem;
     display: inline-block;
 }
 
@@ -129,34 +127,34 @@ body {
 .index-process-wrapper ::-webkit-progress-bar {
     background: transparent;
     width: 100%;
-    border-radius: 10px
+    border-radius: 1rem;
 }
 
 .index-process-wrapper ::-webkit-progress-value {
     background: url("../images/09.jpg") repeat-x center;
     background-size: auto 100%;
-    border-radius: 10px
+    border-radius: 1rem;
 }
 
 .index-process-wrapper>.loading {
     position: absolute;
     top: 50%;
-    margin-top: -23px;
+    margin-top: -2.3rem;
 }
 
 .index-process-wrapper>.loading>i {
     display: inline-block;
-    width: 40px;
-    height: 43px;
+    width: 4rem;
+    height: 4.3rem;
     background: url("../images/loading_end.png") no-repeat center;
     background-size: 100% 100%;
 }
 
 .index-process-wrapper>.loading>h1 {
     margin-top: -76%;
-    margin-left: -24vw;
+    margin-left: -9rem;
     color: #fff;
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 /* 登录 */
@@ -170,13 +168,13 @@ body {
 .login-wrapper,
 .rewpd-wrapper {
     width: 100%;
-    height: 4.05rem;
+    height: 40.5rem;
     position: absolute;
-    top: 1.95rem;
+    top: 19.5rem;
     left: 0;
     background: url("../images/10.png") repeat-x center;
     background-size: 100% 100%;
-    padding: 1.25rem .45rem .41rem;
+    padding: 12.5rem 4.5rem 4.1rem;
 }
 
 .login-content,
@@ -184,26 +182,26 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    padding: .19rem .105rem 0;
+    padding: 1.9rem 1.05rem 0;
 }
 
 .reg-second {
-    padding: 1px 2.8vw 0;
+    padding: .1rem 1.05rem 0;
 }
 
 .login-content>h1,
 .rewpd-content>h1 {
     position: absolute;
     left: 0;
-    top: -.32rem;
+    top: -3.2rem;
     width: 100%;
-    height: .2rem;
+    height: 2rem;
     background: url("../images/15.jpg") no-repeat center;
-    background-size: .61rem .2rem;
+    background-size: 6.1rem 2rem;
 }
 
 .login-input-wrapper {
-    height: .5rem;
+    height: 5rem;
     background: url("../images/14.png") no-repeat center;
     background-size: 100% 100%;
     position: relative;
@@ -216,9 +214,9 @@ body {
 
 .login-input-wrapper>input {
     width: 100%;
-    height: .48rem;
-    padding-left: .59rem;
-    padding-right: .2rem;
+    height: 4.8rem;
+    padding-left: 5.9rem;
+    padding-right: 2rem;
 }
 
 .login-input-wrapper>input::placeholder {
@@ -226,41 +224,41 @@ body {
 }
 
 .login-input-wrapper.input-1>input {
-    background: transparent url("../images/12.png") no-repeat .17rem center;
-    background-size: .2rem .2rem;
+    background: transparent url("../images/12.png") no-repeat 1.7rem center;
+    background-size: 2rem 2rem;
 }
 
 .login-input-wrapper.input-2>input {
-    background: transparent url("../images/13.png") no-repeat .17rem center;
-    background-size: .2rem .2rem;
+    background: transparent url("../images/13.png") no-repeat 1.7rem center;
+    background-size: 2rem 2rem;
 }
 
 .login-input-wrapper>i {
     position: absolute;
-    width: .01rem;
-    height: .15rem;
+    width: 0.1rem;
+    height: 1.5rem;
     background: #956826;
-    left: .45rem;
+    left: 4.5rem;
     top: 50%;
-    margin-top: -.07rem;
+    margin-top: -0.7rem;
 }
 
 .login-input-wrapper.input-2 {
-    margin-top: .14rem;
+    margin-top: 1.4rem;
 }
 
 .login-btn {
     background: url("../images/11.png") no-repeat center;
     background-size: 100% 100%;
-    height: .5rem;
-    margin-top: .15rem;
-    padding-top: .15rem;
+    height: 5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
 }
 
 .login-btn>i {
     display: block;
-    width: .39rem;
-    height: .2rem;
+    width: 3.9rem;
+    height: 2rem;
     margin: 0 auto;
     background: url("../images/16.jpg") no-repeat center;
     background-size: 100% 100%;
@@ -274,10 +272,10 @@ body {
 }
 
 .login-link {
-    font-size: .12rem;
+    font-size: 1.2rem;
     color: #CA9A53;
-    padding: 0 .2rem;
-    margin-top: .11rem;
+    padding: 0 2rem;
+    margin-top: 1.1rem;
 }
 
 .login-link>a {
@@ -297,61 +295,61 @@ body {
 .reg-back,
 .level-back {
     position: absolute;
-    width: .42rem;
-    height: .42rem;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: .13rem;
-    left: .13rem;
+    top: 1.3rem;
+    left: 1.3rem;
     z-index: 9999;
 }
 
 .page-back1 {
     position: absolute;
-    width: 10.2vw;
-    height: 10.2vw;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 3.46666vw;
-    left: 3.46666vw;
+    top: 1.3rem;
+    left: 1.3rem;
     z-index: 9999;
 }
 
 .rewpd-content>h1 {
     background: url("../images/22.jpg") no-repeat center;
-    background-size: 97px 21px;
+    background-size: 9.7rem 2.1rem;
 }
 
 .rewpd-content>h2 {
-    font-size: 11px;
+    font-size: 1.1rem;
     color: #CA9A53;
-    padding-bottom: 6px;
-    padding-left: 14px;
+    padding-bottom: .6rem;
+    padding-left: 1.4rem;
 }
 
 .repwd-btn {
     background: url("../images/11.png") no-repeat center;
     background-size: 100% 100%;
-    height: 50.5px;
-    margin-top: 9px;
-    padding-top: 15.5px;
+    height: 5.05rem;
+    margin-top: .9rem;
+    padding-top: 1.55rem;
 }
 
 .reg-secBtn {
-    margin-top: 5px;
+    margin-top: .5rem;
 }
 
 .repwd-btn>i {
     display: block;
-    width: 56px;
-    height: 21px;
+    width: 5.6rem;
+    height: 2.1rem;
     margin: 0 auto;
     background: url("../images/23.jpg") no-repeat center;
     background-size: 100% 100%;
 }
 
 .repwd-code {
-    padding-top: 15px;
+    padding-top: 1.5rem;
 }
 
 .repwd-code>div {
@@ -362,53 +360,53 @@ body {
 #codeBtn,
 #recodeBtn {
     float: right;
-    margin-top: 5px;
+    margin-top: .5rem;
     margin-right: 0.5vw;
-    width: 21.33vw;
-    height: 42px;
-    line-height: 42px;
+    width: 8rem;
+    height: 4.2rem;
+    line-height: 4.2rem;
     text-align: center;
     background: #53AA19;
-    border-radius: 10px;
+    border-radius: 1rem;
     background-size: 100% 100%;
     color: #fff;
 }
 
 .repwd-code>.input-3>input {
-    background: transparent url("../images/24.png") no-repeat 17px center;
-    background-size: 20px 20px;
+    background: transparent url("../images/24.png") no-repeat 1.7rem center;
+    background-size: 2rem 2rem;
 }
 
 /*  忘记密码-第二步 */
 .repwd-next {
-    padding-top: 3px;
+    padding-top: .3rem;
 }
 
 .repwd-next>h2 {
-    font-size: 11px;
+    font-size: 1.1rem;
     color: #CA9A53;
-    line-height: 17px;
-    margin-top: -1px;
+    line-height: 1.7rem;
+    margin-top: -.1rem;
 }
 
 .repwd-next>.repwd-btn {
-    margin-top: 3px;
+    margin-top: .3rem;
 }
 
 /* 注册账号 */
 .reg-content>h1 {
     background: url("../images/32.jpg") no-repeat center;
-    background-size: 92px 21px;
+    background-size: 9.2rem 2.1rem;
 }
 
 .reg-agreement {
-    padding-top: 11px;
+    padding-top: 1.1rem;
 }
 
 .reg-agreement>h1 {
-    font-size: 12px;
+    font-size: 1.2rem;
     color: #CA9A53;
-    padding-left: 4px;
+    padding-left: .4rem;
 }
 
 .reg-agreement>h1>a {
@@ -416,20 +414,20 @@ body {
 }
 
 .reg-next .repwd-btn {
-    margin-top: 7px;
+    margin-top: .3rem;
 }
 
 /* 注册账号-第三步 */
 .reg-end-container {
     position: absolute;
-    top: 41px;
+    top: 4.1rem;
     left: 0;
     z-index: 150;
     width: 100%;
-    height: 595px;
+    height: 59.5rem;
     background: url("../images/25.png") no-repeat center;
-    background-size: 100% 100%;
-    padding: 68px 12.0vw 44px;
+    background-size: 100% 59.5rem;
+    padding: 6.8rem 4.5rem 4.4rem;
 }
 
 .reg-end-content {
@@ -441,11 +439,11 @@ body {
 .reg-end-content>h1 {
     position: absolute;
     left: 0;
-    top: -32px;
+    top: -3.2rem;
     width: 100%;
-    height: 21px;
+    height: 2.1rem;
     background: url("../images/32.jpg") no-repeat center;
-    background-size: 97px 21px;
+    background-size: 9.7rem 2.1rem;
 }
 
 .reg-end-list>li:after,
@@ -463,7 +461,7 @@ body {
 .personal-list,
 .personal-setting-list,
 .album-add-list {
-    padding: 0 15px;
+    padding: 0 1.5rem;
 }
 
 .reg-end-list>li,
@@ -471,13 +469,13 @@ body {
 .personal-list>li,
 .personal-setting-list>li,
 .album-add-list>li {
-    height: 54px;
-    border-bottom: 1px solid #CFA972;
+    height: 5.4rem;
+    border-bottom: .1rem solid #CFA972;
     border-color: rgba(229, 194, 138, 0.5);
-    line-height: 20px;
-    padding-top: 16px;
+    line-height: 2rem;
+    padding-top: 1.6rem;
     background: url("../images/30.png") no-repeat right center;
-    background-size: 7px 12px;
+    background-size: .7rem 1.2rem;
 }
 
 .reg-end-list>li>h1,
@@ -485,7 +483,7 @@ body {
 .personal-list>li>h1,
 .personal-setting-list>li>h1,
 .album-add-list>li>h1 {
-    font-size: 15px;
+    font-size: 1.5rem;
     color: #956826;
     float: left;
 }
@@ -494,17 +492,17 @@ body {
 .realname-list>li>p,
 .personal-list>li>p,
 .personal-setting-list>li>p {
-    font-size: 14px;
+    font-size: 1.4rem;
     color: #956826;
     float: right;
-    padding-right: 11px;
+    padding-right: 1.1rem;
 }
 
 .realname-list>li>p>input {
     background-color: rgba(255, 247, 223, 0.2);
     text-align: right;
     color: #956826;
-    margin-top: 0.3vh;
+    margin-top: .2rem;
 }
 
 .realname-list>li>p>input::-webkit-input-placeholder {
@@ -518,65 +516,65 @@ body {
 }
 
 .reg-end-btn {
-    margin: 16px 23px 0;
-    height: 50px;
+    margin: 1.6rem 2.3rem 0;
+    height: 5rem;
     background: url("../images/11.png") no-repeat center;
     background-size: 100% 100%;
-    padding-top: 14px;
+    padding-top: 1.4rem;
 }
 
 .reg-end-btn>i {
     display: block;
     margin: 0 auto;
-    width: 74px;
-    height: 21px;
+    width: 7.4rem;
+    height: 2.1rem;
     background: url("../images/33.jpg") no-repeat center;
     background-size: 100% 100%;
 }
 
 .reg-end-list>li.head-pic {
-    padding-top: 3px;
+    padding-top: .3rem;
 }
 
 .reg-end-list>li.head-pic>h1 {
-    margin-top: 13px;
+    margin-top: 1.3rem;
 }
 
 .reg-end-list>li.head-pic>div {
     float: right;
-    width: 120px;
-    height: 48px;
-    margin-right: 11px;
+    width: 12rem;
+    height: 4.8rem;
+    margin-right: 1.1rem;
     background: url("../images/111.png") no-repeat right center;
-    background-size: 48px 48px;
-    padding-right: 54px;
-    font-size: 14px;
+    background-size: 4.8rem 4.8rem;
+    padding-right: 5.4rem;
+    font-size: 1.4rem;
     color: #956826;
-    line-height: 48px;
+    line-height: 4.8rem;
 }
 
 .reg-end-list>li.head-pic>div>img {
     position: absolute;
-    top: 75px;
-    right: 30px;
-    width: 40px;
-    /* height: 40px; */
-    border-radius: 5px;
+    top: 7.5rem;
+    right: 3rem;
+    width: 4rem, ;
+    height: 4rem;
+    border-radius: .5rem;
 }
 
 .reg-end-list>li.head-pic>input {
     float: right;
-    width: 48px;
-    height: 48px;
-    margin-right: 11px;
-    padding-right: 54px;
+    width: 4.8rem;
+    height: 4.8rem;
+    margin-right: 1.1rem;
+    padding-right: 5.4rem;
 }
 
 .reg-end-list>li>p>input {
     background-color: rgba(255, 247, 223, 0.2);
     text-align: right;
     color: #956826;
-    margin-top: 0.3vh;
+    margin-top: .2rem;
 }
 
 .reg-end-list>li>p>input::-webkit-input-placeholder {
@@ -587,7 +585,7 @@ body {
     background-color: rgba(255, 247, 223, 0.2);
     text-align: right;
     color: #956826;
-    margin-top: 2.5px;
+    margin-top: .25rem;
 }
 
 .personal-list>li>p>input::-webkit-input-placeholder {
@@ -596,31 +594,31 @@ body {
 
 .reg-end-list>li.role,
 .personal-setting-list>li.role {
-    height: 68px;
+    height: 6.8rem;
     background: none;
     padding-top: 0;
 }
 
 .reg-end-list>li.role>h1,
 .personal-setting-list>li.role>h1 {
-    padding-top: 24px;
+    padding-top: 2.4rem;
 }
 
 .reg-end-list>li.role>div,
 .personal-setting-list>li.role>div {
     float: right;
     overflow: hidden;
-    height: 68px;
-    padding-right: 9px;
-    padding-top: 17px;
+    height: 6.8rem;
+    padding-right: .9rem;
+    padding-top: 1.7rem;
 }
 
 .reg-end-list>li.role>div>p,
 .personal-setting-list>li.role>div>p {
     float: right;
     position: relative;
-    width: 55px;
-    height: 35px;
+    width: 5.5rem;
+    height: 3.5rem;
 }
 
 .reg-end-list>li.role>div>p.p1,
@@ -633,16 +631,16 @@ body {
 .personal-setting-list>li.role>div>p.p2 {
     background: url("../images/26.png") no-repeat center;
     background-size: 100% 100%;
-    margin-left: 14px;
+    margin-left: 1.4rem;
 }
 
 .reg-end-list>li.role>div>p>i,
 .personal-setting-list>li.role>div>p>i {
     position: absolute;
-    width: 23px;
-    height: 24px;
-    right: -10px;
-    bottom: -7px;
+    width: 2.3rem;
+    height: 2.4rem;
+    right: -1rem;
+    bottom: -.7rem;
     background: url("../images/28.png") no-repeat center;
     background-size: 100% 100%;
 }
@@ -657,6 +655,9 @@ body {
 .agreement-body,
 .letter-body,
 .letter-infor {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     background: linear-gradient(to top, rgba(148, 193, 70, 1), rgba(203, 232, 229, 1));
 }
 
@@ -675,11 +676,11 @@ body {
 .letter-container,
 .album-introduction-container {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 41rem;
+    height: 65.7rem;
     background: url("../images/34.png") no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
-    padding: 2.53333vw 2.2vw;
+    padding: .95rem .825rem;
     overflow: hidden;
 }
 
@@ -690,21 +691,21 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 4.1vh 2.2vw 0;
+    padding: 2.735rem .825rem 0;
 }
 
 .agreement-wrapper,
 .letter-wrapper {
-    top: 3.3vh;
+    top: 2.2rem;
     width: 100%;
     height: 86%;
     position: relative;
-    padding: 2.3vh 1.87vh;
+    padding: 1.5341rem 1.247rem;
     overflow: auto;
 }
 
 .treasureBox-wrapper {
-    top: 11.5vh;
+    top: 7.67rem;
     width: 100%;
     height: 83%;
     position: relative;
@@ -714,7 +715,7 @@ body {
 
 .agreement-container>h1 {
     position: absolute;
-    top: 3.6vh;
+    top: 2.4rem;
     left: 0;
     width: 100%;
 }
@@ -722,17 +723,17 @@ body {
 .agreement-container>h1>i {
     display: block;
     margin: 0 auto;
-    width: 25.87vw;
-    height: 3.15vh;
+    width: 9.7rem;
+    height: 2.1rem;
     background: url("../images/35.png") no-repeat center;
     background-size: 100% 100%;
 }
 
 .agreement-wrapper>p {
-    font-size: 13px;
+    font-size: 1.3rem;
     color: #956826;
-    line-height: 2.85vh;
-    margin-top: 2.25vh;
+    line-height: 1.9rem;
+    margin-top: 1.5rem;
 }
 
 /* 首页 */
@@ -749,7 +750,7 @@ body {
 .homeCloudContent {
     position: absolute;
     width: 100%;
-    height: .88rem;
+    height: 8.8rem;
     z-index: 1000;
     overflow: hidden;
 }
@@ -758,7 +759,7 @@ body {
 .homeCenterCloud>img,
 .homeRightCloud>img {
     position: absolute;
-    top: -.23345rem;
+    top: -2.3345rem;
 }
 
 /* 循环部分 */
@@ -771,15 +772,15 @@ body {
     position: relative;
     left: 0;
     top: 0;
-    margin-bottom: -1.66rem;
+    margin-bottom: -16.6rem;
     width: 100%;
-    height: 6.056rem;
+    height: 60.56rem;
     z-index: 500;
 }
 
 .homeContentLoop {
     position: absolute;
-    margin-left: .889875rem;
+    margin-left: 8.89875rem;
     top: 0;
     width: 50%;
     height: 100%;
@@ -792,44 +793,44 @@ body {
 
 .aroundCloudLoop {
     width: 100%;
-    height: 6.056rem;
+    height: 60.56rem;
     z-index: 500;
 }
 
 .leftCloudLoop {
     position: absolute;
-    bottom: .6975rem;
+    bottom: 6.975rem;
     left: 0;
-    width: 1.32rem;
-    height: .525rem;
+    width: 13.2rem;
+    height: 5.25rem;
     z-index: 300;
     overflow: hidden;
 }
 
 .leftCloudLoop>img {
-    width: 1.32rem;
+    width: 13.2rem;
 }
 
 .rightCloudLoop {
     position: absolute;
-    bottom: 4.25546rem;
+    bottom: 42.5546rem;
     right: 0;
-    width: .705rem;
-    height: .525rem;
+    width: 7.05rem;
+    height: 5.25rem;
     z-index: 300;
     overflow: hidden;
 }
 
 .rightCloudLoop>img {
-    width: 1.35rem;
+    width: 13.5rem;
 }
 
 .oddBigCloudLoop {
     position: absolute;
-    bottom: 2.69rem;
+    bottom: 26.9rem;
     left: 0;
-    width: 1.45rem;
-    height: .825rem;
+    width: 14.5rem;
+    height: 8.25rem;
     z-index: 500;
     overflow: hidden;
 }
@@ -837,22 +838,22 @@ body {
 .oddBigCloudLoop>img {
     position: absolute;
     right: 0;
-    width: 1.74rem;
+    width: 17.4rem;
 }
 
 .evenBigCloudLoop {
     position: absolute;
-    bottom: 2.49rem;
+    bottom: 24.9rem;
     right: 0;
-    width: 1.45rem;
-    height: .825rem;
+    width: 14.5rem;
+    height: 8.25rem;
     z-index: 500;
     overflow: hidden;
 }
 
 .evenBigCloudLoop>img {
     position: absolute;
-    width: 1.74rem;
+    width: 17.4rem;
 }
 
 /* 固定部分 */
@@ -860,7 +861,7 @@ body {
     position: relative;
     top: 0;
     width: 100%;
-    height: 7.93rem;
+    height: 79.3rem;
     background: linear-gradient(0deg, rgba(207, 228, 255, 1) 0%, rgba(237, 254, 255, 1) 40%, rgba(48, 116, 255, 1) 50%);
 }
 
@@ -868,7 +869,7 @@ body {
     position: relative;
     top: 0;
     width: 100%;
-    height: 7.93rem;
+    height: 79.3rem;
     background: url(../images/36.png) no-repeat;
     background-size: 100% 100%;
     z-index: 500;
@@ -876,20 +877,20 @@ body {
 
 .cloudContent1 {
     position: absolute;
-    top: -.4rem;
-    left: -1.267875rem;
-    width: 3.75rem;
-    height: .88rem;
+    top: -4rem;
+    left: -12.67875rem;
+    width: 37.5rem;
+    height: 8.8rem;
     z-index: 1000;
     overflow: hidden;
 }
 
 .cloudContent {
     position: absolute;
-    top: -.4rem;
+    top: -4rem;
     left: -0;
-    width: 3.75rem;
-    height: .88rem;
+    width: 37.5rem;
+    height: 8.8rem;
     z-index: 2000;
     overflow: hidden;
 }
@@ -900,14 +901,14 @@ body {
     z-index: 1000;
     top: 0;
     left: 0;
-    width: 1.97rem;
-    height: .88rem;
+    width: 19.7rem;
+    height: 8.8rem;
 }
 
 .leftCloud>img {
     position: absolute;
-    left: -.1376rem;
-    width: 1.86rem;
+    left: -1.376rem;
+    width: 18.6rem;
 }
 
 .centerCloud {
@@ -915,14 +916,14 @@ body {
     display: inline-block;
     z-index: 1000;
     top: 0;
-    left: .9349rem;
-    width: 1.97rem;
-    height: .88rem;
+    left: 9.349rem;
+    width: 19.7rem;
+    height: 8.8rem;
 }
 
 .centerCloud>img {
     position: absolute;
-    width: 1.97rem;
+    width: 19.7rem;
 }
 
 .rightCloud {
@@ -930,15 +931,15 @@ body {
     display: inline-block;
     z-index: 1000;
     top: 0;
-    left: 2.074rem;
-    width: 1.97rem;
-    height: .88rem;
+    left: 20.74rem;
+    width: 19.7rem;
+    height: 8.8rem;
 }
 
 .rightCloud>img {
     position: absolute;
-    right: .0124rem;
-    width: 1.97rem;
+    right: 0.124rem;
+    width: 19.7rem;
 }
 
 .moveLeft {
@@ -953,12 +954,12 @@ body {
 
 @keyframes moveleft {
     form {
-        left: .935rem;
+        left: 9.35rem;
         opacity: 1;
     }
 
     to {
-        left: -2.055rem;
+        left: -20.55rem;
         opacity: 0;
     }
 }
@@ -975,12 +976,12 @@ body {
 
 @keyframes moveright {
     form {
-        left: 2.055rem;
+        left: 20.55rem;
         opacity: 1;
     }
 
     to {
-        left: 4.11rem;
+        left: 41.1rem;
         opacity: 0;
     }
 }
@@ -989,58 +990,58 @@ body {
 
 .bigCloud {
     position: absolute;
-    bottom: 5.0916rem;
+    bottom: 50.916rem;
     right: 0;
-    width: 1.45rem;
-    height: .825rem;
+    width: 14.5rem;
+    height: 8.25rem;
     z-index: 500;
     overflow: hidden;
 }
 
 .bigCloud>img {
     position: absolute;
-    width: 1.74rem;
+    width: 17.4rem;
 }
 
 .rightSmallCloud {
     position: absolute;
-    bottom: 2.87rem;
+    bottom: 28.7rem;
     right: 0;
-    width: .705rem;
-    height: .525rem;
+    width: 7.05rem;
+    height: 5.25rem;
     z-index: 300;
     overflow: hidden;
 }
 
 .rightSmallCloudTop {
     position: absolute;
-    bottom: 7.23028rem;
+    bottom: 72.3028rem;
     right: 0;
-    width: .705rem;
-    height: .525rem;
+    width: 7.05rem;
+    height: 5.25rem;
     z-index: 300;
     overflow: hidden;
 }
 
 .rightSmallCloud>img,
 .rightSmallCloudTop>img {
-    width: 1.32rem;
+    width: 13.2rem;
 }
 
 
 
 .leftSmallCloud {
     position: absolute;
-    bottom: 4.32683rem;
+    bottom: 43.2683rem;
     left: 0;
-    width: 1.32rem;
-    height: .525rem;
+    width: 13.2rem;
+    height: 5.25rem;
     z-index: 300;
     overflow: hidden;
 }
 
 .leftSmallCloud>img {
-    width: 1.32rem;
+    width: 13.2rem;
 }
 
 /*遮罩层*/
@@ -1098,8 +1099,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    /* top: -29px;
-    left: 10px; */
     overflow-y: hidden;
 }
 
@@ -1121,33 +1120,33 @@ body {
 
 .reg-tips {
     position: absolute;
-    width: 2.725rem;
-    height: 1.269rem;
+    width: 27.25rem;
+    height: 12.69rem;
     background: url("../images/250.png")no-repeat center;
     background-size: 100% 100%;
-    top: 2.217rem;
-    left: .625rem;
+    top: 22.17rem;
+    left: 6.25rem;
     z-index: 99999;
-    font-size: .12rem;
+    font-size: 1.2rem;
     display: none;
     text-align: center;
-    line-height: 1.269rem;
+    line-height: 12.69rem;
 }
 
 /* 智慧塔提示框 */
 .home-tips {
     position: fixed;
-    width: 2.725rem;
-    height: 1.27rem;
+    width: 27.25rem;
+    height: 12.7rem;
     background: url("../images/250.png")no-repeat center;
     background-size: 100% 100%;
-    top: 2.217rem;
-    left: .625rem;
+    top: 22.17rem;
+    left: 6.25rem;
     z-index: 99999;
     display: none;
     text-align: center;
-    line-height: 1.268634rem;
-    font-size: .12rem
+    line-height: 12.68634rem;
+    font-size: 1.2rem
 }
 
 /*头像,性别选择背景*/
@@ -1158,77 +1157,66 @@ body {
     z-index: 330;
     bottom: 0;
     width: 100%;
-    height: 30.43vh;
+    height: 20.3rem;
     background: url(../images/38.png) no-repeat center;
-    background-size: 100% 30.43vh;
+    background-size: 100% 100%;
 }
 
 .avatar-cut {
     position: absolute;
-    top: 23.49vh;
-    height: 50.22vh;
+    top: 15.668rem;
+    height: 33.5rem;
     width: 100%;
 }
 
 .avatar-cut>img {
     width: 100%;
-    height: 50.22vh;
+    height: 33.5rem;
 }
 
 .img-cut-btn {
     position: absolute;
-    bottom: 10.06vh;
-    width: 26.0vw;
-    height: 6.07vh;
+    bottom: 7.07rem;
+    width: 9.75rem;
+    height: 4.05rem;
     background: url(../images/119.png) no-repeat;
-    background-size: 26.0vw 6.07vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 6.07vh;
-    font-size: 15px;
+    line-height: 4.05rem;
+    font-size: 1.5rem;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(126, 126, 126, 1);
 }
 
 .img-cut-btn1 {
     position: absolute;
-    left: 11.33vh;
+    left: 7.557rem
 }
 
 .img-cut-btn2 {
     position: absolute;
-    right: 11.33vh;
+    right: 7.557rem;
 }
 
 .img-cut-btn3 {
-    width: 26.0vw;
-    height: 6.07vh;
+    width: 9.75rem;
+    height: 4.05rem;
     background: url(../images/118.png) no-repeat;
-    background-size: 26.0vw 6.07vh;
+    background-size: 100% 100%;
 }
 
 /*星座选择背景*/
 .constellation {
     position: absolute;
     z-index: 330;
-    top: 42.0vh;
+    /* top: 28.014rem; */
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 57.9vh;
+    height: 38.62rem;
     background: url(../images/47.png) no-repeat center;
     background-size: 100% 100%;
 }
-
-/*生日选择背景*/
-/* .birthday {
-	position: absolute;
-	z-index: 330;
-	top: 59.07vh;
-	left: 0;
-	width: 100%;
-	height: 40.8vh;
-	background: url(../images/60.png) no-repeat center;
-	background-size: 100% 100%;
-} */
 
 /*图片选择*/
 .avatar_model {
@@ -1236,8 +1224,8 @@ body {
     z-index: 350;
     display: inline-block;
     width: 100%;
-    padding-left: 20.13vw;
-    padding-right: 20.13vw;
+    padding-left: 7.55rem;
+    padding-right: 7.55rem;
 }
 
 .avatar_model label {
@@ -1245,35 +1233,35 @@ body {
 }
 
 .img1 {
-    margin-top: 12.06vh;
+    margin-top: 8rem;
     float: left;
-    width: 22.27vw;
-    height: 22.27vw;
+    width: 8.4rem;
+    height: 8.4rem;
     background: url(../images/40-1.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 .img1-photo {
-    width: 22.27vw;
-    height: 22.27vw;
+    width: 8.4rem;
+    height: 8.4rem;
     background: url(../images/40-2.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 .img2 {
-    margin-top: 12.06vh;
+    margin-top: 8rem;
     float: right;
-    width: 22.27vw;
-    height: 22.27vw;
+    width: 8.4rem;
+    height: 8.4rem;
     background: url(../images/41-1.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 .img2-picture {
-    width: 22.27vw;
-    height: 22.27vw;
+    width: 8.4rem;
+    height: 8.4rem;
     background: url(../images/41-2.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 /*关闭按钮*/
@@ -1288,12 +1276,12 @@ body {
 .lesson-close {
     position: absolute;
     z-index: 350;
-    top: 15px;
-    right: 1.2vw;
-    width: 42px;
-    height: 42px;
+    top: 1.5rem;
+    right: .45rem;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url(../images/39.png) no-repeat;
-    background-size: 10.67vw 10.67vw;
+    background-size: 100% 100%;
 }
 
 /*星座,生日确认按钮*/
@@ -1302,12 +1290,12 @@ body {
 .gender_btn1 {
     position: absolute;
     z-index: 350;
-    top: 2.27vh;
-    right: 17.34vw;
-    width: 10.67vw;
-    height: 10.67vw;
+    top: 1.5rem;
+    right: 6.5rem;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url(../images/42.png) no-repeat;
-    background-size: 10.67vw 10.67vw;
+    background-size: 100% 100%;
 }
 
 /*性别选择*/
@@ -1316,23 +1304,23 @@ body {
     z-index: 350;
     width: 100%;
     display: inline-block;
-    padding-left: 8.5vw;
+    padding-left: 3.2rem;
 
 }
 
 .gender_table {
     position: absolute;
-    top: 9.4vh;
+    top: 6.27rem;
     text-align: center;
     font-family: 'microsoft yahei';
-    font-size: 17px;
+    font-size: 1.7rem;
     color: #A8B0BB;
 }
 
 #gender_list img {
-    margin: 3.45vh 1.33vw 0 1.33vw;
-    width: 16.8vw;
-    height: 9.52vh;
+    margin: 2.3rem 1.5rem 0 .5rem;
+    width: 6.3rem;
+    height: 6.3rem;
 }
 
 .gender_text {
@@ -1341,9 +1329,9 @@ body {
 
 /*星座选择*/
 .constellation_tr img {
-    margin: 2.55vh 2.4vw 0 2.4vw;
-    width: 17.3vw;
-    height: 9.75vh;
+    margin: .834rem .9rem 0 .9rem;
+    width: 6.5rem;
+    height: 6.5rem;
 }
 
 .constellation_text {
@@ -1355,15 +1343,16 @@ body {
     z-index: 350;
     width: 100%;
     display: inline-block;
-    padding-left: 3.3vw;
+    padding-left: 1.24rem;
 }
 
 .constellation_table {
     position: absolute;
     text-align: center;
-    top: 6.45vh;
+    top: 5.8rem;
+    left: 3.0rem;
     font-family: 'microsoft yahei';
-    font-size: 17px;
+    font-size: 1.7rem;
     color: #AFAFAF;
 }
 
@@ -1376,6 +1365,7 @@ body {
     width: 100%;
     height: 100%;
     background: #30A007;
+    overflow: hidden;
 }
 
 .area-body {
@@ -1384,6 +1374,7 @@ body {
     display: none;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .area-container,
@@ -1395,13 +1386,14 @@ body {
 .albumName-container,
 .addLesson-container {
     position: relative;
-    top: 5px;
-    left: 1.33vw;
-    width: 97.33vw;
+    top: .5rem;
+    left: .5rem;
+    width: 40.5rem;
     height: 98.5%;
     background: #A8D535;
     border-radius: 3%;
     z-index: 10000;
+    overflow: hidden;
 }
 
 .area-box1,
@@ -1412,55 +1404,55 @@ body {
 .addLesson-box,
 .addLessonCover-box {
     position: relative;
-    width: 92.0vw;
+    width: 38.5rem;
     height: 89.66%;
-    top: 49px;
-    left: 2.667vw;
+    top: 4.9rem;
+    left: 1rem;
     background-color: #FFF7DF;
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 .album-add-box {
     position: absolute;
-    width: 92.0vw;
+    width: 34.5rem;
     height: 89.66%;
-    top: 49px;
-    left: 2.667vw;
+    top: 4.9rem;
+    left: 1rem;
     background-color: #FFF7DF;
-    border-radius: 10px;
+    border-radius: 1rem;
     overflow: auto;
 }
 
 .recharge-box {
     position: relative;
-    width: 92.0vw;
+    width: 34.5rem;
     height: 89.66%;
-    top: 49px;
-    left: 2.667vw;
+    top: 4.9rem;
+    left: 1rem;
     background-color: #FFF7DF;
-    border-radius: 10px;
+    border-radius: 1rem;
     overflow: auto;
     overflow-x: hidden;
 }
 
 .personal-box {
     position: relative;
-    width: 92.0vw;
+    width: 34.5rem;
     height: 89.66%;
-    top: 49px;
-    left: 2.667vw;
+    top: 4.9rem;
+    left: 1rem;
     background-color: #FFF7DF;
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 .area-box2 {
     position: relative;
-    width: 92.0vw;
-    height: 89.655vh;
-    top: 7.35vh;
-    left: 2.667vw;
+    width: 38.5rem;
+    height: 89.655%;
+    top: 4.9rem;
+    left: 1rem;
     background-color: #FFF7DF;
-    border-radius: 10px;
+    border-radius: 1rem;
     display: none;
 }
 
@@ -1481,12 +1473,12 @@ body {
 .addLessonCover-back,
 .addLessonText-back {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 9px;
-    left: 2.17vw;
+    top: .9rem;
+    left: .814rem;
     z-index: 9999;
 }
 
@@ -1495,23 +1487,23 @@ body {
 .realname-back1,
 .realname-back2 {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/213.png") no-repeat center;
     background-size: 100% 100%;
-    top: 13px;
-    left: 13px;
+    top: 1.3rem;
+    left: 1.3rem;
     z-index: 9999;
 }
 
 .area-back {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: -44px;
-    left: -0.83vw;
+    top: -4.4rem;
+    left: -.3rem;
     z-index: 9999;
 }
 
@@ -1529,128 +1521,128 @@ body {
     position: absolute;
     display: inline-block;
     width: 100%;
-    height: 17.5px;
-    top: 15.5px;
+    height: 1.75rem;
+    top: 1.55rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 1.8rem;
     text-align: center;
 }
 
 .city-box {
     position: absolute;
-    height: 4.0vh;
-    padding: 0 1.2vw;
-    top: 3.07vh;
+    height: 2.668rem;
+    padding: 0 .45rem;
+    top: 2rem;
     text-align: center;
-    line-height: 4.2vh;
+    line-height: 2.8rem;
     font-family: MicrosoftYaHei;
     color: #956826;
-    font-size: 15px;
+    font-size: 1.5rem;
     opacity: 0.6;
 }
 
 .city-in {
-    left: 13.47vw;
+    left: 5.05rem;
 }
 
 .city-out {
-    right: 6.97vh;
+    right: 4.65rem
 }
 
 .city-on {
     opacity: 1;
-    border-bottom: 2.5px solid #956826;
+    border-bottom: .25rem solid #956826;
 }
 
 .city-line {
     position: absolute;
-    width: 86.67vw;
-    height: 1px;
+    width: 36.5rem;
+    height: .1rem;
     background: #956826;
     opacity: 0.5;
-    top: 6.82vh;
-    left: 2.667vw;
+    top: 4.55rem;
+    left: 1rem;
 }
 
 .city-search1 {
     position: absolute;
-    width: 84.13vw;
-    height: 5.32vh;
-    left: 3.87vw;
-    top: 8.77vh;
+    width: 35.549rem;
+    height: 3.548rem;
+    left: 1.45rem;
+    top: 5.85rem;
     background: url(../images/61.png) no-repeat center;
-    background-size: 84.13vw 5.32vh;
+    background-size: 100% 100%;
 }
 
 .city-search2 {
     position: absolute;
-    width: 65.47vw;
-    height: 5.32vh;
-    left: 3.87vw;
-    top: 2.62vh;
+    width: 43.67rem;
+    height: 3.548rem;
+    left: 3.35rem;
+    top: 1.75rem;
     background: url(../images/64.png) no-repeat center;
-    background-size: 65.47vw 5.32vh;
+    background-size: 100% 100%;
 }
 
 #search-picture1 {
     position: absolute;
-    width: 4.0vw;
-    height: 2.25vh;
-    top: 1.574vh;
-    left: 32.667vw;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 1.05rem;
+    left: 12.25rem;
     background: url(../images/62.png) no-repeat center;
-    background-size: 4.0vw 2.25vh;
+    background-size: 100% 100%;
 }
 
 #search-picture2 {
     position: absolute;
-    width: 4.0vw;
-    height: 2.25vh;
-    top: 1.57vh;
-    left: 3.47vw;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 1.05rem;
+    left: 1.3rem;
     background: url(../images/62.png) no-repeat center;
-    background-size: 4.0vw 2.25vh;
+    background-size: 100% 100%;
 }
 
 #search-close {
     position: absolute;
-    width: 4.0vw;
-    height: 2.24vh;
-    top: 1.57vh;
-    left: 56vw;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 1.05rem;
+    left: 21rem;
     background: url(../images/66.png) no-repeat center;
-    background-size: 4.0vw 2.24vh;
+    background-size: 100% 100%;
     display: none;
 }
 
 .search-list {
     position: relative;
-    top: 7.5vh;
-    left: 4.5vw;
-    width: 64.0vw;
-    max-height: 80.0vh;
+    top: 5rem;
+    left: 1.6875rem;
+    width: 24rem;
+    max-height: 53.36rem;
     overflow: hidden;
 }
 
 .search-list>ul>li {
     position: relative;
     background: #FFFFFF;
-    width: 64.0vw;
-    height: 4.49vh;
-    line-height: 4.49vh;
-    border-bottom: 1px solid rgba(149, 104, 38, 0.5);
-    padding: 0 1.5vw;
+    width: 24rem;
+    height: 3rem;
+    line-height: 3rem;
+    border-bottom: .1rem solid rgba(149, 104, 38, 0.5);
+    padding: 0 .56rem;
 }
 
 .tel-close,
 .code-close {
     position: absolute;
-    width: .15rem;
-    height: .15rem;
-    top: .175rem;
-    right: .1425rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 1.75rem;
+    right: 1.425rem;
     background: url(../images/66.png) no-repeat center;
     background-size: 100% 100%;
     display: none;
@@ -1658,9 +1650,9 @@ body {
 
 #search-text1 {
     position: absolute;
-    top: 1.574vh;
-    left: 38.0vw;
-    font-size: 13px;
+    top: 1.05rem;
+    left: 14.25rem;
+    font-size: 1.3rem;
     color: #D9AC6A;
     background: none;
 }
@@ -1672,71 +1664,71 @@ body {
 
 #search-text2 {
     position: absolute;
-    top: 1.57vh;
-    left: 8.67vw;
-    font-size: 13px;
+    top: 1.05rem;
+    left: 3.25rem;
+    font-size: 1.3rem;
     color: #D9AC6A;
     background: none;
 }
 
 .city-search-btn {
     position: absolute;
-    width: 17.73vw;
-    height: 5.1vh;
-    left: 70.13vw;
-    top: 2.92vh;
+    width: 6.65rem;
+    height: 3.4rem;
+    left: 26.3rem;
+    top: 1.95rem;
     background: url(../images/65.png) no-repeat center;
-    background-size: 17.73vw 5.1vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 5.1vh;
-    font-size: 13px;
+    line-height: 3.4rem;
+    font-size: 1.3rem;
     color: #FFFFFE;
 }
 
 .city-text {
     position: absolute;
-    width: 87.2vw;
-    height: 73.46vh;
-    top: 14.09vh;
-    left: 3.87vw;
+    width: 32.7rem;
+    height: 48rem;
+    top: 9.4rem;
+    left: 1.45rem;
     overflow: auto;
 }
 
 .city-text ul {
     font-family: MicrosoftYaHei;
     color: #222222;
-    line-height: 6.3vh;
+    line-height: 4.2rem;
 }
 
 .city-text ul>p {
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 .city-text ul>li {
-    height: 6.52vh;
-    font-size: 14px;
-    width: 76.67vw;
-    line-height: 6.52vh;
+    height: 4.35rem;
+    font-size: 1.4rem;
+    width: 28.75rem;
+    line-height: 4.35rem;
 }
 
 .city-text ul>hr {
-    border: 1px solid #956826;
+    border: .1rem solid #956826;
     opacity: 0.2;
 }
 
 .city-initials {
     position: absolute;
-    top: 14.84vh;
-    right: 4.67vw;
+    top: 9.9rem;
+    right: 1.75rem;
     text-align: center;
     background: #956826;
     background-color: rgba(0, 0, 0, .2);
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .city-checked {
     color: #76C519;
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .city-international {
@@ -1745,95 +1737,95 @@ body {
 
 #inter-picture {
     position: absolute;
-    width: 33.8667vw;
-    height: 19.04vh;
-    top: 22.41vh;
-    left: 29.2vw;
+    width: 12.7rem;
+    height: 12.7rem;
+    top: 14.95rem;
+    left: 10.95rem;
     background: url(../images/63.png) no-repeat center;
-    background-size: 33.8667vw 19.04vh;
+    background-size: 100% 100%;
 }
 
 #inter-text,
 #infor-text {
     position: absolute;
     text-align: center;
-    top: 43.78vh;
-    left: 24.13vw;
-    width: 43.47vw;
-    font-size: 14px;
+    top: 29.2rem;
+    left: 9.05rem;
+    width: 16.3rem;
+    font-size: 1.4rem;
     color: #333333;
 }
 
 #attentionText {
     position: absolute;
     text-align: center;
-    top: 48.78vh;
-    left: 26.13vw;
-    width: 43.47vw;
-    font-size: 14px;
+    top: 32.5rem;
+    left: 9.8rem;
+    width: 16.3rem;
+    font-size: 1.4rem;
     color: #333333;
 }
 
 #inter-text>p {
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .search-text {
     position: absolute;
-    width: 83.2vw;
-    height: 73.46vh;
-    top: 10.09vh;
-    left: 4.5vw;
+    width: 31.2rem;
+    height: 49rem;
+    top: 6.73rem;
+    left: 1.6875rem;
     overflow: auto;
 }
 
 .search-res {
-    height: 4.5vh;
-    border-bottom: 1px rgba(149, 104, 38, .2) solid;
-    margin: 1.5vw;
-    font-size: 15px;
+    height: 3rem;
+    border-bottom: .1rem rgba(149, 104, 38, .2) solid;
+    margin: .56rem;
+    font-size: 1.5rem;
 }
 
 /*站内信*/
 .letter-infor-wrapper {
-    top: 3.3vh;
+    top: 2.2rem;
     width: 100%;
     height: 86%;
     position: relative;
-    padding: 2.3vh 1.87vh;
+    padding: 1.534rem 1.25rem;
     overflow: auto;
     text-align: center;
     color: #553208;
-    line-height: 18px;
+    line-height: 1.8rem;
 }
 
 .letter-infor-wrapper>h1,
 .letter-infor-wrapper>h3,
 .letter-infor-wrapper>p {
-    margin-bottom: 0.85vh;
+    margin-bottom: .57rem;
 }
 
 .letter-infor-wrapper>h1 {
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 .letter-infor-wrapper>h3 {
-    font-size: 13px;
+    font-size: 1.3rem;
 }
 
 .letter-infor-wrapper>p {
     text-align: left;
     text-indent: 2em;
-    font-size: 14px;
+    font-size: 1.4rem;
 }
 
 .treasureBox-audio>h1 {
     position: absolute;
-    top: 3.8vh;
+    top: 2.535rem;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #FFFFFF;
     z-index: 350;
@@ -1841,11 +1833,11 @@ body {
 
 .treasureBox-content>h1 {
     position: absolute;
-    top: 1.8vh;
+    top: 1.2rem;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #FFFFFF;
     z-index: 350;
@@ -1853,33 +1845,33 @@ body {
 
 .letter-content>h1 {
     position: absolute;
-    top: 2.0vh;
+    top: 1.334rem;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #FFFFFF;
 }
 
 .mailbox {
     position: absolute;
-    right: 2.27vw;
-    bottom: 1.5vh;
-    width: 18.27vw;
-    height: 9.97vh;
+    right: .85rem;
+    bottom: 1rem;
+    width: 6.85rem;
+    height: 6.65rem;
     background: url(../images/67.png) no-repeat center;
-    background-size: 18.27vw 9.97vh;
+    background-size: 100% 100%;
 }
 
 
 .treasureBox-gift {
-    width: 80.67vw;
-    height: 10.11vh;
+    width: 30.25rem;
+    height: 6.74rem;
     background: #F8E8B0;
-    border-radius: 10px;
+    border-radius: 1rem;
     color: #553208;
-    margin: 1.74vh 5.17vw;
+    margin: 1.16rem 1.94rem;
 }
 
 .noletter,
@@ -1890,32 +1882,32 @@ body {
 
 .noletter-result {
     position: absolute;
-    width: 34.0vw;
-    height: 19.04vh;
-    top: 26.54vh;
-    left: 28.67vw;
+    width: 12.75rem;
+    height: 12.7rem;
+    top: 17.7rem;
+    left: 10.75rem;
     background: url(../images/70.png) no-repeat center;
-    background-size: 34.0vw 19.04vh;
+    background-size: 100% 100%;
 }
 
 .noletter-text,
 .not-support-text {
     position: absolute;
     text-align: center;
-    top: 47.97vh;
-    left: 24.13vw;
-    width: 43.47vw;
-    font-size: 13px;
+    top: 32rem;
+    left: 9rem;
+    width: 16.3rem;
+    font-size: 1.3rem;
     color: #333333;
 }
 
 .nogift-text {
     position: absolute;
     text-align: center;
-    top: 51.97vh;
-    left: 27.13vw;
-    width: 43.47vw;
-    font-size: 13px;
+    top: 34.66rem;
+    left: 10.17rem;
+    width: 16.3rem;
+    font-size: 1.3rem;
     color: #333333;
 }
 
@@ -1930,13 +1922,13 @@ body {
 }
 
 #treasureBoxAudioBg {
-    width: 100.0vw;
-    height: 100.0vh;
+    width: 37.5rem;
+    height: 66.7rem;
 }
 
 #lessonBackground {
-    width: 100.0vw;
-    height: 100.0vh;
+    width: 37.5rem;
+    height: 66.7rem;
 }
 
 .treasureBox-container,
@@ -1946,7 +1938,7 @@ body {
     position: relative;
     background: url(../images/71.png) no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
-    padding: 2.53333vw 2.2vw;
+    padding: .95rem .825rem;
 }
 
 .personal-introduct {
@@ -1955,21 +1947,21 @@ body {
     position: relative;
     background: url(../images/71.png) no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
-    padding: 2.53333vw 2.2vw;
+    padding: .95rem .825rem;
     display: none;
 }
 
 .articleGift {
-    width: 19.87vw;
-    height: 10.19vh;
+    width: 7.45rem;
+    height: 6.8rem;
     background: url(../images/72.png) no-repeat;
     background-size: 100% 100%;
     float: left;
 }
 
 .musicGift {
-    width: 19.87vw;
-    height: 10.19vh;
+    width: 7.45rem;
+    height: 6.8rem;
     background: url(../images/73.png) no-repeat;
     background-size: 100% 100%;
     float: left;
@@ -1977,54 +1969,54 @@ body {
 
 .treasureBox-gift>li {
     list-style: none;
-    font-size: 15px;
+    font-size: 1.5rem;
     color: #553208;
-    line-height: 5.85vh;
+    line-height: 3.9rem;
 }
 
 .nogift-result {
     position: absolute;
-    width: 34.0vw;
-    height: 19.04vh;
-    top: 30.54vh;
-    left: 31.67vw;
+    width: 12.75rem;
+    height: 12.7rem;
+    top: 20.37rem;
+    left: 11.9rem;
     background: url(../images/75.png) no-repeat center;
-    background-size: 34.0vw 19.04vh;
+    background-size: 100% 100%;
 }
 
 .treasure {
     position: absolute;
-    bottom: 1.2vh;
-    right: 1.5vw;
-    width: 18.27vw;
-    height: 9.97vh;
+    bottom: .8rem;
+    right: 5.6rem;
+    width: 6.85rem;
+    height: 6.65rem;
     background: url(../images/74.png) no-repeat center;
-    background-size: 18.27vw 9.97vh;
+    background-size: 100% 100%;
 }
 
 .treasureBoxSort {
     position: absolute;
-    top: 7.35vh;
-    left: 5.33vw;
-    width: 84.8vw;
-    height: 8.25vh;
-    border-bottom: 1px solid rgba(128, 98, 51, 1);
+    top: 4.9rem;
+    left: 2rem;
+    width: 31.8rem;
+    height: 5.5rem;
+    border-bottom: .1rem solid rgba(128, 98, 51, 1);
 }
 
 .treasureBoxSpecial1 {
     float: left;
-    width: 42.4vw;
-    height: 8.25vh;
+    width: 15.9rem;
+    height: 5.5rem;
     color: #553208;
-    font-size: 18px;
+    font-size: 1.8rem;
     text-align: center;
-    line-height: 8.25vh;
+    line-height: 5.5rem;
     font-weight: bold;
 }
 
 .treasureBoxSpecial2 {
     color: #F18600;
-    border-bottom: 2px solid #F18600;
+    border-bottom: .2rem solid #F18600;
 }
 
 .treasureBoxOrdinary1 {
@@ -2161,7 +2153,6 @@ body {
     width: 74.0vw;
     height: 5px;
     background: rgba(0, 0, 0, .5);
-    /* background-size: 74.0vw 0.75vh; */
     border-radius: 5px;
 }
 
@@ -2486,92 +2477,6 @@ body {
     border-radius: 15px;
 }
 
-/*center*/
-/* .level {
-    position: relative;
-    top: 74.0vh;
-    width: 50.4vw;
-    height: 11.62vh;
-    left: 35.06vw;
-    color: rgba(255, 255, 255, 1);
-    font-size: 9px;
-    text-align: center;
-    font-weight: bold;
-    z-index: 300;
-    font-family: MicrosoftYaHei-Bold;
-}
-
-.left-successed {
-    width: 6.27vw;
-    height: 3.97vh;
-    background: url(../images/95.png) no-repeat;
-    background-size: 6.27vw 3.97vh;
-    line-height: 3.97vh;
-}
-
-.left-failed {
-    width: 6.27vw;
-    height: 3.97vh;
-    background: url(../images/99.png) no-repeat;
-    background-size: 6.27vw 3.97vh;
-    line-height: 3.97vh;
-}
-
-.level-infor {
-    position: relative;
-    width: 16.53vw;
-    height: 5.2vh;
-    background: rgba(162, 192, 18, 1);
-    border: 4px solid rgba(69, 134, 48, 1);
-    border-radius: 31px;
-    box-shadow: 0px 1px 30px 0px rgba(0, 56, 7, 0.3);
-}
-
-.left-successed-infor,
-.left-others {
-    left: 1.6vw;
-    top: -0.75vh;
-}
-
-.left-successed-infor img,
-.right-successed-infor img {
-    position: absolute;
-    top: 1.3vh;
-    left: 2.1vw;
-    width: 3.67vw;
-}
-
-.right-successed {
-    position: absolute;
-    left: 27.6vw;
-    top: 4.42vh;
-    width: 6.27vw;
-    height: 3.97vh;
-    background: url(../images/98.png) no-repeat;
-    background-size: 6.27vw 3.97vh;
-    text-align: center;
-    line-height: 3.97vh;
-}
-
-.right-failed {
-    position: absolute;
-    left: 27.6vw;
-    top: 4.42vh;
-    width: 6.27vw;
-    height: 3.97vh;
-    background: url(../images/100.png) no-repeat;
-    background-size: 6.27vw 3.97vh;
-    text-align: center;
-    line-height: 3.97vh;
-}
-
-.right-successed-infor,
-.right-others {
-    position: absolute;
-    left: 28.05vw;
-    top: 7.65vh;
-} */
-
 .level-next {
     position: relative;
     top: 36.48vh;
@@ -2582,37 +2487,11 @@ body {
     top: 0.48vh;
 }
 
-/* .left-failed-infor,
-.right-failed-infor {
-    visibility: hidden;
-} */
-
-/* .left-others,
-.right-others {
-    width: 20.4vw;
-}
-
-.left-others img,
-.right-others img {
-    position: absolute;
-    width: 10.27vw;
-    height: 5.622vh;
-    top: -1.05vh;
-    left: -1.5vw;
-}
-
-.left-others span,
-.right-others span {
-    position: relative;
-    left: 3.05vw;
-    line-height: 3.22vh;
-} */
-
 .level-list {
     position: absolute;
     display: inline-block;
     z-index: 1000 !important;
-    top: 1rem;
+    top: 10rem;
     right: 33.5vw;
 }
 
@@ -2620,30 +2499,30 @@ body {
     position: absolute;
     display: inline-block;
     z-index: 1000 !important;
-    top: .5rem;
+    top: 5rem;
     right: 33.5vw;
 }
 
 .level-list2>li {
     position: relative;
-    margin-bottom: .535rem;
+    margin-bottom: 5.35rem;
     text-align: center;
-    line-height: .265rem;
-    font-size: .09rem;
-    width: .235rem;
-    height: .265rem;
+    line-height: 2.65rem;
+    font-size: 0.9rem;
+    width: 2.35rem;
+    height: 2.65rem;
     font-weight: bold;
     color: rgba(254, 246, 223, 1);
 }
 
 .level-list>li {
     position: relative;
-    margin-bottom: .535rem;
+    margin-bottom: 5.35rem;
     text-align: center;
-    line-height: .265rem;
-    font-size: .09rem;
-    width: .235rem;
-    height: .265rem;
+    line-height: 2.65rem;
+    font-size: 0.9rem;
+    width: 2.35rem;
+    height: 2.65rem;
     font-weight: bold;
     color: rgba(254, 246, 223, 1);
 }
@@ -2651,45 +2530,45 @@ body {
 /* 底座 */
 /* 第一关位置 */
 .LevelPosition1 {
-    top: -.54rem;
+    top: -5.4rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第二关位置 */
 .LevelPosition2 {
-    left: -.99rem;
-    top: -.02rem;
+    left: -9.9rem;
+    top: -0.2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第三关位置 */
 .LevelPosition3 {
-    top: -.68rem;
+    top: -6.8rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第四关位置 */
 .LevelPosition4 {
-    left: -.99rem;
-    top: -.15rem;
+    left: -9.9rem;
+    top: -1.5rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第五关位置 */
 .LevelPosition5 {
-    top: -.7rem;
+    top: -7rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第六关位置 */
 .LevelPosition6 {
-    left: -.99rem;
-    top: -.2rem;
+    left: -9.9rem;
+    top: -2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2697,59 +2576,59 @@ body {
 .LevelPosition1>span,
 .LevelPosition3>span,
 .LevelPosition5>span {
-    margin-left: .02rem;
+    margin-left: .2rem;
     transform: rotate(16deg);
 }
 
 .LevelPosition2>span,
 .LevelPosition4>span,
 .LevelPosition6>span {
-    margin-right: .02rem;
+    margin-right: .2rem;
     transform: rotate(-16deg);
 }
 
 /* 循环 */
 /* 第一关位置 */
 .LevelLoopPosition1 {
-    top: -.6rem;
+    top: -6rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第二关位置 */
 .LevelLoopPosition2 {
-    left: -.99rem;
-    top: -.05rem;
+    left: -9.9rem;
+    top: -.5rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第三关位置 */
 .LevelLoopPosition3 {
-    top: -.45rem;
+    top: -4.5rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第四关位置 */
 .LevelLoopPosition4 {
-    left: -.99rem;
-    top: 0.12rem;
+    left: -9.9rem;
+    top: 1.2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第五关位置 */
 .LevelLoopPosition5 {
-    top: -.37rem;
+    top: -3.7rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /* 第六关位置 */
 .LevelLoopPosition6 {
-    left: -.99rem;
-    top: .2rem;
+    left: -9.9rem;
+    top: 2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2757,14 +2636,14 @@ body {
 .LevelLoopPosition1>span,
 .LevelLoopPosition3>span,
 .LevelLoopPosition5>span {
-    margin-left: .02rem;
+    margin-left: .2rem;
     transform: rotate(16deg);
 }
 
 .LevelLoopPosition2>span,
 .LevelLoopPosition4>span,
 .LevelLoopPosition6>span {
-    margin-right: .02rem;
+    margin-right: .2rem;
     transform: rotate(-16deg);
 }
 
@@ -2782,11 +2661,11 @@ body {
 /* 呼吸灯 */
 .evenWillLevel {
     position: absolute;
-    top: .01rem;
+    top: .1rem;
     left: 0;
-    width: .20rem;
-    height: .22rem;
-    border-radius: .10rem .10rem 0 0;
+    width: 2rem;
+    height: 2.2rem;
+    border-radius: 1rem 1rem 0 0;
     box-shadow: #def324;
     transform: rotate(-18deg);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#dce494), to(#d9e478));
@@ -2799,11 +2678,11 @@ body {
 
 .oddWillLevel {
     position: absolute;
-    top: .02rem;
-    left: .03rem;
-    width: .20rem;
-    height: .20rem;
-    border-radius: .10rem .1rem 0 0;
+    top: .2rem;
+    left: .3rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem 1rem 0 0;
     box-shadow: #def324;
     transform: rotate(14deg);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#dce494), to(#d9e478));
@@ -3133,9 +3012,6 @@ body {
     text-align: center;
 }
 
-/* .pass-gift {
-    width: 20.13vw;
-} */
 
 .stamina-reward {
     float: left;
@@ -4998,7 +4874,7 @@ body {
     width: 100%;
     height: 50vh;
     top: 14.5vh;
-    font-size: .12rem;
+    font-size: 1.2rem;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -7530,26 +7406,32 @@ body {
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
 }
 
-
-
-
-
 /*签到*/
 .calendar {
-    margin-top: 41px;
+    margin-top: 4.1rem;
     width: 85vw;
     margin-left: 6.66666vw;
 }
 
 .calendar-count {
-    display: inline-block;
+    margin-top: 5.1rem;
+    width: 80%;
+    height: 3rem;
     margin-left: 10.6vw;
-    margin-top: 15%;
+    padding-left: 10px;
     color: #fff;
 }
 
+.calendar-count>p {
+    margin: 0;
+    padding: 0;
+    width: 120.5px;
+    font-size: 1.5rem;
+}
+
 .calendar-count>.calendar-num {
-    margin-left: 23vw;
+    margin-top: -20px;
+    margin-left: 40vw;
 }
 
 .home-recording>p {
@@ -7560,7 +7442,7 @@ body {
     background-size: 100% 100%;
     line-height: 265%;
     margin: 0 auto;
-    margin-top: 3%;
+    margin-top: 1%;
     font-size: 18px;
     color: #fff;
 }
@@ -7633,17 +7515,18 @@ body {
     display: table-cell;
     width: 14.3%;
     /*border-top: 1px solid #e3e3e3;*/
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: .1rem solid #e3e3e3;
     /*border-left: 1px solid #e3e3e3;*/
-    height: 40px;
+    height: 4rem;
+    font-size: 1.5rem;
     text-align: center;
-    line-height: 40px;
-    border-radius: 3px;
+    line-height: 4rem;
+    border-radius: .3rem;
 }
 
 .sign_row .bold {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 2rem;
     font-family: MicrosoftYaHei;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);

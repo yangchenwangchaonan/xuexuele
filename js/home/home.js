@@ -1,5 +1,5 @@
 $(function () {
-  //滚动条在底部
+  // FastClick.attach(document.body); //清除点击事件300ms
   //原住人数
   people();
   //闯关列表
@@ -8,25 +8,33 @@ $(function () {
   // generalTips("网络不给力啊~", 1);
   //站内信
   $("#maildrop-tab").click(function () {
-    $(window).attr("location", "./letter.html");
+    allClick();
+    window.setTimeout(function () {
+      $(window).attr("location", "./letter.html");
+    }, 1000);
   });
 
   //签到
   $("#signed-tab").click(function () {
-    $("#recording-shade").show();
-    $("img.signed-close").click(function () {
-      $("#recording-shade").hide();
-      userGate(1, 1);
-    });
-    // actioveDate()   //日历当前日期渲染
-    signinDate() //当月签到日期渲染
-    handleClick() //点击签到
-
+    allClick();
+    window.setTimeout(function () {
+      $("#recording-shade").show();
+      $("img.signed-close").click(function () {
+        $("#recording-shade").hide();
+        userGate(1, 1);
+      });
+      // actioveDate()   //日历当前日期渲染
+      signinDate() //当月签到日期渲染
+      handleClick() //点击签到
+    }, 1000);
   });
 
   //百宝箱
   $("#treasureBox-tab").click(function () {
-    $(window).attr("location", "./treasureBox.html");
+    allClick();
+    window.setTimeout(function () {
+      $(window).attr("location", "./treasureBox.html");
+    }, 1000);
   });
 
 });
@@ -293,41 +301,45 @@ function userGate(index, iscurrent) {
 
 // 闯关
 function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName) {
-  if (levelLock == 0) {
-    homeLevel("请先闯过当前关卡~", 1);
-    return;
-  }
-  $("#levelNum").html(levelName);
-  var str = "";
-  str +=
-    levelTime == '' ? `
-          <div class="pass-gift">
-            <div class="stamina-reward"><img src="../../images/108.png" /><span>x${rewardbeans}</span></div>
-            <div class="pk-reward"><img src="../../images/107.png" /><span>x${pkvalue}</span></div>
-            <div class="other-gift">
-              <div class="other-giftbox">
-                <img src="../../images/109.png" />
-                <div>其他奖励</div>
+  var clickMp3 = $("#clcikMp3")[0];
+  clickMp3.play();
+  window.setTimeout(function () {
+    if (levelLock == 0) {
+      homeLevel("请先闯过当前关卡~", 1);
+      return;
+    }
+    $("#levelNum").html(levelName);
+    var str = "";
+    str +=
+      levelTime == '' ? `
+            <div class="pass-gift">
+              <div class="stamina-reward"><img src="../../images/108.png" /><span>x${rewardbeans}</span></div>
+              <div class="pk-reward"><img src="../../images/107.png" /><span>x${pkvalue}</span></div>
+              <div class="other-gift">
+                <div class="other-giftbox">
+                  <img src="../../images/109.png" />
+                  <div>其他奖励</div>
+                </div>
               </div>
             </div>
-          </div>
-          ` : `
-          <div class="pass-again">
-            <img src="../../images/117.png" />
-            <p>${levelTime}</p>
-          </div>
-          `;
-  $(".passLevel").html(str);
-  ranking(levelId); //全网排名
-  $("#levelShade").show();
-  $("#levelFirst").click(function () {
-    sessionStorage.setItem("gateid", levelId);
-    $(window).attr("location", "./level_content.html");
-  });
-  // 取消闯关
-  $(".level_btn").click(function () {
-    $("#levelShade").hide();
-  });
+            ` : `
+            <div class="pass-again">
+              <img src="../../images/117.png" />
+              <p>${levelTime}</p>
+            </div>
+            `;
+    $(".passLevel").html(str);
+    ranking(levelId); //全网排名
+    $("#levelShade").show();
+    $("#levelFirst").click(function () {
+      sessionStorage.setItem("gateid", levelId);
+      $(window).attr("location", "./level_content.html");
+    });
+    // 取消闯关
+    $(".level_btn").click(function () {
+      $("#levelShade").hide();
+    });
+  }, 1000);
 }
 
 //日历

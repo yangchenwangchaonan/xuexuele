@@ -1,12 +1,11 @@
-
 // 柠檬提示框
 function lemonTips(a, b) {
-	$(".submit-tips").html(a);
-	var y = b * 1000;
-	$(".submit-tips").show();
-	window.setTimeout(() => {
-		$(".submit-tips").hide();
-	}, y);
+    $(".submit-tips").html(a);
+    var y = b * 1000;
+    $(".submit-tips").show();
+    window.setTimeout(() => {
+        $(".submit-tips").hide();
+    }, y);
 }
 
 // 牵牛花提示框
@@ -29,10 +28,10 @@ function generalTips(a, b) {
     }, date);
 }
 //清空value
-function  deleteVal(a,b) {
-    $(a).click(function() {
-       $(b).val("")
-    console.log(a,b)
+function deleteVal(a, b) {
+    $(a).click(function () {
+        $(b).val("")
+        console.log(a, b)
     });
 
 }
@@ -45,4 +44,10 @@ function homeLevel(a, b) {
     window.setTimeout(() => {
         $(".home-tips").hide();
     }, date);
+}
+
+//按钮音效
+function allClick() {
+    var buttonMps = $("#buttonMps")[0];
+    buttonMps.play();
 }

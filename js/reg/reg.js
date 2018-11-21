@@ -46,7 +46,7 @@ $(function () {
                     console.log(res);
                     if (res.code == 1) {
                         flowerTips("发送成功~", 1);
-                        // alert("发送成功~");
+                        alert(res.data.code);
                         var realCode = res.data.code;
                         $("#realCode").val(realCode);
                         setTime(obj);
