@@ -299,8 +299,8 @@ body {
     height: 4.2rem;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 1.3rem;
-    left: 1.3rem;
+    top: 0.8rem;
+    left: 0.7rem;
     z-index: 9999;
 }
 
@@ -676,7 +676,7 @@ body {
 .letter-container,
 .album-introduction-container {
     position: relative;
-    width: 41rem;
+    width: 31.5rem;
     height: 65.7rem;
     background: url("../images/34.png") no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
@@ -690,7 +690,7 @@ body {
 .personal-content {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 66.7rem;
     padding: 2.735rem .825rem 0;
 }
 
@@ -1905,7 +1905,7 @@ body {
     position: absolute;
     text-align: center;
     top: 34.66rem;
-    left: 10.17rem;
+    left: 6.57rem;
     width: 16.3rem;
     font-size: 1.3rem;
     color: #333333;
@@ -1979,7 +1979,7 @@ body {
     width: 12.75rem;
     height: 12.7rem;
     top: 20.37rem;
-    left: 11.9rem;
+    left: 8.5rem;
     background: url(../images/75.png) no-repeat center;
     background-size: 100% 100%;
 }
@@ -1987,7 +1987,7 @@ body {
 .treasure {
     position: absolute;
     bottom: .8rem;
-    right: 5.6rem;
+    right: 1.6rem;
     width: 6.85rem;
     height: 6.65rem;
     background: url(../images/74.png) no-repeat center;
@@ -1998,14 +1998,14 @@ body {
     position: absolute;
     top: 4.9rem;
     left: 2rem;
-    width: 31.8rem;
+    width: 24.8rem;
     height: 5.5rem;
     border-bottom: .1rem solid rgba(128, 98, 51, 1);
 }
 
 .treasureBoxSpecial1 {
     float: left;
-    width: 15.9rem;
+    width: 11.9rem;
     height: 5.5rem;
     color: #553208;
     font-size: 1.8rem;
@@ -2021,23 +2021,23 @@ body {
 
 .treasureBoxOrdinary1 {
     float: right;
-    width: 42.4vw;
-    height: 8.25vh;
+    width: 11.9rem;
+    height: 5.5rem;
     color: #553208;
-    font-size: 18px;
+    font-size: 1.8rem;
     text-align: center;
-    line-height: 8.25vh;
+    line-height: 5.5rem;
     font-weight: bold;
 }
 
 .treasureBoxOrdinary2 {
     color: #F18600;
-    border-bottom: 2px solid #F18600;
+    border-bottom: .2rem solid #F18600;
 }
 
 .endding {
     text-align: center;
-    font-size: 13px;
+    font-size: 1.3rem;
     color: #DCD1B9;
 }
 
@@ -2045,62 +2045,62 @@ body {
 .treasureBox-detail {
     width: 100%;
     position: relative;
-    padding: 3.3vh 1.87vh;
+    padding: 2.2rem 1.25rem;
     text-align: center;
 }
 
 .treasureBox-detail>h1 {
-    font-size: 15px;
-    margin: 1.5vh;
+    font-size: 1.5rem;
+    margin: 1rem;
 }
 
 .treasureBox-detail>img {
     width: 100%;
-    height: 12.6vh;
-    margin-bottom: 2.5vh;
+    height: 8.4rem;
+    margin-bottom: 1.6675rem;
 }
 
 .treasureBox-inner {
     position: relative;
-    padding-left: 0.5vw;
+    padding-left: .1875rem;
     width: 100%;
-    max-height: 56.97vh;
+    max-height: 38rem;
     overflow: auto;
     text-align: left;
-    line-height: 3.8vh;
-    font-size: 14px;
+    line-height: 2.535rem;
+    font-size: 1.4rem;
     text-indent: 2em;
 }
 
 .audio {
     position: absolute;
-    top: 5.5vh;
-    left: 9.33vw;
-    width: 81.3vw;
+    top: 3.6685rem;
+    left: 3.5rem;
+    width: 30.4875rem;
     text-align: center;
 }
 
 .audio>h1 {
-    margin-top: 2.5vh;
+    margin-top: 1.6675rem;
     font-family: PingFang-SC-Bold;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     color: #FFFFFF;
 }
 
 .audio>h2 {
     font-family: PingFang-SC-Bold;
-    font-size: 15px;
+    font-size: 1.5rem;
     color: #FFFFFF;
-    line-height: 10.19vh;
+    line-height: 6.797rem;
 }
 
 .audio-content {
     position: absolute;
-    width: 74.0vw;
-    height: 14.5vh;
-    top: 78.0vh;
-    left: 4.03vw;
+    width: 27.75rem;
+    height: 9.6715rem;
+    top: 52.026rem;
+    left: 1.5rem;
 }
 
 .lesson-audio {
@@ -2110,8 +2110,8 @@ body {
 
 .lesson-audio>img {
     display: block;
-    width: 100vw;
-    height: 100vh;
+    width: 37.5rem;
+    height: 66.7rem;
 }
 
 .lessonAd {
@@ -2124,16 +2124,16 @@ body {
 }
 
 .lessonAd>img {
-    width: 100vw;
-    height: 100vh;
+    width: 37.5rem;
+    height: 66.7rem;
 }
 
 .lessonAd>h1 {
     position: absolute;
-    top: 5.5vh;
+    top: 3.667rem;
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
@@ -2141,46 +2141,46 @@ body {
 
 .adAudio-content {
     position: absolute;
-    width: 74.0vw;
-    height: 14.5vh;
-    bottom: 78.0vh;
-    left: 14.03vw;
+    width: 27.75rem;
+    height: 9.67rem;
+    bottom: 52.026rem;
+    left: 5.26rem;
 }
 
 .progressBar {
     position: absolute;
     left: 0;
-    width: 74.0vw;
-    height: 5px;
+    width: 27.75rem;
+    height: .5rem;
     background: rgba(0, 0, 0, .5);
-    border-radius: 5px;
+    border-radius: .5rem;
 }
 
 .progressReal {
     display: inline-block;
     float: left;
     /* width: 200px; */
-    height: 5px;
+    height: .5rem;
     background: rgba(147, 209, 36, 1);
     opacity: 1;
-    border-radius: 5px;
+    border-radius: .5rem;
 }
 
 .progressKey {
     display: inline-block;
-    margin-left: -0.3vw;
-    width: 2.06vw;
-    height: 14px;
-    margin-top: -3.5px;
+    margin-left: -.1125rem;
+    width: .77rem;
+    height: 1.4rem;
+    margin-top: -.35rem;
     float: left;
     background: url(../images/76.png) no-repeat;
-    background-size: 2.06vw 14px;
+    background-size: 100% 100%;
 }
 
 .successed {
     float: left;
-    line-height: 38px;
-    font-size: 12px;
+    line-height: 3.8rem;
+    font-size: 1.2rem;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
@@ -2188,8 +2188,8 @@ body {
 
 .unsuccessed {
     float: right;
-    line-height: 38px;
-    font-size: 12px;
+    line-height: 3.8rem;
+    font-size: 1.2rem;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
@@ -2197,62 +2197,62 @@ body {
 
 .progress-start {
     position: absolute;
-    width: 63px;
-    height: 63px;
-    left: 30.27vw;
-    top: 24px;
+    width: 6.3rem;
+    height: 6.3rem;
+    left: 11.35rem;
+    top: 2.4rem;
     background: url(../images/78.png) no-repeat;
-    background-size: 63px 63px;
+    background-size: 100% 100%;
 }
 
 .progress-stop {
     position: absolute;
-    width: 63px;
-    height: 63px;
-    left: 30.27vw;
-    top: 24px;
+    width: 6.3rem;
+    height: 6.3rem;
+    left: 11.35rem;
+    top: 2.4rem;
     background: url(../images/136.png) no-repeat;
-    background-size: 63px 63px;
+    background-size: 100% 100%;
 }
 
 .progress-download {
     position: absolute;
-    width: 63px;
-    height: 63px;
-    left: 30.27vw;
-    top: 24px;
+    width: 6.3rem;
+    height: 6.3rem;
+    left: 11.35rem;
+    top: 2.4rem;
     background: url(../images/135.png) no-repeat;
-    background-size: 63px 63px;
+    background-size: 100% 100%;
 }
 
 /*智慧塔首页*/
 /*left*/
 .leftOptions {
     position: fixed;
-    top: 16.68px;
+    top: 1.668rem;
     z-index: 2000;
 }
 
 .left-tabs {
     position: relative;
-    width: 16.0vw;
-    height: 62px;
+    width: 6rem;
+    height: 6.2rem;
     display: flex;
-    top: 8.5px;
-    margin: 0 1.33vw 17px;
+    top: .85rem;
+    margin: 0 .5rem .17rem;
 }
 
 .stamina,
 .beans,
 .pk {
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 4.8rem;
+    height: 4.8rem;
     background: url(../images/79.png) no-repeat;
     background-size: 100% 100%;
     display: flex;
     margin: auto;
-    left: 1.73vw;
+    left: .65rem;
 }
 
 .stamina>img,
@@ -2260,12 +2260,12 @@ body {
 .maildrop>img,
 .signed>img,
 .giftbox>img {
-    width: 8.73vw;
+    width: 3.55rem;
     margin: auto;
 }
 
 .pk>img {
-    width: 9.47vw;
+    width: 3.55rem;
     margin: auto;
 }
 
@@ -2273,11 +2273,11 @@ body {
 .beans-progress,
 .pk-progress {
     position: relative;
-    width: 16.0vw;
-    height: 27px;
+    width: 6rem;
+    height: 2.7rem;
     background: url(../images/82.png) no-repeat;
     background-size: 100% 100%;
-    top: 22px;
+    top: 2.2rem;
     margin: auto;
     color: #FFFFFF;
     text-align: center;
@@ -2286,86 +2286,86 @@ body {
 .stamina-progress>span {
     position: absolute;
     display: inline;
-    line-height: 25px;
+    line-height: 2.5rem;
     z-index: 2100;
 }
 
 .realStamina {
     position: absolute;
-    top: 0.0px;
-    left: 11.0px;
-    font-size: 13px;
+    top: 0.0;
+    left: 1.1rem;
+    font-size: 1.3rem;
 }
 
 .regulation {
     position: absolute;
-    top: 0.0px;
-    left: 26.0px;
-    font-size: 12px;
+    top: 0;
+    left: 2.6rem;
+    font-size: 1.2rem;
 }
 
 .icon_stamina {
     position: absolute;
     display: inline-block;
-    top: 5.0px;
-    left: 12.5vw;
-    font-size: 11px;
+    top: .5rem;
+    left: 4.6875rem;
+    font-size: 1.1rem;
     z-index: 2100;
 }
 
 .stamina-value {
     position: relative;
-    width: 48px;
-    height: 16px;
+    width: 4.8rem;
+    height: 1.6rem;
     background: linear-gradient(0deg, rgba(33, 108, 221, 1) 0%, rgba(41, 117, 228, 1) 33%, rgba(104, 233, 255, 1) 100%);
-    border-radius: 15px;
-    top: 5px;
-    left: 3px;
+    border-radius: 1.5rem;
+    top: .5rem;
+    left: .3rem;
     z-index: 2000;
 }
 
 .beans-value {
     position: relative;
-    width: 52px;
-    height: 16px;
+    width: 5.2rem;
+    height: 1.6rem;
     background: linear-gradient(0deg, rgba(84, 160, 55, 1) 0%, rgba(111, 185, 78, 1) 33%, rgba(137, 199, 95, 1) 100%);
-    border-radius: 15px;
-    top: 5px;
+    border-radius: 1.5rem;
+    top: .5rem;
     z-index: 2000;
 }
 
 .wisdombean {
     position: absolute;
     display: inline-block;
-    width: 14.0vw;
-    top: 4.0px;
-    left: 3px;
+    width: 5.25rem;
+    top: .4rem;
+    left: .3rem;
     text-align: center;
-    font-size: 11px;
-    line-height: 18px;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
     z-index: 2100;
 }
 
 .pk-value {
     position: relative;
-    top: 5px;
-    width: 52px;
-    height: 16px;
+    top: .5rem;
+    width: 5.2rem;
+    height: 1.6rem;
     background: linear-gradient(0deg, rgba(101, 93, 255, 1) 0%, rgba(120, 94, 255, 1) 39%, rgba(181, 140, 255, 1) 100%);
-    border-radius: 15px;
-    font-size: 11px;
-    line-height: 18px;
+    border-radius: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
 }
 
 .pkVal {
     position: absolute;
     display: inline-block;
-    width: 14.0vw;
-    top: 4.0px;
-    left: 3px;
+    width: 5.25rem;
+    top: .4rem;
+    left: .3rem;
     text-align: center;
-    font-size: 11px;
-    line-height: 18px;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
     z-index: 2100;
 }
 
@@ -2374,8 +2374,8 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    width: 20.13vw;
-    height: 72px;
+    width: 7.55rem;
+    height: 7.2rem;
     background: url(../images/85.png) no-repeat;
     background-size: 100% 100%;
     z-index: 2000;
@@ -2383,9 +2383,9 @@ body {
 
 .home-sign>.people {
     position: absolute;
-    top: 35px;
-    width: 20.13vw;
-    font-size: 8.5px;
+    top: 3.5rem;
+    width: 7.55rem;
+    font-size: .85rem;
     text-align: center;
 }
 
@@ -2397,19 +2397,19 @@ body {
 
 .inforBox {
     position: fixed;
-    top: 89.5px;
-    right: 3.07vw;
-    width: 12.53vw;
+    top: 8.95rem;
+    right: 1.15rem;
+    width: 4.7rem;
     z-index: 2000;
 }
 
 .right-tabs {
     position: relative;
-    width: 16.0vw;
-    height: 62px;
+    width: 6rem;
+    height: 6.2rem;
     display: flex;
-    margin: 0 0 17px;
-    font-size: 13px;
+    margin: 0 0 1.7rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -2419,8 +2419,8 @@ body {
 .signed,
 .giftbox {
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 4.8rem;
+    height: 4.8rem;
     background: url(../images/79.png) no-repeat;
     background-size: 100% 100%;
     display: flex;
@@ -2430,25 +2430,25 @@ body {
 .nomail,
 .nogiftbox {
     position: relative;
-    width: 13.13vw;
-    height: 25px;
+    width: 4.9rem;
+    height: 2.5rem;
     background: url(../images/94.png) no-repeat;
-    background-size: 13.13vw 25px;
-    top: 38.355px;
+    background-size: 100% 100%;
+    top: 3.8355rem;
     text-align: center;
-    line-height: 23px;
+    line-height: 2.3rem;
 }
 
 .nosigned {
     position: relative;
-    width: 16.13vw;
-    height: 28px;
+    width: 6.05rem;
+    height: 2.8rem;
     background: url(../images/94.png) no-repeat;
-    background-size: 16.13vw 28px;
-    top: 37.355px;
-    left: -6.5px;
+    background-size: 100% 100%;
+    top: 3.7355rem;
+    left: -.65rem;
     text-align: center;
-    line-height: 25.5px;
+    line-height: 2.55rem;
 }
 
 .maildrop-infor,
@@ -2456,35 +2456,35 @@ body {
     position: relative;
     text-align: center;
     color: #FFFFFF;
-    width: 12.13vw;
-    height: 17.34px;
-    top: 43.355px;
-    line-height: 17.34px;
+    width: 4.55rem;
+    height: 1.734rem;
+    top: 4.3355rem;
+    line-height: 1.734rem;
     background: linear-gradient(0deg, rgba(215, 115, 24, 1) 0%, rgba(230, 146, 34, 1) 33%, rgba(255, 225, 57, 1) 100%);
-    border-radius: 15px;
+    border-radius: 1.5rem;
 }
 
 .signed-recording {
     position: relative;
     text-align: center;
     color: #FFFFFF;
-    width: 12.13vw;
-    height: 17.34px;
-    top: 43.355px;
+    width: 4.55rem;
+    height: 1.734rem;
+    top: 4.3355rem;
     left: 0;
-    line-height: 17.34px;
+    line-height: 1.734rem;
     background: linear-gradient(0deg, rgba(221, 55, 33, 1) 0%, rgba(228, 63, 41, 1) 33%, rgba(255, 122, 104, 1) 100%);
-    border-radius: 15px;
+    border-radius: 1.5rem;
 }
 
 .level-next {
     position: relative;
-    top: 36.48vh;
+    top: 24.33rem;
 }
 
 .level-next-again {
     position: relative;
-    top: 0.48vh;
+    top: .32rem;
 }
 
 .level-list {
@@ -2492,7 +2492,7 @@ body {
     display: inline-block;
     z-index: 1000 !important;
     top: 10rem;
-    right: 33.5vw;
+    right: 12.56rem;
 }
 
 .level-list2 {
@@ -2500,7 +2500,7 @@ body {
     display: inline-block;
     z-index: 1000 !important;
     top: 5rem;
-    right: 33.5vw;
+    right: 12.56rem;
 }
 
 .level-list2>li {
@@ -2712,12 +2712,12 @@ body {
 
 .specialReward {
     position: absolute;
-    top: 23px;
-    width: 20.4vw;
-    height: 30px;
-    border: 2px #458630 solid;
+    top: 2.3rem;
+    width: 7.65rem;
+    height: 3rem;
+    border: .2rem #458630 solid;
     background-color: #A2C012;
-    border-radius: 15px;
+    border-radius: 1.5rem;
 }
 
 .noSpecialReward {
@@ -2726,16 +2726,16 @@ body {
 
 .specialReward>img {
     position: absolute;
-    top: -2.9px;
-    left: -1.2vw;
-    width: 9.33vw;
+    top: -.29rem;
+    left: -.45rem;
+    width: 3.5rem;
     border-radius: 50%;
 }
 
 .specialReward>span {
     position: absolute;
-    left: 7.23vw;
-    line-height: 27px;
+    left: 2.7rem;
+    line-height: 2.7rem;
 }
 
 .noLevelTime {
@@ -2744,79 +2744,77 @@ body {
 
 .levelTime {
     position: absolute;
-    top: 23px;
-    width: 14.13vw;
-    height: 31px;
-    border: 2px #458630 solid;
+    top: 2.3rem;
+    width: 5.3rem;
+    height: 3.1rem;
+    border: .2rem #458630 solid;
     background-color: #A2C012;
-    border-radius: 15px;
+    border-radius: 1.5rem;
 }
 
 .levelTime img {
-    width: 15px;
+    width: 1.5rem;
 }
 
 /*buttom*/
 .bottom-table {
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
-    height: 86px;
+    height: 8.6rem;
     z-index: 9999;
-    padding-left: 2.0vw;
+    padding-left: .75rem;
 }
 
 .bottom-table>ul {
-    margin-top: -26px;
+    margin-top: 0.4rem;
 }
 
 .bottom-table>ul>li {
     float: left;
-    margin-right: 9.07vw;
+    margin-right: 1.8rem;
 }
 
 .menu {
-    width: 14.67vw;
+    width: 5.5rem;
 }
 
 .menu img {
-    width: 14.67vw;
-    margin: 0 3.2vw;
+    width: 5.5rem;
+    margin: 0 1.2rem;
 }
 
 .menu1 {
     transform: scale(1.2, 1.2);
 }
 
-/*新关卡*/
-
 
 /*签到*/
 .home-recording {
     position: absolute;
-    top: 13.72vh;
+    top: 9.15rem;
     width: 100%;
-    height: 68.44vh;
+    height: 45.65rem;
     background: url(../images/103.png) no-repeat;
-    background-size: 100% 68.44vh;
+    background-size: 100% 100%;
     z-index: 9999;
 }
 
 .recordOver {
     position: absolute;
-    left: 13.47vw;
-    top: 35.0vh;
-    width: 73.2vw;
-    height: 29.84vh;
+    left: 5.05rem;
+    top: 23.345rem;
+    width: 13.725rem;
+    height: 19.9rem;
     background: url(../images/120.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
 }
 
 .recordImg {
-    margin: 7.95vh auto;
-    width: 16.8vw;
-    height: 11.09vh;
+    margin: 5.3rem auto;
+    width: 6.3rem;
+    height: 7.4rem;
     background: url(../images/87.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
