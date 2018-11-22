@@ -41,6 +41,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
 }
 
 /* 首页 */
@@ -299,8 +300,8 @@ body {
     height: 4.2rem;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: 0.8rem;
-    left: 0.7rem;
+    top: 1.8rem;
+    left: 1.7rem;
     z-index: 9999;
 }
 
@@ -676,8 +677,8 @@ body {
 .letter-container,
 .album-introduction-container {
     position: relative;
-    width: 31.5rem;
-    height: 65.7rem;
+    width: 41.5rem;
+    height: 61.45rem;
     background: url("../images/34.png") no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
     padding: .95rem .825rem;
@@ -690,7 +691,7 @@ body {
 .personal-content {
     position: relative;
     width: 100%;
-    height: 66.7rem;
+    height: 100%;
     padding: 2.735rem .825rem 0;
 }
 
@@ -780,7 +781,7 @@ body {
 
 .homeContentLoop {
     position: absolute;
-    margin-left: 8.89875rem;
+    margin-left: 9.89875rem;
     top: 0;
     width: 50%;
     height: 100%;
@@ -799,7 +800,7 @@ body {
 
 .leftCloudLoop {
     position: absolute;
-    bottom: 6.975rem;
+    bottom: 24.975rem;
     left: 0;
     width: 13.2rem;
     height: 5.25rem;
@@ -813,7 +814,7 @@ body {
 
 .rightCloudLoop {
     position: absolute;
-    bottom: 42.5546rem;
+    bottom: 48.5546rem;
     right: 0;
     width: 7.05rem;
     height: 5.25rem;
@@ -827,7 +828,7 @@ body {
 
 .oddBigCloudLoop {
     position: absolute;
-    bottom: 26.9rem;
+    bottom: 37.9rem;
     left: 0;
     width: 14.5rem;
     height: 8.25rem;
@@ -843,7 +844,7 @@ body {
 
 .evenBigCloudLoop {
     position: absolute;
-    bottom: 24.9rem;
+    bottom: 34.9rem;
     right: 0;
     width: 14.5rem;
     height: 8.25rem;
@@ -877,9 +878,9 @@ body {
 
 .cloudContent1 {
     position: absolute;
-    top: -4rem;
+    top: -3rem;
     left: -12.67875rem;
-    width: 37.5rem;
+    width: 40.5rem;
     height: 8.8rem;
     z-index: 1000;
     overflow: hidden;
@@ -889,8 +890,8 @@ body {
     position: absolute;
     top: -4rem;
     left: -0;
-    width: 37.5rem;
-    height: 8.8rem;
+    width: 42.5rem;
+    height: 9.8rem;
     z-index: 2000;
     overflow: hidden;
 }
@@ -901,14 +902,14 @@ body {
     z-index: 1000;
     top: 0;
     left: 0;
-    width: 19.7rem;
-    height: 8.8rem;
+    width: 21.7rem;
+    height: 9.8rem;
 }
 
 .leftCloud>img {
     position: absolute;
     left: -1.376rem;
-    width: 18.6rem;
+    width: 20.6rem;
 }
 
 .centerCloud {
@@ -917,13 +918,13 @@ body {
     z-index: 1000;
     top: 0;
     left: 9.349rem;
-    width: 19.7rem;
-    height: 8.8rem;
+    width: 21.7rem;
+    height: 9.8rem;
 }
 
 .centerCloud>img {
     position: absolute;
-    width: 19.7rem;
+    width: 21.7rem;
 }
 
 .rightCloud {
@@ -931,15 +932,15 @@ body {
     display: inline-block;
     z-index: 1000;
     top: 0;
-    left: 20.74rem;
-    width: 19.7rem;
-    height: 8.8rem;
+    left: 21.74rem;
+    width: 21.7rem;
+    height: 9.8rem;
 }
 
 .rightCloud>img {
     position: absolute;
     right: 0.124rem;
-    width: 19.7rem;
+    width: 21.7rem;
 }
 
 .moveLeft {
@@ -1015,7 +1016,7 @@ body {
 
 .rightSmallCloudTop {
     position: absolute;
-    bottom: 72.3028rem;
+    bottom: 68.3028rem;
     right: 0;
     width: 7.05rem;
     height: 5.25rem;
@@ -1032,10 +1033,10 @@ body {
 
 .leftSmallCloud {
     position: absolute;
-    bottom: 43.2683rem;
+    bottom: 39.2683rem;
     left: 0;
     width: 13.2rem;
-    height: 5.25rem;
+    height: 6.25rem;
     z-index: 300;
     overflow: hidden;
 }
@@ -1069,6 +1070,7 @@ body {
     z-index: 10000;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, .3);
     display: none;
 }
@@ -1080,6 +1082,7 @@ body {
     z-index: 10000;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, .3);
     display: none;
 }
@@ -1090,7 +1093,8 @@ body {
     left: 0;
     z-index: 10000;
     width: 100%;
-    height: 100%;
+    height: 66.7rem;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, .3);
     display: none;
 }
@@ -1866,7 +1870,7 @@ body {
 
 
 .treasureBox-gift {
-    width: 30.25rem;
+    width: 34rem;
     height: 6.74rem;
     background: #F8E8B0;
     border-radius: 1rem;
@@ -1905,7 +1909,7 @@ body {
     position: absolute;
     text-align: center;
     top: 34.66rem;
-    left: 6.57rem;
+    left: 12.0rem;
     width: 16.3rem;
     font-size: 1.3rem;
     color: #333333;
@@ -1939,6 +1943,7 @@ body {
     background: url(../images/71.png) no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
     padding: .95rem .825rem;
+    overflow: hidden;
 }
 
 .personal-introduct {
@@ -1979,7 +1984,7 @@ body {
     width: 12.75rem;
     height: 12.7rem;
     top: 20.37rem;
-    left: 8.5rem;
+    left: 14.0rem;
     background: url(../images/75.png) no-repeat center;
     background-size: 100% 100%;
 }
@@ -1997,15 +2002,15 @@ body {
 .treasureBoxSort {
     position: absolute;
     top: 4.9rem;
-    left: 2rem;
-    width: 24.8rem;
+    left: 3rem;
+    width: 33.8rem;
     height: 5.5rem;
     border-bottom: .1rem solid rgba(128, 98, 51, 1);
 }
 
 .treasureBoxSpecial1 {
     float: left;
-    width: 11.9rem;
+    width: 15.9rem;
     height: 5.5rem;
     color: #553208;
     font-size: 1.8rem;
@@ -2021,7 +2026,7 @@ body {
 
 .treasureBoxOrdinary1 {
     float: right;
-    width: 11.9rem;
+    width: 15.9rem;
     height: 5.5rem;
     color: #553208;
     font-size: 1.8rem;
@@ -2075,7 +2080,7 @@ body {
 .audio {
     position: absolute;
     top: 3.6685rem;
-    left: 3.5rem;
+    left: 5.5rem;
     width: 30.4875rem;
     text-align: center;
 }
@@ -2097,10 +2102,10 @@ body {
 
 .audio-content {
     position: absolute;
-    width: 27.75rem;
+    width: 30.5rem;
     height: 9.6715rem;
     top: 52.026rem;
-    left: 1.5rem;
+    left: .5rem;
 }
 
 .lesson-audio {
@@ -2110,7 +2115,7 @@ body {
 
 .lesson-audio>img {
     display: block;
-    width: 37.5rem;
+    width: 100%;
     height: 66.7rem;
 }
 
@@ -2124,7 +2129,7 @@ body {
 }
 
 .lessonAd>img {
-    width: 37.5rem;
+    width: 100%;
     height: 66.7rem;
 }
 
@@ -2150,7 +2155,7 @@ body {
 .progressBar {
     position: absolute;
     left: 0;
-    width: 27.75rem;
+    width: 30.5rem;
     height: .5rem;
     background: rgba(0, 0, 0, .5);
     border-radius: .5rem;
@@ -2199,7 +2204,7 @@ body {
     position: absolute;
     width: 6.3rem;
     height: 6.3rem;
-    left: 11.35rem;
+    left: 12.35rem;
     top: 2.4rem;
     background: url(../images/78.png) no-repeat;
     background-size: 100% 100%;
@@ -2209,7 +2214,7 @@ body {
     position: absolute;
     width: 6.3rem;
     height: 6.3rem;
-    left: 11.35rem;
+    left: 12.35rem;
     top: 2.4rem;
     background: url(../images/136.png) no-repeat;
     background-size: 100% 100%;
@@ -2307,7 +2312,7 @@ body {
 .icon_stamina {
     position: absolute;
     display: inline-block;
-    top: .5rem;
+    top: .65rem;
     left: 4.6875rem;
     font-size: 1.1rem;
     z-index: 2100;
@@ -2408,7 +2413,7 @@ body {
     width: 6rem;
     height: 6.2rem;
     display: flex;
-    margin: 0 0 1.7rem;
+    margin: 0 0 .3rem;
     font-size: 1.3rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -2492,7 +2497,7 @@ body {
     display: inline-block;
     z-index: 1000 !important;
     top: 10rem;
-    right: 12.56rem;
+    right: 14.06rem;
 }
 
 .level-list2 {
@@ -2500,7 +2505,7 @@ body {
     display: inline-block;
     z-index: 1000 !important;
     top: 5rem;
-    right: 12.56rem;
+    right: 14.06rem;
 }
 
 .level-list2>li {
@@ -2537,7 +2542,7 @@ body {
 
 /* 第二关位置 */
 .LevelPosition2 {
-    left: -9.9rem;
+    left: -10.9rem;
     top: -0.2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
@@ -2552,7 +2557,7 @@ body {
 
 /* 第四关位置 */
 .LevelPosition4 {
-    left: -9.9rem;
+    left: -10.9rem;
     top: -1.5rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
@@ -2567,7 +2572,7 @@ body {
 
 /* 第六关位置 */
 .LevelPosition6 {
-    left: -9.9rem;
+    left: -10.9rem;
     top: -2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
@@ -2597,7 +2602,7 @@ body {
 
 /* 第二关位置 */
 .LevelLoopPosition2 {
-    left: -9.9rem;
+    left: -10.9rem;
     top: -.5rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
@@ -2612,7 +2617,7 @@ body {
 
 /* 第四关位置 */
 .LevelLoopPosition4 {
-    left: -9.9rem;
+    left: -10.9rem;
     top: 1.2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
@@ -2627,7 +2632,7 @@ body {
 
 /* 第六关位置 */
 .LevelLoopPosition6 {
-    left: -9.9rem;
+    left: -10.9rem;
     top: 2rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
@@ -2761,18 +2766,18 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 8.6rem;
+    height: 9.6rem;
     z-index: 9999;
-    padding-left: .75rem;
+    padding-left: 1.1rem;
 }
 
 .bottom-table>ul {
-    margin-top: 0.4rem;
+    margin-top: 0;
 }
 
 .bottom-table>ul>li {
     float: left;
-    margin-right: 1.8rem;
+    margin-right: 4.5rem;
 }
 
 .menu {
@@ -2780,7 +2785,7 @@ body {
 }
 
 .menu img {
-    width: 5.5rem;
+    width: 6.8rem;
     margin: 0 1.2rem;
 }
 
@@ -2804,8 +2809,8 @@ body {
     position: absolute;
     left: 5.05rem;
     top: 23.345rem;
-    width: 13.725rem;
-    height: 19.9rem;
+    width: 31.45rem;
+    height: 20.5rem;
     background: url(../images/120.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
@@ -2821,46 +2826,46 @@ body {
 }
 
 .recordMsg {
-    width: 73.2vw;
-    margin-top: -7.7vh;
+    width: 27.45rem;
+    margin-top: -5.14rem;
     text-align: center;
     color: #956826;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 .recordHasbeans {
     position: absolute;
-    left: 13.47vw;
-    top: 29.83vh;
-    width: 73.2vw;
-    height: 40.55vh;
+    left: 5.05rem;
+    top: 19.9rem;
+    width: 27.45rem;
+    height: 27.45rem;
     background: url(../images/120.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
 }
 
 .recordBeans {
-    width: 73.2vw;
+    width: 27.45rem;
     text-align: center;
 }
 
 .recordBeans>img {
-    width: 52.5px;
+    width: 5.25rem;
 }
 
 .recordBeans>span {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
     color: rgba(67, 144, 67, 1);
 }
 
 .recordClose {
     position: absolute;
-    right: 1.3vw;
-    top: 1.0vh;
-    width: 10.66vw;
-    height: 10.66vw;
+    right: .4875rem;
+    top: .667rem;
+    width: 4rem;
+    height: 4rem;
     background: url(../images/39.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
@@ -2869,72 +2874,72 @@ body {
 /*体力值提示*/
 .stamina-tips {
     position: absolute;
-    top: 30.06vh;
-    left: 12.8vw;
-    width: 73.87vw;
-    height: 40.0vh;
+    top: 20.05rem;
+    left: 6.8rem;
+    width: 27.7rem;
+    height: 26.68rem;
     background: url(../images/104.png) no-repeat;
-    background-size: 73.87vw 40.0vh;
+    background-size: 100% 100%;
     text-align: center;
-    padding-top: 7.05vh;
+    padding-top: 4.7rem;
 }
 
 .staminaClose {
     position: absolute;
-    right: 1.3vw;
-    top: 1.0vh;
-    width: 10.66vw;
-    height: 10.66vw;
+    right: 1.3rem;
+    top: .667rem;
+    width: 4rem;
+    height: 4rem;
     background: url(../images/39.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
 }
 
 .stamina-tips>i {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    line-height: 22.5px;
+    line-height: 2.25rem;
     text-shadow: 1px 1px 3px #388D38;
 }
 
 .stamina-tips>img {
-    width: 19.07vw;
-    padding-top: 1.47vh;
-    padding-bottom: 1.0vh;
+    width: 7.15rem;
+    padding-top: .98rem;
+    padding-bottom: .667rem;
 }
 
 .stamina-tips>h1>#ownStamina {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(149, 104, 38, 1);
 }
 
 .stamina-tips>h1>#maxStamina {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(149, 104, 38, 1);
 }
 
 .stamina-tips>p {
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(149, 104, 38, 1);
-    line-height: 3.37vh;
+    line-height: 2.25rem;
 }
 
 /*首次闯关*/
 .level-num {
     position: absolute;
-    top: 5.0vh;
-    left: 38.2vw;
-    width: 25.5vw;
-    height: 2.92vh;
-    font-size: 20px;
+    top: 3.0rem;
+    left: 17.025rem;
+    width: 9.56rem;
+    height: 1.95rem;
+    font-size: 2rem;
     font-family: Adobe Heiti Std R;
     font-weight: normal;
     color: rgba(255, 255, 255, 1);
@@ -2942,17 +2947,17 @@ body {
 }
 
 .level-passed {
-    left: 28.2vw;
-    width: 42.5vw;
+    left: 10.575rem;
+    width: 15.94rem;
 }
 
 .round {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: .8rem;
+    height: .8rem;
     background: rgba(255, 255, 255, 1);
     border-radius: 50%;
-    top: 1.46vh;
+    top: .974rem;
 }
 
 .left-round {
@@ -2960,34 +2965,34 @@ body {
 }
 
 .right-round {
-    left: 20.6vw;
+    left: 7.725rem;
 }
 
 .level-inner-num {
-    top: 6.0vh;
+    top: 4rem;
 }
 
 .level-num span {
     display: block;
     position: absolute;
-    left: 4.8vw;
+    left: 1.8rem;
 }
 
 .level-passed>p {
     position: absolute;
     width: 92%;
-    left: 9%;
+    left: 19%;
     text-align: center;
 }
 
 .level_btn {
     position: absolute;
-    top: 5.25vh;
-    right: 4.67vw;
-    width: 9.73vw;
-    height: 5.47vh;
+    top: 4.5rem;
+    right: 1.75rem;
+    width: 3.65rem;
+    height: 3.65rem;
     background: url(../images/39.png) no-repeat;
-    background-size: 9.73vw, 5.47vh;
+    background-size: 100% 100%;
 
 }
 
@@ -3003,45 +3008,44 @@ body {
 
 .pass-gift {
     position: absolute;
-    left: 23.2vw;
-    top: 12.04vh;
-    /* width: 53.33vw; */
-    width: 20.13vw;
+    left: 8.7rem;
+    top: 8.03rem;
+    width: 7.55rem;
     text-align: center;
 }
 
 
 .stamina-reward {
     float: left;
-    width: 19.73vw;
-    height: 6.52vh;
-    line-height: 6.52vh;
+    width: 9.4rem;
+    height: 4.35rem;
+    line-height: 4.35rem;
 }
 
 .pk-reward {
     position: absolute;
-    top: 0.7vh;
-    left: 30.8vw;
-    width: 19.73vw;
-    height: 6.52vh;
-    line-height: 6.52vh;
+    top: .37rem;
+    left: 11.55rem;
+    width: 9.4rem;
+    height: 4.35rem;
+    line-height: 4.35rem;
 }
 
 .stamina-reward>img {
-    width: 10.67vw;
-    height: 6.52vh;
+    width: 4rem;
+    height: 4rem;
 }
 
 .pk-reward>img {
-    width: 10.4vw;
-    height: 4.57vh;
+    width: 3.9rem;
+    height: 3.05rem;
 }
 
 .pass-gift span,
 .pass-end span {
     position: absolute;
-    top: 2.05vh;
-    font-size: 15px;
+    top: 1.37rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(67, 144, 67, 1);
@@ -3049,33 +3053,33 @@ body {
 
 .other-gift {
     position: absolute;
-    top: 7.14vh;
-    width: 53.33vw;
-    height: 11.0vh;
+    top: 4.76rem;
+    width: 23.5rem;
+    height: 7.337rem;
     background: rgba(255, 247, 223, 1);
-    border-radius: 15px;
-    box-shadow: 2px 1px 45px 1px #F4E476 inset;
+    border-radius: 1.5rem;
+    box-shadow: .2rem .1rem 4.5rem .1rem #F4E476 inset;
 }
 
 .other-giftbox {
     position: absolute;
-    top: 0.55vh;
-    width: 21.9vw;
-    height: 10.2vh;
+    top: .367rem;
+    width: 8.2rem;
+    height: 6.8rem;
 }
 
 .other-giftbox img {
     float: left;
-    width: 21.9vw;
-    height: 10.2vh;
+    width: 8.2rem;
+    height: 6.8rem;
 }
 
 .other-giftbox div {
     position: absolute;
-    top: 2.97vh;
-    left: 20.5vw;
-    width: 27.9vw;
-    font-size: 20px;
+    top: 1.98rem;
+    left: 7.69rem;
+    width: 10.46rem;
+    font-size: 2rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: #9C7A6A;
@@ -3083,15 +3087,15 @@ body {
 
 .start {
     position: absolute;
-    width: 41.1vw;
-    height: 7.27vh;
-    top: 31.0vh;
-    left: 29.5vw;
+    width: 15.4rem;
+    height: 4.85rem;
+    top: 20.5rem;
+    left: 12.46rem;
     text-align: center;
     background: url(../images/110.png) no-repeat;
-    background-size: 41.1vw 7.27vh;
-    line-height: 7.27vh;
-    font-size: 18px;
+    background-size: 100% 100%;
+    line-height: 4.85rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -3100,15 +3104,15 @@ body {
 
 .next-level {
     position: absolute;
-    width: 41.1vw;
-    height: 7.27vh;
-    top: 19.0vh;
-    left: 15.2vw;
+    width: 15.4rem;
+    height: 4.85rem;
+    top: 12.67rem;
+    left: 7.5rem;
     text-align: center;
     background: url(../images/110.png) no-repeat;
-    background-size: 41.1vw 7.27vh;
-    line-height: 7.27vh;
-    font-size: 18px;
+    background-size: 100% 100%;
+    line-height: 4.85rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -3117,11 +3121,11 @@ body {
 
 .icon-board {
     position: absolute;
-    top: 46.4vh;
-    left: 40.0vw;
-    width: 23.73vw;
-    height: 2.55vh;
-    font-size: 17px;
+    top: 31.2rem;
+    left: 16.5rem;
+    width: 88.99rem;
+    height: 1.7rem;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(41, 151, 10, 1);
@@ -3129,81 +3133,81 @@ body {
 
 .board-table {
     position: absolute;
-    left: 17.83vw;
-    top: 51.8vh;
-    width: 65.0vw;
-    height: 41.23vh;
+    left: 9.0rem;
+    top: 34.55rem;
+    width: 24.375rem;
+    height: 27.5rem;
     overflow: auto;
 }
 
 .board-list {
-    margin-bottom: 7.95vh;
+    margin-bottom: 5.3rem;
 }
 
 .board-list>li {
-    font-size: 12px;
+    font-size: 1.2rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
     float: left;
-    padding: 0.75vh 0.93vw;
+    padding: .5rem .35rem;
 }
 
 .board-list>li>p {
     display: inline-block;
-    margin: 0 0.53vw;
+    margin: 0 .2rem;
     overflow: hidden;
-    line-height: 43px;
+    line-height: 4.3rem;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .border-num {
-    width: 4.8vw;
+    width: 1.8rem;
 }
 
 .border-head>img {
-    width: 43px;
-    height: 43px;
-    border-radius: 5px;
+    width: 4.3rem;
+    height: 4.3rem;
+    border-radius: .5rem;
 }
 
 .border-name,
 .border-time {
-    width: 10.67vw;
+    width: 4rem;
 }
 
 .border-phiz {
-    width: 14.4vw;
+    width: 5.4rem;
 }
 
 .border-phiz>img {
-    width: 7.067vw;
+    width: 2.65rem;
 }
 
 /* 关卡详情背景 */
 .level-content {
     width: 100%;
-    height: 52.32vh;
+    height: 34.9rem;
     background: url(../images/112.png) no-repeat;
-    background-size: 100% 52.32vh;
+    background-size: 100% 100%;
 }
 
 /*闯关内容*/
 .level-timing {
     position: absolute;
-    right: 3.3vw;
-    top: 2.25vh;
-    width: 21.87vw;
-    height: 4.95vh;
+    right: 1.24rem;
+    top: 1.5rem;
+    width: 8.2rem;
+    height: 3.3rem;
     background: url(../images/116.png) no-repeat;
-    background-size: 21.87vw 4.95vh;
-    line-height: 4.95vh;
-    text-indent: 2.0vw;
+    background-size: 100% 100%;
+    line-height: 3.3rem;
+    text-indent: .75rem;
 }
 
 .level-timing span {
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: Adobe Heiti Std R;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
@@ -3211,11 +3215,11 @@ body {
 
 .level-topic {
     position: absolute;
-    top: 12.42vh;
-    left: 8.13vw;
-    width: 83.87vw;
-    height: 25.31vh;
-    border-radius: 10px;
+    top: 8.9rem;
+    left: 3.9rem;
+    width: 33.75rem;
+    height: 15.28rem;
+    border-radius: 1rem;
     display: flex;
     z-index: 10000;
     display: none;
@@ -3227,30 +3231,30 @@ body {
 }
 
 .level-topic>img {
-    border-radius: 10px;
+    border-radius: 1rem;
     margin: auto;
-    width: 82.87vw;
-    height: 24.31vh;
+    width: 33.8rem;
+    height: 15.214rem;
 }
 
 .kit {
     position: absolute;
-    width: 75.2vw;
-    height: 7.5vh;
-    top: 41.8vh;
-    left: 0.83vw;
+    width: 28.2rem;
+    height: 5rem;
+    top: 27.88rem;
+    left: .3rem;
 }
 
 .kit-content {
     position: absolute;
-    width: 62.83vw;
-    height: 7.5vh;
-    left: 10.23vw;
-    top: 42.0vh;
-    padding: 2px;
-    border-radius: 5px;
+    width: 26.0rem;
+    height: 5rem;
+    left: 4.36rem;
+    top: 28rem;
+    padding: .2rem;
+    border-radius: .5rem;
     background: #FFFCF3;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(125, 83, 48, 1);
@@ -3258,12 +3262,12 @@ body {
 
 .kit-image {
     position: absolute;
-    right: -7.82vh;
-    top: -0.7vh;
-    width: 14.67vw;
-    height: 8.85vh;
+    right: -8.42rem;
+    top: -.47rem;
+    width: 5.5rem;
+    height: 5.9rem;
     background: url(../images/113.png) no-repeat;
-    background-size: 14.67vw 8.85vh;
+    background-size: 100% 100%;
 
 }
 
@@ -3286,14 +3290,14 @@ body {
     50%,
     70%,
     90% {
-        -webkit-transform: translateX(-5px);
+        -webkit-transform: translateX(-.5rem);
     }
 
     20%,
     40%,
     60%,
     80% {
-        -webkit-transform: translateX(5px);
+        -webkit-transform: translateX(.5rem);
     }
 }
 
@@ -3310,14 +3314,14 @@ body {
     50%,
     70%,
     90% {
-        -webkit-transform: translateX(-5px);
+        -webkit-transform: translateX(-.5rem);
     }
 
     20%,
     40%,
     60%,
     80% {
-        -webkit-transform: translateX(5px);
+        -webkit-transform: translateX(.5rem);
     }
 }
 
@@ -3334,14 +3338,14 @@ body {
     50%,
     70%,
     90% {
-        -webkit-transform: translateX(-5px);
+        -webkit-transform: translateX(-.5rem);
     }
 
     20%,
     40%,
     60%,
     80% {
-        -webkit-transform: translateX(5px);
+        -webkit-transform: translateX(.5rem);
     }
 }
 
@@ -3358,40 +3362,40 @@ body {
     50%,
     70%,
     90% {
-        -moz-transform: translateX(-5px);
+        -moz-transform: translateX(-.5rem);
     }
 
     20%,
     40%,
     60%,
     80% {
-        -moz-transform: translateX(5px);
+        -moz-transform: translateX(.5rem);
     }
 }
 
 .respond-blank {
     position: absolute;
     width: 86.8%;
-    top: 50.38vh;
-    left: 6.0vw;
-    height: 17.6vh;
+    top: 33.6rem;
+    left: 2.25rem;
+    height: 11.74rem;
 }
 
 .respond-blank>ul {
-    margin: 0.5vh 1.5vw;
+    margin: .3335rem .56rem;
 }
 
 .respond-blank>ul>li {
     float: left;
-    margin: 1.0vh 1.5vw;
-    width: 10.67vw;
-    height: 6.0vh;
+    margin: .667rem .56rem;
+    width: 4rem;
+    height: 4rem;
     background: #F5F5F5;
-    border-radius: 10px;
+    border-radius: 1rem;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
-    line-height: 5.0vh;
-    font-size: 24px;
+    line-height: 4rem;
+    font-size: 2.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(52, 133, 65, 1);
@@ -3403,33 +3407,33 @@ body {
 
 .respond-key {
     position: absolute;
-    top: 66.19vh;
+    bottom: 0;
     width: 100%;
-    height: 33.81vh;
+    height: 22.55rem;
     background: url(../images/114.png) no-repeat;
-    background-size: 100% 33.81vh;
+    background-size: 100% 100%;
 }
 
 .respond-key>ul {
     position: absolute;
-    left: 2.6vw;
-    top: 8.55vh;
-    width: 94.8vw;
-    height: 43.47vw;
+    left: 2.975rem;
+    top: 4.7rem;
+    width: 35.55rem;
+    height: 17rem;
     overflow: auto;
 }
 
 .respond-key>ul>li {
     float: left;
-    margin: 1.0vh 1.0vw;
-    width: 11.47vw;
-    height: 6.45vh;
+    margin: .667rem .375rem;
+    width: 4.3rem;
+    height: 4.3rem;
     background: #A2C012;
-    border-radius: 5px;
+    border-radius: .5rem;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
-    line-height: 6.0vh;
-    font-size: 24px;
+    line-height: 4.3rem;
+    font-size: 2.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -3439,10 +3443,10 @@ body {
 
 .topic-operate {
     position: absolute;
-    width: 48.2vw;
-    height: 16.57vh;
-    top: 37.71vh;
-    left: 26.4vw;
+    width: 18.075rem;
+    height: 11.05rem;
+    top: 25.15rem;
+    left: 9.9rem;
     z-index: 350;
     display: block;
 }
@@ -3450,11 +3454,11 @@ body {
 /* 新用户演示 */
 .blank-show {
     position: absolute;
-    top: 52.0vh;
-    left: 9.0vw;
-    width: 46px;
-    height: 46px;
-    border-radius: 5px;
+    top: 34.684rem;
+    left: 3.375rem;
+    width: 4.6rem;
+    height: 4.6rem;
+    border-radius: .5rem;
     background: #D7EEFF;
     z-index: 99999;
     display: none;
@@ -3462,16 +3466,16 @@ body {
 
 .respond-blank-show {
     position: absolute;
-    margin-left: 3px;
-    margin-top: 3px;
-    width: 40px;
-    height: 40px;
+    margin-left: .3rem;
+    margin-top: .3rem;
+    width: 4rem;
+    height: 4rem;
     background: #F5F5F5;
-    border-radius: 10px;
+    border-radius: 1rem;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
-    line-height: 5.0vh;
-    font-size: 24px;
+    line-height: 4rem;
+    font-size: 2.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(52, 133, 65, 1);
@@ -3479,11 +3483,11 @@ body {
 
 .key-show {
     position: absolute;
-    bottom: 17.2vh;
-    right: 29.97vw;
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
+    bottom: 12.37rem;
+    right: 8.3rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: .5rem;
     background: #FEF5D4;
     z-index: 99999;
     display: none;
@@ -3491,122 +3495,123 @@ body {
 
 .respond-key-show {
     position: absolute;
-    margin-left: 3px;
-    margin-top: 3px;
-    width: 43px;
-    height: 43px;
+    margin-left: .3rem;
+    margin-top: .3rem;
+    width: 4.3rem;
+    height: 4.3rem;
     background: #A2C012;
-    border-radius: 5px;
+    border-radius: .5rem;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
-    line-height: 6.0vh;
-    font-size: 24px;
+    line-height: 4rem;
+    font-size: 2.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
 }
 
 .level-show {
-    width: 17.33vw;
-    height: 14.01vh;
+    width: 6.5rem;
+    height: 9.338rem;
     background: url(../images/115.png) no-repeat;
-    background-size: 17.33vw 14.01vh;
+    background-size: 100% 100%;
     border: 1px dashed gainsboro;
 }
 
 .level-tips {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bolder;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 10px 12px 17px rgba(19, 37, 102, 0.5);
+    text-shadow: 1rem 1.2rem 1.7rem rgba(19, 37, 102, 0.5);
 }
 
 /* 内容演示 */
 .topic-show {
     position: relative;
-    left: 42.8vw;
-    top: 37.0vh;
+    left: 17.05rem;
+    top: 24.679rem;
 }
 
 .topic-tips {
     position: relative;
-    left: 29.8vw;
-    top: 37vh;
+    left: 12.175rem;
+    top: 24.679rem;
 }
 
 /* 提示文字演示 */
 .tipContent-show {
     position: absolute;
-    left: 3.8vw;
-    top: 4.0vh;
-    width: 19.33vw;
-    height: 13.12vh;
+    left: 1.425rem;
+    top: 2.668rem;
+    width: 7.25rem;
+    height: 8.75rem;
     background: url(../images/255.png) no-repeat;
-    background-size: 19.33vw 13.12vh;
-    border: 1px dashed gainsboro;
+    background-size: 100% 100%;
+    border: .1rem dashed gainsboro;
 }
 
 .tipContent-tips {
     position: relative;
-    left: 42.8vw;
-    top: 93vh;
+    left: 21.05rem;
+    top: 62.031rem;
 }
 
 /* 删除演示 */
 .tipKey-show {
     position: absolute;
-    left: 3.8vw;
-    top: 4.0vh;
-    width: 19.33vw;
-    height: 13.12vh;
+    left: 1.425rem;
+    top: 2.668rem;
+    width: 7.25rem;
+    height: 8.75rem;
     background: url(../images/255.png) no-repeat;
-    background-size: 19.33vw 13.12vh;
-    border: 1px dashed gainsboro;
+    background-size: 100% 100%;
+    border: .1rem dashed gainsboro;
 }
 
 .tipKey-tips {
     position: relative;
-    left: 2.8vw;
-    top: 69vh;
+    left: 1.05rem;
+    top: 46.023rem;
 }
+
 
 /*再次闯关*/
 .pass-again {
     position: absolute;
-    top: 12.79vh;
-    left: 39.33vw;
-    width: 22.67vw;
-    height: 19.04vh;
+    top: 8.53rem;
+    left: 16.75rem;
+    width: 8.5rem;
+    height: 12.7rem
 }
 
 .pass-again>img {
     position: absolute;
-    left: 2.533vw;
-    width: 17.87vw;
-    height: 11.24vh;
+    left: .95rem;
+    width: 6.7rem;
+    height: 7.5rem;
 }
 
 .pass-again>p {
     position: absolute;
-    font-size: 25px;
+    font-size: 2.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(70, 146, 71, 1);
-    top: 11.43vh;
-    left: 2.1vw;
+    top: 7.6rem;
+    left: .79rem;
 }
 
 .next {
     position: absolute;
-    width: 41.1vw;
-    height: 7.27vh;
-    top: 29.8vh;
-    left: 29.5vw;
+    width: 15.4rem;
+    height: 4.85rem;
+    top: 19.88rem;
+    left: 13.06rem;
     background: url(../images/110.png) no-repeat;
-    background-size: 41.1vw 7.27vh;
-    line-height: 7.27vh;
-    font-size: 18px;
+    background-size: 100% 100%;
+    line-height: 4.85rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -3617,36 +3622,36 @@ body {
 /*退出关卡*/
 .close-level {
     position: absolute;
-    top: 50.88vw;
-    left: 14.1vw;
-    width: 73.2vw;
-    height: 29.84vh;
+    top: 19.08rem;
+    left: 7.29rem;
+    width: 27.45rem;
+    height: 19.9rem;
     background: url(../images/120.png) no-repeat;
-    background-size: 73.2vw 29.84vh;
+    background-size: 100% 100%;
 }
 
 .close-level>p {
     position: absolute;
-    top: 9.9vh;
-    left: 26.2vw;
-    font-size: 13px;
+    top: 6.6rem;
+    left: 9.825rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(149, 104, 38, 1);
-    line-height: 3.37vh;
+    line-height: 2.25rem;
 }
 
 .close-confirm,
 .close-cancel {
     position: absolute;
-    left: 12.27vw;
-    top: 15.67vh;
-    width: 22.4vw;
-    height: 6.22vh;
+    left: 4.6rem;
+    top: 10.45rem;
+    width: 8.4rem;
+    height: 4.15rem;
     background: url(../images/118.png) no-repeat;
-    background-size: 22.4vw 6.22vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 6.22vh;
-    font-size: 14px;
+    line-height: 4.15rem;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -3654,21 +3659,21 @@ body {
 }
 
 .close-cancel {
-    left: 38.27vw;
+    left: 14.35rem;
     background: url(../images/119.png) no-repeat;
-    background-size: 22.4vw 6.22vh;
+    background-size: 100% 100%;
 }
 
 /*点击锦囊*/
 /*智慧豆充足*/
 .kit-havebeans {
     position: absolute;
-    top: 50.88vw;
-    left: 12.1vw;
-    width: 74.53vw;
-    height: 40.55vh;
+    top: 19.08rem;
+    left: 6.54rem;
+    width: 28.324rem;
+    height: 26.05rem;
     background: url(../images/121.png) no-repeat;
-    background-size: 74.53vw 39.05vh;
+    background-size: 100% 100%;
     display: none;
 }
 
@@ -3677,9 +3682,9 @@ body {
 .operate-del-tips1>img,
 .operate-del-tips2>img {
     position: absolute;
-    right: 1.3vw;
-    top: 1.0vh;
-    width: 10.66vw;
+    right: .4875rem;
+    top: .667rem;
+    width: 4rem;
     z-index: 9999;
 }
 
@@ -3689,30 +3694,30 @@ body {
 .kit-enter2>h1,
 .kit-enter1>h1 {
     position: absolute;
-    left: 26.3vw;
-    top: 5.5vh;
-    font-size: 18px;
+    left: 9.86rem;
+    top: 3.67rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    line-height: 45px;
-    text-shadow: 2px 2px 2px rgba(56, 141, 56, 1);
+    line-height: 4.5rem;
+    text-shadow: .2rem .2rem .2rem rgba(56, 141, 56, 1);
 }
 
 .kit-cost {
     position: absolute;
-    top: 10.745vh;
-    left: 22.47vw;
-    width: 19.2vw;
-    height: 11.7vh;
+    top: 7.17rem;
+    left: 8.43rem;
+    width: 7.2rem;
+    height: 7.8rem;
 }
 
 .kit-havebeans>span,
 .kit-nobeans>span {
     position: absolute;
-    right: 23.06vw;
-    top: 15.54vh;
-    font-size: 18px;
+    right: 8.65rem;
+    top: 10.37rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(67, 144, 67, 1);
@@ -3720,15 +3725,15 @@ body {
 
 .kit-view {
     position: absolute;
-    width: 39.6vw;
-    height: 6.45vh;
-    left: 16.8vw;
-    top: 22.12vh;
+    width: 14.85rem;
+    height: 4.3rem;
+    left: 6.3rem;
+    top: 14.75rem;
     background: url(../images/110.png) no-repeat;
-    background-size: 39.6vw 6.45vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 6.45vh;
-    font-size: 18px;
+    line-height: 4.3rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -3738,39 +3743,39 @@ body {
 .kit-havebeans>p,
 .kit-nobeans>p {
     position: absolute;
-    top: 29.34vh;
-    width: 71.6vw;
-    height: 6.45vh;
+    top: 19.57rem;
+    width: 26.85rem;
+    height: 4.3rem;
     text-align: center;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(149, 104, 38, 1);
-    line-height: 2.6vh;
+    line-height: 1.734rem;
 }
 
 /*智慧豆不足*/
 .kit-nobeans {
     position: absolute;
-    top: 50.88vw;
-    left: 12.1vw;
-    width: 74.53vw;
-    height: 40.55vh;
+    top: 19.08rem;
+    left: 4.54rem;
+    width: 27.95rem;
+    height: 26.05rem;
     background: url(../images/121.png) no-repeat;
-    background-size: 74.53vw 39.05vh;
+    background-size: 100% 100%;
     display: none;
 }
 
 .kit-echarge {
     position: absolute;
-    width: 52.8vw;
-    height: 8.27vh;
-    left: 10.8vw;
-    top: 23.12vh;
+    width: 19.8rem;
+    height: 48.5rem;
+    left: 4.05rem;
+    top: 15.42rem;
     background: url(../images/122.png) no-repeat;
-    background-size: 52.8vw 7.27vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 6.57vh;
-    font-size: 18px;
+    line-height: 4.38rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -3780,44 +3785,41 @@ body {
 /*打开锦囊*/
 .kit-enter3 {
     position: absolute;
-    top: 16.8vw;
-    left: 12.67vw;
-    width: 74.8vw;
-    height: 83.5vh;
+    top: 6.3rem;
+    left: 6.75rem;
+    width: 28.05rem;
+    height: 55.7rem;
     background: url(../images/123.png) no-repeat;
-    background-size: 74.8vw 83.5vh;
-    /* display: none; */
+    background-size: 100% 100%;
 }
 
 .kit-enter2 {
     position: absolute;
-    top: 22.8vw;
-    left: 12.67vw;
-    width: 74.8vw;
-    height: 73.59vh;
+    top: 8.55rem;
+    left: 6.75rem;
+    width: 28.05rem;
+    height: 49.08rem;
     background: url(../images/126.png) no-repeat;
-    background-size: 74.8vw 73.59vh;
-    /* display: none; */
+    background-size: 100% 100%;
 }
 
 .kit-enter1 {
     position: absolute;
-    top: 30.8vw;
-    left: 12.67vw;
-    width: 74.8vw;
-    height: 65.42vh;
+    top: 11.55rem;
+    left: 6.75rem;
+    width: 28.05rem;
+    height: 43.64rem;
     background: url(../images/127.png) no-repeat;
-    background-size: 74.8vw 65.42vh;
-    /* display: none; */
+    background-size: 100% 100%;
 }
 
 .kit-enter3>ul,
 .kit-enter2>ul,
 .kit-enter1>ul {
     position: absolute;
-    width: 55.0vw;
-    left: 9.8vw;
-    top: 11.82vh;
+    width: 20.625rem;
+    left: 3.675rem;
+    top: 7.884rem;
 }
 
 
@@ -3825,14 +3827,15 @@ body {
 .kit-enter2>ul>li,
 .kit-enter1>ul>li {
     float: left;
-    margin: 1.0vh 1.5vw;
-    width: 10.67vw;
-    height: 6.0vh;
+    margin: .667rem .56rem;
+    width: 4rem;
+    height: 4rem;
     background: #F5F5F5;
-    border-radius: 10px;
+    border-radius: 1rem;
     box-shadow: 1px 1px 1px 0px #348541;
     text-align: center;
-    font-size: 24px;
+    line-height: 4rem;
+    font-size: 2.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(52, 133, 65, 1);
@@ -3840,36 +3843,36 @@ body {
 
 .kit-lesson3 {
     position: absolute;
-    top: 38.96vh;
-    left: 16.87vw;
-    width: 40.53vw;
-    height: 34.0vh;
+    top: 25.99rem;
+    left: 6.3rem;
+    width: 15.2rem;
+    height: 22.678rem;
 }
 
 .kit-lesson2 {
     position: absolute;
-    top: 28.96vh;
-    left: 16.87vw;
-    width: 40.53vw;
-    height: 34.0vh;
+    top: 19.32rem;
+    left: 6.3rem;
+    width: 15.2rem;
+    height: 22.678rem;
 }
 
 .kit-lesson1 {
     position: absolute;
-    top: 20.96vh;
-    left: 16.87vw;
-    width: 40.53vw;
-    height: 34.0vh;
+    top: 13.98rem;
+    left: 6.3rem;
+    width: 15.2rem;
+    height: 22.678rem;
 }
 
 .kit-lesson3 p,
 .kit-lesson2 p,
 .kit-lesson1 p {
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     font-weight: bold;
     color: rgba(149, 104, 38, 1);
-    line-height: 3.37vh;
+    line-height: 2.25rem;
     text-align: center;
 }
 
@@ -3877,20 +3880,20 @@ body {
 .lessonbackground2,
 .lessonbackground1 {
     position: absolute;
-    top: 4.3vh;
-    width: 40.53vw;
-    height: 30.73vh;
+    top: 2.87rem;
+    width: 15.2rem;
+    height: 20.5rem;
     background: url(../images/others.jpg) no-repeat;
-    background-size: 40.53vw 30.73vh;
+    background-size: 100% 100%;
 }
 
 .lessonbackground3 h1,
 .lessonbackground2 h1,
 .lessonbackground1 h1 {
     position: absolute;
-    left: 1.67vw;
-    top: 20.16vh;
-    font-size: 13px;
+    left: .63rem;
+    top: 13.45rem;
+    font-size: 1.3rem;
     font-family: PingFang-SC-Regular;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
@@ -3898,10 +3901,10 @@ body {
 
 .lesson-gifts {
     position: absolute;
-    top: 26.96vh;
-    left: 5.53vw;
-    right: 5.53vw;
-    font-size: 11px;
+    top: 18rem;
+    left: 2.07rem;
+    right: 2.07rem;
+    font-size: 1.1rem;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
@@ -3919,98 +3922,97 @@ body {
 .lesson-star img,
 .table-smile img,
 .table-star img {
-    width: 4.13vw;
+    width: 1.55rem;
 }
 
 /*闯关成功*/
 .pass-end {
-    left: 14.07vw;
-    width: 73.82vw;
+    left: 5.5rem;
+    width: 27.68rem;
 }
 
 .pass-time {
     float: left;
-    width: 20.73vw;
-    height: 6.52vh;
-    line-height: 6.52vh;
+    width: 7.77rem;
+    height: 4.35rem;
+    line-height: 4.35rem;
 }
 
 .stamina-end {
     position: absolute;
-    top: 0.0vh;
-    left: 24.8vw;
-    line-height: 6.52vh;
+    top: 0;
+    left: 9.6rem;
+    line-height: 4.35rem;
 }
 
 .pk-end {
     position: absolute;
-    top: 0.0vh;
-    left: 46.1vw;
-    line-height: 6.52vh;
+    top: 0;
+    left: 18.89rem;
+    line-height: 4.35rem;
 }
 
 .pass-time>img {
-    width: 9.2vw;
-    height: 5.77vh;
+    width: 3.45rem;
+    height: 3.85rem;
 }
 
 .special-gift {
-    left: 9.5vw;
+    left: 3.56rem;
 }
 
 
 /*音频闯关内容*/
 .level-audio-content {
     position: absolute;
-    width: 74.0vw;
-    /* height: 10.75vh; */
-    top: 46px;
-    left: 5.03vw;
+    width: 27.75rem;
+    top: 4.6rem;
+    left: 1.89rem;
 }
 
 .level-successed {
-    font-size: 12px;
+    font-size: 1.2rem;
     font-family: PingFang-SC-Regular;
     color: rgba(97, 153, 34, 1);
     text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8);
 }
 
 .level-unsuccessed {
-    font-size: 12px;
+    font-size: 1.2rem;
     font-family: PingFang-SC-Regular;
     color: rgba(138, 100, 68, 1);
     text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8);
 }
 
+
 /*课程列表*/
 .lesson-sort {
     position: relative;
-    /* margin-top: 2.5vh; */
-    top: 2.5vh;
-    margin-left: 4.8vw;
-    width: 90.4vw;
-    height: 2.92vh;
+    top: 1.6675rem;
+    margin-left: 3rem;
+    width: 34.9rem;
+    height: 1.95rem;
     text-align: center;
 }
 
 .lesson-sort>li {
     float: left;
     list-style: none;
-    margin-left: 0.8vw;
+    margin-left: .6rem;
 }
 
 /*未点击*/
 .sort {
-    width: 21.47vw;
-    height: 5.17vh;
+    width: 8.05rem;
+    height: 3.45rem;
     background: url(../images/130.png) no-repeat;
-    background-size: 21.47vw 5.17vh;
+    background-size: 100% 100%;
 }
 
 .lesson-sort span {
     text-align: center;
-    line-height: 5.17vh;
-    font-size: 13px;
+    line-height: 3.45rem;
+    font-size: 1.3rem;
     font-family: Adobe Heiti Std R;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.8);
@@ -4019,32 +4021,32 @@ body {
 /*点击综合排序*/
 .sort1 {
     background: url(../images/129.png) no-repeat;
-    background-size: 21.47vw 5.17vh;
+    background-size: 100% 100%;
 }
 
 /*点击购买量排序*/
 .sort2 {
     background: url(../images/131.png) no-repeat;
-    background-size: 21.47vw 5.17vh;
+    background-size: 100% 100%;
 }
 
 /*点击智慧豆排序*/
 .sort3 {
     background: url(../images/132.png) no-repeat;
-    background-size: 21.47vw 5.17vh;
+    background-size: 100% 100%;
 }
 
 /*点击评分排序*/
 .sort4 {
     background: url(../images/133.png) no-repeat;
-    background-size: 21.47vw 5.17vh;
+    background-size: 100% 100%;
 }
 
 .lesson-content {
     position: relative;
     width: 100%;
-    height: 5.03rem;
-    margin-top: .135rem;
+    height: 56.3rem;
+    margin-top: 1.35rem;
     background: url(../images/128.png) no-repeat;
     background-size: 100% 100%;
     z-index: 350;
@@ -4052,10 +4054,10 @@ body {
 
 .lesson-list {
     position: relative;
-    width: 87.2vw;
-    height: 71.47vh;
-    left: 6.4vw;
-    top: 3.02vh;
+    width: 34.7rem;
+    height: 47.67rem;
+    left: 3.6rem;
+    top: 2rem;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -4063,81 +4065,81 @@ body {
 .lesson-list>ul>li {
     float: left;
     list-style: none;
-    margin: 1.33vw;
+    margin: 1rem;
 }
 
 .table-lesson {
-    width: 40.53vw;
-    height: 30.73vh;
-    font-size: 11px;
+    width: 15.2rem;
+    height: 20.5rem;
+    font-size: 1.1rem;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
 }
 
 .table-lesson>img {
-    height: 30.73vh;
-    width: 40.53vw;
+    height: 20.5rem;
+    width: 15.2rem;
 }
 
 .lesson-name1 {
     position: relative;
-    left: 3.57vw;
-    width: 36.53vw;
-    top: -9.56vh;
-    font-size: 13px;
+    left: 1.34rem;
+    width: 13.7rem;
+    top: -6.38rem;
+    font-size: 1.3rem;
 }
 
 .lesson-name2 {
     position: relative;
-    left: 3.57vw;
-    width: 36.53vw;
-    top: -6.56vh;
-    font-size: 13px;
+    left: 1.34rem;
+    width: 13.7rem;
+    top: -4.38rem;
+    font-size: 1.3rem;
 }
 
 .table-smile {
     position: relative;
-    top: -9.06vh;
-    left: 3.53vw;
+    top: -6rem;
+    left: 1.3rem;
 }
 
 .table-star {
     position: relative;
-    top: -11.96vh;
-    left: 26.93vw;
+    top: -8.0rem;
+    left: 10.1rem;
 }
 
 /*课程列表底部*/
 .lesson-menu {
     position: absolute;
     width: 100%;
-    height: .86rem;
-    bottom: 0rem;
+    height: 8.6rem;
+    bottom: 0;
     background: url(../images/134.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
-    padding-left: .075rem;
+    padding-left: 1.1rem;
 }
 
-/* .lesson-menu>ul {
-    margin-top: 10px;
-} */
+.lesson-menu>ul {
+    margin-top: -1rem;
+}
+
 .lesson-menu>ul>li {
     float: left;
-    margin-right: 9.07vw;
+    margin-right: 4.4rem;
 }
 
-/*点击时菜单项放大,同主页*/
 /*进入课程*/
 /*导师信息*/
 .lesson-tutor {
     position: absolute;
-    top: 5.27vh;
-    left: -8.5vw;
-    width: 56.47vw;
-    height: 12.0vh;
-    font-size: 15px;
+    top: 3.52rem;
+    left: -3.2rem;
+    width: 21.2rem;
+    height: 8rem;
+    font-size: 1.5rem;
     font-family: PingFang-SC-Medium;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
@@ -4152,55 +4154,55 @@ body {
 .lesson-tutor>ul>li,
 .game-ranger>ul>li {
     float: left;
-    margin: 2.33vw;
-    line-height: 8.6vh;
+    margin: .87rem;
+    line-height: 5.74rem;
 }
 
 .useName {
-    width: 44.5px;
+    width: 4.45rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .game-ranger>.img-bg {
-    width: 16.8vw;
-    height: 10.0vh;
-    border-radius: 5px;
+    width: 6.3rem;
+    height: 6.3rem;
+    border-radius: .5rem;
     overflow: hidden;
 }
 
 .game-ranger img {
-    width: 14.8vw;
-    border-radius: 5px;
+    width: 5.55rem;
+    border-radius: .5rem;
 }
 
 .head-imgBg {
-    width: 16.8vw;
-    height: 16.8vw;
+    width: 6.3rem;
+    height: 6.3rem;
     background: url(../images/111.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .head-imgBg>img {
-    width: 16.8vw;
-    height: 16.8vw;
-    border-radius: 5px;
+    width: 6.3rem;
+    height: 6.3rem;
+    border-radius: .5rem;
 }
 
 .tutor-title {
     position: absolute;
-    top: 1.0vh;
-    left: 13.93vw;
-    width: 8.0vw;
-    height: 2.25vh;
+    top: .667rem;
+    left: 5.22rem;
+    width: 3rem;
+    height: 1.5rem;
     background: rgba(147, 209, 36, 1);
-    border-radius: 7.5px;
+    border-radius: .75rem;
     box-shadow: 0px 0px 0px rgba(NaN, NaN, NaN, 0.35);
     font-size: 11px;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
-    line-height: 2.15vh;
+    line-height: 1.434rem;
 }
 
 .visitor-title {
@@ -4210,22 +4212,22 @@ body {
 /*关注*/
 .attention {
     position: absolute;
-    top: 4.3vh;
-    left: 39.5vw;
-    width: 11.73vw;
-    height: 2.55vh;
-    border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 10px;
-    font-size: 12px;
-    line-height: 2.15vh;
+    top: 2.87rem;
+    left: 14.8rem;
+    width: 4.4rem;
+    height: 1.7rem;
+    border: .1rem solid rgba(255, 255, 255, 1);
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.434rem;
 }
 
 .action-bar {
     position: absolute;
-    top: 7.5vh;
-    right: -3.5vw;
-    width: 20.0vw;
-    font-size: 13px;
+    top: 5rem;
+    right: -2.25rem;
+    width: 7.5rem;
+    font-size: 1.3rem;
     font-family: PingFang-SC-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -4233,12 +4235,12 @@ body {
 }
 
 .action-bar ul {
-    padding: 0.75vh;
+    padding: .5rem;
 }
 
 .action-bar img {
-    width: 7.73vw;
-    height: 7.73vw;
+    width: 2.9rem;
+    height: 2.9rem;
 }
 
 .slideArea {
@@ -4252,77 +4254,78 @@ body {
     z-index: 330;
     bottom: 0;
     width: 100%;
-    height: 313px;
+    height: 31.3rem;
     background: url(../images/145.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .appraise-content {
-    width: 88.0vw;
-    height: 226px;
-    margin: 70px 5.6vw 21px 6.0vw;
+    width: 37rem;
+    height: 22.6rem;
+    margin: 7rem 2.1rem 2.1rem 2.25rem;
     display: block;
 }
 
 .appraise-result {
-    width: 88.0vw;
-    height: 226px;
-    margin: 70px 5.6vw 21px 6.0vw;
+    width: 33rem;
+    height: 22.6rem;
+    margin: 7rem 2.1rem 2.1rem 2.25rem;
     display: none;
 }
 
 .level-appraise {
-    top: 25.34px;
-    left: 35.2vw;
-    width: 28.5vw;
+    top: 2.534rem;
+    left: 15.5rem;
+    width: 10.69rem;
 }
 
 .appraise-right {
-    left: 28.05vw;
+    left: 10.52rem;
 }
 
 .appraise-score {
     position: absolute;
-    top: 87.2px;
-    left: 8.93vw;
-    width: 80.8vw;
-    height: 42px;
+    top: 8.72rem;
+    left: 3.35rem;
+    width: 34.8rem;
+    height: 4.2rem;
     text-align: center;
 }
 
 .appraise-score>ul {
-    margin-left: 2.43vw;
+    margin-left: 1.2rem;
 }
 
 .appraise-score>ul>li {
     float: left;
+    margin-right: 1rem;
 }
 
 /*未选择时*/
 .score-key11 {
-    width: 19.07vw;
-    height: 37px;
+    width: 7.15rem;
+    height: 3.7rem;
     background: url(../images/146.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .score-key22 {
-    width: 19.07vw;
-    height: 37px;
+    width: 7.15rem;
+    height: 3.7rem;
     background: url(../images/147.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .score-key33 {
-    width: 19.07vw;
-    height: 37px;
+    width: 7.15rem;
+    height: 3.7rem;
     background: url(../images/148.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .score-key44 {
-    width: 19.07vw;
-    height: 37px;
+    width: 7.15rem;
+    height: 3.7rem;
     background: url(../images/149.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -4350,50 +4353,50 @@ body {
 
 .lesson-reward {
     position: absolute;
-    top: 167.5px;
-    left: 8.93vw;
+    top: 16.75rem;
+    left: 3.35rem;
 }
 
 .appraise-tips {
     position: absolute;
-    left: 6.53vw;
-    top: 15.54px;
-    width: 25.33vw;
-    height: 22px;
-    font-size: 10px;
+    left: 2.45rem;
+    top: 1.554rem;
+    width: 9.5rem;
+    height: 2.2rem;
+    font-size: 1rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
-    line-height: 12px;
+    line-height: 1.2rem;
 }
 
 .reward-beans {
     position: absolute;
-    left: 28.93vw;
-    width: 51.07vw;
-    height: 47.5px;
+    left: 10.85rem;
+    width: 22.2rem;
+    height: 5.75rem;
     background: transparent url("../images/151.png") no-repeat center;
     background-size: 100% 100%;
 }
 
 .beanInput {
     background: transparent;
-    width: 33.0vw;
-    margin-left: 17.9vw;
-    font-size: 12px;
-    margin-top: 18.7px;
+    width: 14.375rem;
+    margin-left: 6.7rem;
+    font-size: 1.2rem;
+    margin-top: 2.57rem;
 }
 
 .appraise-confirm {
     position: absolute;
-    left: 30.0vw;
-    top: 245px;
-    width: 41.07vw;
-    height: 48px;
+    left: 13.25rem;
+    top: 24.5rem;
+    width: 15.4rem;
+    height: 4.8rem;
     background: url(../images/150.png) no-repeat;
     background-size: 100% 100%;
-    line-height: 45.8px;
+    line-height: 4.58rem;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -4403,15 +4406,15 @@ body {
 /*评分结果*/
 .score-result {
     position: relative;
-    left: 4.6vw;
-    top: 2.1vh;
-    width: 77.73vw;
-    height: 5.47vh;
+    left: 1.725rem;
+    top: 1.4rem;
+    width: 29.2rem;
+    height: 3.65rem;
     background: url(../images/156.png) no-repeat;
-    background-size: 77.73vw 5.47vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 5.47vh;
-    font-size: 20px;
+    line-height: 3.65rem;
+    font-size: 2rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(156, 122, 106, 1);
@@ -4419,95 +4422,95 @@ body {
 
 .score-detail {
     position: relative;
-    top: 0.8vh;
-    left: 10.47vw;
+    top: .53rem;
+    left: 3.93rem;
 }
 
 .score-detail>li {
     float: left;
-    width: 25.8vw;
-    margin: 2.0vh 1.5vh 0 5.33vw;
+    width: 9.675rem;
+    margin: 1.4rem .1rem 0 2rem;
 }
 
 .score-detail img {
-    width: 19.07vw;
-    height: 5.55vh;
+    width: 7.15rem;
+    height: 3.7rem;
 }
 
 .score-detail span,
 .total-reward span {
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(67, 144, 67, 1);
     text-indent: 0.5em;
     vertical-align: middle;
-    line-height: 6.6vh;
+    line-height: 4.4rem;
 }
 
 .score-line {
     position: relative;
-    top: 79.57px;
-    left: 4.83vw;
-    width: 77.33vw;
-    height: 1px;
+    top: 7.957rem;
+    left: 1.8rem;
+    width: 33rem;
+    height: .1rem;
     opacity: 0.5;
-    border-radius: 1px;
+    border-radius: .1rem;
     background: #E5C28A;
 }
 
 .score-line-reward {
-    top: 18.93vh;
+    top: 12.63rem;
 }
 
 .total-reward {
     position: absolute;
-    left: 23.0vw;
-    width: 50.47vw;
-    height: 7.12vh;
-    top: 33.85vh;
-    font-size: 10px;
+    left: 8.625rem;
+    width: 18.93rem;
+    height: 4.75rem;
+    top: 22.58rem;
+    font-size: 1rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
-    padding-left: 1.5vw;
+    padding-left: .56rem;
 }
 
 .total-reward>ul>li {
     float: left;
-    line-height: 7.12vh;
-    margin-top: 2.8vh;
-    margin-left: 3.5vw;
+    line-height: 4.75rem;
+    margin-top: 1.87rem;
+    margin-left: 1.3rem;
 }
 
 .total-reward>ul>li>label {
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .total-reward>ul>li>img {
-    width: 12.0vw;
-    height: 7.12vh;
+    width: 4.5rem;
+    height: 4.75rem;
 }
 
 /*课程分享*/
 .share-point {
     position: absolute;
-    top: 1.2vh;
-    right: 14.8vw;
-    width: 27.13vw;
-    height: 18.37vh;
+    top: .8rem;
+    right: 5.55rem;
+    width: 10.17rem;
+    height: 12.25rem;
     background: url(../images/157.png) no-repeat;
-    background-size: 27.13vw 18.37vh;
+    background-size: 100% 100%;
 }
 
 .share-tips {
     position: absolute;
-    top: 17.9vh;
-    left: 24.13vw;
-    width: 67.06vw;
-    height: 10.42vh;
+    top: 12rem;
+    left: 9.05rem;
+    width: 25.15rem;
+    height: 6.95rem;
     background: url(../images/158.png) no-repeat;
-    background-size: 67.06vw 10.42vh;
+    background-size: 100% 100%;
 }
 
 /*分享结果*/
@@ -4519,11 +4522,11 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 5.5vh;
+    height: 3.67rem;
     text-align: center;
-    line-height: 5.5vh;
+    line-height: 3.67rem;
     background: rgba(48, 161, 7, 1);
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: PingFang-SC-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -4544,9 +4547,9 @@ body {
     z-index: 330;
     bottom: 0;
     width: 100%;
-    height: 67.7vh;
+    height: 45.16rem;
     background: url(../images/159.png) no-repeat;
-    background-size: 100% 67.7vh;
+    background-size: 100% 100%;
 }
 
 .leave-message-bg {
@@ -4554,7 +4557,7 @@ body {
     z-index: 330;
     bottom: 0;
     width: 100%;
-    height: 451px;
+    height: 45.1rem;
     background: url(../images/159.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -4562,11 +4565,11 @@ body {
 .tutor-head,
 .lesson-text-title {
     position: absolute;
-    top: 8.02vh;
+    top: 5.35rem;
     width: 100%;
-    height: 2.62vh;
+    height: 1.75rem;
     text-align: center;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -4575,11 +4578,11 @@ body {
 
 .leave-message-title {
     position: relative;
-    top: 53px;
+    top: 5.3rem;
     width: 100%;
-    height: 17.5px;
+    height: 1.75rem;
     text-align: center;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -4588,10 +4591,10 @@ body {
 
 .message-content {
     position: relative;
-    top: 74.5px;
-    left: 6.47vw;
-    width: 87.53vw;
-    height: 298px;
+    top: 7.45rem;
+    left: 2.43rem;
+    width: 32.824rem;
+    height: 29.8rem;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -4599,7 +4602,7 @@ body {
 .message-content>ul>li {
     float: left;
     border-bottom: 1px solid rgba(229, 194, 138, 0.3);
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 
 }
 
@@ -4615,44 +4618,44 @@ body {
 .message-text2 {
     position: fixed;
     z-index: 510;
-    bottom: 13.34px;
-    line-height: 17.8px;
-    width: 78.06vw;
-    height: 62px;
-    margin-left: 4.0vw;
+    bottom: 1.334rem;
+    line-height: 1.78rem;
+    width: 29.27rem;
+    height: 6.2rem;
+    margin-left: 1.5rem;
     text-align: left;
-    padding: 6px 3.0vw;
+    padding: .6rem 3.0vw;
     overflow: hidden;
-    border: 1px solid rgba(229, 194, 138, 0.3);
+    border: .1rem solid rgba(229, 194, 138, 0.3);
     /* display: none; */
 }
 
 .release-message {
     position: fixed;
-    bottom: 13.34px;
-    line-height: 62px;
-    width: 14.06vw;
-    height: 62px;
-    right: 4.0vw;
+    bottom: 1.334rem;
+    line-height: 6.2rem;
+    width: 5.27rem;
+    height: 6.2rem;
+    right: 1.5rem;
     text-align: center;
     z-index: 510;
     color: rgba(85, 50, 8, 1);
     background: white;
-    border: 1px solid rgba(229, 194, 138, 0.3);
+    border: .1rem solid rgba(229, 194, 138, 0.3);
     /* display: none; */
 }
 
 .message-btn {
     position: absolute;
-    bottom: 13.34px;
-    margin-left: 30.0vw;
+    bottom: 1.334rem;
+    margin-left: 11.25rem;
     text-align: center;
-    line-height: 48px;
-    width: 41.06vw;
-    height: 48px;
+    line-height: 4.8rem;
+    width: 15.4rem;
+    height: 4.8rem;
     background: url(../images/118.png) no-repeat;
     background-size: 100% 100%;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
@@ -4660,33 +4663,33 @@ body {
 }
 
 .leave-content {
-    padding-top: 10px;
+    padding-top: 1rem;
     position: relative;
-    width: 87.53vw;
+    width: 32.82rem;
 }
 
 .avatar-message {
     position: relative;
     display: inline-block;
-    width: 48px;
-    height: 48px;
+    width: 4.8rem;
+    height: 4.8rem;
     background: url(../images/111.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .avatar-message>img {
-    width: 48px;
-    height: 48px;
-    border-radius: 5px;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: .5rem;
 }
 
 .tourist-name {
     position: relative;
     display: inline-block;
-    top: -17.34px;
-    left: 1.5vw;
-    line-height: 48px;
-    font-size: 15px;
+    top: -1.734rem;
+    left: .56rem;
+    line-height: 4.8rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
 }
@@ -4694,20 +4697,20 @@ body {
 .leave-message-time {
     position: relative;
     float: right;
-    margin-right: 3.5vw;
+    margin-right: 1.3rem;
     text-align: right;
-    line-height: 48px;
-    font-size: 12px;
+    line-height: 4.8rem;
+    font-size: 1.2rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
 }
 
 .leave-message-detail {
     position: relative;
-    font-size: 13px;
-    left: 14.3vw;
-    top: -17.34px;
-    width: 72.73vw;
+    font-size: 1.3rem;
+    left: 5.36rem;
+    top: -1.734rem;
+    width: 27.27rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
@@ -4715,16 +4718,16 @@ body {
 
 .reply-content {
     position: relative;
-    left: 14.3vw;
-    width: 72.73vw;
+    left: 5.36rem;
+    width: 27.27rem;
 }
 
 .reply-message-detail {
     position: relative;
-    top: -17.34px;
-    left: 14.3vw;
-    width: 55.8vw;
-    font-size: 13px;
+    top: -1.734rem;
+    left: 5.36rem;
+    width: 20.925rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
@@ -4733,46 +4736,45 @@ body {
 /*导师详情*/
 .tutor-avatar {
     position: relative;
-    /* top: 1.62vh; */
     width: 100%;
-    height: 9.07vh;
+    height: 6.05rem;
     text-align: center;
 }
 
 .tutor-avatar>p {
-    line-height: 3.5vh;
-    font-size: 15px;
+    line-height: 2.3345rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
 }
 
 .head-bg {
-    margin-left: 42.0vw;
-    width: 16.8vw;
-    height: 16.8vw;
+    margin-left: 15.75rem;
+    width: 6.3rem;
+    height: 6.3rem;
     background: url(../images/111.png) no-repeat;
     background-size: 100% 100%;
-    border-radius: 5px;
+    border-radius: .5rem;
 }
 
 .head-bg>img {
-    width: 16.8vw;
-    height: 16.8vw;
-    border-radius: 5px;
+    width: 6.3rem;
+    height: 6.3rem;
+    border-radius: .5rem;
 }
 
 .tutor-attention {
     position: absolute;
     text-align: center;
-    line-height: 2.7vh;
-    width: 11.6vw;
-    height: 2.7vh;
+    line-height: 1.8rem;
+    width: 4.35rem;
+    height: 1.8rem;
     background: rgba(147, 209, 36, 1);
-    border-radius: 9px;
-    top: 7.0vh;
-    left: 50.9vw;
-    font-size: 13px;
+    border-radius: .9rem;
+    top: 4.67rem;
+    left: 19.09rem;
+    font-size: 1.3rem;
     font-family: PingFang-SC-Regular;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
@@ -4780,44 +4782,44 @@ body {
 
 .tutor-infor {
     position: relative;
-    width: 86.67vw;
-    top: 4.53vh;
-    left: 6.67vw;
-    font-size: 13px;
+    width: 32.5rem;
+    top: 3rem;
+    left: 2.5rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
-    line-height: 18px;
-    padding-bottom: 2.5vh;
-    border-bottom: 2px solid #E5C28A;
+    line-height: 1.rem;
+    padding-bottom: 1.67rem;
+    border-bottom: .2rem solid #E5C28A;
 }
 
 .lesson-tutorInfor {
     position: relative;
-    top: 0.2vh;
-    line-height: 18px;
+    top: .13rem;
+    line-height: 1.8rem;
 }
 
 /* 我的关注 */
 .follow-infor {
     position: relative;
-    width: 86.67vw;
-    top: 8.93vh;
-    left: 2.67vw;
-    font-size: 13px;
+    width: 32.5rem;
+    top: 5.96rem;
+    left: 1rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
-    line-height: 18px;
-    margin-bottom: 1.5vh;
+    line-height: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 .follow-tutorInfor {
     position: relative;
-    top: 0.2vh;
-    line-height: 18px;
-    min-height: 1.5vh;
-    max-height: 19.89vh;
+    top: .13rem;
+    line-height: 1.8rem;
+    min-height: 1rem;
+    max-height: 13.27rem;
 }
 
 .lesson-maxNum {
@@ -4830,32 +4832,32 @@ body {
 
 .infor-read {
     position: absolute;
-    bottom: 2.5vh;
-    right: 0.5vw;
+    bottom: 1.67rem;
+    right: .1875rem;
     color: rgba(48, 160, 7, 1);
     display: none;
 }
 
 .infor-close {
     position: absolute;
-    bottom: 0.0vh;
-    right: 0.5vw;
+    bottom: 0;
+    right: .1875rem;
     color: rgba(48, 160, 7, 1);
     display: none;
 }
 
 .follow-read {
     position: absolute;
-    bottom: -0.5vw;
-    right: 0.5vh;
+    bottom: -.1875rem;
+    right: .33rem;
     color: rgba(48, 160, 7, 1);
     display: none;
 }
 
 .follow-close {
     position: absolute;
-    bottom: -4.5vw;
-    right: 0.5vh;
+    bottom: -1.69rem;
+    right: .33rem;
     color: rgba(48, 160, 7, 1);
     display: none;
 }
@@ -4864,14 +4866,14 @@ body {
 .follow-read>img,
 .infor-close>img,
 .follow-close>img {
-    width: 3.2vw;
+    width: 1.2rem;
 }
 
 .tutor-detail {
     position: relative;
     width: 100%;
-    height: 50vh;
-    top: 14.5vh;
+    height: 33.35rem;
+    top: 9.77rem;
     font-size: 1.2rem;
     overflow-x: hidden;
     overflow-y: auto;
@@ -4879,21 +4881,19 @@ body {
 
 .tutor-bg ul {
     position: relative;
-    left: 5.6vw;
-    top: 5.8vh;
+    left: 2.1rem;
+    top: 3.87rem;
     text-align: center;
 }
 
 .tutor-bg ul>li {
     float: left;
-    margin: 0.5vh 1.0vw;
+    margin: .33rem .375rem;
 }
 
 .album-name {
-    width: 27.33vw;
-    height: 20.76vh;
-    /* background: url(../images/others.jpg) no-repeat;
-    background-size: 27.33vw 20.76vh; */
+    width: 10.25rem;
+    height: 13.85rem;
 }
 
 .album-name>img {
@@ -4904,25 +4904,25 @@ body {
 /*专辑名称*/
 .album-top {
     position: relative;
-    left: 2.67vw;
-    top: 1.5vh;
-    width: 29.33vw;
-    height: 12.0vh;
+    left: 1rem;
+    top: 1rem;
+    width: 11rem;
+    height: 8rem;
 }
 
 .album-top>img {
-    width: 29.33vw;
-    height: 12.0vh;
+    width: 11rem;
+    height: 8rem;
 }
 
 .album-text {
     position: relative;
     text-align: left;
-    left: 33.0vw;
-    top: -5.5vh;
-    width: 56.27vw;
-    line-height: 2.1vh;
-    font-size: 15px;
+    left: 12.375rem;
+    top: -3.67rem;
+    width: 24.1rem;
+    line-height: 1.4rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(149, 104, 38, 1);
@@ -4933,74 +4933,74 @@ body {
 
 .album-detail {
     position: relative;
-    left: 2.67vw;
-    top: 2.5vh;
-    width: 86.67vw;
-    font-size: 13px;
+    left: 1rem;
+    top: 1.67rem;
+    width: 36rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
-    line-height: 2.5vh;
-    padding-bottom: 1.0vh;
-    border-bottom: 2px solid #E5C28A;
+    line-height: 1.67rem;
+    padding-bottom: .667rem;
+    border-bottom: .2rem solid #E5C28A;
 }
 
 .lesson-title-list {
     position: relative;
-    top: 2.36vh;
-    width: 85.33vw;
-    height: 54.5vh;
-    margin: 3.33vw 1.87vh;
+    top: 1.74rem;
+    width: 36rem;
+    height: 36.35rem;
+    margin: 1.25rem 1.25rem;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .noLesson-content {
     position: absolute;
-    top: 21.36vh;
+    top: 14.25rem;
     display: none;
 }
 
 .lesson-title {
-    height: 10.12vh;
-    margin-bottom: 1.5vh;
+    height: 6.75rem;
+    margin-bottom: 1rem;
 }
 
 .list-num {
-    width: 10.13vw;
-    height: 10.12vh;
+    width: 3.8rem;
+    height: 6.75rem;
     background: #A8D535;
-    border-radius: 10px 0 0 10px;
-    font-size: 15px;
+    border-radius: 1rem 0 0 1rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
     text-align: center;
-    line-height: 10.12vh;
+    line-height: 6.75rem;
 }
 
 .lesson-list-detail {
     position: relative;
-    left: 10.13vw;
-    top: -10.15vh;
-    width: 75.2vw;
-    height: 10.12vh;
+    left: 3.8rem;
+    top: -6.77rem;
+    width: 31.8rem;
+    height: 6.75rem;
     background: #F7E6A9;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 1rem 1rem 0;
 }
 
 .lesson-list-title {
-    height: 5.05vh;
-    width: 92.27vw;
-    line-height: 6.75vh;
+    height: 3.37rem;
+    width: 34.6rem;
+    line-height: 4.5rem;
 }
 
 .lesson-list-name {
     position: absolute;
-    top: 1.87vh;
-    left: 3.87vw;
-    font-size: 15px;
+    top: 1.25rem;
+    left: 1.45rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
@@ -5008,15 +5008,15 @@ body {
 
 .lesson-operate {
     position: absolute;
-    top: 2.55vh;
-    right: 2.27vw;
-    width: 12.93vw;
-    height: 4.42vh;
+    top: 1.7rem;
+    right: .85rem;
+    width: 4.85rem;
+    height: 2.95rem;
     background: url(../images/233.png) no-repeat;
-    background-size: 12.93vw 4.42vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 4.42vh;
-    font-size: 14px;
+    line-height: 2.95rem;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 1);
@@ -5025,14 +5025,14 @@ body {
 .lesson-play {
     position: absolute;
     text-align: center;
-    line-height: 2.55vh;
-    border-radius: 8.5px;
-    width: 13.33vw;
-    height: 2.55vh;
+    line-height: 1.7rem;
+    border-radius: .85rem;
+    width: 5rem;
+    height: 1.7rem;
     background: #FFF7DF;
-    top: 1.87vh;
-    right: 3.87vw;
-    font-size: 12px;
+    top: 1.25rem;
+    right: 1.45rem;
+    font-size: 1.2rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(214, 0, 14, 1);
@@ -5042,8 +5042,8 @@ body {
 
 .lesson-list-tab {
     position: absolute;
-    left: 3.87vw;
-    font-size: 12px;
+    left: 1.45rem;
+    font-size: 1.2rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
@@ -5051,11 +5051,11 @@ body {
 
 .lesson-list-tab>ul>li {
     float: left;
-    padding-right: 5.0vw;
+    padding-right: 2.875rem;
 }
 
 .lesson-list-tab>ul>li>img {
-    width: 6.67vw;
+    width: 2.5rem;
 }
 
 .lesson-playing {
@@ -5065,14 +5065,14 @@ body {
 .lesson-locked {
     position: absolute;
     text-align: center;
-    line-height: 2.55vh;
-    border-radius: 8.5px;
-    width: 13.33vw;
-    height: 2.55vh;
+    line-height: 1.7rem;
+    border-radius: .85rem;
+    width: 5rem;
+    height: 1.7rem;
     background: #FFF7DF;
-    top: 1.87vh;
-    right: 3.87vw;
-    font-size: 12px;
+    top: 1.25rem;
+    right: 1.45rem;
+    font-size: 1.2rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(149, 104, 38, 1);
@@ -5081,20 +5081,20 @@ body {
 
 .lesson-playing>img,
 .lesson-locked>img {
-    width: 2.67vw;
+    width: 1rem;
 }
 
 .alllock-btn {
     position: absolute;
-    bottom: 1.72vh;
-    left: 2.75vw;
-    width: 86.4vw;
-    height: 7.25vh;
+    bottom: 1.15rem;
+    left: 1.03rem;
+    width: 32.4rem;
+    height: 4.84rem;
     background: url(../images/166.png) no-repeat;
-    background-size: 86.4vw 7.25vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 7.25vh;
-    font-size: 17px;
+    line-height: 4.84rem;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5104,15 +5104,15 @@ body {
 .album-add,
 .course-add {
     position: absolute;
-    bottom: 1.72vh;
-    left: 2.75vw;
-    width: 86.4vw;
-    height: 7.25vh;
+    bottom: 1.15rem;
+    left: 1.03rem;
+    width: 36.4rem;
+    height: 4.84rem;
     background: url(../images/166.png) no-repeat;
-    background-size: 86.4vw 7.25vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 7.25vh;
-    font-size: 17px;
+    line-height: 4.84rem;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5122,44 +5122,44 @@ body {
 /*课程文字*/
 .lesson-text-inner {
     position: absolute;
-    width: 93.33vw;
-    height: 53.6vh;
-    left: 3.33vw;
-    bottom: 1.65vh;
+    width: 38.9rem;
+    height: 35.8rem;
+    left: 1.25rem;
+    bottom: 1.1rem;
 }
 
 .lesson-text-inner>span,
 .lesson-introduction-inner>span {
-    margin: 10px;
-    font-size: 13px;
+    margin: 1rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
-    line-height: 18px;
+    line-height: 1.8rem;
     text-indent: 2em;
 }
 
 /*举报内容*/
 .report-tab {
     position: absolute;
-    width: 76.8vw;
-    height: 12.0vh;
-    left: 12.27vw;
-    top: 10.9vh;
+    width: 31.8rem;
+    height: 8rem;
+    left: 4.6rem;
+    top: 7.27rem;
 }
 
 .report-tab>ul>li {
     float: left;
-    margin: 1.2vh 2.0vw;
+    margin: .8rem 1.6rem;
 }
 
 .report-option {
-    width: 33.73vw;
-    height: 5.32vh;
+    width: 12.65rem;
+    height: 3.55rem;
     background: url(../images/167.png) no-repeat;
-    background-size: 33.73vw 5.32vh;
-    line-height: 5.32vh;
+    background-size: 100% 100%;
+    line-height: 3.55rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5167,10 +5167,10 @@ body {
 }
 
 .report-option1 {
-    width: 33.73vw;
-    height: 5.32vh;
+    width: 12.65rem;
+    height: 35.5rem;
     background: url(../images/168.png) no-repeat;
-    background-size: 33.73vw 5.32vh;
+    background-size: 100% 100%;
 }
 
 .lesson-introduction {
@@ -5178,18 +5178,18 @@ body {
     z-index: 330;
     bottom: 0;
     width: 100%;
-    height: 67.7vh;
+    height: 45.16rem;
     background: url(../images/169.png) no-repeat;
-    background-size: 100% 67.7vh;
+    background-size: 100% 100%;
 }
 
 .lesson-introduction-title {
     position: absolute;
-    top: 10.02vh;
+    top: 6.68rem;
     width: 100%;
-    height: 2.62vh;
+    height: 1.75rem;
     text-align: center;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5198,16 +5198,16 @@ body {
 
 .lesson-introduction-inner {
     position: absolute;
-    width: 93.33vw;
-    height: 50.6vh;
-    left: 3.33vw;
-    bottom: 1.65vh;
+    width: 38.8rem;
+    height: 33.75rem;
+    left: 1.25rem;
+    bottom: 1.1rem;
 }
 
 .lesson-introduction-inner>h1 {
-    margin: 10px 0 0 0;
+    margin: 1rem 0 0 0;
     text-align: center;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
 }
@@ -5224,10 +5224,10 @@ body {
 
 .progress-locked {
     position: absolute;
-    width: 63px;
-    height: 63px;
-    left: 43.57vw;
-    bottom: 8.5px;
+    width: 6.3rem;
+    height: 6.3rem;
+    left: 17.34rem;
+    bottom: 2.32rem;
     background: url(../images/170.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
@@ -5239,20 +5239,20 @@ body {
     color: #956826;
     font-weight: 600;
     top: 0;
-    font-size: 10px;
-    margin: 6.65vh 7.5vw;
+    font-size: 1rem;
+    margin: 3.9rem 2.8rem;
 }
 
 .locked-shade {
     position: absolute;
-    bottom: 46.82vh;
-    right: 7.4vw;
+    bottom: 31.43rem;
+    right: 4.0rem;
     z-index: 9999;
-    width: 17.6vw;
-    height: 17.6vw;
-    border-radius: 25px;
+    width: 6.6rem;
+    height: 6.6rem;
+    border-radius: 2.5rem;
     background: url(../images/171.png) no-repeat;
-    background-size: 17.6vw 17.6vw;
+    background-size: 100% 100%;
     background-color: rgba(0, 0, 0, .3);
     display: block;
 }
@@ -5262,39 +5262,39 @@ body {
 .recharge-top,
 .manage-top {
     position: relative;
-    top: 2.1vh;
+    top: 1.4rem;
     width: 100%;
-    height: 12.07vh;
+    height: 8.05rem;
 }
 
 .series-top>img,
 .recharge-top>img,
 .manage-top>img {
-    width: 19.73vw;
-    height: 80.5px;
-    margin-left: 26.13vw;
+    width: 7.4rem;
+    height: 8.05rem;
+    margin-left: 9.8rem;
 }
 
 .series-top>span,
 .recharge-top>span,
 .manage-top>span {
     position: absolute;
-    top: 0.5vh;
-    font-size: 25px;
+    top: .33rem;
+    font-size: 2.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(67, 144, 67, 1);
-    line-height: 12.07vh;
+    line-height: 8.05rem;
 }
 
 .series-name {
     position: relative;
-    top: 2.6vh;
+    top: 1.7rem;
     width: 100%;
-    height: 6.75vh;
-    line-height: 6.75vh;
+    height: 4.5rem;
+    line-height: 4.5rem;
     text-indent: 1.2em;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(149, 104, 38, 1);
@@ -5302,32 +5302,32 @@ body {
 
 .series-title-list {
     position: relative;
-    top: 0.76vh;
-    width: 85.33vw;
-    margin: 3.33vw 1.87vh;
+    top: 0.5rem;
+    width: 32rem;
+    margin: 1.25rem 1.25rem;
 }
 
 .series-inner {
-    height: 8.12vh;
+    height: 5.42rem;
 }
 
 .series-num {
-    height: 8.12vh;
-    line-height: 8.12vh;
+    height: 5.42rem;
+    line-height: 5.42rem;
 }
 
 .serise-list {
     position: relative;
-    height: 8.12vh;
-    top: -8.12vh;
+    height: 5.42rem;
+    top: -5.42rem;
 }
 
 .serise-title {
     position: absolute;
-    width: 50.0vw;
-    left: 4.0vw;
-    top: 11.12vh;
-    font-size: 15px;
+    width: 18.75rem;
+    left: 1.5rem;
+    top: 7.42rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
@@ -5335,39 +5335,38 @@ body {
 
 .serise-beans {
     position: absolute;
-    height: 3.75vh;
-    top: 10.5vh;
-    left: 54.27vw;
-    font-size: 14px;
+    height: 2.5rem;
+    top: 7rem;
+    left: 20.35rem;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
 }
 
 .serise-beans>img {
-    width: 6.133vw;
-    height: 3.75vh;
+    width: 2.3rem;
+    height: 2.5rem;
 }
 
 /*智慧豆充足*/
 .series-hasbeans {
     position: relative;
-    top: 1.09vh;
-    left: 12.47vw;
-    width: 61.07vw;
-    height: 10.05vh;
+    top: .727rem;
+    left: 4.68rem;
+    width: 22.9rem;
+    height: 6.7rem;
     text-align: center;
-    /*display: none;*/
 }
 
 .hasbeans-btn {
     margin: 0 auto;
-    width: 41.07vw;
-    height: 7.27vh;
+    width: 15.4rem;
+    height: 4.85rem;
     background: url(../images/173.png) no-repeat;
-    background-size: 41.07vw 7.27vh;
-    line-height: 7.27vh;
-    font-size: 18px;
+    background-size: 100% 100%;
+    line-height: 4.85rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5375,21 +5374,21 @@ body {
 }
 
 .series-hasbeans>span {
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(149, 104, 38, 1);
-    line-height: 3.37vh;
+    line-height: 2.25rem;
 }
 
 .nobeans-btn {
     margin: 0 auto;
-    width: 52.8vw;
-    height: 7.27vh;
-    line-height: 7.27vh;
+    width: 19.8rem;
+    height: 4.85rem;
+    line-height: 4.85rem;
     background: url(../images/174.png) no-repeat;
-    background-size: 52.8vw 7.27vh;
-    font-size: 16px;
+    background-size: 100% 100%;
+    font-size: 1.6rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5402,111 +5401,111 @@ body {
     top: 0;
     left: 0;
     z-index: 10000;
-    width: 100vw;
-    height: 100vh;
+    width: 37.5rem;
+    height: 66.7rem;
     background-color: rgba(0, 0, 0, .3);
     display: none;
-    padding-top: 27.88vh;
-    padding-left: 12.1vw;
+    padding-top: 18.6rem;
+    padding-left: 4.54rem;
 }
 
 .unlock-frame {
-    width: 73.2vw;
-    height: 29.84vh;
+    width: 27.45rem;
+    height: 19.9rem;
     background: url(../images/120.png) no-repeat;
-    background-size: 73.2vw 29.84vh;
+    background-size: 100% 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    line-height: 22.5px;
+    line-height: 2.25rem;
     text-shadow: 1px 3px 1px rgba(56, 141, 56, 1);
 }
 
 .unlock-frame>span {
     position: relative;
-    top: 6.75vh;
+    top: 4.5rem;
 }
 
 .unlock-frame img {
-    width: 10.67vw;
+    width: 4rem;
 }
 
 .unlock-btn {
     position: relative;
-    top: 6.23vh;
-    left: 16.3vw;
-    line-height: 7.27vh;
-    width: 41.07vw;
-    height: 7.27vh;
+    top: 4.2rem;
+    left: 6.1rem;
+    line-height: 4.85rem;
+    width: 15.4rem;
+    height: 4.85rem;
     background: url(../images/173.png) no-repeat;
-    background-size: 41.07vw 7.27vh;
+    background-size: 100% 100%;
 }
 
 /*钱包*/
 .recharge-cost {
     position: absolute;
-    top: 4.57vh;
-    right: 2.8vw;
-    width: 14.53vw;
-    height: 8.17vh;
+    top: 3.05rem;
+    right: 10.5rem;
+    width: 5.45rem;
+    height: 5.45rem;
     background: url(../images/179.png) no-repeat;
-    background-size: 14.53vw 8.17vh;
+    background-size: 100% 100%;
     z-index: 9999;
 }
 
 .pod-top {
     position: relative;
-    top: 1.27vh;
+    top: .85rem;
     width: 100%;
-    height: 15.37vh;
+    height: 10.25rem;
     z-index: 350;
     background: url(../images/176.png) no-repeat;
-    background-size: 100% 15.37vh;
+    background-size: 100% 100%;
 }
 
 .purse-center {
     position: relative;
-    left: 4.93vw;
-    top: -9.65vh;
-    width: 90.13vw;
-    height: 74.36vh;
+    left: 18.5rem;
+    top: -6.44rem;
+    width: 33.8rem;
+    height: 49.6rem;
     z-index: 300;
     background: url(../images/177.png) no-repeat;
-    background-size: 90.13vw 74.36vh;
+    background-size: 100% 100%;
 }
 
 .pod-bottom {
     position: relative;
-    top: -20.1vh;
+    top: -13.41rem;
     width: 100%;
-    height: 15.74vh;
+    height: 10.5rem;
     z-index: 350;
     background: url(../images/178.png) no-repeat;
-    background-size: 100% 15.74vh;
+    background-size: 100% 100%;
 }
 
 .recharge-num>span {
     position: relative;
-    top: 5.09vh;
-    left: 25.93vw;
-    font-size: 25px;
+    top: 3.4rem;
+    left: 9.7rem;
+    font-size: 2.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(67, 144, 67, 1);
 }
 
 .recharge-num img {
-    width: 17.73vw;
+    width: 6.65rem;
 }
 
 .recharge-btn {
     width: 100%;
-    height: 6.22vh;
-    padding: 5.8vh 13.23vw 3.2vh 13.23vw;
+    height: 4.15rem;
+    padding: 3.87rem 4.96rem 2.134rem 4.96rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5515,96 +5514,96 @@ body {
 
 .recharge-true {
     float: left;
-    width: 27.73vw;
-    height: 6.22vh;
+    width: 10.4rem;
+    height: 4.15rem;
     background: url(../images/180.png) no-repeat;
-    background-size: 27.73vw 6.22vh;
-    line-height: 6.22vh;
+    background-size: 100% 100%;
+    line-height: 4.15rem;
 }
 
 .recharge-false {
     float: right;
-    width: 27.73vw;
-    height: 6.22vh;
+    width: 10.4rem;
+    height: 4.15rem;
     background: url(../images/181.png) no-repeat;
-    background-size: 27.73vw 6.22vh;
-    line-height: 6.22vh;
+    background-size: 100% 100%;
+    line-height: 4.15rem;
 }
 
 .recharge-inner {
     position: relative;
-    padding-top: 0.5vh 0 0.5vh 0;
-    top: 1.7vh;
-    left: 6.4vw;
-    width: 77.33vw;
-    height: 47.73vh;
+    padding-top: .3335rem 0 .3335rem 0;
+    top: 1.14rem;
+    left: 2.4rem;
+    width: 29rem;
+    height: 31.84rem;
     background: rgba(255, 247, 223, 1);
-    border-radius: 10px;
+    border-radius: 1rem;
     overflow-y: auto;
 }
 
 .recharge-detail {
     position: relative;
-    top: 1.35vh;
-    left: 2.0vw;
-    width: 73.33vw;
-    height: 4.25vh;
+    top: .9rem;
+    left: .75rem;
+    width: 27.5rem;
+    height: 2.83rem;
     background: rgba(235, 244, 137, 1);
-    border-radius: 10px;
-    margin-bottom: 0.75vh;
+    border-radius: 1rem;
+    margin-bottom: .5rem;
 }
 
 .recharge-detail img {
-    width: 5.13vw;
+    width: 1.9rem;
 }
 
 .recharge-detail table {
     position: absolute;
-    left: 1.33vw;
-    width: 69.33vw;
-    top: -0.8vh;
+    left: .5rem;
+    width: 26rem;
+    top: -.5rem;
 }
 
 /*充值记录*/
 .recharge-record {
     position: relative;
-    top: 1.35vh;
-    left: 2.85vw;
-    width: 86.67vw;
-    height: 5.25vh;
+    top: .9rem;
+    left: 1.07rem;
+    width: 32.5rem;
+    height: 3.5rem;
     background: rgba(235, 244, 137, 1);
-    border-radius: 10px;
-    margin-bottom: 0.75vh;
+    border-radius: 1rem;
+    margin-bottom: .5rem;
     /*display: none;*/
 }
 
 .record-tab1 {
     position: absolute;
-    left: 4.53vw;
-    width: 20.33vw;
-    height: 3.75vh;
-    line-height: 5.75vh;
+    left: 1.7rem;
+    width: 7.6rem;
+    height: 2.5rem;
+    line-height: 3.84rem;
 }
 
 .record-tab1>img {
-    width: 6.13vw;
+    width: 2.3rem;
     vertical-align: top;
 }
 
 .record-tab2 {
     position: absolute;
-    top: 1.35vh;
-    left: 29.0vw;
-    width: 8.0vw;
-    height: 3.75vh;
+    top: .9rem;
+    left: 10.875rem;
+    width: 3rem;
+    height: 2.5rem;
 }
 
 .record-tab3 {
     position: absolute;
-    top: 1.35vh;
-    right: 2.533333vw;
+    top: .9rem;
+    right: .95rem;
     /*width: 20.36vw;*/
-    height: 3.75vh;
+    height: 2.5rem;
 }
 
 /*无充值记录*/
@@ -5683,14 +5682,14 @@ body {
     top: 8.5vh;
     left: 2.67vw;
     width: 86.0vw;
-    height: 15.74vh;
+    height: 10.5rem;
 }
 
 .recharge-value ul>li {
     float: left;
     text-align: center;
     margin: 0.8vh 0.9vw;
-    padding: 0.5vh;
+    padding: .3335rem;
 }
 
 .initial {
@@ -5807,9 +5806,9 @@ body {
 
 .recharge-method {
     width: 70.4vw;
-    height: 7.27vh;
+    height: 4.85rem;
     text-align: center;
-    line-height: 7.27vh;
+    line-height: 4.85rem;
     font-size: 17px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -5826,14 +5825,14 @@ body {
     position: absolute;
     top: 0;
     background: url(../images/194.png) no-repeat;
-    background-size: 70.4vw 7.27vh;
+    background-size: 70.4vw 100%;
 }
 
 .alipay {
     position: absolute;
     bottom: 0;
     background: url(../images/196.png) no-repeat;
-    background-size: 70.4vw 7.27vh;
+    background-size: 70.4vw 100%;
 }
 
 /*支付成功*/
@@ -5855,16 +5854,16 @@ body {
     position: absolute;
     bottom: 0;
     width: 68.93vw;
-    height: 7.27vh;
+    height: 4.85rem;
     text-align: center;
-    line-height: 7.27vh;
+    line-height: 4.85rem;
     font-size: 17px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
     background: url(../images/194.png) no-repeat;
-    background-size: 68.93vw 7.27vh;
+    background-size: 68.93vw 100%;
 }
 
 /*个人中心*/
@@ -5960,7 +5959,7 @@ body {
 .personal-wealth {
     position: absolute;
     top: 24.96vh;
-    left: 10.67vw;
+    left: 4rem;
     width: 88.27vw;
     height: 13.42vh;
     font-size: 12px;
@@ -6002,7 +6001,8 @@ body {
 
 .my-tabs>ul>li {
     float: left;
-    margin: 0.5vh 1.05vw;
+    margin: .3335rem;
+    1.05vw;
     padding: 1.5vh 0;
     width: 32.8vw;
     height: 18.7vh;
@@ -6046,7 +6046,7 @@ body {
 .personal-container,
 .personal-area-container {
     position: relative;
-    top: 0.75vh;
+    top: .5rem;
     left: 1.33vw;
     width: 97.33vw;
     height: 98.5vh;
@@ -6086,11 +6086,11 @@ body {
     top: 10.19vh;
     left: 10.8vw;
     width: 70.4vw;
-    height: 7.27vh;
+    height: 4.85rem;
     background: url(../images/214.png) no-repeat;
-    background-size: 70.4vw 7.27vh;
+    background-size: 70.4vw 100%;
     text-align: center;
-    line-height: 7.27vh;
+    line-height: 4.85rem;
     font-size: 17px;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -6195,20 +6195,20 @@ body {
     position: absolute;
     top: 3.82vh;
     right: 15.73vw;
-    width: 10.67vw;
+    width: 4rem;
     height: 6.0vh;
     background: url(../images/39.png) no-repeat;
-    background-size: 10.67vw 6.0vh;
+    background-size: 100% 6.0vh;
 }
 
 .education-close {
     position: absolute;
     top: 3.82vh;
     right: 1.33vw;
-    width: 10.67vw;
+    width: 4rem;
     height: 6.0vh;
     background: url(../images/42.png) no-repeat;
-    background-size: 10.67vw 6.0vh;
+    background-size: 100% 6.0vh;
 }
 
 
@@ -6422,7 +6422,7 @@ body {
 /*关注详情*/
 .attention-content {
     position: relative;
-    top: 10.67vw;
+    top: 4rem;
     left: 0;
     width: 100%;
     height: 92.56vh;
@@ -6716,7 +6716,7 @@ body {
     position: absolute;
     top: 35.0vh;
     left: 13.47vw;
-    width: 73.2vw;
+    width: 27.45rem;
     height: 33.58vh;
     background: url(../images/229.png) no-repeat;
     background-size: 73.2vw 33.58vh;
@@ -6750,10 +6750,10 @@ body {
     position: absolute;
     top: 35.0vh;
     left: 13.47vw;
-    width: 73.2vw;
+    width: 27.45rem;
     height: 29.8vh;
     background: url(../images/231.png) no-repeat;
-    background-size: 73.2vw 29.8vh;
+    background-size: 100% 29.8vh;
 }
 
 .operate-del-tips2>div.tip-img {
@@ -7008,7 +7008,7 @@ body {
     position: absolute;
     margin: 5px;
     padding: 5.5px;
-    width: 10.67vw;
+    width: 4rem;
     height: 6.0vh;
     border-right: 1px solid rgba(109, 62, 20, 0.2);
 }
@@ -7062,7 +7062,7 @@ body {
 
 .free-container>span {
     position: absolute;
-    left: 6.4vw;
+    left: 2.4rem;
     line-height: 4.0vh;
 }
 
@@ -7144,7 +7144,8 @@ body {
 
 .score-detail2>ul>li {
     float: left;
-    margin: 0.5vh 5.5vw;
+    margin: .3335rem;
+    5.5vw;
 }
 
 #lesson-summary {
@@ -7412,7 +7413,7 @@ body {
 }
 
 .calendar-count {
-    margin-top: 5.1rem;
+    margin-top: 6.1rem;
     width: 80%;
     height: 3rem;
     margin-left: 10.6vw;
@@ -7420,16 +7421,20 @@ body {
     color: #fff;
 }
 
-.calendar-count>p {
-    margin: 0;
-    padding: 0;
-    width: 120.5px;
+.calendar-count>.calendar-all {
+    position: absolute;
+    top: 35.1rem;
+    left: 4.45rem;
+    width: 12.05rem;
     font-size: 1.5rem;
 }
 
 .calendar-count>.calendar-num {
-    margin-top: -20px;
-    margin-left: 40vw;
+    position: absolute;
+    top: 35.1rem;
+    left: 24.25rem;
+    width: 12.05rem;
+    font-size: 1.5rem;
 }
 
 .home-recording>p {
@@ -7438,9 +7443,9 @@ body {
     text-align: center;
     background: url('../images/11.png') no-repeat;
     background-size: 100% 100%;
-    line-height: 265%;
+    line-height: 230%;
     margin: 0 auto;
-    margin-top: 1%;
+    /* margin-top: 0.6%; */
     font-size: 18px;
     color: #fff;
 }

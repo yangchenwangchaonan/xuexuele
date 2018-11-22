@@ -171,7 +171,7 @@ function userGate(index, iscurrent) {
                      levelSeq==4?"LevelPosition4"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
                      levelSeq==5?"LevelPosition5"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
                      levelSeq==6?"LevelPosition6"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):""
-                    }'  onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+                    }'  onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}','${data.manvalue}')">
             <span>${levelSeq}</span>
             ${val.islock==1&&val.time==''?`
             <div class="${levelSeq%2==0?'evenWillLevel':'oddWillLevel'}"></div>
@@ -238,7 +238,7 @@ function userGate(index, iscurrent) {
                          levelNum%6==4?"LevelLoopPosition4"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
                          levelNum%6==5?"LevelLoopPosition5"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
                          levelNum%6==0?"LevelLoopPosition6"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):""
-                        }' onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}')">
+                        }' onclick="runLevel('${val.time}','${val.id}','${val.islock}','${val.pkvalue}','${val.rewardbeans}','${val.gatename}','${data.manvalue}')">
                     <span>${levelNum}</span>
                     ${val.islock==1&&val.time==''?`
                     <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
@@ -300,7 +300,8 @@ function userGate(index, iscurrent) {
 
 
 // 闯关
-function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName) {
+function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName, userValue) {
+  // console.log(userValue);
   var clickMp3 = $("#clcikMp3")[0];
   clickMp3.play();
   window.setTimeout(function () {
@@ -332,8 +333,12 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
     ranking(levelId); //全网排名
     $("#levelShade").show();
     $("#levelFirst").click(function () {
-      sessionStorage.setItem("gateid", levelId);
-      $(window).attr("location", "./level_content.html");
+      if (userValue >= 3) {
+        sessionStorage.setItem("gateid", levelId);
+        $(window).attr("location", "./level_content.html");
+      }else{
+        homeLevel("当前体力值不足哦~", 1);
+      }
     });
     // 取消闯关
     $(".level_btn").click(function () {

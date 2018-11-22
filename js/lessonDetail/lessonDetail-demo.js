@@ -119,7 +119,7 @@ function lessonDetail(lessonId, countSum, diff) {
                 ${data.lock==1?"":`
                 <div class="lock-shade">
                     <div class="locked-shade"></div>
-                    <div class="progress-locked" data-cid="${data.list.courseid}" data-sid="${sortId}"><span>X${data.list.wisdombean}</span></div>
+                    <div class="progress-locked" data-cid="${data.list.courseid}" data-sid="${sortId}"><span>x${data.list.wisdombean}</span></div>
                 </div>
                 `}
             </section>
@@ -745,6 +745,7 @@ function scoreSum($lessonId) {
 
 // 获取课程留言列表
 function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
+    console.log(headimg);
     var uId = sessionStorage.getItem("uid"); //用户id
     $.ajax({
         type: "GET",
