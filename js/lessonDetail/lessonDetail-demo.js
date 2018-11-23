@@ -270,9 +270,10 @@ function getPrevNextData(id, countSum, type) {
 
 //所有事件 
 function allEvent() {
-    // 关注
-    $("body").unbind().on('click', 'div.attention', function () {
-        console.log(this);
+
+    var a=$(document).find(".attention");
+    a.unbind().click(function () {
+        console.log($("body"));
         var isfollow = $(this).attr("data-isfollow"); //是否关注
         var followid = $(this).attr("data-followid");
         var courseId = $(this).parents("section").attr("data-courseid");
@@ -344,7 +345,7 @@ function allEvent() {
     $(document).on('click', 'ul.courseTextList', function () {
         var courseContent = $(this).attr("data-content");
         $("#textShade").show();
-        $(".lesson-text-inner>span").html(courseContent);
+        $(".lesson-text-inner").html(courseContent);
         // 关闭窗口
         $(".lesson-close").click(function () {
             $("#textShade").hide();
@@ -356,7 +357,7 @@ function allEvent() {
         var coursetxt = $(this).attr("data-text");
         $("#introductShade").show();
         $(".lesson-introduction-inner>h1").html(coursename);
-        $(".lesson-introduction-inner>span").html(coursetxt);
+        $(".lesson-introduction-inner>.lesson-intr").html(coursetxt);
         // 关闭窗口
         $(".lesson-close").click(function () {
             $("#introductShade").hide();
@@ -745,7 +746,7 @@ function scoreSum($lessonId) {
 
 // 获取课程留言列表
 function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
-    console.log(headimg);
+    console.log(tId);
     var uId = sessionStorage.getItem("uid"); //用户id
     $.ajax({
         type: "GET",
@@ -816,7 +817,7 @@ function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
             // 回复
             $(".leave-content").click(function () {
                 var pId = $(this).attr("data-id"); //评论列表的id(父id)
-                var tId = localStorage.getItem("commentid"); //导师id
+                // var tId = localStorage.getItem("commentid"); //导师id
                 if (uId == tId) {
                     $(".message-btn").hide();
                     $(".replayContent").show();
@@ -895,6 +896,7 @@ function commentRelease(lessonId, $text, headimg, nickname, tId) {
 // 回复留言
 function commentReply(pId, lessonId, $text, headimg, nickname, tId) {
     console.log(pId);
+    var uId = sessionStorage.getItem("uid"); //用户id
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/CommentReply",

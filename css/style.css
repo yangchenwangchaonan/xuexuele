@@ -1,4 +1,5 @@
 /* common */
+
 html,
 body {
     /* height: 100%;
@@ -45,6 +46,7 @@ body {
 }
 
 /* 首页 */
+
 .container-1 {
     background: url("../images/01.png") no-repeat center;
     background-size: 100% 100%;
@@ -159,6 +161,7 @@ body {
 }
 
 /* 登录 */
+
 .login-container,
 .repwd-container {
     height: 100%;
@@ -292,6 +295,7 @@ body {
 }
 
 /* 忘记密码 */
+
 .page-back,
 .reg-back,
 .level-back {
@@ -379,6 +383,7 @@ body {
 }
 
 /*  忘记密码-第二步 */
+
 .repwd-next {
     padding-top: .3rem;
 }
@@ -395,6 +400,7 @@ body {
 }
 
 /* 注册账号 */
+
 .reg-content>h1 {
     background: url("../images/32.jpg") no-repeat center;
     background-size: 9.2rem 2.1rem;
@@ -419,6 +425,7 @@ body {
 }
 
 /* 注册账号-第三步 */
+
 .reg-end-container {
     position: absolute;
     top: 4.1rem;
@@ -653,12 +660,14 @@ body {
 }
 
 /* 用户协议 */
+
 .agreement-body,
 .letter-body,
 .letter-infor {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     background: linear-gradient(to top, rgba(148, 193, 70, 1), rgba(203, 232, 229, 1));
 }
 
@@ -670,6 +679,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background: linear-gradient(to top, rgba(148, 193, 70, 1), rgba(203, 232, 229, 1));
 }
 
@@ -677,8 +687,8 @@ body {
 .letter-container,
 .album-introduction-container {
     position: relative;
-    width: 41.5rem;
-    height: 61.45rem;
+    width: 100%;
+    height: 100%;
     background: url("../images/34.png") no-repeat center 2.53333vw;
     background-size: 95.6% 95.57721%;
     padding: .95rem .825rem;
@@ -710,7 +720,6 @@ body {
     width: 100%;
     height: 83%;
     position: relative;
-    /* padding: 2.3vh 1.87vh; */
     overflow: auto;
 }
 
@@ -738,6 +747,7 @@ body {
 }
 
 /* 首页 */
+
 .container-home {
     width: 100%;
 }
@@ -764,10 +774,10 @@ body {
 }
 
 /* 循环部分 */
+
 .homeLoop {
     background: #3074FF;
 }
-
 
 .homeLoopBg {
     position: relative;
@@ -858,6 +868,7 @@ body {
 }
 
 /* 固定部分 */
+
 .homeFixed {
     position: relative;
     top: 0;
@@ -1029,8 +1040,6 @@ body {
     width: 13.2rem;
 }
 
-
-
 .leftSmallCloud {
     position: absolute;
     bottom: 39.2683rem;
@@ -1046,6 +1055,7 @@ body {
 }
 
 /*遮罩层*/
+
 .reg-shade,
 .realname-shade,
 .personal-shade,
@@ -1093,7 +1103,7 @@ body {
     left: 0;
     z-index: 10000;
     width: 100%;
-    height: 66.7rem;
+    height: 100%;
     overflow: hidden;
     background-color: rgba(0, 0, 0, .3);
     display: none;
@@ -1124,20 +1134,21 @@ body {
 
 .reg-tips {
     position: absolute;
-    width: 27.25rem;
+    width: 29.25rem;
     height: 12.69rem;
     background: url("../images/250.png")no-repeat center;
     background-size: 100% 100%;
     top: 22.17rem;
-    left: 6.25rem;
+    left: 7.25rem;
     z-index: 99999;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     display: none;
     text-align: center;
     line-height: 12.69rem;
 }
 
 /* 智慧塔提示框 */
+
 .home-tips {
     position: fixed;
     width: 27.25rem;
@@ -1154,6 +1165,7 @@ body {
 }
 
 /*头像,性别选择背景*/
+
 .avatar,
 .gender,
 .report {
@@ -1210,6 +1222,7 @@ body {
 }
 
 /*星座选择背景*/
+
 .constellation {
     position: absolute;
     z-index: 330;
@@ -1223,6 +1236,7 @@ body {
 }
 
 /*图片选择*/
+
 .avatar_model {
     position: absolute;
     z-index: 350;
@@ -1269,6 +1283,7 @@ body {
 }
 
 /*关闭按钮*/
+
 .avatar_btn,
 .gender_btn2,
 .constellation_btn2,
@@ -1289,6 +1304,7 @@ body {
 }
 
 /*星座,生日确认按钮*/
+
 .constellation_btn1,
 .birthday_btn1,
 .gender_btn1 {
@@ -1303,13 +1319,13 @@ body {
 }
 
 /*性别选择*/
+
 .gender_model {
     position: absolute;
     z-index: 350;
     width: 100%;
     display: inline-block;
     padding-left: 3.2rem;
-
 }
 
 .gender_table {
@@ -1332,6 +1348,7 @@ body {
 }
 
 /*星座选择*/
+
 .constellation_tr img {
     margin: .834rem .9rem 0 .9rem;
     width: 6.5rem;
@@ -1361,6 +1378,7 @@ body {
 }
 
 /*地区选择*/
+
 .album-body,
 .series-body,
 .purse-body,
@@ -1391,8 +1409,8 @@ body {
 .addLesson-container {
     position: relative;
     top: .5rem;
-    left: .5rem;
-    width: 40.5rem;
+    left: .6rem;
+    width: 97%;
     height: 98.5%;
     background: #A8D535;
     border-radius: 3%;
@@ -1418,18 +1436,18 @@ body {
 
 .album-add-box {
     position: absolute;
-    width: 34.5rem;
+    width: 95%;
     height: 89.66%;
     top: 4.9rem;
     left: 1rem;
     background-color: #FFF7DF;
     border-radius: 1rem;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .recharge-box {
     position: relative;
-    width: 34.5rem;
+    width: 95%;
     height: 89.66%;
     top: 4.9rem;
     left: 1rem;
@@ -1441,10 +1459,10 @@ body {
 
 .personal-box {
     position: relative;
-    width: 34.5rem;
+    width: 95%;
     height: 89.66%;
     top: 4.9rem;
-    left: 1rem;
+    left: 1.1rem;
     background-color: #FFF7DF;
     border-radius: 1rem;
 }
@@ -1485,7 +1503,6 @@ body {
     left: .814rem;
     z-index: 9999;
 }
-
 
 .personal-changeback,
 .realname-back1,
@@ -1595,7 +1612,7 @@ body {
     width: 1.5rem;
     height: 1.5rem;
     top: 1.05rem;
-    left: 12.25rem;
+    left: 13.25rem;
     background: url(../images/62.png) no-repeat center;
     background-size: 100% 100%;
 }
@@ -1655,7 +1672,7 @@ body {
 #search-text1 {
     position: absolute;
     top: 1.05rem;
-    left: 14.25rem;
+    left: 16.25rem;
     font-size: 1.3rem;
     color: #D9AC6A;
     background: none;
@@ -1691,7 +1708,7 @@ body {
 
 .city-text {
     position: absolute;
-    width: 32.7rem;
+    width: 35.5rem;
     height: 48rem;
     top: 9.4rem;
     left: 1.45rem;
@@ -1744,7 +1761,7 @@ body {
     width: 12.7rem;
     height: 12.7rem;
     top: 14.95rem;
-    left: 10.95rem;
+    left: 12.5rem;
     background: url(../images/63.png) no-repeat center;
     background-size: 100% 100%;
 }
@@ -1754,7 +1771,7 @@ body {
     position: absolute;
     text-align: center;
     top: 29.2rem;
-    left: 9.05rem;
+    left: 10.5rem;
     width: 16.3rem;
     font-size: 1.4rem;
     color: #333333;
@@ -1791,6 +1808,7 @@ body {
 }
 
 /*站内信*/
+
 .letter-infor-wrapper {
     top: 2.2rem;
     width: 100%;
@@ -1821,6 +1839,12 @@ body {
     text-align: left;
     text-indent: 2em;
     font-size: 1.4rem;
+}
+
+.treasureBox-audio {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .treasureBox-audio>h1 {
@@ -1867,7 +1891,6 @@ body {
     background: url(../images/67.png) no-repeat center;
     background-size: 100% 100%;
 }
-
 
 .treasureBox-gift {
     width: 34rem;
@@ -1916,22 +1939,24 @@ body {
 }
 
 /*百宝箱*/
+
 /*课程详情*/
+
 .treasureBox-body,
 .lesson-detail-body {
-    height: 100%;
     width: 100%;
+    height: 100% !important;
     overflow: hidden;
     background: linear-gradient(0deg, rgba(238, 197, 105, 1) 0%, rgba(203, 232, 229, 1) 100%);
 }
 
 #treasureBoxAudioBg {
-    width: 37.5rem;
+    width: 100%;
     height: 66.7rem;
 }
 
 #lessonBackground {
-    width: 37.5rem;
+    width: 100%;
     height: 66.7rem;
 }
 
@@ -2047,6 +2072,7 @@ body {
 }
 
 /*百宝箱内容详情*/
+
 .treasureBox-detail {
     width: 100%;
     position: relative;
@@ -2102,19 +2128,19 @@ body {
 
 .audio-content {
     position: absolute;
-    width: 30.5rem;
+    width: 32rem;
     height: 9.6715rem;
     top: 52.026rem;
-    left: .5rem;
+    left: -.5rem;
 }
 
 .lesson-audio {
     width: 100% !important;
-    height: 100% !important;
+    height: 66.7rem !important;
+    overflow: hidden;
 }
 
 .lesson-audio>img {
-    display: block;
     width: 100%;
     height: 66.7rem;
 }
@@ -2124,7 +2150,8 @@ body {
     top: 0;
     left: 0;
     width: 100% !important;
-    height: 100% !important;
+    height: 66.7rem !important;
+    overflow: hidden;
     z-index: 9000;
 }
 
@@ -2146,16 +2173,16 @@ body {
 
 .adAudio-content {
     position: absolute;
-    width: 27.75rem;
+    width: 31.75rem;
     height: 9.67rem;
-    bottom: 52.026rem;
+    bottom: 1.026rem;
     left: 5.26rem;
 }
 
 .progressBar {
     position: absolute;
     left: 0;
-    width: 30.5rem;
+    width: 32rem;
     height: .5rem;
     background: rgba(0, 0, 0, .5);
     border-radius: .5rem;
@@ -2204,7 +2231,7 @@ body {
     position: absolute;
     width: 6.3rem;
     height: 6.3rem;
-    left: 12.35rem;
+    left: 13.35rem;
     top: 2.4rem;
     background: url(../images/78.png) no-repeat;
     background-size: 100% 100%;
@@ -2214,7 +2241,7 @@ body {
     position: absolute;
     width: 6.3rem;
     height: 6.3rem;
-    left: 12.35rem;
+    left: 13.35rem;
     top: 2.4rem;
     background: url(../images/136.png) no-repeat;
     background-size: 100% 100%;
@@ -2224,14 +2251,16 @@ body {
     position: absolute;
     width: 6.3rem;
     height: 6.3rem;
-    left: 11.35rem;
+    left: 13.35rem;
     top: 2.4rem;
     background: url(../images/135.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /*智慧塔首页*/
+
 /*left*/
+
 .leftOptions {
     position: fixed;
     top: 1.668rem;
@@ -2282,7 +2311,7 @@ body {
     height: 2.7rem;
     background: url(../images/82.png) no-repeat;
     background-size: 100% 100%;
-    top: 2.2rem;
+    top: 27%;
     margin: auto;
     color: #FFFFFF;
     text-align: center;
@@ -2311,8 +2340,7 @@ body {
 
 .icon_stamina {
     position: absolute;
-    display: inline-block;
-    top: .65rem;
+    top: 12%;
     left: 4.6875rem;
     font-size: 1.1rem;
     z-index: 2100;
@@ -2375,6 +2403,7 @@ body {
 }
 
 /*right*/
+
 .home-sign {
     position: fixed;
     top: 0;
@@ -2398,7 +2427,6 @@ body {
     font-weight: bold;
     color: #633110;
 }
-
 
 .inforBox {
     position: fixed;
@@ -2533,7 +2561,9 @@ body {
 }
 
 /* 底座 */
+
 /* 第一关位置 */
+
 .LevelPosition1 {
     top: -5.4rem;
     background: url(../images/96.png) no-repeat;
@@ -2541,6 +2571,7 @@ body {
 }
 
 /* 第二关位置 */
+
 .LevelPosition2 {
     left: -10.9rem;
     top: -0.2rem;
@@ -2549,6 +2580,7 @@ body {
 }
 
 /* 第三关位置 */
+
 .LevelPosition3 {
     top: -6.8rem;
     background: url(../images/96.png) no-repeat;
@@ -2556,6 +2588,7 @@ body {
 }
 
 /* 第四关位置 */
+
 .LevelPosition4 {
     left: -10.9rem;
     top: -1.5rem;
@@ -2564,6 +2597,7 @@ body {
 }
 
 /* 第五关位置 */
+
 .LevelPosition5 {
     top: -7rem;
     background: url(../images/96.png) no-repeat;
@@ -2571,6 +2605,7 @@ body {
 }
 
 /* 第六关位置 */
+
 .LevelPosition6 {
     left: -10.9rem;
     top: -2rem;
@@ -2593,7 +2628,9 @@ body {
 }
 
 /* 循环 */
+
 /* 第一关位置 */
+
 .LevelLoopPosition1 {
     top: -6rem;
     background: url(../images/96.png) no-repeat;
@@ -2601,6 +2638,7 @@ body {
 }
 
 /* 第二关位置 */
+
 .LevelLoopPosition2 {
     left: -10.9rem;
     top: -.5rem;
@@ -2609,6 +2647,7 @@ body {
 }
 
 /* 第三关位置 */
+
 .LevelLoopPosition3 {
     top: -4.5rem;
     background: url(../images/96.png) no-repeat;
@@ -2616,6 +2655,7 @@ body {
 }
 
 /* 第四关位置 */
+
 .LevelLoopPosition4 {
     left: -10.9rem;
     top: 1.2rem;
@@ -2624,6 +2664,7 @@ body {
 }
 
 /* 第五关位置 */
+
 .LevelLoopPosition5 {
     top: -3.7rem;
     background: url(../images/96.png) no-repeat;
@@ -2631,6 +2672,7 @@ body {
 }
 
 /* 第六关位置 */
+
 .LevelLoopPosition6 {
     left: -10.9rem;
     top: 2rem;
@@ -2653,6 +2695,7 @@ body {
 }
 
 /* 闯关失败 */
+
 .evenFailLevel {
     background: url(../images/99.png) no-repeat;
     background-size: 100% 100%;
@@ -2664,6 +2707,7 @@ body {
 }
 
 /* 呼吸灯 */
+
 .evenWillLevel {
     position: absolute;
     top: .1rem;
@@ -2704,15 +2748,12 @@ body {
 
 @-webkit-keyframes breathe {
     0% {
-
         background: rgba(255, 246, 0, .5)
     }
 
     100% {
         background: rgba(255, 246, 0, 0)
     }
-
-
 }
 
 .specialReward {
@@ -2762,6 +2803,7 @@ body {
 }
 
 /*buttom*/
+
 .bottom-table {
     position: fixed;
     bottom: 0;
@@ -2793,8 +2835,8 @@ body {
     transform: scale(1.2, 1.2);
 }
 
-
 /*签到*/
+
 .home-recording {
     position: absolute;
     top: 9.15rem;
@@ -2826,7 +2868,7 @@ body {
 }
 
 .recordMsg {
-    width: 27.45rem;
+    width: 31.05rem;
     margin-top: -5.14rem;
     text-align: center;
     color: #956826;
@@ -2836,9 +2878,9 @@ body {
 
 .recordHasbeans {
     position: absolute;
-    left: 5.05rem;
+    left: 6.05rem;
     top: 19.9rem;
-    width: 27.45rem;
+    width: 29.45rem;
     height: 27.45rem;
     background: url(../images/120.png) no-repeat;
     background-size: 100% 100%;
@@ -2846,7 +2888,7 @@ body {
 }
 
 .recordBeans {
-    width: 27.45rem;
+    width: 29.45rem;
     text-align: center;
 }
 
@@ -2872,6 +2914,7 @@ body {
 }
 
 /*体力值提示*/
+
 .stamina-tips {
     position: absolute;
     top: 20.05rem;
@@ -2933,6 +2976,7 @@ body {
 }
 
 /*首次闯关*/
+
 .level-num {
     position: absolute;
     top: 3.0rem;
@@ -2993,7 +3037,6 @@ body {
     height: 3.65rem;
     background: url(../images/39.png) no-repeat;
     background-size: 100% 100%;
-
 }
 
 .passIng,
@@ -3013,7 +3056,6 @@ body {
     width: 7.55rem;
     text-align: center;
 }
-
 
 .stamina-reward {
     float: left;
@@ -3186,6 +3228,7 @@ body {
 }
 
 /* 关卡详情背景 */
+
 .level-content {
     width: 100%;
     height: 34.9rem;
@@ -3194,6 +3237,7 @@ body {
 }
 
 /*闯关内容*/
+
 .level-timing {
     position: absolute;
     right: 1.24rem;
@@ -3268,7 +3312,6 @@ body {
     height: 5.9rem;
     background: url(../images/113.png) no-repeat;
     background-size: 100% 100%;
-
 }
 
 .kitShake {
@@ -3452,6 +3495,7 @@ body {
 }
 
 /* 新用户演示 */
+
 .blank-show {
     position: absolute;
     top: 34.684rem;
@@ -3527,6 +3571,7 @@ body {
 }
 
 /* 内容演示 */
+
 .topic-show {
     position: relative;
     left: 17.05rem;
@@ -3540,6 +3585,7 @@ body {
 }
 
 /* 提示文字演示 */
+
 .tipContent-show {
     position: absolute;
     left: 1.425rem;
@@ -3558,6 +3604,7 @@ body {
 }
 
 /* 删除演示 */
+
 .tipKey-show {
     position: absolute;
     left: 1.425rem;
@@ -3575,8 +3622,8 @@ body {
     top: 46.023rem;
 }
 
-
 /*再次闯关*/
+
 .pass-again {
     position: absolute;
     top: 8.53rem;
@@ -3620,6 +3667,7 @@ body {
 }
 
 /*退出关卡*/
+
 .close-level {
     position: absolute;
     top: 19.08rem;
@@ -3665,7 +3713,9 @@ body {
 }
 
 /*点击锦囊*/
+
 /*智慧豆充足*/
+
 .kit-havebeans {
     position: absolute;
     top: 19.08rem;
@@ -3754,6 +3804,7 @@ body {
 }
 
 /*智慧豆不足*/
+
 .kit-nobeans {
     position: absolute;
     top: 19.08rem;
@@ -3783,6 +3834,7 @@ body {
 }
 
 /*打开锦囊*/
+
 .kit-enter3 {
     position: absolute;
     top: 6.3rem;
@@ -3821,7 +3873,6 @@ body {
     left: 3.675rem;
     top: 7.884rem;
 }
-
 
 .kit-enter3>ul>li,
 .kit-enter2>ul>li,
@@ -3926,6 +3977,7 @@ body {
 }
 
 /*闯关成功*/
+
 .pass-end {
     left: 5.5rem;
     width: 27.68rem;
@@ -3961,11 +4013,11 @@ body {
     left: 3.56rem;
 }
 
-
 /*音频闯关内容*/
+
 .level-audio-content {
     position: absolute;
-    width: 27.75rem;
+    width: 31.75rem;
     top: 4.6rem;
     left: 1.89rem;
 }
@@ -3984,13 +4036,13 @@ body {
     text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8);
 }
 
-
 /*课程列表*/
+
 .lesson-sort {
     position: relative;
     top: 1.6675rem;
-    margin-left: 3rem;
-    width: 34.9rem;
+    margin-left: 2.8rem;
+    width: 35.9rem;
     height: 1.95rem;
     text-align: center;
 }
@@ -3998,10 +4050,11 @@ body {
 .lesson-sort>li {
     float: left;
     list-style: none;
-    margin-left: .6rem;
+    margin-left: .7rem;
 }
 
 /*未点击*/
+
 .sort {
     width: 8.05rem;
     height: 3.45rem;
@@ -4019,24 +4072,28 @@ body {
 }
 
 /*点击综合排序*/
+
 .sort1 {
     background: url(../images/129.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /*点击购买量排序*/
+
 .sort2 {
     background: url(../images/131.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /*点击智慧豆排序*/
+
 .sort3 {
     background: url(../images/132.png) no-repeat;
     background-size: 100% 100%;
 }
 
 /*点击评分排序*/
+
 .sort4 {
     background: url(../images/133.png) no-repeat;
     background-size: 100% 100%;
@@ -4045,7 +4102,7 @@ body {
 .lesson-content {
     position: relative;
     width: 100%;
-    height: 56.3rem;
+    height: 83%;
     margin-top: 1.35rem;
     background: url(../images/128.png) no-repeat;
     background-size: 100% 100%;
@@ -4054,8 +4111,8 @@ body {
 
 .lesson-list {
     position: relative;
-    width: 34.7rem;
-    height: 47.67rem;
+    width: 83%;
+    height: 85%;
     left: 3.6rem;
     top: 2rem;
     overflow: hidden;
@@ -4111,6 +4168,7 @@ body {
 }
 
 /*课程列表底部*/
+
 .lesson-menu {
     position: absolute;
     width: 100%;
@@ -4132,7 +4190,9 @@ body {
 }
 
 /*进入课程*/
+
 /*导师信息*/
+
 .lesson-tutor {
     position: absolute;
     top: 3.52rem;
@@ -4210,6 +4270,7 @@ body {
 }
 
 /*关注*/
+
 .attention {
     position: absolute;
     top: 2.87rem;
@@ -4245,10 +4306,10 @@ body {
 
 .slideArea {
     position: absolute;
-
 }
 
 /*课程评分*/
+
 .appraise {
     position: absolute;
     z-index: 330;
@@ -4267,7 +4328,7 @@ body {
 }
 
 .appraise-result {
-    width: 33rem;
+    width: 37rem;
     height: 22.6rem;
     margin: 7rem 2.1rem 2.1rem 2.25rem;
     display: none;
@@ -4302,6 +4363,7 @@ body {
 }
 
 /*未选择时*/
+
 .score-key11 {
     width: 7.15rem;
     height: 3.7rem;
@@ -4331,6 +4393,7 @@ body {
 }
 
 /*选择后*/
+
 .score-key1 {
     background: url(../images/152.png) no-repeat;
     background-size: 100% 100%;
@@ -4404,11 +4467,12 @@ body {
 }
 
 /*评分结果*/
+
 .score-result {
     position: relative;
     left: 1.725rem;
     top: 1.4rem;
-    width: 29.2rem;
+    width: 33.2rem;
     height: 3.65rem;
     background: url(../images/156.png) no-repeat;
     background-size: 100% 100%;
@@ -4423,12 +4487,12 @@ body {
 .score-detail {
     position: relative;
     top: .53rem;
-    left: 3.93rem;
+    left: 4.3rem;
 }
 
 .score-detail>li {
     float: left;
-    width: 9.675rem;
+    width: 11.6rem;
     margin: 1.4rem .1rem 0 2rem;
 }
 
@@ -4465,7 +4529,7 @@ body {
 
 .total-reward {
     position: absolute;
-    left: 8.625rem;
+    left: 9rem;
     width: 18.93rem;
     height: 4.75rem;
     top: 22.58rem;
@@ -4493,6 +4557,7 @@ body {
 }
 
 /*课程分享*/
+
 .share-point {
     position: absolute;
     top: .8rem;
@@ -4514,6 +4579,7 @@ body {
 }
 
 /*分享结果*/
+
 .lesson-noshade {
     display: none;
 }
@@ -4539,6 +4605,7 @@ body {
 }
 
 /*课程留言*/
+
 /*导师介绍*/
 
 .tutor-bg,
@@ -4593,7 +4660,7 @@ body {
     position: relative;
     top: 7.45rem;
     left: 2.43rem;
-    width: 32.824rem;
+    width: 36.8rem;
     height: 29.8rem;
     overflow: hidden;
     overflow-y: auto;
@@ -4603,7 +4670,6 @@ body {
     float: left;
     border-bottom: 1px solid rgba(229, 194, 138, 0.3);
     margin-bottom: 1rem;
-
 }
 
 .releaseContent {
@@ -4620,8 +4686,9 @@ body {
     z-index: 510;
     bottom: 1.334rem;
     line-height: 1.78rem;
-    width: 29.27rem;
+    width: 33.27rem;
     height: 6.2rem;
+    font-size: 1.5rem;
     margin-left: 1.5rem;
     text-align: left;
     padding: .6rem 3.0vw;
@@ -4637,6 +4704,7 @@ body {
     width: 5.27rem;
     height: 6.2rem;
     right: 1.5rem;
+    font-size: 1.5rem;
     text-align: center;
     z-index: 510;
     color: rgba(85, 50, 8, 1);
@@ -4648,7 +4716,7 @@ body {
 .message-btn {
     position: absolute;
     bottom: 1.334rem;
-    margin-left: 11.25rem;
+    margin-left: 13.25rem;
     text-align: center;
     line-height: 4.8rem;
     width: 15.4rem;
@@ -4665,7 +4733,7 @@ body {
 .leave-content {
     padding-top: 1rem;
     position: relative;
-    width: 32.82rem;
+    width: 34rem;
 }
 
 .avatar-message {
@@ -4710,7 +4778,7 @@ body {
     font-size: 1.3rem;
     left: 5.36rem;
     top: -1.734rem;
-    width: 27.27rem;
+    width: 28.27rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
@@ -4726,7 +4794,7 @@ body {
     position: relative;
     top: -1.734rem;
     left: 5.36rem;
-    width: 20.925rem;
+    width: 24.925rem;
     font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
@@ -4734,6 +4802,7 @@ body {
 }
 
 /*导师详情*/
+
 .tutor-avatar {
     position: relative;
     width: 100%;
@@ -4750,7 +4819,7 @@ body {
 }
 
 .head-bg {
-    margin-left: 15.75rem;
+    margin-left: 17.75rem;
     width: 6.3rem;
     height: 6.3rem;
     background: url(../images/111.png) no-repeat;
@@ -4773,7 +4842,7 @@ body {
     background: rgba(147, 209, 36, 1);
     border-radius: .9rem;
     top: 4.67rem;
-    left: 19.09rem;
+    left: 22.09rem;
     font-size: 1.3rem;
     font-family: PingFang-SC-Regular;
     font-weight: 400;
@@ -4782,7 +4851,7 @@ body {
 
 .tutor-infor {
     position: relative;
-    width: 32.5rem;
+    width: 36.5rem;
     top: 3rem;
     left: 2.5rem;
     font-size: 1.3rem;
@@ -4801,11 +4870,12 @@ body {
 }
 
 /* 我的关注 */
+
 .follow-infor {
     position: relative;
-    width: 32.5rem;
+    width: 34.5rem;
     top: 5.96rem;
-    left: 1rem;
+    left: 2rem;
     font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
@@ -4881,14 +4951,14 @@ body {
 
 .tutor-bg ul {
     position: relative;
-    left: 2.1rem;
+    left: 2.3rem;
     top: 3.87rem;
     text-align: center;
 }
 
 .tutor-bg ul>li {
     float: left;
-    margin: .33rem .375rem;
+    margin: .33rem 1rem;
 }
 
 .album-name {
@@ -4902,6 +4972,7 @@ body {
 }
 
 /*专辑名称*/
+
 .album-top {
     position: relative;
     left: 1rem;
@@ -4921,7 +4992,7 @@ body {
     left: 12.375rem;
     top: -3.67rem;
     width: 24.1rem;
-    line-height: 1.4rem;
+    height: 2.4rem;
     font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -4984,7 +5055,7 @@ body {
     position: relative;
     left: 3.8rem;
     top: -6.77rem;
-    width: 31.8rem;
+    width: 32rem;
     height: 6.75rem;
     background: #F7E6A9;
     border-radius: 0 1rem 1rem 0;
@@ -5038,7 +5109,6 @@ body {
     color: rgba(214, 0, 14, 1);
     z-index: 2000;
 }
-
 
 .lesson-list-tab {
     position: absolute;
@@ -5120,25 +5190,33 @@ body {
 }
 
 /*课程文字*/
+
 .lesson-text-inner {
     position: absolute;
+    padding: 1rem;
     width: 38.9rem;
     height: 35.8rem;
     left: 1.25rem;
     bottom: 1.1rem;
+    font-size: 1.3rem;
+    text-indent: 2em;
+    line-height: 1.8rem;
+    word-break: break-all;
 }
 
-.lesson-text-inner>span,
-.lesson-introduction-inner>span {
+.lesson-intr {
     margin: 1rem;
+    width: 36rem;
     font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
     line-height: 1.8rem;
     text-indent: 2em;
+    word-break: break-all;
 }
 
 /*举报内容*/
+
 .report-tab {
     position: absolute;
     width: 31.8rem;
@@ -5213,20 +5291,22 @@ body {
 }
 
 /*课程解锁*/
+
 .lock-shade {
     position: absolute;
     bottom: 0;
     left: 0;
     z-index: 360;
     width: 100%;
-    height: 56.5%;
+    height: 58.5%;
+    overflow: hidden;
 }
 
 .progress-locked {
     position: absolute;
     width: 6.3rem;
     height: 6.3rem;
-    left: 17.34rem;
+    left: 18.34rem;
     bottom: 2.32rem;
     background: url(../images/170.png) no-repeat;
     background-size: 100% 100%;
@@ -5258,11 +5338,12 @@ body {
 }
 
 /*专辑名称-系列名称*/
+
 .series-top,
 .recharge-top,
 .manage-top {
     position: relative;
-    top: 1.4rem;
+    top: .14rem;
     width: 100%;
     height: 8.05rem;
 }
@@ -5272,7 +5353,7 @@ body {
 .manage-top>img {
     width: 7.4rem;
     height: 8.05rem;
-    margin-left: 9.8rem;
+    margin-left: 13.8rem;
 }
 
 .series-top>span,
@@ -5350,6 +5431,7 @@ body {
 }
 
 /*智慧豆充足*/
+
 .series-hasbeans {
     position: relative;
     top: .727rem;
@@ -5396,6 +5478,7 @@ body {
 }
 
 /*解锁成功*/
+
 .unlock-shade {
     position: absolute;
     top: 0;
@@ -5444,10 +5527,11 @@ body {
 }
 
 /*钱包*/
+
 .recharge-cost {
     position: absolute;
     top: 3.05rem;
-    right: 10.5rem;
+    right: 1.5rem;
     width: 5.45rem;
     height: 5.45rem;
     background: url(../images/179.png) no-repeat;
@@ -5457,7 +5541,7 @@ body {
 
 .pod-top {
     position: relative;
-    top: .85rem;
+    top: 1%;
     width: 100%;
     height: 10.25rem;
     z-index: 350;
@@ -5467,10 +5551,10 @@ body {
 
 .purse-center {
     position: relative;
-    left: 18.5rem;
-    top: -6.44rem;
-    width: 33.8rem;
-    height: 49.6rem;
+    left: 1.875rem;
+    top: -8%;
+    width: 90%;
+    height: 75%;
     z-index: 300;
     background: url(../images/177.png) no-repeat;
     background-size: 100% 100%;
@@ -5478,7 +5562,7 @@ body {
 
 .pod-bottom {
     position: relative;
-    top: -13.41rem;
+    top: -19%;
     width: 100%;
     height: 10.5rem;
     z-index: 350;
@@ -5488,8 +5572,8 @@ body {
 
 .recharge-num>span {
     position: relative;
-    top: 3.4rem;
-    left: 9.7rem;
+    top: 2.4rem;
+    left: 12.5rem;
     font-size: 2.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -5503,7 +5587,7 @@ body {
 .recharge-btn {
     width: 100%;
     height: 4.15rem;
-    padding: 3.87rem 4.96rem 2.134rem 4.96rem;
+    padding: 2rem 4.96rem 2.134rem 4.96rem;
     text-align: center;
     font-size: 1.4rem;
     font-family: MicrosoftYaHei-Bold;
@@ -5534,9 +5618,9 @@ body {
     position: relative;
     padding-top: .3335rem 0 .3335rem 0;
     top: 1.14rem;
-    left: 2.4rem;
-    width: 29rem;
-    height: 31.84rem;
+    left: 2.7rem;
+    width: 86%;
+    height: 67.9%;
     background: rgba(255, 247, 223, 1);
     border-radius: 1rem;
     overflow-y: auto;
@@ -5545,8 +5629,8 @@ body {
 .recharge-detail {
     position: relative;
     top: .9rem;
-    left: .75rem;
-    width: 27.5rem;
+    left: 1rem;
+    width: 93.5%;
     height: 2.83rem;
     background: rgba(235, 244, 137, 1);
     border-radius: 1rem;
@@ -5565,6 +5649,7 @@ body {
 }
 
 /*充值记录*/
+
 .recharge-record {
     position: relative;
     top: .9rem;
@@ -5607,15 +5692,16 @@ body {
 }
 
 /*无充值记录*/
+
 .no-recharge,
 .dollar-selected {
     position: absolute;
-    top: 26.41vh;
-    left: 31.07vw;
-    width: 33.87vw;
-    height: 23.54vh;
+    top: 17.62rem;
+    left: 10.65rem;
+    width: 17.7rem;
+    height: 15.7rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
@@ -5624,12 +5710,12 @@ body {
 
 .withdraw-selected {
     position: absolute;
-    top: 26.41vh;
-    left: 31.07vw;
-    width: 33.87vw;
-    height: 23.54vh;
+    top: 17.62rem;
+    left: 11.65rem;
+    width: 12.7rem;
+    height: 15.7rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
@@ -5638,75 +5724,75 @@ body {
 .no-recharge img,
 .dollar-selected img,
 .withdraw-selected img {
-    width: 33.87vw;
+    width: 12.7rem;
 }
 
 /*充值方式*/
 
 .recharge-money {
     position: absolute;
-    height: 2.25vh;
-    top: 3.07vh;
-    font-size: 15px;
+    height: 1.5rem;
+    top: 2.05rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(58, 141, 18, 0.6);
-    padding: 0 1.5vw 3.5vh 1.5vw;
+    padding: 0 .56rem 2.3rem .56rem;
 }
 
 .recharge-checked {
     color: rgba(58, 141, 18, 1);
-    border-bottom: 4px #3A8D12 solid;
+    border-bottom: .4rem #3A8D12 solid;
     opacity: 1;
 }
 
 #recharge-reminbi {
-    left: 15.47vw;
+    left: 5.8rem;
 }
 
 #recharge-dollar {
-    right: 14.8vw;
+    right: 5.55rem;
 }
 
 #recharge-line {
     position: absolute;
-    width: 86.67vw;
-    height: 1px;
+    width: 36rem;
+    height: .1rem;
     background: rgba(58, 141, 18, 1);
     opacity: 0.5;
-    top: 6.82vh;
-    left: 2.667vw;
+    top: 4.55rem;
+    left: 1rem;
 }
 
 .recharge-value {
     position: absolute;
-    top: 8.5vh;
-    left: 2.67vw;
-    width: 86.0vw;
+    top: 5.67rem;
+    left: 1.4rem;
+    width: 36rem;
     height: 10.5rem;
 }
 
 .recharge-value ul>li {
     float: left;
     text-align: center;
-    margin: 0.8vh 0.9vw;
+    margin: .53rem .84rem;
     padding: .3335rem;
 }
 
 .initial {
     background: rgba(244, 232, 201, 1);
-    border-radius: 10px;
-    width: 26.8vw;
-    height: 7.05vh;
+    border-radius: 1rem;
+    width: 10.05rem;
+    height: 4.7rem;
 }
 
 .initial>h1 {
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(34, 34, 34, 1);
 }
 
 .initial>p {
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(222, 146, 0, 1);
 }
@@ -5716,55 +5802,55 @@ body {
 }
 
 .selected>h1 {
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(255, 255, 255, 1);
 }
 
 .selected>p {
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(255, 255, 255, 1);
 }
 
-
 .recharge-want {
     position: absolute;
-    top: 26.83vh;
-    left: 3.35vw;
-    width: 85.33vw;
-    height: 7.5vh;
+    top: 17.9rem;
+    left: 1.25rem;
+    width: 35.5rem;
+    height: 4.8rem;
 }
 
 #recharge-input {
     position: absolute;
-    width: 85.33vw;
-    height: 7.5vh;
+    width: 35.5rem;
+    height: 4.8rem;
+    font-size: 1.3rem;
     background: url(../images/190.png) no-repeat;
-    background-size: 85.33vw 7.5vh;
+    background-size: 100% 100%;
     text-align: center;
     z-index: 200;
 }
 
 .recharge-want img {
     position: absolute;
-    left: 25.33vw;
-    top: 2.32vh;
-    width: 4.67vw;
+    left: 9.5rem;
+    top: 1.55rem;
+    width: 1.75rem;
     z-index: 300;
 }
 
 .recharge-confirm {
     position: absolute;
-    top: 40.95vh;
-    left: 16.27vw;
-    width: 64.8vw;
-    height: 7.42vh;
+    top: 27.3rem;
+    left: 6.1rem;
+    width: 24.3rem;
+    height: 4.95rem;
     background: url(../images/192.png) no-repeat;
-    background-size: 64.8vw 7.42vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 7.42vh;
-    font-size: 18px;
+    line-height: 4.95rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5772,44 +5858,45 @@ body {
 }
 
 /*充值方式*/
+
 .recharge-sum {
     position: absolute;
-    top: 18.44vh;
-    left: 2.8vw;
-    width: 86.53vw;
-    height: 6.75vh;
+    top: 12.3rem;
+    left: 1.05rem;
+    width: 35.5rem;
+    height: 4.5rem;
     border-top: 1px solid rgba(229, 194, 138, 1);
     border-bottom: 1px solid rgba(229, 194, 138, 1);
     border-color: rgba(229, 194, 138, .5);
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(105, 56, 12, 1);
 }
 
 .recharge-sum label {
     float: left;
-    line-height: 6.75vh;
+    line-height: 4.5rem;
 }
 
 .recharge-sum span {
     float: right;
-    line-height: 6.75vh;
+    line-height: 4.5rem;
 }
 
 .recharge-type {
     position: absolute;
-    top: 43.95vh;
-    left: 10.8vw;
-    width: 70.4vw;
-    height: 15.97vh;
+    top: 29.3rem;
+    left: 4.05rem;
+    width: 30rem;
+    height: 10.65rem;
 }
 
 .recharge-method {
-    width: 70.4vw;
+    width: 30rem;
     height: 4.85rem;
     text-align: center;
     line-height: 4.85rem;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5818,74 +5905,76 @@ body {
 }
 
 .recharge-method img {
-    width: 6.67vw;
+    width: 2.5rem;
 }
 
 .wechat {
     position: absolute;
     top: 0;
     background: url(../images/194.png) no-repeat;
-    background-size: 70.4vw 100%;
+    background-size: 100% 100%;
 }
 
 .alipay {
     position: absolute;
     bottom: 0;
     background: url(../images/196.png) no-repeat;
-    background-size: 70.4vw 100%;
+    background-size: 100% 100%;
 }
 
 /*支付成功*/
+
 .recharge-successed {
     position: absolute;
-    height: 33.81vh;
-    width: 68.93vw;
-    left: 13.07vw;
-    top: 32.38vh;
+    height: 22.55rem;
+    width: 25.85rem;
+    left: 4.9rem;
+    top: 21.6rem;
     text-align: center;
     display: none;
 }
 
 .recharge-successed img {
-    width: 41.87vw;
+    width: 15.7rem;
 }
 
 .successed-btn {
     position: absolute;
     bottom: 0;
-    width: 68.93vw;
+    width: 25.85rem;
     height: 4.85rem;
     text-align: center;
     line-height: 4.85rem;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
     background: url(../images/194.png) no-repeat;
-    background-size: 68.93vw 100%;
+    background-size: 100% 100%;
 }
 
 /*个人中心*/
+
 .personal-leave {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/199.png") no-repeat center;
     background-size: 100% 100%;
-    top: 1.42vh;
-    right: 2.17vw;
+    top: .95rem;
+    right: .8rem;
     z-index: 9999;
 }
 
 #personal-title {
     position: absolute;
     display: inline-block;
-    width: 24.93vw;
-    height: 2.624vh;
-    left: 37.53vw;
-    top: 2.32vh;
-    font-size: 20px;
+    width: 9.35rem;
+    height: 1.75rem;
+    left: 16.07rem;
+    top: 1.55rem;
+    font-size: 2rem;
     font-family: PingFang-SC-Bold;
     font-weight: bold;
     color: rgba(254, 254, 254, 1);
@@ -5896,21 +5985,21 @@ body {
 
 .personal-center {
     position: absolute;
-    height: 86.61vh;
+    height: 86%;
     width: 100%;
     background: url(../images/200.png) no-repeat;
-    background-size: 100% 86.61vh;
+    background-size: 100% 100%;
     z-index: 350;
 }
 
 .game-ranger {
     position: absolute;
-    top: 15.0vh;
-    left: 11.2vw;
-    width: 63.6vw;
-    height: 12.0vh;
+    top: 15%;
+    left: 4.2rem;
+    width: 23.85rem;
+    height: 8rem;
     text-align: center;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: PingFang-SC-Medium;
     color: rgba(85, 50, 8, 1);
 }
@@ -5919,50 +6008,51 @@ body {
     background: #F05E15;
 }
 
-
 /*未认证*/
+
 .no-certified {
     position: absolute;
-    top: 4.3vh;
-    width: 11.73vw;
-    height: 2.55vh;
+    top: 2.87rem;
+    width: 4.4rem;
+    height: 1.7rem;
     border: 1px solid rgba(219, 98, 49, 1);
-    border-radius: 8.5px;
-    font-size: 12px;
+    border-radius: .85rem;
+    font-size: 1.2rem;
     font-family: PingFang-SC-Regular;
     color: rgba(219, 98, 49, 1);
-    line-height: 2.55vh;
+    line-height: 1.7rem;
 }
 
 /*已认证*/
+
 .certified {
-    width: 11.73vw;
-    height: 2.55vh;
+    width: 4.4rem;
+    height: 1.7rem;
     border: 1px solid rgba(85, 50, 8, 1);
-    border-radius: 8.5px;
-    font-size: 12px;
+    border-radius: .85rem;
+    font-size: 1.2rem;
     font-family: PingFang-SC-Regular;
     color: rgba(85, 50, 8, 1);
-    line-height: 2.55vh;
+    line-height: 1.7rem;
 }
 
 .setting {
     position: absolute;
-    top: 18.62vh;
-    right: 14.67vw;
-    width: 30px;
-    height: 30px;
+    top: 18%;
+    right: 5.5rem;
+    width: 3rem;
+    height: 3rem;
     background: url(../images/202.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .personal-wealth {
     position: absolute;
-    top: 24.96vh;
-    left: 4rem;
-    width: 88.27vw;
-    height: 13.42vh;
-    font-size: 12px;
+    top: 24%;
+    left: 6rem;
+    width: 31rem;
+    height: 8.95rem;
+    font-size: 1.2rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -5970,30 +6060,30 @@ body {
 
 .personal-wealth>ul>li {
     float: left;
-    margin: 2.3vh 4.9vw;
+    margin: 1.5rem 2rem;
 }
 
 .personal-wealth img {
-    width: 16.0vw;
+    width: 6rem;
 }
 
 .wealth-value {
     position: relative;
-    top: -1.72vh;
-    left: 1.57vw;
-    width: 12.4vw;
-    height: 3.9vh;
+    top: -1.15rem;
+    left: .59rem;
+    width: 4.65rem;
+    height: 2.6rem;
     background: url(../images/206.png) no-repeat;
-    background-size: 12.4vw 3.9vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 3.5vh;
+    line-height: 2.33rem;
 }
 
 .my-tabs {
     position: absolute;
-    top: 39.81vh;
-    left: 14.57vw;
-    font-size: 15px;
+    top: 40.5%;
+    left: 6rem;
+    font-size: 1.5rem;
     font-family: Adobe Heiti Std R;
     color: rgba(255, 255, 255, 1);
     text-shadow: 2px 1px 3px rgba(0, 0, 0, 1);
@@ -6001,35 +6091,34 @@ body {
 
 .my-tabs>ul>li {
     float: left;
-    margin: .3335rem;
-    1.05vw;
-    padding: 1.5vh 0;
-    width: 32.8vw;
-    height: 18.7vh;
+    margin: .5rem .5rem;
+    padding: 1.5rem 0;
+    width: 13.5rem;
+    height: 12.5rem;
     background: url(../images/211.png) no-repeat;
     background-size: 100% 100%;
     text-align: center;
 }
 
 .my-tabs label {
-    padding: 3.25vw;
+    padding: 1.22rem;
 }
 
 .my-tabs img {
-    width: 17.87vw;
+    width: 6.7rem;
 }
 
 .login-out {
     position: absolute;
-    top: 78.36vh;
-    left: 33.47vw;
-    width: 33.07vw;
-    height: 6.67vh;
+    top: 90%;
+    left: 14.5rem;
+    width: 12.4rem;
+    height: 4.45rem;
     background: url(../images/212.png) no-repeat;
-    background-size: 33.07vw 6.67vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 6.67vh;
-    font-size: 15px;
+    line-height: 4.45rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6037,8 +6126,12 @@ body {
 }
 
 /*实名认证*/
+
 .realname-body,
 .personal-body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     background: rgba(255, 104, 63, 1);
 }
 
@@ -6047,22 +6140,24 @@ body {
 .personal-area-container {
     position: relative;
     top: .5rem;
-    left: 1.33vw;
-    width: 97.33vw;
-    height: 98.5vh;
+    left: .6rem;
+    width: 97%;
+    height: 98.5%;
     background: rgba(252, 230, 50, 1);
     border-radius: 3%;
 }
 
 .personal-area {
+    width: 100%;
+    height: 100%;
     background: rgba(255, 104, 63, 1);
     display: none;
 }
 
 .realname-back,
 .personal-goback {
-    width: 42px;
-    height: 42px;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/213.png") no-repeat center;
     background-size: 100% 100%;
     z-index: 9999;
@@ -6070,28 +6165,28 @@ body {
 
 .personal-area-back {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url("../images/213.png") no-repeat center;
     background-size: 100% 100%;
     z-index: 9999;
-    top: -44px;
-    left: -0.83vw;
+    top: -4.4rem;
+    left: -.3rem;
     z-index: 9999;
 }
 
 .realname-submit,
 .personal-submit {
     position: relative;
-    top: 10.19vh;
-    left: 10.8vw;
-    width: 70.4vw;
+    top: 6.8rem;
+    left: 6rem;
+    width: 26.4rem;
     height: 4.85rem;
     background: url(../images/214.png) no-repeat;
-    background-size: 70.4vw 100%;
+    background-size: 100% 100%;
     text-align: center;
     line-height: 4.85rem;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6100,62 +6195,65 @@ body {
 
 .submit-tips {
     position: absolute;
-    top: 24.44vh;
-    left: 17.87vw;
-    width: 65.87vw;
-    height: 17.39vh;
+    top: 16.3rem;
+    left: 6.7rem;
+    width: 24.7rem;
+    height: 11.6rem;
     background: url(../images/215.png) no-repeat;
-    background-size: 65.87vw 17.39vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 17.39vh;
-    font-size: 13px;
+    line-height: 11.6rem;
+    font-size: 1.3rem;
     /*display: none;*/
 }
 
 /*身份证照片*/
+
 .card-photo {
     position: absolute;
-    left: 4.0vw;
-    top: 2.25vh;
-    width: 84.0vw;
-    height: 31.03vh;
+    left: 1.5rem;
+    top: 3.5rem;
+    width: 35.5rem;
+    height: 20.7rem;
     background: url(../images/216.png) no-repeat;
-    background-size: 84.0vw 31.03vh;
+    background-size: 100% 100%;
 }
 
 /*身份证照片样式重定义*/
+
 .card-photo1 {
     position: absolute;
-    left: 4.0vw;
-    top: 2.25vh;
-    width: 84.0vw;
-    height: 31.03vh;
+    left: 1.5rem;
+    top: 1.5rem;
+    width: 31.5rem;
+    height: 20.7rem;
 }
 
 .card-submit {
     position: relative;
-    top: 41.03vh;
+    top: 27.37rem;
 }
 
 /*提交照片*/
+
 .card-photo>img {
-    width: 84.0vw;
-    height: 31.03vh;
+    width: 31.5rem;
+    height: 20.7rem;
 }
 
 .card-photo1>img {
-    width: 84.0vw;
-    height: 31.03vh;
+    width: 31.5rem;
+    height: 20.7rem;
 }
 
 .submit-cancel {
     position: absolute;
-    top: 0.05vh;
-    right: 1.03vw;
-    width: 7.73vw;
-    height: 4.42vh;
+    top: .33rem;
+    right: .4rem;
+    width: 2.9rem;
+    height: 2.9rem;
     background: url(../images/217.png) no-repeat;
-    background-size: 7.73vw 4.42vh;
+    background-size: 100% 100%;
     display: none;
     z-index: 9999;
 }
@@ -6164,27 +6262,27 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 60.27vh;
+    height: 40.2rem;
     background: url(../images/218.png) no-repeat;
-    background-size: 100% 60.27vh;
-    font-size: 14px;
+    background-size: 100% 100%;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     color: rgba(105, 56, 12, 1);
 }
 
 .education-container>ul {
     bottom: 0;
-    padding: 0 20px;
-    padding-top: 70px;
+    padding: 0 2rem;
+    padding-top: 7rem;
     text-align: center;
 }
 
 .education-container li {
-    height: 45px;
-    border-bottom: 1px solid #CFA972;
+    height: 4.5rem;
+    border-bottom: .1rem solid #CFA972;
     border-color: rgba(229, 194, 138, 0.3);
-    line-height: 20px;
-    padding-top: 16px;
+    line-height: 2rem;
+    padding-top: 1.6rem;
 }
 
 .education-container>ul>li:last-child {
@@ -6193,104 +6291,108 @@ body {
 
 .education-enter {
     position: absolute;
-    top: 3.82vh;
-    right: 15.73vw;
+    top: 2.55rem;
+    right: 5.9rem;
     width: 4rem;
-    height: 6.0vh;
+    height: 4rem;
     background: url(../images/39.png) no-repeat;
-    background-size: 100% 6.0vh;
+    background-size: 100% 100%;
 }
 
 .education-close {
     position: absolute;
-    top: 3.82vh;
-    right: 1.33vw;
+    top: 2.55rem;
+    right: .5rem;
     width: 4rem;
-    height: 6.0vh;
+    height: 4rem;
     background: url(../images/42.png) no-repeat;
-    background-size: 100% 6.0vh;
+    background-size: 100% 100%;
 }
-
 
 .no-attention,
 .no-lessons {
     display: none;
-    font-size: 14px;
+    font-size: 1.4rem;
 }
 
 .infor-waitting {
-    font-size: 14px;
+    font-size: 1.4rem;
 }
 
 #waitting-img {
     position: absolute;
-    top: 22.49vh;
-    left: 29.07vw;
-    width: 33.87vw;
-    height: 19.04vh;
+    top: 15rem;
+    left: 10.9rem;
+    width: 12.7rem;
+    height: 12.7rem;
     background: url(../images/219.png) no-repeat;
-    background-size: 33.87vw 19.04vh;
+    background-size: 100% 100%;
 }
 
 /*个人中心*/
+
 .personal-list>.head-pic {
-    height: 13.52vh;
+    height: 9rem;
 }
 
 .personal-list>.head-pic div {
-    height: 16.8vw;
-    width: 16.8vw;
+    height: 6.3rem;
+    width: 6.3rem;
     background: url(../images/31.png) no-repeat;
-    background-size: 16.8vw 16.8vw;
+    background-size: 100% 100%;
 }
 
 .personal-list>.head-pic div>img {
-    width: 16.8vw;
-    border-radius: 5px;
+    width: 6.3rem;
+    border-radius: .5rem;
 }
 
 .personal-list>.head-pic>p {
-    margin-top: 18px;
+    margin-top: 1.8rem;
 }
 
 /*个人简介*/
+
 .present-body {
+    width: 100%;
+    height: 100%;
     background: linear-gradient(0deg, rgba(253, 242, 152, 1) 1%, rgba(245, 203, 139, 1) 100%);
     overflow: hidden;
 }
 
 .present-detail {
-    width: 82.93vw;
-    height: 82.63vh;
-    margin: 30px 16px;
-    font-size: 14px;
+    width: 35rem;
+    height: 55.1rem;
+    margin: 3rem 1.6rem;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
-    line-height: 23px;
+    line-height: 2.3rem;
     overflow: auto;
     background: transparent;
 }
 
 .present-top {
-    top: 3.32vh;
+    top: 2.2rem;
 }
 
 /*设置*/
+
 .personal-setting,
 .lesson-add-method {
     position: absolute;
-    top: 28.41vh;
+    top: 18.95rem;
     width: 100%;
-    height: 36.43vh;
+    height: 24.3rem;
     background: url(../images/220.png) no-repeat;
-    background-size: 100% 36.43vh;
+    background-size: 100% 100%;
 }
 
 .personal-setting>h1,
 .lesson-add-method>h1 {
     text-align: center;
-    line-height: 14.11vh;
-    font-size: 18px;
+    line-height: 9.4rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6299,10 +6401,10 @@ body {
 
 .personal-setting-detail {
     position: absolute;
-    top: 10.5vh;
-    left: 12.0vw;
-    width: 76.5vw;
-    height: 19.52vh;
+    top: 7rem;
+    left: 4.6rem;
+    width: 31.8rem;
+    height: 13.02rem;
 }
 
 .personal-setting-list>li:last-child {
@@ -6312,12 +6414,12 @@ body {
 .personal-close,
 .lesson-add-close {
     position: absolute;
-    top: 1.5vh;
-    right: 3.25vw;
-    width: 42px;
-    height: 42px;
+    top: 1rem;
+    right: 1.2rem;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url(../images/39.png) no-repeat;
-    background-size: 42px 42px;
+    background-size: 100% 100%;
 }
 
 .language-tips,
@@ -6325,11 +6427,11 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 5.5vh;
+    height: 3.67rem;
     text-align: center;
-    line-height: 5.5vh;
+    line-height: 3.67rem;
     background: rgba(0, 0, 0, 0.4);
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: PingFang-SC-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6338,70 +6440,73 @@ body {
 }
 
 /*我的关注*/
+
 .attention-body {
+    width: 100%;
+    height: 100%;
     background: rgba(197, 128, 6, 1);
     overflow: hidden;
 }
 
 .attention-list {
     position: relative;
-    width: 92.0vw;
+    width: 95%;
     height: 89.66%;
-    top: 49px;
-    left: 2.667vw;
+    top: 4.9rem;
+    left: 1rem;
     background-color: #FFF7DF;
-    border-radius: 10px;
+    border-radius: 1rem;
     overflow-y: auto;
 }
 
 .attention-list>li {
     position: relative;
-    top: 1.0vh;
-    left: 4.5vw;
-    height: 10.6vh;
-    width: 83.53vw;
-    border-bottom: 1px solid #CFA972;
+    top: .667rem;
+    left: 1.6875rem;
+    height: 7.07rem;
+    width: 34.5rem;
+    border-bottom: .1rem solid #CFA972;
     border-color: rgba(229, 194, 138, 0.5);
 }
 
 .attention-img {
     position: relative;
-    bottom: -0.224vh;
-    width: 16.8vw;
-    height: 9.52vh;
+    bottom: -.15rem;
+    width: 6.3rem;
+    height: 6.3rem;
     background: url(../images/111.png) no-repeat;
-    background-size: 16.8vw 9.52vh;
+    background-size: 100% 100%;
 }
 
 .attention-list>li p {
     position: relative;
-    left: 20.5vw;
-    top: -6.0vh;
-    font-size: 15px;
+    left: 7.5rem;
+    top: -4rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
 }
 
 .attention-img>img {
     position: absolute;
-    top: 0.9vh;
-    left: 1.5vw;
-    width: 13.44vw;
-    /* height: 7.4vh; */
-    border-radius: 5px;
+    top: .6rem;
+    left: .56rem;
+    width: 5.04rem;
+    border-radius: .5rem;
 }
 
 .attention-nosign {
     position: relative;
-    top: -9.2vh;
-    left: 68.0vw;
-    width: 14.67vw;
-    height: 3.3vh;
-    border: 1px solid rgba(219, 98, 49, 1);
+    top: -6.14rem;
+    left: 27.5rem;
+    width: 5.5rem;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    border: .1rem solid rgba(219, 98, 49, 1);
     color: rgba(219, 98, 49, 1);
-    border-radius: 11px;
+    border-radius: 1.1rem;
     text-align: center;
-    line-height: 3.0vh;
+    line-height: 2rem;
 }
 
 .attention-signed {
@@ -6411,74 +6516,73 @@ body {
 
 #attentionImg {
     position: absolute;
-    top: 27.49vh;
-    left: 32.07vw;
-    width: 33.87vw;
-    height: 19.04vh;
+    top: 18.3rem;
+    left: 12.26rem;
+    width: 12.7rem;
+    height: 12.7rem;
     background: url(../images/221.png) no-repeat;
-    background-size: 33.87vw 19.04vh;
+    background-size: 100% 100%;
 }
 
 /*关注详情*/
+
 .attention-content {
     position: relative;
     top: 4rem;
     left: 0;
     width: 100%;
-    height: 92.56vh;
-    border-radius: 15px;
+    height: 63.7rem;
+    border-radius: 1.5rem;
     overflow: hidden;
 }
 
 .attention-list-content {
     position: relative;
-    top: 9.5vh;
-    width: 91vw;
-    max-height: 53.56vh;
+    top: 6.3rem;
+    width: 37rem;
+    max-height: 35.7rem;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
 .attention-album-list {
     position: relative;
-    left: 1.5vw;
-    top: 0vh;
+    left: 1rem;
+    top: 0;
     text-align: center;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(149, 104, 38, 1);
 }
 
 .attention-album-list>li {
     float: left;
-    margin: 1.0vh 1.5vw;
+    margin: .667rem 1rem;
 }
 
 .attention-tutor-avatar {
     position: relative;
-    width: 90.67vw;
-    top: 3.62vh;
-    height: 9.07vh;
+    width: 38rem;
+    top: 2.4rem;
+    height: 6.05rem;
 }
 
 .head-bg2 {
-    margin: 0 37.1vw;
+    margin: 0 16rem;
 }
 
 .attention-tutor-avatar>p {
     text-align: center;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
     color: rgba(85, 50, 8, 1);
-    line-height: 30px;
+    line-height: 3rem;
 }
 
 .attention-album-name {
-    width: 26.4vw;
-    height: 10.8vh;
-    /* background: url(../images/others.jpg) no-repeat;
-    background-size: 26.4vw 10.8vh; */
+    width: 9.9rem;
+    height: 7.2rem;
 }
 
 .attention-album-name>img {
@@ -6487,6 +6591,7 @@ body {
 }
 
 /*我的课程*/
+
 .mylessons-body {
     height: 100%;
     width: 100%;
@@ -6495,108 +6600,104 @@ body {
 }
 
 .mylessons-content {
-    position: absolute;
-    top: 7.65vh;
-    left: 4.25vw;
-    width: 90.67vw;
-    height: 85.56vh;
-    border-radius: 15px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.mylesson-list {
     position: relative;
-    width: 87.2vw;
-    margin: 1.1vh 0 0 0.8vw;
+    top: 5.1rem;
+    left: 3.5rem;
+    width: 33.5rem;
+    height: 51.5rem;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .mylesson-list>li {
     float: left;
-    margin: 0 0 1.5vh 1.55vw;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 .lesson-lock {
     position: relative;
-    top: -6.5vh;
-    left: 30.93vw;
+    top: -4.3rem;
+    left: 11.6rem;
 }
 
 .lesson-lock img {
-    width: 4.67vw;
+    width: 1.75rem;
 }
 
 /*无课程*/
+
 #lessons-img {
     position: relative;
-    top: 22.49vh;
-    left: 29.07vw;
-    width: 33.87vw;
-    height: 19.04vh;
+    top: 15rem;
+    left: 13rem;
+    width: 12.7rem;
+    height: 12.7rem;
     background: url(../images/223.png) no-repeat;
-    background-size: 33.87vw 19.04vh;
+    background-size: 100% 100%;
 }
 
 #lessons-text {
     position: relative;
     text-align: center;
-    top: 24.78vh;
-    left: 25.13vw;
-    width: 43.47vw;
-    font-size: 14px;
+    top: 16.5rem;
+    left: 11rem;
+    width: 16.3rem;
+    font-size: 1.4rem;
     color: #333333;
 }
 
 /*课程管理*/
+
 .manage-box>p {
     text-align: center;
-    line-height: 55px;
-    font-size: 15px;
+    line-height: 5.rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(109, 62, 20, 1);
 }
 
 .manage-box>hr {
-    border: 1px solid rgba(229, 194, 138, 1);
-    width: 86.67vw;
-    margin: 0 2.8vw;
+    border: .1rem solid rgba(229, 194, 138, 1);
+    width: 36rem;
+    margin: 0 1.05rem;
 }
 
 .album-list {
     position: relative;
-    width: 92.53vw;
-    height: 60.81vh;
+    width: 37rem;
+    height: 40.56rem;
     overflow: auto;
 }
 
 .noAlbum-content {
     position: relative;
-    width: 92.53vw;
-    height: 60.81vh;
+    width: 34.7rem;
+    height: 40.56rem;
     overflow: auto;
     display: none;
 }
 
 .album-manage {
     position: relative;
-    width: 86.67vw;
-    height: 9.9vh;
-    left: 2.5vw;
-    border-bottom: 1px solid rgba(229, 194, 138, 0.5);
+    width: 36rem;
+    height: 6.6rem;
+    left: .94rem;
+    border-bottom: .1rem solid rgba(229, 194, 138, 0.5);
 }
 
 .album-href>img {
     position: absolute;
-    margin: 10px;
-    width: 16.4vw;
-    height: 6.75vh;
+    margin: 1rem;
+    width: 6.15rem;
+    height: 4.5rem;
 }
 
 .album-href>h1 {
     position: absolute;
-    left: 23.07vw;
-    top: 1.8vh;
-    font-size: 15px;
+    left: 8.65rem;
+    top: 1.2rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(149, 104, 38, 1);
@@ -6604,67 +6705,69 @@ body {
 
 .album-href>p {
     position: absolute;
-    left: 23.07vw;
-    top: 5.72vh;
-    font-size: 13px;
+    left: 8.65rem;
+    top: 3.8rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(149, 104, 38, 1);
 }
 
 .manage-btn {
     position: absolute;
-    top: 2.25vh;
-    right: 3.47vw;
-    width: 22.0vw;
-    height: 5.1vh;
+    top: 1.5rem;
+    right: .3rem;
+    width: 8.25rem;
+    height: 3.4rem;
     background: url(../images/224.png) no-repeat;
-    background-size: 22.0vw 5.1vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 5.1vh;
-    font-size: 14px;
+    line-height: 3.4rem;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 1);
 }
 
 /*还没有专辑*/
+
 #no-album-img,
 #no-lesson-img,
 #no-message-img {
     position: relative;
-    top: 10.96vh;
-    margin: 0 29.07vw;
-    width: 33.87vw;
-    height: 19.04vh;
+    top: 7.3rem;
+    margin: 0 13rem;
+    width: 12.7rem;
+    height: 12.7rem;
 }
 
 #no-album-img>img,
 #no-lesson-img>img,
 #no-message-img>img {
-    height: 19.04vh;
-    width: 33.87vw;
+    height: 12.7rem;
+    width: 12.7rem;
 }
 
 #no-album-text,
 #no-lesson-text,
 #no-message-text {
     position: relative;
-    top: 10.96vh;
-    font-size: 14px;
+    top: 7.3rem;
+    font-size: 1.4rem;
     text-align: center;
-    line-height: 40px;
+    line-height: 4rem;
 }
 
 /*专辑操作项*/
+
 .album-operate {
     position: absolute;
-    width: 57.53vw;
-    height: 11.62vh;
+    width: 21.6rem;
+    height: 7.75rem;
     background: url(../images/226.png) no-repeat;
-    background-size: 57.53vw 11.62vh;
-    top: -0.65vh;
-    left: 5.4vw;
-    font-size: 15px;
+    background-size: 100% 100%;
+    top: -.43rem;
+    left: 5.875rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     /* z-index: 9999; */
     display: none;
@@ -6672,13 +6775,13 @@ body {
 
 .lessonOperate-option {
     position: absolute;
-    width: 57.53vw;
-    height: 11.62vh;
+    width: 21.6rem;
+    height: 7.75rem;
     background: url(../images/226.png) no-repeat;
-    background-size: 57.53vw 11.62vh;
-    top: -0.65vh;
-    left: 5.4vw;
-    font-size: 15px;
+    background-size: 100% 100%;
+    top: -.43rem;
+    left: 5.875rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     z-index: 9999;
     display: none;
@@ -6686,95 +6789,97 @@ body {
 
 .operate-del {
     position: absolute;
-    left: 2.7vw;
-    top: 1.50vh;
-    width: 25.2vw;
-    height: 8.62vh;
-    line-height: 8.62vh;
+    left: 1rem;
+    top: 1rem;
+    width: 9.45rem;
+    height: 5.75rem;
+    line-height: 5.75rem;
     color: rgba(219, 98, 49, 1);
 }
 
 .operate-edit {
     position: absolute;
-    right: 3.8vw;
-    top: 1.50vh;
-    width: 25.2vw;
-    height: 8.62vh;
-    line-height: 8.62vh;
+    right: 1.4rem;
+    top: 1rem;
+    width: 9.45rem;
+    height: 5.75rem;
+    line-height: 5.75rem;
     color: rgba(81, 170, 23, 1);
 }
 
 .operate-del>img,
 .operate-edit>img {
-    width: 7.47vw;
-    margin-left: 5.5vw;
+    width: 2.8rem;
+    margin-left: 2.06rem;
 }
 
 /*删除提示框1*/
+
 .operate-del-tips1,
 .beans-tips {
     position: absolute;
-    top: 35.0vh;
-    left: 13.47vw;
+    top: 23.35rem;
+    left: 7.05rem;
     width: 27.45rem;
-    height: 33.58vh;
+    height: 22.4rem;
     background: url(../images/229.png) no-repeat;
-    background-size: 73.2vw 33.58vh;
+    background-size: 100% 100%;
     /*display: none;*/
 }
 
 .operate-del-tips1>div.tip-img {
     position: absolute;
-    left: 28.13vw;
-    top: 7.95vh;
-    width: 16.8vw;
-    height: 11.09vh;
+    left: 10.55rem;
+    top: 5.3rem;
+    width: 6.3rem;
+    height: 7.4rem;
     background: url(../images/230.png) no-repeat;
-    background-size: 16.8vw 11.09vh;
+    background-size: 100% 100%;
 }
 
 .operate-del-tips1>div.tip-text,
 .beans-tips>div.tip-text {
     position: absolute;
-    left: 22.27vw;
-    top: 18.91vh;
-    width: 32.53vw;
-    font-size: 13px;
+    left: 7.35rem;
+    top: 12.6rem;
+    width: 13.2rem;
+    font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(149, 104, 38, 1);
-    line-height: 22px;
+    line-height: 2.2rem;
 }
 
 /*删除提示框2*/
+
 .operate-del-tips2 {
     position: absolute;
-    top: 35.0vh;
-    left: 13.47vw;
+    top: 23.33rem;
+    left: 7.05rem;
     width: 27.45rem;
-    height: 29.8vh;
+    height: 19.9rem;
     background: url(../images/231.png) no-repeat;
-    background-size: 100% 29.8vh;
+    background-size: 100% 100%;
 }
 
 .operate-del-tips2>div.tip-img {
     position: absolute;
-    left: 24.67vw;
-    top: 7.8vh;
-    width: 22.13vw;
-    height: 11.09vh;
+    left: 9.25rem;
+    top: 5.2rem;
+    width: 8.3rem;
+    height: 7.4rem;
     background: url(../images/232.png) no-repeat;
-    background-size: 22.13vw 11.09vh;
+    background-size: 100% 100%;
 }
 
 .operate-del-tips2>div.tip-text {
     position: absolute;
-    left: 27.47vw;
-    top: 18.91vh;
-    width: 20.13vw;
-    font-size: 15px;
+    left: 10.3rem;
+    top: 12.6rem;
+    width: 7.55rem;
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(149, 104, 38, 1);
-    line-height: 22px;
+    line-height: 2.2rem;
 }
 
 .album-add-list>li>h1 {
@@ -6782,34 +6887,36 @@ body {
 }
 
 .album-add-list>li>p {
-    font-size: 14px;
+    font-size: 1.4rem;
     color: #956826;
     float: right;
-    padding-right: 11px;
+    padding-right: 1.1rem;
 }
 
 /*新增专辑*/
+
 .album-add-confirm {
-    top: 55.02vh;
+    top: 36.67rem;
 }
 
 /*专辑名称*/
+
 .album-input,
 .addLesson-input {
     position: absolute;
-    left: 2.8vw;
-    width: 86.53vw;
-    height: 44px;
-    line-height: 44px;
-    border-bottom: 1px solid rgba(229, 194, 138, 0.5);
-    font-size: 15px;
+    left: 1.05rem;
+    width: 36rem;
+    height: 4.4rem;
+    line-height: 4.4rem;
+    border-bottom: .1rem solid rgba(229, 194, 138, 0.5);
+    font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(105, 56, 12, 1);
 }
 
 .album-input>input,
 .addLesson-input>input {
-    width: 86.53vw;
+    width: 36rem;
     background: transparent;
     color: #956826;
 }
@@ -6823,39 +6930,40 @@ body {
 }
 
 /*专辑简介*/
+
 .album-introduction,
 .addLesson-introduct,
 .addLesson-textContent {
-    top: 18.5px;
-    left: 2.8vw;
+    top: 1.85rem;
+    left: 1.05rem;
 }
 
 .album-introduction-box,
 .addLesson-introduction-box,
 .addLesson-text-box {
     position: absolute;
-    width: 92.0vw;
+    width: 92.5%;
     height: 89.66%;
-    top: 40px;
-    left: 4.07vw;
+    top: 4rem;
+    left: 1.5rem;
     background-color: #FFF7DF;
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 .green-top,
 .addLesson-top {
     position: absolute;
-    left: 2.67vw;
-    top: 10px;
-    width: 94.67vw;
-    height: 47px;
+    left: 1rem;
+    top: 1rem;
+    width: 95%;
+    height: 4.7rem;
     background: #95DA42;
-    border-radius: 23.5px 23.5px 10px 10px;
+    border-radius: 2.35rem 2.35rem 1rem 1rem;
     box-shadow: 0px 1px 2px 0px rgba(193, 172, 114, 0.5);
     z-index: 350;
     text-align: center;
-    line-height: 47px;
-    font-size: 18px;
+    line-height: 4.7rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6866,15 +6974,15 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 49px;
+    height: 4.9rem;
     z-index: 11000;
     background: rgba(255, 255, 255, 1);
-    border-radius: 10px 10px 0px 0px;
-    font-size: 15px;
+    border-radius: 1rem 1rem 0px 0px;
+    font-size: 1.5rem;
     color: rgba(255, 104, 63, 1);
     text-align: right;
-    line-height: 49px;
-    padding: 0 22px;
+    line-height: 4.9rem;
+    padding: 0 2.2rem;
     display: none;
 }
 
@@ -6882,41 +6990,42 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 49px;
+    height: 4.9rem;
     z-index: 11000;
     background: rgba(255, 255, 255, 1);
-    border-radius: 10px 10px 0px 0px;
-    font-size: 15px;
+    border-radius: 1rem 1rem 0px 0px;
+    font-size: 1.5rem;
     color: rgba(48, 160, 7, 1);
     text-align: right;
-    line-height: 49px;
-    padding: 0 22px;
+    line-height: 4.9rem;
+    padding: 0 2.2rem;
     display: none;
 }
 
 /*专辑还没有课程*/
+
 #no-lesson-link {
     position: relative;
-    top: 8.36vh;
+    top: 5.58rem;
     text-align: center;
-    line-height: 40px;
-    font-size: 14px;
+    line-height: 4rem;
+    font-size: 1.4rem;
     font-family: MicrosoftYaHei;
     color: rgba(48, 160, 7, 1);
 }
 
 .lesson-add {
     position: relative;
-    left: 10.75vw;
-    width: 68.4vw;
-    top: 40.77vh;
+    left: 7rem;
+    width: 25.65rem;
+    top: 27.2rem;
     position: absolute;
-    height: 7.25vh;
+    height: 4.8rem;
     background: url(../images/166.png) no-repeat;
-    background-size: 68.4vw 7.25vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 7.25vh;
-    font-size: 17px;
+    line-height: 4.8rem;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6924,12 +7033,13 @@ body {
 }
 
 /*课程修改*/
+
 .lesson-container {
     position: relative;
-    margin: 0 2.8vw;
-    width: 86.53vw;
-    height: 201px;
-    border-bottom: 1px solid rgba(229, 194, 138, 0.5);
+    margin: 0 1.05rem;
+    width: 36rem;
+    height: 20.1rem;
+    border-bottom: .1rem solid rgba(229, 194, 138, 0.5);
 }
 
 /*确定修改课程*/
@@ -6938,15 +7048,15 @@ body {
 .beans-confirm,
 .lesson-recording-btn {
     position: absolute;
-    bottom: 9.52vh;
-    left: 10.93vw;
-    width: 70.4vw;
-    height: 7.25vh;
+    bottom: 6.35rem;
+    left: 6.1rem;
+    width: 26.4rem;
+    height: 4.8rem;
     background: url(../images/166.png) no-repeat;
-    background-size: 70.4vw 7.25vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 7.25vh;
-    font-size: 17px;
+    line-height: 4.8rem;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6955,15 +7065,15 @@ body {
 
 .modify-confirm {
     position: absolute;
-    bottom: 5.52vh;
-    left: 10.93vw;
-    width: 70.4vw;
-    height: 7.25vh;
+    bottom: 3.5rem;
+    left: 6.1rem;
+    width: 26.4rem;
+    height: 4.8rem;
     background: url(../images/166.png) no-repeat;
-    background-size: 70.4vw 7.25vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 7.25vh;
-    font-size: 17px;
+    line-height: 4.8rem;
+    font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -6971,60 +7081,62 @@ body {
 }
 
 /*课程封面*/
+
 .lesson-cover-content {
     position: absolute;
-    margin: 3.33vw;
-    width: 85.33vw;
-    height: 64.77vh;
+    margin: 1.7rem;
+    width: 35rem;
+    height: 43.2rem;
     overflow: hidden;
 }
 
 .lesson-cover-content>img {
-    width: 85.33vw;
+    width: 35rem;
 }
 
 .upCover {
     position: absolute;
-    bottom: 9.52vh;
-    left: 10.93vw;
-    width: 70.4vw;
-    height: 7.25vh;
+    bottom: 6.35rem;
+    left: 6.1rem;
+    width: 26.4rem;
+    height: 4.8rem;
     z-index: 9999;
     opacity: 0;
 }
 
 /*输入智慧豆数量*/
+
 .beans-num {
     position: relative;
-    top: 2.4vh;
-    width: 85.33vw;
-    height: 7.5vh;
+    top: 1.6rem;
+    width: 36.1rem;
+    height: 4rem;
     background: rgba(248, 232, 176, 1);
-    border-radius: 10px;
-    margin: 0 3.2vw;
+    border-radius: 1rem;
+    margin: 0 1.2rem;
 }
 
 .beans-img {
     position: absolute;
-    margin: 5px;
-    padding: 5.5px;
+    margin: 0;
+    padding: .55rem;
     width: 4rem;
-    height: 6.0vh;
-    border-right: 1px solid rgba(109, 62, 20, 0.2);
+    height: 4rem;
+    border-right: .1rem solid rgba(109, 62, 20, 0.2);
 }
 
 .beans-img>img {
-    width: 7.2vw;
-    height: 4.5vh;
+    width: 2.7rem;
+    height: 3rem;
 }
 
 #beans-input {
     position: absolute;
-    width: 68.53vw;
+    width: 25.7rem;
     background: none;
-    left: 14.67vw;
-    line-height: 7.5vh;
-    font-size: 13px;
+    left: 5.5rem;
+    line-height: 4rem;
+    font-size: 1.3rem;
     color: rgba(85, 50, 8, 0.6);
 }
 
@@ -7034,95 +7146,97 @@ body {
 
 .free-container {
     position: relative;
-    top: 3.6vh;
-    margin: 0 3.2vw;
-    width: 85.33vw;
-    height: 4.5vh;
-    font-size: 13px;
+    top: 2.4rem;
+    margin: 0 1.2rem;
+    width: 32.1rem;
+    height: 3rem;
+    font-size: 1.3rem;
     color: rgba(149, 104, 38, 1);
 }
 
 .free-select {
     position: absolute;
-    width: 4.27vw;
-    height: 2.4vh;
+    width: 1.6rem;
+    height: 1.6rem;
     background: url(../images/243.png) no-repeat;
-    background-size: 4.27vw 2.4vh;
-    margin: 1.6vw;
+    background-size: 100% 100%;
+    margin: .6rem;
 }
 
 .free-select-checked {
     position: absolute;
-    width: 4.27vw;
-    height: 2.4vh;
+    width: 1.6rem;
+    height: 1.6rem;
     background: url(../images/244.png) no-repeat;
-    background-size: 4.27vw 2.4vh;
-    margin: 1.6vw;
+    background-size: 100% 100%;
+    margin: .6rem;
 }
 
 .free-container>span {
     position: absolute;
     left: 2.4rem;
-    line-height: 4.0vh;
+    line-height: 2.67rem;
 }
 
 .beans-tips>div.tip-img {
     position: absolute;
-    left: 28.13vw;
-    top: 7.95vh;
-    width: 16.8vw;
-    height: 11.09vh;
+    left: 10.5rem;
+    top: 5.3rem;
+    width: 6.3rem;
+    height: 7.4rem;
     background: url(../images/108.png) no-repeat;
-    background-size: 16.8vw 11.09vh;
+    background-size: 100% 100%;
 }
 
 /*课程修改*/
+
 .lesson-container1 {
-    border-bottom: 1px solid rgba(58, 141, 18, 0.5);
-    margin-bottom: 6.67px;
+    border-bottom: .1rem solid rgba(58, 141, 18, 0.5);
+    margin-bottom: .667rem;
 }
 
 .lesson-tabs {
     position: absolute;
-    width: 18vw;
-    height: 35px;
+    width: 6.75rem;
+    height: 3.5rem;
     text-align: center;
     /* line-height: 35px; */
     bottom: 0;
-    font-size: 15px;
+    font-size: 1.5rem;
     color: rgba(58, 141, 18, 0.6);
 }
 
 .lesson-left {
-    left: 17.6vw;
+    left: 6.6rem;
 }
 
 .lesson-right {
-    right: 17.6vw;
+    right: 6.6rem;
 }
 
 .lesson-tabs-checked {
     bottom: 0;
-    border-bottom: 3px solid rgba(58, 141, 18, 1);
+    border-bottom: .3rem solid rgba(58, 141, 18, 1);
     color: rgba(58, 141, 18, 1);
 }
 
 /*课程修改*/
+
 .lesson-tabs-list {
     position: relative;
-    width: 86.53vw;
-    height: 50.45vh;
+    width: 36rem;
+    height: 67%;
     top: 0;
-    left: 2.8vw;
-    font-size: 15px;
+    left: 1.05rem;
+    font-size: 1.5rem;
     color: rgba(105, 56, 12, 1);
 }
 
 .lesson-tabs-list>li {
     position: relative;
-    width: 86.53vw;
-    line-height: 6.75vh;
-    border-bottom: 1px solid rgba(229, 194, 138, 0.5);
+    width: 35.45rem;
+    line-height: 4.5rem;
+    border-bottom: .1rem solid rgba(229, 194, 138, 0.5);
 }
 
 .lesson-tabs-list>li>p {
@@ -7131,274 +7245,285 @@ body {
 
 #lesson-tabs-score {
     position: relative;
-    width: 86.53vw;
-    height: 20.54vh;
-    border-bottom: 1px solid rgba(229, 194, 138, 0.5);
+    width: 35.45rem;
+    height: 13.7rem;
+    border-bottom: .1rem solid rgba(229, 194, 138, 0.5);
 }
 
 .score-detail2 {
     position: relative;
-    top: -2.5vh;
-    left: -5.0vw;
+    top: -1.67rem;
+    left: -1.875rem;
 }
 
 .score-detail2>ul>li {
     float: left;
-    margin: .3335rem;
-    5.5vw;
+    margin: .3335rem 3.06rem;
 }
 
 #lesson-summary {
-    padding: 1.0vh 0;
+    padding: .667rem 0;
     position: relative;
-    width: 86.53vw;
-    height: 15.4vh;
-    border-bottom: 1px solid rgba(229, 194, 138, 0.5);
-    line-height: 3.5vh;
+    width: 35.45rem;
+    height: 14.3rem;
+    border-bottom: .1rem solid rgba(229, 194, 138, 0.5);
+    line-height: 2.3rem;
     overflow-y: auto;
 }
 
-
 .lesson-confirm {
-    left: 10.93vw;
-    width: 70.4vw;
-    height: 7.25vh;
+    left: 4.1rem;
+    width: 26.4rem;
+    height: 4.8rem;
     background: url(../images/166.png) no-repeat;
-    background-size: 70.4vw 7.25vh;
+    background-size: 100% 100%;
 }
 
 /*留言信息*/
+
 .message-list-content {
     position: relative;
-    width: 92.53vw;
+    width: 38.7rem;
     height: 60.17%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     display: none;
 }
 
 .message-list {
     position: relative;
-    width: 86.53vw;
-    /* border-bottom: 1px solid rgba(229, 194, 138, 0.5); */
+    width: 29.45rem;
     top: 0;
-    left: 2.8vw;
-    font-size: 15px;
+    left: 2.05rem;
+    font-size: 1.5rem;
     color: rgba(105, 56, 12, 1);
 }
 
 .message-list>li {
     float: left;
-    border-bottom: 1px solid rgba(229, 194, 138, 0.3);
+    border-bottom: .1rem solid rgba(229, 194, 138, 0.3);
 }
 
 .message-reply {
     position: relative;
-    left: 62.5vw;
-    top: -1.5vh;
-    width: 22.0vw;
-    height: 5.1vh;
+    left: 23.4rem;
+    top: -1rem;
+    width: 8.25rem;
+    height: 3.4rem;
     text-align: center;
-    line-height: 5.1vh;
+    line-height: 3.4rem;
     background: url(../images/224.png) no-repeat;
-    background-size: 22.0vw 5.1vh;
-    font-size: 14px;
+    background-size: 100% 100%;
+    font-size: 1.4rem;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0px 1px 0px rgba(21, 117, 6, 1);
 }
 
 /* 回复 */
+
 .replayInner {
     display: none;
 }
 
 .replay-content {
     position: fixed;
-    left: 3.7vw;
-    width: 79.0vw;
-    height: 62px;
-    bottom: 0px;
-    padding: 10px 10px;
-    border-radius: 5px 0 0 5px;
+    left: 1.4rem;
+    width: 33.6rem;
+    height: 6.2rem;
+    bottom: 0;
+    padding: 1rem 1rem;
+    border-radius: .5rem 0 0 .5rem;
+    font-size: 1.3rem;
 }
 
 .replay-btn {
     position: fixed;
-    bottom: 0px;
-    line-height: 62px;
-    width: 14.06vw;
-    height: 62px;
-    right: 3.7vw;
+    bottom: 0;
+    line-height: 6.2rem;
+    width: 5.3rem;
+    height: 6.2rem;
+    right: 1.4rem;
     text-align: center;
     z-index: 510;
+    font-size: 1.3rem;
     color: rgba(85, 50, 8, 1);
     background: white;
-    border: 1px solid rgba(229, 194, 138, 0.3);
-    border-radius: 0 5px 5px 0;
+    border: .1rem solid rgba(229, 194, 138, 0.3);
+    border-radius: 0 .5rem .5rem 0;
+    word-wrap: break-word;
+    word-break: normal;
     /* display: none; */
 }
 
 /*新增课程*/
+
 .lesson-recording1 {
     position: absolute;
-    left: 22.93vw;
-    top: 13.02vh;
-    width: 22.27vw;
-    height: 22.27vw;
+    left: 8.6rem;
+    top: 8.68rem;
+    width: 8.35rem;
+    height: 8.35rem;
     background: url(../images/237.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 .lesson-upload1 {
     position: absolute;
-    right: 22.93vw;
-    top: 13.02vh;
-    width: 22.27vw;
-    height: 22.27vw;
+    right: 8.6rem;
+    top: 8.68rem;
+    width: 8.35rem;
+    height: 8.35rem;
     background: url(../images/239.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 .lesson-record {
     position: absolute;
-    right: 22.93vw;
-    top: 13.02vh;
-    width: 22.27vw;
-    height: 22.27vwvh;
+    right: 8.6rem;
+    top: 8.68rem;
+    width: 8.35rem;
+    height: 14.85rem;
 }
 
 /*点击后*/
+
 .lesson-recording2 {
-    width: 22.27vw;
-    height: 22.27vw;
+    width: 8.35rem;
+    height: 8.35rem;
     background: url(../images/238.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 .lesson-upload2 {
-    width: 22.27vw;
-    height: 22.27vw;
+    width: 8.35rem;
+    height: 8.35rem;
     background: url(../images/240.png) no-repeat;
-    background-size: 22.27vw 22.27vw;
+    background-size: 100% 100%;
 }
 
 /*课程录音*/
+
 .lesson-recording-container {
-    margin: 0 2.67vw;
+    margin: 0 1rem;
     position: absolute;
-    width: 86.67vw;
-    height: 36.13vh;
-    border-bottom: 1px solid rgba(58, 141, 18, 0.5);
+    width: 36.5rem;
+    height: 24.1rem;
+    border-bottom: .1rem solid rgba(58, 141, 18, 0.5);
 }
 
 .lesson-recording-container>div.level-audio-content {
     position: absolute;
-    top: 16.64vh;
+    top: 11.1rem;
 }
 
 /*录音前*/
+
 .lesson-recording-bofore,
 .lesson-recording-after {
     position: absolute;
-    left: 33.47vw;
-    top: 47.98vh;
-    width: 24.93vw;
-    height: 18.57vh;
+    left: 15.6rem;
+    top: 32rem;
+    width: 9.35rem;
+    height: 12.4rem;
     text-align: center;
-    font-size: 13px;
+    font-size: 1.3rem;
     color: rgba(58, 141, 18, 1);
-    line-height: 21px;
+    line-height: 2.1rem;
 }
 
 .lesson-recording-bofore>img,
 .lesson-recording-after>img {
-    width: 24.93vw;
+    width: 9.35rem;
 }
 
 /*选择课程*/
+
 .lesson-choose-list {
     position: absolute;
-    margin: 2.2vh 1.8vw;
-    width: 88.37vw;
-    height: 76.76vh;
+    margin: 1.5rem .675rem;
+    width: 33.1rem;
+    height: 51.2rem;
     overflow: auto;
 }
 
 .lesson-choose-list>ul>li {
     float: left;
-    margin: 0.8vh 1.3vw;
+    margin: .5rem .5rem;
 }
 
 .lesson-choose-content {
-    width: 26.8vw;
-    height: 20.39vh;
+    width: 10.05rem;
+    height: 13.6rem;
     background: url(../images/others.jpg) no-repeat;
-    background-size: 26.8vw 20.39vh;
+    background-size: 100% 100%;
 }
 
 .lesson-unchoosed {
     position: relative;
-    top: 0.37vh;
-    left: 21.6vw;
-    width: 5.2vw;
-    height: 2.92vh;
+    top: .25rem;
+    left: 8.1rem;
+    width: 1.95rem;
+    height: 1.95rem;
     background: url(../images/245.png) no-repeat;
-    background-size: 5.2vw 2.92vh;
+    background-size: 100% 100%;
 }
 
 .lesson-choosed {
-    width: 5.2vw;
-    height: 2.92vh;
+    width: 1.95rem;
+    height: 1.95rem;
     background: url(../images/246.png) no-repeat;
-    background-size: 5.2vw 2.92vh;
+    background-size: 100% 100%;
 }
 
 .lesson-time-length {
     position: relative;
-    top: 14.5vh;
-    left: 12.6vw;
-    width: 12.67vw;
-    font-size: 7.5px;
+    top: 9.67rem;
+    left: 4.7rem;
+    width: 4.7rem;
+    font-size: .75rem;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
 }
 
 .lesson-time-length>img {
-    width: 3.06vw;
+    width: 1.15rem;
 }
 
 .choose-confirm {
-    bottom: 1.52vh;
-    left: 10.93vw;
-    width: 70.4vw;
-    height: 7.25vh;
+    bottom: 2rem;
+    left: 4.1rem;
+    width: 26.4rem;
+    height: 4.8rem;
     background: url(../images/166.png) no-repeat;
-    background-size: 70.4vw 7.25vh;
+    background-size: 100% 100%;
 }
 
 /*ios不支持*/
+
 .not-support-img {
     position: absolute;
-    width: 34.0vw;
-    height: 19.04vh;
-    top: 26.54vh;
-    left: 28.67vw;
+    width: 12.7rem;
+    height: 12.7rem;
+    top: 17.7rem;
+    left: 10.75rem;
     background: url(../images/248.png) no-repeat center;
-    background-size: 34.0vw 19.04vh;
+    background-size: 100% 100%;
 }
 
 /*分享结果页面*/
+
 .share-result-btn {
     position: absolute;
-    top: 42.05vh;
-    left: 24.53vw;
-    width: 51.47vw;
-    height: 7.42vh;
+    top: 28rem;
+    left: 9.2rem;
+    width: 19.3rem;
+    height: 4.95rem;
     background: url("../images/249.png") no-repeat center;
-    background-size: 51.47vw 7.42vh;
+    background-size: 100% 100%;
     text-align: center;
-    line-height: 7.42vh;
-    font-size: 18px;
+    line-height: 4.95rem;
+    font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
@@ -7406,39 +7531,40 @@ body {
 }
 
 /*签到*/
+
 .calendar {
     margin-top: 4.1rem;
-    width: 85vw;
-    margin-left: 6.66666vw;
+    width: 36.0rem;
+    margin-left: 2.5rem;
 }
 
 .calendar-count {
     margin-top: 6.1rem;
     width: 80%;
     height: 3rem;
-    margin-left: 10.6vw;
-    padding-left: 10px;
+    margin-left: 4rem;
+    padding-left: 1rem;
     color: #fff;
 }
 
 .calendar-count>.calendar-all {
     position: absolute;
     top: 35.1rem;
-    left: 4.45rem;
-    width: 12.05rem;
+    left: 6.45rem;
+    width: 14.05rem;
     font-size: 1.5rem;
 }
 
 .calendar-count>.calendar-num {
     position: absolute;
     top: 35.1rem;
-    left: 24.25rem;
-    width: 12.05rem;
+    left: 23.25rem;
+    width: 15.05rem;
     font-size: 1.5rem;
 }
 
 .home-recording>p {
-    width: 66.66vw;
+    width: 25rem;
     height: 11%;
     text-align: center;
     background: url('../images/11.png') no-repeat;
@@ -7446,38 +7572,37 @@ body {
     line-height: 230%;
     margin: 0 auto;
     /* margin-top: 0.6%; */
-    font-size: 18px;
+    font-size: 1.8rem;
     color: #fff;
 }
 
 .singer_r_img {
     display: block;
-    line-height: 45px;
-    background: url(../images/sing_week.gif) right 2px no-repeat;
+    line-height: 4.5rem;
+    background: url(../images/sing_week.gif) right .2rem no-repeat;
     vertical-align: middle;
-    margin-bottom: -10px;
+    margin-bottom: -1rem;
     text-decoration: none;
 }
 
 .singer_r_img:hover {
-    background-position: right -53px;
+    background-position: right -5.3rem;
     text-decoration: none;
 }
 
 .singer_r_img span {
-    margin-left: 14px;
-    font-size: 16px;
+    margin-left: 1.4rem;
+    font-size: 1.6rem;
     font-family: 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif !important;
     font-weight: 700;
     color: #165379;
 }
 
 .singer_r_img.current {
-    background: url(images/sing_sing.gif) no-repeat 0 2px;
+    background: url(images/sing_sing.gif) no-repeat 0 .2rem;
     border: 0;
     text-decoration: none;
 }
-
 
 .sign_succ_calendar_title {
     text-align: center;
@@ -7497,10 +7622,10 @@ body {
 
 .calendar_month_span {
     display: inline;
-    line-height: 40px;
-    font-size: 16px;
+    line-height: 4rem;
+    font-size: 1.6rem;
     color: #656565;
-    letter-spacing: 2px;
+    letter-spacing: .2rem;
     font-weight: bold;
 }
 
@@ -7544,19 +7669,20 @@ body {
 }
 
 /*签到点击选择日期样式*/
+
 .sign_equal .on {
     /*background: #4CB215;*/
 }
 
 .sign_contener,
 .sign_contener:visited {
-    line-height: 30px;
+    line-height: 3rem;
     background: #00a0e9;
     border: none;
     color: white;
-    border-radius: 30px;
-    padding: 0 10px;
-    font-size: 16px;
+    border-radius: 3rem;
+    padding: 0 1rem;
+    font-size: 1.6rem;
 }
 
 .sign_contener:hover {
@@ -7564,14 +7690,16 @@ body {
 }
 
 /*实名认证学历选择颜色*/
+
 .verified-foot-modal-color {
     color: #30A007;
 }
 
 /*选择照片*/
+
 .realname-file {
     position: absolute;
-    left: 1vw;
-    top: 10px;
+    left: .375rem;
+    top: 1rem;
     opacity: 0;
 }

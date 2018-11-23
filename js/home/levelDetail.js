@@ -9,7 +9,11 @@ $(function () {
         $("#closeLevel").show();
         // 确定
         $("#exitLevel").click(function () {
-            errorOut()
+            var levelFailAudio = $("#levelFailAudio")[0];
+            levelFailAudio.play();
+            window.setTimeout(function() {
+                errorOut();
+            }, 2000);
         });
         // 取消
         $("#exitCancel").click(function () {
@@ -165,6 +169,8 @@ function option(options, answer, nextgateid) {
                         clearInterval(time)
                         correctAnawer(UserAnswer, nextgateid)
                     } else {
+                        var answerError = $("#answerError")[0];
+                        answerError.play();
                         $(".respond-blank>ul>li").css("border", "1px solid red")
                         setTimeout(function () {
                             option(options, answer, nextgateid)
@@ -278,12 +284,16 @@ function correctAnawer(UserAnswer, nextgateid) {
                 ranking(gid);
                 if (res.data.isfirst == 0) {
                     //初次闯关成功
+                    var goThrough = $("#goThrough")[0];
+                    goThrough.play();
                     $("#passFirstTime").html(res.data.time);
                     $("#passStamina").html("x" + res.data.rewardbeans);
                     $("#passPk").html("x" + res.data.pkvalue);
                     $("#levelPass").show();
                 } else if (res.data.isfirst == 1) {
                     //再次闯关成功
+                    var goThrough = $("#goThrough")[0];
+                    goThrough.play();
                     $("#passAgainTime").html(res.data.time);
                     $("#levelPassAgain").show();
                 }
