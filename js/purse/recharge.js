@@ -1,12 +1,14 @@
 $(function () {
 	// rmb
 	$("#recharge-reminbi").click(function () {
+		allClick();
 		$(this).addClass("recharge-checked").siblings().removeClass("recharge-checked");
 		$(".recharge-rmb").show();
 		$(".dollar-selected").hide();
 	});
 	// 美元
 	$("#recharge-dollar").click(function () {
+		allClick();
 		$(this).addClass("recharge-checked").siblings().removeClass("recharge-checked");
 		$(".recharge-rmb").hide();
 		$(".dollar-selected").show();
@@ -40,6 +42,7 @@ function moneyRuleList() {
 			});
 			$(".recharge-value>ul").html(str);
 			$(".initial").click(function () {
+				allClick();
 				var initial = $(this).attr("data-index")
 				console.log(initial)
 				for (var i = 0; i < data.length; i++) {
@@ -60,6 +63,7 @@ function moneyRuleList() {
 				}
 			})
 			$(".recharge-confirm").click(function () {
+				allClick();
 				if ($("#recharge-input").val() == '') {
 					// alert("请输入金额")
 					flowerTips("请输入金额~", 1);

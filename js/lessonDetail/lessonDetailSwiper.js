@@ -11,8 +11,11 @@ var mySwiper = new Swiper('.swiper-container', {
         slideChangeTransitionEnd: function (event) {
             // console.log(mySwiper.activeIndex); //滑动时的索引
             // console.log(mySwiper.slides.length); // 总滑块数
-            var slideLength = mySwiper.slides.length - 1;
+            // var slideLength = mySwiper.slides.length - 1;
             countSum++;
+            if($(".swiper-wrapper>.swiper-slide-active").hasClass("lessonAd")){
+                countSum--;
+            }
             // console.log(mySwiper.activeIndex, slideLength);
             var lessonLength = $(".swiper-wrapper>.lesson-audio").length; //课程滑块总数
             var adINdex = $(".swiper-wrapper>.lessonAd").length; //广告滑块总数
@@ -106,7 +109,7 @@ function lessonDetail(lessonId, countSum, diff) {
                         <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
                     </div>
                     <div class="audio-content">
-                        <audio class="lessonAudio" preload="preload" src="${data.list.coursevoice}"></audio>
+                        <audio class="lessonAudio" preload="auto" src="${data.list.coursevoice}"></audio>
                         <div class="progressBar">
                             <div class="progressReal"></div>
                             <i class="progressKey"></i>
@@ -128,7 +131,7 @@ function lessonDetail(lessonId, countSum, diff) {
                 <img src="${data.banner.image}"/>
                 <h1>${data.banner.heading}</h1>
                 <div class="adAudio-content">
-                    <audio class="lessonAdAudio" preload="preload" src="${data.banner.content}"></audio>
+                    <audio class="lessonAdAudio" preload="auto" src="${data.banner.content}"></audio>
                     <div class="progressBar progressAdBar">
                         <div class="progressReal progressAdReal"></div>
                         <i class="progressKey"></i>
@@ -215,7 +218,7 @@ function getPrevNextData(id, countSum, type) {
                                 <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
                             </div>
                             <div class="audio-content">
-                                <audio class="lessonAudio" 	preload="preload" src="${data.list.coursevoice}"></audio>
+                                <audio class="lessonAudio" 	preload="auto" src="${data.list.coursevoice}"></audio>
                                 <div class="progressBar">
                                     <div class="progressReal"></div>
                                     <i class="progressKey"></i>
@@ -237,7 +240,7 @@ function getPrevNextData(id, countSum, type) {
                         <img  src="${data.banner.image}"/>
                         <h1>${data.banner.heading}</h1>
                         <div class="adAudio-content">
-                            <audio class="lessonAdAudio" preload="preload" src="${data.banner.content}"></audio>
+                            <audio class="lessonAdAudio" preload="auto" src="${data.banner.content}"></audio>
                             <div class="progressBar progressAdBar">
                                 <div class="progressReal progressAdReal"></div>
                                 <i class="progressKey"></i>
@@ -270,10 +273,9 @@ function getPrevNextData(id, countSum, type) {
 
 //所有事件 
 function allEvent() {
-
     var a=$(document).find(".attention");
     a.unbind().click(function () {
-        console.log($("body"));
+        allClick();
         var isfollow = $(this).attr("data-isfollow"); //是否关注
         var followid = $(this).attr("data-followid");
         var courseId = $(this).parents("section").attr("data-courseid");
@@ -287,6 +289,7 @@ function allEvent() {
 
     //评分
     $(document).unbind().on('click', 'ul.scoreList', function () {
+        allClick();
         var isScore = $(this).attr("data-isscore");
         var countSum = $(this).parents("section").attr("data-count");
         var courseId = $(this).parents("section").attr("data-courseid");
@@ -301,6 +304,7 @@ function allEvent() {
             });
             //关闭
             $(".appraise-close").unbind('click').bind('click', function () {
+                allClick();
                 $("#appraiseShade").css("display", "none");
                 $("#appraiseContent").css("display", "block");
                 $("#appraiseResult").css("display", "none");
@@ -310,13 +314,16 @@ function allEvent() {
     });
     // 分享
     $(document).on('click', 'ul.shareList', function () {
+        allClick();
         $("#shareShade").show();
         $("#shareShade").click(function () {
+            allClick();
             $("#shareShade").hide();
         });
     });
     // 留言
     $(document).on('click', 'ul.msgList', function () {
+        allClick();
         $("#messageShade").show();
         var countSum = $(this).parents("section").attr("data-count");
         var headimg = $(this).parents("section").find("div.head-imgBg>img").attr("src");
@@ -328,6 +335,7 @@ function allEvent() {
         messageList(1, courseId, 1, headimg, nickname, tId);
         // 关闭窗口
         $(".leave-message-close").click(function () {
+            allClick();
             lessonDetail(courseId, countSum, 0); // 渲染页面
             $("#messageShade").hide();
             $(".message-btn").show();
@@ -337,22 +345,26 @@ function allEvent() {
     });
     // 所属专辑
     $(document).on('click', 'ul.amList', function () {
+        allClick();
         var albumId = $(this).attr("data-aid");
         // console.log(albumId);
         $(window).attr("location", "./album-name.html?albumId=" + albumId);
     });
     // 看文字
     $(document).on('click', 'ul.courseTextList', function () {
+        allClick();
         var courseContent = $(this).attr("data-content");
         $("#textShade").show();
         $(".lesson-text-inner").html(courseContent);
         // 关闭窗口
         $(".lesson-close").click(function () {
+            allClick();
             $("#textShade").hide();
         });
     });
     // 课程介绍
     $(document).on('click', 'ul.courseDetailList', function () {
+        allClick();
         var coursename = $(this).attr("data-name");
         var coursetxt = $(this).attr("data-text");
         $("#introductShade").show();
@@ -360,11 +372,13 @@ function allEvent() {
         $(".lesson-introduction-inner>.lesson-intr").html(coursetxt);
         // 关闭窗口
         $(".lesson-close").click(function () {
+            allClick();
             $("#introductShade").hide();
         });
     });
     // 课程举报
     $(document).on('click', 'ul.reportList', function () {
+        allClick();
         var courseId = $(this).parents("section").attr("data-courseid");
         $(".report-tab>ul>li>.report-option").removeClass("report-option1");
         $("#reportShade").show();
@@ -376,11 +390,13 @@ function allEvent() {
         });
         // 关闭窗口
         $(".report-btn").click(function () {
+            allClick();
             $("#reportShade").hide();
         });
     });
     // 点击导师
     $(document).on('click', 'ul.tutorDetail', function () {
+        allClick();
         var isfollow = $(this).attr("data-isf");
         var followid = $(this).attr("data-fid");
         var courseId = $(this).parents("section").attr("data-courseid");
@@ -389,11 +405,13 @@ function allEvent() {
         $("#tutorShade").show();
         // 关闭窗口
         $(".tutor-close").click(function () {
+            allClick();
             $("#tutorShade").hide();
         });
     });
     // 音频播放
     $(document).on('click', 'div.progress-bar', function () {
+        allClick();
         var courseId = $(this).parents("section").attr("data-courseid");
         // console.log(courseId);
         var audio = $(this).parent("div.audio-content").find(".lessonAudio")[0];
@@ -411,7 +429,7 @@ function allEvent() {
             $(this).removeClass('progress-start').addClass('progress-stop');
         }
         // 获取音频时长
-        audioTime.text(transTime(audio.duration));
+        // audioTime.text(transTime(audio.duration));
         //点击进度
         $(progressBar).click(function (e) {
             var time = audio.duration;
@@ -436,6 +454,7 @@ function allEvent() {
         var progressAdBar = $(this).parents('.lessonAd').find(".progressAdBar");
         var progressAdReal = $(this).parents('.lessonAd').find(".progressAdBar>.progressAdReal");
         $(this).unbind().bind("click", function () {
+            allClick();
             //改变暂停/播放icon
             if (audio.paused) {
                 audio.play();
@@ -444,8 +463,7 @@ function allEvent() {
                 audio.pause();
                 $(this).removeClass('progress-start').addClass('progress-stop');
             }
-            adAudioTime.text(transTime(audio.duration)); //音频时长
-            console.log(audio.duration);
+            // adAudioTime.text(transTime(audio.duration)); //音频时长
             //点击进度
             $(progressAdBar).click(function (e) {
                 var time = audio.duration;
@@ -518,11 +536,13 @@ function tutorDetailList(isfollow, followid, courseId, countSum) {
             if (isfollow == 1) {
                 $("#followShow").html("已关注");
                 $("#followShow").unbind('click').bind('click', function () {
+                    allClick();
                     noAttention(followid, courseId, countSum);
                 });
             } else {
                 $("#followShow").html("关注");
                 $("#followShow").unbind('click').bind('click', function () {
+                    allClick();
                     onAttention(followid, courseId, countSum);
                 });
             }
@@ -641,6 +661,7 @@ function noAttention(followid, courseId, countSum) {
 
 // 评分
 function changeAppraise(e, appraise) {
+    allClick();
     var uId = sessionStorage.getItem("uid"); //用户id
     var $lessonId = $("section").eq(1).attr("data-courseid");
     $.each($(".appraise-score>ul>li"), function (index, val) {
@@ -660,7 +681,7 @@ function changeAppraise(e, appraise) {
         score = 10;
     }
     $(".appraise-confirm").unbind().bind("click", function () {
-        // alert(score);
+        allClick();
         var beans = $(".beanInput").val();
         if (beans == "") {
             beans = 0;
@@ -746,7 +767,7 @@ function scoreSum($lessonId) {
 
 // 获取课程留言列表
 function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
-    console.log(tId);
+    // console.log(tId);
     var uId = sessionStorage.getItem("uid"); //用户id
     $.ajax({
         type: "GET",
@@ -788,6 +809,7 @@ function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
             }
             // 发表留言
             $(".message-btn").click(function () {
+                allClick();
                 if (uId != tId) {
                     $(".releaseContent").show();
                     $(".message-btn").hide();
@@ -803,6 +825,7 @@ function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
                     });
                     // 点击发布
                     $("#releaseBtn").unbind('click').bind('click', function () {
+                        allClick();
                         $text1 = $("#messageText1").val();
                         if ($text1 != "") {
                             commentRelease(lessonId, $text1, headimg, nickname, tId); //发表课程留言
@@ -816,6 +839,7 @@ function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
             });
             // 回复
             $(".leave-content").click(function () {
+                allClick();
                 var pId = $(this).attr("data-id"); //评论列表的id(父id)
                 // var tId = localStorage.getItem("commentid"); //导师id
                 if (uId == tId) {
@@ -833,6 +857,7 @@ function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
                     });
                     // 点击回复
                     $("#replayBtn").unbind('click').bind('click', function () {
+                        allClick();
                         var $text2 = $("#messageText2").val();
                         if ($text2 != "") {
                             commentReply(pId, lessonId, $text2, headimg, nickname, tId); //回复留言
@@ -923,6 +948,7 @@ function commentReply(pId, lessonId, $text, headimg, nickname, tId) {
 
 // 举报
 function regular(lessonId, num) {
+    allClick();
     var uId = sessionStorage.getItem("uid"); //用户id
     $.ajax({
         type: "POST",

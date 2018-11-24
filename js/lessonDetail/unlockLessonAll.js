@@ -57,6 +57,7 @@ function UnlockAllCourseDetail(albumId, uId, sorId) {
                 $(".series-hasbeans").prepend(str1);
                 //立即加入
                 $("#lockNow").click(function () {
+                    allClick();
                     $(".unlock-shade").show();
                     WisdomUnlockAll(albumId, uId, sorId);
                 });

@@ -2,15 +2,19 @@ $(function () {
 	getSort(1, 1);
 	var $sort = $(".lesson-sort>.sort");
 	$sort.click(function () {
+		allClick();
 		var $id = $(this).attr("data-sId");
 		getSort(1, $id);
 	});
+	$(".lesson-menu a").click(function () {
+		allClick();
+		console.log(1);
+	})
 
 });
 
 // 获取列表内容
 function getSort(page, sortId) {
-	console.log(sortId);
 	$.ajax({
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/WisdomList",
@@ -35,17 +39,17 @@ function getSort(page, sortId) {
 				</li>
 				 `;
 			});
-			if(page==1){
+			if (page == 1) {
 				$(".lesson-list>ul").html(str);
-			}else{
+			} else {
 				$(".lesson-list>ul").append(str);
 			}
 			$(".table-lesson").click(function () {
 				var lessonId = $(this).attr("data-lId");
 				var sort = $(this).parent().attr("data-sortId");
 				// console.log(sort);
-				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId+"&sortId="+sort);
-			});	
+				$(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId + "&sortId=" + sort);
+			});
 			// 触底刷新
 			var nDivHight = $(".lesson-list").height();
 			$(".lesson-list").unbind("scroll").bind("scroll", function () {

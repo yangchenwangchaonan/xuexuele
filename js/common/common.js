@@ -13,3 +13,8 @@ APP_URL = 'https://xuexuele.huimor.com';
     doc.addEventListener("DOMContentLoaded", fn, false);
 
 }(document, window));
+
+//清除点击事件默认300ms
+// window.addEventListener( "load", function() {
+//     FastClick.attach( document.body );
+// }, false );

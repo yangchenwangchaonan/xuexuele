@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
-	<!-- <script src="../../js/common/fastclick.min.js"></script> -->
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/home/home.js"></script>
@@ -19,7 +18,7 @@
 <body class="home-body">
 	<section class="container-home">
 		<!-- 背景音效 -->
-		<audio src="../../mp3/homeBackgroud.mp3" preload="auto" autoplay loop></audio> 
+		<audio src="../../mp3/homeBackgroud.mp3" preload="auto" autoplay loop></audio>
 		<!-- 点击关卡音效 -->
 		<audio src="../../mp3/levelClick.mp3" preload="auto" id="clcikMp3"></audio>
 		<!-- 点击按钮音效 -->
@@ -284,18 +283,11 @@
 	<div class="home-tips"></div>
 </body>
 <script type="text/javascript">
-	$(function () {
-		//ajax获取日历json数据
-		var signList = [{
-			"signDay": ''
-		}, ];
-		calUtil.init(signList);
-	});
-
-	// 禁止滑动屏幕
-	// document.body.addEventListener('touchmove', function (event) {
-	// 	event.preventDefault();
-	// }, false);
+	//ajax获取日历json数据
+	var signList = [{
+		"signDay": ''
+	}, ];
+	calUtil.init(signList);
 </script>
 
 </html>

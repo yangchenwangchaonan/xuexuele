@@ -2,9 +2,9 @@ $(function () {
     // 获取uId，lessonId
     var uId = sessionStorage.getItem("uid");
     var url = window.location.href;
-    var lessonId = url.split("&")[0].split("=")[1];
-    var sorId = url.split("&")[1].split("=")[1];
-    UnlockCourseDetail(uId, lessonId, sorId);
+    // console.log(url);
+    var lessonId = url.split("=")[1];
+    UnlockCourseDetail(uId, lessonId);
     // 返回
     $("#unlockLessonOneBack").click(function () {
         history.back(-1);
@@ -12,7 +12,7 @@ $(function () {
 });
 
 //单一解锁专辑课程列表详情
-function UnlockCourseDetail(uId, lessonId, sorId) {
+function UnlockCourseDetail(uId, lessonId) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/UnlockCourseDetail",
@@ -54,8 +54,9 @@ function UnlockCourseDetail(uId, lessonId, sorId) {
                 $(".series-hasbeans").prepend(str1);
                 //立即加入
                 $("#lockNow").click(function () {
+                    allClick();
                     $(".unlock-shade").show();
-                    WisdomUnlock(uId, lessonId, albumId, sorId);
+                    WisdomUnlock(uId, lessonId, albumId);
                 });
             }
         },
@@ -66,7 +67,7 @@ function UnlockCourseDetail(uId, lessonId, sorId) {
 }
 
 // 课程解锁 (单个解锁)
-function WisdomUnlock(uId, lessonId, albumId,sorId) {
+function WisdomUnlock(uId, lessonId, albumId) {
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/WisdomUnlock",
@@ -79,7 +80,7 @@ function WisdomUnlock(uId, lessonId, albumId,sorId) {
             console.log(res);
             if (res.code == 1) {
                 $(".unlock-btn").click(function () {
-                    $(window).attr("location", "./album-name.html?albumId=" + albumId + "&sorId=" + sorId);
+                    $(window).attr("location", "./album-name.html?albumId=" + albumId);
                 });
             } else {
                 alert(res.msg);

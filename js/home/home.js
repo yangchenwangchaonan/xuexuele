@@ -9,32 +9,26 @@ $(function () {
   //站内信
   $("#maildrop-tab").click(function () {
     allClick();
-    window.setTimeout(function () {
-      $(window).attr("location", "./letter.html");
-    }, 1000);
+    $(window).attr("location", "./letter.html");
   });
 
   //签到
   $("#signed-tab").click(function () {
     allClick();
-    window.setTimeout(function () {
-      $("#recording-shade").show();
-      $("img.signed-close").click(function () {
-        $("#recording-shade").hide();
-        userGate(1, 1);
-      });
-      // actioveDate()   //日历当前日期渲染
-      signinDate() //当月签到日期渲染
-      handleClick() //点击签到
-    }, 1000);
+    $("#recording-shade").show();
+    $("img.signed-close").click(function () {
+      $("#recording-shade").hide();
+      userGate(1, 1);
+    });
+    // actioveDate()   //日历当前日期渲染
+    signinDate() //当月签到日期渲染
+    handleClick() //点击签到
   });
 
   //百宝箱
   $("#treasureBox-tab").click(function () {
     allClick();
-    window.setTimeout(function () {
-      $(window).attr("location", "./treasureBox.html");
-    }, 1000);
+    $(window).attr("location", "./treasureBox.html");
   });
 
 });
@@ -93,6 +87,7 @@ function userGate(index, iscurrent) {
       // 体力值tips
       //体力值
       $("#stamina-tab").click(function () {
+        allClick();
         if (sVal < 4) {
           $("#realStamina").css("color", "red");
           $("#stamina-shade").show();
@@ -304,47 +299,45 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
   // console.log(userValue);
   var clickMp3 = $("#clcikMp3")[0];
   clickMp3.play();
-  window.setTimeout(function () {
-    if (levelLock == 0) {
-      homeLevel("请先闯过当前关卡~", 1);
-      return;
+  if (levelLock == 0) {
+    homeLevel("请先闯过当前关卡~", 1);
+    return;
+  }
+  $("#levelNum").html(levelName);
+  var str = "";
+  str +=
+    levelTime == '' ? `
+        <div class="pass-gift">
+          <div class="stamina-reward"><img src="../../images/108.png" /><span>x${rewardbeans}</span></div>
+          <div class="pk-reward"><img src="../../images/107.png" /><span>x${pkvalue}</span></div>
+          <div class="other-gift">
+            <div class="other-giftbox">
+              <img src="../../images/109.png" />
+              <div>其他奖励</div>
+            </div>
+          </div>
+        </div>
+        ` : `
+        <div class="pass-again">
+          <img src="../../images/117.png" />
+          <p>${levelTime}</p>
+        </div>
+        `;
+  $(".passLevel").html(str);
+  ranking(levelId); //全网排名
+  $("#levelShade").show();
+  $("#levelFirst").click(function () {
+    if (userValue >= 3) {
+      sessionStorage.setItem("gateid", levelId);
+      $(window).attr("location", "./level_content.html");
+    } else {
+      homeLevel("当前体力值不足哦~", 1);
     }
-    $("#levelNum").html(levelName);
-    var str = "";
-    str +=
-      levelTime == '' ? `
-            <div class="pass-gift">
-              <div class="stamina-reward"><img src="../../images/108.png" /><span>x${rewardbeans}</span></div>
-              <div class="pk-reward"><img src="../../images/107.png" /><span>x${pkvalue}</span></div>
-              <div class="other-gift">
-                <div class="other-giftbox">
-                  <img src="../../images/109.png" />
-                  <div>其他奖励</div>
-                </div>
-              </div>
-            </div>
-            ` : `
-            <div class="pass-again">
-              <img src="../../images/117.png" />
-              <p>${levelTime}</p>
-            </div>
-            `;
-    $(".passLevel").html(str);
-    ranking(levelId); //全网排名
-    $("#levelShade").show();
-    $("#levelFirst").click(function () {
-      if (userValue >= 3) {
-        sessionStorage.setItem("gateid", levelId);
-        $(window).attr("location", "./level_content.html");
-      }else{
-        homeLevel("当前体力值不足哦~", 1);
-      }
-    });
-    // 取消闯关
-    $(".level_btn").click(function () {
-      $("#levelShade").hide();
-    });
-  }, 1000);
+  });
+  // 取消闯关
+  $(".level_btn").click(function () {
+    $("#levelShade").hide();
+  });
 }
 
 //日历

@@ -64,6 +64,7 @@ function albumCourseList(albumId, uId) {
 
             // 改变暂停/播放icon
             $(".lesson-play").click(function () {
+                allClick();
                 var audio = $(this).children("audio")[0];
                 // console.log($(this).children("audio"))
                 if (audio.paused) {
@@ -86,10 +87,18 @@ function albumCourseList(albumId, uId) {
                     $(this).children("img").remove("");
                     $(this).children("span").html("播放");
                 }
+                audio.addEventListener('ended', audioEnded, false); //监听播放完成
+                //播放完成
+                function audioEnded() {
+                    $(this).parent().removeClass("lesson-playing");
+                    $(this).siblings("img").remove("");
+                    $(this).siblings("span").html("播放");
+                }
             });
 
             // 点击锁定
             $(".lesson-locked").click(function () {
+                allClick();
                 var courseId = $(this).attr("data-cid");
                 $(window).attr("location", "./unlock_one.html?courseid=" + courseId);
             });
@@ -102,14 +111,16 @@ function albumCourseList(albumId, uId) {
                 $(".album-box").append($str);
                 // 点击解锁全部
                 $("#lockBtn").click(function () {
-                    $(window).attr("location", "./unlock_all.html?albumId=" + albumId);
+                    allClick();
+                    $(window).attr("location", "./unlock_all.html?albumId=" + albumId +"&sid=5");
                 });
             }
 
             // 课程详情
-            $(".lesson-list-name,.lesson-list-tab").click(function(){
+            $(".lesson-list-name,.lesson-list-tab").click(function () {
+                allClick();
                 var lessonId = $(".lesson-list-name").attr("data-cid");
-                $(window).attr("location", "./lesson-detail.html?cid="+lessonId+"&sid=5");
+                $(window).attr("location", "./lesson-detail.html?cid=" + lessonId + "&sid=5");
                 // window.location.replace("./lesson-detail.html?cid="+lessonId+"&sid=5");
             });
         },
