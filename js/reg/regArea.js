@@ -1,22 +1,26 @@
 $(function () {
     // 默认为国内城市
     $("#cityIn").click(function () {
+        allClick();
         $("#cityIn").addClass("city-on").siblings("#cityOut").removeClass("city-on");
         $("#cityText").show();
         $("#city-boxInter").hide();
     });
     // 国际城市
     $("#cityOut").click(function () {
+        allClick();
         $("#cityOut").addClass("city-on").siblings("#cityIn").removeClass("city-on");
         $("#cityText").hide();
         $("#city-boxInter").show();
     });
     //搜索
     $("#search-text1").click(function () {
+        allClick();
         $(".area-box1").hide();
         $(".area-box2").show();
         $("#search-text2").focus();
         $(".city-search-btn").click(function () {
+            allClick();
             var city = $("#search-text2").val();
             if (city != "") {
                 citySearch(city);
@@ -26,6 +30,7 @@ $(function () {
 
     // 返回
     $("#searchClose").click(function(){
+        allClick();
         $(".index-container").hide();
         $(".area-box1").show();
         $(".area-box2").hide();
@@ -55,6 +60,7 @@ function citySearch(city) {
                 $(".search-list>ul").html(str);
                 $(".city-international").hide();
                 $(".search-list>ul>li").click(function () {
+                    allClick();
                     var val = $(this).attr("data-name");
                     $(".area-body").hide();
                     $(".index-container").show();

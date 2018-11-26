@@ -5,6 +5,7 @@ $(function () {
     if (num == 0) {
         // 确认新增
         $("#addAlbumBtn").click(function () {
+            allClick();
             $("#addAlbumBtn").html("确认新增");
             newAlbum();
         });
@@ -14,6 +15,7 @@ $(function () {
         albunmDetail(aid); //专辑详情
         // 编辑专辑
         $("#addAlbumBtn").click(function () {
+            allClick();
             changeAlbum(aid); //编辑专辑
         });
     }
@@ -34,12 +36,14 @@ function start() {
     $(".inputEnd").hide();
     // 上传封面
     $("#upLoad").click(function () {
+        allClick();
         // $(".lesson-cover-content>img").attr("src", "");
         $("#albumAdd").hide();
         $("#albumCover").show();
         upLoad();
         // 返回
         $(".albumCover-back").click(function () {
+            allClick();
             $(".upCover").show();
             $("#albumAdd").show();
             $("#albumCover").hide();
@@ -48,11 +52,13 @@ function start() {
     });
     // 输入专辑名称
     $("#enterName").click(function () {
+        allClick();
         $("#albumAdd").hide();
         $("#albumName").show();
         $("#nameContent").focus(function () {
             $(".editCompleted").show();
             $(".editCompleted").click(function () {
+                allClick();
                 var albumName = $.trim($("#nameContent").val());
                 $(".editCompleted").hide();
                 $("#albumAdd").show();
@@ -64,6 +70,7 @@ function start() {
         });
         // 返回
         $(".albumName-back").click(function () {
+            allClick();
             $("#albumAdd").show();
             $("#albumName").hide();
             $(".editCompleted").hide();
@@ -72,11 +79,13 @@ function start() {
     });
     // 输入专辑内容
     $("#enterPresent").click(function () {
+        allClick();
         $("#albumAdd").hide();
         $("#albumIntroduct").show();
         $("#introductContent").focus(function () {
             $(".editCompleted").show();
             $(".editCompleted").click(function () {
+                allClick();
                 var albumIntroduct = $.trim($("#introductContent").val());
                 $(".editCompleted").hide();
                 $("#albumAdd").show();
@@ -88,6 +97,7 @@ function start() {
         });
         //返回
         $(".albumIntroduct-back").click(function () {
+            allClick();
             $("#albumAdd").show();
             $("#albumIntroduct").hide();
             $(".editCompleted").hide();
@@ -134,6 +144,7 @@ function upLoad() {
     });
     // 确认上传
     $(".lesson-cover-btn").click(function () {
+        allClick();
         // flowerTips("上传成功~", 1);
         $("#albumAdd").show();
         $("#albumCover").hide();
@@ -141,6 +152,7 @@ function upLoad() {
     });
     // 确认上传x
     $(".submit-cancel").click(function () {
+        allClick();
         $(".lesson-cover-content").html("<img/>");
         $(".upCover").val("");
         $(".submit-cancel").hide();

@@ -1,5 +1,6 @@
 $(function () {
     $("#repwdBtn2").click(function () {
+        allClick();
         //输入新密码后样式变化
         $("#rewpdPassword1").keyup(function () {
             if ($(this).val() != "") {

@@ -41,6 +41,7 @@ function attentionList() {
                     $(".attention-list").html(str);
                     // 查看导师详情
                     $(".followig").click(function () {
+                        allClick();
                         var followid = $(this).attr("data-fid");
                         $(window).attr("location", "attention-detail.html?fid="+followid);
                     });
@@ -56,6 +57,7 @@ function attentionList() {
 
 // 取消关注
 function followNot(followId) {
+    allClick();
     var uId = sessionStorage.getItem("uid");
     $.ajax({
         type: "POST",

@@ -21,6 +21,7 @@ $(function () {
     /* 获取验证码 */
     var flag = true;
     $("#codeBtn").click(function () {
+        allClick();
         if (!flag) {
             return false;
         }
@@ -46,7 +47,7 @@ $(function () {
                     console.log(res);
                     if (res.code == 1) {
                         flowerTips("发送成功~", 1);
-                        alert(res.data.code);
+                        // alert(res.data.code);
                         var realCode = res.data.code;
                         $("#realCode").val(realCode);
                         setTime(obj);
@@ -86,6 +87,7 @@ $(function () {
     });
     /* ******************注册第一步******************* */
     $("#red-first").click(function () {
+        allClick();
         var codeValue = $("#reg-code").val();
         var realCode = $("#realCode").val();
         if ($("#reg-phone").val() == "" || $("#reg-phone").val() == null) {
@@ -105,6 +107,7 @@ $(function () {
     /* *****************注册第二步********************* */
     /* 设置密码 */
     $("#reg-next").click(function () {
+        allClick();
         var newPassword = $("#newPassword").val();
         var againPassword = $("#againPassword").val();
         if (newPassword == "" || newPassword == null) {

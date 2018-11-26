@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -12,47 +13,54 @@
     <script src="../../js/reg/reg.js"></script>
     <script src="../../js/common/tips.js"></script>
 </head>
-<body class="index-body">
-<section class="repwd-container">
-    <i class="page-back" id="regBackNext"></i>
-    <div class="img-wrapper wrapper-01">
-        <img src="../../images/02.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-02">
-        <img src="../../images/03.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-03">
-        <img src="../../images/04.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-04">
-        <img src="../../images/05.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-05">
-        <img src="../../images/06.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-06">
-        <img src="../../images/07.png" alt="">
-    </div>
 
-    <div class="rewpd-wrapper">
-        <div class="rewpd-content reg-content reg-second">
-            <h1></h1>
-            <div class="login-input-wrapper input-2 input-4">
+<body class="index-body">
+    <section class="repwd-container">
+        <!-- 点击按钮音效 -->
+        <audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
+        <!-- 附加页面 -->
+        <audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
+        <i class="page-back" id="regBackNext"></i>
+        <div class="img-wrapper wrapper-01">
+            <img src="../../images/02.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-02">
+            <img src="../../images/03.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-03">
+            <img src="../../images/04.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-04">
+            <img src="../../images/05.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-05">
+            <img src="../../images/06.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-06">
+            <img src="../../images/07.png" alt="">
+        </div>
+
+        <div class="rewpd-wrapper">
+            <div class="rewpd-content reg-content reg-second">
+                <h1></h1>
+                <div class="login-input-wrapper input-2 input-4">
+                    <i></i>
+                    <input type="password" placeholder="请输入新密码" id="newPassword">
+                </div>
+                <div class="login-input-wrapper input-2 input-4"">
                 <i></i>
-                <input type="password" placeholder="请输入新密码" id="newPassword">
-            </div>
-            <div class="login-input-wrapper input-2 input-4"">
-                <i></i>
-                <input type="password" placeholder="再次输入新密码" id="againPassword">
-            </div>
-            <h2>密码必须为8-20位英文字母、数字或符号（除空格），且字母、数字和表单符号至少包含两种。</h2>
-            <div class="repwd-btn reg-secBtn" id="reg-next">
-                <i></i>
+                <input type="
+                    password" placeholder="再次输入新密码" id="againPassword">
+                </div>
+                <h2>密码必须为8-20位英文字母、数字或符号（除空格），且字母、数字和表单符号至少包含两种。</h2>
+                <div class="repwd-btn reg-secBtn" id="reg-next">
+                    <i></i>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- tips -->
-    <div class="reg-tips"></div>
-</section>
+        <!-- tips -->
+        <div class="reg-tips"></div>
+    </section>
 </body>
+
 </html>

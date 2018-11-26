@@ -12,15 +12,19 @@
 	<script src="../../js/common/common.js"></script>
 	<script src="../../js/home/levelDetail.js"></script>
 	<script src="../../js/common/audio.js"></script>
-	
+	<script src="../../js/common/tips.js"></script>
+
 </head>
 
 <body class="index-body">
 	<section class="index-container">
-		<audio src="../../mp3/levelBackground.mp3" preload="auto" autoplay  loop ></audio>
+		<audio src="../../mp3/levelBackground.mp3" preload="auto" autoplay loop></audio>
 		<audio src="../../mp3/levelFail.mp3" preload="auto" id="levelFailAudio"></audio>
 		<audio src="../../mp3/answerError.mp3" preload="auto" id="answerError"></audio>
 		<audio src="../../mp3/throughLevel.mp3" preload="auto" id="goThrough"></audio>
+		<audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
+		<!-- 附加页面 -->
+		<audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
 		<div class="level-back" id="levelBack"></div>
 		<div class="level-timing"><span id="time1"></span></div>
 		<div class="level-content">
@@ -99,11 +103,11 @@
 			</div>
 			<!-- 答案演示 -->
 			<div class="blank-show">
-				<div class="respond-blank-show">火</div>
+				<div class="respond-blank-show"></div>
 				<div class="tipContent-show" id="blankShow"></div>
 			</div>
 			<div class="key-show">
-				<div class="respond-key-show">火</div>
+				<div class="respond-key-show"></div>
 				<div class="tipKey-show" id="keyShow"></div>
 			</div>
 		</div>
@@ -159,12 +163,11 @@
 			</ul>
 			<div class="kit-lesson3">
 				<p>-推荐课程-</p>
-				<div class="lessonbackground3">
-					<h1>课程名称课程名称课程名称课程名称课程名称</h1>
-					<div class="lesson-gifts">
-						<div class="lesson-smile"><img src="../../images/125.png" />x20</div>
-						<div class="lesson-star"><img src="../../images/124.png" />10</div>
-					</div>
+				<img class="lessonbackground3">
+				<h1>课程名称课程名称课程名称课程名称课程名称</h1>
+				<div class="lesson-gifts">
+					<div class="lesson-smile"><img src="../../images/125.png" />x<span></span></div>
+					<div class="lesson-star"><img src="../../images/124.png" /><span></span></div>
 				</div>
 			</div>
 		</div>
@@ -186,12 +189,11 @@
 			</ul>
 			<div class="kit-lesson2">
 				<p>-推荐课程-</p>
-				<div class="lessonbackground2">
-					<h1>课程名称课程名称课程名称课程名称课程名称</h1>
-					<div class="lesson-gifts">
-						<div class="lesson-smile"><img src="../../images/125.png" />x20</div>
-						<div class="lesson-star"><img src="../../images/124.png" />10</div>
-					</div>
+				<img class="lessonbackground2">
+				<h1>课程名称课程名称课程名称课程名称课程名称</h1>
+				<div class="lesson-gifts">
+					<div class="lesson-smile"><img src="../../images/125.png" />x<span></span></div>
+					<div class="lesson-star"><img src="../../images/124.png" /><span></span></div>
 				</div>
 			</div>
 		</div>
@@ -209,12 +211,11 @@
 			</ul>
 			<div class="kit-lesson1">
 				<p>-推荐课程-</p>
-				<div class="lessonbackground1">
-					<h1>课程名称课程名称课程名称课程名称课程名称</h1>
-					<div class="lesson-gifts">
-						<div class="lesson-smile"><img src="../../images/125.png" />x20</div>
-						<div class="lesson-star"><img src="../../images/124.png" />10</div>
-					</div>
+				<img class="lessonbackground1">
+				<h1>课程名称课程名称课程名称课程名称课程名称</h1>
+				<div class="lesson-gifts">
+					<div class="lesson-smile"><img src="../../images/125.png" />x<span></span></div>
+					<div class="lesson-star"><img src="../../images/124.png" /><span></span></div>
 				</div>
 			</div>
 		</div>

@@ -39,12 +39,14 @@ function attentionDetail(fId) {
                     $("p.follow-tutorInfor").html(num + "...");
                     // 展开更多
                     $(".follow-read").click(function () {
+                        allClick();
                         $("p.follow-tutorInfor").html(introduction);
                         $(".follow-read").hide();
                         $(".follow-close").show();
                     });
                     // 收起更多
                     $(".follow-close").click(function () {
+                        allClick();
                         $("p.follow-tutorInfor").html(num + "...");
                         $(".follow-read").show();
                         $(".follow-close").hide();
@@ -78,6 +80,7 @@ function attentionDetail(fId) {
             });
             $(".attention-album-list").html(str);
             $(".attention-album-list>li").click(function () {
+                allClick();
                 var albumId = $(this).attr("data-id");
                 $(window).attr("location", "../lessonDetail/album-name.html?albumId=" + albumId);
             });

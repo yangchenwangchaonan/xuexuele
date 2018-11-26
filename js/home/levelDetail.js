@@ -13,10 +13,11 @@ $(function () {
             levelFailAudio.play();
             window.setTimeout(function() {
                 errorOut();
-            }, 2000);
+            }, 1000);
         });
         // 取消
         $("#exitCancel").click(function () {
+            allClick();
             $("#closeLevel").hide();
         });
     });
@@ -39,7 +40,9 @@ function UserGateDetail(a) {
             var data = res.data
             if (res.code == 1) {
                 //答案选项
-                option(data.options, data.answer, data.nextgateid)
+                option(data.options, data.answer, data.nextgateid);
+                $(".respond-key-show").html(data.options[5]);  //新手演示答案选择内容
+                $(".respond-blank-show").html(data.options[5]); //新手演示答案填写内容
 
                 /*--------------垃圾代码分割线------------------*/
                 $(".level-name").html(data.gatename)
@@ -61,6 +64,7 @@ function UserGateDetail(a) {
                 var answerNeed = data.answerwisdombeanuse;
                 var answerContent = data.answer;
                 $("#kitImg").click(function () {
+                    allClick();
                     $(this).addClass("kitShake");
                     window.setTimeout(function () {
                         $("#kitImg").removeClass("kitShake");
@@ -72,12 +76,14 @@ function UserGateDetail(a) {
                         $(".kit-havebeans").show();
                         // 立即查看
                         $("#kitView").unbind().bind("click", function () {
+                            allClick();
                             $(".kit-havebeans").hide();
                             if (answerContent.length > 0 && answerContent.length <= 4) {
                                 kitView(id, uId);
                                 $("#kitAnswerShade1").show();
                                 // 关闭
                                 $("#kitClose1").click(function () {
+                                    allClick();
                                     $("#kitAnswerShade1").hide();
                                     $("#kitShade").hide();
                                 });
@@ -86,6 +92,7 @@ function UserGateDetail(a) {
                                 $("#kitAnswerShade2").show();
                                 // 关闭
                                 $("#kitClose2").click(function () {
+                                    allClick();
                                     $("#kitAnswerShade2").hide();
                                     $("#kitShade").hide();
                                 });
@@ -94,6 +101,7 @@ function UserGateDetail(a) {
                                 $("#kitAnswerShade3").show();
                                 // 关闭
                                 $("#kitClose3").click(function () {
+                                    allClick();
                                     $("#kitAnswerShade3").hide();
                                     $("#kitShade").hide();
                                 });
@@ -101,14 +109,20 @@ function UserGateDetail(a) {
                         });
                         // 关闭
                         $("#havebeansClose").click(function () {
+                            allClick();
                             $("#kitShade").hide();
                             $(".kit-havebeans").hide();
                         });
                     } else if (answerNeed > userWisdombean) {
                         $(".kit-nobeans").show();
                         $(".kit-nobeans>span").html("x" + answerNeed);
+                        //点击立即充值
+                        $(".kit-echarge").click(function(){
+                            $(window).attr("location","../purse/recharge.html");
+                        });
                         // 关闭
                         $("#nobeansClose").click(function () {
+                            allClick();
                             $("#kitShade").hide();
                             $(".kit-havebeans").hide();
                         });
@@ -152,6 +166,7 @@ function option(options, answer, nextgateid) {
     //选择选项
     var UserAnswer = []
     $(".respond-key>ul").unbind().on("click", "li", function () {
+        allClick();
         var dataIndex = $(this).attr("data-index")
         var dataName = $(this).html()
         if (dataName == "") {
@@ -184,6 +199,7 @@ function option(options, answer, nextgateid) {
     })
     //答案归位
     $(".respond-blank>ul").unbind().bind().on("click", "li", function () {
+        allClick();
         var dataIndex = $(this).attr("data-index")
         var dataName = $(this).html()
         if (dataName == '') {
@@ -300,12 +316,14 @@ function correctAnawer(UserAnswer, nextgateid) {
 
                 // 下一关
                 $(".next-level").click(function () {
+                    allClick();
                     sessionStorage.setItem("gateid", nextgateid) //重置关卡id
                     UserGateDetail(1);
                     window.location.reload();
                     $("#levelPass").hide();
                 });
                 $(".next").click(function () {
+                    allClick();
                     sessionStorage.setItem("gateid", nextgateid) //重置关卡id
                     UserGateDetail(1);
                     window.location.reload();
@@ -340,6 +358,7 @@ function kitView(gid, uid) {
             UserGateDetail(0); //首次渲染
             var data = res.data;
             var $str = "";
+            $("")
             $.each(data.answer, function (index, val) {
                 $str += `
                     <li>${val}</li>
@@ -347,10 +366,22 @@ function kitView(gid, uid) {
             });
             if (data.answer.length > 0 && data.answer.length <= 4) {
                 $("#answerList1").html($str);
+                $(".kit-lesson1>.lessonbackground1").attr("src",data.courseimg); //推荐课程图片
+                $(".kit-lesson1>h1").html(data.coursename); //课程名称
+                $(".kit-lesson1>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
+                $(".kit-lesson1>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
             } else if (data.answer.length > 4 && data.answer.length <= 8) {
                 $("#answerList2").html($str);
+                $(".kit-lesson2>.lessonbackground1").attr("src",data.courseimg); //推荐课程图片
+                $(".kit-lesson2>h1").html(data.coursename); //课程名称
+                $(".kit-lesson2>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
+                $(".kit-lesson2>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
             } else if (data.answer.length > 8) {
                 $("#answerList3").html($str);
+                $(".kit-lesson3>.lessonbackground1").attr("src",data.courseimg); //推荐课程图片
+                $(".kit-lesson3>h1").html(data.coursename); //课程名称
+                $(".kit-lesson3>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
+                $(".kit-lesson3>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
             }
         },
         error: function (err) {
@@ -399,6 +430,7 @@ function levelShow() {
     $(".level-topic").css("z-index", "99999");
     // 第二步
     $("#topicShow").click(function () {
+        allClick();
         $("#contentShow").hide();
         $(".level-topic").css("z-index", "350");
         $("#tipContentShow").show();
@@ -407,6 +439,7 @@ function levelShow() {
     });
     // 第三步
     $("#keyShow").click(function () {
+        allClick();
         $("#tipContentShow").hide();
         $(".kit-content").css("z-index", "350");
         $(".key-show").hide();
@@ -414,6 +447,7 @@ function levelShow() {
         $(".blank-show").show();
     });
     $("#blankShow").click(function () {
+        allClick();
         $("#tipKeyShow").hide();
         $(".blank-show").hide();
         sessionStorage.setItem("firstlogin", "9");

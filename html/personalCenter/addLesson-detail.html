@@ -17,6 +17,10 @@
 
 <body class="album-add-body">
     <section class="album-add-container" id="addCourseContent">
+        <!-- 点击按钮音效 -->
+        <audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
+        <!-- 附加页面 -->
+        <audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
         <i class="album-add-back" id="albumAddBack"></i>
         <span id="album-add-title">-课程信息-</span>
         <div class="album-add-box">
@@ -92,7 +96,8 @@
         <i class="addLessonIntroduct-back" id="courseItrBack"></i>
         <div class="addLesson-introduction-box">
             <div class="album-input addLesson-introduct">
-                <textarea type="text" placeholder="请输入课程简介(最多可输入100字)" rows="10" cols="20" wrap="hard" maxlength="100" id="addLessonItrContent"></textarea>
+                <textarea type="text" placeholder="请输入课程简介(最多可输入100字)" rows="10" cols="20" wrap="hard" maxlength="100"
+                    id="addLessonItrContent"></textarea>
             </div>
         </div>
     </div>
@@ -102,7 +107,8 @@
         <i class="addLessonText-back" id="courseTextBack"></i>
         <div class="addLesson-text-box">
             <div class="album-input addLesson-textContent">
-                <textarea type="text" placeholder="请输入课程文字(最多可输入500字)" rows="28" cols="20" wrap="hard" maxlength="500" id="addLessonTextContent"></textarea>
+                <textarea type="text" placeholder="请输入课程文字(最多可输入500字)" rows="28" cols="20" wrap="hard" maxlength="500"
+                    id="addLessonTextContent"></textarea>
             </div>
         </div>
     </div>
@@ -115,7 +121,7 @@
                 <div class="beans-img">
                     <img src="../../images/172.png" />
                 </div>
-                <input type="number" placeholder="请输入智慧豆数量,只能输入整数" id="beans-input" onkeyup="this.value=this.value.replace(/\D|^0/g,'1')"/>
+                <input type="number" placeholder="请输入智慧豆数量,只能输入整数" id="beans-input" onkeyup="this.value=this.value.replace(/\D|^0/g,'1')" />
             </div>
             <div class="free-container">
                 <div class="free-select" id="freeChecked"></div>

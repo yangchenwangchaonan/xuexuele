@@ -9,7 +9,7 @@ var mySwiper = new Swiper('.swiper-container', {
     threshold: 6,  //拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。
     on: {
         slideChangeTransitionEnd: function (event) {
-            // console.log(mySwiper.activeIndex); //滑动时的索引
+            console.log(mySwiper.activeIndex); //滑动时的索引
             // console.log(mySwiper.slides.length); // 总滑块数
             // var slideLength = mySwiper.slides.length - 1;
             countSum++;
@@ -78,7 +78,7 @@ function lessonDetail(lessonId, countSum, diff) {
             var data = res.data;
             var str = "";
             str += `
-            <section class="swiper-slide lesson-audio" data-banner="${data.banner}" data-adImg="${data.banner.image}" data-content="${data.banner.content}" data-name="${data.banner.heading}" data-lastid="${data.lastid}" data-courseid="${lessonId}" data-nextid="${data.nextid}" data-count="${countSum}">
+            <section class="swiper-slide lesson-audio" data-banner="${data.banner}" data-lastid="${data.lastid}" data-courseid="${lessonId}" data-nextid="${data.nextid}" data-count="${countSum}">
                 <img src="${data.list.courseimg}"/>
                 <div class="audio">
                     <h1>${data.list.coursename}</h1>
@@ -187,7 +187,7 @@ function getPrevNextData(id, countSum, type) {
                 var data = res.data;
                 var str1 = "";
                 str1 += `
-                    <section class="swiper-slide lesson-audio" data-banner="${data.banner}" data-adImg="${data.banner.image}" data-content="${data.banner.content}" data-name="${data.banner.heading}" data-lastid="${data.lastid}" data-courseid="${id}" data-nextid="${data.nextid}" data-count="${countSum}">
+                    <section class="swiper-slide lesson-audio" data-banner="${data.banner}" data-lastid="${data.lastid}" data-courseid="${id}" data-nextid="${data.nextid}" data-count="${countSum}">
                         <img src="${data.list.courseimg}"/>
                         <div class="audio">
                             <h1>${data.list.coursename}</h1>
@@ -295,7 +295,7 @@ function allEvent() {
         var courseId = $(this).parents("section").attr("data-courseid");
         // alert(isScore);
         if (isScore == 0) {
-            $("#appraiseShade").css("display", "block");
+            $("#appraiseShade").show();
             $.each($(".appraise-score>ul>li"), function (index, val) {
                 var num = index + 1;
                 var $class = "score-key" + num;
@@ -305,9 +305,9 @@ function allEvent() {
             //关闭
             $(".appraise-close").unbind('click').bind('click', function () {
                 allClick();
-                $("#appraiseShade").css("display", "none");
-                $("#appraiseContent").css("display", "block");
-                $("#appraiseResult").css("display", "none");
+                $("#appraiseShade").hide();
+                $("#appraiseContent").show();
+                $("#appraiseResult").hide();
                 lessonDetail(courseId, countSum, 0); // 渲染页面
             });
         }

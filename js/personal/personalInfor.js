@@ -8,18 +8,22 @@ $(function () {
 
     /************上传头像*********/
     $(".head-pic").click(function () {
+        allClick();
         $("#regVavatar-shade").show();
         getFiles();
         $(".img1").click(function () {
+            allClick();
             $(this).addClass("img1-photo").parent().siblings().children(".img2").removeClass("img2-picture");
             $("#imgPhoto").trigger("click");
         });
         $(".img2").click(function () {
+            allClick();
             $(this).addClass("img2-picture").parent().siblings().children(".img1").removeClass("img1-photo");
             $("#imgPhoto").trigger("click");
         });
         /* 关闭窗口 */
         $(".avatar_btn").click(function () {
+            allClick();
             $("#regVavatar-shade").hide();
             $(".img1").removeClass("img1-photo");
             $(".img2").removeClass("img2-picture");
@@ -28,9 +32,11 @@ $(function () {
 
     /* **************选择性别*************** */
     $("#perGender").click(function () {
+        allClick();
         $("#regGender-shade").show();
         /* 确定 */
         $(".gender_btn1").click(function () {
+            allClick();
             var $text = $("#gender_list").find("p.gender_text").text();
             if ($text) {
                 $("#regGender-shade").hide();
@@ -41,6 +47,7 @@ $(function () {
         });
         /* 关闭窗口 */
         $(".gender_btn2").click(function () {
+            allClick();
             $.each($("#gender_list img"), function (index, val) {
                 var cunt = 43 + index;
                 var eachIMG = "../../images/" + cunt + "-1.png"
@@ -53,9 +60,11 @@ $(function () {
 
     /* **********星座选择*********** */
     $("#perConstellation").click(function () {
+        allClick();
         $("#regConstellation-shade").show();
         //确定
         $(".constellation_btn1").click(function () {
+            allClick();
             var $text = $(".constellation_table").find("p.constellation_text").text();
             if ($text) {
                 $("#regConstellation-shade").hide();
@@ -66,6 +75,7 @@ $(function () {
         });
         // 关闭
         $(".constellation_btn2").click(function () {
+            allClick();
             $("#regConstellation-shade").hide();
             $.each($(".constellation_table img"), function (index, val) {
                 var num = 48 + index;
@@ -78,6 +88,7 @@ $(function () {
 
     /* ******地区选择******** */
     $("#perArea").click(function () {
+        allClick();
         $(".personal-area").show();
         $(".area-box1").show();
         $(".area-box2").hide();
@@ -86,6 +97,7 @@ $(function () {
 
         //选择城市
         $(".cityper").click(function () {
+            allClick();
             // console.log($(this).attr("name"));
             $(this).addClass("cityChecked").siblings().removeClass("cityChecked");
             $("#cityname").text($(this).text());
@@ -100,6 +112,7 @@ $(function () {
         });
         //关闭
         $("#areaClose").click(function () {
+            allClick();
             $(".personal-area").hide();
             $(".personal-container").show();
         });
@@ -107,6 +120,7 @@ $(function () {
 
     // 个人简介
     $("#personal-introduct").click(function () {
+        allClick();
         $("body").addClass("present-body");
         $(".personal-container").hide();
         $(".personal-introduct").show();
@@ -118,9 +132,9 @@ $(function () {
                 $(".perEditCompleted").hide();
                 $(".personal-container").show();
                 $(".personal-introduct").hide();
-                if(coursetext!=""){
+                if (coursetext != "") {
                     $("#personal-introduct>input").val("已填写");
-                }else{
+                } else {
                     $("#personal-introduct>input").val("未填写");
                 }
             });
@@ -129,6 +143,7 @@ $(function () {
 
     // 返回
     $(".personal-changeback").click(function () {
+        allClick();
         $("body").removeClass("present-body");
         $(".personal-container").show();
         $(".personal-introduct").hide();
@@ -136,6 +151,7 @@ $(function () {
 
     /*提交修改*/
     $("#perSubmit").click(function () {
+        allClick();
         var $avartar = $("#perImg>img").attr("src");
         var $nickname = $("#perNickname>input").val();
         var $perGender = $("#perGender>input").val();
@@ -145,17 +161,17 @@ $(function () {
         var $perIntroduct = $(".present-detail").val();
         // 头像
         if ($avartar == undefined) {
-            infor("请上传一个霸气的头像~", 1);
+            lemonTips("请上传一个霸气的头像~", 1);
             return;
         }
         // 昵称
         if ($nickname == "") {
-            infor("给自己起一个响亮的名字吧~", 1);
+            lemonTips("给自己起一个响亮的名字吧~", 1);
             return;
         }
         // 性别
         if ($perGender == "") {
-            infor("请选择性别~", 1);
+            lemonTips("请选择性别~", 1);
             return;
         }
         var $perId = 0;
@@ -170,12 +186,12 @@ $(function () {
         }
         // 生日、星座、地区
         if ($perBirthday == "" || $perConstellation == "" || $perArea == "") {
-            infor("请完善个人信息~", 1);
+            lemonTips("请完善个人信息~", 1);
             return;
         }
         //个人简介
         if ($perIntroduct == "") {
-            infor("请填写个人简介~", 1);
+            lemonTips("请填写个人简介~", 1);
             return;
         }
         var uId = sessionStorage.getItem("uid");
@@ -198,9 +214,9 @@ $(function () {
                 var code = res.code;
                 var msg = res.msg;
                 if (code == 1) {
-                    infor("修改成功~", 1);
+                    lemonTips("修改成功~", 1);
                 } else {
-                    infor(msg, 1);
+                    lemonTips(msg, 1);
                 }
             },
             error: function (err) {
@@ -265,6 +281,7 @@ function personalInfor() {
 
 /* 改变性别 */
 function changeGender(e, genderImag) {
+    allClick();
     $.each($("#gender_list img"), function (index, val) {
         var cunt = 43 + index;
         var eachIMG = "../../images/" + cunt + "-1.png"
@@ -277,6 +294,7 @@ function changeGender(e, genderImag) {
 
 /* 改变星座图片 */
 function changeImage(e, imgName) {
+    allClick();
     $.each($(".constellation_table img"), function (index, val) {
         var num = 48 + index;
         var eachIMG = "../../images/" + num + "-1.png"
@@ -370,12 +388,12 @@ function readFile() {
     }
 }
 
-//修改信息弹窗
-function infor(a, b) {
-    $(".submit-tips").html(a);
-    var y = b * 1000;
-    $(".submit-tips").show();
-    window.setTimeout(() => {
-        $(".submit-tips").hide();
-    }, y);
-}
+// //修改信息弹窗
+// function infor(a, b) {
+//     $(".submit-tips").html(a);
+//     var y = b * 1000;
+//     $(".submit-tips").show();
+//     window.setTimeout(() => {
+//         $(".submit-tips").hide();
+//     }, y);
+// }

@@ -10,11 +10,16 @@
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/personal/albumManage.js"></script>
 </head>
 
 <body class="manage-body">
 	<section class="manage-container">
+		<!-- 点击按钮音效 -->
+		<audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
+		<!-- 附加页面 -->
+		<audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
 		<i class="manage-back" id="albumManageBack"></i>
 		<span id="manage-title">-课程管理-</span>
 		<div class="manage-box">
@@ -72,7 +77,7 @@
 	<!--删除提示框1-->
 	<div class="operate-shade" id="delTips1">
 		<div class="operate-del-tips1">
-			<img src="../../images/39.png" id="closeBn"/>
+			<img src="../../images/39.png" id="closeBn" />
 			<div class="tip-img"></div>
 			<div class="tip-text">请将专题下课程删除，然后删除专题。</div>
 		</div>

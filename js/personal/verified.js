@@ -23,19 +23,23 @@ $(function () {
 function getInfo() {
 	//modal
 	$(".education").click(function () {
+		allClick();
 		$(".realname-shade").show()
 	});
 	//选择学历
 	$(".verified-color").on("click", "li", function () {
+		allClick();
 		$(this).addClass('verified-foot-modal-color')
 		$(this).siblings().removeClass("verified-foot-modal-color")
 	})
 	//x
 	$(".education-enter").click(function () {
+		allClick();
 		$(".realname-shade").hide()
 	});
 	//√
 	$(".education-close").click(function () {
+		allClick();
 		$(".education").val($(".verified-foot-modal-color").html())
 		$(".realname-shade").hide()
 	});
@@ -43,11 +47,13 @@ function getInfo() {
 
 	//身份证
 	$(".identityimg").click(function () {
+		allClick();
 		$(".con3").hide();
 		$(".con1").show();
 	})
 	//back
 	$(".realname-back1").click(function () {
+		allClick();
 		$(".con1").hide();
 		$(".con3").show();
 		$(".realname-file").val("")
@@ -67,12 +73,15 @@ function getInfo() {
 
 	//确认上传
 	$(".btn0").click(function () {
+		allClick();
+		$(".identityimg").val("已上传");
 		$(".con1").hide();
 		$(".con3").show();
 	})
 
 	//确认上传x
 	$(".submit-cancel").click(function () {
+		allClick();
 		$(".submit-cancel").css("display", "none")
 		$(".card-photo").show()
 		$(".card-photo1").hide()
@@ -121,6 +130,7 @@ function getPushImg(file, name) {
 //提交审核
 function getPush() {
 	$(".btn1").click(function () {
+		allClick();
 		//id
 		var uid = sessionStorage.getItem("uid")
 		//名字

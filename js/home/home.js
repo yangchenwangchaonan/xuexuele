@@ -82,14 +82,20 @@ function userGate(index, iscurrent) {
       }
       $("#nowStamina").html(sVal);
       $("#ownStamina").html(sVal);
+      var staminaWidth = $(".stamina-value").width();
+      // console.log(staminaWidth);
       var sPercent = sVal / 30;
-      $(".stamina-value").css("width", sPercent * 48);
+      if (sPercent < 0.2) {
+        $(".stamina-value").css("width", 0.2 * staminaWidth);
+      } else {
+        $(".stamina-value").css("width", sPercent * staminaWidth);
+      }
       // 体力值tips
       //体力值
       $("#stamina-tab").click(function () {
         allClick();
         if (sVal < 4) {
-          $("#realStamina").css("color", "red");
+          $("#ownStamina").css("color", "red");
           $("#stamina-shade").show();
         } else {
           $("#stamina-shade").show();
@@ -103,22 +109,32 @@ function userGate(index, iscurrent) {
       //智慧豆
       var bean = data.wisdombean;
       $("#getBeans").html(bean);
+      var beanWidth = $(".beans-value").width();
+      // console.log(beanWidth);
       var beanPercent = bean / 9999999;
-      $(".beans-value").css("width", beanPercent * 52);
-      if (bean > 9999999) {
-        $(".beans-value").css("width", 52);
+      if (beanPercent < 0.3) {
+        $(".beans-value").css("width", 0.3 * beanWidth);
+      } else if (bean > 9999999) {
+        $(".beans-value").css("width", beanWidth);
         $("#getBeans").html(9999999);
         $(".beans-progress").append("<i class='icon_stamina'>+</i>");
+      } else {
+        $(".beans-value").css("width", beanPercent * beanWidth);
       }
       //pk值
       var pkVal = data.pk;
+      var pkWidth = $(".pk-value").width();
+      // console.log(pkWidth);
       $("#pkValue").html(pkVal);
       var pkPercent = pkVal / 9999999;
-      $(".pk-value").css("width", pkPercent * 52);
-      if (pkVal > 9999999) {
-        $(".beans-value").css("width", 52);
+      if (pkPercent < 0.3) {
+        $(".pk-value").css("width", 0.3 * pkWidth);
+      } else if (pkVal > 9999999) {
+        $(".pk-value").css("width", pkWidth);
         $("#pkValue").html(9999999);
         $(".pk-progress").append("<i class='icon_stamina'>+</i>");
+      } else {
+        $(".pk-value").css("width", pkPercent * pkWidth);
       }
 
       // 站内信
@@ -297,11 +313,12 @@ function userGate(index, iscurrent) {
 // 闯关
 function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName, userValue) {
   // console.log(userValue);
-  var clickMp3 = $("#clcikMp3")[0];
-  clickMp3.play();
   if (levelLock == 0) {
     homeLevel("请先闯过当前关卡~", 1);
     return;
+  }else {
+    var clickMp3 = $("#clcikMp3")[0];
+    clickMp3.play();
   }
   $("#levelNum").html(levelName);
   var str = "";

@@ -5,6 +5,7 @@ $(function () {
     courseMessage(1, courseId, 0); //留言信息
     // 课程信息
     $("#lessonInfor").click(function () {
+        allClick();
         $(this).addClass("lesson-tabs-checked");
         $(this).siblings(".lesson-tabs").removeClass("lesson-tabs-checked");
         // courseDetail(courseId);
@@ -13,6 +14,7 @@ $(function () {
     });
     // 留言信息
     $("#lessonMessage").click(function () {
+        allClick();
         $(this).addClass("lesson-tabs-checked");
         $(this).siblings(".lesson-tabs").removeClass("lesson-tabs-checked");
         // courseMessage(courseId);
@@ -94,6 +96,7 @@ function courseMessage(pageIndex, courseId, type) {
                 $(".message-list").append(str);
             }
             $(".message-reply").unbind("click").bind("click", function () {
+                allClick();
                 var $name = $(this).parent().find(".tourist-name").html();
                 var commentId = $(this).parent().attr("data-cmid");
                 var courseId = $(this).parent().attr("data-cid");
@@ -129,6 +132,7 @@ function replyMessage(e, name, commentId, courseId) {
     $("#messageReply").attr("placeholder", "回复:" + name);
     $("#messageReply").focus();
     $("#replayBtn").click(function () {
+        allClick();
         var text = $("#messageReply").val();
         $(".replayInner").hide();
         if (text == "") {

@@ -15,6 +15,10 @@
 
 <body class="realname-body">
     <section class="personal-container">
+        <!-- 点击按钮音效 -->
+        <audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
+        <!-- 附加页面 -->
+        <audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
         <i class="personal-goback"></i>
         <span id="personal-top">-个人中心-</span>
         <div class="personal-box">
@@ -52,7 +56,7 @@
                 </li>
             </ul>
             <div class="personal-submit" id="perSubmit">确认修改</div>
-            <div class="submit-tips"></div> <!-- tips -->
+            <div class="submit-tips"></div> 
         </div>
     </section>
     <!-- 头像选择 -->
@@ -252,6 +256,7 @@
 </body>
 <script src="../../js/common/jquery-1.11.3.min.js"></script>
 <script src="../../js/common/common.js"></script>
+<script src="../../js/common/tips.js"></script>
 <script src="../../js/personal/personalInfor.js"></script>
 <script src="../../js/reg/cropper.js"></script>
 <script src="../../js/birthday/lCalendar.min.js"></script>

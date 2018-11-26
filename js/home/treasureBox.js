@@ -3,6 +3,7 @@ $(function () {
     treasureBoxList(1, uId); //默认特殊奖励列表
     // 特殊奖励
     $("#specialReward").unbind().bind("click", function () {
+        allClick();
         $(".nogift").hide();
         $(".treasureBox-wrapper").html("");
         $(this).addClass("treasureBoxSpecial2").siblings().removeClass("treasureBoxOrdinary2");
@@ -10,6 +11,7 @@ $(function () {
     });
     // 推荐奖励
     $("#ordinaryReward").unbind().bind("click", function () {
+        allClick();
         $(".nogift").hide();
         $(".treasureBox-wrapper").html("");
         $(this).addClass("treasureBoxOrdinary2").siblings().removeClass("treasureBoxSpecial2");
@@ -89,11 +91,13 @@ function treasureBoxList(page, uId) {
 
             // 文章
             $(".treasureBox-gift1").click(function () {
+                allClick();
                 var $id1 = $(this).attr("data-id");
                 $(window).attr("location", "./treasureBox_detail.html?id=" + $id1);
             });
             // 音频
             $(".treasureBox-gift2").click(function () {
+                allClick();
                 var $id2 = $(this).attr("data-id");
                 $(window).attr("location", "./treasureBox_audio.html?id=" + $id2);
             });
@@ -136,6 +140,7 @@ function userBoxCourse(boxPage, uId) {
             $(".treasureBox-wrapper").html(str2);
             // 课程音频
             $(".treasureBox-gift2").click(function () {
+                allClick();
                 var $id2 = $(this).attr("data-id");
                 $(window).attr("location", "./treasureBox_audio.html?id=" + $id2 + "&page=1");
             });

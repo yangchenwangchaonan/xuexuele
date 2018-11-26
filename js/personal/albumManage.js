@@ -49,6 +49,7 @@ function lessonManageList() {
                 // 专辑操作
                 var flag = true;
                 $(".manage-btn").click(function () {
+                    allClick();
                     var aid = $(this).parent().attr("data-aid");
                     $(this).parent().find(".album-operate").show();
                     $(this).parent().siblings().find(".album-operate").hide();
@@ -58,6 +59,7 @@ function lessonManageList() {
                         flag = false;
                         // 专辑删除
                         $(".operate-del").click(function () {
+                            allClick();
                             $(this).parent(".album-operate").hide();
                             albumDel(aid);
                         });
@@ -72,6 +74,7 @@ function lessonManageList() {
                 });
                 // 专辑详情
                 $(".album-href").click(function () {
+                    allClick();
                     var $aid = $(this).parent().attr("data-aid");
                     $(window).attr("location", "./album-detail.html?aid=" + $aid);
                 });
@@ -106,6 +109,7 @@ function albumDel(aId) {
                 $("#delTips1>.tip-text").html(res.msg);
                 $("#delTips1").show();
                 $("#closeBn").click(function () {
+                    allClick();
                     $("#delTips1").hide();
                 });
             }

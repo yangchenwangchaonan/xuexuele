@@ -4,11 +4,13 @@ $(function () {
     albumDetail(aId); //专辑详情
     //录音
     $(".lesson-recording1").click(function () {
+        allClick();
         $(this).addClass("lesson-recording2").siblings().removeClass("lesson-upload2");
         $(window).attr("location", "./lesson-recording.html?aid="+aId);
     });
     // 上传
     $(".lesson-upload1").click(function () {
+        allClick();
         $(this).addClass("lesson-upload2").siblings().removeClass("lesson-recording2");
     });
     // 上传音频
@@ -76,9 +78,11 @@ function albumDetail(id) {
             }
             // 新增课程
             $("#addLesson1,#noLesson,#addLesson2").click(function () {
+                allClick();
                 $(".lesson-shade").show();
                 //关闭
                 $(".lesson-add-close").click(function () {
+                    allClick();
                     $(".lesson-shade").hide();
                     $(".lesson-recording1").removeClass("lesson-recording2");
                     $(".lesson-upload1").removeClass("lesson-upload2");
@@ -87,6 +91,7 @@ function albumDetail(id) {
             // 操作
             var flag = true;
             $(".lesson-operate").click(function () {
+                allClick();
                 var cId = $(this).parents(".lesson-title").attr("data-cId");
                 var aId = $(this).parents(".lesson-title").attr("data-aId");
                 $(this).parents(".lesson-title").find(".lessonOperate-option").show();
@@ -97,6 +102,7 @@ function albumDetail(id) {
                     flag = false;
                     // 课程删除
                     $(".operate-del").click(function () {
+                        allClick();
                         $(this).parents(".lessonOperate-option").hide();
                         courseDel(cId, aId);
                     });
@@ -112,6 +118,7 @@ function albumDetail(id) {
 
             // 课程详情
             $(".lessonDetail").click(function () {
+                allClick();
                 var cId = $(this).parents(".lesson-title").attr("data-cId");
                 $(window).attr("location", "./course-detail.html?cId=" + cId);
             });

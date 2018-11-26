@@ -22,6 +22,7 @@ $(function () {
     /* 获取验证码 */
     var flag = true;
     $("#recodeBtn").click(function () {
+        allClick();
         if (!flag) {
             return false;
         }
@@ -83,6 +84,7 @@ $(function () {
 
     // 下一步
     $("#repwdBtn1").click(function () {
+        allClick();
         var codeValue = $("#repwdCode").val();
         var realCode = $("#returnCode").val();
         if ($("#repwdPhone").val() == "" || $("#repwdPhone").val() == null) {

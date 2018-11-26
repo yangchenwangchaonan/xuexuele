@@ -24,6 +24,7 @@ $(function () {
     });
     // 登录
     $(".login-btn").click(function () {
+        allClick();
         if ($("#phone").val() == "" || $("#phone").val() == null) {
             flowerTips("请输入手机号~", 1);
         } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#phone").val())) {

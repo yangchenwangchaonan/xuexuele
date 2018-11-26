@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -9,57 +10,63 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
     <script src="../../js/common/common.js"></script>
-    <script src="../../js/login/repwd.js"></script>
     <script src="../../js/common/tips.js"></script>
+    <script src="../../js/login/repwd.js"></script>
 </head>
-<body class="index-body">
-<section class="repwd-container">
-    <i class="page-back" id="repwdBack"></i>
-    <div class="img-wrapper wrapper-01">
-        <img src="../../images/02.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-02">
-        <img src="../../images/03.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-03">
-        <img src="../../images/04.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-04">
-        <img src="../../images/05.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-05">
-        <img src="../../images/06.png" alt="">
-    </div>
-    <div class="img-wrapper wrapper-06">
-        <img src="../../images/07.png" alt="">
-    </div>
 
-    <div class="rewpd-wrapper">
-        <div class="rewpd-content">
-            <h1></h1>
-            <h2>使用注册时的手机号重置密码</h2>
-            <div class="login-input-wrapper input-1" id="telInput">
-                <i></i>
-                <input class="input-1" type="number" placeholder="请输入电话号码" id="repwdPhone">
-                <div class="tel-close" id="delTel"></div>
-            </div>
-            <div class="repwd-code">
-                <div class="login-input-wrapper input-3" id="repwdInput">
+<body class="index-body">
+    <section class="repwd-container">
+        <!-- 点击按钮音效 -->
+        <audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
+        <!-- 附加页面 -->
+        <audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
+        <i class="page-back" id="repwdBack"></i>
+        <div class="img-wrapper wrapper-01">
+            <img src="../../images/02.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-02">
+            <img src="../../images/03.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-03">
+            <img src="../../images/04.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-04">
+            <img src="../../images/05.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-05">
+            <img src="../../images/06.png" alt="">
+        </div>
+        <div class="img-wrapper wrapper-06">
+            <img src="../../images/07.png" alt="">
+        </div>
+
+        <div class="rewpd-wrapper">
+            <div class="rewpd-content">
+                <h1></h1>
+                <h2>使用注册时的手机号重置密码</h2>
+                <div class="login-input-wrapper input-1" id="telInput">
                     <i></i>
-                    <input class="input-2" type="number" placeholder="请输入验证码" id="repwdCode">
-                     <!-- 存放后台返回的验证码 -->
-                     <input type="hidden" id="returnCode"/> 
-                     <div class="code-close"></div>
+                    <input class="input-1" type="number" placeholder="请输入电话号码" id="repwdPhone">
+                    <div class="tel-close" id="delTel"></div>
                 </div>
-                <p id="recodeBtn">获取验证码</p>
-            </div>
-            <div class="repwd-btn" id="repwdBtn1">
-                <i></i>
+                <div class="repwd-code">
+                    <div class="login-input-wrapper input-3" id="repwdInput">
+                        <i></i>
+                        <input class="input-2" type="number" placeholder="请输入验证码" id="repwdCode">
+                        <!-- 存放后台返回的验证码 -->
+                        <input type="hidden" id="returnCode" />
+                        <div class="code-close"></div>
+                    </div>
+                    <p id="recodeBtn">获取验证码</p>
+                </div>
+                <div class="repwd-btn" id="repwdBtn1">
+                    <i></i>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- tips -->
-    <div class="reg-tips"></div>
-</section>
+        <!-- tips -->
+        <div class="reg-tips"></div>
+    </section>
 </body>
+
 </html>

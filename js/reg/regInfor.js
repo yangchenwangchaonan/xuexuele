@@ -5,22 +5,27 @@ $(function () {
     })
     /* *********选择身份********** */
     $("#identity>p").click(function () {
+        allClick();
         $(this).children().addClass("checked").parent().siblings().children().removeClass("checked");
     });
     /************上传头像*********/
     $("#reg-avatar").click(function () {
+        allClick();
         $("#regVavatar-shade").show();
         getFiles();  //监听获取到的照片
         $(".img1").click(function () {
+            allClick();
             $(this).addClass("img1-photo").parent().siblings().children(".img2").removeClass("img2-picture");
             $("#imgPhoto").trigger("click");
         });
         $(".img2").click(function () {
+            allClick();
             $(this).addClass("img2-picture").parent().siblings().children(".img1").removeClass("img1-photo");
             $("#imgPhoto").trigger("click");
         });
         /* 关闭窗口 */
         $(".avatar_btn").click(function () {
+            allClick();
             $("#regVavatar-shade").hide();
             $(".img1").removeClass("img1-photo");
             $(".img2").removeClass("img2-picture");
@@ -30,9 +35,11 @@ $(function () {
 
     /* **************选择性别*************** */
     $("#reg-gender").click(function () {
+        allClick();
         $("#regGender-shade").show();
         /* 确定 */
         $(".gender_btn1").click(function () {
+            allClick();
             var $text = $("#gender_list").find("p.gender_text").text();
             if ($text) {
                 $("#regGender-shade").hide();
@@ -44,6 +51,7 @@ $(function () {
         });
         /* 关闭窗口 */
         $(".gender_btn2").click(function () {
+            allClick();
             $.each($("#gender_list img"), function (index, val) {
                 var cunt = 43 + index;
                 var eachIMG = "../../images/" + cunt + "-1.png"
@@ -57,9 +65,11 @@ $(function () {
 
     /* **********星座选择*********** */
     $("#reg-constellation").click(function () {
+        allClick();
         $("#regConstellation-shade").show();
         //确定
         $(".constellation_btn1").click(function () {
+            allClick();
             var $text = $(".constellation_table").find("p.constellation_text").text();
             if ($text) {
                 $("#regConstellation-shade").hide();
@@ -71,6 +81,7 @@ $(function () {
         });
         // 关闭
         $(".constellation_btn2").click(function () {
+            allClick();
             $("#regConstellation-shade").hide();
             $.each($(".constellation_table img"), function (index, val) {
                 var num = 48 + index;
@@ -83,6 +94,7 @@ $(function () {
 
     /* ******地区选择******** */
     $("#reg-area").click(function () {
+        allClick();
         $(".area-body").show();
         $(".area-box1").show();
         $(".area-box2").hide();
@@ -91,6 +103,7 @@ $(function () {
 
         //选择城市
         $(".cityper").click(function () {
+            allClick();
             // console.log($(this).attr("name"));
             $(this).addClass("cityChecked").siblings().removeClass("cityChecked");
             $("#cityname").text($(this).text());
@@ -105,6 +118,7 @@ $(function () {
         });
         //关闭
         $("#areaClose").click(function () {
+            allClick();
             $(".area-body").hide();
             $(".index-container").show();
             $("#reg-area").html("点击选择");
@@ -114,6 +128,7 @@ $(function () {
 
     /*提交注册*/
     $("#reg-end").click(function () {
+        allClick();
         var $Identity = $("#identity p>i.checked").length;
         var $avartar = $("#uploadImg").attr("src");
         var $nickname = $("#nickName").val();
@@ -206,6 +221,7 @@ $(function () {
 
 /* 改变性别 */
 function changeGender(e, genderImag) {
+    allClick();
     $.each($("#gender_list img"), function (index, val) {
         var cunt = 43 + index;
         var eachIMG = "../../images/" + cunt + "-1.png"
@@ -218,6 +234,7 @@ function changeGender(e, genderImag) {
 
 /* 改变星座图片 */
 function changeImage(e, imgName) {
+    allClick();
     $.each($(".constellation_table img"), function (index, val) {
         var num = 48 + index;
         var eachIMG = "../../images/" + num + "-1.png"
@@ -265,6 +282,7 @@ function readFile() {
         $('#img-path').cropper('replace', this.result, true);
         //取消
         $('div.img-cut-btn1').click(function () {
+            allClick();
             $('#img-path').cropper('reset', {
                 width: 300,
                 height: 300
@@ -272,6 +290,7 @@ function readFile() {
         });
         //确定
         $('div.img-cut-btn2').click(function () {
+            allClick();
             var val = $('#img-path').cropper('getCroppedCanvas', {
                 width: 600,
                 height: 600,

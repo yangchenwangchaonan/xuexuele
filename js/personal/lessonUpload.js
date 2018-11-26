@@ -14,6 +14,7 @@ $(function () {
         Rendering(voiceUrl, albumId); //新增时渲染页面
         $("#addCouse").html("上传课程");
         $("#addCouse").click(function () {
+            allClick();
             addCourse(albumId);
         });
     }
@@ -66,6 +67,7 @@ function courseDetail(cId) {
                 var albumId = data.albumid;
                 Rendering(voiceUrl, albumId);
                 $("#addCouse").click(function () {
+                    allClick();
                     changeCourse(cId, albumId);
                 });
             } else {
@@ -88,11 +90,13 @@ function Rendering(voiceUrl) {
     $("#adLessonBeans").hide(); //课程所需智慧豆
     // 设置课程名称
     $("#addCourseName").click(function () {
+        allClick();
         $("#addCourseContent").hide();
         $("#addLessonName").show();
         $("#addNameContent").focus(function () {
             $(".editCompleted").show();
             $(".editCompleted").click(function () {
+                allClick();
                 var courseName = $.trim($("#addNameContent").val());
                 $(".editCompleted").hide();
                 $("#addCourseContent").show();
@@ -104,6 +108,7 @@ function Rendering(voiceUrl) {
         });
         // 返回
         $("#courseNameBack").click(function () {
+            allClick();
             $(".editCompleted").hide();
             $("#addCourseContent").show();
             $("#addLessonName").hide();
@@ -111,11 +116,13 @@ function Rendering(voiceUrl) {
     });
     // 设置课程简介
     $("#addCourseIntroduct").click(function () {
+        allClick();
         $("#addCourseContent").hide();
         $("#addLessonIntroduct").show();
         $("#addLessonItrContent").focus(function () {
             $(".editCompleted").show();
             $(".editCompleted").click(function () {
+                allClick();
                 var coursetext = $.trim($("#addLessonItrContent").val());
                 $(".editCompleted").hide();
                 $("#addCourseContent").show();
@@ -127,6 +134,7 @@ function Rendering(voiceUrl) {
         });
         // 返回
         $("#courseItrBack").click(function () {
+            allClick();
             $(".editCompleted").hide();
             $("#addCourseContent").show();
             $("#addLessonIntroduct").hide();
@@ -134,22 +142,26 @@ function Rendering(voiceUrl) {
     });
     // 上传封面
     $("#addCourseCover").click(function () {
+        allClick();
         $("#addCourseContent").hide();
         $("#addLessonCover").show();
         courseUpload();
         // 返回
         $("#courseCoverBack").click(function () {
+            allClick();
             $("#addCourseContent").show();
             $("#addLessonCover").hide();
         });
     });
     // 课程文字
     $("#addCourseText").click(function () {
+        allClick();
         $("#addCourseContent").hide();
         $("#addLessonText").show();
         $("#addLessonTextContent").focus(function () {
             $(".editCompleted").show();
             $(".editCompleted").click(function () {
+                allClick();
                 var courseContent = $.trim($("#addLessonTextContent").val());
                 $(".editCompleted").hide();
                 $("#addCourseContent").show();
@@ -161,6 +173,7 @@ function Rendering(voiceUrl) {
         });
         // 返回
         $("#courseTextBack").click(function () {
+            allClick();
             $(".editCompleted").hide();
             $("#addCourseContent").show();
             $("#addLessonText").hide();
@@ -168,10 +181,12 @@ function Rendering(voiceUrl) {
     });
     //课程价格 智慧豆数
     $("#addCourseBeans").click(function () {
+        allClick();
         $("#addCourseContent").hide();
         $("#adLessonBeans").show();
         // 勾选免费
         $(".free-container").click(function () {
+            allClick();
             if ($("#freeChecked").hasClass("free-select-checked")) {
                 $("#freeChecked").removeClass("free-select-checked");
             } else {
@@ -184,6 +199,7 @@ function Rendering(voiceUrl) {
         });
         // 确定
         $("#beansBtn").click(function () {
+            allClick();
             PlatreWardbeans();
             // 弹出框
             $(".beans-shade").show();
@@ -201,6 +217,7 @@ function Rendering(voiceUrl) {
         });
         // 返回
         $("#beanBack").click(function () {
+            allClick();
             $("#addCourseContent").show();
             $("#adLessonBeans").hide();
         });
@@ -218,6 +235,7 @@ function courseUpload() {
     });
     // 确认上传
     $("#addLessonBtn").click(function () {
+        allClick();
         // alert("上传成功~");
         $("#addCourseContent").show();
         $("#addLessonCover").hide();
@@ -225,6 +243,7 @@ function courseUpload() {
     });
     // 确认上传x
     $(".submit-cancel").click(function () {
+        allClick();
         $(".lesson-cover-content").html("<img/>");
         $(".upCover").val("");
         $(".submit-cancel").hide();

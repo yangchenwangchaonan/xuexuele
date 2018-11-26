@@ -1,5 +1,6 @@
 // 柠檬提示框
 function lemonTips(a, b) {
+    otherPages();
     $(".submit-tips").html(a);
     var y = b * 1000;
     $(".submit-tips").show();
@@ -10,6 +11,7 @@ function lemonTips(a, b) {
 
 // 牵牛花提示框
 function flowerTips(a, b) {
+    otherPages();
     $(".reg-tips").show()
     $(".reg-tips").text(a)
     var date = b * 1000;
@@ -20,6 +22,7 @@ function flowerTips(a, b) {
 
 // 通用弱提示
 function generalTips(a, b) {
+    otherPages();
     $(".internet-tips").show();
     $(".internet-tips").text(a)
     var date = b * 1000;
@@ -38,6 +41,7 @@ function deleteVal(a, b) {
 
 //智慧塔提示框
 function homeLevel(a, b) {
+    otherPages();
     $(".home-tips").show()
     $(".home-tips").text(a)
     var date = b * 1000;
@@ -50,4 +54,10 @@ function homeLevel(a, b) {
 function allClick() {
     var buttonMps = $("#buttonMps")[0];
     buttonMps.play();
+}
+
+// 附加页面音效
+function otherPages(){
+    var shadePages = $("#otherPages")[0];
+    shadePages.play();
 }

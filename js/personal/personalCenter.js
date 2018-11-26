@@ -4,26 +4,32 @@ $(function() {
     Close ()
     //身份设置
     $(".setting").click(function() {
-        $("#personalShade").css("display", "block");
+        allClick();
+        $("#personalShade").show();
         $("#roleSetting>p").click(function() {
+            allClick();
             $(this).children().addClass("checked").parent().siblings().children().removeClass("checked");
         });
         $("#languageSetting").click(function() {
-            $(".language-tips").css("display", "block");
-            $(".language-tips").click(function() {
-                $(".language-tips").css("display", "none");
-            });
+            allClick();
+            $(".language-tips").show();
+            window.setTimeout(function() {
+                $(".language-tips").hide();
+            }, 1000);
         }); 
     });
     // 退出登录
     $(".login-out").click(function() {
+        allClick();
         $(window).attr("location", "../../signOut.html");
         sessionStorage.clear()
     });
     // 分享
     $(".personal-leave").click(function(){
+        allClick();
         $("#shareTips").show();
         $("#shareTips").click(function(){
+            allClick();
             $(this).hide();
         });
     });
@@ -33,6 +39,7 @@ $(function() {
 // 关闭窗口
 function Close () {
     $(".personal-close").click(function() {
+        allClick();
         if ($(".p1>i").attr("class") == "checked") {
             Setup(2)
         } else {
@@ -54,7 +61,7 @@ function Setup(num) {
         dataType: "json",
         success: function(res) {
             UserInfo()
-            $("#personalShade").css("display", "none");
+            $("#personalShade").hide();
         },
         error: function(err) {
             console.log(err);
@@ -90,6 +97,7 @@ function UserInfo() {
             }
             var url=$(".certified").text()
             $(".personal-infor-history").click(function(){
+                allClick();
                if(url=="未认证" || url=="驳回"){
                 $(window).attr("location", "../personalCenter/verified.html");
                }else if(url=="审核中"){
