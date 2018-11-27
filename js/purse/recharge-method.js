@@ -18,26 +18,6 @@ $(function () {
 		window.location.replace("./recharge.html");
 	});
 	
-	$('.submitMethod').on('submit', function () {
-		var uid = $('inpur[name=uid]').val(),
-			order_money = $('inpur[name=order_money]').val();
-			alert(uid);
-			alert(order_money);
-		$(this).ajaxSubmit({
-			type: 'post', // 提交方式 get/post            
-			url: 'https://xuexuele.huimor.com/api/Pay/WxPayJsApi', // 需要提交的 url            
-			data: {
-				'uid': uid,
-				'order_money': order_money
-			},
-			success: function (res) { // data 保存提交后返回的数据，一般为 json 数据                
-				console.log(res);
-				// alert('提交成功！');
-			}
-		});
-		// $(this).resetForm(); // 提交后重置表单              
-		// return false; // 阻止表单自动提交事件，必须返回false，否则表单会自己再做一次提交操作，并且页面跳转
-	});
 });
 
 // 支付宝支付
