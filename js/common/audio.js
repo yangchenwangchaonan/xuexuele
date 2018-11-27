@@ -1,6 +1,5 @@
 $(function () {
     var audio = $('#lessonAudio').get(0);
-    // console.log(audio);
     $('#progressBar').click(function () {
         //改变暂停/播放icon
         if (audio.paused) {
@@ -22,16 +21,6 @@ $(function () {
 
     // 监听音频播放时间
     audio.addEventListener('timeupdate', updateProgress, false);
-
-    // // 指定进度条跳到该位置
-    // var pgsWidth = $('.progressReal').css('width') * 0.975; //此0.907同上一个0.907
-    // // console.log(pgsWidth);
-    // $('.progressKey').click(function (e) {
-    //     var rate = (e.offsetX - ($(this).width() - pgsWidth) / 2) / pgsWidth;
-    //     audio.currentTime = audio.duration * rate;
-    //     updateProgress();
-    // });
-
     // 播放完成
     audio.addEventListener('ended', audioEnded, false);
 });
@@ -58,7 +47,7 @@ function updateProgress() {
     var audio = $("#lessonAudio")[0]; //js获取的方式
     var value = Math.round((Math.floor(audio.currentTime) / Math.floor(audio.duration)) * 100, 0);
     // console.log(value);
-    $('.progressReal').css('width', value * 0.975 + '%');
+    $('.progressReal').css('width', value * 0.976 + '%');
     $('.successed').html(transTime(audio.currentTime));
 }
 

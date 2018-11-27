@@ -1955,7 +1955,7 @@ body {
 
 #treasureBoxAudioBg {
     width: 100%;
-    height: 66.7rem;
+    height: 100%;
 }
 
 #lessonBackground {
@@ -2184,10 +2184,10 @@ body {
 
 .adAudio-content {
     position: absolute;
-    width: 31.75rem;
+    width: 29rem;
     height: 9.67rem;
-    bottom: 1.026rem;
-    left: 5.26rem;
+    bottom: 5.5rem;
+    left: 6.5rem;
 }
 
 .progressBar {
@@ -2243,7 +2243,7 @@ body {
     width: 6.3rem;
     height: 6.3rem;
     left: 11.35rem;
-    top: 2.4rem;
+    top: 3.4rem;
     background: url(../images/78.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2253,7 +2253,7 @@ body {
     width: 6.3rem;
     height: 6.3rem;
     left: 11.35rem;
-    top: 2.4rem;
+    top: 3.4rem;
     background: url(../images/136.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2263,7 +2263,7 @@ body {
     width: 6.3rem;
     height: 6.3rem;
     left: 11.35rem;
-    top: 2.4rem;
+    top: 3.4rem;
     background: url(../images/135.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2807,6 +2807,7 @@ body {
     width: 5.3rem;
     height: 3.1rem;
     border: .2rem #458630 solid;
+    padding-top: .2rem;
     background-color: #A2C012;
     border-radius: 1.5rem;
 }
@@ -3327,6 +3328,7 @@ body {
     background-size: 100% 100%;
 }
 
+/* 锦囊抖动 */
 .kitShake {
     animation: shake 1s;
     -o-animation: shake 1s;
@@ -5574,7 +5576,7 @@ body {
 
 .pod-bottom {
     position: relative;
-    top: -18%;
+    top: -18.5%;
     width: 100%;
     height: 10.5rem;
     z-index: 350;
@@ -5656,7 +5658,7 @@ body {
 .recharge-detail table {
     position: absolute;
     left: .5rem;
-    width: 26rem;
+    width: 30rem;
     top: -.5rem;
 }
 
@@ -5898,7 +5900,7 @@ body {
 
 .recharge-type {
     position: absolute;
-    top: 29.3rem;
+    top: 30rem;
     left: 4.05rem;
     width: 30rem;
     height: 10.65rem;
@@ -5939,16 +5941,60 @@ body {
 
 .recharge-successed {
     position: absolute;
-    height: 22.55rem;
+    height: 24.55rem;
     width: 25.85rem;
-    left: 4.9rem;
-    top: 21.6rem;
+    left: 6.5rem;
+    top: 25.6rem;
     text-align: center;
     display: none;
 }
 
-.recharge-successed img {
+.recharge-successed > img {
     width: 15.7rem;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0s;
+    -moz-animation-duration: 0s;
+    -ms-animation-duration: 0s;
+    -o-animation-duration: 0s;
+    animation-duration: 0s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -o-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-iteration-count: infinite;/*定义循环资料，infinite为无限次*/
+}
+/* 放大缩小 */
+@-webkit-keyframes pulse {
+    0% {-webkit-transform: scale(1);}
+    50% {-webkit-transform: scale(1.1);}
+    100% {-webkit-transform: scale(1);}
+}
+
+@-moz-keyframes pulse {
+    0% {-moz-transform: scale(1);}
+    50% {-moz-transform: scale(1.1);}
+    100% {-moz-transform: scale(1);}
+}
+
+@-o-keyframes pulse {
+    0% {-o-transform: scale(1);}
+    50% {-o-transform: scale(1.1);}
+    100% {-o-transform: scale(1);}
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
 }
 
 .successed-btn {

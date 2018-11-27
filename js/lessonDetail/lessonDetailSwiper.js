@@ -6,17 +6,25 @@ var sortId = arr[1].split("=")[1]
 var countSum = 1;
 // swiper
 var mySwiper = new Swiper('.swiper-container', {
-    threshold: 6,  //拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。
+    threshold: 6, //拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。
     on: {
         slideChangeTransitionEnd: function (event) {
             // console.log(mySwiper.activeIndex); //滑动时的索引
             // console.log(mySwiper.slides.length); // 总滑块数
             // var slideLength = mySwiper.slides.length - 1;
             countSum++;
-            if($(".swiper-wrapper>.swiper-slide-active").hasClass("lessonAd")){
+            if ($(".swiper-wrapper>.swiper-slide-active").hasClass("lessonAd")) {
                 countSum--;
             }
-            // console.log(mySwiper.activeIndex, slideLength);
+            // 滑动页面后播放暂停
+            var audioSwiper = $(".swiper-slide-active").siblings().find("audio");
+            var audioButton = $(".swiper-slide-active").siblings().find(".progress-bar");
+            console.log(audioButton);
+            audioButton.removeClass("progress-start").addClass("progress-stop");
+            for (var i = 0; i < audioSwiper.length; i++) {
+                audioSwiper[i].pause();
+            }
+            // 滑动到当前页前后插入页面
             var lessonLength = $(".swiper-wrapper>.lesson-audio").length; //课程滑块总数
             var adINdex = $(".swiper-wrapper>.lessonAd").length; //广告滑块总数
             var totalLength = (lessonLength + adINdex) - 1; //滑块总数-1
@@ -30,9 +38,9 @@ var mySwiper = new Swiper('.swiper-container', {
                 var nextId = $('.swiper-wrapper>.swiper-slide-active').attr('data-nextid');
                 if (nextId != "") {
                     getPrevNextData(nextId, countSum);
-                    if(firstChildren){
+                    if (firstChildren) {
                         mySwiper.removeSlide(0); //移除第一个
-                    }else{
+                    } else {
                         $(".swiper-wrapper").children("section").first().remove(); //移除第一个section
                     }
                     // if($(".swiper-wrapper>.swiper-slide").eq(0).attr("data-banner") != ""){
@@ -47,9 +55,9 @@ var mySwiper = new Swiper('.swiper-container', {
                     // if($(".swiper-wrapper>.swiper-slide").eq(lessonLength-1).attr("data-banner") != ""){
                     //     mySwiper.removeSlide(totalLength); //移除广告
                     // }
-                    if(lastChildren){
+                    if (lastChildren) {
                         mySwiper.removeSlide(totalLength); //移除最后一个
-                    }else {
+                    } else {
                         $(".swiper-wrapper").children("section").last().remove(); //移除最后一个section
                     }
                 }
@@ -283,7 +291,7 @@ function getPrevNextData(id, countSum, type) {
 
 //所有事件 
 function allEvent() {
-    var a=$(document).find(".attention");
+    var a = $(document).find(".attention");
     a.unbind().click(function () {
         allClick();
         var isfollow = $(this).attr("data-isfollow"); //是否关注
@@ -458,12 +466,12 @@ function allEvent() {
         audio.addEventListener('ended', audioEnded, false);
     });
     // 广告播放
-    $("body").unbind().on("click", "div.adBar", function () {
+    $("body").on("click", "div.adBar", function () {
         var audio = $(this).parents(".lessonAd").find(".lessonAdAudio")[0];
         var adAudioTime = $(this).parents(".lessonAd").find(".adAudioTime");
         var progressAdBar = $(this).parents('.lessonAd').find(".progressAdBar");
         var progressAdReal = $(this).parents('.lessonAd').find(".progressAdBar>.progressAdReal");
-        $(this).unbind().bind("click", function () {
+        $(this).on("click", function () {
             allClick();
             //改变暂停/播放icon
             if (audio.paused) {
@@ -473,6 +481,9 @@ function allEvent() {
                 audio.pause();
                 $(this).removeClass('progress-start').addClass('progress-stop');
             }
+            $(this).parents(".lessonAd").find(".lessonAdAudio").on("loadedmetadata", function () {
+                adAudioTime.text(transTime(this.duration));
+            });
             // adAudioTime.text(transTime(audio.duration)); //音频时长
             //点击进度
             $(progressAdBar).click(function (e) {
