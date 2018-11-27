@@ -17,6 +17,7 @@ $(function () {
 	$("#rechargeMethodBack").click(function () {
 		window.location.replace("./recharge.html");
 	});
+	
 	$('.submitMethod').on('submit', function () {
 		var uid = $('inpur[name=uid]').val(),
 			order_money = $('inpur[name=order_money]').val();
