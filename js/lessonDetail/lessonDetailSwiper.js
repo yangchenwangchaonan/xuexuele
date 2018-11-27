@@ -9,7 +9,7 @@ var mySwiper = new Swiper('.swiper-container', {
     threshold: 6,  //拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。
     on: {
         slideChangeTransitionEnd: function (event) {
-            console.log(mySwiper.activeIndex); //滑动时的索引
+            // console.log(mySwiper.activeIndex); //滑动时的索引
             // console.log(mySwiper.slides.length); // 总滑块数
             // var slideLength = mySwiper.slides.length - 1;
             countSum++;
@@ -23,12 +23,18 @@ var mySwiper = new Swiper('.swiper-container', {
             var lessonFlag = $(".swiper-wrapper>.swiper-slide-active").hasClass("lesson-audio"); //当前滑块是否是课程页面
             var nextFlag = $(".swiper-wrapper>.swiper-slide-active").nextAll().hasClass("lesson-audio"); //后面是否有课程滑动块
             var prevFlag = $(".swiper-wrapper>.swiper-slide-active").prevAll().hasClass("lesson-audio"); //前面是否有课程滑动块
+            var firstChildren = $(".swiper-wrapper").children("section").first().hasClass("swiper-slide"); //判断第一个是否有滑动块
+            var lastChildren = $(".swiper-wrapper").children("section").last().hasClass("swiper-slide"); //判断最后一个是否有滑动块
             if (((mySwiper.activeIndex == totalLength) && lessonFlag) || ((mySwiper.activeIndex == (totalLength - 1)) && !nextFlag)) {
                 //插入下一节课程 
                 var nextId = $('.swiper-wrapper>.swiper-slide-active').attr('data-nextid');
                 if (nextId != "") {
                     getPrevNextData(nextId, countSum);
-                    mySwiper.removeSlide(0); //移除第一个
+                    if(firstChildren){
+                        mySwiper.removeSlide(0); //移除第一个
+                    }else{
+                        $(".swiper-wrapper").children("section").first().remove(); //移除第一个section
+                    }
                     // if($(".swiper-wrapper>.swiper-slide").eq(0).attr("data-banner") != ""){
                     //     mySwiper.removeSlide(0); //移除第一个
                     // }
@@ -41,7 +47,11 @@ var mySwiper = new Swiper('.swiper-container', {
                     // if($(".swiper-wrapper>.swiper-slide").eq(lessonLength-1).attr("data-banner") != ""){
                     //     mySwiper.removeSlide(totalLength); //移除广告
                     // }
-                    mySwiper.removeSlide(totalLength); //移除最后一个
+                    if(lastChildren){
+                        mySwiper.removeSlide(totalLength); //移除最后一个
+                    }else {
+                        $(".swiper-wrapper").children("section").last().remove(); //移除最后一个section
+                    }
                 }
             }
         },
@@ -116,7 +126,7 @@ function lessonDetail(lessonId, countSum, diff) {
                         </div>
                         <span class="successed">00:00</span>
                         <span class="unsuccessed">${data.list.coursetime}</span>
-                        <div class="progress-bar progress-stop"></div>
+                        ${data.lock==1?`<div class="progress-bar progress-stop"></div>`:""}
                     </div>
                 </div>
                 ${data.lock==1?"":`
@@ -225,7 +235,7 @@ function getPrevNextData(id, countSum, type) {
                                 </div>
                                 <span class="successed">00:00</span>
                                 <span class="unsuccessed">${data.list.coursetime}</span>
-                                <div class="progress-bar progress-stop"></div>
+                                ${data.lock==1?`<div class="progress-bar progress-stop"></div>`:""}
                             </div>
                         </div>
                         ${data.lock==1?"":`

@@ -190,7 +190,7 @@ function userGate(index, iscurrent) {
             ${val.time!=''?'':`
             <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
             `}
-            <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
+            <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2018/6/7 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
           </li>
          `;
         } else {
@@ -257,7 +257,7 @@ function userGate(index, iscurrent) {
                     ${val.time!=''?'':`
                     <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
                     `}
-                    <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2010-10-20 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
+                    <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2018/6/7 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
                   </li>
                 `;
           }

@@ -7,7 +7,7 @@ $(function () {
 
     // 返回
     $("#albumListBack").click(function () {
-        history.back(-1);
+        window.history.back(); //返回上一页且强制刷新
     });
 
 });
