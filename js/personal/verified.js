@@ -12,8 +12,8 @@ $(function () {
 	$(".card-photo1").hide()
 
 	// 返回
-	$("#verifiedBack").click(function(){
-		$(window).attr("location","./personal-center.html");
+	$("#verifiedBack").click(function () {
+		$(window).attr("location", "./personal-center.html");
 	});
 
 })
@@ -132,7 +132,8 @@ function getPush() {
 	$(".btn1").click(function () {
 		allClick();
 		//id
-		var uid = sessionStorage.getItem("uid")
+		var uid = localStorage.getItem("uid");
+		var token = localStorage.getItem("token");
 		//名字
 		var name = $(".name").val();
 		//身份证号码
@@ -180,12 +181,13 @@ function getPush() {
 			education == "本科" ? "5" :
 			education == "研究生" ? "6" :
 			education == "博士" ? "7" : '')
-		console.log(uid, name, identitycard, identityimg, schoolname, educationNum, profession)
+		// console.log(uid, name, identitycard, identityimg, schoolname, educationNum, profession)
 		$.ajax({
 			type: "POST",
 			url: APP_URL + "/api/My/Identity",
 			data: {
 				uid: uid,
+				token: token,
 				name: name,
 				identitycard: identitycard,
 				identityimg: identityimg,
@@ -198,7 +200,7 @@ function getPush() {
 				console.log(res)
 				if (res.code == 1) {
 					lemonTips("提交审核成功", 1);
-					window.setTimeout(function() {
+					window.setTimeout(function () {
 						$(window).attr("location", "../personalCenter/infor-submitting.html");
 					}, 1000);
 				}
@@ -209,5 +211,3 @@ function getPush() {
 		});
 	})
 }
-
-

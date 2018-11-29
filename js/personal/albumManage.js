@@ -4,18 +4,20 @@ $(function () {
         $(window).attr("location", "./album-add.html");
     });
     // 返回
-    $("#albumManageBack").click(function(){
+    $("#albumManageBack").click(function () {
         window.location.replace("./personal-center.html");
     });
 });
 
 function lessonManageList() {
-    var uId = sessionStorage.getItem("uid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/My/AlbumManageList",
         data: {
-            uid: uId
+            uid: uId,
+            token: token
         },
         dataType: "json",
         success: function (res) {

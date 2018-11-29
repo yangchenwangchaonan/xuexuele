@@ -1,15 +1,15 @@
 $(function () {
     var url = window.location.href;
-    var arr1 = url.split("?");
-    var arr2 = arr1[1].split("&");
-    var letterId = arr2[0].substr(arr2[0].indexOf("=") + 1);
-    var userId = arr2[1].substr(arr2[1].indexOf("=") + 1);
+    var letterId = url.split("=")[1];
+    var token = localStorage.getItem("token");
+    var userId = localStorage.getItem("uid");
     /* 站内信详情 */
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserMessageInfo",
         data: {
             uid: userId,
+            token: token,
             messageid: letterId
         },
         dataType: "json",
@@ -28,8 +28,9 @@ $(function () {
             console.log(err);
         }
     });
-    $('.page-back1').click(function(){
-        window.location.replace("../homePages/letter.html");
+    $('.page-back1').click(function () {
+        $(window).attr("location", "../homePages/letter.html");
+        // window.location.replace("../homePages/letter.html");
     })
     /* 站内信更新为已读 */
     $.ajax({

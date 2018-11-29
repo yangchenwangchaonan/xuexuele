@@ -1,5 +1,4 @@
 $(function () {
-  // FastClick.attach(document.body); //清除点击事件300ms
   //原住人数
   people();
   //闯关列表
@@ -52,12 +51,15 @@ function people() {
 
 // 闯关列表
 function userGate(index, iscurrent) {
-  var uid = sessionStorage.getItem("uid")
+  var uid = localStorage.getItem("uid");
+  var token = localStorage.getItem("token");
+  // console.log(token);
   $.ajax({
     type: "GET",
     url: APP_URL + "/api/Wisdom/WisdomIndex",
     data: {
       uid: uid,
+      token:token,
       iscurrent: iscurrent,
       pageindex: index
     },
@@ -105,9 +107,9 @@ function userGate(index, iscurrent) {
         });
       });
 
-
       //智慧豆
       var bean = data.wisdombean;
+      // var bean = 10000000;
       $("#getBeans").html(bean);
       var beanWidth = $(".beans-value").width();
       // console.log(beanWidth);
@@ -117,12 +119,13 @@ function userGate(index, iscurrent) {
       } else if (bean > 9999999) {
         $(".beans-value").css("width", beanWidth);
         $("#getBeans").html(9999999);
-        $(".beans-progress").append("<i class='icon_stamina'>+</i>");
+        $(".beans-value").append("<i class='icon_stamina'>+</i>");
       } else {
         $(".beans-value").css("width", beanPercent * beanWidth);
       }
       //pk值
       var pkVal = data.pk;
+      // var pkVal = 10000000;
       var pkWidth = $(".pk-value").width();
       // console.log(pkWidth);
       $("#pkValue").html(pkVal);
@@ -132,7 +135,7 @@ function userGate(index, iscurrent) {
       } else if (pkVal > 9999999) {
         $(".pk-value").css("width", pkWidth);
         $("#pkValue").html(9999999);
-        $(".pk-progress").append("<i class='icon_stamina'>+</i>");
+        $(".pk-value").append("<i class='icon_stamina'>+</i>");
       } else {
         $(".pk-value").css("width", pkPercent * pkWidth);
       }
@@ -538,13 +541,15 @@ function actioveDate(datelist) {
 
 //当月签到日期渲染
 function signinDate() {
-  var uid = sessionStorage.getItem("uid"); //用户id
+  var uid = localStorage.getItem("uid"); //用户id
+  var token = localStorage.getItem("token");
   $.ajax({
     type: "get",
     url: APP_URL + "/api/User/UserSigninTotal",
     dataType: "json",
     data: {
-      uid: uid
+      uid: uid,
+      token:token
     },
     success: function (res) {
       var data = res.data
@@ -562,13 +567,15 @@ function signinDate() {
 //点击签到
 function handleClick() {
   $(".on").click(function () {
-    var uid = sessionStorage.getItem("uid"); //用户id
+    var uid = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
       type: "post",
       url: APP_URL + "/api/User/UserSignin",
       dataType: "json",
       data: {
-        uid: uid
+        uid: uid,
+        token:token
       },
       success: function (res) {
         console.log(res)

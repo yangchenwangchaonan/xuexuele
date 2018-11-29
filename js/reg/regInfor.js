@@ -344,7 +344,7 @@ function login(tel, password) {
             var data = res.data;
             var msg = res.msg;
             if (res.code == 1) {
-                sessionStorage.setItem("uid", data.UserId); //用户id
+                localStorage.setItem("uid", data.UserId); //用户id
                 // sessionStorage.setItem("birthday", data.birthday); //生日
                 // sessionStorage.setItem("verified", data.certificationstate); //实名
                 // sessionStorage.setItem("city", data.city); //所在城市
@@ -358,6 +358,8 @@ function login(tel, password) {
                 // sessionStorage.setItem("sex", data.sex); //性别
                 // sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
                 $(window).attr("location", "../homePages/home.html");
+                localStorage.setItem("token",res.data.token);
+                // console.log(localStorage.getItem("uid"),localStorage.getItem("token"));
             } else {
                 // alert(msg);
                 flowerTips(msg, 1);

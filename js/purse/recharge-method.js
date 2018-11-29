@@ -17,17 +17,19 @@ $(function () {
 	$("#rechargeMethodBack").click(function () {
 		window.location.replace("./recharge.html");
 	});
-	
+
 });
 
 // 支付宝支付
 function aliPay(a) {
-	var uid = sessionStorage.getItem("uid")
+	var uid = localStorage.getItem("uid");
+	var token = localStorage.getItem("token");
 	$.ajax({
 		type: "GET",
 		url: APP_URL + "/api/Pay/AliPayWeb",
 		data: {
 			uid: uid,
+			token: token,
 			order_money: a,
 		},
 		dataType: "json",
@@ -48,13 +50,15 @@ function aliPay(a) {
 // 微信支付
 function walletOrderWxPay(a) {
 	// window.open("https://xuexuele.huimor.com/api/Pay/WxPayJsApi?uid=90&order_money=6")
-	var uid = sessionStorage.getItem("uid")
+	var uid = localStorage.getItem("uid");
+	var token = localStorage.getItem("token");
 	alert(uid);
 	$.ajax({
 		type: "post",
 		url: APP_URL + "/api/Pay/WxPayJsApi",
 		data: {
 			uid: uid,
+			token: token,
 			order_money: a
 		},
 		dataType: "json",

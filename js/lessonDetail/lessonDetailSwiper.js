@@ -1,4 +1,4 @@
-// 获取uid、lessonid
+// 获取lessonid
 var url = window.location.href;
 var arr = url.split("&");
 var lessonId = arr[0].split("=")[1];
@@ -19,7 +19,7 @@ var mySwiper = new Swiper('.swiper-container', {
             // 滑动页面后播放暂停
             var audioSwiper = $(".swiper-slide-active").siblings().find("audio");
             var audioButton = $(".swiper-slide-active").siblings().find(".progress-bar");
-            console.log(audioButton);
+            // console.log(audioButton);
             audioButton.removeClass("progress-start").addClass("progress-stop");
             for (var i = 0; i < audioSwiper.length; i++) {
                 audioSwiper[i].pause();
@@ -79,13 +79,15 @@ $(function () {
 // 智慧社详情
 function lessonDetail(lessonId, countSum, diff) {
     // console.log(countSum);
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     // 获取当前页数据
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomDetail",
         data: {
             uid: uId,
+            token: token,
             courseid: lessonId,
             sort: sortId,
             bannersort: countSum
@@ -188,12 +190,14 @@ function lessonDetail(lessonId, countSum, diff) {
 //获取上一页和下一页数据
 function getPrevNextData(id, countSum, type) {
     // console.log(countSum);
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomDetail",
         data: {
             uid: uId,
+            token: token,
             courseid: id,
             sort: sortId,
             bannersort: countSum
@@ -631,13 +635,15 @@ function tutorDetailList(isfollow, followid, courseId, countSum) {
 
 //点击关注
 function onAttention(followid, courseId, countSum) {
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     // console.log(courseId);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/FollowSpot",
         data: {
             uid: uId,
+            token: token,
             followid: followid
         },
         dataType: "json",
@@ -656,13 +662,15 @@ function onAttention(followid, courseId, countSum) {
 }
 //取消关注
 function noAttention(followid, courseId, countSum) {
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     // console.log(courseId);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/FollowNot",
         data: {
             uid: uId,
+            token: token,
             followid: followid
         },
         dataType: "json",
@@ -683,7 +691,8 @@ function noAttention(followid, courseId, countSum) {
 // 评分
 function changeAppraise(e, appraise) {
     allClick();
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     var $lessonId = $("section").eq(1).attr("data-courseid");
     $.each($(".appraise-score>ul>li"), function (index, val) {
         var num = index + 1;
@@ -713,6 +722,7 @@ function changeAppraise(e, appraise) {
             url: APP_URL + "/api/Wisdom/ScoreDo",
             data: {
                 uid: uId,
+                token: token,
                 courseid: $lessonId,
                 coursescore: score,
                 wisdombean: beans
@@ -760,12 +770,14 @@ function beanSum($lessonId) {
 }
 //各级评分数量
 function scoreSum($lessonId) {
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/ScoreList",
         data: {
             uid: uId,
+            token: token,
             courseid: $lessonId
         },
         dataType: "json",
@@ -789,7 +801,8 @@ function scoreSum($lessonId) {
 // 获取课程留言列表
 function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
     // console.log(tId);
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/CommentList",
@@ -915,12 +928,14 @@ function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
 }
 // 发布课程留言
 function commentRelease(lessonId, $text, headimg, nickname, tId) {
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/CommentRelease",
         data: {
             uid: uId,
+            token: token,
             courseid: lessonId,
             content: $text
         },
@@ -942,13 +957,15 @@ function commentRelease(lessonId, $text, headimg, nickname, tId) {
 // 回复留言
 function commentReply(pId, lessonId, $text, headimg, nickname, tId) {
     console.log(pId);
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/CommentReply",
         data: {
             commentid: pId,
             uid: uId,
+            token: token,
             courseid: lessonId,
             content: $text
         },
@@ -970,12 +987,14 @@ function commentReply(pId, lessonId, $text, headimg, nickname, tId) {
 // 举报
 function regular(lessonId, num) {
     allClick();
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/Regular",
         data: {
             uid: uId,
+            token: token,
             courseid: lessonId,
             classify: num
         },
@@ -994,12 +1013,14 @@ function regular(lessonId, num) {
 
 // 播放次数统计
 function courseStudy(courseId) {
-    var uId = sessionStorage.getItem("uid"); //用户id
+    var uId = localStorage.getItem("uid"); //用户id
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/CourseStudy",
         data: {
             uid: uId,
+            token: token,
             courseid: courseId
         },
         dataType: "json",

@@ -17,18 +17,20 @@ $(function () {
 	moneyRuleList()
 
 	// 返回
-	$("#rechargeBack").click(function(){
+	$("#rechargeBack").click(function () {
 		window.location.replace("./purse.html");
 	});
 });
 // 获取列表内容
 function moneyRuleList() {
-	var uid = sessionStorage.getItem("uid")
+	var uid = localStorage.getItem("uid");
+	var token = localStorage.getItem("token");
 	$.ajax({
 		type: "GET",
 		url: APP_URL + "/api/Wisdom/MoneyRuleList",
 		data: {
-			uid: uid
+			uid: uid,
+			token: token
 		},
 		dataType: "json",
 		success: function (res) {

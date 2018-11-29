@@ -16,12 +16,14 @@ $(function () {
 });
 // 获取列表内容
 function WalletWisdombeanUse() {
-    var uid=sessionStorage.getItem("uid")
+    var uid = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WalletWisdombeanUse",
         data: {
-            uid:uid
+            uid: uid,
+            token: token
         },
         dataType: "json",
         success: function (res) {
@@ -69,19 +71,21 @@ function WalletWisdombeanUse() {
 
 // 获取余额信息
 function GetAccountBalanceInfo() {
-    var uid=sessionStorage.getItem("uid")
+    var uid = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/GetAccountBalanceInfo",
         data: {
-            uid:uid
+            uid: uid,
+            token: token
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
             var data = res.data;
             var str = "";
-            $(".recharge-num>span>img").after("x"+data.wisdombean);
+            $(".recharge-num>span>img").after("x" + data.wisdombean);
         },
         error: function (err) {
             console.log(err);

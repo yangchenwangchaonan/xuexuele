@@ -1,9 +1,8 @@
 $(function () {
-    var uId = sessionStorage.getItem("uid");
     var url = window.location.href;
     var arr = url.split("=");
     var albumId = arr[1];
-    albumCourseList(albumId, uId);
+    albumCourseList(albumId);
 
     // 返回
     $("#albumListBack").click(function () {
@@ -12,13 +11,16 @@ $(function () {
 
 });
 // 专辑列表
-function albumCourseList(albumId, uId) {
+function albumCourseList(albumId) {
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/AlbumCourseList",
         data: {
             albumid: albumId,
-            uid: uId
+            uid: uId,
+            token: token
         },
         dataType: "json",
         success: function (res) {
@@ -34,7 +36,7 @@ function albumCourseList(albumId, uId) {
                 str += `
                         <div class="lesson-title">
                             <div class="list-num">${index+1}</div>
-                            <div class="lesson-list-detail">
+                            <div class="lesson-list-detail" data-cid="${val.id}">
                                 <div class="lesson-list-title">
                                     <div class="lesson-list-name" data-cid="${val.id}">${val.coursename}</div>
                         `;
@@ -112,14 +114,14 @@ function albumCourseList(albumId, uId) {
                 // 点击解锁全部
                 $("#lockBtn").click(function () {
                     allClick();
-                    $(window).attr("location", "./unlock_all.html?albumId=" + albumId +"&sid=5");
+                    $(window).attr("location", "./unlock_all.html?albumId=" + albumId + "&sid=5");
                 });
             }
 
             // 课程详情
-            $(".lesson-list-name,.lesson-list-tab").click(function () {
+            $(".lesson-list-detail .lesson-list-name,.lesson-list-detail>.lesson-list-tab").click(function () {
                 allClick();
-                var lessonId = $(".lesson-list-name").attr("data-cid");
+                var lessonId = $(this).parents(".lesson-list-detail").attr("data-cid");
                 $(window).attr("location", "./lesson-detail.html?cid=" + lessonId + "&sid=5");
                 // window.location.replace("./lesson-detail.html?cid="+lessonId+"&sid=5");
             });
@@ -131,23 +133,23 @@ function albumCourseList(albumId, uId) {
 }
 
 
-function lockAll(uid, aid) {
-    $.ajax({
-        type: "POST",
-        url: APP_URL + "/api/Wisdom/WisdomUnlockAll",
-        data: {
-            uid: uid,
-            albumid: aid
-        },
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            if (res.code == 1) {
-                albumCourseList(aid, uid);
-            }
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}
+// function lockAll(uid, aid) {
+//     $.ajax({
+//         type: "POST",
+//         url: APP_URL + "/api/Wisdom/WisdomUnlockAll",
+//         data: {
+//             uid: uid,
+//             albumid: aid
+//         },
+//         dataType: "json",
+//         success: function (res) {
+//             console.log(res);
+//             if (res.code == 1) {
+//                 albumCourseList(aid);
+//             }
+//         },
+//         error: function (err) {
+//             console.log(err);
+//         }
+//     });
+// }

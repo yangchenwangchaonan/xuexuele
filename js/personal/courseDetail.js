@@ -151,7 +151,8 @@ function replyMessage(e, name, commentId, courseId) {
 // 回复
 function reply(commentId, courseId, text) {
     console.log(courseId);
-    var uId = sessionStorage.getItem("uid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     console.log(text);
     $.ajax({
         type: "POST",
@@ -159,6 +160,7 @@ function reply(commentId, courseId, text) {
         data: {
             commentid: commentId,
             uid: uId,
+            token: token,
             courseid: courseId,
             content: text
         },

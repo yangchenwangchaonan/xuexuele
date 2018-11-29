@@ -2350,17 +2350,16 @@ body {
 }
 
 .icon_stamina {
-    position: absolute;
-    top: 12%;
-    left: 4.6875rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     z-index: 2100;
+    line-height: 160%;
+    float: right;
 }
 
 .stamina-value {
     position: relative;
-    width: 4.8rem;
-    height: 1.6rem;
+    width: 5.2rem;
+    height: 1.8rem;
     background: linear-gradient(0deg, rgba(33, 108, 221, 1) 0%, rgba(41, 117, 228, 1) 33%, rgba(104, 233, 255, 1) 100%);
     border-radius: 1.5rem;
     top: .4rem;
@@ -2371,7 +2370,7 @@ body {
 .beans-value {
     position: relative;
     width: 5.2rem;
-    height: 1.6rem;
+    height: 1.8rem;
     background: linear-gradient(0deg, rgba(84, 160, 55, 1) 0%, rgba(111, 185, 78, 1) 33%, rgba(137, 199, 95, 1) 100%);
     border-radius: 1.5rem;
     top: .5rem;
@@ -2382,9 +2381,9 @@ body {
 .wisdombean {
     position: absolute;
     display: inline-block;
-    width: 5.25rem;
+    width: 5.2rem;
     top: .4rem;
-    left: .3rem;
+    left: .2rem;
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.8rem;
@@ -2393,10 +2392,10 @@ body {
 
 .pk-value {
     position: relative;
-    top: .5rem;
+    top: .4rem;
     left: .3rem;
     width: 5.2rem;
-    height: 1.6rem;
+    height: 1.8rem;
     background: linear-gradient(0deg, rgba(101, 93, 255, 1) 0%, rgba(120, 94, 255, 1) 39%, rgba(181, 140, 255, 1) 100%);
     border-radius: 1.5rem;
     font-size: 1.1rem;
@@ -2406,9 +2405,9 @@ body {
 .pkVal {
     position: absolute;
     display: inline-block;
-    width: 5.25rem;
+    width: 5.2rem;
     top: .4rem;
-    left: .3rem;
+    left: .2rem;
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.8rem;
@@ -5946,7 +5945,6 @@ body {
     left: 6.5rem;
     top: 25.6rem;
     text-align: center;
-    display: none;
 }
 
 .recharge-successed > img {

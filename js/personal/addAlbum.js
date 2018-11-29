@@ -21,7 +21,7 @@ $(function () {
     }
 
     // 返回
-    $("#addAlbumBack").click(function(){
+    $("#addAlbumBack").click(function () {
         history.back(-1);
     });
 
@@ -195,12 +195,14 @@ function newAlbum() {
     var coverUrl = $(".lesson-cover-content>img").attr("src");
     var albumName = $("#nameContent").val();
     var albumPresent = $("#introductContent").val();
-    var uId = sessionStorage.getItem("uid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/AlbumAdd",
         data: {
             uid: uId,
+            token: token,
             albumimg: coverUrl,
             albumname: albumName,
             albumcontent: albumPresent

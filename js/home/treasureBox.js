@@ -1,13 +1,12 @@
 $(function () {
-    var uId = sessionStorage.getItem("uid");
-    treasureBoxList(1, uId); //默认特殊奖励列表
+    treasureBoxList(1); //默认特殊奖励列表
     // 特殊奖励
     $("#specialReward").unbind().bind("click", function () {
         allClick();
         $(".nogift").hide();
         $(".treasureBox-wrapper").html("");
         $(this).addClass("treasureBoxSpecial2").siblings().removeClass("treasureBoxOrdinary2");
-        treasureBoxList(1, uId); 
+        treasureBoxList(1);
     });
     // 推荐奖励
     $("#ordinaryReward").unbind().bind("click", function () {
@@ -15,23 +14,26 @@ $(function () {
         $(".nogift").hide();
         $(".treasureBox-wrapper").html("");
         $(this).addClass("treasureBoxOrdinary2").siblings().removeClass("treasureBoxSpecial2");
-        userBoxCourse(1, uId);
+        userBoxCourse(1);
     });
 
     // 返回
-    $("#treasureBoxBack").click(function(){
+    $("#treasureBoxBack").click(function () {
         history.back(-1); //返回上一页
     });
-    
+
 });
 
 // 特殊奖励
-function treasureBoxList(page, uId) {
+function treasureBoxList(page) {
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserBaobox",
         data: {
             uid: uId,
+            token: token,
             page: page
         },
         dataType: "json",
@@ -64,12 +66,12 @@ function treasureBoxList(page, uId) {
                 `}
                 `;
             });
-            if(page==1){
+            if (page == 1) {
                 $(".treasureBox-wrapper").html(str1);
-            }else {
+            } else {
                 $(".treasureBox-wrapper").append(str1);
             }
-            
+
             // 触底刷新
             var nDivHight = $(".treasureBox-wrapper").height();
             $(".treasureBox-wrapper").unbind('scroll').bind('scroll', function () {
@@ -80,7 +82,7 @@ function treasureBoxList(page, uId) {
                     var sPage = page;
                     sPage++;
                     // console.log("mPage:" + mPage);
-                    treasureBoxList(sPage, uId);
+                    treasureBoxList(sPage);
                 }
             });
             //没有更多
@@ -109,12 +111,15 @@ function treasureBoxList(page, uId) {
 }
 
 // 推荐奖励-->课程
-function userBoxCourse(boxPage, uId) {
+function userBoxCourse(boxPage) {
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserBaoboxCourse",
         data: {
             uid: uId,
+            token: token,
             page: boxPage
         },
         dataType: "json",
@@ -154,7 +159,7 @@ function userBoxCourse(boxPage, uId) {
                     var rPage = page;
                     rPage++;
                     // console.log("mPage:" + mPage);
-                    userBoxCourse(rPage, uId);
+                    userBoxCourse(rPage);
                 }
             });
             //没有更多

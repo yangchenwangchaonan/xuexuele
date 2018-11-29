@@ -26,13 +26,15 @@ $(function () {
 //首次渲染
 function UserGateDetail(a) {
     var id = sessionStorage.getItem("gateid");
-    var uId = sessionStorage.getItem("uid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserGateDetail",
         data: {
             gateid: id,
-            uid: uId
+            uid: uId,
+            token:token
         },
         dataType: "json",
         success: function (res) {
@@ -79,7 +81,7 @@ function UserGateDetail(a) {
                             allClick();
                             $(".kit-havebeans").hide();
                             if (answerContent.length > 0 && answerContent.length <= 4) {
-                                kitView(id, uId);
+                                kitView(id);
                                 $("#kitAnswerShade1").show();
                                 // 关闭
                                 $("#kitClose1").click(function () {
@@ -88,7 +90,7 @@ function UserGateDetail(a) {
                                     $("#kitShade").hide();
                                 });
                             } else if (answerContent.length > 4 && answerContent.length <= 8) {
-                                kitView(id, uId);
+                                kitView(id);
                                 $("#kitAnswerShade2").show();
                                 // 关闭
                                 $("#kitClose2").click(function () {
@@ -97,7 +99,7 @@ function UserGateDetail(a) {
                                     $("#kitShade").hide();
                                 });
                             } else if (answerContent.length > 8) {
-                                kitView(id, uId);
+                                kitView(id);
                                 $("#kitAnswerShade3").show();
                                 // 关闭
                                 $("#kitClose3").click(function () {
@@ -252,14 +254,16 @@ function Timedate() {
 function errorOut() {
     // var answer = UserAnswer.join(",")
     // console.log(answer)
-    var id = sessionStorage.getItem("uid")
+    var id = localStorage.getItem("uid")
     var gid = sessionStorage.getItem("gateid")
+    var token = localStorage.getItem("token");
     // var time = $("#time1").html()
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserGateChallenge",
         data: {
             uid: id,
+            token:token,
             gateid: gid,
             answer: "",
             time: "00:00",
@@ -279,15 +283,17 @@ function errorOut() {
 //正确 提交
 function correctAnawer(UserAnswer, nextgateid) {
     var answer = UserAnswer.join(",")
-    console.log(answer)
-    var id = sessionStorage.getItem("uid")
-    var gid = sessionStorage.getItem("gateid")
-    var time = $("#time1").html()
+    // console.log(answer)
+    var id = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
+    var gid = sessionStorage.getItem("gateid");
+    var time = $("#time1").html();
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserGateChallenge",
         data: {
             uid: id,
+            token:token,
             gateid: gid,
             answer: answer,
             time: time,
@@ -344,13 +350,16 @@ function correctAnawer(UserAnswer, nextgateid) {
 
 
 // 立即查看
-function kitView(gid, uid) {
+function kitView(gid) {
+    var uid = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/GateAnswer",
         data: {
             gateid: gid,
-            uid: uid
+            uid: uid,
+            token:token
         },
         dataType: "json",
         success: function (res) {

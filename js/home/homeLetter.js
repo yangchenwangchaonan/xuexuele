@@ -8,12 +8,14 @@ $(function () {
 
 /* 获取站内信 */
 function userLetter() {
-    var uid=sessionStorage.getItem("uid")
+    var uid=localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserMessage",
         data: {
-            uid: uid
+            uid: uid,
+            token:token
         },
         dataType: "json",
         success: function (res) {
@@ -79,8 +81,7 @@ function deleteInfo (id) {
 
 /* 查看站内信详情 */
 function detail (id) {
-    var uid=sessionStorage.getItem("uid")
-    $(window).attr("location","./letter-infor.html?id=" + id + "&uid="+uid );
+    $(window).attr("location","./letter-infor.html?id=" + id);
 }
 
 

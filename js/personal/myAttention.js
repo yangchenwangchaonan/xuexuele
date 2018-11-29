@@ -2,26 +2,28 @@ $(function () {
     attentionList();
 
     // 返回
-    $("#myAttentionBack").click(function(){
-        $(window).attr("location","./personal-center.html");
+    $("#myAttentionBack").click(function () {
+        $(window).attr("location", "./personal-center.html");
     });
 });
 
 // 关注列表
 function attentionList() {
-    var uId = sessionStorage.getItem("uid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/My/FollowList",
         data: {
-            uid: uId
+            uid: uId,
+            token: token
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
             var data = res.data;
             var str = "";
-            if (data=="") {
+            if (data == "") {
                 $(".attention-list").html("")
             }
             if (data.length == 0) {
@@ -43,7 +45,7 @@ function attentionList() {
                     $(".followig").click(function () {
                         allClick();
                         var followid = $(this).attr("data-fid");
-                        $(window).attr("location", "attention-detail.html?fid="+followid);
+                        $(window).attr("location", "attention-detail.html?fid=" + followid);
                     });
                 });
             }
@@ -58,12 +60,14 @@ function attentionList() {
 // 取消关注
 function followNot(followId) {
     allClick();
-    var uId = sessionStorage.getItem("uid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/Wisdom/FollowNot",
         data: {
             uid: uId,
+            token: token,
             followid: followId
         },
         dataType: "json",

@@ -194,12 +194,14 @@ $(function () {
             lemonTips("请填写个人简介~", 1);
             return;
         }
-        var uId = sessionStorage.getItem("uid");
+        var uId = localStorage.getItem("uid");
+        var token = localStorage.getItem("token");
         $.ajax({
             type: "POST",
             url: APP_URL + "/api/My/Preservation",
             data: {
                 uid: uId,
+                token: token,
                 headimg: $avartar,
                 nickname: $nickname,
                 sex: $perId,
@@ -229,12 +231,14 @@ $(function () {
 
 //本人信息 
 function personalInfor() {
-    var uid = sessionStorage.getItem("uid");
+    var uid = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/My/UserInfo",
         data: {
-            uid: uid
+            uid: uid,
+            token: token
         },
         dataType: "json",
         success: function (res) {

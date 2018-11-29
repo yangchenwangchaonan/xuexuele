@@ -1,18 +1,20 @@
 $(function () {
     lessonList();
     // 返回
-    $("#myLessonBack").click(function(){
-        $(window).attr("location","./personal-center.html");
+    $("#myLessonBack").click(function () {
+        $(window).attr("location", "./personal-center.html");
     });
 });
 
 function lessonList() {
-    var uId = sessionStorage.getItem("uid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "get",
         url: APP_URL + "/api/My/AlbumList",
         data: {
-            uid: uId
+            uid: uId,
+            token: token
         },
         dataType: "json",
         success: function (res) {
