@@ -1,5 +1,5 @@
 $(function () {
-    deleteVal("#telClear","#reg-phone")
+    deleteVal("#telClear", "#reg-phone")
     //输入手机号样式变化
     $("#reg-phone").keyup(function () {
         if ($(this).val() != "") {
@@ -51,7 +51,7 @@ $(function () {
                         var realCode = res.data.code;
                         $("#realCode").val(realCode);
                         setTime(obj);
-                    }else{
+                    } else {
                         flowerTips("发送失败~", 1);
                         // alert("发送失败~");
                     }
@@ -94,7 +94,7 @@ $(function () {
             flowerTips("请输入手机号~", 1);
         } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#reg-phone").val())) {
             flowerTips("手机号码格式错误~", 1);
-        } else if (codeValue==""||codeValue != realCode) {
+        } else if (codeValue == "" || codeValue != realCode) {
             flowerTips("验证码输入错误~", 1);
         } else {
             var tel = $("#reg-phone").val();
@@ -126,7 +126,7 @@ $(function () {
                     localStorage.setItem("newPassword", $newPassword);
                     localStorage.setItem("againPassword", $againPassword);
                     flowerTips("密码设置成功~", 1);
-                    window.setTimeout(function() {
+                    window.setTimeout(function () {
                         $(window).attr("location", "./reg_end.html");
                     }, 1500);
                 }
@@ -136,12 +136,12 @@ $(function () {
 
     // 返回
     // 第一步
-    $("#regBackFirst").click(function(){
-        window. location.replace("../login/login.html");
+    $("#regBackFirst").click(function () {
+        window.location.replace("../login/login.html");
     });
     // 第二步
-    $("#regBackNext").click(function(){
-        window. location.replace("./reg.html");
+    $("#regBackNext").click(function () {
+        window.location.replace("./reg.html");
     });
 
 });

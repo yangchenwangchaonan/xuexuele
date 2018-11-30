@@ -6,7 +6,7 @@ var sortId = arr[1].split("=")[1]
 var countSum = 1;
 // swiper
 var mySwiper = new Swiper('.swiper-container', {
-    threshold: 6, //拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。
+    threshold: 10, //拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。
     on: {
         slideChangeTransitionEnd: function (event) {
             // console.log(mySwiper.activeIndex); //滑动时的索引
@@ -78,7 +78,6 @@ $(function () {
 
 // 智慧社详情
 function lessonDetail(lessonId, countSum, diff) {
-    // console.log(countSum);
     var uId = localStorage.getItem("uid"); //用户id
     var token = localStorage.getItem("token");
     // 获取当前页数据
@@ -165,7 +164,8 @@ function lessonDetail(lessonId, countSum, diff) {
             `}
             `;
                 if (diff == 0) {
-                    $('div.swiper-wrapper>.swiper-slide-active').html(str); //当前页
+                    $('div.swiper-wrapper>section').eq(mySwiper.activeIndex).replaceWith(str); //当前页
+                    $('div.swiper-wrapper>section').eq(mySwiper.activeIndex).addClass("swiper-slide-active");
                 } else {
                     $('div.swiper-wrapper').html(str); //当前页
                     if (data.lastid != "") {
@@ -301,8 +301,8 @@ function getPrevNextData(id, countSum, type) {
 
 //所有事件 
 function allEvent() {
-    var a = $(document).find(".attention");
-    a.unbind().click(function () {
+    // $(document).find(".attention");
+    $("body").unbind().on("click", ".attention", function () {
         allClick();
         var isfollow = $(this).attr("data-isfollow"); //是否关注
         var followid = $(this).attr("data-followid");

@@ -187,6 +187,7 @@ body {
     position: relative;
     padding: 1.9rem 1.05rem 0;
 }
+
 .rewpd-content {
     width: 100%;
     height: 100%;
@@ -2180,7 +2181,7 @@ body {
 
 .lessonAd>h1 {
     position: absolute;
-    top: 3.667rem;
+    top: 6.5%;
     width: 100%;
     text-align: center;
     font-size: 2rem;
@@ -2999,7 +3000,7 @@ body {
 
 .level-num {
     position: absolute;
-    top: 3.0rem;
+    top: 5%;
     left: 17.025rem;
     width: 9.56rem;
     height: 1.95rem;
@@ -3072,7 +3073,7 @@ body {
 .pass-gift {
     position: absolute;
     left: 8.7rem;
-    top: 8.03rem;
+    top: 11%;
     width: 7.55rem;
     text-align: center;
 }
@@ -3115,8 +3116,8 @@ body {
 
 .other-gift {
     position: absolute;
-    top: 4.76rem;
-    width: 23.5rem;
+    top: 105%;
+    width: 24rem;
     height: 7.337rem;
     background: rgba(255, 247, 223, 1);
     border-radius: 1.5rem;
@@ -3139,7 +3140,7 @@ body {
 .other-giftbox div {
     position: absolute;
     top: 1.98rem;
-    left: 7.69rem;
+    left: 8.69rem;
     width: 10.46rem;
     font-size: 2rem;
     font-family: MicrosoftYaHei-Bold;
@@ -3151,8 +3152,8 @@ body {
     position: absolute;
     width: 15.4rem;
     height: 4.85rem;
-    top: 20.5rem;
-    left: 13.46rem;
+    top: 31%;
+    left: 13rem;
     text-align: center;
     background: url(../images/110.png) no-repeat;
     background-size: 100% 100%;
@@ -3168,7 +3169,7 @@ body {
     position: absolute;
     width: 15.4rem;
     height: 4.85rem;
-    top: 12.67rem;
+    top: 308%;
     left: 7.5rem;
     text-align: center;
     background: url(../images/110.png) no-repeat;
@@ -3183,7 +3184,7 @@ body {
 
 .icon-board {
     position: absolute;
-    top: 31.2rem;
+    top: 47%;
     left: 16.5rem;
     width: 88.99rem;
     height: 1.7rem;
@@ -3196,9 +3197,9 @@ body {
 .board-table {
     position: absolute;
     left: 9.0rem;
-    top: 34.55rem;
+    top: 53%;
     width: 24.375rem;
-    height: 27.5rem;
+    height: 37%;
     overflow: auto;
 }
 
@@ -3440,8 +3441,8 @@ body {
 .respond-blank {
     position: absolute;
     width: 86.8%;
-    top: 33.6rem;
-    left: 2.25rem;
+    top: 54%;
+    left: 4.25rem;
     height: 11.74rem;
 }
 
@@ -3473,7 +3474,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 22.55rem;
+    height: 30%;
     background: url(../images/114.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -3483,7 +3484,7 @@ body {
     left: 2.975rem;
     top: 4.7rem;
     width: 35.55rem;
-    height: 17rem;
+    height: 74%;
     overflow: auto;
 }
 
@@ -3519,8 +3520,8 @@ body {
 
 .blank-show {
     position: absolute;
-    top: 34.684rem;
-    left: 3.375rem;
+    top: 55%;
+    left: 5.375rem;
     width: 4.6rem;
     height: 4.6rem;
     border-radius: .5rem;
@@ -3548,7 +3549,7 @@ body {
 
 .key-show {
     position: absolute;
-    bottom: 12.37rem;
+    bottom: 16.5%;
     right: 8.3rem;
     width: 5rem;
     height: 5rem;
@@ -3621,7 +3622,7 @@ body {
 .tipContent-tips {
     position: absolute;
     left: 22rem;
-    top: 68rem;
+    top: 93%;
 }
 
 /* 删除演示 */
@@ -3640,14 +3641,14 @@ body {
 .tipKey-tips {
     position: relative;
     left: 1.05rem;
-    top: 46.023rem;
+    top: 73%;
 }
 
 /*再次闯关*/
 
 .pass-again {
     position: absolute;
-    top: 8.53rem;
+    top: 13%;
     left: 16.75rem;
     width: 8.5rem;
     height: 12.7rem
@@ -3655,7 +3656,7 @@ body {
 
 .pass-again>img {
     position: absolute;
-    left: .95rem;
+    left: .3rem;
     width: 6.7rem;
     height: 7.5rem;
 }
@@ -3667,14 +3668,14 @@ body {
     font-weight: bold;
     color: rgba(70, 146, 71, 1);
     top: 7.6rem;
-    left: 1rem;
+    left: .5rem;
 }
 
 .next {
     position: absolute;
     width: 15.4rem;
     height: 4.85rem;
-    top: 19rem;
+    top: 31%;
     left: 13.06rem;
     background: url(../images/110.png) no-repeat;
     background-size: 100% 100%;
@@ -3998,6 +3999,7 @@ body {
 /*闯关成功*/
 
 .pass-end {
+    top: 13%;
     left: 5.5rem;
     width: 27.68rem;
 }
@@ -4029,6 +4031,7 @@ body {
 }
 
 .special-gift {
+    top: 107%;
     left: 3.56rem;
 }
 
@@ -5557,17 +5560,17 @@ body {
 .otherPlace {
     position: absolute;
     left: 16%;
-    top: 40%;
+    top: 37%;
     width: 27.45rem;
     height: 19.9rem;
     background: url(../images/120.png) no-repeat;
     background-size: 100% 100%;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     line-height: 2.25rem;
-    z-index: 9999;
+    z-index: 99999;
     display: none;
 }
 

@@ -1,7 +1,14 @@
 $(function () {
+    var url = window.location.href;
+    var num = url.indexOf("=");
+    console.log(url.indexOf("="));
+    if (num != -1) {
+        var uid = url.split("=")[1];
+        sessionStorage.setItem("uId", uid);
+    }
     //清空value
-    deleteVal("#delPhoto","#phone")
-    deleteVal("#delPassword","#password")
+    deleteVal("#delPhoto", "#phone")
+    deleteVal("#delPassword", "#password")
     //输入手机号样式变化
     $("#phone").keyup(function () {
         if ($(this).val() != "") {

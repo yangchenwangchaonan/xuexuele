@@ -19,10 +19,28 @@ $(function () {
                 src: path + "04.png"
             },
             {
+                src: path + "05.png"
+            },
+            {
+                src: path + "06.png"
+            },
+            {
                 src: path + "10.png"
             },
             {
+                src: path + "11.png"
+            },
+            {
+                src: path + "19.png"
+            },
+            {
                 src: path + "25.png"
+            },
+            {
+                src: path + "31.png"
+            },
+            {
+                src: path + "34.png"
             },
             {
                 src: path + "36.png"
@@ -43,10 +61,28 @@ $(function () {
                 src: path + "70.png"
             },
             {
+                src: path + "80.png"
+            },
+            {
+                src: path + "89.png"
+            },
+            {
+                src: path + "90.png"
+            },
+            {
+                src: path + "91.png"
+            },
+            {
+                src: path + "92.png"
+            },
+            {
                 src: path + "103.png"
             },
             {
                 src: path + "104.png"
+            },
+            {
+                src: path + "105.png"
             },
             {
                 src: path + "106.png"
@@ -76,7 +112,13 @@ $(function () {
                 src: path + "128.png"
             },
             {
+                src: path + "134.png"
+            },
+            {
                 src: path + "145.png"
+            },
+            {
+                src: path + "158.png"
             },
             {
                 src: path + "159.png"
@@ -85,13 +127,28 @@ $(function () {
                 src: path + "169.png"
             },
             {
+                src: path + "176.png"
+            },
+            {
+                src: path + "170.png"
+            },
+            {
                 src: path + "177.png"
+            },
+            {
+                src: path + "178.png"
+            },
+            {
+                src: path + "189.png"
             },
             {
                 src: path + "198.png"
             },
             {
                 src: path + "200.png"
+            },
+            {
+                src: path + "215.png"
             },
             {
                 src: path + "218.png"
@@ -109,7 +166,25 @@ $(function () {
                 src: path + "236.png"
             },
             {
-                src: path + "others.jpg"
+                src: path + "251.png"
+            },
+            {
+                src: path + "252.png"
+            },
+            {
+                src: path + "255.png"
+            },
+            {
+                src: path + "center.png"
+            },
+            {
+                src: path + "favicon.ico"
+            },
+            {
+                src: path + "left.png"
+            },
+            {
+                src: path + "right.png"
             },
             {
                 src: vosice + "answerError.mp3"
@@ -179,7 +254,6 @@ $(function () {
                 $(window).attr("location", "./html/login/login.html");
             }
         }, 400);
-
     }
     setupManifest();
     startPreload();

@@ -5,6 +5,7 @@ $(function () {
 // 获取公众号接口权限
 function WxConfig() {
     var url = window.location.href.split("#")[0];
+    var uid = localStorage.getItem("uid");
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/WxConfig",
@@ -40,7 +41,7 @@ function WxConfig() {
                     wx.onMenuShareAppMessage({
                         title: '学学乐',
                         desc: '一起闯关，共同学习',
-                        link: 'https://m.xuexuele.huimor.com/signOut.html',
+                        link: 'https://m.xuexuele.huimor.com/signOut.html?uid=' + uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
                     }, function (res) {
                         //这里是回调函数
@@ -50,7 +51,7 @@ function WxConfig() {
                     //分享到朋友圈
                     wx.onMenuShareTimeline({
                         title: ' 学学乐', // 分享标题
-                        link: 'https://m.xuexuele.huimor.com/signOut.html',
+                        link: 'https://m.xuexuele.huimor.com/signOut.html?uid='+ uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
                     }, function (res) {
                         console.log(res);
@@ -59,7 +60,7 @@ function WxConfig() {
                     wx.onMenuShareQQ({
                         title: ' 学学乐', // 分享标题
                         desc: '一起闯关，共同学习', // 分享描述
-                        link: 'https://m.xuexuele.huimor.com/signOut.html', // 分享链接
+                        link: 'https://m.xuexuele.huimor.com/signOut.html?uid='+ uid, // 分享链接
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
                     }, function (res) {
                         console.log(res);
@@ -67,7 +68,7 @@ function WxConfig() {
                     // 分享到QQ空间
                     wx.onMenuShareQZone({
                         title: ' 学学乐', // 分享标题
-                        link: 'https://m.xuexuele.huimor.com/signOut.html',
+                        link: 'https://m.xuexuele.huimor.com/signOut.html?uid='+ uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
                     }, function (res) {
                         console.log(res);

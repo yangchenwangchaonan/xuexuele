@@ -21,7 +21,7 @@ $(function () {
     // 退出登录
     $(".login-out").click(function () {
         allClick();
-        $(window).attr("location", "../../signOut.html");
+        $(window).attr("location", "../login/login.html");
         sessionStorage.clear();
         localStorage.clear();
     });

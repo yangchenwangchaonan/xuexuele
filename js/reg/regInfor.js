@@ -12,7 +12,7 @@ $(function () {
     $("#reg-avatar").click(function () {
         allClick();
         $("#regVavatar-shade").show();
-        getFiles();  //监听获取到的照片
+        getFiles(); //监听获取到的照片
         $(".img1").click(function () {
             allClick();
             $(this).addClass("img1-photo").parent().siblings().children(".img2").removeClass("img2-picture");
@@ -182,6 +182,12 @@ $(function () {
         var $code = localStorage.getItem("code");
         var $password = localStorage.getItem("newPassword");
         var $repassword = localStorage.getItem("againPassword");
+        var uid = sessionStorage.getItem("uId");
+        if (uid) {
+            var recommenduId = uid;
+        } else {
+            var recommenduId = "";
+        }
         $.ajax({
             type: "POST",
             url: APP_URL + "/api/User/UserRegisterInfo",
@@ -196,7 +202,8 @@ $(function () {
                 sex: $regId,
                 birthday: $regBirthday,
                 constellation: $regConstellation,
-                city: $regArea
+                city: $regArea,
+                recommenduid: recommenduId
             },
             dataType: "json",
             success: function (res) {
@@ -246,10 +253,10 @@ function changeImage(e, imgName) {
 }
 
 //监听拍照/上传图片操作
-function getFiles(){
+function getFiles() {
     var importFile = document.getElementById('importFile'); //获取选择图片的input元素
     importFile.addEventListener('change', readFile, false); //监听input
-    
+
     var importPhoto = document.getElementById('importPhoto'); //获取选择相机的input元素
     importPhoto.addEventListener('change', readFile, false); //监听input
 }
@@ -358,7 +365,7 @@ function login(tel, password) {
                 // sessionStorage.setItem("sex", data.sex); //性别
                 // sessionStorage.setItem("wisdombean", data.wisdombean) //智慧豆
                 $(window).attr("location", "../homePages/home.html");
-                localStorage.setItem("token",res.data.token);
+                localStorage.setItem("token", res.data.token);
                 // console.log(localStorage.getItem("uid"),localStorage.getItem("token"));
             } else {
                 // alert(msg);

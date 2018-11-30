@@ -42,7 +42,8 @@ function WalletWisdombeanUse() {
                                   val.type==4?`<img src="../../images/185.png"/>`:
                                   val.type==5?`<img src="../../images/186.png"/>`:
                                   val.type==6?`<img src="../../images/187.png"/>`:
-                                  val.type==7?`<img src="../../images/newmoney.png"/>`:""
+                                  val.type==7?`<img src="../../images/newmoney.png"/>`:
+                                  val.type==8?`<img src="../../images/256.png"/>`:""
                                 }
                             </td>
                             <td>${val.type==1?"解锁课程":
@@ -51,7 +52,8 @@ function WalletWisdombeanUse() {
                                   val.type==4?"卖出课程":
                                   val.type==5?"智慧塔获得":
                                   val.type==6?"分享获得":
-                                  val.type==7?"智慧塔提示":""
+                                  val.type==7?"智慧塔提示":
+                                  val.type==8?"签到奖励":""
                                  }
                             </td>
                             <td><img src="../../images/125.png"/></td>
