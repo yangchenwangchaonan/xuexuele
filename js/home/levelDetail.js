@@ -11,7 +11,7 @@ $(function () {
         $("#exitLevel").click(function () {
             var levelFailAudio = $("#levelFailAudio")[0];
             levelFailAudio.play();
-            window.setTimeout(function() {
+            window.setTimeout(function () {
                 errorOut();
             }, 1000);
         });
@@ -34,7 +34,7 @@ function UserGateDetail(a) {
         data: {
             gateid: id,
             uid: uId,
-            token:token
+            token: token
         },
         dataType: "json",
         success: function (res) {
@@ -43,7 +43,7 @@ function UserGateDetail(a) {
             if (res.code == 1) {
                 //答案选项
                 option(data.options, data.answer, data.nextgateid);
-                $(".respond-key-show").html(data.options[5]);  //新手演示答案选择内容
+                $(".respond-key-show").html(data.options[5]); //新手演示答案选择内容
                 $(".respond-blank-show").html(data.options[5]); //新手演示答案填写内容
 
                 /*--------------垃圾代码分割线------------------*/
@@ -119,8 +119,8 @@ function UserGateDetail(a) {
                         $(".kit-nobeans").show();
                         $(".kit-nobeans>span").html("x" + answerNeed);
                         //点击立即充值
-                        $(".kit-echarge").click(function(){
-                            $(window).attr("location","../purse/recharge.html");
+                        $(".kit-echarge").click(function () {
+                            $(window).attr("location", "../purse/recharge.html");
                         });
                         // 关闭
                         $("#nobeansClose").click(function () {
@@ -138,8 +138,8 @@ function UserGateDetail(a) {
                     }
                     Timedate()
                 }
-            } else {
-                alert(res.msg);
+            } else if (res.code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {
@@ -263,22 +263,25 @@ function errorOut() {
         url: APP_URL + "/api/User/UserGateChallenge",
         data: {
             uid: id,
-            token:token,
+            token: token,
             gateid: gid,
             answer: "",
             time: "00:00",
         },
         dataType: "json",
         success: function (res) {
-            window.location.replace("./home.html");
             console.log(res);
+            if (res.code == 1) {
+                window.location.replace("./home.html");
+            } else if (res.code == 10000) {
+                repeatLogin();
+            }
         },
         error: function (err) {
             console.log(err)
         }
     })
 }
-
 
 //正确 提交
 function correctAnawer(UserAnswer, nextgateid) {
@@ -293,7 +296,7 @@ function correctAnawer(UserAnswer, nextgateid) {
         url: APP_URL + "/api/User/UserGateChallenge",
         data: {
             uid: id,
-            token:token,
+            token: token,
             gateid: gid,
             answer: answer,
             time: time,
@@ -339,6 +342,8 @@ function correctAnawer(UserAnswer, nextgateid) {
                 $("#passFirstClose,#passAgainClose").click(function () {
                     $(window).attr("location", "./home.html");
                 });
+            } else if (res.code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {
@@ -359,38 +364,42 @@ function kitView(gid) {
         data: {
             gateid: gid,
             uid: uid,
-            token:token
+            token: token
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
-            UserGateDetail(0); //首次渲染
-            var data = res.data;
-            var $str = "";
-            $("")
-            $.each(data.answer, function (index, val) {
-                $str += `
+            if (res.code == 1) {
+                UserGateDetail(0); //首次渲染
+                var data = res.data;
+                var $str = "";
+                $("")
+                $.each(data.answer, function (index, val) {
+                    $str += `
                     <li>${val}</li>
                  `;
-            });
-            if (data.answer.length > 0 && data.answer.length <= 4) {
-                $("#answerList1").html($str);
-                $(".kit-lesson1>.lessonbackground1").attr("src",data.courseimg); //推荐课程图片
-                $(".kit-lesson1>h1").html(data.coursename); //课程名称
-                $(".kit-lesson1>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
-                $(".kit-lesson1>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
-            } else if (data.answer.length > 4 && data.answer.length <= 8) {
-                $("#answerList2").html($str);
-                $(".kit-lesson2>.lessonbackground1").attr("src",data.courseimg); //推荐课程图片
-                $(".kit-lesson2>h1").html(data.coursename); //课程名称
-                $(".kit-lesson2>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
-                $(".kit-lesson2>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
-            } else if (data.answer.length > 8) {
-                $("#answerList3").html($str);
-                $(".kit-lesson3>.lessonbackground1").attr("src",data.courseimg); //推荐课程图片
-                $(".kit-lesson3>h1").html(data.coursename); //课程名称
-                $(".kit-lesson3>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
-                $(".kit-lesson3>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
+                });
+                if (data.answer.length > 0 && data.answer.length <= 4) {
+                    $("#answerList1").html($str);
+                    $(".kit-lesson1>.lessonbackground1").attr("src", data.courseimg); //推荐课程图片
+                    $(".kit-lesson1>h1").html(data.coursename); //课程名称
+                    $(".kit-lesson1>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
+                    $(".kit-lesson1>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
+                } else if (data.answer.length > 4 && data.answer.length <= 8) {
+                    $("#answerList2").html($str);
+                    $(".kit-lesson2>.lessonbackground1").attr("src", data.courseimg); //推荐课程图片
+                    $(".kit-lesson2>h1").html(data.coursename); //课程名称
+                    $(".kit-lesson2>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
+                    $(".kit-lesson2>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
+                } else if (data.answer.length > 8) {
+                    $("#answerList3").html($str);
+                    $(".kit-lesson3>.lessonbackground1").attr("src", data.courseimg); //推荐课程图片
+                    $(".kit-lesson3>h1").html(data.coursename); //课程名称
+                    $(".kit-lesson3>.lesson-gifts>.lesson-smile>span").html(data.wisdombean); //智慧豆数量
+                    $(".kit-lesson3>.lesson-gifts>.lesson-star>span").html(data.coursescore); //课程评分
+                }
+            } else if (code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {

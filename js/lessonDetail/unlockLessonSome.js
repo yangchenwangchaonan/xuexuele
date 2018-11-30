@@ -25,12 +25,13 @@ function UnlockCourseDetail(lessonId, sorId) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data;
-            var needBeans = data.totalwisdombean;
-            $(".series-top>span").html("x" + needBeans);
-            $(".series-name").html(data.albumname);
-            var str = "";
-            str += `
+            if (res.code == 1) {
+                var data = res.data;
+                var needBeans = data.totalwisdombean;
+                $(".series-top>span").html("x" + needBeans);
+                $(".series-name").html(data.albumname);
+                var str = "";
+                str += `
                     <div class="lesson-title series-inner">
                         <div class="list-num series-num">1</div>
                         <div class="lesson-list-detail serise-list">
@@ -41,24 +42,27 @@ function UnlockCourseDetail(lessonId, sorId) {
                         </div>
                     </div>
                 `;
-            $(".series-title-list").html(str);
-            var hasBeans = data.userwisdombean;
-            $(".series-hasbeans>span").html("剩余智慧豆数:" + hasBeans);
-            //解锁
-            if (hasBeans < needBeans) {
-                var str2 = "";
-                str2 += `<div class="nobeans-btn">智慧豆不足,立即充值</div>`;
-                $(".series-hasbeans").prepend(str2);
-            } else if (hasBeans >= needBeans) {
-                var str1 = "";
-                str1 += `<div class="hasbeans-btn" id="lockNow">立即解锁</div>`;
-                $(".series-hasbeans").prepend(str1);
-                //立即加入
-                $("#lockNow").click(function () {
-                    allClick();
-                    $(".unlock-shade").show();
-                    WisdomUnlock(lessonId, sorId);
-                });
+                $(".series-title-list").html(str);
+                var hasBeans = data.userwisdombean;
+                $(".series-hasbeans>span").html("剩余智慧豆数:" + hasBeans);
+                //解锁
+                if (hasBeans < needBeans) {
+                    var str2 = "";
+                    str2 += `<div class="nobeans-btn">智慧豆不足,立即充值</div>`;
+                    $(".series-hasbeans").prepend(str2);
+                } else if (hasBeans >= needBeans) {
+                    var str1 = "";
+                    str1 += `<div class="hasbeans-btn" id="lockNow">立即解锁</div>`;
+                    $(".series-hasbeans").prepend(str1);
+                    //立即加入
+                    $("#lockNow").click(function () {
+                        allClick();
+                        $(".unlock-shade").show();
+                        WisdomUnlock(lessonId, sorId);
+                    });
+                }
+            } else if (res.code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {
@@ -86,6 +90,8 @@ function WisdomUnlock(lessonId, sorId) {
                 $(".unlock-btn").click(function () {
                     $(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId + "&sorId=" + sorId);
                 });
+            } else if (res.code == 10000) {
+                repeatLogin();
             } else {
                 alert(res.msg);
             }

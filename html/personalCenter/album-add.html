@@ -18,7 +18,7 @@
     <!-- 点击按钮音效 -->
     <audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
     <!-- 附加页面 -->
-	<audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
+    <audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
     <!-- 新增专辑 -->
     <div class="album-add-container" id="albumAdd">
         <i class="album-add-back" id="addAlbumBack"></i>
@@ -79,6 +79,18 @@
     <div class="editCompleted">编辑完成</div>
     <!-- tips -->
     <div class="reg-tips"></div>
+    <div class="otherPlace">
+        <span>您已掉线,请重新登录~</span>
+        <div class="placeBtn">确定</div>
+    </div>
 </body>
+<script>
+    $("input").on("click", function () {
+        var target = this;
+        setTimeOut(function () {
+            target.scrollIntoView(true);
+        }, 100);
+    })
+</script>
 
 </html>

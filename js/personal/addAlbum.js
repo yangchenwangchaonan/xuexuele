@@ -219,6 +219,8 @@ function newAlbum() {
                 }, 1000);
             } else if (code == 0) {
                 flowerTips(msg, 1);
+            }else if(res.code==10000){
+                repeatLogin();
             }
         },
         error: function (err) {

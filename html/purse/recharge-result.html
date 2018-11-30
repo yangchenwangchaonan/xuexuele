@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <title>充值方式选择</title>
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" href="../../css/common.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>充值方式选择</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
 
 </head>
+
 <body class="purse-body">
 	<section class="purse-container purse-pay">
-		<i class="purse-back" id="rechargeMethodBack" ></i>
+		<i class="purse-back" id="rechargeMethodBack"></i>
 		<span id="purse-title">-充值方式-</span>
 		<div class="recharge-box">
 			<div class="recharge-top">
-				<img src="../../images/108.png"/>
-				<span>x<span class="num">6</span></span>
+				<img src="../../images/108.png" />
+				<span>x<span class="num"></span></span>
 			</div>
 			<div class="recharge-sum">
 				<label>充值金额</label>
-				<span>￥<span class="moys">6</span></span>
+				<span>￥<span class="moys"></span></span>
 			</div>
 			<div class="recharge-successed">
-				<img src="../../images/198.png"/>
+				<img src="../../images/198.png" />
 				<div class="successed-btn">确定</div>
 			</div>
 		</div>
 	</section>
 </body>
+<script>
+	$(function () {
+		var url = window.location.href;
+		var orderMoney = url.split("=")[1];
+		$(".num").html(orderMoney);
+		$(".moys").html(orderMoney);
+		$(".successed-btn").click(function(){
+			$(window).attr("location","./purse.html");
+		});
+	});
+</script>
 
 </html>

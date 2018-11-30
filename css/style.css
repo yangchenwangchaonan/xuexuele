@@ -181,12 +181,17 @@ body {
     padding: 12.5rem 4.5rem 4.1rem;
 }
 
-.login-content,
-.rewpd-content {
+.login-content {
     width: 100%;
     height: 100%;
     position: relative;
     padding: 1.9rem 1.05rem 0;
+}
+.rewpd-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0.9rem 1.05rem 0;
 }
 
 .reg-second {
@@ -411,9 +416,9 @@ body {
 }
 
 .reg-agreement>h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #CA9A53;
-    padding-left: .4rem;
+    padding-left: .8rem;
 }
 
 .reg-agreement>h1>a {
@@ -1945,6 +1950,7 @@ body {
     overflow: hidden;
     background: linear-gradient(0deg, rgba(238, 197, 105, 1) 0%, rgba(203, 232, 229, 1) 100%);
 }
+
 /*课程详情*/
 .lesson-detail-body {
     width: 100%;
@@ -2137,6 +2143,7 @@ body {
     top: 79%;
     left: 15%;
 }
+
 .audio-content-share {
     position: absolute;
     width: 29rem;
@@ -3305,7 +3312,7 @@ body {
 .kit-content {
     position: absolute;
     width: 25.5rem;
-    height: 5rem;
+    height: 4.8rem;
     left: 4.36rem;
     top: 28rem;
     padding: .2rem;
@@ -3612,9 +3619,9 @@ body {
 }
 
 .tipContent-tips {
-    position: relative;
-    left: 21.05rem;
-    top: 62.031rem;
+    position: absolute;
+    left: 22rem;
+    top: 68rem;
 }
 
 /* 删除演示 */
@@ -4026,12 +4033,19 @@ body {
 }
 
 /*音频闯关内容*/
-
-.level-audio-content {
+.level-topic>.level-audio-content {
     position: absolute;
     width: 29.75rem;
     top: 4.6rem;
-    left: 1.89rem;
+    left: 2.2rem;
+}
+
+/* 课程信息 */
+.lesson-container>.level-audio-content {
+    position: absolute;
+    width: 29.75rem;
+    top: 4.6rem;
+    left: 3.5rem;
 }
 
 .level-successed {
@@ -4300,7 +4314,7 @@ body {
     top: 16%;
     right: 5%;
     width: 21.5%;
-    height:53%;
+    height: 53%;
     font-size: 1.3rem;
     font-family: PingFang-SC-Bold;
     font-weight: bold;
@@ -5539,8 +5553,42 @@ body {
     background-size: 100% 100%;
 }
 
-/*钱包*/
+/* 掉线 */
+.otherPlace {
+    position: absolute;
+    left: 16%;
+    top: 40%;
+    width: 27.45rem;
+    height: 19.9rem;
+    background: url(../images/120.png) no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    line-height: 2.25rem;
+    z-index: 9999;
+    display: none;
+}
 
+.otherPlace>span {
+    margin-top: 7rem;
+    color: rgba(56, 141, 56, 1);
+}
+
+.otherPlace>.placeBtn {
+    position: absolute;
+    bottom: 5rem;
+    left: 8.5rem;
+    line-height: 4rem;
+    width: 10rem;
+    height: 4rem;
+    color: #FFFFFF;
+    background: url(../images/118.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+/*钱包*/
 .recharge-cost {
     position: absolute;
     top: 3.05rem;
@@ -5947,7 +5995,7 @@ body {
     text-align: center;
 }
 
-.recharge-successed > img {
+.recharge-successed>img {
     width: 15.7rem;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
@@ -5968,31 +6016,65 @@ body {
     -moz-animation-name: pulse;
     -o-animation-name: pulse;
     animation-name: pulse;
-    -webkit-animation-iteration-count: infinite;/*定义循环资料，infinite为无限次*/
+    -webkit-animation-iteration-count: infinite;
+    /*定义循环资料，infinite为无限次*/
 }
+
 /* 放大缩小 */
 @-webkit-keyframes pulse {
-    0% {-webkit-transform: scale(1);}
-    50% {-webkit-transform: scale(1.1);}
-    100% {-webkit-transform: scale(1);}
+    0% {
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
 }
 
 @-moz-keyframes pulse {
-    0% {-moz-transform: scale(1);}
-    50% {-moz-transform: scale(1.1);}
-    100% {-moz-transform: scale(1);}
+    0% {
+        -moz-transform: scale(1);
+    }
+
+    50% {
+        -moz-transform: scale(1.1);
+    }
+
+    100% {
+        -moz-transform: scale(1);
+    }
 }
 
 @-o-keyframes pulse {
-    0% {-o-transform: scale(1);}
-    50% {-o-transform: scale(1.1);}
-    100% {-o-transform: scale(1);}
+    0% {
+        -o-transform: scale(1);
+    }
+
+    50% {
+        -o-transform: scale(1.1);
+    }
+
+    100% {
+        -o-transform: scale(1);
+    }
 }
 
 @keyframes pulse {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.1);}
-    100% {transform: scale(1);}
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .successed-btn {
@@ -7273,6 +7355,7 @@ body {
     border-bottom: .1rem solid rgba(58, 141, 18, 0.5);
     margin-bottom: .667rem;
 }
+
 .lesson-container1>.level-audio-content {
     position: absolute;
     width: 29.75rem;
@@ -7496,7 +7579,7 @@ body {
     border-bottom: .1rem solid rgba(58, 141, 18, 0.5);
 }
 
-.lesson-recording-container>div.level-audio-content{
+.lesson-recording-container>div.level-audio-content {
     position: absolute;
     width: 29rem;
     top: 4.6rem;

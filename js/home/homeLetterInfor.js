@@ -15,14 +15,18 @@ $(function () {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data;
-            var str = "";
-            str += `
+            if (res.code == 1) {
+                var data = res.data;
+                var str = "";
+                str += `
                 <h1>${data.heading}</h1>
                 <h3>${data.create_time}</h3>
                 <p>${data.content}</p>
             `;
-            $("div#letterInfor").html(str);
+                $("div#letterInfor").html(str);
+            } else if (code == 10000) {
+                repeatLogin();
+            }
         },
         error: function (err) {
             console.log(err);
@@ -30,7 +34,6 @@ $(function () {
     });
     $('.page-back1').click(function () {
         $(window).attr("location", "../homePages/letter.html");
-        // window.location.replace("../homePages/letter.html");
     })
     /* 站内信更新为已读 */
     $.ajax({

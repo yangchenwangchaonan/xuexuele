@@ -22,17 +22,18 @@ function lessonManageList() {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data;
-            var albumlist = res.data.albumlist;
-            $(".manage-top>span").html("x" + data.wisdombean);
-            if (albumlist.length == 0) {
-                $(".noAlbum-content").show();
-                $(".album-list").hide();
-                $(".album-list").html("");
-            } else {
-                var str = "";
-                $.each(albumlist, function (index, val) {
-                    str += `
+            if (res.code == 1) {
+                var data = res.data;
+                var albumlist = res.data.albumlist;
+                $(".manage-top>span").html("x" + data.wisdombean);
+                if (albumlist.length == 0) {
+                    $(".noAlbum-content").show();
+                    $(".album-list").hide();
+                    $(".album-list").html("");
+                } else {
+                    var str = "";
+                    $.each(albumlist, function (index, val) {
+                        str += `
                     <div class="album-manage" data-aid="${val.id}">
                         <div class="album-href">
                             <img src="${val.albumimg}" />
@@ -46,40 +47,43 @@ function lessonManageList() {
                         </div>
                     </div>
                      `;
-                });
-                $(".album-list").html(str);
-                // 专辑操作
-                var flag = true;
-                $(".manage-btn").click(function () {
-                    allClick();
-                    var aid = $(this).parent().attr("data-aid");
-                    $(this).parent().find(".album-operate").show();
-                    $(this).parent().siblings().find(".album-operate").hide();
-                    if (flag) {
+                    });
+                    $(".album-list").html(str);
+                    // 专辑操作
+                    var flag = true;
+                    $(".manage-btn").click(function () {
+                        allClick();
+                        var aid = $(this).parent().attr("data-aid");
                         $(this).parent().find(".album-operate").show();
                         $(this).parent().siblings().find(".album-operate").hide();
-                        flag = false;
-                        // 专辑删除
-                        $(".operate-del").click(function () {
-                            allClick();
-                            $(this).parent(".album-operate").hide();
-                            albumDel(aid);
-                        });
-                        // 专辑编辑
-                        $(".operate-edit").click(function () {
-                            $(window).attr("location", "./album-add.html?aid=" + aid);
-                        });
-                    } else {
-                        $(this).parent().find(".album-operate").hide();
-                        flag = true;
-                    }
-                });
-                // 专辑详情
-                $(".album-href").click(function () {
-                    allClick();
-                    var $aid = $(this).parent().attr("data-aid");
-                    $(window).attr("location", "./album-detail.html?aid=" + $aid);
-                });
+                        if (flag) {
+                            $(this).parent().find(".album-operate").show();
+                            $(this).parent().siblings().find(".album-operate").hide();
+                            flag = false;
+                            // 专辑删除
+                            $(".operate-del").click(function () {
+                                allClick();
+                                $(this).parent(".album-operate").hide();
+                                albumDel(aid);
+                            });
+                            // 专辑编辑
+                            $(".operate-edit").click(function () {
+                                $(window).attr("location", "./album-add.html?aid=" + aid);
+                            });
+                        } else {
+                            $(this).parent().find(".album-operate").hide();
+                            flag = true;
+                        }
+                    });
+                    // 专辑详情
+                    $(".album-href").click(function () {
+                        allClick();
+                        var $aid = $(this).parent().attr("data-aid");
+                        $(window).attr("location", "./album-detail.html?aid=" + $aid);
+                    });
+                }
+            } else if (res.code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {
@@ -90,7 +94,6 @@ function lessonManageList() {
 
 // 删除专辑
 function albumDel(aId) {
-    // console.log(aId);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/AlbumDelete",

@@ -1,33 +1,34 @@
 $(function () {
     userLetter();
     // 返回
-    $(".page-back1").click(function(){
+    $(".page-back1").click(function () {
         window.location.replace("../homePages/home.html");
     })
 });
 
 /* 获取站内信 */
 function userLetter() {
-    var uid=localStorage.getItem("uid");
+    var uid = localStorage.getItem("uid");
     var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserMessage",
         data: {
             uid: uid,
-            token:token
+            token: token
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
+            if (res.code == 1) {
                 var data = res.data;
                 var $str = "";
-                 if (res.data == "") {
+                if (res.data == "") {
                     $(".noletter").css("display", "block");
                     $(".list").html("");
-                }else{
-                $.each(data, function (index, val) {
-                    $str += `
+                } else {
+                    $.each(data, function (index, val) {
+                        $str += `
                     <ul class="box-box">
                         <li>
                             <a href="#">
@@ -43,10 +44,12 @@ function userLetter() {
                         </li>
                     </ul>
                     `;
-                });
-
-                $(".list").html($str);
-                    scorll ()  
+                    });
+                    $(".list").html($str);
+                    scorll();
+                }
+            } else if (code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {
@@ -57,19 +60,19 @@ function userLetter() {
 
 
 //删除站内信
-function deleteInfo (id) {
-      $.ajax({
+function deleteInfo(id) {
+    $.ajax({
         type: "POST",
         url: APP_URL + "/api/User/UserMessageDelete",
         data: {
             id: id,
-            _method:"DELETE",
+            _method: "DELETE",
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
-            flowerTips("删除信息成功​",1)
-            userLetter()  
+            flowerTips("删除信息成功​", 1)
+            userLetter()
         },
         error: function (err) {
             console.log(err);
@@ -80,50 +83,48 @@ function deleteInfo (id) {
 
 
 /* 查看站内信详情 */
-function detail (id) {
-    $(window).attr("location","./letter-infor.html?id=" + id);
+function detail(id) {
+    $(window).attr("location", "./letter-infor.html?id=" + id);
 }
 
+function scorll() {
+    //侧滑显示删除按钮
+    var expansion = null; //是否存在展开的list
+    var container = document.querySelectorAll('.list li a');
+    for (var i = 0; i < container.length; i++) {
+        var x, y, X, Y, swipeX, swipeY;
+        container[i].addEventListener('touchstart', function (event) {
+            x = event.changedTouches[0].pageX;
+            y = event.changedTouches[0].pageY;
+            swipeX = true;
+            swipeY = true;
+            if (expansion) { //判断是否展开，如果展开则收起
+                expansion.className = "";
+            }
+        });
+        container[i].addEventListener('touchmove', function (event) {
 
-
-function scorll () {
-     //侧滑显示删除按钮
-        var expansion = null; //是否存在展开的list
-        var container = document.querySelectorAll('.list li a');
-        for(var i = 0; i < container.length; i++){    
-            var x, y, X, Y, swipeX, swipeY;
-            container[i].addEventListener('touchstart', function(event) {
-                x = event.changedTouches[0].pageX;
-                y = event.changedTouches[0].pageY;
-                swipeX = true;
-                swipeY = true ;
-                if(expansion){   //判断是否展开，如果展开则收起
-                    expansion.className = "";
-                }        
-            });
-            container[i].addEventListener('touchmove', function(event){
-                
-                X = event.changedTouches[0].pageX;
-                Y = event.changedTouches[0].pageY;        
-                // 左右滑动
-                if(swipeX && Math.abs(X - x) - Math.abs(Y - y) > 0){
-                    // 阻止事件冒泡
-                    event.stopPropagation();
-                    if(X - x > 10){   //右滑
-                        event.preventDefault();
-                        this.className = "";    //右滑收起
-                    }
-                    if(x - X > 10){   //左滑
-                        event.preventDefault();
-                        this.className = "swipeleft";   //左滑展开
-                        expansion = this;
-                    }
-                    swipeY = false;
+            X = event.changedTouches[0].pageX;
+            Y = event.changedTouches[0].pageY;
+            // 左右滑动
+            if (swipeX && Math.abs(X - x) - Math.abs(Y - y) > 0) {
+                // 阻止事件冒泡
+                event.stopPropagation();
+                if (X - x > 10) { //右滑
+                    event.preventDefault();
+                    this.className = ""; //右滑收起
                 }
-                // 上下滑动
-                if(swipeY && Math.abs(X - x) - Math.abs(Y - y) < 0) {
-                    swipeX = false;
-                }        
-            });
-        }
+                if (x - X > 10) { //左滑
+                    event.preventDefault();
+                    this.className = "swipeleft"; //左滑展开
+                    expansion = this;
+                }
+                swipeY = false;
+            }
+            // 上下滑动
+            if (swipeY && Math.abs(X - x) - Math.abs(Y - y) < 0) {
+                swipeX = false;
+            }
+        });
     }
+}

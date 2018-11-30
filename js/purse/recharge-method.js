@@ -10,7 +10,8 @@ $(function () {
 	})
 	// 微信
 	$(".wechat").click(function () {
-		walletOrderWxPay(a);
+		var uid = localStorage.getItem("uid");
+		$(window).attr("location", "https://xuexuele.huimor.com/admin/WxPayJs?uid=" + uid + "&order_money=" + a);
 	})
 
 	// 返回
@@ -35,35 +36,10 @@ function aliPay(a) {
 		dataType: "json",
 		success: function (res) {
 			console.log(res)
-			console.log(res.data)
-			$(".apay").html(res.data)
-		},
-		error: function (err) {
-			console.log(err);
-		}
-	});
-}
+			if (res.code == 1) {
+				$(".apay").html(res.data);
+			}
 
-//获取微信公众号信息
-
-
-// 微信支付
-function walletOrderWxPay(a) {
-	// window.open("https://xuexuele.huimor.com/api/Pay/WxPayJsApi?uid=90&order_money=6")
-	var uid = localStorage.getItem("uid");
-	var token = localStorage.getItem("token");
-	alert(uid);
-	$.ajax({
-		type: "post",
-		url: APP_URL + "/api/Pay/WxPayJsApi",
-		data: {
-			uid: uid,
-			token: token,
-			order_money: a
-		},
-		dataType: "json",
-		success: function (res) {
-			console.log(res)
 		},
 		error: function (err) {
 			console.log(err);

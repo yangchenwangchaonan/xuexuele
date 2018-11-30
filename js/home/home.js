@@ -1,4 +1,5 @@
 $(function () {
+  var music = $("#homeBackgroud")[0];
   //原住人数
   people();
   //闯关列表
@@ -59,126 +60,127 @@ function userGate(index, iscurrent) {
     url: APP_URL + "/api/Wisdom/WisdomIndex",
     data: {
       uid: uid,
-      token:token,
+      token: token,
       iscurrent: iscurrent,
       pageindex: index
     },
     dataType: "json",
     success: function (res) {
       console.log(res);
-      var data = res.data;
-      sessionStorage.setItem("firstlogin", data.firstlogin); //是否为第一次登录
-      if (data.firstlogin == 1) {
-        var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-        var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
-        var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
-        document.documentElement.scrollTop = scrollH - clientH
-        window.pageYOffset = scrollH - clientH
-        document.body.scrollTop = scrollH - clientH
-      }
-      //体力值
-      // console.log(data.manvalue);
-      var sVal = data.manvalue;
-      if (sVal > 30) {
-        sVal = 30;
-      }
-      $("#nowStamina").html(sVal);
-      $("#ownStamina").html(sVal);
-      var staminaWidth = $(".stamina-value").width();
-      // console.log(staminaWidth);
-      var sPercent = sVal / 30;
-      if (sPercent < 0.2) {
-        $(".stamina-value").css("width", 0.2 * staminaWidth);
-      } else {
-        $(".stamina-value").css("width", sPercent * staminaWidth);
-      }
-      // 体力值tips
-      //体力值
-      $("#stamina-tab").click(function () {
-        allClick();
-        if (sVal < 4) {
-          $("#ownStamina").css("color", "red");
-          $("#stamina-shade").show();
+      if (res.code == 1) {
+        var data = res.data;
+        sessionStorage.setItem("firstlogin", data.firstlogin); //是否为第一次登录
+        if (data.firstlogin == 1) {
+          var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+          var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
+          var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+          document.documentElement.scrollTop = scrollH - clientH
+          window.pageYOffset = scrollH - clientH
+          document.body.scrollTop = scrollH - clientH
+        }
+        //体力值
+        // console.log(data.manvalue);
+        var sVal = data.manvalue;
+        if (sVal > 30) {
+          sVal = 30;
+        }
+        $("#nowStamina").html(sVal);
+        $("#ownStamina").html(sVal);
+        var staminaWidth = $(".stamina-value").width();
+        // console.log(staminaWidth);
+        var sPercent = sVal / 30;
+        if (sPercent > 0 && sPercent < 0.2) {
+          $(".stamina-value").css("width", 0.2 * staminaWidth);
         } else {
-          $("#stamina-shade").show();
+          $(".stamina-value").css("width", sPercent * staminaWidth);
         }
-        $(".staminaClose").click(function () {
-          $("#stamina-shade").hide();
+        // 体力值tips
+        //体力值
+        $("#stamina-tab").click(function () {
+          allClick();
+          if (sVal < 4) {
+            $("#ownStamina").css("color", "red");
+            $("#stamina-shade").show();
+          } else {
+            $("#stamina-shade").show();
+          }
+          $(".staminaClose").click(function () {
+            $("#stamina-shade").hide();
+          });
         });
-      });
 
-      //智慧豆
-      var bean = data.wisdombean;
-      // var bean = 10000000;
-      $("#getBeans").html(bean);
-      var beanWidth = $(".beans-value").width();
-      // console.log(beanWidth);
-      var beanPercent = bean / 9999999;
-      if (beanPercent < 0.3) {
-        $(".beans-value").css("width", 0.3 * beanWidth);
-      } else if (bean > 9999999) {
-        $(".beans-value").css("width", beanWidth);
-        $("#getBeans").html(9999999);
-        $(".beans-value").append("<i class='icon_stamina'>+</i>");
-      } else {
-        $(".beans-value").css("width", beanPercent * beanWidth);
-      }
-      //pk值
-      var pkVal = data.pk;
-      // var pkVal = 10000000;
-      var pkWidth = $(".pk-value").width();
-      // console.log(pkWidth);
-      $("#pkValue").html(pkVal);
-      var pkPercent = pkVal / 9999999;
-      if (pkPercent < 0.3) {
-        $(".pk-value").css("width", 0.3 * pkWidth);
-      } else if (pkVal > 9999999) {
-        $(".pk-value").css("width", pkWidth);
-        $("#pkValue").html(9999999);
-        $(".pk-value").append("<i class='icon_stamina'>+</i>");
-      } else {
-        $(".pk-value").css("width", pkPercent * pkWidth);
-      }
-
-      // 站内信
-      if (data.msgcount != 0) {
-        $("#letterNum").addClass("maildrop-infor");
-        $("#letterNum>span").html(data.msgcount);
-      }
-      // 百宝箱
-      if (data.spgatecount != 0) {
-        $("#treasureBoxNum").addClass("giftbox-infor");
-        $("#treasureBoxNum>span").html(data.spgatecount);
-      }
-      // 是否签到
-      if (data.issign != 0) {
-        $("#recordContent").addClass("signed-recording");
-        $("#recordContent>span").html("已签到");
-      }
-      var levelSum = data.gatelist.length;
-      // console.log(levelSum);
-      //大数组分小数组
-      var array = data.gatelist;
-      var size = 6;
-
-      function sliceArr(array, size) {
-        var result = [];
-        for (var x = 0; x < Math.ceil(array.length / size); x++) {
-          var start = x * size;
-          var end = start + size;
-          result.push(array.slice(start, end));
+        //智慧豆
+        var bean = data.wisdombean;
+        // var bean = 10000000;
+        $("#getBeans").html(bean);
+        var beanWidth = $(".beans-value").width();
+        // console.log(beanWidth);
+        var beanPercent = bean / 9999999;
+        if (beanPercent > 0 && beanPercent < 0.3) {
+          $(".beans-value").css("width", 0.3 * beanWidth);
+        } else if (bean > 9999999) {
+          $(".beans-value").css("width", beanWidth);
+          $("#getBeans").html(9999999);
+          $(".beans-value").append("<i class='icon_stamina'>+</i>");
+        } else {
+          $(".beans-value").css("width", beanPercent * beanWidth);
         }
-        return result;
-      }
-      var $levelList = sliceArr(array, size);
-      var $str = "";
-      // console.log($levelList);
-      var $levelFixed = $levelList[0].reverse();
-      $.each($levelFixed, function (index, val) {
-        if (val != "") {
-          var levelSeq = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
-          // console.log(levelSeq);
-          $str += `
+        //pk值
+        var pkVal = data.pk;
+        // var pkVal = 10000000;
+        var pkWidth = $(".pk-value").width();
+        // console.log(pkWidth);
+        $("#pkValue").html(pkVal);
+        var pkPercent = pkVal / 9999999;
+        if (pkPercent > 0 && pkPercent < 0.3) {
+          $(".pk-value").css("width", 0.3 * pkWidth);
+        } else if (pkVal > 9999999) {
+          $(".pk-value").css("width", pkWidth);
+          $("#pkValue").html(9999999);
+          $(".pk-value").append("<i class='icon_stamina'>+</i>");
+        } else {
+          $(".pk-value").css("width", pkPercent * pkWidth);
+        }
+
+        // 站内信
+        if (data.msgcount != 0) {
+          $("#letterNum").addClass("maildrop-infor");
+          $("#letterNum>span").html(data.msgcount);
+        }
+        // 百宝箱
+        if (data.spgatecount != 0) {
+          $("#treasureBoxNum").addClass("giftbox-infor");
+          $("#treasureBoxNum>span").html(data.spgatecount);
+        }
+        // 是否签到
+        if (data.issign != 0) {
+          $("#recordContent").addClass("signed-recording");
+          $("#recordContent>span").html("已签到");
+        }
+        var levelSum = data.gatelist.length;
+        // console.log(levelSum);
+        //大数组分小数组
+        var array = data.gatelist;
+        var size = 6;
+
+        function sliceArr(array, size) {
+          var result = [];
+          for (var x = 0; x < Math.ceil(array.length / size); x++) {
+            var start = x * size;
+            var end = start + size;
+            result.push(array.slice(start, end));
+          }
+          return result;
+        }
+        var $levelList = sliceArr(array, size);
+        var $str = "";
+        // console.log($levelList);
+        var $levelFixed = $levelList[0].reverse();
+        $.each($levelFixed, function (index, val) {
+          if (val != "") {
+            var levelSeq = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+            // console.log(levelSeq);
+            $str += `
           <li class='${levelSeq==1?"LevelPosition1"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
                      levelSeq==2?"LevelPosition2"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
                      levelSeq==3?"LevelPosition3"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
@@ -196,20 +198,20 @@ function userGate(index, iscurrent) {
             <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2018/6/7 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
           </li>
          `;
-        } else {
-          $str += `<li></li>`;
+          } else {
+            $str += `<li></li>`;
+          }
+        });
+        $("#levelFixed").html($str);
+        if (data.gatelist[5].islock == 1 && data.gatelist[5].time != "") {
+          $(".homeFixed>.cloudContent").hide();
         }
-      });
-      $("#levelFixed").html($str);
-      if (data.gatelist[5].islock == 1 && data.gatelist[5].time != "") {
-        $(".homeFixed>.cloudContent").hide();
-      }
-      // console.log($levelList);
-      var bgSum = Math.ceil(levelSum / 6); //背景图数量
-      var str1 = "";
-      for (var i = 1; i < bgSum; i++) {
-        // console.log($levelList[i].length);
-        str1 += `
+        // console.log($levelList);
+        var bgSum = Math.ceil(levelSum / 6); //背景图数量
+        var str1 = "";
+        for (var i = 1; i < bgSum; i++) {
+          // console.log($levelList[i].length);
+          str1 += `
         <div class="homeLoopBg">
           <div class="homeContentLoop"></div>
           <div class="aroundCloudLoop">
@@ -236,16 +238,16 @@ function userGate(index, iscurrent) {
           </div>`)
           }
           <ul class="level-list2">`
-        // 最后一组反转
-        var $level = $levelList[i].reverse();
-        $.each($level, function (index, val) {
-          if (val != "") {
-            var levelNum = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
-          }
-          if (val == "") {
-            str1 += `<li></li>`;
-          } else {
-            str1 += `
+          // 最后一组反转
+          var $level = $levelList[i].reverse();
+          $.each($level, function (index, val) {
+            if (val != "") {
+              var levelNum = parseInt(val.gatename.replace(/[^0-9]/ig, "")); //截取数字
+            }
+            if (val == "") {
+              str1 += `<li></li>`;
+            } else {
+              str1 += `
             <li class='${levelNum%6==1?"LevelLoopPosition1"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
                          levelNum%6==2?"LevelLoopPosition2"+" "+(val.islock==0||(val.islock==1&&val.time=='')?"evenFailLevel":''):
                          levelNum%6==3?"LevelLoopPosition3"+" "+(val.islock==0||(val.islock==1&&val.time=='')?'oddFailLevel':''):
@@ -263,48 +265,50 @@ function userGate(index, iscurrent) {
                     <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2018/6/7 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
                   </li>
                 `;
-          }
-        });
-        str1 += `
+            }
+          });
+          str1 += `
             </ul>
           </div>
           `;
-      };
-      $(".homeLoop").html(str1);
-      // 反转
-      var homeLoop = $(".homeLoopBg");
-      var loopList = [];
-      for (var i = 0; i < homeLoop.length; i++) {
-        loopList[i] = homeLoop[i];
-      }
-      loopList.reverse();
-      for (var i = 0; i < loopList.length; i++) {
-        $(".homeLoop").append(loopList[i]);
-      }
-
-      $(".cloudContent").click(function () {
-        $(this).children(".leftCloud").addClass("moveLeft");
-        $(this).children(".centerCloud").fadeOut();
-        $(this).children(".rightCloud").addClass("moveRight");
-        window.setTimeout(function () {
-          $(".cloudContent").hide();
-        }, 4000);
-      });
-      // 触顶刷新
-      window.onscroll = function () {
-        var index = data.pageindex;
-        if ((data.gatelist.length / 6) != data.pageindex) {
-          generalTips("已经到滑到顶部啦~", 1);
-          return;
+        };
+        $(".homeLoop").html(str1);
+        // 反转
+        var homeLoop = $(".homeLoopBg");
+        var loopList = [];
+        for (var i = 0; i < homeLoop.length; i++) {
+          loopList[i] = homeLoop[i];
         }
-        // console.log(1);
-        var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-        if (scrollT == 0) {
-          index++;
-          userGate(index, 2);
+        loopList.reverse();
+        for (var i = 0; i < loopList.length; i++) {
+          $(".homeLoop").append(loopList[i]);
         }
-      }
 
+        $(".cloudContent").click(function () {
+          $(this).children(".leftCloud").addClass("moveLeft");
+          $(this).children(".centerCloud").fadeOut();
+          $(this).children(".rightCloud").addClass("moveRight");
+          window.setTimeout(function () {
+            $(".cloudContent").hide();
+          }, 4000);
+        });
+        // 触顶刷新
+        window.onscroll = function () {
+          var index = data.pageindex;
+          if ((data.gatelist.length / 6) != data.pageindex) {
+            generalTips("已经到滑到顶部啦~", 1);
+            return;
+          }
+          // console.log(1);
+          var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+          if (scrollT == 0) {
+            index++;
+            userGate(index, 2);
+          }
+        }
+      } else if (res.code == 10000) {
+        repeatLogin();
+      }
     },
     error: function (err) {
       console.log(err)
@@ -319,7 +323,7 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
   if (levelLock == 0) {
     homeLevel("请先闯过当前关卡~", 1);
     return;
-  }else {
+  } else {
     var clickMp3 = $("#clcikMp3")[0];
     clickMp3.play();
   }
@@ -549,14 +553,18 @@ function signinDate() {
     dataType: "json",
     data: {
       uid: uid,
-      token:token
+      token: token
     },
     success: function (res) {
-      var data = res.data
-      $('.calendar-day').text(data.days)
-      $('.calendar-beans').text(data.beans)
-      actioveDate(data.datelist)
-      console.log(res)
+      console.log(res);
+      if (res.code == 1) {
+        var data = res.data
+        $('.calendar-day').text(data.days);
+        $('.calendar-beans').text(data.beans);
+        actioveDate(data.datelist);
+      } else if (code == 10000) {
+        repeatLogin();
+      }
     },
     error: function (err) {
       console.log(err)
@@ -575,10 +583,10 @@ function handleClick() {
       dataType: "json",
       data: {
         uid: uid,
-        token:token
+        token: token
       },
       success: function (res) {
-        console.log(res)
+        console.log(res);
         signinDate();
         if (res.code == 1) {
           if (res.data == "") {
@@ -587,9 +595,11 @@ function handleClick() {
             $(".recordBeans>span").html("x" + res.data);
             $("#recordHasbeanTips").show();
           }
-        } else {
+        } else if (res.code == 0) {
           $(".recordMsg").html(res.msg);
           $("#recordTips").show();
+        } else if (code == 10000) {
+          repeatLogin();
         }
         $(".recordClose").click(function () {
           $("#recordTips").hide();

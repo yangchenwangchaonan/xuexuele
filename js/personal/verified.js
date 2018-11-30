@@ -203,6 +203,8 @@ function getPush() {
 					window.setTimeout(function () {
 						$(window).attr("location", "../personalCenter/infor-submitting.html");
 					}, 1000);
+				} else if (res.code == 10000) {
+					repeatLogin();
 				}
 			},
 			error: function (err) {

@@ -13,12 +13,13 @@
 	<script src="../../js/home/levelDetail.js"></script>
 	<script src="../../js/common/audio.js"></script>
 	<script src="../../js/common/tips.js"></script>
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 </head>
 
 <body class="index-body">
 	<section class="index-container">
-		<audio src="../../mp3/levelBackground.mp3" preload="auto" autoplay loop></audio>
+		<audio src="../../mp3/levelBackground.mp3" preload="auto" id="levelBackground" autoplay loop></audio>
 		<audio src="../../mp3/levelFail.mp3" preload="auto" id="levelFailAudio"></audio>
 		<audio src="../../mp3/answerError.mp3" preload="auto" id="answerError"></audio>
 		<audio src="../../mp3/throughLevel.mp3" preload="auto" id="goThrough"></audio>
@@ -292,6 +293,10 @@
 			</div>
 		</div>
 	</div>
+	<div class="otherPlace">
+		<span>您已掉线,请重新登录~</span>
+		<div class="placeBtn">确定</div>
+	</div>
 	<!-- 新用户演示 -->
 	<div class="level-shade1" id="contentShow">
 		<div class="level-show topic-show" id="topicShow"></div>
@@ -304,5 +309,12 @@
 		<p class="level-tips tipKey-tips">点击删除错误内容!</p>
 	</div>
 </body>
+<script type="text/javascript">
+	// audio自动播放
+	document.addEventListener("WeixinJSBridgeReady", function () {
+		document.getElementById('levelBackground').play();
+		// document.getElementById('video').play(); 
+	}, false);
+</script>
 
 </html>

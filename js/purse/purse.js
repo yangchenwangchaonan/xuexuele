@@ -28,10 +28,11 @@ function WalletWisdombeanUse() {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data;
-            var str = "";
-            $.each(data, function (index, val) {
-                str += `
+            if (res.code == 1) {
+                var data = res.data;
+                var str = "";
+                $.each(data, function (index, val) {
+                    str += `
                   <div class="recharge-detail">
                     <table cellspacing="5px">
                         <tr>
@@ -60,8 +61,11 @@ function WalletWisdombeanUse() {
                     </table>
                  </div>
                  `;
-            });
-            $(".recharge-inner").html(str);
+                });
+                $(".recharge-inner").html(str);
+            } else if (res.code == 10000) {
+                repeatLogin();
+            }
         },
         error: function (err) {
             console.log(err);
@@ -83,9 +87,12 @@ function GetAccountBalanceInfo() {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data;
-            var str = "";
-            $(".recharge-num>span>img").after("x" + data.wisdombean);
+            if (res.code == 1) {
+                var data = res.data;
+                $(".recharge-num>span>img").after("x" + data.wisdombean);
+            } else if (res.code == 10000) {
+                repeatLogin();
+            }
         },
         error: function (err) {
             console.log(err);

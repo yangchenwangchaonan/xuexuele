@@ -1,4 +1,7 @@
 $(function () {
+    var url = window.location.href;
+    var tel = url.split("&")[0].split("=")[1];
+    var code = url.split("&")[1].split("=")[1];
     $("#repwdBtn2").click(function () {
         allClick();
         //输入新密码后样式变化
@@ -21,8 +24,6 @@ $(function () {
                 $("#delAgain").css("display", "none");
             }
         });
-
-
         var newPassword = $("#rewpdPassword1").val();
         var againPassword = $("#rewpdPassword2").val();
         if (newPassword == "" || newPassword == null) {
@@ -33,21 +34,34 @@ $(function () {
             if (againPassword == "" || againPassword == null) {
                 flowerTips("请再次输入新密码~", 1);
             } else {
-                if (newPassword != againPassword) {
-                    flowerTips("两次输入密码一致~", 1);
-                } else {
-                    flowerTips("密码设置成功,请使用新密码登录~", 1);
-                    window.setTimeout(function() {
-                        $(window).attr("location", "./login.html");
-                    }, 1500);
-                    
-                }
+                $.ajax({
+                    type: "POST",
+                    url: APP_URL + "/api/User/UpdataUserPasswdInfo",
+                    data: {
+                        phone: tel,
+                        password: newPassword,
+                        repassword: againPassword,
+                        SmsCode: code
+                    },
+                    dataType: "json",
+                    success: function (res) {
+                        console.log(res);
+                        if (res.code == 1) {
+                            flowerTips("新密码设置成功,请登录~", 1);
+                            window.setTimeout(function () {
+                                $(window).attr("location", "./login.html");
+                            }, 1500);
+                        } else {
+                            flowerTips(res.msg, 1);
+                        }
+                    }
+                });
             }
         }
     });
 
     //返回
-    $("#repwdNextBack").click(function(){
+    $("#repwdNextBack").click(function () {
         window.location.replace("./repwd.html");
     });
 

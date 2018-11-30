@@ -178,7 +178,6 @@ $(function () {
             } else {
                 $(window).attr("location", "./html/login/login.html");
             }
-            // $(window).attr("location","./html/pay.html");
         }, 400);
 
     }
@@ -186,7 +185,7 @@ $(function () {
     startPreload();
 });
 
-// 判断token是否过期 
+// 判断token是否过期
 function getToken() {
     var token = localStorage.getItem("token");
     var uid = localStorage.getItem("uid");
@@ -202,7 +201,7 @@ function getToken() {
             console.log(res);
             if (res.code == 1) {
                 $(window).attr("location", "./html/homePages/home.html");
-            } else {
+            } else if (res.code == 10000) {
                 $(window).attr("location", "./html/login/login.html");
             }
         },

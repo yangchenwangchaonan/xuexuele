@@ -19,14 +19,15 @@ function lessonList() {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data;
-            if (data.length == 0) {
-                $(".no-lessons").show();
-                $(".mylessons-content").hide();
-            } else {
-                var str = "";
-                $.each(data, function (index, val) {
-                    str += `
+            if (res.code == 1) {
+                var data = res.data;
+                if (data.length == 0) {
+                    $(".no-lessons").show();
+                    $(".mylessons-content").hide();
+                } else {
+                    var str = "";
+                    $.each(data, function (index, val) {
+                        str += `
                      <li data-aId="${val.id}">
                         <div class="table-lesson">
                             <img src="${val.albumimg}" />
@@ -35,13 +36,16 @@ function lessonList() {
                         </div>
                      </li>
                      `;
-                });
-                $(".mylesson-list").html(str);
-                $(".mylesson-list>li").click(function () {
-                    var albumId = $(this).attr("data-aId");
-                    // alert(lessonId);
-                    $(window).attr("location", "../lessonDetail/album-name.html?albumId=" + albumId);
-                });
+                    });
+                    $(".mylesson-list").html(str);
+                    $(".mylesson-list>li").click(function () {
+                        var albumId = $(this).attr("data-aId");
+                        // alert(lessonId);
+                        $(window).attr("location", "../lessonDetail/album-name.html?albumId=" + albumId);
+                    });
+                }
+            } else if (res.code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {

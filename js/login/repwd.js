@@ -1,6 +1,6 @@
 $(function () {
     //清空value
-    deleteVal("#delTel","#repwdPhone")
+    deleteVal("#delTel", "#repwdPhone")
     //输入手机号样式变化
     $("#repwdPhone").keyup(function () {
         if ($(this).val() != "") {
@@ -115,8 +115,8 @@ $(function () {
                     window.setTimeout(function () {
                         $(window).attr("location", "../reg/reg.html");
                     }, 1500);
-                } else {
-                    $(window).attr("location", "./repwd_next.html");
+                } else if ($code == 1) {
+                    $(window).attr("location", "./repwd_next.html?tel=" + tel + "&code=" + realCode);
                 }
             },
             error: function (err) {
@@ -127,7 +127,7 @@ $(function () {
     });
 
     // 返回
-    $("#repwdBack").click(function(){
+    $("#repwdBack").click(function () {
         window.location.replace("./login.html");
     });
 });

@@ -170,6 +170,8 @@ function reply(commentId, courseId, text) {
             if (res.code == 1) {
                 flowerTips("回复成功~", 1);
                 courseMessage(1, courseId, 0);
+            } else if (res.code == 10000) {
+                repeatLogin();
             }
         },
         error: function (err) {

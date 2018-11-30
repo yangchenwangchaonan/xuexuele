@@ -1,15 +1,24 @@
 $(function () {
     var audio = $('#lessonAudio').get(0);
+    var bgAudio = $("#levelBackground").get(0); //关卡背景音乐
+    // console.log(bgAudio);
     $('#progressBar').click(function () {
         //改变暂停/播放icon
         if (audio.paused) {
             audio.play();
+            if (bgAudio) {
+                bgAudio.pause();
+            }
             $('#progressBar').removeClass('progress-stop').addClass('progress-start');
         } else {
             audio.pause();
+            if (bgAudio) {
+                bgAudio.play();
+            }
             $('#progressBar').removeClass('progress-start').addClass('progress-stop');
         }
     });
+    
 
     // 获取音频时长
     $("#lessonAudio").on("loadedmetadata", function () {

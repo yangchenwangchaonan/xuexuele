@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <title>充值记录</title>
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" href="../../css/common.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<title>充值记录</title>
+	<link rel="shortcut icon" href="../../images/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/purse/rechargeReword.js"></script>
 </head>
+
 <body class="purse-body">
 	<section class="purse-container">
+		<!-- 附加页面 -->
+		<audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
 		<i class="purse-back" id="rechargeRewordBack"></i>
 		<span id="purse-title">-充值记录-</span>
 		<div class="recharge-box">
@@ -23,9 +28,14 @@
 			</div> -->
 		</div>
 		<div class="no-recharge">
-			<img src="../../images/189.png"/>
+			<img src="../../images/189.png" />
 			<p>还没有进行充值哦~</p>
+		</div>
+		<div class="otherPlace">
+			<span>您已掉线,请重新登录~</span>
+			<div class="placeBtn">确定</div>
 		</div>
 	</section>
 </body>
+
 </html>

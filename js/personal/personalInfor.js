@@ -217,7 +217,9 @@ $(function () {
                 var msg = res.msg;
                 if (code == 1) {
                     lemonTips("修改成功~", 1);
-                } else {
+                } else if(res.code==10000){
+                    repeatLogin();
+                }else {
                     lemonTips(msg, 1);
                 }
             },

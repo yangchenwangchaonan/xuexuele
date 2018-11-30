@@ -10,11 +10,14 @@
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="../../js/common/jquery-1.11.3.min.js"></script>
 	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/personal/myLesson.js"></script>
 </head>
 
 <body class="mylessons-body">
 	<section class="attention-container">
+		<!-- 附加页面 -->
+		<audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
 		<i class="personal-goback" id="myLessonBack"></i>
 		<span class="present-top">-我的课程-</span>
 		<div class="personal-content">
@@ -41,6 +44,10 @@
 				<div id="lessons-img"></div>
 				<div id="lessons-text">还没有解锁课程哦~</div>
 			</div>
+		</div>
+		<div class="otherPlace">
+			<span>您已掉线,请重新登录~</span>
+			<div class="placeBtn">确定</div>
 		</div>
 	</section>
 </body>

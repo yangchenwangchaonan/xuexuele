@@ -57,7 +57,17 @@ function allClick() {
 }
 
 // 附加页面音效
-function otherPages(){
+function otherPages() {
     var shadePages = $("#otherPages")[0];
     shadePages.play();
+}
+
+// 重新登录 
+function repeatLogin() {
+    var shadePages = $("#otherPages")[0];
+    shadePages.play();
+    $(".otherPlace").show();
+    $(".placeBtn").click(function () {
+        window.location.replace("../login/login.html");
+    });
 }
