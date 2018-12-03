@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
     <script src="../../js/common/common.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 
 <body class="agreement-body">
     <section class="agreement-container">
+        <!-- 背景音效 -->
+        <audio src="../../mp3/homeBackgroud.mp3" preload="auto" id="homeBackgroud" autoplay loop></audio>
         <i class="page-back" id="agreementBack"></i>
         <h1><i></i></h1>
         <div class="agreement-content">
@@ -27,6 +30,10 @@
     </section>
 </body>
 <script>
+    // audio自动播放
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        document.getElementById('homeBackgroud').play();
+    }, false);
     // 返回
     $("#agreementBack").click(function () {
         history.back(-1);

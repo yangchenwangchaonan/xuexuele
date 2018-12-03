@@ -1,7 +1,7 @@
 $(function () {
     var url = window.location.href;
     var num = url.indexOf("=");
-    console.log(url.indexOf("="));
+    // console.log(url.indexOf("="));
     if (num != -1) {
         var uid = url.split("=")[1];
         sessionStorage.setItem("uId", uid);

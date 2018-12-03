@@ -1,10 +1,11 @@
 $(function () {
     var url = window.location.href;
-    var courseId = url.split("=")[1];
-    wisdomDetailShare(courseId);
+    var courseId = url.split("&")[0].split("=")[1];
+    var uid = url.split("&")[1].split("=")[1];
+    wisdomDetailShare(courseId,uid);
 });
 
-function wisdomDetailShare(courseId) {
+function wisdomDetailShare(courseId,uid) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomDetailShare",
@@ -23,8 +24,8 @@ function wisdomDetailShare(courseId) {
                 $("#toturConfirm").html(data.identity == 1 ? "导师" : "游侠"); //导师身份
                 $(".useName").html(data.nickname); //导师姓名
                 $("#lessonAudio").attr("src", data.coursevoice); //课程音频
-                $(".share-result").click(function(){
-                    $(window).attr("location","../../index.html");
+                $(".share-result").click(function () {
+                    $(window).attr("location", "../login/login.html?uid=" + uid);
                 });
             }
         },

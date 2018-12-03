@@ -12,11 +12,14 @@
     <link rel="stylesheet" href="../../css/cropper.css">
     <link rel="stylesheet" href="../../css/citysel.css">
     <script src="../../js/common/common.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 </head>
 
 <body class="index-body">
     <section class="index-container">
+        <!-- 背景音效 -->
+        <audio src="../../mp3/homeBackgroud.mp3" preload="auto" id="homeBackgroud" autoplay loop></audio>
         <!-- 点击按钮音效 -->
         <audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
         <!-- 附加页面 -->
@@ -268,6 +271,10 @@
 <script src="../../js/reg/regArea.js"></script>
 
 <script>
+    // audio自动播放
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        document.getElementById('homeBackgroud').play();
+    }, false);
     // 生日选择
     var calendar = new lCalendar();
     calendar.init({

@@ -188,6 +188,7 @@ $(function () {
         } else {
             var recommenduId = "";
         }
+        console.log(recommenduId);
         $.ajax({
             type: "POST",
             url: APP_URL + "/api/User/UserRegisterInfo",

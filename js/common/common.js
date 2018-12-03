@@ -13,3 +13,27 @@ APP_URL = 'https://xuexuele.huimor.com';
     doc.addEventListener("DOMContentLoaded", fn, false);
 
 }(document, window));
+
+//监听用户是否离开浏览器
+var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
+var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+var onVisibilityChange = function () {
+    if (!document[hiddenProperty]) {
+        var levelBackground = $("#levelBackground")[0];
+        var homeBackgroud = $("#homeBackgroud")[0];
+        if (levelBackground) {
+            levelBackground.play();
+        }
+        if (homeBackgroud) {
+            homeBackgroud.play();
+        }
+    } else {
+        var audio = $("audio");
+        if (audio) {
+            for (var i = 0; i < audio.length; i++) {
+                audio[i].pause();
+            }
+        }
+    }
+}
+document.addEventListener(visibilityChangeEvent, onVisibilityChange);
