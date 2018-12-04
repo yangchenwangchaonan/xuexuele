@@ -446,7 +446,7 @@ body {
     width: 100%;
     height: 59.5rem;
     background: url("../images/25.png") no-repeat center;
-    background-size: 100% 59.5rem;
+    background-size: 100% 100%;
     padding: 6.8rem 4.5rem 4.4rem;
 }
 
@@ -2373,10 +2373,10 @@ body {
 .stamina-value {
     position: relative;
     width: 5.2rem;
-    height: 1.8rem;
+    height: 1.6rem;
     background: linear-gradient(0deg, rgba(33, 108, 221, 1) 0%, rgba(41, 117, 228, 1) 33%, rgba(104, 233, 255, 1) 100%);
     border-radius: 1.5rem;
-    top: .4rem;
+    top: .55rem;
     left: .3rem;
     z-index: 2000;
 }
@@ -3094,7 +3094,7 @@ body {
 .pk-reward {
     position: absolute;
     top: .37rem;
-    left: 11.55rem;
+    left: 12.55rem;
     width: 9.4rem;
     height: 4.35rem;
     line-height: 4.35rem;
@@ -3122,9 +3122,9 @@ body {
 
 .other-gift {
     position: absolute;
-    top: 105%;
+    top: 108%;
     width: 24rem;
-    height: 7.337rem;
+    height: 172%;
     background: rgba(255, 247, 223, 1);
     border-radius: 1.5rem;
     box-shadow: .2rem .1rem 4.5rem .1rem #F4E476 inset;
@@ -3132,15 +3132,15 @@ body {
 
 .other-giftbox {
     position: absolute;
-    top: .367rem;
+    top: .5rem;
     width: 8.2rem;
-    height: 6.8rem;
+    height: 87%;
 }
 
 .other-giftbox img {
     float: left;
     width: 8.2rem;
-    height: 6.8rem;
+    height: 100%;
 }
 
 .other-giftbox div {
@@ -3173,14 +3173,14 @@ body {
 
 .next-level {
     position: absolute;
-    width: 15.4rem;
-    height: 4.85rem;
-    top: 308%;
-    left: 7.5rem;
+    width: 15rem;
+    height: 4.5rem;
+    top: 31.5%;
+    left: 12.5rem;
     text-align: center;
     background: url(../images/110.png) no-repeat;
     background-size: 100% 100%;
-    line-height: 4.85rem;
+    line-height: 4.5rem;
     font-size: 1.8rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
@@ -3258,7 +3258,7 @@ body {
 
 .level-content {
     width: 100%;
-    height: 34.9rem;
+    height: 47%;
     background: url(../images/112.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -3286,11 +3286,11 @@ body {
 
 .level-topic {
     position: absolute;
-    top: 8.9rem;
+    top: 12%;
     left: 3.9rem;
     width: 33.75rem;
-    height: 15.28rem;
-    border-radius: 1rem;
+    height: 20.5%;
+    border-radius: 1.5rem;
     display: flex;
     z-index: 10000;
     display: none;
@@ -3302,26 +3302,27 @@ body {
 }
 
 .level-topic>img {
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     margin: auto;
-    width: 33.8rem;
-    height: 15.214rem;
+    width: 100%;
+    height: 100%;
 }
 
+/* 
 .kit {
     position: absolute;
     width: 28.2rem;
     height: 5rem;
     top: 27.88rem;
     left: .3rem;
-}
+} */
 
 .kit-content {
     position: absolute;
-    width: 25.5rem;
-    height: 4.8rem;
+    width: 26rem;
+    height: 6%;
     left: 4.36rem;
-    top: 28rem;
+    top: 38%;
     padding: .2rem;
     border-radius: .5rem;
     background: #FFFCF3;
@@ -3333,10 +3334,10 @@ body {
 
 .kit-image {
     position: absolute;
-    right: -8.42rem;
-    top: -.47rem;
-    width: 5.5rem;
-    height: 5.9rem;
+    right: 4.2rem;
+    top: 37%;
+    width: 15%;
+    height: 8%;
     background: url(../images/113.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -3446,19 +3447,23 @@ body {
 
 .respond-blank {
     position: absolute;
-    width: 86.8%;
-    top: 54%;
+    width: 84%;
+    top: 47%;
     left: 4.25rem;
-    height: 11.74rem;
+    height: 16%;
 }
 
 .respond-blank>ul {
     margin: .3335rem .56rem;
+    width: 98%;
+    height: 100%;
 }
 
 .respond-blank>ul>li {
     float: left;
     margin: .667rem .56rem;
+    /* width: 12.5%;
+    height: 33%; */
     width: 4rem;
     height: 4rem;
     background: #F5F5F5;
@@ -3480,7 +3485,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 30%;
+    height: 38%;
     background: url(../images/114.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -3488,9 +3493,9 @@ body {
 .respond-key>ul {
     position: absolute;
     left: 2.975rem;
-    top: 4.7rem;
-    width: 35.55rem;
-    height: 74%;
+    top: 25%;
+    width: 90%;
+    height: 69%;
     overflow: auto;
 }
 
@@ -3526,8 +3531,8 @@ body {
 
 .blank-show {
     position: absolute;
-    top: 55%;
-    left: 5.375rem;
+    top: 48%;
+    left: 5rem;
     width: 4.6rem;
     height: 4.6rem;
     border-radius: .5rem;
@@ -3555,7 +3560,7 @@ body {
 
 .key-show {
     position: absolute;
-    bottom: 16.5%;
+    top: 26.5%;
     right: 8.3rem;
     width: 5rem;
     height: 5rem;
@@ -3567,8 +3572,8 @@ body {
 
 .respond-key-show {
     position: absolute;
-    margin-left: .3rem;
-    margin-top: .3rem;
+    margin-left: .31rem;
+    margin-top: .28rem;
     width: 4.3rem;
     height: 4.3rem;
     background: #A2C012;
@@ -3603,13 +3608,13 @@ body {
 .topic-show {
     position: relative;
     left: 17.05rem;
-    top: 24.679rem;
+    top: 33%;
 }
 
 .topic-tips {
     position: relative;
     left: 12.175rem;
-    top: 24.679rem;
+    top: 33%;
 }
 
 /* 提示文字演示 */
@@ -3628,7 +3633,7 @@ body {
 .tipContent-tips {
     position: absolute;
     left: 22rem;
-    top: 93%;
+    top: 90%;
 }
 
 /* 删除演示 */
@@ -3636,7 +3641,7 @@ body {
 .tipKey-show {
     position: absolute;
     left: 1.425rem;
-    top: 2.668rem;
+    top: 52%;
     width: 7.25rem;
     height: 8.75rem;
     background: url(../images/255.png) no-repeat;
@@ -3647,7 +3652,7 @@ body {
 .tipKey-tips {
     position: relative;
     left: 1.05rem;
-    top: 73%;
+    top: 66%;
 }
 
 /*再次闯关*/
@@ -4037,16 +4042,25 @@ body {
 }
 
 .special-gift {
-    top: 107%;
-    left: 3.56rem;
+    top: 20%;
+    left: 8.7rem;
+    height: 11.1%;
+}
+
+.special-gift>img {
+    height: 100%;
 }
 
 /*音频闯关内容*/
 .level-topic>.level-audio-content {
     position: absolute;
     width: 29.75rem;
-    top: 4.6rem;
+    top: 28%;
     left: 2.2rem;
+}
+
+.level-topic>.level-audio-content>#progressBar {
+    top: 55%;
 }
 
 /* 课程信息 */

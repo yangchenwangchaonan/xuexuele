@@ -305,7 +305,6 @@ function correctAnawer(UserAnswer, nextgateid) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
-                // $(".level-timing").html("<span>00:00</span>");
                 ranking(gid);
                 if (res.data.isfirst == 0) {
                     //初次闯关成功
@@ -325,18 +324,26 @@ function correctAnawer(UserAnswer, nextgateid) {
 
                 // 下一关
                 $(".next-level").click(function () {
-                    allClick();
-                    sessionStorage.setItem("gateid", nextgateid) //重置关卡id
-                    UserGateDetail(1);
-                    window.location.reload();
-                    $("#levelPass").hide();
+                    if (res.data.manvalue >= 3) {
+                        allClick();
+                        sessionStorage.setItem("gateid", nextgateid) //重置关卡id
+                        UserGateDetail(1);
+                        window.location.reload();
+                        $("#levelPass").hide();
+                    } else {
+                        homeLevel("当前体力值不足哦~", 1);
+                    }
                 });
                 $(".next").click(function () {
-                    allClick();
-                    sessionStorage.setItem("gateid", nextgateid) //重置关卡id
-                    UserGateDetail(1);
-                    window.location.reload();
-                    $("#levelPassAgain").hide();
+                    if (res.data.manvalue >= 3) {
+                        allClick();
+                        sessionStorage.setItem("gateid", nextgateid) //重置关卡id
+                        UserGateDetail(1);
+                        window.location.reload();
+                        $("#levelPassAgain").hide();
+                    } else {
+                        homeLevel("当前体力值不足哦~", 1);
+                    }
                 });
                 // 关闭
                 $("#passFirstClose,#passAgainClose").click(function () {

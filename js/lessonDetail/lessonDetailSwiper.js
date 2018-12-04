@@ -33,7 +33,6 @@ var mySwiper = new Swiper('.swiper-container', {
             var prevFlag = $(".swiper-wrapper>.swiper-slide-active").prevAll().hasClass("lesson-audio"); //前面是否有课程滑动块
             var firstChildren = $(".swiper-wrapper").children("section").first().hasClass("swiper-slide"); //判断第一个是否有滑动块
             var lastChildren = $(".swiper-wrapper").children("section").last().hasClass("swiper-slide"); //判断最后一个是否有滑动块
-            console.log(mySwiper.activeIndex);
             if (((mySwiper.activeIndex == totalLength) && lessonFlag) || ((mySwiper.activeIndex == (totalLength - 1)) && !nextFlag)) {
                 //插入下一节课程 
                 var nextId = $('.swiper-wrapper>.swiper-slide-active').attr('data-nextid');
@@ -165,8 +164,8 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
             `}
             `;
                 if (diff == 0) {
-                    $('div.swiper-wrapper>.swiper-slide-active').replaceWith(str); //当前页
-                    $('div.swiper-wrapper>section').eq(mySwiper.activeIndex).addClass("swiper-slide-active");
+                    $('div.swiper-wrapper>section').eq(mySwiper.activeIndex).html(str); //当前页
+                    // $('div.swiper-wrapper>section').eq(mySwiper.activeIndex+1).addClass("swiper-slide-active");
                     var activeFollowid = $('div.swiper-wrapper>section').eq(mySwiper.activeIndex).find('.attention').attr("data-followid");
                     var siblingPages = $('div.swiper-wrapper>section').eq(mySwiper.activeIndex).siblings(".lesson-audio").find(".attention");
                     if (isfollow == 0) {
@@ -189,7 +188,7 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
                         }
                     }
                 } else {
-                    console.log(data.lastid, lessonId, data.nextid);
+                    // console.log(data.lastid, lessonId, data.nextid);
                     $('div.swiper-wrapper').html(str); //当前页
                     if (data.lastid != "") {
                         getPrevNextData(data.lastid, countSum, "last"); //上一页

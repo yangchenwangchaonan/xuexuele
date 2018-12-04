@@ -50,9 +50,7 @@
 					<div class="progress-stop" id="progressBar"></div>
 				</div>
 			</div>
-			<div class="kit">
-				<div class="kit-image" id="kitImg"></div>
-			</div>
+			<div class="kit-image" id="kitImg"></div>
 			<div class="kit-content"></div>
 			<div class="respond-blank">
 				<ul>
@@ -101,15 +99,16 @@
 					<li></li>
 					<li></li> -->
 				</ul>
+				<!-- 答案演示 -->
+				<div class="key-show">
+					<div class="respond-key-show"></div>
+					<div class="tipKey-show" id="keyShow"></div>
+				</div>
 			</div>
 			<!-- 答案演示 -->
 			<div class="blank-show">
 				<div class="respond-blank-show"></div>
 				<div class="tipContent-show" id="blankShow"></div>
-			</div>
-			<div class="key-show">
-				<div class="respond-key-show"></div>
-				<div class="tipKey-show" id="keyShow"></div>
 			</div>
 		</div>
 	</section>
@@ -233,14 +232,14 @@
 				<div class="stamina-reward stamina-end"><img src="../../images/108.png" /><span id="passStamina">x10</span></div>
 				<div class="pk-reward pk-end"><img src="../../images/107.png" /><span id="passPk">x10</span></label>
 				</div>
-				<div class="other-gift special-gift">
-					<div class="other-giftbox">
-						<img src="../../images/109.png" />
-						<div>特殊奖励</div>
-					</div>
-				</div>
-				<div class="next-level">下一关</div>
 			</div>
+			<div class="other-gift special-gift">
+				<div class="other-giftbox">
+					<img src="../../images/109.png" />
+					<div>特殊奖励</div>
+				</div>
+			</div>
+			<div class="next-level">下一关</div>
 			<!--排行榜-->
 			<div class="leaderboard">
 				<i class="icon-board">-全网排名-</i>
@@ -297,6 +296,8 @@
 		<span>您已掉线,请重新登录~</span>
 		<div class="placeBtn">确定</div>
 	</div>
+	<!-- 闯关提示 -->
+	<div class="home-tips"></div>
 	<!-- 新用户演示 -->
 	<div class="level-shade1" id="contentShow">
 		<div class="level-show topic-show" id="topicShow"></div>
