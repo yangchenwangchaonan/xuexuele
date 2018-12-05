@@ -86,16 +86,14 @@ function userGate(index, iscurrent) {
         }
         $("#nowStamina").html(sVal);
         $("#ownStamina").html(sVal);
-        var staminaWidth = $(".stamina-value").width();
-        // console.log(staminaWidth);
+        //体力值、智慧豆、pk值进度条宽度
+        var fontSize = getComputedStyle(window.document.documentElement)['font-size'];
+        var fontSizeNum = fontSize.substring(0, fontSize.length - 2);
+        var staminaWidth = fontSizeNum * 4.5;
+        // console.log(fontSizeNum);
         var sPercent = sVal / 30;
-        if (sPercent > 0 && sPercent < 0.2) {
-          $(".stamina-value").css("width", 0.2 * staminaWidth);
-        } else {
-          $(".stamina-value").css("width", sPercent * staminaWidth);
-        }
+        $(".stamina-value").css("width", sPercent * staminaWidth);
         // 体力值tips
-        //体力值
         $("#stamina-tab").click(function () {
           allClick();
           if (sVal < 4) {
@@ -108,40 +106,29 @@ function userGate(index, iscurrent) {
             $("#stamina-shade").hide();
           });
         });
-
         //智慧豆
+        var progressWidth = fontSizeNum * 4.9;
         var bean = data.wisdombean;
-        // var bean = 10000000;
+        // var bean =1000;
         $("#getBeans").html(bean);
-        var beanWidth = $(".beans-value").width();
-        // console.log(beanWidth);
-        var beanPercent = bean / 9999999;
-        if (beanPercent > 0 && beanPercent < 0.3) {
-          $(".beans-value").css("width", 0.3 * beanWidth);
-        } else if (bean > 9999999) {
-          $(".beans-value").css("width", beanWidth);
-          $("#getBeans").html(9999999);
-          $(".beans-value").append("<i class='icon_stamina'>+</i>");
-        } else {
-          $(".beans-value").css("width", beanPercent * beanWidth);
+        var beanPercent = bean / 999;
+        $(".beans-value").css("width", beanPercent * progressWidth);
+        if (bean > 999) {
+          $(".beans-value").css("width", progressWidth);
+          $("#getBeans").html("999+");
+          // $(".beans-value").append("<i class='icon_stamina'>+</i>");
         }
         //pk值
         var pkVal = data.pk;
-        // var pkVal = 10000000;
-        var pkWidth = $(".pk-value").width();
-        // console.log(pkWidth);
+        // var pkVal =1000;
         $("#pkValue").html(pkVal);
-        var pkPercent = pkVal / 9999999;
-        if (pkPercent > 0 && pkPercent < 0.3) {
-          $(".pk-value").css("width", 0.3 * pkWidth);
-        } else if (pkVal > 9999999) {
-          $(".pk-value").css("width", pkWidth);
-          $("#pkValue").html(9999999);
-          $(".pk-value").append("<i class='icon_stamina'>+</i>");
-        } else {
-          $(".pk-value").css("width", pkPercent * pkWidth);
+        var pkPercent = pkVal / 999;
+        $(".pk-value").css("width", pkPercent * progressWidth);
+        if (pkVal > 999) {
+          $(".pk-value").css("width", progressWidth);
+          $("#pkValue").html("999+");
+          // $(".pk-value").append("<i class='icon_stamina'>+</i>");
         }
-
         // 站内信
         if (data.msgcount != 0) {
           $("#letterNum").addClass("maildrop-infor");
