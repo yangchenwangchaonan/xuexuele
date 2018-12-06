@@ -73,6 +73,12 @@
     document.addEventListener("WeixinJSBridgeReady", function () {
         document.getElementById('homeBackgroud').play();
     }, false);
+    var bfscrolltop = document.body.scrollTop;
+    $("#phone,#password").focus(function () {
+        setTimeout(function () {
+            document.body.scrollTop = document.body.scrollHeight;
+        }, 300);
+    });
 </script>
 
 </html>

@@ -11,7 +11,7 @@ $(function () {
     deleteVal("#delPassword", "#password")
     //输入手机号样式变化
     $("#phone").keyup(function () {
-        document.querySelector('#phone').scrollIntoView(true);
+        // document.querySelector('#phone').scrollIntoView(true);
         if ($(this).val() != "") {
             $("#loginTel").addClass("login-focus");
             $("#delPhoto").css("display", "block");
@@ -22,7 +22,7 @@ $(function () {
     });
     //输入密码样式变化
     $("#password").keyup(function () {
-        document.querySelector('#password').scrollIntoView(true);
+        // document.querySelector('#password').scrollIntoView(true);
         if ($(this).val() != "") {
             $("#loginPword").addClass("login-focus");
             $("#delPassword").css("display", "block");

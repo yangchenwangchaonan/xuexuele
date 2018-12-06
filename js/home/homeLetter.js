@@ -10,6 +10,7 @@ $(function () {
 function userLetter() {
     var uid = localStorage.getItem("uid");
     var token = localStorage.getItem("token");
+    // console.log(uid,token);
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserMessage",
@@ -48,7 +49,7 @@ function userLetter() {
                     $(".list").html($str);
                     scorll();
                 }
-            } else if (code == 10000) {
+            } else if (res.code == 10000) {
                 repeatLogin();
             }
         },
