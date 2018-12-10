@@ -180,7 +180,7 @@ function userGate(index, iscurrent) {
             <div class="${levelSeq%2==0?'evenWillLevel':'oddWillLevel'}"></div>
             `:''}
             ${val.time!=''?'':`
-            <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
+            <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>特殊奖励</span></div>
             `}
             <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2018/6/7 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
           </li>
@@ -247,7 +247,7 @@ function userGate(index, iscurrent) {
                     <div class="${levelNum%2==0?'evenWillLevel':'oddWillLevel'}"></div>
                     `:''}
                     ${val.time!=''?'':`
-                    <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>其他奖励</span></div>
+                    <div class="${val.specialreward==1?"specialReward":"noSpecialReward"}"><img src="../../images/101.png" /><span>特殊奖励</span></div>
                     `}
                     <div class="${val.time==""?"noLevelTime":"levelTime"}"><p>${moment("2018/6/7 6:"+val.time).format("mm分ss秒")}</p><p><img src="../../images/97.png" />+${val.rewordbeans}</p></div>
                   </li>
@@ -271,14 +271,14 @@ function userGate(index, iscurrent) {
           $(".homeLoop").append(loopList[i]);
         }
 
-        $(".cloudContent").click(function () {
-          $(this).children(".leftCloud").addClass("moveLeft");
-          $(this).children(".centerCloud").fadeOut();
-          $(this).children(".rightCloud").addClass("moveRight");
-          window.setTimeout(function () {
-            $(".cloudContent").hide();
-          }, 4000);
-        });
+        // $(".cloudContent").click(function () {
+        //   $(this).children(".leftCloud").addClass("moveLeft");
+        //   $(this).children(".centerCloud").fadeOut();
+        //   $(this).children(".rightCloud").addClass("moveRight");
+        //   window.setTimeout(function () {
+        //     $(".cloudContent").hide();
+        //   }, 4000);
+        // });
         // 触顶刷新
         window.onscroll = function () {
           var index = data.pageindex;
@@ -286,11 +286,23 @@ function userGate(index, iscurrent) {
             generalTips("已经到滑到顶部啦~", 1);
             return;
           }
-          // console.log(1);
+          console.log(index);
+          if (index == 1) {
+            var cloudContent = $(".homeFixed>.cloudContent");
+          } else if (index > 1) {
+            var cloudContent = $(".homeLoopBg").eq(index - 2).find(".cloudContent");
+          }
           var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
           if (scrollT == 0) {
             index++;
-            userGate(index, 2);
+            cloudContent.children(".leftCloud").addClass("moveLeft");
+            cloudContent.children(".centerCloud").fadeOut();
+            cloudContent.children(".rightCloud").addClass("moveRight");
+            window.setTimeout(function () {
+              cloudContent.hide();
+              userGate(index, 2);
+            }, 2000);
+            // userGate(index, 2);
           }
         }
       } else if (res.code == 10000) {
@@ -324,7 +336,7 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
           <div class="other-gift">
             <div class="other-giftbox">
               <img src="../../images/109.png" />
-              <div>其他奖励</div>
+              <div>特殊奖励</div>
             </div>
           </div>
         </div>
@@ -472,6 +484,7 @@ var calUtil = {
   },
   drawCal: function (iYear, iMonth, signList) {
     var myMonth = calUtil.bulidCal(iYear, iMonth);
+    // var todayWeek = new Date().getDay();
     var htmls = new Array();
     // htmls.push("<div class='sign_main' id='sign_layer'>");
     // htmls.push("<div class='sign_succ_calendar_title'>");
@@ -523,7 +536,8 @@ function actioveDate(datelist) {
       var date = (moment(datelist[i].signdate).format("D"));
       if (count == date) {
         $(this).css({
-          "background": "#5ABE1B"
+          "background": "#5ABE1B",
+          "color": "#FFF"
         })
       }
     }
@@ -618,7 +632,7 @@ function ranking(levelId) {
         $str +=
           `
           <li>
-            <p class="border-num">${index+1}</p>
+            <p class="border-num ${((index+1)>0&&(index+1)<4)?'border-num-color':''}">${index+1}</p>
             <p class="border-head"><img src="${val.headimg}" /></p>
             <p class="border-name">${val.nickname}</p>
             <p class="border-time">${val.time}</p>

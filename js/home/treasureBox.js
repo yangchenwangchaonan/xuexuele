@@ -86,7 +86,7 @@ function treasureBoxList(page) {
                     }
                 });
                 //没有更多
-                if (page != 1 && (data.length != 10 || data.length == 0)) {
+                if (page != 1 && (data.length != 10 || data.length == 0)|| (page == 1 && (data.length >0&&data.length<10))) {
                     $(".treasureBox-wrapper").append("<p class='endding'>-没有更多奖励了-</p>");
                     $(".treasureBox-wrapper").unbind('scroll');
                 }
@@ -167,7 +167,8 @@ function userBoxCourse(boxPage) {
                     }
                 });
                 //没有更多
-                if (boxPage != 1 && (data.length == 0 || data.length != 10)) {
+                if ((boxPage != 1 && (data.length == 0 || data.length != 10)) || (boxPage == 1 && (data.length >0&&data.length<10))) {
+                    
                     $(".treasureBox-wrapper").append("<p class='endding'>-没有更多奖励了-</p>");
                     $(".treasureBox-wrapper").unbind('scroll');
                 }

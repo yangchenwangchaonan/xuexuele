@@ -372,8 +372,8 @@ body {
     width: 65.02057%;
 }
 
-#codeBtn,
-#recodeBtn {
+.codeBtn,
+.recodeBtn {
     float: right;
     margin-top: .2rem;
     margin-right: .5rem;
@@ -385,6 +385,15 @@ body {
     border-radius: 1rem;
     background-size: 100% 100%;
     color: #fff;
+}
+
+.codeDisable {
+    margin-top: .5rem;
+    margin-right: .5rem;
+    line-height: 4.2rem;
+    width: 8rem;
+    height: 4.2rem;
+    background: #B0B0B0;
 }
 
 .repwd-code>.input-3>input {
@@ -794,7 +803,7 @@ body {
     top: 0;
     margin-bottom: -16.6rem;
     width: 100%;
-    height: 60.56rem;
+    height: 69.4rem;
     z-index: 500;
 }
 
@@ -882,7 +891,7 @@ body {
     position: relative;
     top: 0;
     width: 100%;
-    height: 79.3rem;
+    height: 83.6rem;
     background: linear-gradient(0deg, rgba(207, 228, 255, 1) 0%, rgba(237, 254, 255, 1) 40%, rgba(48, 116, 255, 1) 50%);
 }
 
@@ -890,7 +899,7 @@ body {
     position: relative;
     top: 0;
     width: 100%;
-    height: 79.3rem;
+    height: 83.6rem;
     background: url(../images/36.png) no-repeat;
     background-size: 100% 100%;
     z-index: 500;
@@ -1305,7 +1314,7 @@ body {
     position: absolute;
     z-index: 350;
     top: 1.5rem;
-    right: .45rem;
+    right: 6.5rem;
     width: 4.2rem;
     height: 4.2rem;
     background: url(../images/39.png) no-repeat;
@@ -1320,7 +1329,7 @@ body {
     position: absolute;
     z-index: 350;
     top: 1.5rem;
-    right: 6.5rem;
+    right: .45rem;
     width: 4.2rem;
     height: 4.2rem;
     background: url(../images/42.png) no-repeat;
@@ -1879,6 +1888,7 @@ body {
     font-weight: bold;
     color: #FFFFFF;
     z-index: 350;
+    text-shadow: 1px 1px 2px #DB7E1C, -1px 1px 2px #DB7E1C, 0px 1px 2px #DB7E1C, 0px -1px 2px #DB7E1C;
 }
 
 .letter-content>h1 {
@@ -1887,9 +1897,11 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
+    font-family: MicrosoftYaHei-Bold;
     font-size: 1.8rem;
     font-weight: bold;
     color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .mailbox {
@@ -1996,7 +2008,7 @@ body {
 }
 
 .articleGift {
-    width: 7.45rem;
+    width: 8.2rem;
     height: 6.8rem;
     background: url(../images/72.png) no-repeat;
     background-size: 100% 100%;
@@ -2004,7 +2016,7 @@ body {
 }
 
 .musicGift {
-    width: 7.45rem;
+    width: 8.2rem;
     height: 6.8rem;
     background: url(../images/73.png) no-repeat;
     background-size: 100% 100%;
@@ -2016,6 +2028,10 @@ body {
     font-size: 1.5rem;
     color: #553208;
     line-height: 3.9rem;
+}
+
+.treasureBox-gift>p {
+    font-size: 1.3rem;
 }
 
 .nogift-result {
@@ -2032,8 +2048,8 @@ body {
     position: absolute;
     bottom: .8rem;
     right: 1.6rem;
-    width: 6.85rem;
-    height: 6.65rem;
+    width: 6.1rem;
+    height: 6.6rem;
     background: url(../images/74.png) no-repeat center;
     background-size: 100% 100%;
 }
@@ -2085,12 +2101,18 @@ body {
     color: #DCD1B9;
 }
 
+.endding1 {
+    margin-left: 12.5rem;
+    font-size: 1.3rem;
+    color: #DCD1B9;
+}
+
 /*百宝箱内容详情*/
 
 .treasureBox-detail {
     width: 100%;
     position: relative;
-    padding: 2.2rem 1.25rem;
+    padding: 2.2rem 1.0rem;
     text-align: center;
 }
 
@@ -2132,6 +2154,8 @@ body {
     font-size: 2rem;
     font-weight: bold;
     color: #FFFFFF;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6), -1px 1px 2px rgba(0, 0, 0, 0.6), 0px 1px 2px rgba(0, 0, 0, 0.6), 0px -1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .audio>h2 {
@@ -2226,7 +2250,7 @@ body {
     margin-left: -.1125rem;
     width: .77rem;
     height: 1.4rem;
-    margin-top: -.35rem;
+    margin-top: -.6rem;
     float: left;
     background: url(../images/76.png) no-repeat;
     background-size: 100% 100%;
@@ -2456,6 +2480,7 @@ body {
 .home-sign>.people>p {
     font-weight: bold;
     color: #633110;
+    text-shadow: -2px 0px 1px #FFFFFF, 2px 0px 1px #FFFFFF, 0px -2px 1px #FFFFFF, 0px 2px 1px #FFFFFF;
 }
 
 .inforBox {
@@ -2562,7 +2587,7 @@ body {
     position: absolute;
     display: inline-block;
     z-index: 1000 !important;
-    top: 5rem;
+    top: 11rem;
     right: 14.06rem;
 }
 
@@ -2595,7 +2620,7 @@ body {
 /* 第一关位置 */
 
 .LevelPosition1 {
-    top: -5.4rem;
+    top: -6rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2604,7 +2629,7 @@ body {
 
 .LevelPosition2 {
     left: -10.9rem;
-    top: -0.2rem;
+    top: -1rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2612,7 +2637,7 @@ body {
 /* 第三关位置 */
 
 .LevelPosition3 {
-    top: -6.8rem;
+    top: -7.5rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2621,7 +2646,7 @@ body {
 
 .LevelPosition4 {
     left: -10.9rem;
-    top: -1.5rem;
+    top: -2.5rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2629,7 +2654,7 @@ body {
 /* 第五关位置 */
 
 .LevelPosition5 {
-    top: -7rem;
+    top: -8.5rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2638,7 +2663,7 @@ body {
 
 .LevelPosition6 {
     left: -10.9rem;
-    top: -2rem;
+    top: -3rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2671,7 +2696,7 @@ body {
 
 .LevelLoopPosition2 {
     left: -10.9rem;
-    top: -.5rem;
+    top: -.65rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2679,7 +2704,7 @@ body {
 /* 第三关位置 */
 
 .LevelLoopPosition3 {
-    top: -4.5rem;
+    top: -6.5rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2688,7 +2713,7 @@ body {
 
 .LevelLoopPosition4 {
     left: -10.9rem;
-    top: 1.2rem;
+    top: -1.3rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2696,7 +2721,7 @@ body {
 /* 第五关位置 */
 
 .LevelLoopPosition5 {
-    top: -3.7rem;
+    top: -8rem;
     background: url(../images/96.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2705,7 +2730,7 @@ body {
 
 .LevelLoopPosition6 {
     left: -10.9rem;
-    top: 2rem;
+    top: -3rem;
     background: url(../images/95.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -2841,7 +2866,7 @@ body {
     width: 100%;
     height: 9.6rem;
     z-index: 9999;
-    padding-left: 3rem;
+    left: -1rem;
 }
 
 .bottom-table>ul {
@@ -2850,7 +2875,7 @@ body {
 
 .bottom-table>ul>li {
     float: left;
-    margin-right: 1.5rem;
+    margin-left: 2.5rem;
 }
 
 .menu {
@@ -2975,7 +3000,8 @@ body {
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     line-height: 2.25rem;
-    text-shadow: 1px 1px 3px #388D38;
+    /* text-shadow: 1px 1px 3px #388D38; */
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .stamina-tips>img {
@@ -3033,6 +3059,7 @@ body {
     background: rgba(255, 255, 255, 1);
     border-radius: 50%;
     top: .974rem;
+    box-shadow: 1px 2px 1px rgba(56, 141, 56, 1);
 }
 
 .left-round {
@@ -3051,6 +3078,7 @@ body {
     display: block;
     position: absolute;
     left: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .level-passed>p {
@@ -3196,11 +3224,11 @@ body {
     position: absolute;
     top: 47%;
     left: 16.5rem;
-    width: 88.99rem;
+    width: 10rem;
     height: 1.7rem;
     font-size: 1.7rem;
     font-family: MicrosoftYaHei-Bold;
-    font-weight: bold;
+    font-weight: 600;
     color: rgba(41, 151, 10, 1);
 }
 
@@ -3209,7 +3237,7 @@ body {
     left: 9.0rem;
     top: 53%;
     width: 24.375rem;
-    height: 37%;
+    height: 39%;
     overflow: auto;
 }
 
@@ -3239,9 +3267,22 @@ body {
     width: 1.8rem;
 }
 
-.border-head>img {
+.border-num-color {
+    color: #29970A;
+}
+
+.border-head {
     width: 4.3rem;
     height: 4.3rem;
+    background: url(../images/111.png) no-repeat;
+    background-size: 100% 100%;
+    border-radius: .5rem;
+}
+
+.border-head>img {
+    margin: -.25rem 0 0 .35rem;
+    width: 3.6rem;
+    height: 3.6rem;
     border-radius: .5rem;
 }
 
@@ -3788,7 +3829,7 @@ body {
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     line-height: 4.5rem;
-    text-shadow: .2rem .2rem .2rem rgba(56, 141, 56, 1);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .kit-cost {
@@ -3867,7 +3908,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 0px 1px 0px rgba(206,33,23,0.75);
 }
 
 /*打开锦囊*/
@@ -3958,7 +3999,7 @@ body {
 .kit-lesson1 p {
     font-size: 1.5rem;
     font-family: MicrosoftYaHei;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: rgba(149, 104, 38, 1);
     line-height: 2.25rem;
     text-align: center;
@@ -7755,6 +7796,7 @@ body {
     left: 6.45rem;
     width: 14.05rem;
     font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .calendar-count>.calendar-num {
@@ -7763,19 +7805,21 @@ body {
     left: 23.25rem;
     width: 15.05rem;
     font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .home-recording>p {
     width: 25rem;
     height: 11%;
     text-align: center;
-    background: url('../images/11.png') no-repeat;
+    background: url('../images/194.png') no-repeat;
     background-size: 100% 100%;
-    line-height: 230%;
+    line-height: 255%;
     margin: 0 auto;
     /* margin-top: 0.6%; */
     font-size: 1.8rem;
     color: #fff;
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .singer_r_img {
@@ -7844,6 +7888,7 @@ body {
 .sign_row div {
     display: table-cell;
     width: 14.3%;
+    color: #956826;
     /*border-top: 1px solid #e3e3e3;*/
     border-bottom: .1rem solid #e3e3e3;
     /*border-left: 1px solid #e3e3e3;*/
@@ -7859,7 +7904,11 @@ body {
     font-size: 2rem;
     font-family: MicrosoftYaHei;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
+}
+
+.fontBig {
+    font-weight: 700;
 }
 
 .sign_row div:last-child {

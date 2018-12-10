@@ -25,7 +25,7 @@ function userLetter() {
                 var data = res.data;
                 var $str = "";
                 if (res.data == "") {
-                    $(".noletter").css("display", "block");
+                    $(".noletter").show();
                     $(".list").html("");
                 } else {
                     $.each(data, function (index, val) {
@@ -51,6 +51,8 @@ function userLetter() {
                 }
             } else if (res.code == 10000) {
                 repeatLogin();
+            }else if(res.code==0){
+                $(".noletter").show();
             }
         },
         error: function (err) {

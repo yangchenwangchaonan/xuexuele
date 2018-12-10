@@ -61,7 +61,7 @@
                         <input type="hidden" id="realCode" />
                         <div class="code-close"></div>
                     </div>
-                    <p id="codeBtn">获取验证码</p>
+                    <p class="codeBtn" id="codeBtn">获取验证码</p>
                 </div>
                 <div class="reg-agreement">
                     <h1>点击“下一步”即表示同意<a href="./reg-agreement.html">《用户协议》</a></h1>
@@ -80,6 +80,7 @@
     document.addEventListener("WeixinJSBridgeReady", function () {
         document.getElementById('homeBackgroud').play();
     }, false);
+    starFlicker();
 </script>
 
 </html>

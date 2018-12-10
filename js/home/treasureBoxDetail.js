@@ -24,7 +24,7 @@ $(function () {
                 `;
             });
             $(".treasureBox-detail").html(str);
-            $(".treasureBox-inner").append("<p class='endding'>-END-</p>");
+            $(".treasureBox-inner").append("<p class='endding1'>-END-</p>");
         },
         error: function (err) {
             console.log(err)

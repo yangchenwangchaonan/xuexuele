@@ -70,13 +70,13 @@ $(function () {
             if (countdown == 0) {
                 flag = true;
                 obj.removeAttr("disabled");
-                obj.css("background", "#53AA19");
+                obj.removeClass("codeDisable");
                 obj.html("获取验证码");
                 countdown = 60;
                 return;
             } else {
                 flag = false;
-                obj.css("background", "#B0B0B0");
+                obj.addClass("codeDisable");
                 obj.html("重新发送(" + countdown + ")");
                 countdown--;
             }
