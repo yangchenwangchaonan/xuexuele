@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/common/jquery-1.11.3.min.js"></script>
     <script src="./js/common/common.js"></script>
+    <script src="./js/common/tips.js"></script>
     <script src="https://cdn.bootcss.com/PreloadJS/1.0.1/preloadjs.min.js"></script>
     <script src="./js/index.js"></script>
     <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -40,7 +41,8 @@
         <div class="index-process-wrapper">
             <progress max="100" value="2" id="pg" class="index-process-bar"></progress>
             <div class="loading">
-                <i></i>
+                <!-- <i></i> -->
+                <img src="./images/loading.png">
                 <h1></h1>
             </div>
     </section>
@@ -50,6 +52,7 @@
     document.addEventListener("WeixinJSBridgeReady", function () {
         document.getElementById('homeBackgroud').play();
     }, false);
+    starFlicker();
 </script>
 
 </html>

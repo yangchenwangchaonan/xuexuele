@@ -46,9 +46,6 @@ $(function () {
                 src: path + "36.png"
             },
             {
-                src: path + "37.png"
-            },
-            {
                 src: path + "38.png"
             },
             {
@@ -244,6 +241,7 @@ $(function () {
 
     // 处理preload添加当队列完成全部加载后触发事件
     function loadComplete() {
+        $(".index-process-wrapper>.loading>img").attr("src","./images/loading_end.png");
         // 设置定时器，当全部加载完毕后让100%停留0.4秒，提高用户体验，不至于让用户感觉不到
         window.setTimeout(function () {
             var token = localStorage.getItem("token");

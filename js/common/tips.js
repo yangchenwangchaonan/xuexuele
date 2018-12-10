@@ -71,3 +71,23 @@ function repeatLogin() {
         window.location.replace("../login/login.html");
     });
 }
+
+// 星星闪烁
+function starFlicker() {
+    var status = 1;
+    setInterval('run()', 200);
+}
+function run() {
+    if (status == 1) {
+        $('.wrapper-04').show();
+        $('.wrapper-05').show();
+        $('.wrapper-06').show();
+        status = 0;
+    } else {
+        $('.wrapper-04').hide();
+        $('.wrapper-05').hide();
+        $('.wrapper-06').hide();
+        status = 1;
+    }
+
+}
