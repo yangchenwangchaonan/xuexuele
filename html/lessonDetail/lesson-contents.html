@@ -12,7 +12,7 @@
 	<script src="../../js/common/common.js?v=55889"></script>
 	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/lessonDetail/lessonContents.js"></script>
-	
+
 </head>
 
 <body class="lesson-index-body">
@@ -21,10 +21,10 @@
 		<audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
 		<div class="lesson-content">
 			<ul class="lesson-sort">
-				<li class="sort sort1" data-sId="1"><span>综合排序</span></li>
-				<li class="sort sort2" data-sId="2"><span>购买量排序</span></li>
-				<li class="sort sort3" data-sId="3"><span>智慧豆排序</span></li>
-				<li class="sort sort4" data-sId="4"><span>评分排序</span></li>
+				<li class="sort sort1" data-sId="1" onclick="sortClick(this)"><span>综合排序</span></li>
+				<li class="sort" data-sId="2" onclick="sortClick(this)"><span>购买量排序</span></li>
+				<li class="sort" data-sId="3" onclick="sortClick(this)"><span>智慧豆排序</span></li>
+				<li class="sort" data-sId="4" onclick="sortClick(this)"><span>评分排序</span></li>
 			</ul>
 			<div class="lesson-list scroll">
 				<ul>
@@ -32,8 +32,10 @@
 						<div class="table-lesson">
 							<img src="../../images/others.jpg">
 							<div class="lesson-name1">课程名称课程名称课程名称课程名称课程名称</div>
-							<div class="table-smile"><img src="../../images/125.png" />x20</div>
-							<div class="table-star"><img src="../../images/124.png" />10</div>
+							<div>
+								<div class="table-smile"><img src="../../images/125.png" />x20</div>
+								<div class="table-star"><img src="../../images/124.png" />10</div>
+							</div>
 						</div>
 					</li> -->
 				</ul>

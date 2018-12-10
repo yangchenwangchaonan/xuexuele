@@ -1307,14 +1307,23 @@ body {
 .constellation_btn2,
 .birthday_btn2,
 .report-btn,
-.appraise-close,
-.leave-message-close,
 .tutor-close,
 .lesson-close {
     position: absolute;
     z-index: 350;
     top: 1.5rem;
     right: 6.5rem;
+    width: 4.2rem;
+    height: 4.2rem;
+    background: url(../images/39.png) no-repeat;
+    background-size: 100% 100%;
+}
+.leave-message-close,
+.appraise-close {
+    position: absolute;
+    z-index: 350;
+    top: 1.5rem;
+    right: .45rem;
     width: 4.2rem;
     height: 4.2rem;
     background: url(../images/39.png) no-repeat;
@@ -2837,6 +2846,7 @@ body {
     position: absolute;
     left: 2.7rem;
     line-height: 2.7rem;
+    text-shadow: 1px 0px 0 #458630, -1px 0px 0 #458630, 0px 1px 0 #458630, 0px -1px 0 #458630;
 }
 
 .noLevelTime {
@@ -2849,13 +2859,16 @@ body {
     width: 5.3rem;
     height: 3.1rem;
     border: .2rem #458630 solid;
-    padding-top: .2rem;
     background-color: #A2C012;
     border-radius: 1.5rem;
 }
 
 .levelTime img {
     width: 1.5rem;
+}
+
+.levelTime>p {
+    text-shadow: 1px 0px 0 #458630, -1px 0px 0 #458630, 0px 1px 0 #458630, 0px -1px 0 #458630;
 }
 
 /*buttom*/
@@ -3908,7 +3921,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(206,33,23,0.75);
+    text-shadow: 0px 1px 0px rgba(206, 33, 23, 0.75);
 }
 
 /*打开锦囊*/
@@ -4234,10 +4247,10 @@ body {
 }
 
 .lesson-name1 {
-    position: relative;
+    position: absolute;
     left: 1.34rem;
     width: 13.7rem;
-    top: -6.38rem;
+    top: 1rem;
     font-size: 1.3rem;
 }
 
@@ -4249,16 +4262,27 @@ body {
     font-size: 1.3rem;
 }
 
-.table-smile {
+.sortText {
     position: relative;
-    top: -6rem;
+    bottom: 6rem;
+    width: 15.2rem;
+    height: 6rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 40%, rgba(176, 178, 180, .2) 100%);
+}
+
+.table-smile {
+    position: absolute;
+    top: 4rem;
     left: 1.3rem;
 }
 
 .table-star {
-    position: relative;
-    top: -8.0rem;
+    position: absolute;
+    top: 4rem;
     left: 10.1rem;
+}
+.table-smile>img,.table-star>img{
+    vertical-align: text-bottom;
 }
 
 /*课程列表底部*/
@@ -4271,16 +4295,16 @@ body {
     background: url(../images/134.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
-    padding-left: 3rem;
 }
 
 .lesson-menu>ul {
     margin-top: -1rem;
+    margin-left: -1.5rem;
 }
 
 .lesson-menu>ul>li {
     float: left;
-    margin-right: 1.5rem;
+    margin-left: 2.5rem;
 }
 
 /*进入课程*/
@@ -4454,7 +4478,7 @@ body {
 
 .appraise-score>ul>li {
     float: left;
-    margin-right: 1rem;
+    margin-right: 1.1rem;
 }
 
 /*未选择时*/
@@ -4517,11 +4541,12 @@ body {
 
 .appraise-tips {
     position: absolute;
-    left: 2.45rem;
+    left: 1.45rem;
     top: 1.554rem;
     width: 9.5rem;
     height: 2.2rem;
     font-size: 1rem;
+    text-align: center;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
     line-height: 1.2rem;
@@ -4543,6 +4568,9 @@ body {
     font-size: 1.2rem;
     margin-top: 2.57rem;
 }
+.beanInput::-webkit-input-placeholder {
+    color: #FFFFFF;
+}
 
 .appraise-confirm {
     position: absolute;
@@ -4558,7 +4586,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 /*评分结果*/
@@ -4571,6 +4599,14 @@ body {
     height: 3.65rem;
     background: url(../images/156.png) no-repeat;
     background-size: 100% 100%;
+    text-align: center;
+    line-height: 3.65rem;
+    font-size: 2rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(156, 122, 106, 1);
+}
+.score-result>span {
     text-align: center;
     line-height: 3.65rem;
     font-size: 2rem;
@@ -4610,8 +4646,8 @@ body {
 .score-line {
     position: relative;
     top: 7.957rem;
-    left: 1.8rem;
-    width: 33rem;
+    left: 2.8rem;
+    width: 31rem;
     height: .1rem;
     opacity: 0.5;
     border-radius: .1rem;
@@ -4648,25 +4684,25 @@ body {
 
 .total-reward>ul>li>img {
     width: 4.5rem;
-    height: 4.75rem;
+    /* height: 4.75rem; */
 }
 
 /*课程分享*/
 
 .share-point {
     position: absolute;
-    top: .8rem;
-    right: 5.55rem;
-    width: 10.17rem;
-    height: 12.25rem;
+    top: 4.8rem;
+    right: 6.3rem;
+    width: 8.9rem;
+    height: 8.25rem;
     background: url(../images/157.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .share-tips {
     position: absolute;
-    top: 12rem;
-    left: 9.05rem;
+    top: 11.95rem;
+    right: 3.3rem;
     width: 25.15rem;
     height: 6.95rem;
     background: url(../images/158.png) no-repeat;

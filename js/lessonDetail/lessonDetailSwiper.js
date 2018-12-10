@@ -350,6 +350,8 @@ function allEvent() {
                 var $class = "score-key" + num;
                 $(this).removeClass($class);
                 $(this).removeClass("checked");
+                // $(".score-key11").addClass("score-key1");
+                // $(".score-key11").addClass("checked");
             });
             //关闭
             $(".appraise-close").unbind('click').bind('click', function () {

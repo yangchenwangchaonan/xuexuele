@@ -1,17 +1,31 @@
 $(function () {
 	getSort(1, 1);
-	var $sort = $(".lesson-sort>.sort");
-	$sort.click(function () {
-		allClick();
-		var $id = $(this).attr("data-sId");
-		getSort(1, $id);
-	});
 	$(".lesson-menu a").click(function () {
 		allClick();
-		console.log(1);
 	})
 
 });
+
+function sortClick(e) {
+	allClick();
+	var $id = $(e).attr("data-sId");
+	// console.log($id);
+	if($id==1){
+		$(e).addClass("sort1");
+		$(e).siblings().attr("class","sort");
+	}else if($id==2){
+		$(e).addClass("sort2");
+		$(e).siblings().attr("class","sort");
+	}else if($id==3){
+		$(e).addClass("sort3");
+		$(e).siblings().attr("class","sort");
+	}else if($id==4){
+		$(e).addClass("sort4");
+		$(e).siblings().attr("class","sort");
+	}
+	getSort(1, $id);
+}
+
 
 // 获取列表内容
 function getSort(page, sortId) {
@@ -32,9 +46,11 @@ function getSort(page, sortId) {
 				<li data-sortId="${sortId}">
 					<div class="table-lesson" data-lId = "${val.id}">
 						<img src="${val.courseimg}">
-						<div class="lesson-name1">${val.coursename}</div>
-						<div class="table-smile"><img src="../../images/125.png" />x${val.wisdombean}</div>
-						<div class="table-star"><img src="../../images/124.png" />${val.coursescore}</div>
+						<div class="sortText">
+							<div class="lesson-name1">${val.coursename}</div>
+							<div class="table-smile"><img src="../../images/125.png" />x${val.wisdombean}</div>
+							<div class="table-star"><img src="../../images/124.png" />${val.coursescore}</div>
+						</div>
 					</div>
 				</li>
 				 `;
