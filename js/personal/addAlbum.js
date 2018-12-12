@@ -1,7 +1,7 @@
 $(function () {
-    start();
     var url = window.location.href;
     var num = url.split("?").length - 1;
+    start(num);
     if (num == 0) {
         // 确认新增
         $("#addAlbumBtn").click(function () {
@@ -28,7 +28,7 @@ $(function () {
 });
 
 // 进入页面
-function start() {
+function start(num) {
     $("#albumAdd").show();
     $("#albumCover").hide();
     $("#albumName").hide();
@@ -37,18 +37,27 @@ function start() {
     // 上传封面
     $("#upLoad").click(function () {
         allClick();
-        // $(".lesson-cover-content>img").attr("src", "");
-        $("#albumAdd").hide();
-        $("#albumCover").show();
-        upLoad();
-        // 返回
-        $(".albumCover-back").click(function () {
-            allClick();
-            $(".upCover").show();
-            $("#albumAdd").show();
-            $("#albumCover").hide();
-            $("#upLoad").html("请上传");
-        });
+        if (num == 0) {
+            $("#regVavatar-shade").show();
+            // 返回
+            $(".avatar_btn").click(function () {
+                $("#regVavatar-shade").hide();
+            });
+        } else {
+            // $(".lesson-cover-content>img").attr("src", "");
+            $("#albumAdd").hide();
+            $("#albumCover").show();
+            upLoad();
+            // 返回
+            $(".albumCover-back").click(function () {
+                allClick();
+                $(".upCover").show();
+                $("#albumAdd").show();
+                $("#albumCover").hide();
+                $("#upLoad").html("请上传");
+            });
+        }
+
     });
     // 输入专辑名称
     $("#enterName").click(function () {
@@ -136,6 +145,45 @@ function albunmDetail(id) {
 }
 
 
+// 拍照、相册
+function getImg(e) {
+    $(e).change(function () {
+        var files = $(e)[0].files[0];
+        var form = new FormData();
+        form.append("picture", files)
+        $.ajax({
+            processData: false, //告诉jquery不要去处理发送的数据
+            contentType: false, //告诉jquery不要去设置Content-Type请求头
+            type: "POST",
+            url: APP_URL + "/api/My/ImgUpload",
+            data: form,
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.code == 1) {
+                    $("#regVavatar-shade").hide();
+                    $("#albumAdd").hide();
+                    $("#albumCover").show();
+                    var url = res.data;
+                    $(".lesson-cover-content>img").attr("src", url);
+                    $(".submit-cancel").show();
+                    $(".upCover").hide();
+                    $(".lesson-cover-btn").html("确认上传");
+                    upLoad();
+                } else {
+                    flowerTips(res.msg, 1);
+                    // alert(res.msg);
+                }
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
+    });
+}
+
+
+
 function upLoad() {
     // 上传图片
     $(".upCover").change(function () {
@@ -219,7 +267,7 @@ function newAlbum() {
                 }, 1000);
             } else if (code == 0) {
                 flowerTips(msg, 1);
-            }else if(res.code==10000){
+            } else if (res.code == 10000) {
                 repeatLogin();
             }
         },

@@ -57,6 +57,7 @@ function albumCourseList(albumId) {
                                         <li><img src="../../images/161.png" /><span>${val.coursescore}</span></li>
                                         <li><img src="../../images/162.png" /><span>${val.coursetime}</span></li>
                                         <li><img src="../../images/163.png" /><span>${val.commentsum}</span></li>
+                                        ${lock == 0?`<li><img src="../../images/259.png" /><span>${val.wisdombean}</span></li>`:''}
                                     </ul>
                                 </div>
                             </div>

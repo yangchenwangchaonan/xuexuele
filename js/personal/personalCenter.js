@@ -101,12 +101,15 @@ function UserInfo() {
                 $("#wealth-value1").html(data.wisdombean);
                 $("#wealth-value2").html(data.pk);
                 $("#wealth-value3").html(data.creditscore);
+                if(data.certificationstate == 2){
+                    $(".no-certified").addClass("certified");
+                }
                 if (data.identity == 2) {
                     $(".p1>i").addClass('checked')
                 } else {
                     $(".p2>i").addClass('checked')
                 }
-                var url = $(".certified").text()
+                var url = $(".no-certified").text()
                 $(".personal-infor-history").click(function () {
                     allClick();
                     if (url == "未认证" || url == "驳回") {

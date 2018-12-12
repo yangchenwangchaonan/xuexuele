@@ -121,12 +121,16 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
                     <div class="action-bar">
                         ${data.isscore == 1?`<ul class="scoreList"  data-isscore="${data.isscore}"><img src="../../images/138.png" /><span>${data.list.coursescore}</span><p>已评分</p></ul>`:
                         `<ul class="scoreList" data-isscore="${data.isscore}"><img src="../../images/138.png" /><span></span><p>可评分</p></ul>`}
-                        <ul class="shareList"><img src="../../images/139.png" /></ul>
+                        <ul class="shareList"><img src="../../images/139.png" /><p>${data.list.sharesum}</p></ul>
                         <ul class="msgList"><img src="../../images/140.png" /><p>${data.list.commentsum}</p></ul>
                         <ul class="amList" data-aid="${data.list.albumid}"><img src="../../images/141.png" /><p>所属专辑</p></ul>
-                        <ul class="courseTextList" data-content="${data.list.coursecontent}"><img src="../../images/142.png" /><p>看文字</p></ul>
+                        <ul class="courseTextList" data-content="${data.list.coursecontent}">
+                            <img src="../../images/142.png" /><p>看文字</p>
+                        </ul>
+                        ${data.lock==1?`
                         <ul class="courseDetailList" data-name="${data.list.coursename}" data-text="${data.list.coursetxt}"><img src="../../images/143.png" /><p>课程介绍</p></ul>
                         <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
+                        `:""}
                     </div>
                     <div class="audio-content">
                         <audio class="lessonAudio" preload="auto" src="${data.list.coursevoice}"></audio>
@@ -140,8 +144,8 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
                     </div>
                 </div>
                 ${data.lock==1?"":`
+                <div class="locked-shade"></div>
                 <div class="lock-shade">
-                    <div class="locked-shade"></div>
                     <div class="progress-locked" data-cid="${data.list.courseid}" data-sid="${sortId}"><span>x${data.list.wisdombean}</span></div>
                 </div>
                 `}
@@ -258,12 +262,16 @@ function getPrevNextData(id, countSum, type) {
                             <div class="action-bar">
                                 ${data.isscore == 1?`<ul class="scoreList"  data-isscore="${data.isscore}"><img src="../../images/138.png" /><span>${data.list.coursescore}</span><p>已评分</p></ul>`:
                                 `<ul class="scoreList" data-isscore="${data.isscore}"><img src="../../images/138.png" /><span></span><p>可评分</p></ul>`}
-                                <ul class="shareList"><img src="../../images/139.png" /></ul>
+                                <ul class="shareList"><img src="../../images/139.png" /><p>${data.list.sharesum}</p></ul>
                                 <ul class="msgList"><img src="../../images/140.png" /><p>${data.list.commentsum}</p></ul>
                                 <ul class="amList" data-aid="${data.list.albumid}"><img src="../../images/141.png" /><p>所属专辑</p></ul>
-                                <ul class="courseTextList" data-content="${data.list.coursecontent}"><img src="../../images/142.png" /><p>看文字</p></ul>
+                                <ul class="courseTextList" data-content="${data.list.coursecontent}">
+                                    <img src="../../images/142.png" /><p>看文字</p>
+                                </ul>
+                                ${data.lock==1?`
                                 <ul class="courseDetailList" data-name="${data.list.coursename}" data-text="${data.list.coursetxt}"><img src="../../images/143.png" /><p>课程介绍</p></ul>
                                 <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
+                                `:""}
                             </div>
                             <div class="audio-content">
                                 <audio class="lessonAudio" 	preload="auto" src="${data.list.coursevoice}"></audio>
@@ -277,8 +285,8 @@ function getPrevNextData(id, countSum, type) {
                             </div>
                         </div>
                         ${data.lock==1?"":`
+                        <div class="locked-shade"></div>
                         <div class="lock-shade">
-                            <div class="locked-shade"></div>
                             <div class="progress-locked" data-cid="${data.list.courseid}" data-sid="${sortId}"><span>X${data.list.wisdombean}</span></div>
                         </div>
                         `}
@@ -868,7 +876,10 @@ function messageList(pageIndex, lessonId, transferId, headimg, nickname, tId) {
                     </div>
                     ${replay == ""?"":`
                     <div class="reply-content">
-                        <div class="avatar-message"><img src="${headimg}"/></div>
+                        <div class="avatar-message">
+                        <img src="${headimg}"/>
+                        <div class="tutorTitle">导师</div>
+                        </div>
                         <span class="tourist-name">${nickname}</span>
                         <p class="reply-message-detail">${val.reply}</p>
                     </div>
@@ -1050,6 +1061,7 @@ function regular(lessonId, num) {
             console.log(res);
             if (res.code == 1) {
                 flowerTips("已举报~", 1);
+                $("#reportShade").hide();
             } else if (res.code == 10000) {
                 repeatLogin();
             }

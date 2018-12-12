@@ -3,11 +3,13 @@ $(function () {
     var num = url.split("=").length - 1;
     if (num == 1) {
         // 修改课程
+        $("#album-add-title").html("-修改课程-");
         var courseId = url.split("=")[1];
         courseDetail(courseId);
         $("#addCouse").html("确定修改");
     } else if (num == 2) {
         // 新增课程
+        $("#album-add-title").html("-新增课程-");
         var arr = url.split("&");
         var voiceUrl = arr[0].split("=")[1];
         var albumId = arr[1].split("=")[1];

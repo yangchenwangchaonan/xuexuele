@@ -1302,13 +1302,9 @@ body {
 
 /*关闭按钮*/
 
-.avatar_btn,
 .gender_btn2,
 .constellation_btn2,
-.birthday_btn2,
-.report-btn,
-.tutor-close,
-.lesson-close {
+.birthday_btn2 {
     position: absolute;
     z-index: 350;
     top: 1.5rem;
@@ -1318,8 +1314,13 @@ body {
     background: url(../images/39.png) no-repeat;
     background-size: 100% 100%;
 }
+
+.avatar_btn,
 .leave-message-close,
-.appraise-close {
+.appraise-close,
+.tutor-close,
+.lesson-close,
+.report-btn {
     position: absolute;
     z-index: 350;
     top: 1.5rem;
@@ -1448,15 +1449,25 @@ body {
 .area-box1,
 .album-box,
 .series-box,
-.realname-box,
 .manage-box,
 .addLesson-box,
-.addLessonCover-box {
+.addLessonCover-box,
+.realname-box1 {
     position: relative;
     width: 38.5rem;
     height: 89.66%;
     top: 4.9rem;
     left: 1rem;
+    background-color: #FFF7DF;
+    border-radius: 1rem;
+}
+
+.realname-box {
+    position: relative;
+    width: 38.5rem;
+    height: 89.66%;
+    top: 4.9rem;
+    left: .85rem;
     background-color: #FFF7DF;
     border-radius: 1rem;
 }
@@ -1515,7 +1526,6 @@ body {
 .realname-back,
 .personal-goback,
 .manage-back,
-.albumIntroduct-back,
 .lesson-record-back,
 .addLesson-back,
 .addLessonIntroduct-back,
@@ -1526,8 +1536,31 @@ body {
     height: 4.2rem;
     background: url("../images/19.png") no-repeat center;
     background-size: 100% 100%;
-    top: .9rem;
+    top: .6rem;
     left: .814rem;
+    z-index: 9999;
+}
+.albumIntroduct-back {
+    position: absolute;
+    width: 4.2rem;
+    height: 4.2rem;
+    background: url("../images/19.png") no-repeat center;
+    background-size: 100% 100%;
+    top: 1.6rem;
+    left: 1.5rem;
+    z-index: 9999;
+}
+
+.treasurebox-back,
+.attention-goback,
+.mylesson-goback {
+    position: absolute;
+    width: 4.2rem;
+    height: 4.2rem;
+    background: url("../images/213.png") no-repeat center;
+    background-size: 100% 100%;
+    top: 1.6rem;
+    left: 1.5rem;
     z-index: 9999;
 }
 
@@ -1559,9 +1592,6 @@ body {
 #album-title,
 #series-title,
 #purse-title,
-#realname-title,
-#personal-top,
-.present-top,
 #manage-title,
 #album-add-title,
 #addLesson-title,
@@ -1576,6 +1606,52 @@ body {
     color: #FFFFFF;
     font-size: 1.8rem;
     text-align: center;
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 1), -1px 2px 2px rgba(21, 117, 6, 1), 0px 2px 2px rgba(21, 117, 6, 1), 0px -2px 2px rgba(21, 117, 6, 1);
+
+}
+
+#realName,
+#realname-title,
+.present-top {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 1.75rem;
+    top: 1.55rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 1px 2px 2px rgba(239, 90, 20, 0.75), -1px 2px 2px rgba(239, 90, 20, 0.75), 0px 2px 2px rgba(239, 90, 20, 0.75), 0px -2px 2px rgba(239, 90, 20, 0.75);
+}
+
+#personal-top {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 1.75rem;
+    top: 1.55rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 1px 2px 2px rgba(197, 128, 6, 0.75), -1px 2px 2px rgba(197, 128, 6, 0.75), 0px 2px 2px rgba(197, 128, 6, 0.75), 0px -2px 2px rgba(197, 128, 6, 0.75);
+}
+
+#purseTitle {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 1.75rem;
+    top: 1.55rem;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 1), -1px 2px 2px rgba(21, 117, 6, 1), 0px 2px 2px rgba(21, 117, 6, 1), 0px -2px 2px rgba(21, 117, 6, 1);
 }
 
 .city-box {
@@ -2154,11 +2230,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, .1);
     text-align: center;
 }
 
 .audio>h1 {
-    margin-top: 13%;
+    margin-top: 6%;
     font-family: PingFang-SC-Bold;
     font-size: 2rem;
     font-weight: bold;
@@ -2178,7 +2255,7 @@ body {
     position: absolute;
     width: 29rem;
     height: 9.6715rem;
-    top: 79%;
+    bottom: 3%;
     left: 15%;
 }
 
@@ -2218,7 +2295,7 @@ body {
 
 .lessonAd>h1 {
     position: absolute;
-    top: 6.5%;
+    top: 3.5%;
     width: 100%;
     text-align: center;
     font-size: 2rem;
@@ -4175,7 +4252,23 @@ body {
     font-size: 1.3rem;
     font-family: Adobe Heiti Std R;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.8);
+}
+
+.sort>span {
+    text-shadow: 1px 2px 2px rgba(102,102,102,1), -1px 2px 2px rgba(102,102,102,1), 0px 2px 2px rgba(102,102,102,1), 0px -2px 2px rgba(102,102,102,1);
+}
+
+.sort1 {
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, .8), -1px 2px 2px rgba(21, 117, 6, .8), 0px 2px 2px rgba(21, 117, 6, .8), 0px -2px 2px rgba(21, 117, 6, .8);
+}
+.sort2{
+    text-shadow: 1px 2px 2px rgba(240, 163, 22, 0.8), -1px 2px 2px rgba(240, 163, 22, 0.8), 0px 2px 2px rgba(240, 163, 22, 0.8), 0px -2px 2px rgba(240, 163, 22, 0.8);
+}
+.sort3{
+    text-shadow: 1px 2px 2px rgba(204, 49, 10, 0.8), -1px 2px 2px rgba(204, 49, 10, 0.8), 0px 2px 2px rgba(204, 49, 10, 0.8), 0px -2px 2px rgba(204, 49, 10, 0.8);
+}
+.sort4{
+    text-shadow: 1px 2px 2px rgba(37, 13, 173, 0.8), -1px 2px 2px rgba(37, 13, 173, 0.8), 0px 2px 2px rgba(37, 13, 173, 0.8), 0px -2px 2px rgba(37, 13, 173, 0.8);
 }
 
 /*点击综合排序*/
@@ -4258,7 +4351,7 @@ body {
     position: relative;
     left: 1.34rem;
     width: 13.7rem;
-    top: -4.38rem;
+    top: .95rem;
     font-size: 1.3rem;
 }
 
@@ -4281,7 +4374,9 @@ body {
     top: 4rem;
     left: 10.1rem;
 }
-.table-smile>img,.table-star>img{
+
+.table-smile>img,
+.table-star>img {
     vertical-align: text-bottom;
 }
 
@@ -4329,11 +4424,16 @@ body {
     text-align: center;
 }
 
-.lesson-tutor>ul>li,
 .game-ranger>ul>li {
     float: left;
     margin: .87rem;
     line-height: 5.74rem;
+}
+
+.lesson-tutor>ul>li {
+    float: left;
+    margin: .87rem;
+    line-height: 3.8rem;
 }
 
 .useName {
@@ -4343,55 +4443,76 @@ body {
     text-overflow: ellipsis;
 }
 
-.game-ranger>.img-bg {
-    width: 6.3rem;
-    height: 6.3rem;
+.game-ranger .img-bg {
+    width: 6rem;
+    height: 6rem;
     border-radius: .5rem;
     overflow: hidden;
+    background: url(../images/111.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 .game-ranger img {
-    width: 5.55rem;
+    margin: .45rem .5rem .45rem .5rem;
+    width: 5rem;
     border-radius: .5rem;
 }
 
 .head-imgBg {
-    width: 6.3rem;
-    height: 6.3rem;
+    width: 4.8rem;
+    height: 4.8rem;
     background: url(../images/111.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .head-imgBg>img {
-    width: 6.3rem;
-    height: 6.3rem;
+    margin: .3rem .4rem .4rem .4rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: .5rem;
 }
 
 .tutor-title {
     position: absolute;
-    top: .667rem;
-    left: 5.22rem;
+    top: .45rem;
+    left: 4.5rem;
     width: 3rem;
     height: 1.5rem;
     background: rgba(147, 209, 36, 1);
     border-radius: .75rem;
     box-shadow: 0px 0px 0px rgba(NaN, NaN, NaN, 0.35);
-    font-size: 11px;
+    font-size: 1.1rem;
     font-family: PingFang-SC-Regular;
     color: rgba(255, 255, 255, 1);
-    line-height: 1.434rem;
+    line-height: 1.55rem;
+    text-align: center;
 }
 
 .visitor-title {
     background: #DB6231;
 }
 
+.tutorTitle {
+    position: absolute;
+    top: .1rem;
+    left: 2.4rem;
+    width: 3rem;
+    height: 1.5rem;
+    background: rgba(147, 209, 36, 1);
+    border-radius: .75rem;
+    box-shadow: 0px 0px 0px rgba(NaN, NaN, NaN, 0.35);
+    font-size: 1.1rem;
+    font-family: PingFang-SC-Regular;
+    color: rgba(255, 255, 255, 1);
+    line-height: 1.45rem;
+    text-align: center;
+}
+
 /*关注*/
 
 .attention {
     position: absolute;
-    top: 2.87rem;
+    top: 1.8rem;
     left: 14.8rem;
     width: 4.4rem;
     height: 1.7rem;
@@ -4403,7 +4524,7 @@ body {
 
 .action-bar {
     position: absolute;
-    top: 16%;
+    top: 17%;
     right: 5%;
     width: 21.5%;
     height: 53%;
@@ -4415,12 +4536,13 @@ body {
 }
 
 .action-bar ul {
-    padding: 5.5%;
+    /* padding: 5.5%; */
+    margin-bottom: 10.5%;
 }
 
 .action-bar img {
     width: 2.9rem;
-    height: 2.9rem;
+    /* height: 2.9rem; */
 }
 
 .slideArea {
@@ -4568,6 +4690,7 @@ body {
     font-size: 1.2rem;
     margin-top: 2.57rem;
 }
+
 .beanInput::-webkit-input-placeholder {
     color: #FFFFFF;
 }
@@ -4606,6 +4729,7 @@ body {
     font-weight: bold;
     color: rgba(156, 122, 106, 1);
 }
+
 .score-result>span {
     text-align: center;
     line-height: 3.65rem;
@@ -4728,7 +4852,7 @@ body {
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     z-index: 10000;
-    /* display: none; */
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 1), -1px 2px 2px rgba(21, 117, 6, 1), 0px 2px 2px rgba(21, 117, 6, 1), 0px -2px 2px rgba(21, 117, 6, 1);
 }
 
 .lesson-h1 {
@@ -4771,7 +4895,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 0.75), -1px 1px 2px rgba(21, 117, 6, 0.75), 0px 1px 2px rgba(21, 117, 6, 0.75), 0px -1px 2px rgba(21, 117, 6, 0.75);
 }
 
 .leave-message-title {
@@ -4784,7 +4908,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 0.75), -1px 1px 2px rgba(21, 117, 6, 0.75), 0px 1px 2px rgba(21, 117, 6, 0.75), 0px -1px 2px rgba(21, 117, 6, 0.75);
 }
 
 .message-content {
@@ -4800,48 +4924,58 @@ body {
 .message-content>ul>li {
     float: left;
     border-bottom: 1px solid rgba(229, 194, 138, 0.3);
-    margin-bottom: 1rem;
+    padding-bottom: .5rem;
 }
 
 .releaseContent {
     display: none;
+    position: fixed;
+    bottom: 0;
+    z-index: 510;
+    width: 100%;
+    height: 4.9rem;
+    background: #FFFFFF;
 }
 
 .replayContent {
     display: none;
+    position: fixed;
+    bottom: 0;
+    z-index: 510;
+    width: 100%;
+    height: 4.9rem;
+    background: #FFFFFF;
 }
 
 .message-text1,
 .message-text2 {
-    position: fixed;
+    position: absolute;
     z-index: 510;
-    bottom: 1.334rem;
     line-height: 1.78rem;
-    width: 33.27rem;
-    height: 6.2rem;
+    width: 83.5%;
+    height: 3.9rem;
     font-size: 1.5rem;
-    margin-left: 1.5rem;
     text-align: left;
-    padding: .6rem 3.0vw;
+    padding: .85rem 0 0 .95rem;
     overflow: hidden;
-    border: .1rem solid rgba(229, 194, 138, 0.3);
-    /* display: none; */
+    border: .1rem solid rgba(153, 153, 153, 1);
+    border-radius: .5rem;
+    margin: .5rem 0 0 1.2rem;
+    overflow-y: auto;
 }
 
 .release-message {
-    position: fixed;
-    bottom: 1.334rem;
-    line-height: 6.2rem;
-    width: 5.27rem;
-    height: 6.2rem;
-    right: 1.5rem;
+    position: absolute;
+    right: 1.45rem;
+    top: .85rem;
+    width: 3rem;
+    height: 3rem;
     font-size: 1.5rem;
-    text-align: center;
     z-index: 510;
     color: rgba(85, 50, 8, 1);
-    background: white;
+    background: url(../images/258.png) no-repeat;
+    background-size: 100% 100%;
     border: .1rem solid rgba(229, 194, 138, 0.3);
-    /* display: none; */
 }
 
 .message-btn {
@@ -4857,35 +4991,36 @@ body {
     font-size: 1.8rem;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 0.75), -1px 1px 2px rgba(21, 117, 6, 0.75), 0px 1px 2px rgba(21, 117, 6, 0.75), 0px -1px 2px rgba(21, 117, 6, 0.75);
     z-index: 500;
 }
 
 .leave-content {
-    padding-top: 1rem;
+    /* padding-bottom: 1rem; */
     position: relative;
-    width: 34rem;
+    width: 36.5rem;
 }
 
 .avatar-message {
     position: relative;
     display: inline-block;
-    width: 4.8rem;
-    height: 4.8rem;
+    width: 4.2rem;
+    height: 4.2rem;
     background: url(../images/111.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .avatar-message>img {
-    width: 4.8rem;
-    height: 4.8rem;
+    margin: .4rem .4rem .4rem .4rem;
+    width: 3.4rem;
+    height: 3.4rem;
     border-radius: .5rem;
 }
 
 .tourist-name {
     position: relative;
     display: inline-block;
-    top: -1.734rem;
+    top: .4rem;
     left: .56rem;
     line-height: 4.8rem;
     font-size: 1.5rem;
@@ -4896,9 +5031,8 @@ body {
 .leave-message-time {
     position: relative;
     float: right;
-    margin-right: 1.3rem;
+    margin: 2.2rem 1.3rem 0 0;
     text-align: right;
-    line-height: 4.8rem;
     font-size: 1.2rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
@@ -4908,8 +5042,8 @@ body {
     position: relative;
     font-size: 1.3rem;
     left: 5.36rem;
-    top: -1.734rem;
-    width: 28.27rem;
+    top: 0;
+    width: 30.27rem;
     font-family: MicrosoftYaHei;
     font-weight: 400;
     color: rgba(85, 50, 8, 1);
@@ -4923,8 +5057,8 @@ body {
 
 .reply-message-detail {
     position: relative;
-    top: -1.734rem;
-    left: 5.36rem;
+    top: 0;
+    left: 5rem;
     width: 24.925rem;
     font-size: 1.3rem;
     font-family: MicrosoftYaHei;
@@ -4951,16 +5085,17 @@ body {
 
 .head-bg {
     margin-left: 17.75rem;
-    width: 6.3rem;
-    height: 6.3rem;
+    width: 6.05rem;
+    height: 6.05rem;
     background: url(../images/111.png) no-repeat;
     background-size: 100% 100%;
     border-radius: .5rem;
 }
 
 .head-bg>img {
-    width: 6.3rem;
-    height: 6.3rem;
+    margin: .5rem .5rem .5rem .5rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: .5rem;
 }
 
@@ -4972,9 +5107,9 @@ body {
     height: 1.8rem;
     background: rgba(147, 209, 36, 1);
     border-radius: .9rem;
-    top: 4.67rem;
-    left: 22.09rem;
-    font-size: 1.3rem;
+    top: 4.5rem;
+    left: 21.5rem;
+    font-size: 1.2rem;
     font-family: PingFang-SC-Regular;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
@@ -4991,7 +5126,7 @@ body {
     color: rgba(85, 50, 8, 1);
     line-height: 1.rem;
     padding-bottom: 1.67rem;
-    border-bottom: .2rem solid #E5C28A;
+    border-bottom: .1rem solid rgba(229, 194, 138, .5);
 }
 
 .lesson-tutorInfor {
@@ -5033,7 +5168,7 @@ body {
 
 .infor-read {
     position: absolute;
-    bottom: 1.67rem;
+    bottom: 1.6rem;
     right: .1875rem;
     color: rgba(48, 160, 7, 1);
     display: none;
@@ -5041,7 +5176,7 @@ body {
 
 .infor-close {
     position: absolute;
-    bottom: 0;
+    bottom: .4rem;
     right: .1875rem;
     color: rgba(48, 160, 7, 1);
     display: none;
@@ -5049,7 +5184,7 @@ body {
 
 .follow-read {
     position: absolute;
-    bottom: -.1875rem;
+    bottom: -.18rem;
     right: .33rem;
     color: rgba(48, 160, 7, 1);
     display: none;
@@ -5083,7 +5218,7 @@ body {
 .tutor-bg ul {
     position: relative;
     left: 2.3rem;
-    top: 3.87rem;
+    top: 4.3rem;
     text-align: center;
 }
 
@@ -5120,7 +5255,7 @@ body {
 .album-text {
     position: relative;
     text-align: left;
-    left: 12.375rem;
+    left: 13rem;
     top: -3.67rem;
     width: 24.1rem;
     height: 2.4rem;
@@ -5144,7 +5279,7 @@ body {
     color: rgba(85, 50, 8, 1);
     line-height: 1.67rem;
     padding-bottom: .667rem;
-    border-bottom: .2rem solid #E5C28A;
+    border-bottom: .1rem solid rgba(229, 194, 138, .5);
 }
 
 .lesson-title-list {
@@ -5306,10 +5441,10 @@ body {
 .course-add {
     position: absolute;
     bottom: 1.15rem;
-    left: 1.03rem;
-    width: 36.4rem;
+    left: 3.3rem;
+    width: 31.85rem;
     height: 4.84rem;
-    background: url(../images/166.png) no-repeat;
+    background: url(../images/194.png) no-repeat;
     background-size: 100% 100%;
     text-align: center;
     line-height: 4.84rem;
@@ -5317,14 +5452,21 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 0.75), -1px 1px 2px rgba(21, 117, 6, 0.75), 0px 1px 2px rgba(21, 117, 6, 0.75), 0px -1px 2px rgba(21, 117, 6, 0.75);
+}
+/*新增专辑*/
+
+.album-add-confirm {
+    top: 36.67rem;
+    width: 25.85rem;
+    left: 6rem;
 }
 
 /*课程文字*/
 
 .lesson-text-inner {
     position: absolute;
-    padding: 1rem;
+    padding: 1.25rem;
     width: 38.9rem;
     height: 35.8rem;
     left: 1.25rem;
@@ -5336,8 +5478,8 @@ body {
 }
 
 .lesson-intr {
-    margin: 1rem;
-    width: 36rem;
+    margin-top: 1rem;
+    width: 36.5rem;
     font-size: 1.3rem;
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
@@ -5411,6 +5553,7 @@ body {
     height: 33.75rem;
     left: 1.25rem;
     bottom: 1.1rem;
+    padding: 1.25rem;
 }
 
 .lesson-introduction-inner>h1 {
@@ -5429,7 +5572,7 @@ body {
     left: 0;
     z-index: 360;
     width: 100%;
-    height: 56%;
+    height: 57%;
     overflow: hidden;
 }
 
@@ -5438,7 +5581,7 @@ body {
     width: 6.3rem;
     height: 6.3rem;
     left: 17.5rem;
-    bottom: -54%;
+    bottom: -77%;
     background: url(../images/170.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9999;
@@ -5455,16 +5598,15 @@ body {
 }
 
 .locked-shade {
-    position: relative;
-    top: 0;
-    left: 76.5%;
+    position: absolute;
+    top: 44%;
+    left: 77.5%;
     z-index: 9999;
-    width: 6.6rem;
-    height: 6.6rem;
+    width: 5.5rem;
+    height: 5.5rem;
     border-radius: 2.5rem;
     background: url(../images/171.png) no-repeat;
     background-size: 100% 100%;
-    background-color: rgba(0, 0, 0, .3);
     display: block;
 }
 
@@ -5476,7 +5618,7 @@ body {
     position: relative;
     top: .14rem;
     width: 100%;
-    height: 8.05rem;
+    height: 9rem;
 }
 
 .series-top>img,
@@ -5484,18 +5626,18 @@ body {
 .manage-top>img {
     width: 7.4rem;
     height: 8.05rem;
-    margin-left: 13.8rem;
+    margin: 2.7rem 0 0 13.8rem;
 }
 
 .series-top>span,
 .recharge-top>span,
 .manage-top>span {
     position: absolute;
-    top: .33rem;
+    top: 3rem;
     font-size: 2.5rem;
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
-    color: rgba(67, 144, 67, 1);
+    color: rgba(109, 62, 20, 1);
     line-height: 8.05rem;
 }
 
@@ -5573,7 +5715,7 @@ body {
 }
 
 .hasbeans-btn {
-    margin: 0 auto;
+    margin: 4.85rem 0 0 3.85rem;
     width: 15.4rem;
     height: 4.85rem;
     background: url(../images/173.png) no-repeat;
@@ -5583,7 +5725,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 0.75), -1px 1px 2px rgba(21, 117, 6, 0.75), 0px 1px 2px rgba(21, 117, 6, 0.75), 0px -1px 2px rgba(21, 117, 6, 0.75);
 }
 
 .series-hasbeans>span {
@@ -5634,12 +5776,12 @@ body {
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     line-height: 2.25rem;
-    text-shadow: 1px 3px 1px rgba(56, 141, 56, 1);
 }
 
 .unlock-frame>span {
     position: relative;
     top: 4.5rem;
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 .unlock-frame img {
@@ -5655,6 +5797,7 @@ body {
     height: 4.85rem;
     background: url(../images/173.png) no-repeat;
     background-size: 100% 100%;
+    text-shadow: 1px 1px 2px rgba(21, 117, 6, 1), -1px 1px 2px rgba(21, 117, 6, 1), 0px 1px 2px rgba(21, 117, 6, 1), 0px -1px 2px rgba(21, 117, 6, 1);
 }
 
 /* 掉线 */
@@ -5717,7 +5860,7 @@ body {
 .purse-center {
     position: relative;
     left: 1.875rem;
-    top: -8%;
+    top: -7%;
     width: 90%;
     height: 75%;
     z-index: 300;
@@ -5727,7 +5870,7 @@ body {
 
 .pod-bottom {
     position: relative;
-    top: -18.5%;
+    top: -17%;
     width: 100%;
     height: 10.5rem;
     z-index: 350;
@@ -5746,13 +5889,14 @@ body {
 }
 
 .recharge-num img {
-    width: 6.65rem;
+    width: 7.4rem;
 }
 
 .recharge-btn {
-    width: 100%;
+    width: 92%;
     height: 4.15rem;
-    padding: 2rem 4.96rem 2.134rem 4.96rem;
+    margin-left: 1.5rem;
+    padding: 3rem 4.96rem 2.134rem 4.96rem;
     text-align: center;
     font-size: 1.4rem;
     font-family: MicrosoftYaHei-Bold;
@@ -5796,14 +5940,15 @@ body {
     top: .9rem;
     left: 1rem;
     width: 93.5%;
-    height: 2.83rem;
+    height: 3.5rem;
+    color: #553208;
     background: rgba(235, 244, 137, 1);
     border-radius: 1rem;
     margin-bottom: .5rem;
 }
 
 .recharge-detail img {
-    width: 1.9rem;
+    width: 2.7rem;
 }
 
 .recharge-detail table {
@@ -5946,6 +6091,7 @@ body {
 
 .initial {
     background: rgba(244, 232, 201, 1);
+    box-shadow: 0px 1px 20px 0px rgba(244, 228, 118, 0.5) inset;
     border-radius: 1rem;
     width: 10.05rem;
     height: 4.7rem;
@@ -5987,7 +6133,7 @@ body {
     height: 4.8rem;
 }
 
-#recharge-input {
+.recharge-input {
     position: absolute;
     width: 35.5rem;
     height: 4.8rem;
@@ -5996,7 +6142,21 @@ body {
     background-size: 100% 100%;
     text-align: center;
     z-index: 200;
+    color: #956826;
+    font-size: 1.5rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
 }
+
+.recharge-input::-webkit-input-placeholder {
+    color: #D9AC6A;
+}
+
+.recharge-input-checked {
+    background: url(../images/260.png) no-repeat;
+    background-size: 100% 100%;
+}
+
 
 .recharge-want img {
     position: absolute;
@@ -6004,6 +6164,18 @@ body {
     top: 1.55rem;
     width: 1.75rem;
     z-index: 300;
+}
+
+.recharge-want p {
+    position: absolute;
+    right: 13rem;
+    top: 1.55rem;
+    width: 1.75rem;
+    z-index: 300;
+    font-size: 1.3rem;
+    font-family: MicrosoftYaHei;
+    font-weight: 600;
+    color: rgba(34, 34, 34, 1);
 }
 
 .recharge-confirm {
@@ -6020,7 +6192,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 1), -1px 2px 2px rgba(21, 117, 6, 1), 0px 2px 2px rgba(21, 117, 6, 1), 0px -2px 2px rgba(21, 117, 6, 1);
 }
 
 /*充值方式*/
@@ -6221,9 +6393,9 @@ body {
     font-family: PingFang-SC-Bold;
     font-weight: bold;
     color: rgba(254, 254, 254, 1);
-    text-shadow: 1px 1px 2px rgba(211, 11, 1, 1);
     text-align: center;
     z-index: 400;
+    text-shadow: 1px 2px 2px rgba(211, 11, 1, 1), -1px 2px 2px rgba(211, 11, 1, 1), 0px 2px 2px rgba(211, 11, 1, 1), 0px -2px 2px rgba(211, 11, 1, 1);
 }
 
 .personal-center {
@@ -6363,9 +6535,9 @@ body {
     line-height: 4.45rem;
     font-size: 1.5rem;
     font-family: MicrosoftYaHei-Bold;
-    font-weight: bold;
+    font-weight: 600;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(102, 102, 102, 1);
+    text-shadow: 1px 2px 2px rgba(102, 102, 102, 1), -1px 2px 2px rgba(102, 102, 102, 1), 0px 2px 2px rgba(102, 102, 102, 1), 0px -2px 2px rgba(102, 102, 102, 1);
 }
 
 /*实名认证*/
@@ -6491,8 +6663,8 @@ body {
 
 .submit-cancel {
     position: absolute;
-    top: -1rem;
-    right: -1rem;
+    top: 0;
+    right: 0;
     width: 2.9rem;
     height: 2.9rem;
     background: url(../images/217.png) no-repeat;
@@ -6639,7 +6811,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 0.75), -1px 2px 2px rgba(21, 117, 6, 0.75), 0px 2px 2px rgba(21, 117, 6, 0.75), 0px -2px 2px rgba(21, 117, 6, 0.75);
 }
 
 .personal-setting-detail {
@@ -6802,6 +6974,7 @@ body {
 .attention-album-list>li {
     float: left;
     margin: .667rem 1rem;
+    text-align: left;
 }
 
 .attention-tutor-avatar {
@@ -6846,8 +7019,8 @@ body {
 .mylessons-content {
     position: relative;
     top: 4rem;
-    left: 3.5rem;
-    width: 33.5rem;
+    left: 0.8rem;
+    width: 36.5rem;
     height: 85%;
     overflow: hidden;
     overflow-y: auto;
@@ -6855,18 +7028,27 @@ body {
 
 .mylesson-list>li {
     float: left;
-    margin-right: 1rem;
+    margin-left: 2rem;
     margin-bottom: 1rem;
 }
 
 .lesson-lock {
     position: relative;
-    top: -4.3rem;
-    left: 11.6rem;
+    top: 2rem;
+    left: 11rem;
+    width: 4rem;
 }
 
 .lesson-lock img {
     width: 1.75rem;
+}
+
+.mylesson-shade {
+    position: relative;
+    bottom: 6rem;
+    height: 6rem;
+    width: 15.2rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 40%, rgba(176, 178, 180, .2) 100%);
 }
 
 /*无课程*/
@@ -6894,15 +7076,16 @@ body {
 /*课程管理*/
 
 .manage-box>p {
+    margin: 1.45rem 0 2.5rem 1.5rem;
     text-align: center;
-    line-height: 5.rem;
+    line-height: 5rem;
     font-size: 1.5rem;
     font-family: MicrosoftYaHei;
     color: rgba(109, 62, 20, 1);
 }
 
 .manage-box>hr {
-    border: .1rem solid rgba(229, 194, 138, 1);
+    border: .1rem solid rgba(229, 194, 138, .5);
     width: 36rem;
     margin: 0 1.05rem;
 }
@@ -6916,7 +7099,7 @@ body {
 
 .noAlbum-content {
     position: relative;
-    width: 34.7rem;
+    width: 38.5rem;
     height: 40.56rem;
     overflow: auto;
     display: none;
@@ -7137,11 +7320,6 @@ body {
     padding-right: 1.1rem;
 }
 
-/*新增专辑*/
-
-.album-add-confirm {
-    top: 36.67rem;
-}
 
 /*专辑名称*/
 
@@ -7232,7 +7410,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(56, 141, 56, 1);
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 1), -1px 2px 2px rgba(21, 117, 6, 1), 0px 2px 2px rgba(21, 117, 6, 1), 0px -2px 2px rgba(21, 117, 6, 1);
 }
 
 .perEditCompleted {
@@ -7294,7 +7472,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 0.75), -1px 2px 2px rgba(21, 117, 6, 0.75), 0px 2px 2px rgba(21, 117, 6, 0.75), 0px -2px 2px rgba(21, 117, 6, 0.75);
 }
 
 /*课程修改*/
@@ -7342,7 +7520,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 1), -1px 2px 2px rgba(21, 117, 6, 1), 0px 2px 2px rgba(21, 117, 6, 1), 0px -2px 2px rgba(21, 117, 6, 1);
 }
 
 /*课程封面*/
@@ -7806,7 +7984,7 @@ body {
     font-family: MicrosoftYaHei-Bold;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 1px 0px rgba(21, 117, 6, 0.75);
+    text-shadow: 1px 2px 2px rgba(21, 117, 6, 1), -1px 2px 2px rgba(21, 117, 6, 1), 0px 2px 2px rgba(21, 117, 6, 1), 0px -2px 2px rgba(21, 117, 6, 1);
 }
 
 /*签到*/
@@ -7980,6 +8158,7 @@ body {
 
 .verified-foot-modal-color {
     color: #30A007;
+    font-weight: 600;
 }
 
 /*选择照片*/

@@ -31,8 +31,10 @@ function lessonList() {
                      <li data-aId="${val.id}">
                         <div class="table-lesson">
                             <img src="${val.albumimg}" />
-                            <div class="lesson-name2">${val.albumname}</div>
-                            <div class="lesson-lock"><img src="../../images/222.png" />${val.unlocknum}</div>
+                            <div class="mylesson-shade">
+                                <div class="lesson-name2">${val.albumname}</div>
+                                <div class="lesson-lock"><img src="../../images/222.png" />${val.unlocknum}</div>
+                            </div>
                         </div>
                      </li>
                      `;

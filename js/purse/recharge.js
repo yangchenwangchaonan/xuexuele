@@ -52,7 +52,10 @@ function moneyRuleList() {
 						if (data[i] == initial) {
 							$(this).addClass("selected")
 							$(this).siblings().removeClass("selected")
-							$("#recharge-input").val(initial)
+							$("#recharge-input").val(initial);
+							$(".recharge-want img").remove();
+							$(".recharge-want").append("<p>元</p>");
+							$("#recharge-input").addClass("recharge-input-checked");
 							$(".num").text(initial)
 						}
 					}
@@ -63,6 +66,14 @@ function moneyRuleList() {
 						if ($("#recharge-input").val() != data[i]) {
 							$(".initial").removeClass("selected")
 						}
+					}
+					if ($("#recharge-input").val() == "") {
+						$("#recharge-input").removeClass("recharge-input-checked");
+						$(".recharge-want p").remove();
+						$(".recharge-want").append("<img src='../../images/191.png' />");
+					}else if($("#recharge-input").val() != ""){
+						$(".recharge-want img").remove();
+						$(".recharge-want").append("<p>元</p>");
 					}
 				})
 				$(".recharge-confirm").click(function () {
