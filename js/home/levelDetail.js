@@ -313,13 +313,27 @@ function correctAnawer(UserAnswer, nextgateid) {
                     $("#passFirstTime").html(res.data.time);
                     $("#passStamina").html("x" + res.data.rewardbeans);
                     $("#passPk").html("x" + res.data.pkvalue);
-                    $("#levelPass").show();
+                    if(nextgateid){
+                        $("#levelPass").show();
+                    }else{
+                        homeLevel("已闯完所有关卡哦~", 1);
+                        window.setTimeout(function() {
+                            $(window).attr("location", "./home.html");
+                        }, 1500);
+                    }  
                 } else if (res.data.isfirst == 1) {
                     //再次闯关成功
                     var goThrough = $("#goThrough")[0];
                     goThrough.play();
                     $("#passAgainTime").html(res.data.time);
-                    $("#levelPassAgain").show();
+                    if(nextgateid){
+                        $("#levelPassAgain").show();
+                    }else{
+                        homeLevel("已闯完所有关卡哦~", 1);
+                        window.setTimeout(function() {
+                            $(window).attr("location", "./home.html");
+                        }, 1500);
+                    }  
                 }
 
                 // 下一关

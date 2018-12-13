@@ -3,7 +3,6 @@ $(function () {
 	$(".lesson-menu a").click(function () {
 		allClick();
 	})
-
 });
 
 function sortClick(e) {

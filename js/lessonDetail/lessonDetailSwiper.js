@@ -70,7 +70,7 @@ var mySwiper = new Swiper('.swiper-container', {
 $(function () {
     // 返回
     $("#lessonDetailBack").click(function () {
-        history.back(-1);
+        history.go(-1);
     });
     //智慧社详情
     lessonDetail(lessonId, 1);

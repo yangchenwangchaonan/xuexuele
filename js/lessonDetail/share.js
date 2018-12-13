@@ -53,16 +53,21 @@ function WxConfig(url, courseId, courseName, courseContent) {
                 });
 
                 wx.ready(function () {
-                    console.log("ready");
+                    // console.log("ready");
                     //分享给朋友
                     wx.onMenuShareAppMessage({
                         title: '学学乐课程:' + courseName,
                         desc: courseContent,
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                    }, function (res) {
-                        //这里是回调函数
-                        console.log(res);
+                        success:function(){
+                            // alert(1);
+                            shareNum (courseId);
+                            // alert("success");
+                        },
+                        cancel:function(){
+                            // alert("cancel");
+                        }
                     });
 
                     //分享到朋友圈
@@ -70,8 +75,13 @@ function WxConfig(url, courseId, courseName, courseContent) {
                         title: '学学乐课程:' + courseName, // 分享标题
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                    }, function (res) {
-                        console.log(res);
+                        success:function(){
+                            shareNum (courseId);
+                            // alert("success");
+                        },
+                        cancel:function(){
+                            // alert("cancel");
+                        }
                     });
                     // 分享到QQ
                     wx.onMenuShareQQ({
@@ -79,22 +89,55 @@ function WxConfig(url, courseId, courseName, courseContent) {
                         desc: courseContent, // 分享描述
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid, // 分享链接
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                    }, function (res) {
-                        console.log(res);
+                        success:function(){
+                            shareNum (courseId);
+                            // alert("success");
+                        },
+                        cancel:function(){
+                            // alert("cancel");
+                        }
                     });
                     // 分享到QQ空间
                     wx.onMenuShareQZone({
                         title: '学学乐课程:' + courseName, // 分享标题
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                    }, function (res) {
-                        console.log(res);
+                        success:function(){
+                            shareNum (courseId);
+                            // alert("success");
+                        },
+                        cancel:function(){
+                            // alert("cancel");
+                        }
                     });
                 });
                 wx.error(function (res) {});
             }
         },
         error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+// 分享量
+function shareNum (courseId){
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/Wisdom/WisdomShareAdd",
+        data: {
+            courseid:courseId
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if(res.code==1){
+                var shareSum = $("section.swiper-slide-active").find(".shareList>p").html();
+                shareSum++;
+                $("section.swiper-slide-active").find(".shareList>p").html(shareSum);
+            }
+        },
+        err:function(err){
             console.log(err);
         }
     });

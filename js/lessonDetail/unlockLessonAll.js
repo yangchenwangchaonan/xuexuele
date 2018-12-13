@@ -92,7 +92,10 @@ function WisdomUnlockAll(albumId, sorId) {
             console.log(res);
             if (res.code == 1) {
                 $(".unlock-btn").click(function () {
-                    $(window).attr("location", "./album-name.html?albumId=" + albumId + "&sorId=" + sorId);
+                    $(".unlock-shade").hide();
+                    window.setTimeout(function() {
+                        $(window).attr("location", "./album-name.html?albumId=" + albumId + "&sorId=" + sorId);
+                    }, 500);
                 });
             } else if (res.code == 10000) {
                 repeatLogin();

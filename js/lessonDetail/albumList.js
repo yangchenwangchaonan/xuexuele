@@ -136,25 +136,3 @@ function albumCourseList(albumId) {
         }
     });
 }
-
-
-// function lockAll(uid, aid) {
-//     $.ajax({
-//         type: "POST",
-//         url: APP_URL + "/api/Wisdom/WisdomUnlockAll",
-//         data: {
-//             uid: uid,
-//             albumid: aid
-//         },
-//         dataType: "json",
-//         success: function (res) {
-//             console.log(res);
-//             if (res.code == 1) {
-//                 albumCourseList(aid);
-//             }
-//         },
-//         error: function (err) {
-//             console.log(err);
-//         }
-//     });
-// }

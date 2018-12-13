@@ -88,7 +88,10 @@ function WisdomUnlock(lessonId, sorId) {
             console.log(res);
             if (res.code == 1) {
                 $(".unlock-btn").click(function () {
-                    $(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId + "&sorId=" + sorId);
+                    $(".unlock-shade").hide();
+                    window.setTimeout(function() {
+                        $(window).attr("location", "./lesson-detail.html?lessonId=" + lessonId + "&sorId=" + sorId); 
+                    }, 500);
                 });
             } else if (res.code == 10000) {
                 repeatLogin();
