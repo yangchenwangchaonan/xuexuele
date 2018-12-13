@@ -286,7 +286,7 @@ function userGate(index, iscurrent) {
             generalTips("已经到滑到顶部啦~", 1);
             return;
           }
-          console.log(index);
+          // console.log(index);
           if (index == 1) {
             var cloudContent = $(".homeFixed>.cloudContent");
           } else if (index > 1) {
@@ -318,7 +318,8 @@ function userGate(index, iscurrent) {
 
 // 闯关
 function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName, userValue) {
-  // console.log(userValue);
+  document.body.style.height = '100vh';
+  document.body.style['overflow-y'] = 'hidden';
   if (levelLock == 0) {
     homeLevel("请先闯过当前关卡~", 1);
     return;
@@ -360,6 +361,8 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
   // 取消闯关
   $(".level_btn").click(function () {
     $("#levelShade").hide();
+    document.body.style.height = 'unset';
+		document.body.style['overflow-y'] = 'auto';
   });
 }
 

@@ -73,7 +73,7 @@ function audioEnded() {
 
 //点击加载进度
 function progressRealClick(time) {
-    console.log(time)
+    // console.log(time)
     $(".progressBar").click(function (e) {
         // console.log((time*(e.pageX - $(this).offset().left)/$(this).width()/time)*100)
         var b = (time * (e.pageX - $(this).offset().left) / $(this).width())

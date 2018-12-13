@@ -21,7 +21,7 @@ $(function () {
         });
     }
     // 返回
-    $("#albumAddBack").click(function(){
+    $("#albumAddBack").click(function () {
         history.back(-1);
     });
 
@@ -145,15 +145,34 @@ function Rendering(voiceUrl) {
     // 上传封面
     $("#addCourseCover").click(function () {
         allClick();
-        $("#addCourseContent").hide();
-        $("#addLessonCover").show();
-        courseUpload();
-        // 返回
-        $("#courseCoverBack").click(function () {
-            allClick();
-            $("#addCourseContent").show();
-            $("#addLessonCover").hide();
-        });
+        var upImg = $(".lesson-cover-content>img").attr("src");
+        if (upImg) {
+            $("#addCourseContent").hide();
+            $("#addLessonCover").show();
+            $(".submit-cancel").show();
+            $(".upCover").hide();
+            $("#addLessonBtn").html("确定上传");
+            courseUpload();
+            // 返回
+            $("#courseCoverBack").click(function () {
+                allClick();
+                $("#addCourseContent").show();
+                $("#addLessonCover").hide();
+                var textShow = $(".lesson-cover-content>img").attr("src");
+                if (textShow) {
+                    $("#addCourseCover").html("已上传");
+                } else {
+                    $("#addCourseCover").html("请上传课程封面");
+                }
+            });
+        } else {
+            $("#regVavatar-shade").show();
+            // 返回
+            $(".avatar_btn").click(function () {
+                $("#regVavatar-shade").hide();
+            });
+        }
+
     });
     // 课程文字
     $("#addCourseText").click(function () {
@@ -227,6 +246,38 @@ function Rendering(voiceUrl) {
 
 }
 
+// 拍照、相册
+function getImg(e) {
+    $(e).change(function () {
+        var files = $(e)[0].files[0];
+        var form = new FormData();
+        form.append("picture", files)
+        $.ajax({
+            processData: false, //告诉jquery不要去处理发送的数据
+            contentType: false, //告诉jquery不要去设置Content-Type请求头
+            type: "POST",
+            url: APP_URL + "/api/My/ImgUpload",
+            data: form,
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.code == 1) {
+                    $("#regVavatar-shade").hide();
+                    var url = res.data;
+                    // console.log(url);
+                    $(".lesson-cover-content>img").attr("src", url);
+                    $("#addCourseCover").html("已上传");
+                } else {
+                    flowerTips(res.msg, 1);
+                }
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
+    });
+}
+
 
 // 上传封面
 function courseUpload() {
@@ -236,7 +287,7 @@ function courseUpload() {
         upClover(files);
     });
     // 确认上传
-    $("#addLessonBtn").click(function () {
+    $("#addLessonBtn").unbind().bind("click",function () {
         allClick();
         // alert("上传成功~");
         $("#addCourseContent").show();
@@ -244,10 +295,10 @@ function courseUpload() {
         $("#addCourseCover").html("已上传");
     });
     // 确认上传x
-    $(".submit-cancel").click(function () {
+    $(".submit-cancel").unbind().bind("click",function () {
         allClick();
         $(".lesson-cover-content").html("<img/>");
-        $(".upCover").val("");
+        $(".upCover,#importFile,#importPhoto").val("");
         $(".submit-cancel").hide();
         $(".upCover").show();
         $(".lesson-cover-btn").html("选择封面");
@@ -379,15 +430,15 @@ function changeCourse(cId, aId) {
 }
 
 // 打赏 
-function PlatreWardbeans(){
+function PlatreWardbeans() {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/PlatreWardbeans",
         dataType: "json",
         success: function (res) {
             console.log(res);
-            if(res.code==1){
-                $(".beans-tips>.tip-text>span").text(res.data.platrewardbeans+"%");
+            if (res.code == 1) {
+                $(".beans-tips>.tip-text>span").text(res.data.platrewardbeans + "%");
             }
         },
         error: function (err) {

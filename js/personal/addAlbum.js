@@ -37,24 +37,32 @@ function start(num) {
     // 上传封面
     $("#upLoad").click(function () {
         allClick();
-        if (num == 0) {
+        var upImg = $(".lesson-cover-content>img").attr("src");
+        if (!upImg) {
             $("#regVavatar-shade").show();
             // 返回
             $(".avatar_btn").click(function () {
                 $("#regVavatar-shade").hide();
             });
         } else {
-            // $(".lesson-cover-content>img").attr("src", "");
             $("#albumAdd").hide();
             $("#albumCover").show();
+            $(".submit-cancel").show();
+            $(".upCover").hide();
+            $(".lesson-cover-btn").html("确定上传");
             upLoad();
             // 返回
-            $(".albumCover-back").click(function () {
+            $(".albumCover-back").unbind().bind("click", function () {
                 allClick();
                 $(".upCover").show();
                 $("#albumAdd").show();
                 $("#albumCover").hide();
-                $("#upLoad").html("请上传");
+                var showText = $(".lesson-cover-content>img").attr("src");
+                if (showText) {
+                    $("#upLoad").html("已上传");
+                } else {
+                    $("#upLoad").html("请上传");
+                }
             });
         }
 
@@ -162,17 +170,11 @@ function getImg(e) {
                 console.log(res);
                 if (res.code == 1) {
                     $("#regVavatar-shade").hide();
-                    $("#albumAdd").hide();
-                    $("#albumCover").show();
                     var url = res.data;
                     $(".lesson-cover-content>img").attr("src", url);
-                    $(".submit-cancel").show();
-                    $(".upCover").hide();
-                    $(".lesson-cover-btn").html("确认上传");
-                    upLoad();
+                    $("#upLoad").html("已上传");
                 } else {
                     flowerTips(res.msg, 1);
-                    // alert(res.msg);
                 }
             },
             error: function (err) {
@@ -191,7 +193,7 @@ function upLoad() {
         upClover(files);
     });
     // 确认上传
-    $(".lesson-cover-btn").click(function () {
+    $(".lesson-cover-btn").unbind().bind("click",function () {
         allClick();
         // flowerTips("上传成功~", 1);
         $("#albumAdd").show();
@@ -199,10 +201,10 @@ function upLoad() {
         $("#upLoad").html("已上传");
     });
     // 确认上传x
-    $(".submit-cancel").click(function () {
+    $(".submit-cancel").unbind().bind("click",function () {
         allClick();
         $(".lesson-cover-content").html("<img/>");
-        $(".upCover").val("");
+        $(".upCover,#importFile,#importPhoto").val("");
         $(".submit-cancel").hide();
         $(".upCover").show();
         $(".lesson-cover-btn").html("选择封面");
