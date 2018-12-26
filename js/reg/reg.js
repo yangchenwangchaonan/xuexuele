@@ -47,15 +47,10 @@ $(function () {
                     console.log(res);
                     if (res.code == 1) {
                         flowerTips("发送成功~", 1);
-                        // alert(res.data.code);
-                        var realCode = res.data.code;
-                        $("#realCode").val(realCode);
                         setTime(obj);
                     } else {
                         flowerTips("发送失败~", 1);
-                        // alert("发送失败~");
                     }
-
                 },
                 error: function (err) {
                     console.log(err)
@@ -88,19 +83,14 @@ $(function () {
     /* ******************注册第一步******************* */
     $("#red-first").click(function () {
         allClick();
+        var telValue = $("#reg-phone").val();
         var codeValue = $("#reg-code").val();
-        var realCode = $("#realCode").val();
-        if ($("#reg-phone").val() == "" || $("#reg-phone").val() == null) {
+        if (telValue == "" || telValue == null) {
             flowerTips("请输入手机号~", 1);
-        } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#reg-phone").val())) {
+        } else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test(telValue)) {
             flowerTips("手机号码格式错误~", 1);
-        } else if (codeValue == "" || codeValue != realCode) {
-            flowerTips("验证码输入错误~", 1);
         } else {
-            var tel = $("#reg-phone").val();
-            localStorage.setItem("tel", tel);
-            localStorage.setItem("code", realCode);
-            $(window).attr("location", "./reg_next.html");
+            verifySmsInfo(telValue, codeValue);
         }
     });
 
@@ -145,3 +135,30 @@ $(function () {
     });
 
 });
+
+
+//验证验证码
+function verifySmsInfo(tel, realcode) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/User/VerifySmsInfo",
+        data: {
+            phone: tel,
+            code: realcode
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                localStorage.setItem("tel", tel);
+                localStorage.setItem("code", realCode);
+                $(window).attr("location", "./reg_next.html");
+            } else {
+                flowerTips("请输入正确的验证码~", 1);
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}

@@ -46,8 +46,6 @@ $(function () {
                     console.log(res);
                     if (res.code == 1) {
                         flowerTips("发送成功~", 1);
-                        var realCode = res.data.code;
-                        $("#returnCode").val(realCode);
                         setTime(obj);
                     } else {
                         flowerTips("发送失败~", 1);
@@ -86,44 +84,14 @@ $(function () {
     $("#repwdBtn1").click(function () {
         allClick();
         var codeValue = $("#repwdCode").val();
-        var realCode = $("#returnCode").val();
-        if ($("#repwdPhone").val() == "" || $("#repwdPhone").val() == null) {
+        var telValue = $("#repwdPhone").val();
+        if (telValue == "" || telValue == null) {
             flowerTips("请输入手机号~", 1);
-            return;
-        }
-        if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test($("#repwdPhone").val())) {
+        }else if (!/^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(19[9])|(17[0,1,3,5,6,7,8]))\d{8}$/.test(telValue)) {
             flowerTips("手机号码格式错误~", 1);
-            return;
+        }else{
+            verifySmsInfo(telValue, codeValue);
         }
-        if (codeValue == "" || codeValue != realCode) {
-            flowerTips("验证码输入错误~", 1);
-            return;
-        }
-        var tel = $("#repwdPhone").val();
-        $.ajax({
-            type: "POST",
-            url: APP_URL + "/api/User/UserPhone",
-            data: {
-                phone: tel
-            },
-            dataType: "json",
-            success: function (res) {
-                console.log(res);
-                var $code = res.code;
-                if ($code == 0) {
-                    flowerTips("账号未注册，请先注册~", 1);
-                    window.setTimeout(function () {
-                        $(window).attr("location", "../reg/reg.html");
-                    }, 1500);
-                } else if ($code == 1) {
-                    $(window).attr("location", "./repwd_next.html?tel=" + tel + "&code=" + realCode);
-                }
-            },
-            error: function (err) {
-                console.log(err)
-            }
-        });
-
     });
 
     // 返回
@@ -131,3 +99,56 @@ $(function () {
         window.location.replace("./login.html");
     });
 });
+
+
+//验证验证码
+function verifySmsInfo(tel, realcode) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/User/VerifySmsInfo",
+        data: {
+            phone: tel,
+            code: realcode
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                userPhone(tel,realcode);
+            } else {
+                flowerTips("请输入正确的验证码~", 1);
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+
+//忘记密码第一步提交
+function userPhone(tel,code) {
+    $.ajax({
+        type: "POST",
+        url: APP_URL + "/api/User/UserPhone",
+        data: {
+            phone: tel
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            var $code = res.code;
+            if ($code == 0) {
+                flowerTips("账号未注册，请先注册~", 1);
+                window.setTimeout(function () {
+                    $(window).attr("location", "../reg/reg.html");
+                }, 1500);
+            } else if ($code == 1) {
+                $(window).attr("location", "./repwd_next.html?tel=" + tel + "&code=" + code);
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}

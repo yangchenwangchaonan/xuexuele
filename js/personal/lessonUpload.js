@@ -45,13 +45,13 @@ function courseDetail(cId) {
                 $("#addNameContent").val(data.coursename)
                 $("#addCourseName").html(data.coursename);
                 // 课程简介
-                $("#addLessonItrContent").val(data.coursetxt)
+                contentEditor.txt.html(data.coursetxt);
                 $("#addCourseIntroduct").html("已输入");
                 // 课程封面
                 $(".lesson-cover-content>img").attr("src", data.courseimg);
                 $("#addCourseCover").html("已上传");
                 // 课程文字
-                $("#addLessonTextContent").val(data.coursecontent);
+                textEditor.txt.html(data.coursecontent);
                 $("#addCourseText").html("已输入");
                 // 智慧豆 
                 if (data.free == 1) {
@@ -118,26 +118,26 @@ function Rendering(voiceUrl) {
     });
     // 设置课程简介
     $("#addCourseIntroduct").click(function () {
+        var startInner = contentEditor.txt.html(); //进入编辑器获取一次内容
         allClick();
         $("#addCourseContent").hide();
         $("#addLessonIntroduct").show();
-        $("#addLessonItrContent").focus(function () {
-            $(".editCompleted").show();
-            $(".editCompleted").click(function () {
-                allClick();
-                var coursetext = $.trim($("#addLessonItrContent").val());
-                $(".editCompleted").hide();
-                $("#addCourseContent").show();
-                $("#addLessonIntroduct").hide();
-                if (coursetext != "") {
-                    $("#addCourseIntroduct").html("已输入");
-                }
-            });
+        $(".editOver").click(function () {
+            allClick();
+            var coursetext = contentEditor.txt.html(); //获取编辑器的内容
+            contentEditor.txt.html(coursetext);
+            $(".editBtn").hide();
+            $("#addCourseContent").show();
+            $("#addLessonIntroduct").hide();
+            if (coursetext != "<p><br></p>") {
+                $("#addCourseIntroduct").html("已输入");
+            }
         });
         // 返回
         $("#courseItrBack").click(function () {
             allClick();
-            $(".editCompleted").hide();
+            contentEditor.txt.html(startInner);
+            $(".editBtn").hide();
             $("#addCourseContent").show();
             $("#addLessonIntroduct").hide();
         });
@@ -176,26 +176,26 @@ function Rendering(voiceUrl) {
     });
     // 课程文字
     $("#addCourseText").click(function () {
+        var startText = textEditor.txt.html(); //进入编辑器获取一次内容
         allClick();
         $("#addCourseContent").hide();
         $("#addLessonText").show();
-        $("#addLessonTextContent").focus(function () {
-            $(".editCompleted").show();
-            $(".editCompleted").click(function () {
-                allClick();
-                var courseContent = $.trim($("#addLessonTextContent").val());
-                $(".editCompleted").hide();
-                $("#addCourseContent").show();
-                $("#addLessonText").hide();
-                if (courseContent != "") {
-                    $("#addCourseText").html("已输入");
-                }
-            });
+        $(".editOver").click(function () {
+            allClick();
+            var textContent = textEditor.txt.html();
+            textEditor.txt.html(textContent);
+            $(".editBtn").hide();
+            $("#addCourseContent").show();
+            $("#addLessonText").hide();
+            if (textContent != "<p><br></p>") {
+                $("#addCourseText").html("已输入");
+            }
         });
         // 返回
         $("#courseTextBack").click(function () {
             allClick();
-            $(".editCompleted").hide();
+            textEditor.txt.html(startText);
+            $(".editBtn").hide();
             $("#addCourseContent").show();
             $("#addLessonText").hide();
         });
@@ -287,7 +287,7 @@ function courseUpload() {
         upClover(files);
     });
     // 确认上传
-    $("#addLessonBtn").unbind().bind("click",function () {
+    $("#addLessonBtn").unbind().bind("click", function () {
         allClick();
         // alert("上传成功~");
         $("#addCourseContent").show();
@@ -295,7 +295,7 @@ function courseUpload() {
         $("#addCourseCover").html("已上传");
     });
     // 确认上传x
-    $(".submit-cancel").unbind().bind("click",function () {
+    $(".submit-cancel").unbind().bind("click", function () {
         allClick();
         $(".lesson-cover-content").html("<img/>");
         $(".upCover,#importFile,#importPhoto").val("");
@@ -337,9 +337,9 @@ function addCourse(aId) {
     var voiceUrl = $("#lessonAudio").attr("src"); //获取音频路径
     var lessonTime = $("#audioTime").html(); // 获取音频时长
     var lessonName = $("#addNameContent").val(); // 课程名称
-    var lessonIntroduct = $("#addLessonItrContent").val(); //课程简介
+    var lessonIntroduct = contentEditor.txt.html(); //课程简介
     var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
-    var lessonText = $("#addLessonTextContent").val(); //课程文字
+    var lessonText = textEditor.txt.html(); //课程文字
     var IsFree; //课程是否免费
     if ($("#freeChecked").hasClass("free-select-checked")) {
         IsFree = 1;
@@ -387,9 +387,9 @@ function changeCourse(cId, aId) {
     var voiceUrl = $("#lessonAudio").attr("src"); //获取音频路径
     var lessonTime = $("#audioTime").html(); // 获取音频时长
     var lessonName = $("#addNameContent").val(); // 课程名称
-    var lessonIntroduct = $("#addLessonItrContent").val(); //课程简介
+    var lessonIntroduct = contentEditor.txt.html(); //课程简介
     var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
-    var lessonText = $("#addLessonTextContent").val(); //课程文字
+    var lessonText = textEditor.txt.html(); //课程文字
     var IsFree; //课程是否免费
     if ($("#freeChecked").hasClass("free-select-checked")) {
         IsFree = 1;
@@ -439,6 +439,39 @@ function PlatreWardbeans() {
             console.log(res);
             if (res.code == 1) {
                 $(".beans-tips>.tip-text>span").text(res.data.platrewardbeans + "%");
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+}
+
+//课程文字、课程简介 上传图片
+function upIMG(e,type) {
+    var files = $(e)[0].files[0];
+    console.log(files);
+    var imgFile = new FormData()
+    imgFile.append("picture", files)
+    $.ajax({
+        processData: false, //告诉jquery不要去处理发送的数据
+        contentType: false, //告诉jquery不要去设置Content-Type请求头
+        type: "POST",
+        url: APP_URL + "/api/My/ImgUpload",
+        data: imgFile,
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                var url = res.data;
+                var imgurl = `
+                        <img src="${url}" style="width:100%;" draggable="true"/>
+                `;
+                if(type==1){
+                    contentEditor.txt.append(imgurl);
+                }else if(type==2){
+                    textEditor.txt.append(imgurl);
+                }
             }
         },
         error: function (err) {

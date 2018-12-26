@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/common/common.js"></script>
     <script src="../../js/common/jquery-1.11.3.min.js"></script>
+    <script src="../../js/common/wangEditor.min.js"></script>
     <script src="../../js/common/tips.js"></script>
     <script src="../../js/personal/lessonUpload.js"></script>
     <script src="../../js/common/audio.js"></script>
+
 </head>
 
 <body class="album-add-body">
@@ -95,9 +97,8 @@
         <div class="addLesson-top">-课程简介-</div>
         <i class="addLessonIntroduct-back" id="courseItrBack"></i>
         <div class="addLesson-introduction-box">
-            <div class="album-input addLesson-introduct">
-                <textarea type="text" placeholder="请输入课程简介(最多可输入100字)" rows="10" cols="20" wrap="hard" maxlength="100"
-                    id="addLessonItrContent"></textarea>
+            <div class="album-input addLesson-introduct" id="addIntroduct" style="border:0;">
+                <!-- <textarea type="text" placeholder="请输入课程简介(最多可输入100字)" wrap="hard" maxlength="100" id="addLessonItrContent"></textarea> -->
             </div>
         </div>
     </div>
@@ -106,9 +107,9 @@
         <div class="addLesson-top">-课程文字-</div>
         <i class="addLessonText-back" id="courseTextBack"></i>
         <div class="addLesson-text-box">
-            <div class="album-input addLesson-textContent">
-                <textarea type="text" placeholder="请输入课程文字(最多可输入500字)" rows="28" cols="20" wrap="hard" maxlength="500"
-                    id="addLessonTextContent"></textarea>
+            <div class="album-input addLesson-textContent" id="addTextContent">
+                <!-- <textarea type="text" placeholder="请输入课程文字(最多可输入500字)" rows="28" cols="20" wrap="hard" maxlength="500"
+                    id="addLessonTextContent"></textarea> -->
             </div>
         </div>
     </div>
@@ -157,8 +158,44 @@
     </div>
     <!-- 编辑完成按钮 -->
     <div class="editCompleted">编辑完成</div>
+    <div class="editBtn">
+        <img src="../../images/261.png" />
+        <input type="file" class="contentImg" onchange="upIMG(this,'1')" />
+        <input type="file" class="textImg" onchange="upIMG(this,'2')" />
+        <div class='editOver'>编辑完成</div>
+    </div>
     <!-- tips -->
     <div class="reg-tips"></div>
 </body>
+<script type="text/javascript">
+    //课程简介
+    var E = window.wangEditor;
+    var contentEditor = new E('#addIntroduct');
+    contentEditor.customConfig.menus = [
+        'image',
+    ]
+    contentEditor.customConfig.onfocus = function () {
+        $(".contentImg").show();
+        $(".editBtn").show();
+    }
+    contentEditor.create();
+    contentEditor.$toolbarElem[0].style.display = "none"; //隐藏导航栏
+    $("#" + contentEditor.textElemId + ">p").remove();
+    //课程文字
+    var textEditor = new E("#addTextContent");
+    textEditor.customConfig.menus = [
+        'image',
+    ]
+    textEditor.customConfig.onfocus = function () {
+        $(".textImg").show();
+        $(".editBtn").show();
+    }
+    textEditor.create();
+    textEditor.$toolbarElem[0].style.display = "none"; //隐藏导航栏
+    $("#" + textEditor.textElemId + ">p").remove();
+    $.each($(".w-e-text-container"), function () {
+        $(this).addClass("editStyle");
+    });
+</script>
 
 </html>

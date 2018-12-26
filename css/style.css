@@ -1460,6 +1460,7 @@ body {
     background-color: #FFF7DF;
     border-radius: 1rem;
 }
+
 .realname-box1 {
     position: relative;
     width: 34.5rem;
@@ -1546,6 +1547,7 @@ body {
     left: .814rem;
     z-index: 9999;
 }
+
 .albumIntroduct-back,
 .addLessonIntroduct-back,
 .addLessonText-back {
@@ -2977,7 +2979,7 @@ body {
 }
 
 .menu {
-    width: 6.8rem;
+    width: 6.5rem;
     margin: 0 .5rem;
 }
 
@@ -4263,19 +4265,22 @@ body {
 }
 
 .sort>span {
-    text-shadow: 1px 2px 2px rgba(102,102,102,1), -1px 2px 2px rgba(102,102,102,1), 0px 2px 2px rgba(102,102,102,1), 0px -2px 2px rgba(102,102,102,1);
+    text-shadow: 1px 2px 2px rgba(102, 102, 102, 1), -1px 2px 2px rgba(102, 102, 102, 1), 0px 2px 2px rgba(102, 102, 102, 1), 0px -2px 2px rgba(102, 102, 102, 1);
 }
 
 .sort1 {
     text-shadow: 1px 2px 2px rgba(21, 117, 6, .8), -1px 2px 2px rgba(21, 117, 6, .8), 0px 2px 2px rgba(21, 117, 6, .8), 0px -2px 2px rgba(21, 117, 6, .8);
 }
-.sort2{
+
+.sort2 {
     text-shadow: 1px 2px 2px rgba(240, 163, 22, 0.8), -1px 2px 2px rgba(240, 163, 22, 0.8), 0px 2px 2px rgba(240, 163, 22, 0.8), 0px -2px 2px rgba(240, 163, 22, 0.8);
 }
-.sort3{
+
+.sort3 {
     text-shadow: 1px 2px 2px rgba(204, 49, 10, 0.8), -1px 2px 2px rgba(204, 49, 10, 0.8), 0px 2px 2px rgba(204, 49, 10, 0.8), 0px -2px 2px rgba(204, 49, 10, 0.8);
 }
-.sort4{
+
+.sort4 {
     text-shadow: 1px 2px 2px rgba(37, 13, 173, 0.8), -1px 2px 2px rgba(37, 13, 173, 0.8), 0px 2px 2px rgba(37, 13, 173, 0.8), 0px -2px 2px rgba(37, 13, 173, 0.8);
 }
 
@@ -5462,6 +5467,7 @@ body {
     color: rgba(255, 255, 255, 1);
     text-shadow: 1px 1px 2px rgba(21, 117, 6, 0.75), -1px 1px 2px rgba(21, 117, 6, 0.75), 0px 1px 2px rgba(21, 117, 6, 0.75), 0px -1px 2px rgba(21, 117, 6, 0.75);
 }
+
 /*新增专辑*/
 
 .album-add-confirm {
@@ -6680,6 +6686,17 @@ body {
     display: none;
     z-index: 9999;
 }
+.img-cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.9rem;
+    height: 2.9rem;
+    background: url(../images/217.png) no-repeat;
+    background-size: 100% 100%;
+    display: none;
+    z-index: 9999;
+}
 
 .education-container {
     position: absolute;
@@ -7360,35 +7377,30 @@ body {
 }
 
 /*专辑简介*/
-.album-introduction,
-.addLesson-introduct,
-.addLesson-textContent {
+.album-introduction {
     top: 1.85rem;
     left: 1.05rem;
 }
 
-.album-introduction>textarea,
-.addLesson-introduct>textarea,
-.addLesson-textContent>textarea {
+/* 课程简介 */
+.addLesson-introduct,
+.addLesson-textContent {
+    top: 2.0rem;
+    left: 1.05rem;
+    width: 96%;
+    height: 94%;
+    border: 0;
+}
+.album-introduction>textarea {
     margin-top: 1rem;
     width: 100%;
     background-color: #FFF7DF;
     line-height: 2.2rem;
     color: #956826;
 }
-
 .album-introduction>textarea::-webkit-input-placeholder {
     color: #956826;
 }
-
-.addLesson-introduct>textarea::-webkit-input-placeholder {
-    color: #956826;
-}
-
-.addLesson-textContent>textarea::-webkit-input-placeholder {
-    color: #956826;
-}
-
 .album-introduction-box,
 .addLesson-introduction-box,
 .addLesson-text-box {
@@ -7437,7 +7449,8 @@ body {
     display: none;
 }
 
-.editCompleted {
+.editCompleted,
+.editBtn {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -7452,6 +7465,56 @@ body {
     padding: 0 2.2rem;
     display: none;
 }
+
+.editOver {
+    float: right;
+    margin: 1.35rem 0;
+    width: 6rem;
+
+}
+
+.editBtn>img {
+    float: left;
+    margin: 1.35rem 0;
+    width: 3.05rem;
+    height: 2.2rem;
+    background: url(../images/261.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.editBtn>input {
+    float: left;
+    width: 3.25rem;
+    height: 2.2rem;
+    margin: 1.35rem -3.05rem;
+    opacity: 0;
+    display: none;
+}
+
+.editStyle {
+    border: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* .editImg {
+    float: left;
+    margin: 1.35rem 0 !important;
+    width: 3.05rem;
+    height: 2.2rem;
+    background: url(../images/261.png) no-repeat;
+    background-size: 100% 100%;
+}
+.showClass{
+    width: 3.05rem !important;
+    height: 4.9rem !important;
+}
+.editInput{
+    float: left;
+    width: 3.25rem;
+    height: 2.2rem;
+    margin: -3.6rem 0 !important;
+} */
 
 /*专辑还没有课程*/
 
