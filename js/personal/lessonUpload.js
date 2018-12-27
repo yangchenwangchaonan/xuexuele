@@ -126,6 +126,7 @@ function Rendering(voiceUrl) {
             allClick();
             var coursetext = contentEditor.txt.html(); //获取编辑器的内容
             contentEditor.txt.html(coursetext);
+            console.log(coursetext);
             $(".editBtn").hide();
             $("#addCourseContent").show();
             $("#addLessonIntroduct").hide();
@@ -184,6 +185,7 @@ function Rendering(voiceUrl) {
             allClick();
             var textContent = textEditor.txt.html();
             textEditor.txt.html(textContent);
+            console.log(textContent);
             $(".editBtn").hide();
             $("#addCourseContent").show();
             $("#addLessonText").hide();
@@ -448,7 +450,7 @@ function PlatreWardbeans() {
 }
 
 //课程文字、课程简介 上传图片
-function upIMG(e,type) {
+function upIMG(e, type) {
     var files = $(e)[0].files[0];
     console.log(files);
     var imgFile = new FormData()
@@ -465,12 +467,12 @@ function upIMG(e,type) {
             if (res.code == 1) {
                 var url = res.data;
                 var imgurl = `
-                        <img src="${url}" style="width:100%;" draggable="true"/>
+                    <img src='${url}' style='width:100%;'/>
                 `;
-                if(type==1){
-                    contentEditor.txt.append(imgurl);
-                }else if(type==2){
-                    textEditor.txt.append(imgurl);
+                if (type == 1) {
+                    contentEditor.cmd.do('insertHTML',imgurl); //课程简介插入图片
+                } else if (type == 2) {
+                    textEditor.cmd.do('insertHTML',imgurl);  // 课程文字插入图片
                 }
             }
         },

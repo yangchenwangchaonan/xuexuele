@@ -124,11 +124,11 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
                         <ul class="shareList"><img src="../../images/139.png" /><p>${data.list.sharesum}</p></ul>
                         <ul class="msgList"><img src="../../images/140.png" /><p>${data.list.commentsum}</p></ul>
                         <ul class="amList" data-aid="${data.list.albumid}"><img src="../../images/141.png" /><p>所属专辑</p></ul>
-                        <ul class="courseTextList" data-content="${data.list.coursecontent}">
+                        <ul class="courseTextList" data-content='${data.list.coursecontent}'>
                             <img src="../../images/142.png" /><p>看文字</p>
                         </ul>
                         ${data.lock==1?`
-                        <ul class="courseDetailList" data-name="${data.list.coursename}" data-text="${data.list.coursetxt}"><img src="../../images/143.png" /><p>课程介绍</p></ul>
+                        <ul class="courseDetailList" data-name="${data.list.coursename}" data-text='${data.list.coursetxt}'><img src="../../images/143.png" /><p>课程介绍</p></ul>
                         <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
                         `:""}
                     </div>
@@ -265,11 +265,11 @@ function getPrevNextData(id, countSum, type) {
                                 <ul class="shareList"><img src="../../images/139.png" /><p>${data.list.sharesum}</p></ul>
                                 <ul class="msgList"><img src="../../images/140.png" /><p>${data.list.commentsum}</p></ul>
                                 <ul class="amList" data-aid="${data.list.albumid}"><img src="../../images/141.png" /><p>所属专辑</p></ul>
-                                <ul class="courseTextList" data-content="${data.list.coursecontent}">
+                                <ul class="courseTextList" data-content='${data.list.coursecontent}'>
                                     <img src="../../images/142.png" /><p>看文字</p>
                                 </ul>
                                 ${data.lock==1?`
-                                <ul class="courseDetailList" data-name="${data.list.coursename}" data-text="${data.list.coursetxt}"><img src="../../images/143.png" /><p>课程介绍</p></ul>
+                                <ul class="courseDetailList" data-name="${data.list.coursename}" data-text='${data.list.coursetxt}'><img src="../../images/143.png" /><p>课程介绍</p></ul>
                                 <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
                                 `:""}
                             </div>

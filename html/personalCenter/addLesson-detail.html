@@ -179,8 +179,10 @@
         $(".editBtn").show();
     }
     contentEditor.create();
+    // $("#" + contentEditor.textElemId+">p").remove(); //取消编辑器默认的P标签
     contentEditor.$toolbarElem[0].style.display = "none"; //隐藏导航栏
-    $("#" + contentEditor.textElemId + ">p").remove();
+    contentEditor.cmd.do('insertHTML', '\n');
+    contentEditor.selection.saveRange();
     //课程文字
     var textEditor = new E("#addTextContent");
     textEditor.customConfig.menus = [
@@ -191,10 +193,13 @@
         $(".editBtn").show();
     }
     textEditor.create();
+    // $("#" + textEditor.textElemId + ">p").remove(); //取消编辑器默认的P标签
     textEditor.$toolbarElem[0].style.display = "none"; //隐藏导航栏
-    $("#" + textEditor.textElemId + ">p").remove();
+    textEditor.cmd.do('insertHTML', '\n');
+    textEditor.selection.saveRange();
     $.each($(".w-e-text-container"), function () {
         $(this).addClass("editStyle");
+        $(this).find("p").remove();
     });
 </script>
 

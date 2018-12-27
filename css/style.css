@@ -5486,8 +5486,9 @@ body {
     left: 1.25rem;
     bottom: 1.1rem;
     font-size: 1.3rem;
-    text-indent: 2em;
     line-height: 1.8rem;
+    overflow: hidden;
+    overflow-y: auto;
     word-break: break-all;
 }
 
@@ -5498,7 +5499,6 @@ body {
     font-family: MicrosoftYaHei;
     color: rgba(85, 50, 8, 1);
     line-height: 1.8rem;
-    text-indent: 2em;
     word-break: break-all;
 }
 
@@ -5568,6 +5568,8 @@ body {
     left: 1.25rem;
     bottom: 1.1rem;
     padding: 1.25rem;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .lesson-introduction-inner>h1 {
