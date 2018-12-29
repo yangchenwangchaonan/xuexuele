@@ -18,6 +18,8 @@
 	<section class="album-container">
 		<!-- 点击按钮音效 -->
 		<audio src="../../mp3/button.mp3" preload="auto" id="buttonMps"></audio>
+		<!-- 附加页面 -->
+		<audio src="../../mp3/otherPages.mp3" id="otherPages" preload="auto"></audio>
 		<i class="album-back" id="albumDetailBack"></i>
 		<span id="album-title">-专辑名称-</span>
 		<div class="album-box">
@@ -64,7 +66,7 @@
 				<div class="lesson-recording1"></div>
 				<label>
 					<div class="lesson-upload1"></div>
-					<input type="file" class="lesson-record"  name="recording"  style="display: none;" accept="audio/*"/>
+					<input type="file" class="lesson-record"  name="recording"  style="display: none;" accept="*"/>
 				</label>
 			</div>
 		</div>
@@ -76,6 +78,8 @@
 			<div class="tip-text">删除成功！</div>
 		</div>
 	</div>
+	<!-- tips -->
+    <div class="reg-tips"></div>
 </body>
 
 </html>

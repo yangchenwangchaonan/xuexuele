@@ -53,7 +53,8 @@ function audio(aId) {
         })
 
     }, function (msg) {
-        flowerTips("无法录音:" + msg, 2);
+        alert("无法录音:" + msg);
+        // flowerTips("无法录音:" + msg, 2);
         // $(window).attr("location","./album-detail.html?id="+aId);
     });
 
@@ -90,7 +91,7 @@ function audio(aId) {
 //上传
 function VoiceUpload(type,aId) {
     var formdata = new FormData();
-    formdata.append("voicefile", type)
+    formdata.append("voicefile", type);
     $.ajax({
         processData: false,
         contentType: false,

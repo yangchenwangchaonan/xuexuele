@@ -10,7 +10,6 @@ $(function () {
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
         if (isiOS) {
             alert("该机型不支持录音功能");
-            // flowerTips("该机型不支持录音功能", 2);
         } else {
             $(window).attr("location", "./lesson-recording.html?aid=" + aId);
         }
@@ -129,8 +128,6 @@ function albumDetail(id) {
                 var cId = $(this).parents(".lesson-title").attr("data-cId");
                 $(window).attr("location", "./course-detail.html?cId=" + cId);
             });
-
-
         },
         error: function (err) {
             console.log(err)
@@ -140,6 +137,14 @@ function albumDetail(id) {
 
 // 上传音频
 function uploadAudio(files, aId) {
+    console.log(files);
+    var ext=files.name.lastIndexOf('.');
+    var name=files.name.substring(ext, files.name.length).toUpperCase();
+    console.log(name);
+    if (name == '.PNG' || name == '.JPG' || name == '.JPEG' || name == '.GIF'){
+        flowerTips("请上传正确的音频格式~", 2);
+        return;
+    }
     var formdata = new FormData()
     formdata.append("voicefile", files)
     $.ajax({
