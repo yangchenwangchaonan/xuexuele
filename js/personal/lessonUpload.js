@@ -47,7 +47,7 @@ function courseDetail(cId) {
                 $("#addNameContent").val(data.coursename)
                 $("#addCourseName").html(data.coursename);
                 // 课程简介
-                if (data.coursetxt.indexOf('<div class="textImg">') == -1) {
+                if (data.coursetxt.indexOf('div') == -1) {
                     $("#addLessonItrContent").val(data.coursetxt);
                 } else {
                     var coursetxt = data.coursetxt.split(' ')[0];
@@ -59,7 +59,7 @@ function courseDetail(cId) {
                 $(".lesson-cover-content>img").attr("src", data.courseimg);
                 $("#addCourseCover").html("已上传");
                 // 课程文字
-                if (data.coursecontent.indexOf('<div class="textImg">') == -1) {
+                if (data.coursecontent.indexOf('div') == -1) {
                     $("#addLessonTextContent").val(data.coursecontent);
                 } else {
                     var textContent = data.coursecontent.split(" ")[0];
@@ -135,20 +135,33 @@ function Rendering(voiceUrl) {
         allClick();
         $("#addCourseContent").hide();
         $("#addLessonIntroduct").show();
+        if ($("#addLessonItrContent").val() != "") {
+            var num = Math.ceil(($("#addLessonItrContent").val().length) / 20) * 22 + "px";
+            $("#addLessonItrContent").css("height", num);
+        }
         $("#addLessonItrContent").focus(function () {
             autosize($(this));
             $(".contentImg").show();
             $(".editBtn").show();
-            $(".editOver").click(function () {
-                allClick();
-                var coursetext = $.trim($("#addLessonItrContent").val());
-                $(".editBtn").hide();
-                $("#addCourseContent").show();
-                $("#addLessonIntroduct").hide();
-                if (coursetext != "") {
-                    $("#addCourseIntroduct").html("已输入");
-                }
+        });
+        // 删除图片
+        if ($(".textImg")) {
+            $(".img-cancel").click(function () {
+                $(this).parent(".textImg").remove();
+                $(".editBtn").show();
+                $(".contentImg").show();
             });
+        }
+        // 编辑完成
+        $(".editOver").click(function () {
+            allClick();
+            var coursetext = $.trim($("#addLessonItrContent").val());
+            $(".editBtn").hide();
+            $("#addCourseContent").show();
+            $("#addLessonIntroduct").hide();
+            if (coursetext != "") {
+                $("#addCourseIntroduct").html("已输入");
+            }
         });
         // 返回
         $("#courseItrBack").click(function () {
@@ -157,13 +170,6 @@ function Rendering(voiceUrl) {
             $("#addCourseContent").show();
             $("#addLessonIntroduct").hide();
         });
-        // 删除图片
-        if ($(".textImg")) {
-            $(".img-cancel").click(function () {
-                $(this).parent(".textImg").remove();
-            });
-        }
-
     });
     // 上传封面
     $("#addCourseCover").click(function () {
@@ -202,19 +208,14 @@ function Rendering(voiceUrl) {
         allClick();
         $("#addCourseContent").hide();
         $("#addLessonText").show();
+        if ($("#addLessonTextContent").val() != "") {
+            var len = Math.ceil(($("#addLessonTextContent").val().length) / 20) * 22 + "px";
+            $("#addLessonTextContent").css("height", len);
+        }
         $("#addLessonTextContent").focus(function () {
+            autosize($(this));
             $(".textImg").show();
             $(".editBtn").show();
-            $(".editOver").click(function () {
-                allClick();
-                var courseContent = $.trim($("#addLessonTextContent").val());
-                $(".editBtn").hide();
-                $("#addCourseContent").show();
-                $("#addLessonText").hide();
-                if (courseContent != "") {
-                    $("#addCourseText").html("已输入");
-                }
-            });
         });
         // 返回
         $("#courseTextBack").click(function () {
@@ -227,8 +228,21 @@ function Rendering(voiceUrl) {
         if ($(".textImg")) {
             $(".img-cancel").click(function () {
                 $(this).parent(".textImg").remove();
+                $(".textImg").show();
+                $(".editBtn").show();
             });
         }
+        // 编辑完成
+        $(".editOver").click(function () {
+            allClick();
+            var courseContent = $.trim($("#addLessonTextContent").val());
+            $(".editBtn").hide();
+            $("#addCourseContent").show();
+            $("#addLessonText").hide();
+            if (courseContent != "") {
+                $("#addCourseText").html("已输入");
+            }
+        });
     });
     //课程价格 智慧豆数
     $("#addCourseBeans").click(function () {
@@ -367,8 +381,6 @@ function addCourse(aId) {
     var lessonTime = $("#audioTime").html(); // 获取音频时长
     var lessonName = $("#addNameContent").val(); // 课程名称
     var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
-    console.log($("#introductionHeight").html());
-    console.log(($("#introductionHeight").html()).indexOf("div"));
     //课程简介
     if (($("#introductionHeight").html()).indexOf("div") == -1) {
         var lessonIntroduct = $("#addLessonItrContent").val();
@@ -390,7 +402,6 @@ function addCourse(aId) {
         IsFree = 2;
     }
     var lessonBeans = $("#beans-input").val(); //课程智慧豆数
-    // console.log(lessonBeans);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/CourseAdd",
@@ -451,8 +462,6 @@ function changeCourse(cId, aId) {
         IsFree = 2;
     }
     var lessonBeans = $("#beans-input").val(); //课程智慧豆数
-    console.log(lessonIntroduct);
-    console.log(lessonText);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/CourseEdit",
@@ -521,6 +530,8 @@ function upIMG(e, type) {
             console.log(res);
             if (res.code == 1) {
                 var url = res.data;
+                $(".textImg").val("");
+                $(".contentImg").val("");
                 var imgurl = `
                     <div class='textImg'>
                         <div class="img-cancel"></div>
@@ -532,6 +543,12 @@ function upIMG(e, type) {
                 } else if (type == 2) {
                     $("#textContentHeight").append(imgurl);
                 }
+                // 删除图片
+                if ($(".textImg")) {
+                    $(".img-cancel").click(function () {
+                        $(this).parent(".textImg").remove();
+                    });
+                }
 
             }
         },
@@ -539,15 +556,4 @@ function upIMG(e, type) {
             console.log(err)
         }
     });
-}
-
-function moveToEnd(el) {
-    if (typeof el.selectionStart == "number") {
-        el.selectionStart = el.selectionEnd = el.value.length;
-    } else if (typeof el.createTextRange != "undefined") {
-        el.focus();
-        var range = el.createTextRange();
-        range.collapse(false);
-        range.select();
-    }
 }

@@ -6,7 +6,14 @@ $(function () {
     $(".lesson-recording1").click(function () {
         allClick();
         $(this).addClass("lesson-recording2").siblings().removeClass("lesson-upload2");
-        $(window).attr("location", "./lesson-recording.html?aid="+aId);
+        var u = navigator.userAgent;
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isiOS) {
+            alert("该机型不支持录音功能");
+            // flowerTips("该机型不支持录音功能", 2);
+        } else {
+            $(window).attr("location", "./lesson-recording.html?aid=" + aId);
+        }
     });
     // 上传
     $(".lesson-upload1").click(function () {
@@ -21,8 +28,8 @@ $(function () {
     });
 
     // 返回
-    $("#albumDetailBack").click(function(){
-        $(window).attr("location","./album-manage.html");
+    $("#albumDetailBack").click(function () {
+        $(window).attr("location", "./album-manage.html");
     });
 
 });
@@ -148,7 +155,7 @@ function uploadAudio(files, aId) {
                 var voiceUrl = res.data;
                 // console.log(voiceUrl);
                 $(window).attr("location", "./addLesson-detail.html?voiceUrl=" + voiceUrl + "&aid=" + aId);
-            }else{
+            } else {
                 flowerTips(res.msg, 1);
                 // alert(res.msg);
             }
