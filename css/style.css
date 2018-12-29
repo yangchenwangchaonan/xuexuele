@@ -1157,7 +1157,7 @@ body {
     background: url("../images/250.png")no-repeat center;
     background-size: 100% 100%;
     top: 22.17rem;
-    left: 7.25rem;
+    left: 6.5rem;
     z-index: 99999;
     font-size: 1.3rem;
     display: none;
@@ -1174,7 +1174,7 @@ body {
     background: url("../images/250.png")no-repeat center;
     background-size: 100% 100%;
     top: 22.17rem;
-    left: 8.25rem;
+    left: 6.5rem;
     z-index: 99999;
     display: none;
     text-align: center;
@@ -6688,17 +6688,6 @@ body {
     display: none;
     z-index: 9999;
 }
-.img-cancel {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 2.9rem;
-    height: 2.9rem;
-    background: url(../images/217.png) no-repeat;
-    background-size: 100% 100%;
-    display: none;
-    z-index: 9999;
-}
 
 .education-container {
     position: absolute;
@@ -7385,13 +7374,27 @@ body {
 }
 
 /* 课程简介 */
-.addLesson-introduct,
+.addLesson-introduct{
+    margin: 2.5rem 0;
+    width: 94%;
+    /* max-height: 34%; */
+    border: 0;  
+}
+
 .addLesson-textContent {
-    top: 2.0rem;
-    left: 1.05rem;
-    width: 96%;
-    height: 94%;
+    margin: 2.5rem 0;
+    width: 94%;
+    height: 92%;
     border: 0;
+}
+.addLesson-introduct>textarea,
+.addLesson-textContent>textarea{
+    resize: none;
+    margin-top: 1rem;
+    width: 100%;
+    background-color: #FFF7DF;
+    line-height: 2.2rem;
+    color: #956826;
 }
 .album-introduction>textarea {
     margin-top: 1rem;
@@ -7400,10 +7403,20 @@ body {
     line-height: 2.2rem;
     color: #956826;
 }
-.album-introduction>textarea::-webkit-input-placeholder {
+.album-introduction>textarea::-webkit-input-placeholder,
+.addLesson-introduct>textarea::-webkit-input-placeholder,
+.addLesson-textContent>textarea::-webkit-input-placeholder {
     color: #956826;
 }
-.album-introduction-box,
+.album-introduction-box {
+    position: absolute;
+    width: 92.5%;
+    height: 89.66%;
+    top: 4rem;
+    left: 1.5rem;
+    background-color: #FFF7DF;
+    border-radius: 1rem;
+}
 .addLesson-introduction-box,
 .addLesson-text-box {
     position: absolute;
@@ -7413,6 +7426,8 @@ body {
     left: 1.5rem;
     background-color: #FFF7DF;
     border-radius: 1rem;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .green-top,
@@ -7471,8 +7486,7 @@ body {
 .editOver {
     float: right;
     margin: 1.35rem 0;
-    width: 6rem;
-
+    width: 8rem;
 }
 
 .editBtn>img {
@@ -7498,25 +7512,21 @@ body {
     width: 100% !important;
     height: 100% !important;
 }
-
-/* .editImg {
-    float: left;
-    margin: 1.35rem 0 !important;
-    width: 3.05rem;
-    height: 2.2rem;
-    background: url(../images/261.png) no-repeat;
+.textImg {
+    position: relative;
+    margin-top: .5rem;
+    width: 100%;
+}
+.img-cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.9rem;
+    height: 2.9rem;
+    background: url(../images/217.png) no-repeat;
     background-size: 100% 100%;
+    z-index: 9999;
 }
-.showClass{
-    width: 3.05rem !important;
-    height: 4.9rem !important;
-}
-.editInput{
-    float: left;
-    width: 3.25rem;
-    height: 2.2rem;
-    margin: -3.6rem 0 !important;
-} */
 
 /*专辑还没有课程*/
 
@@ -7748,11 +7758,13 @@ body {
 .lesson-tabs-list {
     position: relative;
     width: 36rem;
-    height: 67%;
+    height: 68%;
     top: 0;
     left: 1.05rem;
     font-size: 1.5rem;
     color: rgba(105, 56, 12, 1);
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .lesson-tabs-list>li {
@@ -7789,9 +7801,8 @@ body {
     position: relative;
     width: 35.45rem;
     height: 14.3rem;
-    border-bottom: .1rem solid rgba(229, 194, 138, 0.5);
+    border-bottom: 0;
     line-height: 2.3rem;
-    overflow-y: auto;
 }
 
 .lesson-confirm {
@@ -7951,7 +7962,7 @@ body {
 .lesson-recording-bofore,
 .lesson-recording-after {
     position: absolute;
-    left: 15.6rem;
+    left: 14.6rem;
     top: 32rem;
     width: 9.35rem;
     height: 12.4rem;

@@ -44,9 +44,6 @@ function audio(aId) {
         }
     });
 
-
-
-
     //打开麦克风授权获得相关资源
     rec.open(function () {
         $("#startRecord").click(function () {
@@ -56,7 +53,8 @@ function audio(aId) {
         })
 
     }, function (msg) {
-        alert("无法录音:" + msg);
+        flowerTips("无法录音:" + msg, 2);
+        // $(window).attr("location","./album-detail.html?id="+aId);
     });
 
     // 暂停录音

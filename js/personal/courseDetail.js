@@ -46,6 +46,12 @@ function courseDetail(courseId) {
             $("#lessonScore").html(data.coursescore); //课程评分
             $("#lessonPrice").html(data.wisdombean); //课程价格
             $("#lessonOutline").html(data.coursetxt); //课程简介
+            if($("#lessonOutline>.textImg")){
+                console.log();
+                $.each($("#lessonOutline .img-cancel"), function () { 
+                     $(this).remove();
+                });
+            }
             $("#getBeans").html(data.buysum); //获得智慧豆数
             $("#scoreDetail1").html("x" + data.scores[0].sum);
             $("#scoreDetail2").html("x" + data.scores[1].sum);

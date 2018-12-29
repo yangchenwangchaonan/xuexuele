@@ -97,6 +97,10 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
             if (res.code == 1) {
                 var data = res.data;
                 var str = "";
+                // var coursecontent=data.list.coursecontent.replace(/\s+/g, ' ');
+                // console.log(coursecontent);
+                // var text = data.list.coursetxt.replace(/\s+/g, ' ');
+                // console.log(text,typeof(text));
                 str += `
             <section class="swiper-slide lesson-audio ${diff==0?"swiper-slide-active":''}" data-banner="${data.banner}" data-lastid="${data.lastid}" data-courseid="${lessonId}" data-nextid="${data.nextid}" data-count="${countSum}">
                 <img src="${data.list.courseimg}"/>
@@ -128,9 +132,11 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
                             <img src="../../images/142.png" /><p>看文字</p>
                         </ul>
                         ${data.lock==1?`
-                        <ul class="courseDetailList" data-name="${data.list.coursename}" data-text='${data.list.coursetxt}'><img src="../../images/143.png" /><p>课程介绍</p></ul>
+                        <ul class="courseDetailList" data-text='${data.list.coursetxt}' data-name='${data.list.coursename}' >
+                            <img src="../../images/143.png" /><p>课程介绍</p>
+                        </ul>
                         <ul class="reportList"><img src="../../images/144.png" /><p>举报</p></ul>
-                        `:""}
+                        `:''}
                     </div>
                     <div class="audio-content">
                         <audio class="lessonAudio" preload="auto" src="${data.list.coursevoice}"></audio>
@@ -413,8 +419,13 @@ function allEvent() {
     $(document).on('click', 'ul.courseTextList', function () {
         allClick();
         var courseContent = $(this).attr("data-content");
-        $("#textShade").show();
         $(".lesson-text-inner").html(courseContent);
+        if($(".lesson-text-inner").find(".textImg")){
+            $.each($(".lesson-text-inner").find(".img-cancel"), function () { 
+                $(this).remove();
+           });
+        }
+        $("#textShade").show();
         // 关闭窗口
         $(".lesson-close").click(function () {
             allClick();
@@ -426,9 +437,14 @@ function allEvent() {
         allClick();
         var coursename = $(this).attr("data-name");
         var coursetxt = $(this).attr("data-text");
-        $("#introductShade").show();
         $(".lesson-introduction-inner>h1").html(coursename);
         $(".lesson-introduction-inner>.lesson-intr").html(coursetxt);
+        if($(".lesson-introduction-inner>.lesson-intr").find(".textImg")){
+            $.each($(".lesson-introduction-inner>.lesson-intr").find(".img-cancel"), function () { 
+                 $(this).remove();
+            });
+        }
+        $("#introductShade").show();
         // 关闭窗口
         $(".lesson-close").click(function () {
             allClick();

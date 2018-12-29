@@ -3,12 +3,14 @@ $(function () {
     var num = url.split("=").length - 1;
     if (num == 1) {
         // 修改课程
+        $("title").html("课程修改");
         $("#album-add-title").html("-修改课程-");
         var courseId = url.split("=")[1];
         courseDetail(courseId);
         $("#addCouse").html("确定修改");
     } else if (num == 2) {
         // 新增课程
+        $("title").html("新增课程");
         $("#album-add-title").html("-新增课程-");
         var arr = url.split("&");
         var voiceUrl = arr[0].split("=")[1];
@@ -45,13 +47,25 @@ function courseDetail(cId) {
                 $("#addNameContent").val(data.coursename)
                 $("#addCourseName").html(data.coursename);
                 // 课程简介
-                contentEditor.txt.html(data.coursetxt);
+                if (data.coursetxt.indexOf('<div class="textImg">') == -1) {
+                    $("#addLessonItrContent").val(data.coursetxt);
+                } else {
+                    var coursetxt = data.coursetxt.split(' ')[0];
+                    $("#addLessonItrContent").val(coursetxt);
+                    $("#introductionHeight").append("\n<div class='textImg'>" + data.coursetxt.split('<div class="textImg">')[1]);
+                }
                 $("#addCourseIntroduct").html("已输入");
                 // 课程封面
                 $(".lesson-cover-content>img").attr("src", data.courseimg);
                 $("#addCourseCover").html("已上传");
                 // 课程文字
-                textEditor.txt.html(data.coursecontent);
+                if (data.coursecontent.indexOf('<div class="textImg">') == -1) {
+                    $("#addLessonTextContent").val(data.coursecontent);
+                } else {
+                    var textContent = data.coursecontent.split(" ")[0];
+                    $("#addLessonTextContent").val(textContent);
+                    $("#textContentHeight").append("<div class='textImg'>" + data.coursecontent.split('<div class="textImg">')[1]);
+                }
                 $("#addCourseText").html("已输入");
                 // 智慧豆 
                 if (data.free == 1) {
@@ -118,30 +132,38 @@ function Rendering(voiceUrl) {
     });
     // 设置课程简介
     $("#addCourseIntroduct").click(function () {
-        var startInner = contentEditor.txt.html(); //进入编辑器获取一次内容
         allClick();
         $("#addCourseContent").hide();
         $("#addLessonIntroduct").show();
-        $(".editOver").click(function () {
-            allClick();
-            var coursetext = contentEditor.txt.html(); //获取编辑器的内容
-            contentEditor.txt.html(coursetext);
-            console.log(coursetext);
-            $(".editBtn").hide();
-            $("#addCourseContent").show();
-            $("#addLessonIntroduct").hide();
-            if (coursetext != "<p><br></p>") {
-                $("#addCourseIntroduct").html("已输入");
-            }
+        $("#addLessonItrContent").focus(function () {
+            autosize($(this));
+            $(".contentImg").show();
+            $(".editBtn").show();
+            $(".editOver").click(function () {
+                allClick();
+                var coursetext = $.trim($("#addLessonItrContent").val());
+                $(".editBtn").hide();
+                $("#addCourseContent").show();
+                $("#addLessonIntroduct").hide();
+                if (coursetext != "") {
+                    $("#addCourseIntroduct").html("已输入");
+                }
+            });
         });
         // 返回
         $("#courseItrBack").click(function () {
             allClick();
-            contentEditor.txt.html(startInner);
             $(".editBtn").hide();
             $("#addCourseContent").show();
             $("#addLessonIntroduct").hide();
         });
+        // 删除图片
+        if ($(".textImg")) {
+            $(".img-cancel").click(function () {
+                $(this).parent(".textImg").remove();
+            });
+        }
+
     });
     // 上传封面
     $("#addCourseCover").click(function () {
@@ -177,30 +199,36 @@ function Rendering(voiceUrl) {
     });
     // 课程文字
     $("#addCourseText").click(function () {
-        var startText = textEditor.txt.html(); //进入编辑器获取一次内容
         allClick();
         $("#addCourseContent").hide();
         $("#addLessonText").show();
-        $(".editOver").click(function () {
-            allClick();
-            var textContent = textEditor.txt.html();
-            textEditor.txt.html(textContent);
-            console.log(textContent);
-            $(".editBtn").hide();
-            $("#addCourseContent").show();
-            $("#addLessonText").hide();
-            if (textContent != "<p><br></p>") {
-                $("#addCourseText").html("已输入");
-            }
+        $("#addLessonTextContent").focus(function () {
+            $(".textImg").show();
+            $(".editBtn").show();
+            $(".editOver").click(function () {
+                allClick();
+                var courseContent = $.trim($("#addLessonTextContent").val());
+                $(".editBtn").hide();
+                $("#addCourseContent").show();
+                $("#addLessonText").hide();
+                if (courseContent != "") {
+                    $("#addCourseText").html("已输入");
+                }
+            });
         });
         // 返回
         $("#courseTextBack").click(function () {
             allClick();
-            textEditor.txt.html(startText);
             $(".editBtn").hide();
             $("#addCourseContent").show();
             $("#addLessonText").hide();
         });
+        // 删除图片
+        if ($(".textImg")) {
+            $(".img-cancel").click(function () {
+                $(this).parent(".textImg").remove();
+            });
+        }
     });
     //课程价格 智慧豆数
     $("#addCourseBeans").click(function () {
@@ -245,7 +273,6 @@ function Rendering(voiceUrl) {
             $("#adLessonBeans").hide();
         });
     });
-
 }
 
 // 拍照、相册
@@ -339,9 +366,23 @@ function addCourse(aId) {
     var voiceUrl = $("#lessonAudio").attr("src"); //获取音频路径
     var lessonTime = $("#audioTime").html(); // 获取音频时长
     var lessonName = $("#addNameContent").val(); // 课程名称
-    var lessonIntroduct = contentEditor.txt.html(); //课程简介
     var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
-    var lessonText = textEditor.txt.html(); //课程文字
+    console.log($("#introductionHeight").html());
+    console.log(($("#introductionHeight").html()).indexOf("div"));
+    //课程简介
+    if (($("#introductionHeight").html()).indexOf("div") == -1) {
+        var lessonIntroduct = $("#addLessonItrContent").val();
+    } else {
+        var introductImg = $.trim($("#introductionHeight").html().split('</textarea>')[1]);
+        var lessonIntroduct = $.trim($("#addLessonItrContent").val()) + " " + introductImg;
+    }
+    //课程文字
+    if ($("#textContentHeight").html().indexOf("div") == -1) {
+        var lessonText = $("#addLessonTextContent").val();
+    } else {
+        var textImg = $.trim($("#textContentHeight").html().split('</textarea>')[1]);
+        var lessonText = $.trim($("#addLessonTextContent").val()) + " " + textImg;
+    }
     var IsFree; //课程是否免费
     if ($("#freeChecked").hasClass("free-select-checked")) {
         IsFree = 1;
@@ -385,13 +426,24 @@ function addCourse(aId) {
 
 // 修改课程
 function changeCourse(cId, aId) {
-    console.log(aId);
     var voiceUrl = $("#lessonAudio").attr("src"); //获取音频路径
     var lessonTime = $("#audioTime").html(); // 获取音频时长
     var lessonName = $("#addNameContent").val(); // 课程名称
-    var lessonIntroduct = contentEditor.txt.html(); //课程简介
     var lessonCover = $(".lesson-cover-content>img").attr("src"); //课程封面
-    var lessonText = textEditor.txt.html(); //课程文字
+    //课程简介
+    if (($("#introductionHeight").html()).indexOf("div") == -1) {
+        var lessonIntroduct = $("#addLessonItrContent").val();
+    } else {
+        var introductImg = $.trim($("#introductionHeight").html().split('</textarea>')[1]);
+        var lessonIntroduct = $.trim($("#addLessonItrContent").val()) + " " + introductImg;
+    }
+    //课程文字
+    if ($("#textContentHeight").html().indexOf("div") == -1) {
+        var lessonText = $("#addLessonTextContent").val();
+    } else {
+        var textImg = $.trim($("#textContentHeight").html().split('</textarea>')[1]);
+        var lessonText = $.trim($("#addLessonTextContent").val()) + " " + textImg;
+    }
     var IsFree; //课程是否免费
     if ($("#freeChecked").hasClass("free-select-checked")) {
         IsFree = 1;
@@ -399,6 +451,8 @@ function changeCourse(cId, aId) {
         IsFree = 2;
     }
     var lessonBeans = $("#beans-input").val(); //课程智慧豆数
+    console.log(lessonIntroduct);
+    console.log(lessonText);
     $.ajax({
         type: "POST",
         url: APP_URL + "/api/My/CourseEdit",
@@ -451,6 +505,7 @@ function PlatreWardbeans() {
 
 //课程文字、课程简介 上传图片
 function upIMG(e, type) {
+    console.log($("#introductionHeight"));
     var files = $(e)[0].files[0];
     console.log(files);
     var imgFile = new FormData()
@@ -467,17 +522,32 @@ function upIMG(e, type) {
             if (res.code == 1) {
                 var url = res.data;
                 var imgurl = `
-                    <img src='${url}' style='width:100%;'/>
+                    <div class='textImg'>
+                        <div class="img-cancel"></div>
+                        <img src='${url}' style='width:100%;'/>
+                    </div>
                 `;
                 if (type == 1) {
-                    contentEditor.cmd.do('insertHTML',imgurl); //课程简介插入图片
+                    $("#introductionHeight").append(imgurl);
                 } else if (type == 2) {
-                    textEditor.cmd.do('insertHTML',imgurl);  // 课程文字插入图片
+                    $("#textContentHeight").append(imgurl);
                 }
+
             }
         },
         error: function (err) {
             console.log(err)
         }
     });
+}
+
+function moveToEnd(el) {
+    if (typeof el.selectionStart == "number") {
+        el.selectionStart = el.selectionEnd = el.value.length;
+    } else if (typeof el.createTextRange != "undefined") {
+        el.focus();
+        var range = el.createTextRange();
+        range.collapse(false);
+        range.select();
+    }
 }
