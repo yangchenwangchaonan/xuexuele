@@ -54,6 +54,9 @@ function UnlockAllCourseDetail(albumId, sorId) {
                     var str2 = "";
                     str2 += `<div class="nobeans-btn">智慧豆不足,立即充值</div>`;
                     $(".series-hasbeans").prepend(str2);
+                    $(".nobeans-btn").click(function(){
+                        $(window).attr("location","../purse/recharge.html");
+                    });
                 } else if (hasBeans >= needBeans) {
                     var str1 = "";
                     str1 += `<div class="hasbeans-btn" id="lockNow">立即解锁</div>`;

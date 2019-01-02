@@ -13,7 +13,7 @@ $(function () {
             console.log(res);
             if (res.code == 1) {
                 var courseName = res.data.coursename;
-                var courseContent = res.data.coursetxt;
+                var courseContent = res.data.coursetxt.replace(/<[^>]+>/g,"");
                 WxConfig(url, courseId, courseName, courseContent); //获取接口权限
             }
         }
@@ -39,7 +39,7 @@ function WxConfig(url, courseId, courseName, courseContent) {
                 var signature = data.signature;
                 var timestamp = data.timestamp;
                 wx.config({
-                    debug: false,
+                    debug: true,
                     appId: appId,
                     timestamp: timestamp,
                     nonceStr: nonceStr,
@@ -60,12 +60,12 @@ function WxConfig(url, courseId, courseName, courseContent) {
                         desc: courseContent,
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                        success:function(){
+                        success: function () {
                             // alert(1);
-                            shareNum (courseId);
+                            shareNum(courseId);
                             // alert("success");
                         },
-                        cancel:function(){
+                        cancel: function () {
                             // alert("cancel");
                         }
                     });
@@ -75,11 +75,11 @@ function WxConfig(url, courseId, courseName, courseContent) {
                         title: '学学乐课程:' + courseName, // 分享标题
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                        success:function(){
-                            shareNum (courseId);
+                        success: function () {
+                            shareNum(courseId);
                             // alert("success");
                         },
-                        cancel:function(){
+                        cancel: function () {
                             // alert("cancel");
                         }
                     });
@@ -89,11 +89,11 @@ function WxConfig(url, courseId, courseName, courseContent) {
                         desc: courseContent, // 分享描述
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid, // 分享链接
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                        success:function(){
-                            shareNum (courseId);
+                        success: function () {
+                            shareNum(courseId);
                             // alert("success");
                         },
-                        cancel:function(){
+                        cancel: function () {
                             // alert("cancel");
                         }
                     });
@@ -102,11 +102,11 @@ function WxConfig(url, courseId, courseName, courseContent) {
                         title: '学学乐课程:' + courseName, // 分享标题
                         link: 'https://m.xuexuele.huimor.com/html/lessonDetail/lesson-share.html?courseId=' + courseId + "&uid=" + uid,
                         imgUrl: 'https://m.xuexuele.huimor.com/images/04.png', // 分享图标
-                        success:function(){
-                            shareNum (courseId);
+                        success: function () {
+                            shareNum(courseId);
                             // alert("success");
                         },
-                        cancel:function(){
+                        cancel: function () {
                             // alert("cancel");
                         }
                     });
@@ -121,23 +121,23 @@ function WxConfig(url, courseId, courseName, courseContent) {
 }
 
 // 分享量
-function shareNum (courseId){
+function shareNum(courseId) {
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/Wisdom/WisdomShareAdd",
         data: {
-            courseid:courseId
+            courseid: courseId
         },
         dataType: "json",
         success: function (res) {
             console.log(res);
-            if(res.code==1){
+            if (res.code == 1) {
                 var shareSum = $("section.swiper-slide-active").find(".shareList>p").html();
                 shareSum++;
                 $("section.swiper-slide-active").find(".shareList>p").html(shareSum);
             }
         },
-        err:function(err){
+        err: function (err) {
             console.log(err);
         }
     });

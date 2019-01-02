@@ -71,7 +71,7 @@ function moneyRuleList() {
 						$("#recharge-input").removeClass("recharge-input-checked");
 						$(".recharge-want p").remove();
 						$(".recharge-want").append("<img src='../../images/191.png' />");
-					}else if($("#recharge-input").val() != ""){
+					} else if ($("#recharge-input").val() != "") {
 						$(".recharge-want img").remove();
 						$(".recharge-want").append("<p>元</p>");
 					}
@@ -87,7 +87,8 @@ function moneyRuleList() {
 						return;
 					}
 					// var selected = $(".selected").attr("data-index");
-					$(window).attr("location", "./recharge-method.html?num=" + $("#recharge-input").val());
+					var num = $("#recharge-input").val();
+					$(window).attr("location", "./recharge-method.html?num=" + num);
 
 				});
 			} else if (res.code == 10000) {

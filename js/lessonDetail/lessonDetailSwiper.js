@@ -97,10 +97,6 @@ function lessonDetail(lessonId, countSum, diff, isfollow) {
             if (res.code == 1) {
                 var data = res.data;
                 var str = "";
-                // var coursecontent=data.list.coursecontent.replace(/\s+/g, ' ');
-                // console.log(coursecontent);
-                // var text = data.list.coursetxt.replace(/\s+/g, ' ');
-                // console.log(text,typeof(text));
                 str += `
             <section class="swiper-slide lesson-audio ${diff==0?"swiper-slide-active":''}" data-banner="${data.banner}" data-lastid="${data.lastid}" data-courseid="${lessonId}" data-nextid="${data.nextid}" data-count="${countSum}">
                 <img src="${data.list.courseimg}"/>
@@ -420,6 +416,7 @@ function allEvent() {
         allClick();
         var courseContent = $(this).attr("data-content");
         $(".lesson-text-inner").html(courseContent);
+        $(".lesson-text-inner").find("img").parent("p").addClass("imgP");
         if($(".lesson-text-inner").find(".textImg")){
             $.each($(".lesson-text-inner").find(".img-cancel"), function () { 
                 $(this).remove();
@@ -439,6 +436,7 @@ function allEvent() {
         var coursetxt = $(this).attr("data-text");
         $(".lesson-introduction-inner>h1").html(coursename);
         $(".lesson-introduction-inner>.lesson-intr").html(coursetxt);
+        $(".lesson-introduction-inner").find("img").parent("p").addClass("imgP");
         if($(".lesson-introduction-inner>.lesson-intr").find(".textImg")){
             $.each($(".lesson-introduction-inner>.lesson-intr").find(".img-cancel"), function () { 
                  $(this).remove();

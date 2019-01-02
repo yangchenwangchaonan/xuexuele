@@ -49,7 +49,11 @@ $(function () {
                         flowerTips("发送成功~", 1);
                         setTime(obj);
                     } else {
-                        flowerTips("发送失败~", 1);
+                        if (res.msg.indexOf("，") != -1) {
+                            flowerTips("手机号已注册~", 2);
+                        }else{
+                            flowerTips(res.msg,2);
+                        };
                     }
                 },
                 error: function (err) {
@@ -149,9 +153,9 @@ function verifySmsInfo(tel, realcode) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            if (res.code == 1) {
+            if (res.code == "1") {
                 localStorage.setItem("tel", tel);
-                localStorage.setItem("code", realCode);
+                localStorage.setItem("code", realcode);
                 $(window).attr("location", "./reg_next.html");
             } else {
                 flowerTips("请输入正确的验证码~", 1);

@@ -1,5 +1,8 @@
 APP_URL = 'https://xuexuele.huimor.com';
 
+
+
+
 //监听屏幕变化，自动设置rem根元素
 !(function (doc, win) {
     var docEle = doc.documentElement, //获取html元素

@@ -5492,6 +5492,15 @@ body {
     word-break: break-all;
 }
 
+.imgP {
+    text-align: center;
+}
+
+.lesson-text-inner>p>img,
+.lesson-introduction-inner>p>img {
+    max-width: 36.5rem !important;
+}
+
 .lesson-intr {
     margin-top: 1rem;
     width: 36.5rem;
@@ -7374,11 +7383,11 @@ body {
 }
 
 /* 课程简介 */
-.addLesson-introduct{
+.addLesson-introduct {
     margin: 2.5rem 0;
     width: 94%;
     /* max-height: 34%; */
-    border: 0;  
+    border: 0;
 }
 
 .addLesson-textContent {
@@ -7387,8 +7396,9 @@ body {
     height: 92%;
     border: 0;
 }
+
 .addLesson-introduct>textarea,
-.addLesson-textContent>textarea{
+.addLesson-textContent>textarea {
     resize: none;
     margin-top: 1rem;
     width: 100%;
@@ -7396,6 +7406,7 @@ body {
     line-height: 2.2rem;
     color: #956826;
 }
+
 .album-introduction>textarea {
     margin-top: 1rem;
     width: 100%;
@@ -7403,11 +7414,13 @@ body {
     line-height: 2.2rem;
     color: #956826;
 }
+
 .album-introduction>textarea::-webkit-input-placeholder,
 .addLesson-introduct>textarea::-webkit-input-placeholder,
 .addLesson-textContent>textarea::-webkit-input-placeholder {
     color: #956826;
 }
+
 .album-introduction-box {
     position: absolute;
     width: 92.5%;
@@ -7417,6 +7430,7 @@ body {
     background-color: #FFF7DF;
     border-radius: 1rem;
 }
+
 .addLesson-introduction-box,
 .addLesson-text-box {
     position: absolute;
@@ -7512,11 +7526,13 @@ body {
     width: 100% !important;
     height: 100% !important;
 }
+
 .textImg {
     position: relative;
     margin-top: .5rem;
     width: 100%;
 }
+
 .img-cancel {
     position: absolute;
     top: 0;
@@ -8053,12 +8069,11 @@ body {
 }
 
 /*分享结果页面*/
-
 .share-result-btn {
     position: absolute;
     top: 28rem;
-    left: 9.2rem;
-    width: 19.3rem;
+    left: 22%;
+    width: 54.5%;
     height: 4.95rem;
     background: url("../images/249.png") no-repeat center;
     background-size: 100% 100%;

@@ -37,9 +37,9 @@ function aliPay(a) {
 		success: function (res) {
 			console.log(res)
 			if (res.code == 1) {
-				$(".apay").html(res.data);
+				// $(".apay").html(res.data);
+				$(window).attr("location",res.data);
 			}
-
 		},
 		error: function (err) {
 			console.log(err);
