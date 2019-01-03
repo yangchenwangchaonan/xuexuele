@@ -4,7 +4,7 @@ $(function () {
     if (num == 1) {
         // 修改课程
         $("title").html("课程修改");
-        $("#album-add-title").html("-修改课程-");
+        $("#album-add-title").html("-课程修改-");
         var courseId = url.split("=")[1];
         courseDetail(courseId);
         $("#addCouse").html("确定修改");

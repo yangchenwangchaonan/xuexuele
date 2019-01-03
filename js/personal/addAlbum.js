@@ -11,6 +11,8 @@ $(function () {
         });
     } else if (num == 1) {
         var aid = url.split("=")[1];
+        $("title").html("编辑专辑");
+        $("#album-add-title").html("-编辑专辑-");
         $("#addAlbumBtn").html("确认编辑");
         albunmDetail(aid); //专辑详情
         // 编辑专辑

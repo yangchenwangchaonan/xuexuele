@@ -39,7 +39,7 @@ function WxConfig(url, courseId, courseName, courseContent) {
                 var signature = data.signature;
                 var timestamp = data.timestamp;
                 wx.config({
-                    debug: true,
+                    debug: false,
                     appId: appId,
                     timestamp: timestamp,
                     nonceStr: nonceStr,
