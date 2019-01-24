@@ -13,7 +13,7 @@
 	<script src="../../js/common/tips.js"></script>
 	<script src="../../js/home/home.js"></script>
 	<script src="../../js/common/moment.min.js"></script>
-	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 
 <body class="home-body">
@@ -289,13 +289,18 @@
 		<span>您已掉线,请重新登录~</span>
 		<div class="placeBtn">确定</div>
 	</div>
+	<!-- 首页广告弹窗 -->
+	<div class="homeAlert" id="homeAlert">
+		<img class="alertImg" />
+		<div class="closeAlert"></div>
+	</div>
 </body>
 <script type="text/javascript">
 	// audio自动播放
-    document.addEventListener("WeixinJSBridgeReady", function () { 
-        document.getElementById('homeBackgroud').play(); 
-        // document.getElementById('video').play(); 
-    }, false);
+	document.addEventListener("WeixinJSBridgeReady", function () {
+		document.getElementById('homeBackgroud').play();
+		// document.getElementById('video').play(); 
+	}, false);
 	//ajax获取日历json数据
 	var signList = [{
 		"signDay": ''

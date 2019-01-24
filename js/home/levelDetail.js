@@ -1,9 +1,9 @@
+var time = 0
 $(function () {
     // var url = window.location.href;
     // var isFirst = url.split("=")[1];
     // console.log(isFirst);
-    UserGateDetail(); //首次渲染
-    var time = 0
+    UserGateDetail(1, 1); //首次渲染
     // 退出关卡
     $("#levelBack").click(function () {
         $("#closeLevel").show();
@@ -24,10 +24,11 @@ $(function () {
 
 })
 //首次渲染
-function UserGateDetail(a) {
+function UserGateDetail(a, b) {
     var id = sessionStorage.getItem("gateid");
     var uId = localStorage.getItem("uid");
     var token = localStorage.getItem("token");
+    // console.log(uId);
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserGateDetail",
@@ -39,23 +40,29 @@ function UserGateDetail(a) {
         dataType: "json",
         success: function (res) {
             console.log(res);
-            var data = res.data
+            var data = res.data;
             if (res.code == 1) {
+                // 失败广告弹框渲染
+                if (data.gate_erralert) {
+                    $("img.errorImg").attr("src", data.gate_erralert.image_path);
+                    $("img.errorImg").attr("data-url", data.gate_erralert.url);
+                }
                 //答案选项
-                option(data.options, data.answer, data.nextgateid);
-                $(".respond-key-show").html(data.options[5]); //新手演示答案选择内容
-                $(".respond-blank-show").html(data.options[5]); //新手演示答案填写内容
-
+                var subjectContent = data.subject[b - 1];
+                var sum = data.subject.length;
+                option(subjectContent.options, subjectContent.answer, data.nextgateid, sum, b);
+                $(".respond-key-show").html(subjectContent.options[5]); //新手演示答案选择内容
+                $(".respond-blank-show").html(subjectContent.options[5]); //新手演示答案填写内容
+                $(".level-name").html(subjectContent.gatename + " " + subjectContent.subject_name); //关卡名称+题目名称
                 /*--------------垃圾代码分割线------------------*/
-                $(".level-name").html(data.gatename)
-                if (data.contenttype == 1) {
-                    $(".level-img").attr("src", data.hintcontent);
+                if (subjectContent.contenttype == 1) {
+                    $(".level-img").attr("src", subjectContent.hintcontent);
                     $("#levelImg").show();
-                } else if (data.contenttype == 2) {
-                    $("#lessonAudio").attr("src", data.hintcontent);
+                } else if (subjectContent.contenttype == 2) {
+                    $("#lessonAudio").attr("src", subjectContent.hintcontent);
                     $("#levelAudio").show();
                 }
-                $(".kit-content").html(data.hintcontent_txt)
+                $(".kit-content").html(subjectContent.hintcontent_txt);
                 // 新用户演示
                 var isfirst = sessionStorage.getItem("firstlogin");
                 if (id == 1 && isfirst == 1) {
@@ -63,8 +70,8 @@ function UserGateDetail(a) {
                 }
                 // 点击锦囊
                 var userWisdombean = data.userwisdombean;
-                var answerNeed = data.answerwisdombeanuse;
-                var answerContent = data.answer;
+                var answerNeed = subjectContent.answerwisdombeanuse;
+                var answerContent = subjectContent.answer;
                 $("#kitImg").click(function () {
                     allClick();
                     $(this).addClass("kitShake");
@@ -81,7 +88,7 @@ function UserGateDetail(a) {
                             allClick();
                             $(".kit-havebeans").hide();
                             if (answerContent.length > 0 && answerContent.length <= 4) {
-                                kitView(id);
+                                kitView(id, subjectContent.id, b);
                                 $("#kitAnswerShade1").show();
                                 // 关闭
                                 $("#kitClose1").click(function () {
@@ -90,7 +97,7 @@ function UserGateDetail(a) {
                                     $("#kitShade").hide();
                                 });
                             } else if (answerContent.length > 4 && answerContent.length <= 8) {
-                                kitView(id);
+                                kitView(id, subjectContent.id, b);
                                 $("#kitAnswerShade2").show();
                                 // 关闭
                                 $("#kitClose2").click(function () {
@@ -99,7 +106,7 @@ function UserGateDetail(a) {
                                     $("#kitShade").hide();
                                 });
                             } else if (answerContent.length > 8) {
-                                kitView(id);
+                                kitView(id, subjectContent.id, b);
                                 $("#kitAnswerShade3").show();
                                 // 关闭
                                 $("#kitClose3").click(function () {
@@ -134,9 +141,9 @@ function UserGateDetail(a) {
                 if (a != 0) {
                     if (isfirst == 1) {
                         $("#time1").html("00:00");
-                        return
+                        return;
                     }
-                    Timedate()
+                    Timedate1()
                 }
             } else if (res.code == 10000) {
                 repeatLogin();
@@ -147,8 +154,17 @@ function UserGateDetail(a) {
         }
     });
 }
+
+function Timedate1(i) {
+    clearInterval(time);
+    if (i != 1) {
+        Timedate();
+    }
+
+}
 //游戏动作
-function option(options, answer, nextgateid) {
+function option(options, answer, nextgateid, sum, b) {
+    var time = time;
     //选项渲染
     var str = ''
     $.each(options, function (index, el) {
@@ -183,14 +199,23 @@ function option(options, answer, nextgateid) {
                 UserAnswer.push(dataName)
                 if (UserAnswer.length == answer.length) {
                     if (JSON.stringify(UserAnswer) == JSON.stringify(answer)) {
-                        clearInterval(time)
-                        correctAnawer(UserAnswer, nextgateid)
+                        clearInterval(time);
+                        if (b < sum) {
+                            var time = toSeconds($("#time1").html()); //每道题目花费的时间
+                            answerTime.push(time);
+                            b++;
+                            UserGateDetail(1, b);
+                        } else if (b == sum) {
+                            Timedate1(1)
+                            correctAnawer(nextgateid); //进入下一关
+                        }
+
                     } else {
                         var answerError = $("#answerError")[0];
                         answerError.play();
                         $(".respond-blank>ul>li").css("border", "1px solid red")
                         setTimeout(function () {
-                            option(options, answer, nextgateid)
+                            option(options, answer, nextgateid, sum, b);
                         }, 500);
                         return;
                     }
@@ -226,11 +251,26 @@ function option(options, answer, nextgateid) {
 function Timedate() {
     var m = s = 0; //定义时，分，秒，毫秒并初始化为0；
     function timer() { //定义计时函数
-        if ($("#time1").html() == "60:00") {
-            $(window).attr("location", "../../html/homePages/home.html")
+        if ($("#time1").html() == "01:00") {
+            Timedate1(1);
+            $("#errorTime").show();
+            console.log($(".errorImg").attr("src"));
+            if ($(".errorImg").attr("src")) {
+                $("#errorAlert").show();
+                $(".errorImg").unbind().bind("click", function () {
+                    var url = $(this).attr("data-url");
+                    $(window).attr("location", url);
+                });
+                $(".errorAet").unbind().bind("click", function () {
+                    $("#errorAlert").hide();
+                });
+            }
+            $(".errtorBtn").unbind().bind("click", function () {
+                $(window).attr("location", "./home.html");
+            });
             return;
         }
-        s++
+        s++;
         if (s >= 60) {
             s = 0;
             m = m + 1; //分钟
@@ -252,12 +292,9 @@ function Timedate() {
 }
 //错误提交 减少体力值
 function errorOut() {
-    // var answer = UserAnswer.join(",")
-    // console.log(answer)
     var id = localStorage.getItem("uid")
     var gid = sessionStorage.getItem("gateid")
     var token = localStorage.getItem("token");
-    // var time = $("#time1").html()
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserGateChallenge",
@@ -284,13 +321,15 @@ function errorOut() {
 }
 
 //正确 提交
-function correctAnawer(UserAnswer, nextgateid) {
-    var answer = UserAnswer.join(",")
-    // console.log(answer)
+function correctAnawer(nextgateid) {
     var id = localStorage.getItem("uid");
     var token = localStorage.getItem("token");
     var gid = sessionStorage.getItem("gateid");
-    var time = $("#time1").html();
+    var timeSec = toSeconds($("#time1").html());
+    $.each(answerTime, function (index, val) {
+        timeSec += val;
+    });
+    var time = transTime(timeSec);
     $.ajax({
         type: "GET",
         url: APP_URL + "/api/User/UserGateChallenge",
@@ -298,7 +337,7 @@ function correctAnawer(UserAnswer, nextgateid) {
             uid: id,
             token: token,
             gateid: gid,
-            answer: answer,
+            answer: 1,
             time: time,
         },
         dataType: "json",
@@ -313,29 +352,55 @@ function correctAnawer(UserAnswer, nextgateid) {
                     $("#passFirstTime").html(res.data.time);
                     $("#passStamina").html("x" + res.data.rewardbeans);
                     $("#passPk").html("x" + res.data.pkvalue);
-                    if(nextgateid){
+                    if (nextgateid) {
                         $("#levelPass").show();
-                    }else{
+                        if (res.data.gate_alert) {
+                            // 广告位
+                            $(".alertImg").attr("src", res.data.gate_alert.image_path);
+                            $("#levelAlert").show();
+                            // 跳转广告
+                            $(".alertImg").click(function () {
+                                $(window).attr("location", res.data.gate_alert.url);
+                            });
+                            // 关闭广告
+                            $(".closeAlert").click(function () {
+                                $("#levelAlert").hide();
+                            });
+                        }
+                    } else {
                         homeLevel("已闯完所有关卡哦~", 1);
-                        window.setTimeout(function() {
+                        window.setTimeout(function () {
                             $(window).attr("location", "./home.html");
                         }, 1500);
-                    }  
+                    }
                 } else if (res.data.isfirst == 1) {
                     //再次闯关成功
                     var goThrough = $("#goThrough")[0];
                     goThrough.play();
                     $("#passAgainTime").html(res.data.time);
-                    if(nextgateid){
+                    if (nextgateid) {
                         $("#levelPassAgain").show();
-                    }else{
+                        if (res.data.gate_alert) {
+                            // 广告位
+                            $(".alertImg").attr("src", res.data.gate_alert.image_path);
+                            $("#levelAlert").show();
+                            // 跳转广告
+                            $(".alertImg").click(function () {
+                                $(window).attr("location", res.data.gate_alert.url);
+                            });
+                            // 关闭广告
+                            $(".closeAlert").click(function () {
+                                $("#levelAlert").hide();
+                            });
+                        }
+
+                    } else {
                         homeLevel("已闯完所有关卡哦~", 1);
-                        window.setTimeout(function() {
+                        window.setTimeout(function () {
                             $(window).attr("location", "./home.html");
                         }, 1500);
-                    }  
+                    }
                 }
-
                 // 下一关
                 $(".next-level").click(function () {
                     if (res.data.manvalue >= 3) {
@@ -373,10 +438,8 @@ function correctAnawer(UserAnswer, nextgateid) {
     })
 }
 
-
-
 // 立即查看
-function kitView(gid) {
+function kitView(gid, sbId, b) {
     var uid = localStorage.getItem("uid");
     var token = localStorage.getItem("token");
     $.ajax({
@@ -384,6 +447,7 @@ function kitView(gid) {
         url: APP_URL + "/api/Wisdom/GateAnswer",
         data: {
             gateid: gid,
+            subject_id: sbId,
             uid: uid,
             token: token
         },
@@ -391,7 +455,7 @@ function kitView(gid) {
         success: function (res) {
             console.log(res);
             if (res.code == 1) {
-                UserGateDetail(0); //首次渲染
+                UserGateDetail(0, b); //首次渲染
                 var data = res.data;
                 var $str = "";
                 $("")
@@ -493,4 +557,53 @@ function levelShow() {
         UserGateDetail("999")
     });
 
+}
+
+// 转换时间
+function toSeconds(time) {
+    var str = time;
+    var arr = str.split(':');
+    var ms = parseInt(arr[0] * 60);
+    var ss = parseInt(arr[1]);
+    var seconds = ms + ss;
+    return seconds;
+}
+//秒转换00:00
+function transTime(time) {
+    var duration = parseInt(time);
+    var minute = parseInt(duration / 60);
+    var sec = duration % 60 + '';
+    var isM0 = ':';
+    if (minute == 0) {
+        minute = '00';
+    } else if (minute < 10) {
+        minute = '0' + minute;
+    }
+    if (sec.length == 1) {
+        sec = '0' + sec;
+    }
+    return minute + isM0 + sec
+}
+
+// 闯关失败弹窗
+function errorAlert() {
+    var id = sessionStorage.getItem("gateid");
+    var uId = localStorage.getItem("uid");
+    var token = localStorage.getItem("token");
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/User/UserGateDetail",
+        data: {
+            gateid: id,
+            uid: uId,
+            token: token
+        },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+        },
+        error: function () {
+            console.log(res);
+        }
+    });
 }

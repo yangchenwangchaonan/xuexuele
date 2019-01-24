@@ -40,7 +40,7 @@ function moneyRuleList() {
 				var str = "";
 				$.each(data, function (index, val) {
 					str += `
-				<li class="initial" data-index=${val}><h1>${val}元</h1><p>${val}智慧豆</p></li>
+				<li class="initial" data-index=${val}><h1>${val}元</h1><p>${val*100}智慧豆</p></li>
 				 `;
 				});
 				$(".recharge-value>ul").html(str);

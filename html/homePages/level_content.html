@@ -30,9 +30,9 @@
 		<div class="level-timing"><span id="time1"></span></div>
 		<div class="level-content">
 			<div class="level-num level-inner-num">
-				<div class="round left-round"></div>
+				<div class="round leftName-round"></div>
 				<span class="level-name"></span>
-				<div class="round right-round"></div>
+				<div class="round rightName-round"></div>
 			</div>
 			<!--关卡内容为图片 -->
 			<div class="level-topic" id="levelImg"><img class="level-img" src="" /></div>
@@ -292,10 +292,26 @@
 			</div>
 		</div>
 	</div>
+	<!-- 掉线 -->
 	<div class="otherPlace">
 		<span>您已掉线,请重新登录~</span>
 		<div class="placeBtn">确定</div>
 	</div>
+	<!-- 闯关超时 -->
+	<div class="home-shade" id="errorTime">
+		<div class="levelError">
+			<span>未在规定时间内通关哦~</span>
+			<div class="errtorBtn">确定</div>
+		</div>
+	</div>
+
+	<!-- <div class="home-shade" id="closeLevel">
+		<div class="close-level">
+			<p>确认退出挑战?</p>
+			<div class="close-confirm" id="exitLevel">确定</div>
+			<div class="close-cancel" id="exitCancel">取消</div>
+		</div>
+	</div> -->
 	<!-- 闯关提示 -->
 	<div class="home-tips"></div>
 	<!-- 新用户演示 -->
@@ -308,6 +324,16 @@
 	</div>
 	<div class="level-shade3" id="tipKeyShow">
 		<p class="level-tips tipKey-tips">点击删除错误内容!</p>
+	</div>
+	<!-- 关卡广告弹窗 -->
+	<div class="homeAlert" id="levelAlert">
+		<img class="alertImg" />
+		<div class="closeAlert"></div>
+	</div>
+	<!-- 闯关失败弹窗 -->
+	<div class="homeAlert" id="errorAlert">
+		<img class="errorImg" />
+		<div class="errorAet"></div>
 	</div>
 </body>
 <script type="text/javascript">

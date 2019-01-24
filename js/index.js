@@ -241,21 +241,80 @@ $(function () {
 
     // 处理preload添加当队列完成全部加载后触发事件
     function loadComplete() {
-        $(".index-process-wrapper>.loading>img").attr("src","./images/loading_end.png");
+        $(".index-process-wrapper>.loading>img").attr("src", "./images/loading_end.png");
         // 设置定时器，当全部加载完毕后让100%停留0.4秒，提高用户体验，不至于让用户感觉不到
         window.setTimeout(function () {
-            var token = localStorage.getItem("token");
-            var uid = localStorage.getItem("uid");
-            if (token && uid) {
-                getToken();
-            } else {
-                $(window).attr("location", "./html/login/login.html");
-            }
+            startPage(); //启动页
         }, 400);
     }
     setupManifest();
     startPreload();
 });
+
+// 启动页
+function startPage() {
+    $.ajax({
+        type: "GET",
+        url: APP_URL + "/api/User/getStartupPage",
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.code == 1) {
+                $(".adPage").show();
+                $(".index-container").hide();
+                var data = res.data;
+                $(".startImg").attr("src", data.image_path); //启动页图片
+                // 点击跳转
+                $(".startImg").unbind().bind("click", function () {
+                    $(window).attr("location", data.url);
+                });
+                // 5s后自动跳转首页或登录页
+                window.setTimeout(function () {
+                    var token = localStorage.getItem("token");
+                    var uid = localStorage.getItem("uid");
+                    if (token && uid) {
+                        getToken();
+                    } else {
+                        $(window).attr("location", "./html/login/login.html");
+                    }
+                }, 5000);
+                countDown(); //5s倒计时
+                // 跳过广告
+                $(".countTime").unbind().bind("click", function () {
+                    var token = localStorage.getItem("token");
+                    var uid = localStorage.getItem("uid");
+                    if (token && uid) {
+                        getToken();
+                    } else {
+                        $(window).attr("location", "./html/login/login.html");
+                    }
+                });
+            } else {
+                var token = localStorage.getItem("token");
+                var uid = localStorage.getItem("uid");
+                if (token && uid) {
+                    getToken();
+                } else {
+                    $(window).attr("location", "./html/login/login.html");
+                }
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+// 5s倒计时
+function countDown() {
+    var tempshijian = 5;
+    var I = setInterval(function () {
+        if (tempshijian != 0) {
+            tempshijian--;
+            $(".countTime").html("跳过广告&nbsp;&nbsp;" + tempshijian);
+        }
+    }, 1000);
+}
 
 // 判断token是否过期
 function getToken() {

@@ -1,8 +1,7 @@
-APP_URL = 'https://xuexuele.huimor.com';
+APP_URL = 'https://xuexuele.huimor.com';  //测试域名
+APP_URL = 'http://192.168.0.198';  //本地测试域名
 
-
-
-
+var answerTime = [];
 //监听屏幕变化，自动设置rem根元素
 !(function (doc, win) {
     var docEle = doc.documentElement, //获取html元素

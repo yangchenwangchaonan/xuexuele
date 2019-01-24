@@ -417,10 +417,10 @@ function allEvent() {
         var courseContent = $(this).attr("data-content");
         $(".lesson-text-inner").html(courseContent);
         $(".lesson-text-inner").find("img").parent("p").addClass("imgP");
-        if($(".lesson-text-inner").find(".textImg")){
-            $.each($(".lesson-text-inner").find(".img-cancel"), function () { 
+        if ($(".lesson-text-inner").find(".textImg")) {
+            $.each($(".lesson-text-inner").find(".img-cancel"), function () {
                 $(this).remove();
-           });
+            });
         }
         $("#textShade").show();
         // 关闭窗口
@@ -437,9 +437,9 @@ function allEvent() {
         $(".lesson-introduction-inner>h1").html(coursename);
         $(".lesson-introduction-inner>.lesson-intr").html(coursetxt);
         $(".lesson-introduction-inner").find("img").parent("p").addClass("imgP");
-        if($(".lesson-introduction-inner>.lesson-intr").find(".textImg")){
-            $.each($(".lesson-introduction-inner>.lesson-intr").find(".img-cancel"), function () { 
-                 $(this).remove();
+        if ($(".lesson-introduction-inner>.lesson-intr").find(".textImg")) {
+            $.each($(".lesson-introduction-inner>.lesson-intr").find(".img-cancel"), function () {
+                $(this).remove();
             });
         }
         $("#introductShade").show();

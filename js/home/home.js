@@ -31,6 +31,9 @@ $(function () {
     $(window).attr("location", "./treasureBox.html");
   });
 
+  // 首页弹窗
+  homeAlert();
+
 });
 
 //原住人数
@@ -362,7 +365,7 @@ function runLevel(levelTime, levelId, levelLock, pkvalue, rewardbeans, levelName
   $(".level_btn").click(function () {
     $("#levelShade").hide();
     document.body.style.height = 'unset';
-		document.body.style['overflow-y'] = 'auto';
+    document.body.style['overflow-y'] = 'auto';
   });
 }
 
@@ -531,7 +534,7 @@ var calUtil = {
 
 //日历当前日期渲染
 function actioveDate(datelist) {
-  console.log(datelist)
+  // console.log(datelist)
   var li = $('#sign_cal').children().children()
   $(li).each(function (index, val) {
     var count = $(this).html()
@@ -647,6 +650,56 @@ function ranking(levelId) {
     },
     error: function (err) {
       console.log(err)
+    }
+  });
+}
+
+// 首页弹窗
+function homeAlert() {
+  var url = window.location.href;
+  var uid = localStorage.getItem("uid"); //用户id
+  var token = localStorage.getItem("token");
+  var loginOne = sessionStorage.getItem("loginOne");
+  var el = {};
+  el.uid = uid;
+  el.token = token;
+  if(url.indexOf("?") != -1){
+    if(loginOne){
+      el.type = 0;
+    }else{
+      el.type = 1;
+      sessionStorage.setItem("loginOne",1);
+    }
+  }
+  $.ajax({
+    type: "GET",
+    url: APP_URL + "/api/User/getAdvertisementAlert",
+    data: el,
+    dataType: "json",
+    success: function (res) {
+      console.log(res);
+      var data = res.data;
+      if (res.code == 1) {
+        $("#homeAlert").show();
+        // 广告位
+        // var imgsrc = "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3012416466,1705705744&fm=26&gp=0.jpg";
+        // $(".alertImg").attr("src", imgsrc);
+        $(".alertImg").attr("src", data.image_path);
+        $("#levelAlert").show();
+        // 跳转广告
+        $(".alertImg").click(function () {
+          $(window).attr("location", data.url);
+        });
+        // 关闭广告
+        $(".closeAlert").click(function () {
+          $("#homeAlert").hide();
+        });
+      } else {
+        $("#homeAlert").hide();
+      }
+    },
+    error: function (err) {
+      console.log(err);
     }
   });
 }
